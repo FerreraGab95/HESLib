@@ -10,7 +10,7 @@ namespace DanfeSharp.Blocos
         public const float LarguraCampoUf = 7F * Proporcao;
         public const float LarguraFrete = 34F * Proporcao;
 
-        public BlocoTransportador(DanfeViewModel viewModel, Estilo campoEstilo) : base(viewModel, campoEstilo)
+        public BlocoTransportador(DocumentoFiscalViewModel viewModel, Estilo campoEstilo) : base(viewModel, campoEstilo)
         {
             var transportadora = viewModel.Transportadora;
 

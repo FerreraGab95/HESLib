@@ -10,9 +10,9 @@ namespace DanfeSharp.Blocos
     {
         public CabecalhoBloco CabecalhoBloco { get; private set; }
         public Tabela Tabela { get; private set; }
-        public DanfeViewModel ViewModel { get; private set; }
+        public DocumentoFiscalViewModel ViewModel { get; private set; }
 
-        public TabelaProdutosServicos(DanfeViewModel viewModel, Estilo estilo) : base(estilo)
+        public TabelaProdutosServicos(DocumentoFiscalViewModel viewModel, Estilo estilo) : base(estilo)
         {
             ViewModel = viewModel ?? throw new ArgumentNullException(nameof(viewModel));
             CabecalhoBloco = new CabecalhoBloco(estilo, "DADOS DOS PRODUTOS / SERVIÇOS");

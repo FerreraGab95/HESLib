@@ -11,7 +11,7 @@ namespace DanfeSharp.Blocos
     {
         public LocalEntregaRetiradaViewModel Model { get; private set; }
 
-        public BlocoLocalEntregaRetirada(DanfeViewModel viewModel, Estilo estilo, LocalEntregaRetiradaViewModel localModel) : base(viewModel, estilo)
+        public BlocoLocalEntregaRetirada(DocumentoFiscalViewModel viewModel, Estilo estilo, LocalEntregaRetiradaViewModel localModel) : base(viewModel, estilo)
         {
             Model = localModel ?? throw new ArgumentNullException(nameof(localModel));
             

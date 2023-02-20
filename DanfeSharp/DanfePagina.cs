@@ -10,7 +10,7 @@ namespace DanfeSharp
 {
     internal class DanfePagina
     {
-        public Danfe Danfe { get; private set; }
+        public DocumentoFiscal Danfe { get; private set; }
         public Page PdfPage { get; private set; }
         public PrimitiveComposer PrimitiveComposer { get; private set; }
         public Gfx Gfx { get; private set; }
@@ -20,7 +20,7 @@ namespace DanfeSharp
         public RectangleF RetanguloCreditos { get; private set; }
         public RectangleF Retangulo { get; private set; }
 
-        public DanfePagina(Danfe danfe)
+        public DanfePagina(DocumentoFiscal danfe)
         {
             Danfe = danfe ?? throw new ArgumentNullException(nameof(danfe));
             PdfPage = new Page(Danfe.PdfDocument);

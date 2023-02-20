@@ -13,7 +13,7 @@ namespace DanfeSharp.Blocos
         private Campo _cReservadoFisco;
         public const float InfComplementaresLarguraPorcentagem = 75;
 
-        public BlocoDadosAdicionais(DanfeViewModel viewModel, Estilo estilo) : base(viewModel, estilo)
+        public BlocoDadosAdicionais(DocumentoFiscalViewModel viewModel, Estilo estilo) : base(viewModel, estilo)
         {
             _cInfComplementares = new CampoMultilinha("Informações Complementares", ViewModel.TextoAdicional(), estilo);
             _cReservadoFisco = new CampoMultilinha("Reservado ao fisco", ViewModel.TextoAdicionalFisco(), estilo);

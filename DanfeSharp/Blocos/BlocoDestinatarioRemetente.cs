@@ -9,7 +9,7 @@ namespace DanfeSharp.Blocos
 {
     internal class BlocoDestinatarioRemetente : BlocoBase
     {
-        public BlocoDestinatarioRemetente(DanfeViewModel viewModel, Estilo estilo) : base(viewModel, estilo)
+        public BlocoDestinatarioRemetente(DocumentoFiscalViewModel viewModel, Estilo estilo) : base(viewModel, estilo)
         {
             var destinatario = viewModel.Destinatario;
 

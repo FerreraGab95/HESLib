@@ -93,12 +93,13 @@
     <Compile Include="Graphics\Fonte.cs" />
     <Compile Include="Modelo\CalculoImpostoViewModel.cs" />
     <Compile Include="Modelo\CalculoIssqnViewModel.cs" />
-    <Compile Include="Modelo\DanfeViewModel.cs" />
+    <Compile Include="Modelo\DocumentoFiscalViewModel.cs" />
     <Compile Include="Modelo\DanfeViewModelCreator.cs" />
     <Compile Include="Modelo\EmpresaViewModel.cs" />
     <Compile Include="Modelo\DuplicataViewModel.cs" />
     <Compile Include="Modelo\LocalEntregaRetiradaViewModel.cs" />
     <Compile Include="Modelo\ProdutoViewModel.cs" />
+    <Compile Include="Enumeracoes\TipoDocumento.cs" />
     <Compile Include="Modelo\TransportadoraViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Graphics\Gfx.cs" />

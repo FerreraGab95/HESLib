@@ -66,9 +66,9 @@ namespace DanfeSharp.Test
             };
         }
 
-        public static DanfeViewModel DanfeViewModel_1()
+        public static DocumentoFiscalViewModel DanfeViewModel_1()
         {
-            var m = new DanfeViewModel()
+            var m = new DocumentoFiscalViewModel()
             {
                 NfNumero = 888888888,
                 NfSerie = 888,

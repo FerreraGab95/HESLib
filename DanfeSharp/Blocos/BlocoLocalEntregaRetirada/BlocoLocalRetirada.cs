@@ -4,7 +4,7 @@ namespace DanfeSharp.Blocos
 {
     class BlocoLocalRetirada : BlocoLocalEntregaRetirada
     {
-        public BlocoLocalRetirada(DanfeViewModel viewModel, Estilo estilo) 
+        public BlocoLocalRetirada(DocumentoFiscalViewModel viewModel, Estilo estilo) 
             : base(viewModel, estilo, viewModel.LocalRetirada)
         {
         }

@@ -6,7 +6,7 @@ namespace DanfeSharp.Blocos
     internal class BlocoDuplicataFatura : BlocoBase
     {      
 
-        public BlocoDuplicataFatura(DanfeViewModel viewModel, Estilo estilo) : base(viewModel, estilo)
+        public BlocoDuplicataFatura(DocumentoFiscalViewModel viewModel, Estilo estilo) : base(viewModel, estilo)
         {
             var de = viewModel.Duplicatas.Select(x => new Duplicata(estilo, x)).ToList();
             var eh = de.First().Height;

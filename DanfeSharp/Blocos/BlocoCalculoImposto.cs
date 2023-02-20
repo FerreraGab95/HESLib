@@ -4,7 +4,7 @@ namespace DanfeSharp.Blocos
 {
     class BlocoCalculoImposto : BlocoBase
     {
-        public BlocoCalculoImposto(DanfeViewModel viewModel, Estilo estilo) : base(viewModel, estilo)
+        public BlocoCalculoImposto(DocumentoFiscalViewModel viewModel, Estilo estilo) : base(viewModel, estilo)
         {
             var m = ViewModel.CalculoImposto;
 

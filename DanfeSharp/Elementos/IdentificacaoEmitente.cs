@@ -8,10 +8,10 @@ namespace DanfeSharp
 {
     internal class IdentificacaoEmitente : ElementoBase
     {
-        public DanfeViewModel ViewModel { get; private set; }
+        public DocumentoFiscalViewModel ViewModel { get; private set; }
         public XObject Logo { get;  set; }
 
-        public IdentificacaoEmitente(Estilo estilo, DanfeViewModel viewModel) : base(estilo)
+        public IdentificacaoEmitente(Estilo estilo, DocumentoFiscalViewModel viewModel) : base(estilo)
         {
             ViewModel = viewModel;
             Logo = null;

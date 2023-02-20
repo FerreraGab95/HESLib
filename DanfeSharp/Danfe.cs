@@ -8,7 +8,7 @@ using PDF = org.pdfclown.files;
 
 namespace DanfeSharp
 {
-    public class Danfe : IDisposable
+    public class DocumentoFiscal : IDisposable
     {
         #region Private Fields
 
@@ -28,10 +28,10 @@ namespace DanfeSharp
         {
             var info = PdfDocument.Information;
             info[new org.pdfclown.objects.PdfName("ChaveAcesso")] = ViewModel.ChaveAcesso;
-            info[new org.pdfclown.objects.PdfName("TipoDocumento")] = "DANFE";
+            info[new org.pdfclown.objects.PdfName("TipoDocumento")] = $"{ViewModel.TipoDocumento}";
             info.CreationDate = DateTime.Now;
             info.Creator = string.Format("{0} {1} - {2}", "H&S Technologies DanfeSharp", System.Reflection.Assembly.GetExecutingAssembly().GetName().Version, "https://github.com/zonaro/DanfeSharp");
-            info.Title = "DANFE (Documento auxiliar da NFe)";
+            info.Title = ViewModel.TipoDocumento == TipoDocumento.DANFE ? "DANFE (Documento auxiliar da NFe)" : "CC (Carta de Correção Eletrônica)";
         }
 
         private Estilo CriarEstilo(float tFonteCampoCabecalho = 6, float tFonteCampoConteudo = 10) => new Estilo(_FonteRegular, _FonteNegrito, _FonteItalico, tFonteCampoCabecalho, tFonteCampoConteudo);
@@ -126,11 +126,11 @@ namespace DanfeSharp
 
         #region Public Constructors
 
-        public Danfe(string xmlPath, string logoPath = null) : this(DanfeViewModelCreator.CriarDeArquivoXml(xmlPath), logoPath)
+        public DocumentoFiscal(string xmlPath, string logoPath = null) : this(DocumentoFiscalViewModel.CriarDeArquivoXml(xmlPath), logoPath)
         {
         }
 
-        public Danfe(DanfeViewModel viewModel, string logoPath = null)
+        public DocumentoFiscal(DocumentoFiscalViewModel viewModel, string logoPath = null)
         {
             ViewModel = viewModel ?? throw new ArgumentNullException(nameof(viewModel));
 
@@ -180,7 +180,7 @@ namespace DanfeSharp
         #region Public Properties
 
         public PDF.File PDFFile { get; private set; }
-        public DanfeViewModel ViewModel { get; private set; }
+        public DocumentoFiscalViewModel ViewModel { get; private set; }
 
         #endregion Public Properties
 
@@ -188,7 +188,7 @@ namespace DanfeSharp
 
         public static string GerarPDF(string xmlPath, string logoPath)
         {
-            using (var danfe = new Danfe(xmlPath, logoPath))
+            using (var danfe = new DocumentoFiscal(xmlPath, logoPath))
             {
                 return danfe.Gerar(xmlPath + ".pdf");
             }
