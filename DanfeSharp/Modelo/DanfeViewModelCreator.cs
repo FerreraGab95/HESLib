@@ -18,7 +18,7 @@ namespace DanfeSharp.Modelo
             EmpresaViewModel model = new EmpresaViewModel();
 
             model.RazaoSocial = empresa.xNome;
-            model.CnpjCpf = !String.IsNullOrWhiteSpace(empresa.CNPJ) ? empresa.CNPJ : empresa.CPF;
+            model.CnpjCpf = !string.IsNullOrWhiteSpace(empresa.CNPJ) ? empresa.CNPJ : empresa.CPF;
             model.Ie = empresa.IE;
             model.IeSt = empresa.IEST;
             model.Email = empresa.email;
@@ -48,7 +48,7 @@ namespace DanfeSharp.Modelo
             return model;
         }
 
-        internal static DanfeViewModel CreateFromXmlString(String xml)
+        internal static DanfeViewModel CreateFromXmlString(string xml)
         {
             ProcNFe nfe = null;
             XmlSerializer serializer = new XmlSerializer(typeof(ProcNFe));
@@ -73,7 +73,7 @@ namespace DanfeSharp.Modelo
         /// </summary>
         /// <param name="caminho"></param>
         /// <returns></returns>
-        public static DanfeViewModel CriarDeArquivoXml(String caminho)
+        public static DanfeViewModel CriarDeArquivoXml(string caminho)
         {
             using (StreamReader sr = new StreamReader(caminho, true))
             {
@@ -125,7 +125,7 @@ namespace DanfeSharp.Modelo
                 if (e.InnerException is XmlException)
                 {
                     XmlException ex = (XmlException)e.InnerException;
-                    throw new Exception(String.Format("Não foi possível interpretar o Xml. Linha {0} Posição {1}.", ex.LineNumber, ex.LinePosition));
+                    throw new Exception(string.Format("Não foi possível interpretar o Xml. Linha {0} Posição {1}.", ex.LineNumber, ex.LinePosition));
                 }
 
                 throw new XmlException("O Xml não parece ser uma NF-e processada.", e);
@@ -151,7 +151,7 @@ namespace DanfeSharp.Modelo
                 model.DataHoraEmissao = ide.dEmi;
                 model.DataSaidaEntrada = ide.dSaiEnt;
 
-                if (!String.IsNullOrWhiteSpace(ide.hSaiEnt))
+                if (!string.IsNullOrWhiteSpace(ide.hSaiEnt))
                 {
                     model.HoraSaidaEntrada = TimeSpan.Parse(ide.hSaiEnt);
                 }
@@ -159,30 +159,27 @@ namespace DanfeSharp.Modelo
             }
         }
 
-        internal static CalculoImpostoViewModel CriarCalculoImpostoViewModel(ICMSTotal i)
+        internal static CalculoImpostoViewModel CriarCalculoImpostoViewModel(ICMSTotal i) => new CalculoImpostoViewModel()
         {
-            return new CalculoImpostoViewModel()
-            {
-                ValorAproximadoTributos = i.vTotTrib,
-                BaseCalculoIcms = i.vBC,
-                ValorIcms = i.vICMS,
-                BaseCalculoIcmsSt = i.vBCST,
-                ValorIcmsSt = i.vST,
-                ValorTotalProdutos = i.vProd,
-                ValorFrete = i.vFrete,
-                ValorSeguro = i.vSeg,
-                Desconto = i.vDesc,
-                ValorII = i.vII,
-                ValorIpi = i.vIPI,
-                ValorPis = i.vPIS,
-                ValorCofins = i.vCOFINS,
-                OutrasDespesas = i.vOutro,
-                ValorTotalNota = i.vNF,
-                vFCPUFDest = i.vFCPUFDest,
-                vICMSUFDest = i.vICMSUFDest,
-                vICMSUFRemet = i.vICMSUFRemet
-            };
-        }
+            ValorAproximadoTributos = i.vTotTrib,
+            BaseCalculoIcms = i.vBC,
+            ValorIcms = i.vICMS,
+            BaseCalculoIcmsSt = i.vBCST,
+            ValorIcmsSt = i.vST,
+            ValorTotalProdutos = i.vProd,
+            ValorFrete = i.vFrete,
+            ValorSeguro = i.vSeg,
+            Desconto = i.vDesc,
+            ValorII = i.vII,
+            ValorIpi = i.vIPI,
+            ValorPis = i.vPIS,
+            ValorCofins = i.vCOFINS,
+            OutrasDespesas = i.vOutro,
+            ValorTotalNota = i.vNF,
+            vFCPUFDest = i.vFCPUFDest,
+            vICMSUFDest = i.vICMSUFDest,
+            vICMSUFRemet = i.vICMSUFRemet
+        };
 
         public static DanfeViewModel CreateFromXml(ProcNFe procNfe)
         {
@@ -329,7 +326,7 @@ namespace DanfeSharp.Modelo
             {
                 transportadoraModel.RazaoSocial = transportadora.xNome;
                 transportadoraModel.EnderecoUf = transportadora.UF;
-                transportadoraModel.CnpjCpf = !String.IsNullOrWhiteSpace(transportadora.CNPJ) ? transportadora.CNPJ : transportadora.CPF;
+                transportadoraModel.CnpjCpf = !string.IsNullOrWhiteSpace(transportadora.CNPJ) ? transportadora.CNPJ : transportadora.CPF;
                 transportadoraModel.EnderecoLogadrouro = transportadora.xEnder;
                 transportadoraModel.Municipio = transportadora.xMun;
                 transportadoraModel.Ie = transportadora.IE;
@@ -358,7 +355,7 @@ namespace DanfeSharp.Modelo
 
             var infoProto = procNfe.protNFe.infProt;
 
-            model.ProtocoloAutorizacao = String.Format(Formatador.Cultura, "{0} - {1}", infoProto.nProt, infoProto.dhRecbto.DateTimeOffsetValue.DateTime);
+            model.ProtocoloAutorizacao = string.Format(Formatador.Cultura, "{0} - {1}", infoProto.nProt, infoProto.dhRecbto.DateTimeOffsetValue.DateTime);
 
             ExtrairDatas(model, infNfe);
 
@@ -378,7 +375,7 @@ namespace DanfeSharp.Modelo
             var m = new LocalEntregaRetiradaViewModel()
             {
                 NomeRazaoSocial = local.xNome,
-                CnpjCpf = !String.IsNullOrWhiteSpace(local.CNPJ) ? local.CNPJ : local.CPF,
+                CnpjCpf = !string.IsNullOrWhiteSpace(local.CNPJ) ? local.CNPJ : local.CPF,
                 InscricaoEstadual = local.IE,
                 Bairro = local.xBairro,
                 Municipio = local.xMun,
@@ -390,12 +387,12 @@ namespace DanfeSharp.Modelo
             StringBuilder sb = new StringBuilder();
             sb.Append(local.xLgr);
 
-            if (!String.IsNullOrWhiteSpace(local.nro))
+            if (!string.IsNullOrWhiteSpace(local.nro))
             {
                 sb.Append(", ").Append(local.nro);
             }
 
-            if (!String.IsNullOrWhiteSpace(local.xCpl))
+            if (!string.IsNullOrWhiteSpace(local.xCpl))
             {
                 sb.Append(" - ").Append(local.xCpl);
             }

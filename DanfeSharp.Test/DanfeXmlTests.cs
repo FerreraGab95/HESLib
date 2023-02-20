@@ -1,11 +1,7 @@
-﻿using DanfeSharp.Modelo;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using DanfeSharp.Modelo;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DanfeSharp.Test
 {
@@ -27,8 +23,8 @@ namespace DanfeSharp.Test
             var model = DanfeViewModelCreator.CriarDeArquivoXml(Path.Combine(InputXmlDirectoryPrefix, xmlPath));
             using (Danfe danfe = new Danfe(model))
             {
-                danfe.Gerar();
-                danfe.Salvar(outPdfFilePath);
+                danfe.Gerar(outPdfFilePath);
+
             }
         }
 

@@ -51,10 +51,7 @@ namespace DanfeSharp.Esquemas
         public string nECF { get; set; }
         public string nCOO { get; set; }
 
-        public override string ToString()
-        {
-            return $"ECF Ref.: Modelo: {mod} ECF: {nECF} COO: {nCOO}";
-        }
+        public override string ToString() => $"ECF Ref.: Modelo: {mod} ECF: {nECF} COO: {nCOO}";
     }
 
     [Serializable]
@@ -67,10 +64,7 @@ namespace DanfeSharp.Esquemas
         public string serie { get; set; }
         public string nNF { get; set; }
 
-        public override string ToString()
-        {
-            return $"NF Ref.: Série: {serie} Número: {nNF} Emitente: {Formatador.FormatarCnpj(CNPJ)} Modelo: {mod}";
-        }
+        public override string ToString() => $"NF Ref.: Série: {serie} Número: {nNF} Emitente: {Formatador.FormatarCnpj(CNPJ)} Modelo: {mod}";
     }
 
     [Serializable]
@@ -87,7 +81,7 @@ namespace DanfeSharp.Esquemas
 
         public override string ToString()
         {
-            String cpfCnpj = !String.IsNullOrWhiteSpace(CNPJ) ? CNPJ : CPF;
+            string cpfCnpj = !string.IsNullOrWhiteSpace(CNPJ) ? CNPJ : CPF;
             return $"NFP Ref.: Série: {serie} Número: {nNF} Emitente: {Formatador.FormatarCpfCnpj(cpfCnpj)} Modelo: {mod} IE: {IE}";
         }
     }

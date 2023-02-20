@@ -60,37 +60,22 @@ namespace DanfeSharp
                 return false;
         }
 
-        public override int GetHashCode()
-        {
-            return DateTimeOffsetValue.GetHashCode();
-        }
+        public override int GetHashCode() => DateTimeOffsetValue.GetHashCode();
 
-        public XmlSchema GetSchema()
-        {
-            return null;
-        }
+        public XmlSchema GetSchema() => null;
 
         public void ReadXml(XmlReader reader)
         {
             var text = reader.ReadElementString();
 
-            if (!String.IsNullOrWhiteSpace(text))
+            if (!string.IsNullOrWhiteSpace(text))
                 DateTimeOffsetValue = XmlConvert.ToDateTimeOffset(text);
         }
 
-        public override string ToString()
-        {
-            return DateTimeOffsetValue.ToString(format: "o");
-        }
+        public override string ToString() => DateTimeOffsetValue.ToString(format: "o");
 
-        public string ToString(string format)
-        {
-            return DateTimeOffsetValue.ToString(format);
-        }
+        public string ToString(string format) => DateTimeOffsetValue.ToString(format);
 
-        public void WriteXml(XmlWriter writer)
-        {
-            writer.WriteString(DateTimeOffsetValue.ToString(format: "o"));
-        }
+        public void WriteXml(XmlWriter writer) => writer.WriteString(DateTimeOffsetValue.ToString(format: "o"));
     }
 }

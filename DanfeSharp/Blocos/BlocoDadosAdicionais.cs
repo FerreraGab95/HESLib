@@ -43,10 +43,7 @@ namespace DanfeSharp.Blocos
             }
         }
 
-        public override void Draw(Gfx gfx)
-        {
-            base.Draw(gfx);
-        }
+        public override void Draw(Gfx gfx) => base.Draw(gfx);
 
         public override PosicaoBloco Posicao => PosicaoBloco.Base;
         public override string Cabecalho => "Dados adicionais";

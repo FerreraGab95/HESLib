@@ -39,10 +39,7 @@ namespace DanfeSharp
             PdfPage.Size = new SizeF(Retangulo.Width.ToPoint(), Retangulo.Height.ToPoint());
         }
 
-        public void DesenharCreditos()
-        {
-            Gfx.DrawString("Impresso com DanfeSharp / Mantido por H&S", RetanguloCreditos, Danfe.EstiloPadrao.CriarFonteItalico(6), AlinhamentoHorizontal.Direita);
-        }
+        public void DesenharCreditos() => Gfx.DrawString("Impresso com DanfeSharp / Mantido por H&S", RetanguloCreditos, Danfe.EstiloPadrao.CriarFonteItalico(6), AlinhamentoHorizontal.Direita);
 
         private void DesenharCanhoto()
         {

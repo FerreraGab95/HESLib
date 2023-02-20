@@ -13,7 +13,7 @@ namespace DanfeSharp.Test
 
             if (outputName == null) outputName = new StackTrace().GetFrame(1).GetMethod().Name;
 
-            d.Salvar(Path.Combine(OutputDirectoryName, outputName + ".pdf"));
+            d.Gerar(Path.Combine(OutputDirectoryName, outputName + ".pdf"));
         }
     }
 }

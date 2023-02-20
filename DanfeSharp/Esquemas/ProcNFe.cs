@@ -680,13 +680,7 @@ namespace DanfeSharp.Esquemas.NFe
         }
 
         [XmlIgnore]
-        public Versao Versao
-        {
-            get
-            {
-                return Versao.Parse(versao);
-            }
-        }
+        public Versao Versao => Versao.Parse(versao);
     }
 
     /// <summary>

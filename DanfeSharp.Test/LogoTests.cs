@@ -1,7 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.IO;
 using System.Runtime.CompilerServices;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DanfeSharp.Test
 {
@@ -32,17 +32,17 @@ namespace DanfeSharp.Test
                     model.Emitente.NomeFantasia = "Logo Raster Ltda.";
                 }
 
-                d.Gerar();
-                d.Salvar(Path.Combine(OutputDirectoryName, pdfName + ".pdf"));
+
+                d.Gerar(Path.Combine(OutputDirectoryName, pdfName + ".pdf"));
             }
         }
-        
+
 
         [TestMethod]
         public void LogoQuadradoJPG() => TestLogo("Logos/JPG/Quadrado.jpg");
 
         [TestMethod]
-        public void LogoHorizontalJPG() => TestLogo("Logos/JPG/Horizontal.jpg");  
+        public void LogoHorizontalJPG() => TestLogo("Logos/JPG/Horizontal.jpg");
 
         [TestMethod]
         public void LogoVerticalJPG() => TestLogo("Logos/JPG/Vertical.jpg");

@@ -1,7 +1,7 @@
-﻿using org.pdfclown.documents.contents.composition;
-using System;
+﻿using System;
 using System.Drawing;
 using System.Text;
+using org.pdfclown.documents.contents.composition;
 
 namespace DanfeSharp
 {
@@ -14,65 +14,44 @@ namespace DanfeSharp
         /// </summary>
         /// <param name="mm"></param>
         /// <returns></returns>
-        public static float ToPoint(this float mm)
-        {
-            return PointFactor * mm;
-        }
+        public static float ToPoint(this float mm) => PointFactor * mm;
 
         /// <summary>
         /// Converts Point to Millimeters
         /// </summary>
         /// <param name="point"></param>
         /// <returns></returns>
-        public static float ToMm(this float point)
-        {
-            return point / PointFactor;
-        }
+        public static float ToMm(this float point) => point / PointFactor;
 
         /// <summary>
         /// Converts Point to Millimeters
         /// </summary>
         /// <param name="point"></param>
         /// <returns></returns>
-        public static SizeF ToMm(this SizeF s)
-        {
-            return new SizeF(s.Width.ToMm(), s.Height.ToMm());
-        }
+        public static SizeF ToMm(this SizeF s) => new SizeF(s.Width.ToMm(), s.Height.ToMm());
 
         /// <summary>
         /// Converts Point to Millimeters
         /// </summary>
         /// <param name="point"></param>
         /// <returns></returns>
-        public static SizeF ToPointMeasure(this SizeF s)
-        {
-            return new SizeF(s.Width.ToPoint(), s.Height.ToPoint());
-        }
+        public static SizeF ToPointMeasure(this SizeF s) => new SizeF(s.Width.ToPoint(), s.Height.ToPoint());
 
         /// <summary>
         /// Converts Millimeters to Point
         /// </summary>
         /// <param name="mm"></param>
         /// <returns></returns>
-        public static double ToPoint(this double mm)
-        {
-            return PointFactor * mm;
-        }
+        public static double ToPoint(this double mm) => PointFactor * mm;
 
         /// <summary>
         /// Converts Point to Millimeters
         /// </summary>
         /// <param name="point"></param>
         /// <returns></returns>
-        public static double ToMm(this double point)
-        {
-            return point / PointFactor;
-        }
+        public static double ToMm(this double point) => point / PointFactor;
 
-        public static RectangleF InflatedRetangle(this RectangleF rect, float top, float button, float horizontal)
-        {
-            return new RectangleF(rect.X + horizontal, rect.Y + top, rect.Width - 2 * horizontal, rect.Height - top - button);
-        }
+        public static RectangleF InflatedRetangle(this RectangleF rect, float top, float button, float horizontal) => new RectangleF(rect.X + horizontal, rect.Y + top, rect.Width - 2 * horizontal, rect.Height - top - button);
 
         public static RectangleF InflatedRetangle(this RectangleF rect, float value) => rect.InflatedRetangle(value, value, value);
 
@@ -83,8 +62,8 @@ namespace DanfeSharp
         public static RectangleF CutLeft(this RectangleF r, float width) => new RectangleF(r.X + width, r.Y, r.Width - width, r.Height);
 
         public static PointF ToPointMeasure(this PointF r) => new PointF(r.X.ToPoint(), r.Y.ToPoint());
-        
-        public static StringBuilder AppendChaveValor(this StringBuilder sb, String chave, String valor)
+
+        public static StringBuilder AppendChaveValor(this StringBuilder sb, string chave, string valor)
         {
             if (sb.Length > 0) sb.Append(' ');
             return sb.Append(chave).Append(": ").Append(valor);
@@ -94,12 +73,15 @@ namespace DanfeSharp
         {
             switch (ah)
             {
-                case AlinhamentoHorizontal.Esquerda:
-                    return XAlignmentEnum.Left;
+
                 case AlinhamentoHorizontal.Centro:
                     return XAlignmentEnum.Center;
                 case AlinhamentoHorizontal.Direita:
                     return XAlignmentEnum.Right;
+                case AlinhamentoHorizontal.Esquerda:
+                default:
+                    return XAlignmentEnum.Left;
+
             }
 
             throw new InvalidOperationException();
