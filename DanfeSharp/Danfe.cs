@@ -27,11 +27,26 @@ namespace DanfeSharp
         private StandardType1Font _FonteItalico;
         private StandardType1Font.FamilyEnum _FonteFamilia;
 
-        private Boolean _FoiGerado;
+        private bool FoiGerado;
 
         private org.pdfclown.documents.contents.xObjects.XObject _LogoObject = null;
 
-        public Danfe(DanfeViewModel viewModel)
+
+        public static string GerarPDF(string xmlPath, string logoPath)
+        {
+            using (var danfe = new Danfe(xmlPath, logoPath))
+            {
+                return danfe.Gerar(xmlPath + ".pdf");
+            }
+        }
+
+
+        public Danfe(string xmlPath, string logoPath = null) : this(DanfeViewModelCreator.CriarDeArquivoXml(xmlPath), logoPath)
+        {
+
+        }
+
+        public Danfe(DanfeViewModel viewModel, string logoPath = null)
         {
             ViewModel = viewModel ?? throw new ArgumentNullException(nameof(viewModel));
 
@@ -70,7 +85,19 @@ namespace DanfeSharp
 
             AdicionarMetadata();
 
-            _FoiGerado = false;
+            if (!string.IsNullOrWhiteSpace(logoPath) && System.IO.File.Exists(logoPath))
+            {
+                if (System.IO.Path.GetFileNameWithoutExtension(logoPath).EndsWith("pdf", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    AdicionarLogoPdf(logoPath);
+                }
+                else
+                {
+                    AdicionarLogoImagem(logoPath);
+                }
+            }
+
+            FoiGerado = false;
         }
 
         public void AdicionarLogoImagem(System.IO.Stream stream)
@@ -135,19 +162,9 @@ namespace DanfeSharp
             return null;
         }
 
-        public System.IO.FileInfo Gerar(System.IO.FileInfo path)
+        public System.IO.FileInfo Gerar(System.IO.FileInfo path = null)
         {
-            if (path != null)
-            {
-                Gerar();
-                Salvar(path.FullName);
-            }
-            return path;
-        }
-
-        public void Gerar()
-        {
-            if (!_FoiGerado)
+            if (!FoiGerado)
             {
                 //if (_FoiGerado) throw new InvalidOperationException("O Danfe já foi gerado.");
 
@@ -170,10 +187,18 @@ namespace DanfeSharp
                 }
 
                 PreencherNumeroFolhas();
-                _FoiGerado = true;
+                FoiGerado = true;
             }
 
+            if (path != null)
+            {
+                Salvar(path.FullName);
+            }
+
+            return path;
         }
+
+
 
         private DanfePagina CriarPagina()
         {
