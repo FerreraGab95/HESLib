@@ -14,7 +14,7 @@ namespace DanfeSharp
         public Page PdfPage { get; private set; }
         public PrimitiveComposer PrimitiveComposer { get; private set; }
         public Gfx Gfx { get; private set; }
-        public RectangleF RetanguloNumeroFolhas { get;  set; }
+        public RectangleF RetanguloNumeroFolhas { get; set; }
         public RectangleF RetanguloCorpo { get; private set; }
         public RectangleF RetanguloDesenhavel { get; private set; }
         public RectangleF RetanguloCreditos { get; private set; }
@@ -25,23 +25,23 @@ namespace DanfeSharp
             Danfe = danfe ?? throw new ArgumentNullException(nameof(danfe));
             PdfPage = new Page(Danfe.PdfDocument);
             Danfe.PdfDocument.Pages.Add(PdfPage);
-         
+
             PrimitiveComposer = new PrimitiveComposer(PdfPage);
             Gfx = new Gfx(PrimitiveComposer);
 
-            if (Danfe.ViewModel.Orientacao == Orientacao.Retrato)            
-                Retangulo = new RectangleF(0, 0, Constantes.A4Largura, Constantes.A4Altura);            
-            else            
+            if (Danfe.ViewModel.Orientacao == Orientacao.Retrato)
+                Retangulo = new RectangleF(0, 0, Constantes.A4Largura, Constantes.A4Altura);
+            else
                 Retangulo = new RectangleF(0, 0, Constantes.A4Altura, Constantes.A4Largura);
-            
+
             RetanguloDesenhavel = Retangulo.InflatedRetangle(Danfe.ViewModel.Margem);
             RetanguloCreditos = new RectangleF(RetanguloDesenhavel.X, RetanguloDesenhavel.Bottom + Danfe.EstiloPadrao.PaddingSuperior, RetanguloDesenhavel.Width, Retangulo.Height - RetanguloDesenhavel.Height - Danfe.EstiloPadrao.PaddingSuperior);
-            PdfPage.Size = new SizeF(Retangulo.Width.ToPoint(), Retangulo.Height.ToPoint());    
+            PdfPage.Size = new SizeF(Retangulo.Width.ToPoint(), Retangulo.Height.ToPoint());
         }
 
         public void DesenharCreditos()
         {
-            Gfx.DrawString("Impresso com DanfeSharp", RetanguloCreditos, Danfe.EstiloPadrao.CriarFonteItalico(6), AlinhamentoHorizontal.Direita);
+            Gfx.DrawString("Impresso com DanfeSharp / Mantido por H&S", RetanguloCreditos, Danfe.EstiloPadrao.CriarFonteItalico(6), AlinhamentoHorizontal.Direita);
         }
 
         private void DesenharCanhoto()
@@ -52,7 +52,7 @@ namespace DanfeSharp
             canhoto.SetPosition(RetanguloDesenhavel.Location);
 
             if (Danfe.ViewModel.Orientacao == Orientacao.Retrato)
-            {           
+            {
                 canhoto.Width = RetanguloDesenhavel.Width;
 
                 for (int i = 0; i < Danfe.ViewModel.QuantidadeCanhotos; i++)
@@ -73,7 +73,7 @@ namespace DanfeSharp
                 {
                     canhoto.Draw(Gfx);
                     canhoto.Y += canhoto.Height;
-                }              
+                }
 
                 Gfx.PrimitiveComposer.End();
                 RetanguloDesenhavel = RetanguloDesenhavel.CutLeft(canhoto.Height * Danfe.ViewModel.QuantidadeCanhotos);

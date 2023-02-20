@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using DanfeSharp.Blocos;
+using DanfeSharp.Modelo;
 using org.pdfclown.documents;
 using org.pdfclown.documents.contents.fonts;
 using org.pdfclown.files;
-using DanfeSharp.Modelo;
 
 namespace DanfeSharp
 {
@@ -49,7 +49,7 @@ namespace DanfeSharp
 
             Paginas = new List<DanfePagina>();
             Canhoto = CriarBloco<BlocoCanhoto>();
-            IdentificacaoEmitente = AdicionarBloco<BlocoIdentificacaoEmitente>();  
+            IdentificacaoEmitente = AdicionarBloco<BlocoIdentificacaoEmitente>();
             AdicionarBloco<BlocoDestinatarioRemetente>();
 
             if (ViewModel.LocalRetirada != null && ViewModel.ExibirBlocoLocalRetirada)
@@ -65,14 +65,14 @@ namespace DanfeSharp
             AdicionarBloco<BlocoTransportador>();
             AdicionarBloco<BlocoDadosAdicionais>(CriarEstilo(tFonteCampoConteudo: 8));
 
-            if(ViewModel.CalculoIssqn.Mostrar)
+            if (ViewModel.CalculoIssqn.Mostrar)
                 AdicionarBloco<BlocoCalculoIssqn>();
 
             AdicionarMetadata();
 
             _FoiGerado = false;
         }
-        
+
         public void AdicionarLogoImagem(System.IO.Stream stream)
         {
             if (stream == null) throw new ArgumentNullException(nameof(stream));
@@ -96,7 +96,7 @@ namespace DanfeSharp
         {
             if (String.IsNullOrWhiteSpace(path)) throw new ArgumentException(nameof(path));
 
-            using(var fs = new System.IO.FileStream(path, System.IO.FileMode.Open, System.IO.FileAccess.Read))
+            using (var fs = new System.IO.FileStream(path, System.IO.FileMode.Open, System.IO.FileAccess.Read))
             {
                 AdicionarLogoImagem(fs);
             }
@@ -118,7 +118,7 @@ namespace DanfeSharp
             info[new org.pdfclown.objects.PdfName("ChaveAcesso")] = ViewModel.ChaveAcesso;
             info[new org.pdfclown.objects.PdfName("TipoDocumento")] = "DANFE";
             info.CreationDate = DateTime.Now;
-            info.Creator = String.Format("{0} {1} - {2}", "DanfeSharp", System.Reflection.Assembly.GetExecutingAssembly().GetName().Version, "https://github.com/SilverCard/DanfeSharp");
+            info.Creator = String.Format("{0} {1} - {2}", "H&S Technologies", System.Reflection.Assembly.GetExecutingAssembly().GetName().Version, "https://github.com/zonaro/DanfeSharp");
             info.Title = "DANFE (Documento auxiliar da NFe)";
         }
 
@@ -127,30 +127,51 @@ namespace DanfeSharp
             return new Estilo(_FonteRegular, _FonteNegrito, _FonteItalico, tFonteCampoCabecalho, tFonteCampoConteudo);
         }
 
+
+        public string Gerar(string path)
+        {
+            if (!string.IsNullOrWhiteSpace(path))
+                return Gerar(new System.IO.FileInfo(path))?.FullName;
+            return null;
+        }
+
+        public System.IO.FileInfo Gerar(System.IO.FileInfo path)
+        {
+            if (path != null)
+            {
+                Gerar();
+                Salvar(path.FullName);
+            }
+            return path;
+        }
+
         public void Gerar()
         {
-            if (_FoiGerado) throw new InvalidOperationException("O Danfe já foi gerado.");
-
-            IdentificacaoEmitente.Logo = _LogoObject;
-            var tabela = new TabelaProdutosServicos(ViewModel, EstiloPadrao);      
-                    
-            while (true)
+            if (!_FoiGerado)
             {
-                DanfePagina p = CriarPagina();                   
-               
-                tabela.SetPosition(p.RetanguloCorpo.Location);
-                tabela.SetSize(p.RetanguloCorpo.Size);
-                tabela.Draw(p.Gfx);
+                //if (_FoiGerado) throw new InvalidOperationException("O Danfe já foi gerado.");
 
-                p.Gfx.Stroke();
-                p.Gfx.Flush();
+                IdentificacaoEmitente.Logo = _LogoObject;
+                var tabela = new TabelaProdutosServicos(ViewModel, EstiloPadrao);
 
-                if (tabela.CompletamenteDesenhada) break;            
+                while (true)
+                {
+                    DanfePagina p = CriarPagina();
 
+                    tabela.SetPosition(p.RetanguloCorpo.Location);
+                    tabela.SetSize(p.RetanguloCorpo.Size);
+                    tabela.Draw(p.Gfx);
+
+                    p.Gfx.Stroke();
+                    p.Gfx.Flush();
+
+                    if (tabela.CompletamenteDesenhada) break;
+
+                }
+
+                PreencherNumeroFolhas();
+                _FoiGerado = true;
             }
-
-            PreencherNumeroFolhas();
-            _FoiGerado = true;
 
         }
 
@@ -159,7 +180,7 @@ namespace DanfeSharp
             DanfePagina p = new DanfePagina(this);
             Paginas.Add(p);
             p.DesenharBlocos(Paginas.Count == 1);
-            p.DesenharCreditos();
+            //p.DesenharCreditos();
 
             // Ambiente de homologação
             // 7. O DANFE emitido para representar NF-e cujo uso foi autorizado em ambiente de
@@ -181,7 +202,7 @@ namespace DanfeSharp
             return (T)Activator.CreateInstance(typeof(T), ViewModel, estilo);
         }
 
-        internal T AdicionarBloco<T>() where T: BlocoBase
+        internal T AdicionarBloco<T>() where T : BlocoBase
         {
             var bloco = CriarBloco<T>();
             _Blocos.Add(bloco);
@@ -205,7 +226,7 @@ namespace DanfeSharp
             int nFolhas = Paginas.Count;
             for (int i = 0; i < Paginas.Count; i++)
             {
-                Paginas[i].DesenhaNumeroPaginas(i + 1, nFolhas);               
+                Paginas[i].DesenhaNumeroPaginas(i + 1, nFolhas);
             }
         }
 
@@ -220,7 +241,7 @@ namespace DanfeSharp
         {
             if (stream == null) throw new ArgumentNullException(nameof(stream));
 
-            File.Save(new org.pdfclown.bytes.Stream(stream), SerializationModeEnum.Incremental);            
+            File.Save(new org.pdfclown.bytes.Stream(stream), SerializationModeEnum.Incremental);
         }
 
         #region IDisposable Support
