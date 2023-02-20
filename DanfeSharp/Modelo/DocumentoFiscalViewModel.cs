@@ -663,82 +663,90 @@ namespace DanfeSharp.Modelo
             }
         }
 
-        public virtual string TextoAdicional()
+        public virtual string TextoAdicional
         {
-            StringBuilder sb = new StringBuilder();
-
-            if (!string.IsNullOrEmpty(InformacoesComplementares))
-                sb.AppendChaveValor("Inf. Contribuinte", InformacoesComplementares).Replace(";", "\r\n");
-
-            if (!string.IsNullOrEmpty(Destinatario.Email))
+            get
             {
-                // Adiciona um espaço após a virgula caso necessário, isso facilita a quebra de linha.
-                var destEmail = Regex.Replace(Destinatario.Email, @"(?<=\S)([,;])(?=\S)", "$1 ").Trim(new char[] { ' ', ',', ';' });
-                sb.AppendChaveValor("Email do Destinatário", destEmail);
-            }
+                StringBuilder sb = new StringBuilder();
 
-            if (!string.IsNullOrEmpty(InformacoesAdicionaisFisco))
-                sb.AppendChaveValor("Inf. fisco", InformacoesAdicionaisFisco);
+                if (!string.IsNullOrEmpty(InformacoesComplementares))
+                    sb.AppendChaveValor("Inf. Contribuinte", InformacoesComplementares).Replace(";", "\r\n");
 
-            if (!string.IsNullOrEmpty(Pedido) && !Utils.StringContemChaveValor(InformacoesComplementares, "Pedido", Pedido))
-                sb.AppendChaveValor("Pedido", Pedido);
-
-            if (!string.IsNullOrEmpty(Contrato) && !Utils.StringContemChaveValor(InformacoesComplementares, "Contrato", Contrato))
-                sb.AppendChaveValor("Contrato", Contrato);
-
-            if (!string.IsNullOrEmpty(NotaEmpenho))
-                sb.AppendChaveValor("Nota de Empenho", NotaEmpenho);
-
-            foreach (var nfref in NotasFiscaisReferenciadas)
-            {
-                if (sb.Length > 0) sb.Append(" ");
-                sb.Append(nfref);
-            }
-
-            #region NT 2013.003 Lei da Transparência
-
-            if (CalculoImposto.ValorAproximadoTributos.HasValue && (string.IsNullOrEmpty(InformacoesComplementares) ||
-                !Regex.IsMatch(InformacoesComplementares, @"((valor|vlr?\.?)\s+(aprox\.?|aproximado)\s+(dos\s+)?(trib\.?|tributos))|((trib\.?|tributos)\s+(aprox\.?|aproximado))", RegexOptions.IgnoreCase)))
-            {
-                if (sb.Length > 0) sb.Append("\r\n");
-                sb.Append("Valor Aproximado dos Tributos: ");
-                sb.Append(CalculoImposto.ValorAproximadoTributos.FormatarMoeda());
-            }
-
-            #endregion NT 2013.003 Lei da Transparência
-
-            return sb.ToString();
-        }
-
-        public virtual string TextoAdicionalFisco()
-        {
-            StringBuilder sb = new StringBuilder();
-
-            if (TipoEmissao == FormaEmissao.ContingenciaSVCAN || TipoEmissao == FormaEmissao.ContingenciaSVCRS)
-            {
-                sb.Append("Contingência ");
-
-                if (TipoEmissao == FormaEmissao.ContingenciaSVCAN)
-                    sb.Append("SVC-AN");
-
-                if (TipoEmissao == FormaEmissao.ContingenciaSVCRS)
-                    sb.Append("SVC-RS");
-
-                if (ContingenciaDataHora.HasValue)
+                if (!string.IsNullOrEmpty(Destinatario.Email))
                 {
-                    sb.Append($" - {ContingenciaDataHora.FormatarDataHora()}");
+                    // Adiciona um espaço após a virgula caso necessário, isso facilita a quebra de linha.
+                    var destEmail = Regex.Replace(Destinatario.Email, @"(?<=\S)([,;])(?=\S)", "$1 ").Trim(new char[] { ' ', ',', ';' });
+                    sb.AppendChaveValor("Email do Destinatário", destEmail);
                 }
 
-                if (!string.IsNullOrWhiteSpace(ContingenciaJustificativa))
+                if (!string.IsNullOrEmpty(InformacoesAdicionaisFisco))
+                    sb.AppendChaveValor("Inf. fisco", InformacoesAdicionaisFisco);
+
+                if (!string.IsNullOrEmpty(Pedido) && !Utils.StringContemChaveValor(InformacoesComplementares, "Pedido", Pedido))
+                    sb.AppendChaveValor("Pedido", Pedido);
+
+                if (!string.IsNullOrEmpty(Contrato) && !Utils.StringContemChaveValor(InformacoesComplementares, "Contrato", Contrato))
+                    sb.AppendChaveValor("Contrato", Contrato);
+
+                if (!string.IsNullOrEmpty(NotaEmpenho))
+                    sb.AppendChaveValor("Nota de Empenho", NotaEmpenho);
+
+                foreach (var nfref in NotasFiscaisReferenciadas)
                 {
-                    sb.Append($" - {ContingenciaJustificativa}");
+                    if (sb.Length > 0) sb.Append(" ");
+                    sb.Append(nfref);
                 }
 
-                sb.Append(".");
-            }
+                #region NT 2013.003 Lei da Transparência
 
-            return sb.ToString();
+                if (CalculoImposto.ValorAproximadoTributos.HasValue && (string.IsNullOrEmpty(InformacoesComplementares) ||
+                    !Regex.IsMatch(InformacoesComplementares, @"((valor|vlr?\.?)\s+(aprox\.?|aproximado)\s+(dos\s+)?(trib\.?|tributos))|((trib\.?|tributos)\s+(aprox\.?|aproximado))", RegexOptions.IgnoreCase)))
+                {
+                    if (sb.Length > 0) sb.Append("\r\n");
+                    sb.Append("Valor Aproximado dos Tributos: ");
+                    sb.Append(CalculoImposto.ValorAproximadoTributos.FormatarMoeda());
+                }
+
+                #endregion NT 2013.003 Lei da Transparência
+
+                return sb.ToString();
+            }
         }
+
+        public virtual string TextoAdicionalFisco
+        {
+            get
+            {
+                StringBuilder sb = new StringBuilder();
+
+                if (TipoEmissao == FormaEmissao.ContingenciaSVCAN || TipoEmissao == FormaEmissao.ContingenciaSVCRS)
+                {
+                    sb.Append("Contingência ");
+
+                    if (TipoEmissao == FormaEmissao.ContingenciaSVCAN)
+                        sb.Append("SVC-AN");
+
+                    if (TipoEmissao == FormaEmissao.ContingenciaSVCRS)
+                        sb.Append("SVC-RS");
+
+                    if (ContingenciaDataHora.HasValue)
+                    {
+                        sb.Append($" - {ContingenciaDataHora.FormatarDataHora()}");
+                    }
+
+                    if (!string.IsNullOrWhiteSpace(ContingenciaJustificativa))
+                    {
+                        sb.Append($" - {ContingenciaJustificativa}");
+                    }
+
+                    sb.Append(".");
+                }
+
+                return sb.ToString();
+            }
+        }
+
+        public string TextoCorrecao { get; set; }
 
         #endregion Public Methods
     }

@@ -49,6 +49,7 @@
     <Compile Include="Blocos\BlocoCalculoImposto.cs" />
     <Compile Include="Blocos\BlocoCanhoto.cs" />
     <Compile Include="Blocos\BlocoDadosAdicionais.cs" />
+    <Compile Include="Blocos\BlocoCC.cs" />
     <Compile Include="Blocos\BlocoDestinatarioRemetente.cs" />
     <Compile Include="Blocos\BlocoDuplicataFatura.cs" />
     <Compile Include="Blocos\BlocoIdentificacaoEmitente.cs" />
@@ -59,7 +60,7 @@
     <Compile Include="Blocos\TabelaProdutosServicos.cs" />
     <Compile Include="Blocos\BlocoTransportador.cs" />
     <Compile Include="Constantes.cs" />
-    <Compile Include="Danfe.cs" />
+    <Compile Include="DocumentoFiscal.cs" />
     <Compile Include="DanfePagina.cs" />
     <Compile Include="Elementos\Barcode128C.cs" />
     <Compile Include="Elementos\CabecalhoBloco.cs" />
@@ -94,7 +95,6 @@
     <Compile Include="Modelo\CalculoImpostoViewModel.cs" />
     <Compile Include="Modelo\CalculoIssqnViewModel.cs" />
     <Compile Include="Modelo\DocumentoFiscalViewModel.cs" />
-    <Compile Include="Modelo\DanfeViewModelCreator.cs" />
     <Compile Include="Modelo\EmpresaViewModel.cs" />
     <Compile Include="Modelo\DuplicataViewModel.cs" />
     <Compile Include="Modelo\LocalEntregaRetiradaViewModel.cs" />

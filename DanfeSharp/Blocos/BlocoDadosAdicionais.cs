@@ -1,7 +1,5 @@
 ﻿using DanfeSharp.Graphics;
 using DanfeSharp.Modelo;
-using DanfeSharp;
-using System;
 
 namespace DanfeSharp.Blocos
 {
@@ -15,15 +13,15 @@ namespace DanfeSharp.Blocos
 
         public BlocoDadosAdicionais(DocumentoFiscalViewModel viewModel, Estilo estilo) : base(viewModel, estilo)
         {
-            _cInfComplementares = new CampoMultilinha("Informações Complementares", ViewModel.TextoAdicional(), estilo);
-            _cReservadoFisco = new CampoMultilinha("Reservado ao fisco", ViewModel.TextoAdicionalFisco(), estilo);
+            _cInfComplementares = new CampoMultilinha("Informações Complementares", ViewModel.TextoAdicional, estilo);
+            _cReservadoFisco = new CampoMultilinha("Reservado ao fisco", ViewModel.TextoAdicionalFisco, estilo);
 
             _Linha = new FlexibleLine() { Height = _cInfComplementares.Height }
             .ComElemento(_cInfComplementares)
             .ComElemento(_cReservadoFisco)
             .ComLarguras(InfComplementaresLarguraPorcentagem, 0);
-                        
-            MainVerticalStack.Add(_Linha);           
+
+            MainVerticalStack.Add(_Linha);
         }
 
         public override float Width

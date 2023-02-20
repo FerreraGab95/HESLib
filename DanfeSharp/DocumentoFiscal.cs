@@ -18,7 +18,6 @@ namespace DanfeSharp
         private StandardType1Font _FonteRegular;
         private org.pdfclown.documents.contents.xObjects.XObject _LogoObject = null;
         private bool disposedValue = false;
-        private bool FoiGerado;
 
         #endregion Private Fields
 
@@ -31,7 +30,7 @@ namespace DanfeSharp
             info[new org.pdfclown.objects.PdfName("TipoDocumento")] = $"{ViewModel.TipoDocumento}";
             info.CreationDate = DateTime.Now;
             info.Creator = string.Format("{0} {1} - {2}", "H&S Technologies DanfeSharp", System.Reflection.Assembly.GetExecutingAssembly().GetName().Version, "https://github.com/zonaro/DanfeSharp");
-            info.Title = ViewModel.TipoDocumento == TipoDocumento.DANFE ? "DANFE (Documento auxiliar da NFe)" : "CC (Carta de Correção Eletrônica)";
+            info.Title = ViewModel.TipoDocumento == TipoDocumento.DANFE ? "DANFE (Documento Auxiliar da NFe)" : "CCE (Carta de Correção Eletrônica)";
         }
 
         private Estilo CriarEstilo(float tFonteCampoCabecalho = 6, float tFonteCampoConteudo = 10) => new Estilo(_FonteRegular, _FonteNegrito, _FonteItalico, tFonteCampoCabecalho, tFonteCampoConteudo);
@@ -87,7 +86,7 @@ namespace DanfeSharp
         internal Estilo EstiloPadrao { get; private set; }
         internal BlocoIdentificacaoEmitente IdentificacaoEmitente { get; private set; }
         internal List<DanfePagina> Paginas { get; private set; }
-        internal Document PdfDocument { get; private set; }
+        internal Document PdfDocument => PDFFile.Document;
 
         #endregion Internal Properties
 
@@ -133,46 +132,8 @@ namespace DanfeSharp
         public DocumentoFiscal(DocumentoFiscalViewModel viewModel, string logoPath = null)
         {
             ViewModel = viewModel ?? throw new ArgumentNullException(nameof(viewModel));
-
-            _Blocos = new List<BlocoBase>();
             PDFFile = new PDF.File();
-            PdfDocument = PDFFile.Document;
-
-            // De acordo com o item 7.7, a fonte deve ser Times New Roman ou Courier New.
-            _FonteFamilia = StandardType1Font.FamilyEnum.Times;
-            _FonteRegular = new StandardType1Font(PdfDocument, _FonteFamilia, false, false);
-            _FonteNegrito = new StandardType1Font(PdfDocument, _FonteFamilia, true, false);
-            _FonteItalico = new StandardType1Font(PdfDocument, _FonteFamilia, false, true);
-
-            EstiloPadrao = CriarEstilo();
-
-            Paginas = new List<DanfePagina>();
-            Canhoto = CriarBloco<BlocoCanhoto>();
-            IdentificacaoEmitente = AdicionarBloco<BlocoIdentificacaoEmitente>();
-
             AdicionarLogo(logoPath);
-
-            AdicionarBloco<BlocoDestinatarioRemetente>();
-
-            if (ViewModel.LocalRetirada != null && ViewModel.ExibirBlocoLocalRetirada)
-                AdicionarBloco<BlocoLocalRetirada>();
-
-            if (ViewModel.LocalEntrega != null && ViewModel.ExibirBlocoLocalEntrega)
-                AdicionarBloco<BlocoLocalEntrega>();
-
-            if (ViewModel.Duplicatas.Count > 0)
-                AdicionarBloco<BlocoDuplicataFatura>();
-
-            AdicionarBloco<BlocoCalculoImposto>(ViewModel.Orientacao == Orientacao.Paisagem ? EstiloPadrao : CriarEstilo(4.75F));
-            AdicionarBloco<BlocoTransportador>();
-            AdicionarBloco<BlocoDadosAdicionais>(CriarEstilo(tFonteCampoConteudo: 8));
-
-            if (ViewModel.CalculoIssqn.Mostrar)
-                AdicionarBloco<BlocoCalculoIssqn>();
-
-            AdicionarMetadata();
-
-            FoiGerado = false;
         }
 
         #endregion Public Constructors
@@ -180,7 +141,7 @@ namespace DanfeSharp
         #region Public Properties
 
         public PDF.File PDFFile { get; private set; }
-        public DocumentoFiscalViewModel ViewModel { get; private set; }
+        public DocumentoFiscalViewModel ViewModel { get; set; }
 
         #endregion Public Properties
 
@@ -188,9 +149,9 @@ namespace DanfeSharp
 
         public static string GerarPDF(string xmlPath, string logoPath)
         {
-            using (var danfe = new DocumentoFiscal(xmlPath, logoPath))
+            using (var d = new DocumentoFiscal(xmlPath, logoPath))
             {
-                return danfe.Gerar(xmlPath + ".pdf");
+                return d.Gerar(xmlPath + ".pdf");
             }
         }
 
@@ -198,7 +159,7 @@ namespace DanfeSharp
         {
             if (!string.IsNullOrWhiteSpace(logoPath) && System.IO.File.Exists(logoPath))
             {
-                if (System.IO.Path.GetFileNameWithoutExtension(logoPath).EndsWith("pdf", StringComparison.InvariantCultureIgnoreCase))
+                if (System.IO.Path.GetFileName(logoPath).EndsWith("pdf", StringComparison.InvariantCultureIgnoreCase))
                 {
                     AdicionarLogoPdf(logoPath);
                 }
@@ -269,11 +230,48 @@ namespace DanfeSharp
 
         public System.IO.FileInfo Gerar(System.IO.FileInfo path = null)
         {
-            if (!FoiGerado)
+            foreach (var p in PDFFile.Document.Pages)
             {
-                //if (_FoiGerado) throw new InvalidOperationException("O Danfe já foi gerado.");
+                p.Delete();
+            }
 
-                IdentificacaoEmitente.Logo = _LogoObject;
+            // De acordo com o item 7.7, a fonte deve ser Times New Roman ou Courier New.
+            _FonteFamilia = StandardType1Font.FamilyEnum.Times;
+            _FonteRegular = new StandardType1Font(PdfDocument, _FonteFamilia, false, false);
+            _FonteNegrito = new StandardType1Font(PdfDocument, _FonteFamilia, true, false);
+            _FonteItalico = new StandardType1Font(PdfDocument, _FonteFamilia, false, true);
+
+            EstiloPadrao = CriarEstilo();
+
+            Paginas = new List<DanfePagina>();
+
+            _Blocos = new List<BlocoBase>();
+
+            Canhoto = CriarBloco<BlocoCanhoto>();
+            IdentificacaoEmitente = AdicionarBloco<BlocoIdentificacaoEmitente>();
+
+            IdentificacaoEmitente.Logo = _LogoObject;
+
+            AdicionarBloco<BlocoDestinatarioRemetente>();
+
+            if (ViewModel.TipoDocumento == TipoDocumento.DANFE)
+            {
+                if (ViewModel.LocalRetirada != null && ViewModel.ExibirBlocoLocalRetirada)
+                    AdicionarBloco<BlocoLocalRetirada>();
+
+                if (ViewModel.LocalEntrega != null && ViewModel.ExibirBlocoLocalEntrega)
+                    AdicionarBloco<BlocoLocalEntrega>();
+
+                if (ViewModel.Duplicatas.Count > 0)
+                    AdicionarBloco<BlocoDuplicataFatura>();
+
+                AdicionarBloco<BlocoCalculoImposto>(ViewModel.Orientacao == Orientacao.Paisagem ? EstiloPadrao : CriarEstilo(4.75F));
+                AdicionarBloco<BlocoTransportador>();
+                AdicionarBloco<BlocoDadosAdicionais>(CriarEstilo(tFonteCampoConteudo: 8));
+
+                if (ViewModel.CalculoIssqn.Mostrar)
+                    AdicionarBloco<BlocoCalculoIssqn>();
+
                 var tabela = new TabelaProdutosServicos(ViewModel, EstiloPadrao);
 
                 while (true)
@@ -289,10 +287,16 @@ namespace DanfeSharp
 
                     if (tabela.CompletamenteDesenhada) break;
                 }
-
-                PreencherNumeroFolhas();
-                FoiGerado = true;
             }
+            else if (ViewModel.TipoDocumento == TipoDocumento.CCE)
+            {
+                AdicionarBloco<BlocoCC>();
+                CriarPagina();
+            }
+
+            AdicionarMetadata();
+
+            PreencherNumeroFolhas();
 
             if (path != null)
             {
