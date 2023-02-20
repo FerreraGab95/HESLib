@@ -3,7 +3,7 @@ using System.IO;
 
 namespace DanfeSharp.Test
 {
-    public static class Extentions
+    public static class Extensions
     {
         public const string OutputDirectoryName = "Output";
 
@@ -15,5 +15,7 @@ namespace DanfeSharp.Test
 
             d.Gerar(Path.Combine(OutputDirectoryName, outputName + ".pdf"));
         }
+
+
     }
 }

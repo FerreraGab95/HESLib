@@ -12,12 +12,12 @@ namespace DanfeSharp
     {
         #region Private Fields
 
-        private StandardType1Font.FamilyEnum _FonteFamilia;
-        private StandardType1Font _FonteItalico;
-        private StandardType1Font _FonteNegrito;
-        private StandardType1Font _FonteRegular;
-        private org.pdfclown.documents.contents.xObjects.XObject _LogoObject = null;
-        private bool disposedValue = false;
+        internal StandardType1Font.FamilyEnum _FonteFamilia;
+        public static StandardType1Font FonteItalico;
+        public static StandardType1Font FonteNegrito;
+        public static StandardType1Font FonteRegular;
+        internal org.pdfclown.documents.contents.xObjects.XObject _LogoObject = null;
+        internal bool disposedValue = false;
 
         #endregion Private Fields
 
@@ -33,7 +33,6 @@ namespace DanfeSharp
             info.Title = ViewModel.TipoDocumento == TipoDocumento.DANFE ? "DANFE (Documento Auxiliar da NFe)" : "CCE (Carta de Correção Eletrônica)";
         }
 
-        private Estilo CriarEstilo(float tFonteCampoCabecalho = 6, float tFonteCampoConteudo = 10) => new Estilo(_FonteRegular, _FonteNegrito, _FonteItalico, tFonteCampoCabecalho, tFonteCampoConteudo);
 
         private DanfePagina CriarPagina()
         {
@@ -237,11 +236,11 @@ namespace DanfeSharp
 
             // De acordo com o item 7.7, a fonte deve ser Times New Roman ou Courier New.
             _FonteFamilia = StandardType1Font.FamilyEnum.Times;
-            _FonteRegular = new StandardType1Font(PdfDocument, _FonteFamilia, false, false);
-            _FonteNegrito = new StandardType1Font(PdfDocument, _FonteFamilia, true, false);
-            _FonteItalico = new StandardType1Font(PdfDocument, _FonteFamilia, false, true);
+            FonteRegular = new StandardType1Font(PdfDocument, _FonteFamilia, false, false);
+            FonteNegrito = new StandardType1Font(PdfDocument, _FonteFamilia, true, false);
+            FonteItalico = new StandardType1Font(PdfDocument, _FonteFamilia, false, true);
 
-            EstiloPadrao = CriarEstilo();
+            EstiloPadrao = Extensions.CriarEstilo();
 
             Paginas = new List<DanfePagina>();
 
@@ -265,9 +264,9 @@ namespace DanfeSharp
                 if (ViewModel.Duplicatas.Count > 0)
                     AdicionarBloco<BlocoDuplicataFatura>();
 
-                AdicionarBloco<BlocoCalculoImposto>(ViewModel.Orientacao == Orientacao.Paisagem ? EstiloPadrao : CriarEstilo(4.75F));
+                AdicionarBloco<BlocoCalculoImposto>(ViewModel.Orientacao == Orientacao.Paisagem ? EstiloPadrao : Extensions.CriarEstilo(4.75F));
                 AdicionarBloco<BlocoTransportador>();
-                AdicionarBloco<BlocoDadosAdicionais>(CriarEstilo(tFonteCampoConteudo: 8));
+                AdicionarBloco<BlocoDadosAdicionais>(Extensions.CriarEstilo(tFonteCampoConteudo: 8));
 
                 if (ViewModel.CalculoIssqn.Mostrar)
                     AdicionarBloco<BlocoCalculoIssqn>();
@@ -290,7 +289,7 @@ namespace DanfeSharp
             }
             else if (ViewModel.TipoDocumento == TipoDocumento.CCE)
             {
-                AdicionarBloco<BlocoCC>();
+                AdicionarBloco<BlocoCCE>();
                 CriarPagina();
             }
 

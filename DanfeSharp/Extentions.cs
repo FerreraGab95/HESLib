@@ -5,8 +5,11 @@ using org.pdfclown.documents.contents.composition;
 
 namespace DanfeSharp
 {
-    internal static class Extentions
+    internal static class Extensions
     {
+
+        internal static Estilo CriarEstilo(float tFonteCampoCabecalho = 6, float tFonteCampoConteudo = 10) => new Estilo(DocumentoFiscal.FonteRegular, DocumentoFiscal.FonteNegrito, DocumentoFiscal.FonteItalico, tFonteCampoCabecalho, tFonteCampoConteudo);
+
         private const float PointFactor = 72F / 25.4F;
 
         /// <summary>

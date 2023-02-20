@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 
 namespace DanfeSharp
@@ -98,7 +95,7 @@ namespace DanfeSharp
         {
             if (cep < 0)
             {
-                throw new ArgumentOutOfRangeException("cep", "o cep não pode ser negativo.");
+                cep = -cep;
             }
 
             return FormatarCEP(cep.ToString().PadLeft(8, '0'));
