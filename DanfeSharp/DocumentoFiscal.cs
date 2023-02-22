@@ -328,7 +328,7 @@ namespace HESDanfe
             info[new org.pdfclown.objects.PdfName("ChaveAcesso")] = ViewModel.ChaveAcesso;
             info[new org.pdfclown.objects.PdfName("TipoDocumento")] = $"{TipoDocumento}";
             info.CreationDate = ViewModel.DataHoraEmissao ?? DateTime.Now;
-            info.Creator = $"{ass.Name} {ass.Version}  - Disponível em https://github.com/zonaro/DanfeSharp";
+            info.Creator = $"{ass.Name} {ass.Version}  - Disponível em https://github.com/zonaro/HESDanfe";
             info.Author = Autor;
 
             info.Subject = TipoDocumento == TipoDocumento.DANFE ? "Documento Auxiliar da NFe" : "Carta de Correção Eletrônica";
