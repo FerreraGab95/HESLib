@@ -1,37 +1,30 @@
-# DanfeSharp
+# HES Danfe
 
-DanfeSharp é uma biblioteca em C# que permite a geração do DANFE em formato PDF.
+HES Danfe é uma biblioteca em C# que permite a geração do DANFE em formato PDF. É um fork de DanfeSharp com algumas melhorias e implementações novas
 
 A biblioteca PDF Clown é utilizada para a escrita dos arquivos em PDF.
 
 Exemplo de uso:
 ```csharp
 
-using DanfeSharp;
-using DanfeSharp.Modelo;
-
-//Cria o modelo a partir do arquivo Xml da NF-e.
-var modelo = DanfeViewModelCreator.CriarDeArquivoXml("nfe.xml");
+using HESDanfe;
+using HESDanfe.Modelo;
 
 
-//O modelo também pode ser criado e preenchido de outra forma.
-var modelo = new DanfeViewModel()
+var nfe = @"C:\NotasFiscais\XmlDistribuicao\00000000000000000000000000000000000000000000-procNFe.xml";
+var cce = @"C:\NotasFiscais\XmlEventos\CartaDeCorrecao\00000000000000000000000000000000000000000000_110110_01-proceventonfe.xml";
+var logo = @"C:\Logo\logo_nota_fiscal.jpg";
+
+
+using (var d = new DANFE(nfe, cce, logo))
 {
-    NfNumero = 123456,
-    NfSerie = 123,
-    ChaveAcesso = "123456987...",
-    Emitente = new EmpresaViewModel()
-    {
-        CnpjCpf = "123456...",
-        Nome = "DanfeSharp Ltda",    
-	...
+	foreach (var pdf in d.Gerar(new DirectoryInfo(@"C:\Teste\testeDANFE")))
+	{
 
+		// agora é so imprimir os PDfs ou enviar por email
 
-//Inicia o Danfe com o modelo criado
-using (var danfe = new Danfe(modelo))
-{
-	danfe.Gerar();
-	danfe.Salvar("danfe.pdf");
+	}
+
 }
 ```
 
