@@ -14,18 +14,17 @@ using HESDanfe.Modelo;
 var nfe = @"C:\NotasFiscais\XmlDistribuicao\00000000000000000000000000000000000000000000-procNFe.xml";
 var cce = @"C:\NotasFiscais\XmlEventos\CartaDeCorrecao\00000000000000000000000000000000000000000000_110110_01-proceventonfe.xml";
 var logo = @"C:\Logo\logo_nota_fiscal.jpg";
+var saida = new DirectoryInfo(@"C:\DANFE\");
 
-
-using (var d = new DANFE(nfe, cce, logo))
+ 
+foreach (var pdf in DANFE.GerarPDF(nfe, cce, logo,saida))
 {
-	foreach (var pdf in d.Gerar(new DirectoryInfo(@"C:\Teste\testeDANFE")))
-	{
 
-		// agora é so imprimir os PDfs ou enviar por email
-
-	}
+	// agora é so imprimir os PDfs ou enviar por email
 
 }
+
+ 
 ```
 
 
