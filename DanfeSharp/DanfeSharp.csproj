@@ -88,6 +88,7 @@
     <Compile Include="Enumeracoes\AlinhamentoVertical.cs" />
     <Compile Include="Enumeracoes\Orientacao.cs" />
     <Compile Include="Enumeracoes\PosicaoBloco.cs" />
+    <Compile Include="Esquemas\CartaDeCorrecao.cs" />
     <Compile Include="Esquemas\NFReferenciada.cs" />
     <Compile Include="Extentions.cs" />
     <Compile Include="Formatador.cs" />

@@ -6,6 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml;
 using System.Xml.Serialization;
+using DanfeSharp.Esquemas;
 using DanfeSharp.Esquemas.NFe;
 
 namespace DanfeSharp.Modelo
@@ -19,7 +20,7 @@ namespace DanfeSharp.Modelo
         #region Private Fields
 
         private float _Margem;
-        private int _QuantidadeCanhoto;
+        private int _quant_canhoto;
 
         #endregion Private Fields
 
@@ -102,11 +103,10 @@ namespace DanfeSharp.Modelo
                 nfe = (ProcNFe)serializer.Deserialize(reader);
                 return CreateFromXml(nfe);
             }
-            catch (System.InvalidOperationException e)
+            catch (InvalidOperationException e)
             {
-                if (e.InnerException is XmlException)
+                if (e.InnerException is XmlException ex)
                 {
-                    XmlException ex = (XmlException)e.InnerException;
                     throw new Exception(string.Format("Não foi possível interpretar o Xml. Linha {0} Posição {1}.", ex.LineNumber, ex.LinePosition));
                 }
 
@@ -395,11 +395,11 @@ namespace DanfeSharp.Modelo
         /// </summary>
         public int QuantidadeCanhotos
         {
-            get => _QuantidadeCanhoto;
+            get => _quant_canhoto;
             set
             {
                 if (value >= 0 && value <= 2)
-                    _QuantidadeCanhoto = value;
+                    _quant_canhoto = value;
                 else
                     throw new ArgumentOutOfRangeException("A quantidade de canhotos deve de 0 a 2.");
             }
@@ -410,7 +410,7 @@ namespace DanfeSharp.Modelo
         /// <summary>
         /// Tipo de Ambiente
         /// </summary>
-        public int TipoAmbiente { get; set; }
+        public TAmb TipoAmbiente { get; set; } = TAmb.Producao;
 
         public TipoDocumento TipoDocumento { get; set; } = TipoDocumento.DANFE;
 
@@ -423,7 +423,7 @@ namespace DanfeSharp.Modelo
         /// <para>Tipo de Operação - 0-entrada / 1-saída</para>
         /// <para>Tag tpNF</para>
         /// </summary>
-        public int TipoNF { get; set; }
+        public Tipo TipoNF { get; set; }
 
         /// <summary>
         /// Dados da Transportadora
@@ -434,12 +434,20 @@ namespace DanfeSharp.Modelo
 
         #region Public Methods
 
+        public static DocumentoFiscalViewModel CreateFromXml(ProcEventoNFe procEnevtoNfe)
+        {
+            DocumentoFiscalViewModel model = new DocumentoFiscalViewModel();
+
+
+            return model;
+        }
+
         public static DocumentoFiscalViewModel CreateFromXml(ProcNFe procNfe)
         {
             DocumentoFiscalViewModel model = new DocumentoFiscalViewModel();
 
-            var nfe = procNfe.NFe;
-            var infNfe = nfe.infNFe;
+
+            var infNfe = procNfe.NFe.infNFe;
             var ide = infNfe.ide;
             model.TipoEmissao = ide.tpEmis;
 
@@ -459,12 +467,12 @@ namespace DanfeSharp.Modelo
             model.CodigoStatusReposta = infProt.cStat;
             model.DescricaoStatusReposta = infProt.xMotivo;
 
-            model.TipoAmbiente = (int)ide.tpAmb;
+            model.TipoAmbiente = ide.tpAmb;
             model.NfNumero = ide.nNF;
             model.NfSerie = ide.serie;
             model.NaturezaOperacao = ide.natOp;
             model.ChaveAcesso = procNfe.NFe.infNFe.Id.Substring(3);
-            model.TipoNF = (int)ide.tpNF;
+            model.TipoNF = ide.tpNF;
 
             model.Emitente = CreateEmpresaFrom(infNfe.emit);
             model.Destinatario = CreateEmpresaFrom(infNfe.dest);
@@ -492,16 +500,18 @@ namespace DanfeSharp.Modelo
 
             foreach (var det in infNfe.det)
             {
-                ProdutoViewModel produto = new ProdutoViewModel();
-                produto.Codigo = det.prod.cProd;
-                produto.Descricao = det.prod.xProd;
-                produto.Ncm = det.prod.NCM;
-                produto.Cfop = det.prod.CFOP;
-                produto.Unidade = det.prod.uCom;
-                produto.Quantidade = det.prod.qCom;
-                produto.ValorUnitario = det.prod.vUnCom;
-                produto.ValorTotal = det.prod.vProd;
-                produto.InformacoesAdicionais = det.infAdProd;
+                ProdutoViewModel produto = new ProdutoViewModel
+                {
+                    Codigo = det.prod.cProd,
+                    Descricao = det.prod.xProd,
+                    Ncm = det.prod.NCM,
+                    Cfop = det.prod.CFOP,
+                    Unidade = det.prod.uCom,
+                    Quantidade = det.prod.qCom,
+                    ValorUnitario = det.prod.vUnCom,
+                    ValorTotal = det.prod.vProd,
+                    InformacoesAdicionais = det.infAdProd
+                };
 
                 var imposto = det.imposto;
 
@@ -539,10 +549,12 @@ namespace DanfeSharp.Modelo
             {
                 foreach (var item in infNfe.cobr.dup)
                 {
-                    DuplicataViewModel duplicata = new DuplicataViewModel();
-                    duplicata.Numero = item.nDup;
-                    duplicata.Valor = item.vDup;
-                    duplicata.Vecimento = item.dVenc;
+                    DuplicataViewModel duplicata = new DuplicataViewModel
+                    {
+                        Numero = item.nDup,
+                        Valor = item.vDup,
+                        Vecimento = item.dVenc
+                    };
 
                     model.Duplicatas.Add(duplicata);
                 }

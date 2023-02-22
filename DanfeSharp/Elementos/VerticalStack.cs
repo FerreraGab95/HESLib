@@ -27,9 +27,7 @@ namespace DanfeSharp
         {
             foreach (var item in db)
             {
-                if (item == this) throw new InvalidOperationException();
-
-                Drawables.Add(item);
+                if (item != this) Drawables.Add(item);
             }
         }
 
@@ -45,7 +43,7 @@ namespace DanfeSharp
                 db.Width = Width;
                 db.SetPosition(x, y);
                 db.Draw(gfx);
-                y += db.Height;             
+                y += db.Height;
             }
         }
 

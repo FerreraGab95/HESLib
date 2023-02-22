@@ -34,18 +34,24 @@ namespace DanfeSharp
         }
 
 
+        public String LicenseKey
+        {
+            get; set;
+        }
         private DanfePagina CriarPagina()
         {
             DanfePagina p = new DanfePagina(this);
             Paginas.Add(p);
             p.DesenharBlocos(Paginas.Count == 1);
-            //p.DesenharCreditos();
+
+            if (LicenseKey != "HESTECH")
+                p.DesenharCreditos();
 
             // Ambiente de homologação
             // 7. O DANFE emitido para representar NF-e cujo uso foi autorizado em ambiente de
             // homologação sempre deverá conter a frase “SEM VALOR FISCAL” no quadro “Informações
             // Complementares” ou em marca d’água destacada.
-            if (ViewModel.TipoAmbiente == 2)
+            if (ViewModel.TipoAmbiente == Esquemas.NFe.TAmb.Homologacao)
                 p.DesenharAvisoHomologacao();
 
             return p;
@@ -307,11 +313,6 @@ namespace DanfeSharp
 
         #endregion Public Methods
 
-        // To detect redundant calls
-        // TODO: override a finalizer only if Dispose(bool disposing) above has code to free unmanaged resources.
-        // ~Danfe() { // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
-        // Dispose(false); }
 
-        // TODO: uncomment the following line if the finalizer is overridden above.// GC.SuppressFinalize(this);
     }
 }
