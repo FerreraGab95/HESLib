@@ -74,12 +74,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DanfeSharp\DanfeSharp.csproj">
-      <Project>{3b92aa4e-b2f6-4cb0-83c7-f8dcfccb22cb}</Project>
-      <Name>DanfeSharp</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Logos\JPG\Horizontal.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -104,6 +98,12 @@
     <Content Include="Xml\NFe\v4.00\v4_ComLocalRetirada.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HESDanfe\HESDanfe.csproj">
+      <Project>{3B92AA4E-B2F6-4CB0-83C7-F8DCFCCB22CB}</Project>
+      <Name>HESDanfe</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
