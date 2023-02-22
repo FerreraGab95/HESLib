@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DanfeSharp.Modelo
+namespace HESDanfe.Modelo
 {
     public class DuplicataViewModel
     {

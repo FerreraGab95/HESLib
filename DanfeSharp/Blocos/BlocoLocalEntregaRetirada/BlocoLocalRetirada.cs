@@ -1,6 +1,6 @@
-﻿using DanfeSharp.Modelo;
+﻿using HESDanfe.Modelo;
 
-namespace DanfeSharp.Blocos
+namespace HESDanfe.Blocos
 {
     class BlocoLocalRetirada : BlocoLocalEntregaRetirada
     {

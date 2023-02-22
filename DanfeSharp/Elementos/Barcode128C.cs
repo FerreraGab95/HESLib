@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text.RegularExpressions;
-using DanfeSharp.Graphics;
+using HESDanfe.Graphics;
 
-namespace DanfeSharp
+namespace HESDanfe
 {
     /// <summary>
     /// Desenha o Código de Barras Code 128C 

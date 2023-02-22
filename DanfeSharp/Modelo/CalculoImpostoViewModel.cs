@@ -1,4 +1,4 @@
-﻿namespace DanfeSharp.Modelo
+﻿namespace HESDanfe.Modelo
 {
     public class CalculoImpostoViewModel
     {

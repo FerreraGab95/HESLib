@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using DanfeSharp.Graphics;
+using HESDanfe.Graphics;
 
-namespace DanfeSharp
+namespace HESDanfe
 {
     /// <summary>
     /// Define uma pilha vertical de elementos, de forma que todos eles fiquem com a mesma largura.

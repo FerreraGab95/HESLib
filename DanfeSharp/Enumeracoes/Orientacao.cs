@@ -1,4 +1,4 @@
-﻿namespace DanfeSharp
+﻿namespace HESDanfe
 {
     public enum Orientacao
     {

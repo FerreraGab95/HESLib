@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 
-namespace DanfeSharp.Esquemas
+namespace HESDanfe.Esquemas
 {
     public class Versao
     {

@@ -1,8 +1,8 @@
-﻿using DanfeSharp.Graphics;
+﻿using HESDanfe.Graphics;
 using System;
 using pcf = org.pdfclown.documents.contents.fonts;
 
-namespace DanfeSharp
+namespace HESDanfe
 {
     /// <summary>
     /// Coleção de fontes e medidas a serem compartilhadas entre os elementos básicos.

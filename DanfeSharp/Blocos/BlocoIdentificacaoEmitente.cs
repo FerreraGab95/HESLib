@@ -1,8 +1,8 @@
 ﻿using System.Drawing;
 using org.pdfclown.documents.contents.xObjects;
-using DanfeSharp.Modelo;
+using HESDanfe.Modelo;
 
-namespace DanfeSharp.Blocos
+namespace HESDanfe.Blocos
 {
     internal class BlocoIdentificacaoEmitente : BlocoBase
     {

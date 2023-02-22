@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DanfeSharp.Modelo
+namespace HESDanfe.Modelo
 {
     public class TransportadoraViewModel : EmpresaViewModel
     {

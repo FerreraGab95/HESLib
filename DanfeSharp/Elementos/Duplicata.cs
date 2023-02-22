@@ -1,8 +1,8 @@
-﻿using DanfeSharp.Graphics;
-using DanfeSharp.Modelo;
+﻿using HESDanfe.Graphics;
+using HESDanfe.Modelo;
 using System;
 
-namespace DanfeSharp
+namespace HESDanfe
 {
 	[AlturaFixa]
     internal class Duplicata : ElementoBase

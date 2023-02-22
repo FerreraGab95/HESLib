@@ -3,12 +3,12 @@ using System.Drawing;
 using System.Text;
 using org.pdfclown.documents.contents.composition;
 
-namespace DanfeSharp
+namespace HESDanfe
 {
     internal static class Extensions
     {
 
-        internal static Estilo CriarEstilo(float tFonteCampoCabecalho = 6, float tFonteCampoConteudo = 10) => new Estilo(DocumentoFiscal.FonteRegular, DocumentoFiscal.FonteNegrito, DocumentoFiscal.FonteItalico, tFonteCampoCabecalho, tFonteCampoConteudo);
+        internal static Estilo CriarEstilo(float tFonteCampoCabecalho = 6, float tFonteCampoConteudo = 10) => new Estilo(DANFE.FonteRegular, DANFE.FonteNegrito, DANFE.FonteItalico, tFonteCampoCabecalho, tFonteCampoConteudo);
 
         private const float PointFactor = 72F / 25.4F;
 

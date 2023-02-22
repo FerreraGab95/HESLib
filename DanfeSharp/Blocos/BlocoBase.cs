@@ -1,9 +1,9 @@
 ﻿using System;
-using DanfeSharp.Graphics;
-using DanfeSharp.Elementos;
-using DanfeSharp.Modelo;
+using HESDanfe.Graphics;
+using HESDanfe.Elementos;
+using HESDanfe.Modelo;
 
-namespace DanfeSharp.Blocos
+namespace HESDanfe.Blocos
 {
     /// <summary>
     /// Define um bloco básico do DANFE.

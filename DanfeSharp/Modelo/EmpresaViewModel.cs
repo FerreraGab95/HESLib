@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace DanfeSharp.Modelo
+namespace HESDanfe.Modelo
 {
     public class EmpresaViewModel
     {

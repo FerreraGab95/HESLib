@@ -1,9 +1,8 @@
-﻿using System;
-using System.IO;
-using DanfeSharp.Modelo;
+﻿using System.IO;
+using HESDanfe.Modelo;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace DanfeSharp.Test
+namespace HESDanfe.Test
 {
     [TestClass]
     public class DanfeXmlTests
@@ -17,13 +16,13 @@ namespace DanfeSharp.Test
                 Directory.CreateDirectory(OutputDirectory);
         }
 
-        public void TestXml(String xmlPath)
+        public void TestXml(string xmlPath, string ccePath = null)
         {
             var outPdfFilePath = Path.Combine(OutputDirectory, Path.GetFileNameWithoutExtension(xmlPath) + ".pdf");
-            var model = DocumentoFiscalViewModel.CriarDeArquivoXml(Path.Combine(InputXmlDirectoryPrefix, xmlPath));
-            using (DocumentoFiscal danfe = new DocumentoFiscal(model))
+            var model = DocumentoFiscalViewModel.CriarDeArquivoXml(Path.Combine(InputXmlDirectoryPrefix, xmlPath), Path.Combine(InputXmlDirectoryPrefix, ccePath));
+            using (DANFE danfe = new DANFE(model))
             {
-                danfe.Gerar(outPdfFilePath);
+                danfe.Gerar(new FileInfo(outPdfFilePath), TipoDocumento.DANFE);
 
             }
         }

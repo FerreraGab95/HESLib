@@ -1,9 +1,8 @@
-﻿using DanfeSharp.Graphics;
-using DanfeSharp.Modelo;
-using System;
-using System.Drawing;
+﻿using System.Drawing;
+using HESDanfe.Graphics;
+using HESDanfe.Modelo;
 
-namespace DanfeSharp
+namespace HESDanfe
 {
     class NumeroNfSerie2 : ElementoBase
     {
@@ -74,7 +73,7 @@ namespace DanfeSharp
 
             gfx.StrokeRectangle(rectEs, 0.25F);
 
-            gfx.DrawString(ViewModel.TipoNF.ToString(), rectEs, Estilo.FonteNumeroFolhas, AlinhamentoHorizontal.Centro, AlinhamentoVertical.Centro);
+            gfx.DrawString(((int)ViewModel.TipoNF).ToString(), rectEs, Estilo.FonteNumeroFolhas, AlinhamentoHorizontal.Centro, AlinhamentoVertical.Centro);
 
 
             var f4 = Estilo.FonteNumeroFolhas;

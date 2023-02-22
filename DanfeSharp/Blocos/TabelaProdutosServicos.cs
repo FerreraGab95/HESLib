@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using DanfeSharp.Graphics;
-using DanfeSharp.Modelo;
+using HESDanfe.Graphics;
+using HESDanfe.Modelo;
 
-namespace DanfeSharp.Blocos
+namespace HESDanfe.Blocos
 {
     internal class TabelaProdutosServicos : ElementoBase
     {

@@ -5,7 +5,7 @@ VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DanfeSharp", "DanfeSharp\DanfeSharp.csproj", "{3B92AA4E-B2F6-4CB0-83C7-F8DCFCCB22CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DanfeSharp.Test", "DanfeSharp.Test\DanfeSharp.Test.csproj", "{1A33BF3B-7471-4293-9276-B73913B7F2F9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HESDanfe.Test", "DanfeSharp.Test\HESDanfe.Test.csproj", "{1A33BF3B-7471-4293-9276-B73913B7F2F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,5 +34,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0F9492B6-1252-409C-AA30-3CD4F7F60F0A}
 	EndGlobalSection
 EndGlobal

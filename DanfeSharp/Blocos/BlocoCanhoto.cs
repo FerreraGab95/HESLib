@@ -1,7 +1,7 @@
-﻿using DanfeSharp.Elementos;
-using DanfeSharp.Modelo;
+﻿using HESDanfe.Elementos;
+using HESDanfe.Modelo;
 
-namespace DanfeSharp.Blocos
+namespace HESDanfe.Blocos
 {
     internal class BlocoCanhoto : BlocoBase
     {

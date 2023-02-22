@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Text.RegularExpressions;
 
-namespace DanfeSharp
+namespace HESDanfe
 {
     /// <summary>
     /// Classe que ajuda na formatação de dados.

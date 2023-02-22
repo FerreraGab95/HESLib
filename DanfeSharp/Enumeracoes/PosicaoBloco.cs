@@ -1,4 +1,4 @@
-﻿namespace DanfeSharp.Blocos
+﻿namespace HESDanfe.Blocos
 {
     internal enum PosicaoBloco
     {

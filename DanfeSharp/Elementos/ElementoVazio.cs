@@ -1,6 +1,6 @@
-﻿using DanfeSharp.Graphics;
+﻿using HESDanfe.Graphics;
 
-namespace DanfeSharp
+namespace HESDanfe
 {
     internal class ElementoVazio : DrawableBase
     {

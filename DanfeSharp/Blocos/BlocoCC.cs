@@ -1,7 +1,7 @@
-﻿using DanfeSharp.Graphics;
-using DanfeSharp.Modelo;
+﻿using HESDanfe.Graphics;
+using HESDanfe.Modelo;
 
-namespace DanfeSharp.Blocos
+namespace HESDanfe.Blocos
 {
     internal class BlocoCCE : BlocoBase
     {
@@ -16,12 +16,7 @@ namespace DanfeSharp.Blocos
 
         public const float AlturaMinima = 100;
         public const float CorrecaoLarguraPorcentagem = 100;
-        private const string pre_cc = @"A Carta de Correção e disciplinada pelo parágrafo 1º-A do art. 7º do Convênio S/N, de 15 de dezembro de 1970 e pode ser utilizada para
-regularização de erro ocorrido na emissão de documento fiscal, desde que o erro não esteja relacionado com:
-I - As variáveis que determinam o valor do imposto tais como: base de cálculo, alíquota, diferença de preço, quantidade, valor da operação
-ou da prestação;
-II - A correção de dados cadastrais que implique mudançaa do remetente ou do destinatário;
-III - A data de emissão ou de saída.";
+
 
         #endregion Public Fields
 
@@ -30,16 +25,14 @@ III - A data de emissão ou de saída.";
         public BlocoCCE(DocumentoFiscalViewModel viewModel, Estilo estilo) : base(viewModel, estilo)
         {
 
+            var pretext = new FlexibleLine() { Height = 25 }
+            .ComElemento(new CampoMultilinha("", viewModel.TextoCondicaoDeUso, estilo) { IsConteudoNegrito = true })
+            .ComLarguras(CorrecaoLarguraPorcentagem);
+
             _correcao = new CampoMultilinha("Correção", viewModel.TextoCorrecao, estilo);
 
             _Linha = new FlexibleLine() { Height = _correcao.Height }
             .ComElemento(_correcao)
-            .ComLarguras(CorrecaoLarguraPorcentagem);
-
-
-
-            var pretext = new FlexibleLine() { Height = 25 }
-            .ComElemento(new CampoMultilinha("", pre_cc, estilo) { IsConteudoNegrito = true })
             .ComLarguras(CorrecaoLarguraPorcentagem);
 
             var postext = new FlexibleLine() { Height = 35 }

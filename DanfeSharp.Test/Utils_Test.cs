@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace DanfeSharp.Test
+namespace HESDanfe.Test
 {
     [TestClass]
     public class Utils_Test

@@ -6,10 +6,10 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml;
 using System.Xml.Serialization;
-using DanfeSharp.Esquemas;
-using DanfeSharp.Esquemas.NFe;
+using HESDanfe.Esquemas;
+using HESDanfe.Esquemas.NFe;
 
-namespace DanfeSharp.Modelo
+namespace HESDanfe.Modelo
 {
     /// <summary>
     /// Modelo de dados utilizado para o DANFE ou CC.
@@ -93,15 +93,21 @@ namespace DanfeSharp.Modelo
             return m;
         }
 
-        private static DocumentoFiscalViewModel CriarDeArquivoXmlInternal(TextReader reader)
+        private static DocumentoFiscalViewModel CriarDeArquivoXmlInternal(TextReader nfeReader, TextReader cceReader = null)
         {
             ProcNFe nfe = null;
-            XmlSerializer serializer = new XmlSerializer(typeof(ProcNFe));
+            ProcEventoNFe cce = null;
+            XmlSerializer nfeSerializer = new XmlSerializer(typeof(ProcNFe));
+            XmlSerializer cceSerializer = new XmlSerializer(typeof(ProcEventoNFe));
 
             try
             {
-                nfe = (ProcNFe)serializer.Deserialize(reader);
-                return CreateFromXml(nfe);
+                nfe = (ProcNFe)nfeSerializer.Deserialize(nfeReader);
+                if (cceReader != null)
+                {
+                    cce = (ProcEventoNFe)cceSerializer.Deserialize(cceReader);
+                }
+                return Create(nfe, cce);
             }
             catch (InvalidOperationException e)
             {
@@ -117,26 +123,6 @@ namespace DanfeSharp.Modelo
         #endregion Private Methods
 
         #region Internal Methods
-
-        internal static DocumentoFiscalViewModel CreateFromXmlString(string xml)
-        {
-            ProcNFe nfe = null;
-            XmlSerializer serializer = new XmlSerializer(typeof(ProcNFe));
-
-            try
-            {
-                using (TextReader reader = new StringReader(xml))
-                {
-                    nfe = (ProcNFe)serializer.Deserialize(reader);
-                }
-
-                return CreateFromXml(nfe);
-            }
-            catch (System.InvalidOperationException e)
-            {
-                throw new Exception("Não foi possível interpretar o texto Xml.", e);
-            }
-        }
 
         internal static CalculoImpostoViewModel CriarCalculoImpostoViewModel(ICMSTotal i) => new CalculoImpostoViewModel()
         {
@@ -405,14 +391,98 @@ namespace DanfeSharp.Modelo
             }
         }
 
+        public virtual string TextoAdicional
+        {
+            get
+            {
+                StringBuilder sb = new StringBuilder();
+
+                if (!string.IsNullOrEmpty(InformacoesComplementares))
+                    sb.AppendChaveValor("Inf. Contribuinte", InformacoesComplementares).Replace(";", "\r\n");
+
+                if (!string.IsNullOrEmpty(Destinatario.Email))
+                {
+                    // Adiciona um espaço após a virgula caso necessário, isso facilita a quebra de linha.
+                    var destEmail = Regex.Replace(Destinatario.Email, @"(?<=\S)([,;])(?=\S)", "$1 ").Trim(new char[] { ' ', ',', ';' });
+                    sb.AppendChaveValor("Email do Destinatário", destEmail);
+                }
+
+                if (!string.IsNullOrEmpty(InformacoesAdicionaisFisco))
+                    sb.AppendChaveValor("Inf. fisco", InformacoesAdicionaisFisco);
+
+                if (!string.IsNullOrEmpty(Pedido) && !Utils.StringContemChaveValor(InformacoesComplementares, "Pedido", Pedido))
+                    sb.AppendChaveValor("Pedido", Pedido);
+
+                if (!string.IsNullOrEmpty(Contrato) && !Utils.StringContemChaveValor(InformacoesComplementares, "Contrato", Contrato))
+                    sb.AppendChaveValor("Contrato", Contrato);
+
+                if (!string.IsNullOrEmpty(NotaEmpenho))
+                    sb.AppendChaveValor("Nota de Empenho", NotaEmpenho);
+
+                foreach (var nfref in NotasFiscaisReferenciadas)
+                {
+                    if (sb.Length > 0) sb.Append(" ");
+                    sb.Append(nfref);
+                }
+
+                #region NT 2013.003 Lei da Transparência
+
+                if (CalculoImposto.ValorAproximadoTributos.HasValue && (string.IsNullOrEmpty(InformacoesComplementares) ||
+                    !Regex.IsMatch(InformacoesComplementares, @"((valor|vlr?\.?)\s+(aprox\.?|aproximado)\s+(dos\s+)?(trib\.?|tributos))|((trib\.?|tributos)\s+(aprox\.?|aproximado))", RegexOptions.IgnoreCase)))
+                {
+                    if (sb.Length > 0) sb.Append("\r\n");
+                    sb.Append("Valor Aproximado dos Tributos: ");
+                    sb.Append(CalculoImposto.ValorAproximadoTributos.FormatarMoeda());
+                }
+
+                #endregion NT 2013.003 Lei da Transparência
+
+                return sb.ToString();
+            }
+        }
+
+        public virtual string TextoAdicionalFisco
+        {
+            get
+            {
+                StringBuilder sb = new StringBuilder();
+
+                if (TipoEmissao == FormaEmissao.ContingenciaSVCAN || TipoEmissao == FormaEmissao.ContingenciaSVCRS)
+                {
+                    sb.Append("Contingência ");
+
+                    if (TipoEmissao == FormaEmissao.ContingenciaSVCAN)
+                        sb.Append("SVC-AN");
+
+                    if (TipoEmissao == FormaEmissao.ContingenciaSVCRS)
+                        sb.Append("SVC-RS");
+
+                    if (ContingenciaDataHora.HasValue)
+                    {
+                        sb.Append($" - {ContingenciaDataHora.FormatarDataHora()}");
+                    }
+
+                    if (!string.IsNullOrWhiteSpace(ContingenciaJustificativa))
+                    {
+                        sb.Append($" - {ContingenciaJustificativa}");
+                    }
+
+                    sb.Append(".");
+                }
+
+                return sb.ToString();
+            }
+        }
+
+        public string TextoCondicaoDeUso { get; internal set; }
+        public string TextoCorrecao { get; set; }
+        public int SequenciaCorrecao { get; set; } = 0;
         public virtual string TextoRecebimento => $"Recebemos de {Emitente.RazaoSocial} os produtos e/ou serviços constantes na Nota Fiscal Eletrônica indicada {(Orientacao == Orientacao.Retrato ? "abaixo" : "ao lado")}. Emissão: {DataHoraEmissao.Formatar()} Valor Total: R$ {CalculoImposto.ValorTotalNota.Formatar()} Destinatário: {Destinatario.RazaoSocial}";
 
         /// <summary>
         /// Tipo de Ambiente
         /// </summary>
         public TAmb TipoAmbiente { get; set; } = TAmb.Producao;
-
-        public TipoDocumento TipoDocumento { get; set; } = TipoDocumento.DANFE;
 
         /// <summary>
         /// Tipo de emissão
@@ -434,18 +504,9 @@ namespace DanfeSharp.Modelo
 
         #region Public Methods
 
-        public static DocumentoFiscalViewModel CreateFromXml(ProcEventoNFe procEnevtoNfe)
+        public static DocumentoFiscalViewModel Create(ProcNFe procNfe, ProcEventoNFe procEventoNFe = null)
         {
             DocumentoFiscalViewModel model = new DocumentoFiscalViewModel();
-
-
-            return model;
-        }
-
-        public static DocumentoFiscalViewModel CreateFromXml(ProcNFe procNfe)
-        {
-            DocumentoFiscalViewModel model = new DocumentoFiscalViewModel();
-
 
             var infNfe = procNfe.NFe.infNFe;
             var ide = infNfe.ide;
@@ -629,136 +690,94 @@ namespace DanfeSharp.Modelo
                 model.ContingenciaJustificativa = ide.xJust;
             }
 
+            //implementação da carta de correção
+            if (procEventoNFe != null)
+            {
+                var inf = procEventoNFe.Evento?.InfEvento;
+
+                model.SequenciaCorrecao = inf.NSeqEvento;
+
+                var det = inf?.DetEvento;
+                if (det != null)
+                {
+                    model.TextoCondicaoDeUso = det.XCondUso?.Replace(";", Environment.NewLine);
+                    model.TextoCorrecao = det.XCorrecao;
+                }
+            }
+
             return model;
         }
-
-
 
         /// <summary>
         /// Cria o modelo a partir de um arquivo xml.
         /// </summary>
-        /// <param name="caminho"></param>
+        /// <param name="caminhoNFe"></param>
         /// <returns></returns>
-        public static DocumentoFiscalViewModel CriarDeArquivoXml(string caminho)
+        public static DocumentoFiscalViewModel CriarDeArquivoXml(string caminhoNFe, string caminhoCCe)
         {
-            using (StreamReader sr = new StreamReader(caminho, true))
+            using (StreamReader sr = new StreamReader(caminhoNFe, true))
             {
-                return CriarDeArquivoXmlInternal(sr);
+                if (string.IsNullOrWhiteSpace(caminhoCCe))
+                {
+                    return CriarDeArquivoXmlInternal(sr);
+                }
+                else
+                {
+                    using (StreamReader sr2 = new StreamReader(caminhoCCe, true))
+                    {
+                        return CriarDeArquivoXmlInternal(sr, sr2);
+                    }
+                }
             }
         }
 
         /// <summary>
         /// Cria o modelo a partir de um arquivo xml contido num stream.
         /// </summary>
-        /// <param name="stream"></param>
+        /// <param name="nfeStream"></param>
         /// <returns>Modelo</returns>
-        public static DocumentoFiscalViewModel CriarDeArquivoXml(Stream stream)
+        public static DocumentoFiscalViewModel CriarDeArquivoXml(Stream nfeStream, Stream cceStream = null)
         {
-            if (stream == null) throw new ArgumentNullException(nameof(stream));
+            if (nfeStream == null) throw new ArgumentNullException(nameof(nfeStream));
 
-            using (StreamReader sr = new StreamReader(stream, true))
+            using (StreamReader sr = new StreamReader(nfeStream, true))
             {
-                return CriarDeArquivoXmlInternal(sr);
+                if (cceStream != null)
+                {
+                    using (StreamReader sr2 = new StreamReader(cceStream, true))
+                    {
+                        return CriarDeArquivoXmlInternal(sr, sr2);
+                    }
+                }
+                else
+                {
+                    return CriarDeArquivoXmlInternal(sr);
+                }
             }
         }
 
         /// <summary>
         /// Cria o modelo a partir de uma string xml.
         /// </summary>
-        public static DocumentoFiscalViewModel CriarDeStringXml(string str)
+        public static DocumentoFiscalViewModel CriarDeStringXml(string nfeXML, string cceXML = null)
         {
-            if (str == null) throw new ArgumentNullException(nameof(str));
+            if (nfeXML == null) throw new ArgumentNullException(nameof(nfeXML));
 
-            using (StringReader sr = new StringReader(str))
+            using (StringReader sr = new StringReader(nfeXML))
             {
+                if (cceXML != null)
+                {
+                    using (StringReader sr2 = new StringReader(cceXML))
+                    {
+                        return CriarDeArquivoXmlInternal(sr, sr2);
+                    }
+                }
+                else
+                {
+                }
                 return CriarDeArquivoXmlInternal(sr);
             }
         }
-
-        public virtual string TextoAdicional
-        {
-            get
-            {
-                StringBuilder sb = new StringBuilder();
-
-                if (!string.IsNullOrEmpty(InformacoesComplementares))
-                    sb.AppendChaveValor("Inf. Contribuinte", InformacoesComplementares).Replace(";", "\r\n");
-
-                if (!string.IsNullOrEmpty(Destinatario.Email))
-                {
-                    // Adiciona um espaço após a virgula caso necessário, isso facilita a quebra de linha.
-                    var destEmail = Regex.Replace(Destinatario.Email, @"(?<=\S)([,;])(?=\S)", "$1 ").Trim(new char[] { ' ', ',', ';' });
-                    sb.AppendChaveValor("Email do Destinatário", destEmail);
-                }
-
-                if (!string.IsNullOrEmpty(InformacoesAdicionaisFisco))
-                    sb.AppendChaveValor("Inf. fisco", InformacoesAdicionaisFisco);
-
-                if (!string.IsNullOrEmpty(Pedido) && !Utils.StringContemChaveValor(InformacoesComplementares, "Pedido", Pedido))
-                    sb.AppendChaveValor("Pedido", Pedido);
-
-                if (!string.IsNullOrEmpty(Contrato) && !Utils.StringContemChaveValor(InformacoesComplementares, "Contrato", Contrato))
-                    sb.AppendChaveValor("Contrato", Contrato);
-
-                if (!string.IsNullOrEmpty(NotaEmpenho))
-                    sb.AppendChaveValor("Nota de Empenho", NotaEmpenho);
-
-                foreach (var nfref in NotasFiscaisReferenciadas)
-                {
-                    if (sb.Length > 0) sb.Append(" ");
-                    sb.Append(nfref);
-                }
-
-                #region NT 2013.003 Lei da Transparência
-
-                if (CalculoImposto.ValorAproximadoTributos.HasValue && (string.IsNullOrEmpty(InformacoesComplementares) ||
-                    !Regex.IsMatch(InformacoesComplementares, @"((valor|vlr?\.?)\s+(aprox\.?|aproximado)\s+(dos\s+)?(trib\.?|tributos))|((trib\.?|tributos)\s+(aprox\.?|aproximado))", RegexOptions.IgnoreCase)))
-                {
-                    if (sb.Length > 0) sb.Append("\r\n");
-                    sb.Append("Valor Aproximado dos Tributos: ");
-                    sb.Append(CalculoImposto.ValorAproximadoTributos.FormatarMoeda());
-                }
-
-                #endregion NT 2013.003 Lei da Transparência
-
-                return sb.ToString();
-            }
-        }
-
-        public virtual string TextoAdicionalFisco
-        {
-            get
-            {
-                StringBuilder sb = new StringBuilder();
-
-                if (TipoEmissao == FormaEmissao.ContingenciaSVCAN || TipoEmissao == FormaEmissao.ContingenciaSVCRS)
-                {
-                    sb.Append("Contingência ");
-
-                    if (TipoEmissao == FormaEmissao.ContingenciaSVCAN)
-                        sb.Append("SVC-AN");
-
-                    if (TipoEmissao == FormaEmissao.ContingenciaSVCRS)
-                        sb.Append("SVC-RS");
-
-                    if (ContingenciaDataHora.HasValue)
-                    {
-                        sb.Append($" - {ContingenciaDataHora.FormatarDataHora()}");
-                    }
-
-                    if (!string.IsNullOrWhiteSpace(ContingenciaJustificativa))
-                    {
-                        sb.Append($" - {ContingenciaJustificativa}");
-                    }
-
-                    sb.Append(".");
-                }
-
-                return sb.ToString();
-            }
-        }
-
-        public string TextoCorrecao { get; set; }
 
         #endregion Public Methods
     }

@@ -1,10 +1,10 @@
-﻿using DanfeSharp.Graphics;
+﻿using HESDanfe.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 
-namespace DanfeSharp
+namespace HESDanfe
 {
     /// <summary>
     /// Define uma pilha de texto.

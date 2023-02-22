@@ -1,7 +1,7 @@
 ﻿using pcf = org.pdfclown.documents.contents.fonts;
 using System;
 
-namespace DanfeSharp.Graphics
+namespace HESDanfe.Graphics
 {
     /// <summary>
     /// Define uma fonte do PDF Clown e um tamanho. 

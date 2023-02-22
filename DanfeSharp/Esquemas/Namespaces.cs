@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DanfeSharp.Esquemas
+namespace HESDanfe.Esquemas
 {
     public static class Namespaces
     {

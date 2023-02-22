@@ -7,8 +7,8 @@
     <ProjectGuid>{3B92AA4E-B2F6-4CB0-83C7-F8DCFCCB22CB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DanfeSharp</RootNamespace>
-    <AssemblyName>DanfeSharp</AssemblyName>
+    <RootNamespace>HESDanfe</RootNamespace>
+    <AssemblyName>HESDanfe</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

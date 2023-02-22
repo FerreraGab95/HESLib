@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
 using System.Text.RegularExpressions;
-using DanfeSharp.Graphics;
+using HESDanfe.Graphics;
 
-namespace DanfeSharp
+namespace HESDanfe
 {
     /// <summary>
     /// Define um bloco de texto de largura fixa e altura dinâmica.

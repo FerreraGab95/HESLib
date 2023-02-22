@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DanfeSharp.Elementos
+namespace HESDanfe.Elementos
 {
     /// <summary>
     /// Linha de campos, posiciona e muda a largura desses elementos de forma proporcional.

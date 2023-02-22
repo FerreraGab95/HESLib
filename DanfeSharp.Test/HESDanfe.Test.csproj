@@ -7,8 +7,8 @@
     <ProjectGuid>{1A33BF3B-7471-4293-9276-B73913B7F2F9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DanfeSharp.Test</RootNamespace>
-    <AssemblyName>DanfeSharp.Test</AssemblyName>
+    <RootNamespace>HESDanfe.Test</RootNamespace>
+    <AssemblyName>HESDanfe.Test</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>

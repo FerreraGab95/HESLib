@@ -1,7 +1,7 @@
-﻿using DanfeSharp.Graphics;
-using DanfeSharp.Modelo;
+﻿using HESDanfe.Graphics;
+using HESDanfe.Modelo;
 
-namespace DanfeSharp.Blocos
+namespace HESDanfe.Blocos
 {
     internal class BlocoDadosAdicionais : BlocoBase
     {

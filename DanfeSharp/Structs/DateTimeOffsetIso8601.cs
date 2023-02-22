@@ -3,7 +3,7 @@ using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
 
-namespace DanfeSharp
+namespace HESDanfe
 {
     // Source: https://stackoverflow.com/questions/3377036/how-can-i-xml-serialize-a-datetimeoffset-property
     /// <remarks>

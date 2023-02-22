@@ -1,7 +1,7 @@
 ﻿using System;
-using DanfeSharp.Graphics;
+using HESDanfe.Graphics;
 
-namespace DanfeSharp
+namespace HESDanfe
 {
     /// <summary>
     /// Cabeçalho do bloco, normalmente um texto em caixa alta.

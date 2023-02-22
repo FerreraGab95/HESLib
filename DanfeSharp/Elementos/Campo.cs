@@ -1,8 +1,8 @@
-﻿using DanfeSharp.Graphics;
+﻿using HESDanfe.Graphics;
 using System;
 using System.Drawing;
 
-namespace DanfeSharp
+namespace HESDanfe
 {
     /// <summary>
     /// Campo de única linha.

@@ -3,7 +3,7 @@ using System;
 using org.pdfclown.documents.contents.xObjects;
 using org.pdfclown.documents.contents.composition;
 
-namespace DanfeSharp.Graphics
+namespace HESDanfe.Graphics
 {
     internal class Gfx 
     {

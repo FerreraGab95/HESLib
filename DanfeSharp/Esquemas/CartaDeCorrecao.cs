@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Xml.Serialization;
-using DanfeSharp.Esquemas.NFe;
+using HESDanfe.Esquemas.NFe;
 
-namespace DanfeSharp.Esquemas
+namespace HESDanfe.Esquemas
 {
     // using System.Xml.Serialization;
     // XmlSerializer serializer = new XmlSerializer(typeof(ProcEventoNFe));
@@ -127,8 +127,7 @@ namespace DanfeSharp.Esquemas
         public string Text { get; set; }
     }
 
-    [XmlType(Namespace = Namespaces.NFe)]
-    [XmlRoot(ElementName = "procEventoNFe")]
+    [XmlRoot(Namespace = "http://www.portalfiscal.inf.br/nfe", ElementName = "procEventoNFe", DataType = "string", IsNullable = true)]
     public class ProcEventoNFe
     {
 

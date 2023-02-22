@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Drawing;
-using DanfeSharp.Graphics;
+using HESDanfe.Graphics;
 
-namespace DanfeSharp
+namespace HESDanfe
 {
     /// <summary>
     /// Define um objeto desenhável.

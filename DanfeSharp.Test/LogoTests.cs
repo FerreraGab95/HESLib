@@ -3,7 +3,7 @@ using System.IO;
 using System.Runtime.CompilerServices;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace DanfeSharp.Test
+namespace HESDanfe.Test
 {
     [TestClass]
     public class LogoTests
@@ -15,11 +15,11 @@ namespace DanfeSharp.Test
             if (!Directory.Exists(OutputDirectoryName)) Directory.CreateDirectory(OutputDirectoryName);
         }
 
-        public void TestLogo(String logoPath, [CallerMemberName] string pdfName = null)
+        public void TestLogo(string logoPath, [CallerMemberName] string pdfName = null)
         {
             var model = FabricaFake.DanfeViewModel_1();
             model.Orientacao = Orientacao.Retrato;
-            using (DocumentoFiscal d = new DocumentoFiscal(model))
+            using (DANFE d = new DANFE(model))
             {
                 if (logoPath.EndsWith(".pdf", StringComparison.InvariantCultureIgnoreCase))
                 {
@@ -33,7 +33,7 @@ namespace DanfeSharp.Test
                 }
 
 
-                d.Gerar(Path.Combine(OutputDirectoryName, pdfName + ".pdf"));
+                d.Gerar(Path.Combine(OutputDirectoryName, pdfName + ".pdf"), Modelo.TipoDocumento.DANFE);
             }
         }
 

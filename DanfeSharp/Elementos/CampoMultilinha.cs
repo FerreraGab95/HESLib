@@ -1,7 +1,7 @@
-﻿using DanfeSharp.Graphics;
+﻿using HESDanfe.Graphics;
 using System;
 
-namespace DanfeSharp
+namespace HESDanfe
 {
     /// <summary>
     /// Campo multilinha.

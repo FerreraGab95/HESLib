@@ -2,7 +2,7 @@
 using System.Xml;
 using System.Xml.Serialization;
 
-namespace DanfeSharp.Esquemas
+namespace HESDanfe.Esquemas
 {
     [Serializable]
     [XmlType(AnonymousType = true, Namespace = Namespaces.NFe)]

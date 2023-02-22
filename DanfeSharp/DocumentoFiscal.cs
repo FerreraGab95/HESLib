@@ -1,51 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
-using DanfeSharp.Blocos;
-using DanfeSharp.Modelo;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using HESDanfe.Blocos;
+using HESDanfe.Modelo;
 using org.pdfclown.documents;
 using org.pdfclown.documents.contents.fonts;
 using PDF = org.pdfclown.files;
 
-namespace DanfeSharp
+namespace HESDanfe
 {
-    public class DocumentoFiscal : IDisposable
+    public class DANFE : IDisposable
     {
-        #region Private Fields
-
-        internal StandardType1Font.FamilyEnum _FonteFamilia;
-        public static StandardType1Font FonteItalico;
-        public static StandardType1Font FonteNegrito;
-        public static StandardType1Font FonteRegular;
-        internal org.pdfclown.documents.contents.xObjects.XObject _LogoObject = null;
-        internal bool disposedValue = false;
-
-        #endregion Private Fields
-
         #region Private Methods
 
-        private void AdicionarMetadata()
-        {
-            var info = PdfDocument.Information;
-            info[new org.pdfclown.objects.PdfName("ChaveAcesso")] = ViewModel.ChaveAcesso;
-            info[new org.pdfclown.objects.PdfName("TipoDocumento")] = $"{ViewModel.TipoDocumento}";
-            info.CreationDate = DateTime.Now;
-            info.Creator = string.Format("{0} {1} - {2}", "H&S Technologies DanfeSharp", System.Reflection.Assembly.GetExecutingAssembly().GetName().Version, "https://github.com/zonaro/DanfeSharp");
-            info.Title = ViewModel.TipoDocumento == TipoDocumento.DANFE ? "DANFE (Documento Auxiliar da NFe)" : "CCE (Carta de Correção Eletrônica)";
-        }
-
-
-        public String LicenseKey
-        {
-            get; set;
-        }
         private DanfePagina CriarPagina()
         {
             DanfePagina p = new DanfePagina(this);
             Paginas.Add(p);
             p.DesenharBlocos(Paginas.Count == 1);
 
-            if (LicenseKey != "HESTECH")
-                p.DesenharCreditos();
+            if (LicenseKey != "br.com.hes")
+                p.DesenharCreditos(null);
 
             // Ambiente de homologação
             // 7. O DANFE emitido para representar NF-e cujo uso foi autorizado em ambiente de
@@ -72,7 +49,7 @@ namespace DanfeSharp
 
                 // TODO: free unmanaged resources (unmanaged objects) and override a finalizer below.
                 // TODO: set large fields to null.
-
+                GC.Collect();
                 disposedValue = true;
             }
         }
@@ -82,6 +59,9 @@ namespace DanfeSharp
         #region Internal Fields
 
         internal List<BlocoBase> _Blocos;
+        internal StandardType1Font.FamilyEnum _FonteFamilia;
+        internal org.pdfclown.documents.contents.xObjects.XObject _LogoObject = null;
+        internal bool disposedValue = false;
 
         #endregion Internal Fields
 
@@ -128,13 +108,33 @@ namespace DanfeSharp
 
         #endregion Internal Methods
 
+        #region Public Fields
+
+        public static StandardType1Font FonteItalico;
+        public static StandardType1Font FonteNegrito;
+        public static StandardType1Font FonteRegular;
+
+        #endregion Public Fields
+
         #region Public Constructors
 
-        public DocumentoFiscal(string xmlPath, string logoPath = null) : this(DocumentoFiscalViewModel.CriarDeArquivoXml(xmlPath), logoPath)
+        public DANFE(string xmlNFePath, string xmlCCePath, string logoPath) : this(DocumentoFiscalViewModel.CriarDeArquivoXml(xmlNFePath, xmlCCePath), logoPath)
         {
         }
 
-        public DocumentoFiscal(DocumentoFiscalViewModel viewModel, string logoPath = null)
+        public DANFE(string xmlNFePath, string logoPath) : this(DocumentoFiscalViewModel.CriarDeArquivoXml(xmlNFePath, null), logoPath)
+        {
+        }
+
+        public DANFE(string xmlNFePath) : this(DocumentoFiscalViewModel.CriarDeArquivoXml(xmlNFePath, null), null)
+        {
+        }
+
+        public DANFE(DocumentoFiscalViewModel viewModel) : this(viewModel, null)
+        {
+        }
+
+        public DANFE(DocumentoFiscalViewModel viewModel, string logoPath)
         {
             ViewModel = viewModel ?? throw new ArgumentNullException(nameof(viewModel));
             PDFFile = new PDF.File();
@@ -145,6 +145,13 @@ namespace DanfeSharp
 
         #region Public Properties
 
+        public string Autor { get; set; } = Assembly.GetEntryAssembly().GetName().Name;
+
+        public static string LicenseKey
+        {
+            internal get; set;
+        }
+
         public PDF.File PDFFile { get; private set; }
         public DocumentoFiscalViewModel ViewModel { get; set; }
 
@@ -152,19 +159,23 @@ namespace DanfeSharp
 
         #region Public Methods
 
-        public static string GerarPDF(string xmlPath, string logoPath)
+        public static IEnumerable<FileInfo> GerarPDF(string PathNFe, string PathCCe, DirectoryInfo outputPath) => GerarPDF(PathNFe, PathCCe, null, outputPath);
+
+        public static FileInfo GerarPDF(string PathNFe, DirectoryInfo outputPath) => GerarPDF(PathNFe, null, null, outputPath).FirstOrDefault();
+
+        public static IEnumerable<FileInfo> GerarPDF(string PathNFe, string PathCCe, string PathLogo, DirectoryInfo outputPath)
         {
-            using (var d = new DocumentoFiscal(xmlPath, logoPath))
+            using (var d = new DANFE(PathNFe, PathCCe, PathLogo))
             {
-                return d.Gerar(xmlPath + ".pdf");
+                return d.Gerar(outputPath);
             }
         }
 
         public void AdicionarLogo(string logoPath)
         {
-            if (!string.IsNullOrWhiteSpace(logoPath) && System.IO.File.Exists(logoPath))
+            if (!string.IsNullOrWhiteSpace(logoPath) && File.Exists(logoPath))
             {
-                if (System.IO.Path.GetFileName(logoPath).EndsWith("pdf", StringComparison.InvariantCultureIgnoreCase))
+                if (Path.GetFileName(logoPath).EndsWith("pdf", StringComparison.InvariantCultureIgnoreCase))
                 {
                     AdicionarLogoPdf(logoPath);
                 }
@@ -175,7 +186,7 @@ namespace DanfeSharp
             }
         }
 
-        public void AdicionarLogoImagem(System.IO.Stream stream)
+        public void AdicionarLogoImagem(Stream stream)
         {
             if (stream == null) throw new ArgumentNullException(nameof(stream));
 
@@ -188,13 +199,13 @@ namespace DanfeSharp
         {
             if (string.IsNullOrWhiteSpace(path)) throw new ArgumentException(nameof(path));
 
-            using (var fs = new System.IO.FileStream(path, System.IO.FileMode.Open, System.IO.FileAccess.Read))
+            using (var fs = new FileStream(path, FileMode.Open, FileAccess.Read))
             {
                 AdicionarLogoImagem(fs);
             }
         }
 
-        public void AdicionarLogoPdf(System.IO.Stream stream)
+        public void AdicionarLogoPdf(Stream stream)
         {
             if (stream == null) throw new ArgumentNullException(nameof(stream));
 
@@ -208,32 +219,44 @@ namespace DanfeSharp
         {
             if (string.IsNullOrWhiteSpace(path)) throw new ArgumentException(nameof(path));
 
-            using (var fs = new System.IO.FileStream(path, System.IO.FileMode.Open, System.IO.FileAccess.Read))
+            using (var fs = new FileStream(path, FileMode.Open, FileAccess.Read))
             {
                 AdicionarLogoPdf(fs);
             }
         }
 
-        public void CopiarParaStream(System.IO.Stream stream)
+        public void CopiarParaStream(Stream stream)
         {
             if (stream == null) throw new ArgumentNullException(nameof(stream));
 
             PDFFile.Save(new org.pdfclown.bytes.Stream(stream), PDF.SerializationModeEnum.Incremental);
         }
 
-        // This code added to correctly implement the disposable pattern.
-        public void Dispose() =>
-            // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
-            Dispose(true);
+        public void Dispose() => Dispose(true);
 
-        public string Gerar(string path)
+        public IEnumerable<FileInfo> Gerar(DirectoryInfo path)
         {
-            if (!string.IsNullOrWhiteSpace(path))
-                return Gerar(new System.IO.FileInfo(path))?.FullName;
-            return null;
+            if (path == null) throw new ArgumentNullException(nameof(path));
+
+            if (path.Exists == false)
+            {
+                path.Create();
+            }
+
+            var nfe = Path.Combine(path.FullName, $"DANFE-{ViewModel.ChaveAcesso}.pdf");
+
+            yield return Gerar(nfe, TipoDocumento.DANFE);
+
+            if (!string.IsNullOrWhiteSpace(ViewModel.TextoCorrecao) && ViewModel.SequenciaCorrecao > 0)
+            {
+                var cce = Path.Combine(path.FullName, $"DANFE-{ViewModel.ChaveAcesso}-CCE-{ViewModel.SequenciaCorrecao}.pdf");
+                yield return Gerar(cce, TipoDocumento.CCE);
+            }
         }
 
-        public System.IO.FileInfo Gerar(System.IO.FileInfo path = null)
+        public FileInfo Gerar(string path, TipoDocumento TipoDocumento) => Gerar(new FileInfo(path), TipoDocumento);
+
+        public FileInfo Gerar(FileInfo path, TipoDocumento TipoDocumento)
         {
             foreach (var p in PDFFile.Document.Pages)
             {
@@ -259,7 +282,7 @@ namespace DanfeSharp
 
             AdicionarBloco<BlocoDestinatarioRemetente>();
 
-            if (ViewModel.TipoDocumento == TipoDocumento.DANFE)
+            if (TipoDocumento == TipoDocumento.DANFE)
             {
                 if (ViewModel.LocalRetirada != null && ViewModel.ExibirBlocoLocalRetirada)
                     AdicionarBloco<BlocoLocalRetirada>();
@@ -293,26 +316,31 @@ namespace DanfeSharp
                     if (tabela.CompletamenteDesenhada) break;
                 }
             }
-            else if (ViewModel.TipoDocumento == TipoDocumento.CCE)
+            else if (TipoDocumento == TipoDocumento.CCE)
             {
                 AdicionarBloco<BlocoCCE>();
                 CriarPagina();
             }
 
-            AdicionarMetadata();
+            var ass = System.Reflection.Assembly.GetEntryAssembly().GetName();
+            //metadata do PDF
+            var info = PdfDocument.Information;
+            info[new org.pdfclown.objects.PdfName("ChaveAcesso")] = ViewModel.ChaveAcesso;
+            info[new org.pdfclown.objects.PdfName("TipoDocumento")] = $"{TipoDocumento}";
+            info.CreationDate = ViewModel.DataHoraEmissao ?? DateTime.Now;
+            info.Creator = $"{ass.Name} {ass.Version}  - Disponível em https://github.com/zonaro/DanfeSharp";
+            info.Author = Autor;
+
+            info.Subject = TipoDocumento == TipoDocumento.DANFE ? "Documento Auxiliar da NFe" : "Carta de Correção Eletrônica";
+            info.Title = $"{TipoDocumento}";
 
             PreencherNumeroFolhas();
 
-            if (path != null)
-            {
-                PDFFile.Save(path.FullName, PDF.SerializationModeEnum.Incremental);
-            }
+            PDFFile.Save(path.FullName, PDF.SerializationModeEnum.Incremental);
 
             return path;
         }
 
         #endregion Public Methods
-
-
     }
 }

@@ -1,9 +1,9 @@
-﻿using DanfeSharp.Graphics;
+﻿using HESDanfe.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace DanfeSharp
+namespace HESDanfe
 {
     /// <summary>
     /// Linha flexível que posiciona e muda a largura dos seus elementos de forma proporcional.

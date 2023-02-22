@@ -1,10 +1,10 @@
-﻿using DanfeSharp.Graphics;
-using DanfeSharp.Modelo;
+﻿using HESDanfe.Graphics;
+using HESDanfe.Modelo;
 using org.pdfclown.documents.contents.xObjects;
 using System;
 using System.Drawing;
 
-namespace DanfeSharp
+namespace HESDanfe
 {
     internal class IdentificacaoEmitente : ElementoBase
     {

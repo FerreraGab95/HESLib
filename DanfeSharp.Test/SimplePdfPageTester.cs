@@ -1,4 +1,4 @@
-﻿using DanfeSharp.Graphics;
+﻿using HESDanfe.Graphics;
 using org.pdfclown.documents;
 using org.pdfclown.documents.contents.composition;
 using org.pdfclown.documents.contents.fonts;
@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DanfeSharp
+namespace HESDanfe
 {
     internal class SimplePdfPageTester : IDisposable
     {
@@ -32,7 +32,7 @@ namespace DanfeSharp
             Gfx = new Gfx(PrimitiveComposer);
         }
 
-        public void Save(String path)
+        public void Save(string path)
         {
             File.Save(path, SerializationModeEnum.Standard);
         }

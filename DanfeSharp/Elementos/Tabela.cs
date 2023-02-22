@@ -1,4 +1,4 @@
-﻿using DanfeSharp.Graphics;
+﻿using HESDanfe.Graphics;
 using org.pdfclown.documents.contents.colorSpaces;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DanfeSharp
+namespace HESDanfe
 {
     internal class Tabela : ElementoBase
     {

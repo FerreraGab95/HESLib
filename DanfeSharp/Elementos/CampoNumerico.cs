@@ -1,7 +1,7 @@
 ﻿using System;
-using DanfeSharp.Graphics;
+using HESDanfe.Graphics;
 
-namespace DanfeSharp.Elementos
+namespace HESDanfe.Elementos
 {
     /// <summary>
     /// Campo para valores numéricos.

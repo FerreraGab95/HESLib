@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Drawing;
 using System.Linq;
-using DanfeSharp.Blocos;
-using DanfeSharp.Graphics;
+using HESDanfe.Blocos;
+using HESDanfe.Graphics;
 using org.pdfclown.documents;
 using org.pdfclown.documents.contents.composition;
 
-namespace DanfeSharp
+namespace HESDanfe
 {
     internal class DanfePagina
     {
-        public DocumentoFiscal Danfe { get; private set; }
+        public DANFE Danfe { get; private set; }
         public Page PdfPage { get; private set; }
         public PrimitiveComposer PrimitiveComposer { get; private set; }
         public Gfx Gfx { get; private set; }
@@ -20,7 +20,7 @@ namespace DanfeSharp
         public RectangleF RetanguloCreditos { get; private set; }
         public RectangleF Retangulo { get; private set; }
 
-        public DanfePagina(DocumentoFiscal danfe)
+        public DanfePagina(DANFE danfe)
         {
             Danfe = danfe ?? throw new ArgumentNullException(nameof(danfe));
             PdfPage = new Page(Danfe.PdfDocument);
@@ -39,7 +39,7 @@ namespace DanfeSharp
             PdfPage.Size = new SizeF(Retangulo.Width.ToPoint(), Retangulo.Height.ToPoint());
         }
 
-        public void DesenharCreditos() => Gfx.DrawString("Impresso com DanfeSharp / Mantido por H&S", RetanguloCreditos, Danfe.EstiloPadrao.CriarFonteItalico(6), AlinhamentoHorizontal.Direita);
+        public void DesenharCreditos(string info) => Gfx.DrawString(info ?? "Impresso com H&S Technologies", RetanguloCreditos, Danfe.EstiloPadrao.CriarFonteItalico(6), AlinhamentoHorizontal.Direita);
 
         private void DesenharCanhoto()
         {
