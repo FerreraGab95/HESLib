@@ -318,16 +318,22 @@ namespace HESDanfe
         }
 
         /// <summary>
-        /// Gera um DANFE ou uma CCE em 
+        /// Gera um DANFE ou uma CCE em um arquivo PDF especificado em <paramref name="FilePath"/>
         /// </summary>
-        /// <param name="path"></param>
-        /// <param name="TipoDocumento"></param>
+        /// <param name="FilePath">Caminho do arquivo</param>
+        /// <param name="TipoDocumento">Tipo do documento (DANFE ou CCE)</param>
         /// <returns></returns>
-        public FileInfo Gerar(string path, TipoDocumento TipoDocumento) => Gerar(new FileInfo(path), TipoDocumento);
+        public FileInfo Gerar(string FilePath, TipoDocumento TipoDocumento) => Gerar(new FileInfo(FilePath), TipoDocumento);
 
-        public FileInfo Gerar(FileInfo path, TipoDocumento TipoDocumento)
+        /// <summary>
+        /// Gera um DANFE ou uma CCE em um arquivo PDF especificado em <paramref name="FilePath"/>
+        /// </summary>
+        /// <param name="FilePath">Caminho do arquivo</param>
+        /// <param name="TipoDocumento">Tipo do documento (DANFE ou CCE)</param>
+        /// <returns></returns>
+        public FileInfo Gerar(FileInfo FilePath, TipoDocumento TipoDocumento)
         {
-            path = new FileInfo(Path.Combine(path.Directory.FullName + Path.GetFileNameWithoutExtension(path.FullName) + ".pdf"));
+            FilePath = new FileInfo(Path.Combine(FilePath.Directory.FullName + Path.GetFileNameWithoutExtension(FilePath.FullName) + ".pdf"));
 
             foreach (var p in PDFFile.Document.Pages)
             {
@@ -407,9 +413,9 @@ namespace HESDanfe
 
             PreencherNumeroFolhas();
 
-            PDFFile.Save(path.FullName, PDF.SerializationModeEnum.Incremental);
+            PDFFile.Save(FilePath.FullName, PDF.SerializationModeEnum.Incremental);
 
-            return path;
+            return FilePath;
         }
 
         #endregion Public Methods
