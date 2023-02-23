@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using HESDanfe.Blocos;
 using HESDanfe.Modelo;
 using org.pdfclown.documents;
@@ -79,6 +78,8 @@ namespace HESDanfe
         internal List<DanfePagina> Paginas { get; private set; }
         internal Document PdfDocument => PDFFile.Document;
 
+        internal PDF.File PDFFile { get; private set; }
+
         #endregion Internal Properties
 
         #region Internal Methods
@@ -151,22 +152,44 @@ namespace HESDanfe
 
         #region Public Properties
 
-        public string Autor { get; set; } = Assembly.GetEntryAssembly()?.GetName()?.Name ?? "H&S Technologies";
+        /// <summary>
+        /// Chave de licença para customização dos <see cref="Creditos"/>.
+        /// </summary>
+        public static string LicenseKey { get; set; }
 
+        /// <summary>
+        /// Empresa responsavel por gerar o DANFE
+        /// </summary>
+        public string Autor { get; set; } = Utils.GetCompanyName();
+
+        /// <summary>
+        /// Nota rodapé adicionada em cada folha do DANFE
+        /// </summary>
         public string Creditos { get; set; }
 
-        public static string LicenseKey { get; set; }
-        public PDF.File PDFFile { get; private set; }
+        /// <summary>
+        /// Informações extraidas do XML da nota fiscal e da carta de correção
+        /// </summary>
         public DANFEViewModel ViewModel { get; set; }
 
         #endregion Public Properties
 
         #region Public Methods
 
+        /// <inheritdoc cref="GerarPDF(string, string, string, DirectoryInfo)"/>
         public static IEnumerable<FileInfo> GerarPDF(string PathNFe, string PathCCe, DirectoryInfo outputPath) => GerarPDF(PathNFe, PathCCe, null, outputPath);
 
+        /// <inheritdoc cref="GerarPDF(string, string, string, DirectoryInfo)"/>
         public static FileInfo GerarPDF(string PathNFe, DirectoryInfo outputPath) => GerarPDF(PathNFe, null, null, outputPath).FirstOrDefault();
 
+        /// <summary>
+        /// Gera um DANFE em PDF com as informações fornecidas
+        /// </summary>
+        /// <param name="PathNFe">Caminho do XML da nota fiscal</param>
+        /// <param name="PathCCe">Caminho do XML da carta de correção</param>
+        /// <param name="outputPath">Caminho de saída dos arquivos</param>
+        /// <param name="PathLogo">Caminho com o logo da empresa responsavel pela NFe</param>
+        /// <returns></returns>
         public static IEnumerable<FileInfo> GerarPDF(string PathNFe, string PathCCe, string PathLogo, DirectoryInfo outputPath)
         {
             using (var d = new DANFE(PathNFe, PathCCe, PathLogo))
@@ -175,6 +198,10 @@ namespace HESDanfe
             }
         }
 
+        /// <summary>
+        /// Adiciona um logo JPG ou PDF ao DANFE.
+        /// </summary>
+        /// <param name="logoPath">Caminho para o PDF ou JPG</param>
         public void AdicionarLogo(string logoPath)
         {
             if (!string.IsNullOrWhiteSpace(logoPath) && File.Exists(logoPath))
@@ -190,6 +217,12 @@ namespace HESDanfe
             }
         }
 
+        /// <summary>
+        /// Adiciona um logo a NFe
+        /// </summary>
+        /// <param name="stream"></param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="InvalidOperationException"></exception>
         public void AdicionarLogoImagem(Stream stream)
         {
             if (stream == null) throw new ArgumentNullException(nameof(stream));
@@ -197,6 +230,7 @@ namespace HESDanfe
             _LogoObject = img.ToXObject(PdfDocument);
         }
 
+        /// <inheritdoc cref="AdicionarLogoImagem(Stream)"/>
         public void AdicionarLogoImagem(string path)
         {
             if (string.IsNullOrWhiteSpace(path)) throw new ArgumentException(nameof(path));
@@ -207,6 +241,7 @@ namespace HESDanfe
             }
         }
 
+        /// <inheritdoc cref="AdicionarLogoImagem(Stream)"/>
         public void AdicionarLogoPdf(Stream stream)
         {
             if (stream == null) throw new ArgumentNullException(nameof(stream));
@@ -217,6 +252,7 @@ namespace HESDanfe
             }
         }
 
+        /// <inheritdoc cref="AdicionarLogoImagem(Stream)"/>
         public void AdicionarLogoPdf(string path)
         {
             if (string.IsNullOrWhiteSpace(path)) throw new ArgumentException(nameof(path));
@@ -226,7 +262,11 @@ namespace HESDanfe
                 AdicionarLogoPdf(fs);
             }
         }
-
+        /// <summary>
+        /// Copia os bytes do PDF para um outro Stream
+        /// </summary>
+        /// <param name="stream"></param>
+        /// <exception cref="ArgumentNullException"></exception>
         public void CopiarParaStream(Stream stream)
         {
             if (stream == null) throw new ArgumentNullException(nameof(stream));
@@ -236,6 +276,27 @@ namespace HESDanfe
 
         public void Dispose() => Dispose(true);
 
+
+        /// <summary>
+        /// Gera um nome padronizado para o DANFE
+        /// </summary>
+        /// <param name="ChaveNFe"></param>
+        /// <returns></returns>
+        public static string GerarNomePdfDANFE(string ChaveNFe) => $"DANFE-{ChaveNFe}.pdf";
+        /// <summary>
+        /// Gera um nome padronizado para CCE
+        /// </summary>
+        /// <param name="ChaveNFe"></param>
+        /// <param name="SequenciaEvento"></param>
+        /// <returns></returns>
+        public static string GerarNomePdfCCE(string ChaveNFe, int SequenciaEvento) => $"DANFE-{ChaveNFe}-CCE-{SequenciaEvento}.pdf";
+
+        /// <summary>
+        /// Gera os PDFs no diretório especificado em <paramref name="path"/>
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public IEnumerable<FileInfo> Gerar(DirectoryInfo path)
         {
             if (path == null) throw new ArgumentNullException(nameof(path));
@@ -245,13 +306,13 @@ namespace HESDanfe
                 path.Create();
             }
 
-            var nfe = Path.Combine(path.FullName, $"DANFE-{ViewModel.ChaveAcesso}.pdf");
+            var nfe = Path.Combine(path.FullName, GerarNomePdfDANFE(ViewModel.ChaveAcesso));
 
             yield return Gerar(nfe, TipoDocumento.DANFE);
 
             if (!string.IsNullOrWhiteSpace(ViewModel.TextoCorrecao) && ViewModel.SequenciaCorrecao > 0)
             {
-                var cce = Path.Combine(path.FullName, $"DANFE-{ViewModel.ChaveAcesso}-CCE-{ViewModel.SequenciaCorrecao}.pdf");
+                var cce = Path.Combine(path.FullName, GerarNomePdfCCE(ViewModel.ChaveAcesso, ViewModel.SequenciaCorrecao));
                 yield return Gerar(cce, TipoDocumento.CCE);
             }
         }
@@ -325,7 +386,7 @@ namespace HESDanfe
             }
 
             //metadata do PDF
-            var ass = Assembly.GetEntryAssembly()?.GetName() ?? Assembly.GetExecutingAssembly()?.GetName();
+            var ass = Utils.GetAssemblyName();
             var info = PdfDocument.Information;
             info[new org.pdfclown.objects.PdfName("ChaveAcesso")] = ViewModel.ChaveAcesso;
             info[new org.pdfclown.objects.PdfName("TipoDocumento")] = $"{TipoDocumento}";
@@ -345,7 +406,4 @@ namespace HESDanfe
 
         #endregion Public Methods
     }
-
-
-
 }

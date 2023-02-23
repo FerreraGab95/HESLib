@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -7,6 +9,16 @@ namespace HESDanfe
 {
     internal static class Utils
     {
+
+        internal static AssemblyName GetAssemblyName() => Assembly.GetEntryAssembly()?.GetName() ?? Assembly.GetExecutingAssembly()?.GetName();
+        internal static string GetCompanyName()
+        {
+            var versionInfo = FileVersionInfo.GetVersionInfo((Assembly.GetEntryAssembly() ?? Assembly.GetExecutingAssembly()).Location);
+            var c = versionInfo?.CompanyName;
+            if (string.IsNullOrWhiteSpace(c)) c = "H&S Technologies";
+            return c;
+        }
+
         internal static string GenerateLicenseKey(this string productIdentifier)
         {
             Encoder enc = Encoding.Unicode.GetEncoder();
