@@ -22,7 +22,13 @@ namespace HESDanfe
             p.DesenharBlocos(Paginas.Count == 1);
 
             if (LicenseKey != Utils.GenerateLicenseKey("hes.com.br"))
-                p.DesenharCreditos(null);
+            {
+                p.DesenharCreditos("Impresso com H&S Technologies - hes.com.br");
+            }
+            else if (!string.IsNullOrWhiteSpace(Creditos))
+            {
+                p.DesenharCreditos(Creditos);
+            }
 
             // Ambiente de homologação
             // 7. O DANFE emitido para representar NF-e cujo uso foi autorizado em ambiente de
@@ -145,13 +151,11 @@ namespace HESDanfe
 
         #region Public Properties
 
-        public string Autor { get; set; } = Assembly.GetEntryAssembly()?.GetName()?.Name ?? "H&S";
+        public string Autor { get; set; } = Assembly.GetEntryAssembly()?.GetName()?.Name ?? "H&S Technologies";
 
-        public static string LicenseKey
-        {
-            get; set;
-        }
+        public string Creditos { get; set; }
 
+        public static string LicenseKey { get; set; }
         public PDF.File PDFFile { get; private set; }
         public DANFEViewModel ViewModel { get; set; }
 

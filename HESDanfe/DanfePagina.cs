@@ -39,7 +39,7 @@ namespace HESDanfe
             PdfPage.Size = new SizeF(Retangulo.Width.ToPoint(), Retangulo.Height.ToPoint());
         }
 
-        public void DesenharCreditos(string info) => Gfx.DrawString(info ?? "Impresso com H&S Technologies", RetanguloCreditos, Danfe.EstiloPadrao.CriarFonteItalico(6), AlinhamentoHorizontal.Direita);
+        public void DesenharCreditos(string info) => Gfx.DrawString(info, RetanguloCreditos, Danfe.EstiloPadrao.CriarFonteItalico(6), AlinhamentoHorizontal.Direita);
 
         private void DesenharCanhoto()
         {
