@@ -16,7 +16,7 @@ namespace HESDanfe.Esquemas
         public string Text { get; set; }
 
         [XmlAttribute(AttributeName = "versao")]
-        public double Versao { get; set; }
+        public string Versao { get; set; }
 
         [XmlElement(ElementName = "xCondUso")]
         public string XCondUso { get; set; }
@@ -39,7 +39,7 @@ namespace HESDanfe.Esquemas
         public string Text { get; set; }
 
         [XmlAttribute(AttributeName = "versao")]
-        public double Versao { get; set; }
+        public string Versao { get; set; }
 
         [XmlAttribute(AttributeName = "xmlns")]
         public string Xmlns { get; set; }
@@ -53,10 +53,10 @@ namespace HESDanfe.Esquemas
         #region Public Properties
 
         [XmlElement(ElementName = "chNFe")]
-        public double ChNFe { get; set; }
+        public string ChNFe { get; set; }
 
         [XmlElement(ElementName = "CNPJ")]
-        public double CNPJ { get; set; }
+        public string CNPJ { get; set; }
 
         [XmlElement(ElementName = "CNPJDest")]
         public string CNPJDest { get; set; }
@@ -80,7 +80,7 @@ namespace HESDanfe.Esquemas
         public string Id { get; set; }
 
         [XmlElement(ElementName = "nProt")]
-        public double NProt { get; set; }
+        public string NProt { get; set; }
 
         [XmlElement(ElementName = "nSeqEvento")]
         public int NSeqEvento { get; set; }
@@ -98,7 +98,7 @@ namespace HESDanfe.Esquemas
         public string VerAplic { get; set; }
 
         [XmlElement(ElementName = "verEvento")]
-        public double VerEvento { get; set; }
+        public string VerEvento { get; set; }
 
         [XmlElement(ElementName = "xEvento")]
         public string XEvento { get; set; }
@@ -127,7 +127,7 @@ namespace HESDanfe.Esquemas
         public string Text { get; set; }
 
         [XmlAttribute(AttributeName = "versao")]
-        public double Versao { get; set; }
+        public string Versao { get; set; }
 
         [XmlAttribute(AttributeName = "xmlns")]
         public string Xmlns { get; set; }
@@ -148,7 +148,7 @@ namespace HESDanfe.Esquemas
         public string Text { get; set; }
 
         [XmlAttribute(AttributeName = "versao")]
-        public double Versao { get; set; }
+        public string Versao { get; set; }
 
         #endregion Public Properties
     }

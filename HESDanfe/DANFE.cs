@@ -21,7 +21,7 @@ namespace HESDanfe
             Paginas.Add(p);
             p.DesenharBlocos(Paginas.Count == 1);
 
-            if (LicenseKey != "br.com.hes")
+            if (LicenseKey != Utils.GenerateLicenseKey("hes.com.br"))
                 p.DesenharCreditos(null);
 
             // Ambiente de homologação
@@ -118,23 +118,23 @@ namespace HESDanfe
 
         #region Public Constructors
 
-        public DANFE(string xmlNFePath, string xmlCCePath, string logoPath) : this(DocumentoFiscalViewModel.CriarDeArquivoXml(xmlNFePath, xmlCCePath), logoPath)
+        public DANFE(string xmlNFePath, string xmlCCePath, string logoPath) : this(DANFEViewModel.CriarDeArquivoXml(xmlNFePath, xmlCCePath), logoPath)
         {
         }
 
-        public DANFE(string xmlNFePath, string logoPath) : this(DocumentoFiscalViewModel.CriarDeArquivoXml(xmlNFePath, null), logoPath)
+        public DANFE(string xmlNFePath, string logoPath) : this(DANFEViewModel.CriarDeArquivoXml(xmlNFePath, null), logoPath)
         {
         }
 
-        public DANFE(string xmlNFePath) : this(DocumentoFiscalViewModel.CriarDeArquivoXml(xmlNFePath, null), null)
+        public DANFE(string xmlNFePath) : this(DANFEViewModel.CriarDeArquivoXml(xmlNFePath, null), null)
         {
         }
 
-        public DANFE(DocumentoFiscalViewModel viewModel) : this(viewModel, null)
+        public DANFE(DANFEViewModel viewModel) : this(viewModel, null)
         {
         }
 
-        public DANFE(DocumentoFiscalViewModel viewModel, string logoPath)
+        public DANFE(DANFEViewModel viewModel, string logoPath)
         {
             ViewModel = viewModel ?? throw new ArgumentNullException(nameof(viewModel));
             PDFFile = new PDF.File();
@@ -145,15 +145,15 @@ namespace HESDanfe
 
         #region Public Properties
 
-        public string Autor { get; set; } = Assembly.GetEntryAssembly().GetName().Name;
+        public string Autor { get; set; } = Assembly.GetEntryAssembly()?.GetName()?.Name ?? "H&S";
 
         public static string LicenseKey
         {
-            internal get; set;
+            get; set;
         }
 
         public PDF.File PDFFile { get; private set; }
-        public DocumentoFiscalViewModel ViewModel { get; set; }
+        public DANFEViewModel ViewModel { get; set; }
 
         #endregion Public Properties
 
@@ -189,9 +189,7 @@ namespace HESDanfe
         public void AdicionarLogoImagem(Stream stream)
         {
             if (stream == null) throw new ArgumentNullException(nameof(stream));
-
-            var img = org.pdfclown.documents.contents.entities.Image.Get(stream);
-            if (img == null) throw new InvalidOperationException("O logotipo não pode ser carregado, certifique-se que a imagem esteja no formato JPEG não progressivo.");
+            var img = org.pdfclown.documents.contents.entities.Image.Get(stream) ?? throw new InvalidOperationException("O logotipo não pode ser carregado, certifique-se que a imagem esteja no formato JPEG não progressivo.");
             _LogoObject = img.ToXObject(PdfDocument);
         }
 
@@ -322,13 +320,13 @@ namespace HESDanfe
                 CriarPagina();
             }
 
-            var ass = System.Reflection.Assembly.GetEntryAssembly().GetName();
             //metadata do PDF
+            var ass = Assembly.GetEntryAssembly()?.GetName() ?? Assembly.GetExecutingAssembly()?.GetName();
             var info = PdfDocument.Information;
             info[new org.pdfclown.objects.PdfName("ChaveAcesso")] = ViewModel.ChaveAcesso;
             info[new org.pdfclown.objects.PdfName("TipoDocumento")] = $"{TipoDocumento}";
             info.CreationDate = ViewModel.DataHoraEmissao ?? DateTime.Now;
-            info.Creator = $"{ass.Name} {ass.Version}  - Disponível em https://github.com/zonaro/HESDanfe";
+            info.Creator = $"{ass?.Name} {ass?.Version} - Disponível em https://github.com/zonaro/HESDanfe";
             info.Author = Autor;
 
             info.Subject = TipoDocumento == TipoDocumento.DANFE ? "Documento Auxiliar da NFe" : "Carta de Correção Eletrônica";
@@ -343,4 +341,7 @@ namespace HESDanfe
 
         #endregion Public Methods
     }
+
+
+
 }

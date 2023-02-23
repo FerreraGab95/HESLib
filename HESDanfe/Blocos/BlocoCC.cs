@@ -1,4 +1,5 @@
-﻿using HESDanfe.Graphics;
+﻿using System;
+using HESDanfe.Graphics;
 using HESDanfe.Modelo;
 
 namespace HESDanfe.Blocos
@@ -22,7 +23,7 @@ namespace HESDanfe.Blocos
 
         #region Public Constructors
 
-        public BlocoCCE(DocumentoFiscalViewModel viewModel, Estilo estilo) : base(viewModel, estilo)
+        public BlocoCCE(DANFEViewModel viewModel, Estilo estilo) : base(viewModel, estilo)
         {
 
             var pretext = new FlexibleLine() { Height = 25 }
@@ -36,9 +37,9 @@ namespace HESDanfe.Blocos
             .ComLarguras(CorrecaoLarguraPorcentagem);
 
             var postext = new FlexibleLine() { Height = 35 }
-          .ComElemento(new CampoMultilinha("", "{outro texto}", estilo))
-          .ComElemento(new CampoMultilinha("Reservado ao Fisco", ViewModel.TextoAdicionalFisco, estilo))
-          .ComLarguras(75, 25);
+            .ComElemento(new CampoMultilinha("", $"PROTOCOLO: {viewModel.ProtocoloCorrecao}{Environment.NewLine}DATA/HORA: {viewModel.DataHoraCorrecao:dd/MM/yyyy HH:mm:ss}{Environment.NewLine}EVENTO: {viewModel.SequenciaCorrecao}", estilo))
+            .ComElemento(new CampoMultilinha("Reservado ao Fisco", ViewModel.TextoAdicionalFisco, estilo))
+            .ComLarguras(75, 25);
 
             MainVerticalStack.Add(pretext, _Linha, postext);
 

@@ -4,7 +4,7 @@ namespace HESDanfe.Blocos
 {
     class BlocoCalculoImposto : BlocoBase
     {
-        public BlocoCalculoImposto(DocumentoFiscalViewModel viewModel, Estilo estilo) : base(viewModel, estilo)
+        public BlocoCalculoImposto(DANFEViewModel viewModel, Estilo estilo) : base(viewModel, estilo)
         {
             var m = ViewModel.CalculoImposto;
 

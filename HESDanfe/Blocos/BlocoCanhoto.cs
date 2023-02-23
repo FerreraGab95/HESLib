@@ -8,7 +8,7 @@ namespace HESDanfe.Blocos
         public const float TextoRecebimentoAltura = 10;
         public const float AlturaLinha2 = 9;
 
-        public BlocoCanhoto(DocumentoFiscalViewModel viewModel, Estilo estilo) : base(viewModel, estilo)
+        public BlocoCanhoto(DANFEViewModel viewModel, Estilo estilo) : base(viewModel, estilo)
         {
             var textoRecebimento = new TextoSimples(estilo, viewModel.TextoRecebimento) { Height = TextoRecebimentoAltura, TamanhoFonte = 8 };
             var nfe = new NumeroNfSerie(estilo, viewModel.NfNumero.ToString(Formatador.FormatoNumeroNF), viewModel.NfSerie.ToString()) { Height = AlturaLinha2 + TextoRecebimentoAltura, Width = 30 };

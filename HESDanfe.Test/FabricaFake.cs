@@ -62,9 +62,9 @@ namespace HESDanfe.Test
             };
         }
 
-        public static DocumentoFiscalViewModel DanfeViewModel_1()
+        public static DANFEViewModel DanfeViewModel_1()
         {
-            var m = new DocumentoFiscalViewModel()
+            var m = new DANFEViewModel()
             {
                 NfNumero = 888888888,
                 NfSerie = 888,

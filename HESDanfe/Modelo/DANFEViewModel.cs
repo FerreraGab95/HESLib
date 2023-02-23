@@ -14,7 +14,7 @@ namespace HESDanfe.Modelo
     /// <summary>
     /// Modelo de dados utilizado para o DANFE ou CC.
     /// </summary>
-    public class DocumentoFiscalViewModel
+    public class DANFEViewModel
 
     {
         #region Private Fields
@@ -93,7 +93,7 @@ namespace HESDanfe.Modelo
             return m;
         }
 
-        private static DocumentoFiscalViewModel CriarDeArquivoXmlInternal(TextReader nfeReader, TextReader cceReader = null)
+        private static DANFEViewModel CriarDeArquivoXmlInternal(TextReader nfeReader, TextReader cceReader = null)
         {
             ProcNFe nfe = null;
             ProcEventoNFe cce = null;
@@ -146,7 +146,7 @@ namespace HESDanfe.Modelo
             vICMSUFRemet = i.vICMSUFRemet
         };
 
-        internal static void ExtrairDatas(DocumentoFiscalViewModel model, InfNFe infNfe)
+        internal static void ExtrairDatas(DANFEViewModel model, InfNFe infNfe)
         {
             var ide = infNfe.ide;
 
@@ -182,7 +182,7 @@ namespace HESDanfe.Modelo
 
         #region Public Constructors
 
-        public DocumentoFiscalViewModel()
+        public DANFEViewModel()
         {
             QuantidadeCanhotos = 1;
             Margem = 4;
@@ -229,6 +229,8 @@ namespace HESDanfe.Modelo
         /// Tag xCont
         /// </summary>
         public string Contrato { get; set; }
+
+        public DateTime? DataHoraCorrecao { get; set; }
 
         /// <summary>
         /// <para>Data e Hora de emissão do Documento Fiscal</para>
@@ -376,6 +378,8 @@ namespace HESDanfe.Modelo
         /// </summary>
         public string ProtocoloAutorizacao { get; set; }
 
+        public string ProtocoloCorrecao { get; set; }
+
         /// <summary>
         /// Quantidade de canhotos a serem impressos.
         /// </summary>
@@ -390,6 +394,8 @@ namespace HESDanfe.Modelo
                     throw new ArgumentOutOfRangeException("A quantidade de canhotos deve de 0 a 2.");
             }
         }
+
+        public int SequenciaCorrecao { get; set; }
 
         public virtual string TextoAdicional
         {
@@ -476,7 +482,6 @@ namespace HESDanfe.Modelo
 
         public string TextoCondicaoDeUso { get; internal set; }
         public string TextoCorrecao { get; set; }
-        public int SequenciaCorrecao { get; set; } = 0;
         public virtual string TextoRecebimento => $"Recebemos de {Emitente.RazaoSocial} os produtos e/ou serviços constantes na Nota Fiscal Eletrônica indicada {(Orientacao == Orientacao.Retrato ? "abaixo" : "ao lado")}. Emissão: {DataHoraEmissao.Formatar()} Valor Total: R$ {CalculoImposto.ValorTotalNota.Formatar()} Destinatário: {Destinatario.RazaoSocial}";
 
         /// <summary>
@@ -504,9 +509,9 @@ namespace HESDanfe.Modelo
 
         #region Public Methods
 
-        public static DocumentoFiscalViewModel Create(ProcNFe procNfe, ProcEventoNFe procEventoNFe = null)
+        public static DANFEViewModel Create(ProcNFe procNfe, ProcEventoNFe procEventoNFe = null)
         {
-            var model = new DocumentoFiscalViewModel();
+            var model = new DANFEViewModel();
 
             var infNfe = procNfe.NFe.infNFe;
             var ide = infNfe.ide;
@@ -693,11 +698,11 @@ namespace HESDanfe.Modelo
             //implementação da carta de correção
             if (procEventoNFe != null)
             {
-                var inf = procEventoNFe.Evento?.InfEvento;
+                model.SequenciaCorrecao = procEventoNFe.Evento?.InfEvento?.NSeqEvento ?? 0;
+                model.ProtocoloCorrecao = procEventoNFe.RetEvento?.InfEvento?.NProt;
+                model.DataHoraCorrecao = procEventoNFe.Evento?.InfEvento?.DhEvento;
 
-                model.SequenciaCorrecao = inf.NSeqEvento;
-
-                var det = inf?.DetEvento;
+                var det = procEventoNFe.Evento?.InfEvento?.DetEvento;
                 if (det != null)
                 {
                     model.TextoCondicaoDeUso = det.XCondUso?.Replace(";", Environment.NewLine);
@@ -713,20 +718,20 @@ namespace HESDanfe.Modelo
         /// </summary>
         /// <param name="caminhoNFe"></param>
         /// <returns></returns>
-        public static DocumentoFiscalViewModel CriarDeArquivoXml(string caminhoNFe, string caminhoCCe)
+        public static DANFEViewModel CriarDeArquivoXml(string caminhoNFe, string caminhoCCe)
         {
             using (var sr = new StreamReader(caminhoNFe, true))
             {
-                if (string.IsNullOrWhiteSpace(caminhoCCe))
-                {
-                    return CriarDeArquivoXmlInternal(sr);
-                }
-                else
+                if (!string.IsNullOrWhiteSpace(caminhoCCe) && File.Exists(caminhoCCe))
                 {
                     using (var sr2 = new StreamReader(caminhoCCe, true))
                     {
                         return CriarDeArquivoXmlInternal(sr, sr2);
                     }
+                }
+                else
+                {
+                    return CriarDeArquivoXmlInternal(sr);
                 }
             }
         }
@@ -736,7 +741,7 @@ namespace HESDanfe.Modelo
         /// </summary>
         /// <param name="nfeStream"></param>
         /// <returns>Modelo</returns>
-        public static DocumentoFiscalViewModel CriarDeArquivoXml(Stream nfeStream, Stream cceStream = null)
+        public static DANFEViewModel CriarDeArquivoXml(Stream nfeStream, Stream cceStream = null)
         {
             if (nfeStream == null) throw new ArgumentNullException(nameof(nfeStream));
 
@@ -759,7 +764,7 @@ namespace HESDanfe.Modelo
         /// <summary>
         /// Cria o modelo a partir de uma string xml.
         /// </summary>
-        public static DocumentoFiscalViewModel CriarDeStringXml(string nfeXML, string cceXML = null)
+        public static DANFEViewModel CriarDeStringXml(string nfeXML, string cceXML = null)
         {
             if (nfeXML == null) throw new ArgumentNullException(nameof(nfeXML));
 

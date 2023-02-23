@@ -8,10 +8,10 @@ namespace HESDanfe
 {
     internal class IdentificacaoEmitente : ElementoBase
     {
-        public DocumentoFiscalViewModel ViewModel { get; private set; }
+        public DANFEViewModel ViewModel { get; private set; }
         public XObject Logo { get;  set; }
 
-        public IdentificacaoEmitente(Estilo estilo, DocumentoFiscalViewModel viewModel) : base(estilo)
+        public IdentificacaoEmitente(Estilo estilo, DANFEViewModel viewModel) : base(estilo)
         {
             ViewModel = viewModel;
             Logo = null;

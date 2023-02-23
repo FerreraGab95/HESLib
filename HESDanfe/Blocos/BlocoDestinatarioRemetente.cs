@@ -9,7 +9,7 @@ namespace HESDanfe.Blocos
 {
     internal class BlocoDestinatarioRemetente : BlocoBase
     {
-        public BlocoDestinatarioRemetente(DocumentoFiscalViewModel viewModel, Estilo estilo) : base(viewModel, estilo)
+        public BlocoDestinatarioRemetente(DANFEViewModel viewModel, Estilo estilo) : base(viewModel, estilo)
         {
             var destinatario = viewModel.Destinatario;
 

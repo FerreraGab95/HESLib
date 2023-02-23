@@ -11,7 +11,7 @@ namespace HESDanfe.Blocos
     {
         public LocalEntregaRetiradaViewModel Model { get; private set; }
 
-        public BlocoLocalEntregaRetirada(DocumentoFiscalViewModel viewModel, Estilo estilo, LocalEntregaRetiradaViewModel localModel) : base(viewModel, estilo)
+        public BlocoLocalEntregaRetirada(DANFEViewModel viewModel, Estilo estilo, LocalEntregaRetiradaViewModel localModel) : base(viewModel, estilo)
         {
             Model = localModel ?? throw new ArgumentNullException(nameof(localModel));
             

@@ -12,7 +12,7 @@ namespace HESDanfe.Blocos
         NumeroNfSerie2 ifdNfe;
         IdentificacaoEmitente idEmitente;
 
-        public BlocoIdentificacaoEmitente(DocumentoFiscalViewModel viewModel, Estilo estilo) : base(viewModel, estilo)
+        public BlocoIdentificacaoEmitente(DANFEViewModel viewModel, Estilo estilo) : base(viewModel, estilo)
         {
 
             var textoConsulta = new TextoSimples(Estilo, Strings.TextoConsulta)
