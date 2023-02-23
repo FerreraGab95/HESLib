@@ -8,13 +8,38 @@ namespace HESDanfe.Test
     [TestClass]
     public class DanfeXmlTests
     {
-        public readonly string OutputDirectory = Path.Combine("Output", "DeXml");
+        #region Public Fields
+
         public readonly string InputXmlDirectoryPrefix = Path.Combine("Xml", "NFe");
+        public readonly string OutputDirectory = Path.Combine("Output", "DeXml");
+
+        #endregion Public Fields
+
+        #region Public Constructors
 
         public DanfeXmlTests()
         {
             if (!Directory.Exists(OutputDirectory))
                 Directory.CreateDirectory(OutputDirectory);
+        }
+
+        #endregion Public Constructors
+
+        #region Public Methods
+
+        [TestMethod]
+        public void Teste()
+        {
+            DANFE.LicenseKey = "147A-6E0A-D208-792D-47A7-FCB1-A8B1";
+
+            var nfe = @"C:\svn\EnviaSADWeb\Envia\Uploads\XmlDistribuicao\35210701818337000173550010000618721000618732-procNFe.xml";
+            var cce = @"C:/svn/EnviaSADWeb/Envia/Uploads/XmlDistribuicaoEventos/35230204667427000107550000234567891234567909_110110_01-proceventonfe.xml";
+            var logo = @"C:\Users\H&S\Pictures\logo_envia_large.jpg";
+
+            foreach (var pdf in DANFE.GerarPDF(nfe, cce, logo, new DirectoryInfo(@"C:\Teste\testeDANFE")))
+            {
+                Debug.WriteLine(pdf, "PDF Gerado");
+            }
         }
 
         public void TestXml(string xmlPath, string ccePath = null)
@@ -28,7 +53,6 @@ namespace HESDanfe.Test
             using (DANFE danfe = new DANFE(model))
             {
                 danfe.Gerar(new FileInfo(outPdfFilePath), TipoDocumento.DANFE);
-
             }
         }
 
@@ -47,26 +71,6 @@ namespace HESDanfe.Test
         [TestMethod]
         public void v4_ComLocalRetirada() => TestXml("v4.00/v4_ComLocalRetirada.xml");
 
-        [TestMethod]
-        public void Teste()
-        {
-            DANFE.LicenseKey = "147A-6E0A-D208-792D-47A7-FCB1-A8B1";
-
-            var nfe = @"C:\svn\EnviaSADWeb\Envia\Uploads\XmlDistribuicao\35210701818337000173550010000618721000618732-procNFe.xml";
-            var cce = @"C:/svn/EnviaSADWeb/Envia/Uploads/XmlDistribuicaoEventos/35230204667427000107550000234567891234567909_110110_01-proceventonfe.xml";
-            var logo = @"C:\Users\H&S\Pictures\logo_envia_large.jpg";
-
-
-            using (var d = new DANFE(nfe, cce, logo))
-            {
-                foreach (var pdf in d.Gerar(new DirectoryInfo(@"C:\Teste\testeDANFE")))
-                {
-                    Debug.WriteLine(pdf, "PDF Gerado");
-
-                }
-
-            }
-
-        }
+        #endregion Public Methods
     }
 }
