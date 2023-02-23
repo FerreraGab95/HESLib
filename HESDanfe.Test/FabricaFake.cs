@@ -1,11 +1,7 @@
-﻿using HESDanfe.Modelo;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using HESDanfe.Modelo;
 
 namespace HESDanfe.Test
 {
@@ -125,7 +121,7 @@ namespace HESDanfe.Test
                     Ie = "12334",
                     EnderecoUf = "RS",
                     PesoLiquido = 456.7794,
-                    Marca = "DanfeSharp",
+                    Marca = "HESDanfe",
                     EnderecoNumero = "101",
                     ModalidadeFrete = 4,
                     PesoBruto = 101.1234
@@ -163,7 +159,7 @@ namespace HESDanfe.Test
                     Ncm = new string('8', 8)
                 };
 
-                if(i % 10 == 0)
+                if (i % 10 == 0)
                 {
                     p.Descricao = string.Concat(Enumerable.Repeat(p.Descricao + " ", 15));
                 }
