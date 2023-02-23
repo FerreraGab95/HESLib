@@ -506,7 +506,7 @@ namespace HESDanfe.Modelo
 
         public static DocumentoFiscalViewModel Create(ProcNFe procNfe, ProcEventoNFe procEventoNFe = null)
         {
-            DocumentoFiscalViewModel model = new DocumentoFiscalViewModel();
+            var model = new DocumentoFiscalViewModel();
 
             var infNfe = procNfe.NFe.infNFe;
             var ide = infNfe.ide;
@@ -561,7 +561,7 @@ namespace HESDanfe.Modelo
 
             foreach (var det in infNfe.det)
             {
-                ProdutoViewModel produto = new ProdutoViewModel
+                var produto = new ProdutoViewModel
                 {
                     Codigo = det.prod.cProd,
                     Descricao = det.prod.xProd,
