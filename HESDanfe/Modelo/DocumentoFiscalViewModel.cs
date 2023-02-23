@@ -774,8 +774,8 @@ namespace HESDanfe.Modelo
                 }
                 else
                 {
+                    return CriarDeArquivoXmlInternal(sr);
                 }
-                return CriarDeArquivoXmlInternal(sr);
             }
         }
 
