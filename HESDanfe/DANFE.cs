@@ -317,10 +317,18 @@ namespace HESDanfe
             }
         }
 
+        /// <summary>
+        /// Gera um DANFE ou uma CCE em 
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="TipoDocumento"></param>
+        /// <returns></returns>
         public FileInfo Gerar(string path, TipoDocumento TipoDocumento) => Gerar(new FileInfo(path), TipoDocumento);
 
         public FileInfo Gerar(FileInfo path, TipoDocumento TipoDocumento)
         {
+            path = new FileInfo(Path.Combine(path.Directory.FullName + Path.GetFileNameWithoutExtension(path.FullName) + ".pdf"));
+
             foreach (var p in PDFFile.Document.Pages)
             {
                 p.Delete();
