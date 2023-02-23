@@ -176,6 +176,21 @@ namespace HESDanfe
 
         #region Public Methods
 
+        /// <summary>
+        /// Gera um nome padronizado para CCE
+        /// </summary>
+        /// <param name="ChaveNFe"></param>
+        /// <param name="SequenciaEvento"></param>
+        /// <returns></returns>
+        public static string GerarNomePdfCCE(string ChaveNFe, int SequenciaEvento) => $"DANFE-{ChaveNFe}-CCE-{SequenciaEvento}.pdf";
+
+        /// <summary>
+        /// Gera um nome padronizado para o DANFE
+        /// </summary>
+        /// <param name="ChaveNFe"></param>
+        /// <returns></returns>
+        public static string GerarNomePdfDANFE(string ChaveNFe) => $"DANFE-{ChaveNFe}.pdf";
+
         /// <inheritdoc cref="GerarPDF(string, string, string, DirectoryInfo)"/>
         public static IEnumerable<FileInfo> GerarPDF(string PathNFe, string PathCCe, DirectoryInfo outputPath) => GerarPDF(PathNFe, PathCCe, null, outputPath);
 
@@ -189,7 +204,7 @@ namespace HESDanfe
         /// <param name="PathCCe">Caminho do XML da carta de correção</param>
         /// <param name="outputPath">Caminho de saída dos arquivos</param>
         /// <param name="PathLogo">Caminho com o logo da empresa responsavel pela NFe</param>
-        /// <returns></returns>
+        /// <returns>uma lista de <see cref="FileInfo"/> com os caminhos dos arquivos gerados</returns>
         public static IEnumerable<FileInfo> GerarPDF(string PathNFe, string PathCCe, string PathLogo, DirectoryInfo outputPath)
         {
             using (var d = new DANFE(PathNFe, PathCCe, PathLogo))
@@ -262,6 +277,7 @@ namespace HESDanfe
                 AdicionarLogoPdf(fs);
             }
         }
+
         /// <summary>
         /// Copia os bytes do PDF para um outro Stream
         /// </summary>
@@ -275,21 +291,6 @@ namespace HESDanfe
         }
 
         public void Dispose() => Dispose(true);
-
-
-        /// <summary>
-        /// Gera um nome padronizado para o DANFE
-        /// </summary>
-        /// <param name="ChaveNFe"></param>
-        /// <returns></returns>
-        public static string GerarNomePdfDANFE(string ChaveNFe) => $"DANFE-{ChaveNFe}.pdf";
-        /// <summary>
-        /// Gera um nome padronizado para CCE
-        /// </summary>
-        /// <param name="ChaveNFe"></param>
-        /// <param name="SequenciaEvento"></param>
-        /// <returns></returns>
-        public static string GerarNomePdfCCE(string ChaveNFe, int SequenciaEvento) => $"DANFE-{ChaveNFe}-CCE-{SequenciaEvento}.pdf";
 
         /// <summary>
         /// Gera os PDFs no diretório especificado em <paramref name="path"/>
