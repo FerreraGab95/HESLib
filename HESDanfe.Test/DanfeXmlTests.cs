@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Diagnostics;
+using System.IO;
 using HESDanfe.Modelo;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -60,7 +61,7 @@ namespace HESDanfe.Test
             {
                 foreach (var pdf in d.Gerar(new DirectoryInfo(@"C:\Teste\testeDANFE")))
                 {
-
+                    Debug.WriteLine(pdf, "PDF Gerado");
 
                 }
 
