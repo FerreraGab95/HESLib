@@ -610,7 +610,7 @@ namespace HESDanfe.Modelo
             {
                 foreach (var item in infNfe.cobr.dup)
                 {
-                    DuplicataViewModel duplicata = new DuplicataViewModel
+                    var duplicata = new DuplicataViewModel
                     {
                         Numero = item.nDup,
                         Valor = item.vDup,
@@ -715,7 +715,7 @@ namespace HESDanfe.Modelo
         /// <returns></returns>
         public static DocumentoFiscalViewModel CriarDeArquivoXml(string caminhoNFe, string caminhoCCe)
         {
-            using (StreamReader sr = new StreamReader(caminhoNFe, true))
+            using (var sr = new StreamReader(caminhoNFe, true))
             {
                 if (string.IsNullOrWhiteSpace(caminhoCCe))
                 {
@@ -723,7 +723,7 @@ namespace HESDanfe.Modelo
                 }
                 else
                 {
-                    using (StreamReader sr2 = new StreamReader(caminhoCCe, true))
+                    using (var sr2 = new StreamReader(caminhoCCe, true))
                     {
                         return CriarDeArquivoXmlInternal(sr, sr2);
                     }
@@ -740,11 +740,11 @@ namespace HESDanfe.Modelo
         {
             if (nfeStream == null) throw new ArgumentNullException(nameof(nfeStream));
 
-            using (StreamReader sr = new StreamReader(nfeStream, true))
+            using (var sr = new StreamReader(nfeStream, true))
             {
                 if (cceStream != null)
                 {
-                    using (StreamReader sr2 = new StreamReader(cceStream, true))
+                    using (var sr2 = new StreamReader(cceStream, true))
                     {
                         return CriarDeArquivoXmlInternal(sr, sr2);
                     }
@@ -763,11 +763,11 @@ namespace HESDanfe.Modelo
         {
             if (nfeXML == null) throw new ArgumentNullException(nameof(nfeXML));
 
-            using (StringReader sr = new StringReader(nfeXML))
+            using (var sr = new StringReader(nfeXML))
             {
                 if (cceXML != null)
                 {
-                    using (StringReader sr2 = new StringReader(cceXML))
+                    using (var sr2 = new StringReader(cceXML))
                     {
                         return CriarDeArquivoXmlInternal(sr, sr2);
                     }

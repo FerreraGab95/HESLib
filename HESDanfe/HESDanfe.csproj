@@ -90,7 +90,7 @@
     <Compile Include="Enumeracoes\PosicaoBloco.cs" />
     <Compile Include="Esquemas\ProcEventoNFe.cs" />
     <Compile Include="Esquemas\NFReferenciada.cs" />
-    <Compile Include="Extentions.cs" />
+    <Compile Include="Extensions.cs" />
     <Compile Include="Formatador.cs" />
     <Compile Include="Graphics\Fonte.cs" />
     <Compile Include="Modelo\CalculoImpostoViewModel.cs" />
