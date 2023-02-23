@@ -405,7 +405,7 @@ namespace HESDanfe
             var info = PdfDocument.Information;
             info[new org.pdfclown.objects.PdfName("ChaveAcesso")] = ViewModel.ChaveAcesso;
             info[new org.pdfclown.objects.PdfName("TipoDocumento")] = $"{TipoDocumento}";
-            info.CreationDate = ViewModel.DataHoraEmissao ?? DateTime.Now;
+            info.CreationDate = ViewModel.DataHoraEmissao;
             info.Creator = $"{ass?.Name} {ass?.Version} - Disponível em https://github.com/zonaro/HESDanfe";
             info.Author = Autor;
 
