@@ -334,7 +334,7 @@ namespace HESDanfe
         /// <returns></returns>
         public FileInfo Gerar(FileInfo FilePath, TipoDocumento TipoDocumento)
         {
-            FilePath = new FileInfo(Path.Combine(FilePath.Directory.FullName + Path.GetFileNameWithoutExtension(FilePath.FullName) + ".pdf"));
+            FilePath = new FileInfo(Path.Combine(FilePath.Directory.FullName, Path.GetFileNameWithoutExtension(FilePath.FullName) + ".pdf"));
 
             foreach (var p in PDFFile.Document.Pages)
             {
