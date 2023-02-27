@@ -1,15 +1,15 @@
-﻿using HESDanfe.Graphics;
+﻿using System.Drawing;
+using HESDanfe.Graphics;
 using HESDanfe.Modelo;
+using InnerLibs;
 using org.pdfclown.documents.contents.xObjects;
-using System;
-using System.Drawing;
 
 namespace HESDanfe
 {
     internal class IdentificacaoEmitente : ElementoBase
     {
         public DANFEViewModel ViewModel { get; private set; }
-        public XObject Logo { get;  set; }
+        public XObject Logo { get; set; }
 
         public IdentificacaoEmitente(Estilo estilo, DANFEViewModel viewModel) : base(estilo)
         {
@@ -36,14 +36,14 @@ namespace HESDanfe
             {
                 var f1 = Estilo.CriarFonteRegular(6);
                 gfx.DrawString("IDENTIFICAÇÃO DO EMITENTE", rp, f1, AlinhamentoHorizontal.Centro);
-                rp = rp.CutTop(f1.AlturaLinha);                          
+                rp = rp.CutTop(f1.AlturaLinha);
             }
             else
             {
                 RectangleF rLogo;
 
                 // Logo Horizontal
-                if(Logo.Size.Width > Logo.Size.Height)
+                if (Logo.Size.Width > Logo.Size.Height)
                 {
                     rLogo = new RectangleF(rp.X, rp.Y, rp.Width, alturaMaximaLogoHorizontal);
                     rp = rp.CutTop(alturaMaximaLogoHorizontal);
@@ -55,9 +55,9 @@ namespace HESDanfe
                     rLogo = new RectangleF(rp.X, rp.Y, lw, rp.Height);
                     rp = rp.CutLeft(lw);
                 }
-        
-                gfx.ShowXObject(Logo, rLogo);      
-          
+
+                gfx.ShowXObject(Logo, rLogo);
+
             }
 
             var emitente = ViewModel.Emitente;
@@ -66,15 +66,15 @@ namespace HESDanfe
 
             if (ViewModel.PreferirEmitenteNomeFantasia)
             {
-                nome = !string.IsNullOrWhiteSpace(emitente.NomeFantasia) ? emitente.NomeFantasia : emitente.RazaoSocial;
-            } 
+                nome = Ext.IsNotBlank(emitente.NomeFantasia) ? emitente.NomeFantasia : emitente.RazaoSocial;
+            }
 
-            var ts = new TextStack(rp) {  LineHeightScale = 1 }
+            var ts = new TextStack(rp) { LineHeightScale = 1 }
                 .AddLine(nome, f2)
                 .AddLine(emitente.EnderecoLinha1.Trim(), f3)
                 .AddLine(emitente.EnderecoLinha2.Trim(), f3)
                 .AddLine(emitente.EnderecoLinha3.Trim(), f3);
-             
+
             ts.AlinhamentoHorizontal = AlinhamentoHorizontal.Centro;
             ts.AlinhamentoVertical = AlinhamentoVertical.Centro;
             ts.Draw(gfx);

@@ -1,4 +1,4 @@
-﻿using System;
+﻿using InnerLibs;
 
 namespace HESDanfe.Modelo
 {
@@ -113,11 +113,11 @@ namespace HESDanfe.Modelo
             {
                 string descriCaoCompleta = Descricao;
 
-                if (!string.IsNullOrWhiteSpace(InformacoesAdicionais))
+                if (Ext.IsNotBlank(InformacoesAdicionais))
                 {
                     descriCaoCompleta += "\r\n" + InformacoesAdicionais;
                 }
-                
+
                 return descriCaoCompleta;
             }
         }

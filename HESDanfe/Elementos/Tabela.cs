@@ -1,11 +1,10 @@
-﻿using HESDanfe.Graphics;
-using org.pdfclown.documents.contents.colorSpaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using HESDanfe.Graphics;
+using InnerLibs;
+using org.pdfclown.documents.contents.colorSpaces;
 
 namespace HESDanfe
 {
@@ -81,9 +80,9 @@ namespace HESDanfe
                 var c = Colunas[i];
                 var v = Linhas[LinhaAtual][i];
 
-                float w = (Width * c.PorcentagemLargura) / 100F;               
+                float w = (Width * c.PorcentagemLargura) / 100F;
 
-                if (!string.IsNullOrWhiteSpace(v))
+                if (Ext.IsNotBlank(v))
                 {
 
                     tb[i] = new TextBlock(v, FonteCorpo)
@@ -103,12 +102,12 @@ namespace HESDanfe
             if (tbm + _DY + PaddingInferior + PaddingSuperior > BoundingBox.Bottom) return false;
 
             for (int i = 0; i < Colunas.Count; i++)
-            { 
-                if(tb[i] != null)
+            {
+                if (tb[i] != null)
                     tb[i].Draw(gfx);
             }
 
-             _DY += Math.Max(tbm, FonteCorpo.AlturaLinha) + PaddingSuperior + PaddingInferior;
+            _DY += Math.Max(tbm, FonteCorpo.AlturaLinha) + PaddingSuperior + PaddingInferior;
 
             return true;
         }
@@ -182,7 +181,7 @@ namespace HESDanfe
                 }
             }
 
-          
+
 
 
 

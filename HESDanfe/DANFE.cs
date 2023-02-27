@@ -25,7 +25,7 @@ namespace HESDanfe
             {
                 p.DesenharCreditos("Impresso com H&S Technologies - hes.com.br");
             }
-            else if (!string.IsNullOrWhiteSpace(Creditos))
+            else if (Ext.IsNotBlank(Creditos))
             {
                 p.DesenharCreditos(Creditos);
             }
@@ -225,7 +225,7 @@ namespace HESDanfe
         /// <param name="logoPath">Caminho para o PDF ou JPG</param>
         public void AdicionarLogo(string logoPath)
         {
-            if (!string.IsNullOrWhiteSpace(logoPath) && File.Exists(logoPath))
+            if (Ext.IsNotBlank(logoPath) && File.Exists(logoPath))
             {
                 if (Path.GetFileName(logoPath).EndsWith("pdf", StringComparison.InvariantCultureIgnoreCase))
                 {
@@ -254,7 +254,7 @@ namespace HESDanfe
         /// <inheritdoc cref="AdicionarLogoImagem(Stream)"/>
         public void AdicionarLogoImagem(string path)
         {
-            if (string.IsNullOrWhiteSpace(path)) throw new ArgumentException(nameof(path));
+            if (Ext.IsBlank(path)) throw new ArgumentException(nameof(path));
 
             using (var fs = new FileStream(path, FileMode.Open, FileAccess.Read))
             {
@@ -276,7 +276,7 @@ namespace HESDanfe
         /// <inheritdoc cref="AdicionarLogoImagem(Stream)"/>
         public void AdicionarLogoPdf(string path)
         {
-            if (string.IsNullOrWhiteSpace(path)) throw new ArgumentException(nameof(path));
+            if (Ext.IsBlank(path)) throw new ArgumentException(nameof(path));
 
             using (var fs = new FileStream(path, FileMode.Open, FileAccess.Read))
             {
@@ -317,7 +317,7 @@ namespace HESDanfe
 
             yield return Gerar(nfe, TipoDocumento.DANFE);
 
-            if (!string.IsNullOrWhiteSpace(ViewModel.TextoCorrecao) && ViewModel.SequenciaCorrecao > 0)
+            if (Ext.IsNotBlank(ViewModel.TextoCorrecao) && ViewModel.SequenciaCorrecao > 0)
             {
                 var cce = Path.Combine(path.FullName, GerarNomePdfCCE(ViewModel.ChaveAcesso, ViewModel.SequenciaCorrecao));
                 yield return Gerar(cce, TipoDocumento.CCE);

@@ -8,6 +8,7 @@ using System.Xml;
 using System.Xml.Serialization;
 using HESDanfe.Esquemas;
 using HESDanfe.Esquemas.NFe;
+using InnerLibs;
 
 namespace HESDanfe.Modelo
 {
@@ -31,7 +32,7 @@ namespace HESDanfe.Modelo
             EmpresaViewModel model = new EmpresaViewModel();
 
             model.RazaoSocial = empresa.xNome;
-            model.CnpjCpf = !string.IsNullOrWhiteSpace(empresa.CNPJ) ? empresa.CNPJ : empresa.CPF;
+            model.CnpjCpf = Ext.IsNotBlank(empresa.CNPJ) ? empresa.CNPJ : empresa.CPF;
             model.Ie = empresa.IE;
             model.IeSt = empresa.IEST;
             model.Email = empresa.email;
@@ -66,7 +67,7 @@ namespace HESDanfe.Modelo
             var m = new LocalEntregaRetiradaViewModel()
             {
                 NomeRazaoSocial = local.xNome,
-                CnpjCpf = !string.IsNullOrWhiteSpace(local.CNPJ) ? local.CNPJ : local.CPF,
+                CnpjCpf = Ext.IsNotBlank(local.CNPJ) ? local.CNPJ : local.CPF,
                 InscricaoEstadual = local.IE,
                 Bairro = local.xBairro,
                 Municipio = local.xMun,
@@ -78,12 +79,12 @@ namespace HESDanfe.Modelo
             StringBuilder sb = new StringBuilder();
             sb.Append(local.xLgr);
 
-            if (!string.IsNullOrWhiteSpace(local.nro))
+            if (Ext.IsNotBlank(local.nro))
             {
                 sb.Append(", ").Append(local.nro);
             }
 
-            if (!string.IsNullOrWhiteSpace(local.xCpl))
+            if (Ext.IsNotBlank(local.xCpl))
             {
                 sb.Append(" - ").Append(local.xCpl);
             }
@@ -165,7 +166,7 @@ namespace HESDanfe.Modelo
                 model.DataHoraEmissao = ide.dEmi;
                 model.DataSaidaEntrada = ide.dSaiEnt;
 
-                if (!string.IsNullOrWhiteSpace(ide.hSaiEnt))
+                if (Ext.IsNotBlank(ide.hSaiEnt))
                 {
                     model.HoraSaidaEntrada = TimeSpan.Parse(ide.hSaiEnt);
                 }
@@ -468,7 +469,7 @@ namespace HESDanfe.Modelo
                         sb.Append($" - {ContingenciaDataHora.FormatarDataHora()}");
                     }
 
-                    if (!string.IsNullOrWhiteSpace(ContingenciaJustificativa))
+                    if (Ext.IsNotBlank(ContingenciaJustificativa))
                     {
                         sb.Append($" - {ContingenciaJustificativa}");
                     }
@@ -657,7 +658,7 @@ namespace HESDanfe.Modelo
             {
                 transportadoraModel.RazaoSocial = transportadora.xNome;
                 transportadoraModel.EnderecoUf = transportadora.UF;
-                transportadoraModel.CnpjCpf = !string.IsNullOrWhiteSpace(transportadora.CNPJ) ? transportadora.CNPJ : transportadora.CPF;
+                transportadoraModel.CnpjCpf = Ext.IsNotBlank(transportadora.CNPJ) ? transportadora.CNPJ : transportadora.CPF;
                 transportadoraModel.EnderecoLogadrouro = transportadora.xEnder;
                 transportadoraModel.Municipio = transportadora.xMun;
                 transportadoraModel.Ie = transportadora.IE;
@@ -722,7 +723,7 @@ namespace HESDanfe.Modelo
         {
             using (var sr = new StreamReader(caminhoNFe, true))
             {
-                if (!string.IsNullOrWhiteSpace(caminhoCCe) && File.Exists(caminhoCCe))
+                if (Ext.IsNotBlank(caminhoCCe) && File.Exists(caminhoCCe))
                 {
                     using (var sr2 = new StreamReader(caminhoCCe, true))
                     {

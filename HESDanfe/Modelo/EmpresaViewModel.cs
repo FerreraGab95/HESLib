@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using InnerLibs;
 using InnerLibs.BR;
 
 namespace HESDanfe.Modelo
@@ -109,8 +110,8 @@ namespace HESDanfe.Modelo
             {
                 StringBuilder sb = new StringBuilder();
                 sb.Append(EnderecoLogadrouro);
-                if (!string.IsNullOrWhiteSpace(EnderecoNumero)) sb.Append(", ").Append(EnderecoNumero);
-                if (!string.IsNullOrWhiteSpace(EnderecoComplemento)) sb.Append(" - ").Append(EnderecoComplemento);
+                if (Ext.IsNotBlank(EnderecoNumero)) sb.Append(", ").Append(EnderecoNumero);
+                if (Ext.IsNotBlank(EnderecoComplemento)) sb.Append(" - ").Append(EnderecoComplemento);
                 return sb.ToString();
             }
         }
@@ -131,7 +132,7 @@ namespace HESDanfe.Modelo
                 StringBuilder sb = new StringBuilder()
                     .Append(Municipio).Append(" - ").Append(EnderecoUf);
 
-                if (!string.IsNullOrWhiteSpace(Telefone))
+                if (Ext.IsNotBlank(Telefone))
                     sb.Append(" Fone: ").Append(Telefone.FormatTelephoneNumber());
 
                 return sb.ToString();

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
+using InnerLibs;
 
 namespace HESDanfe.Esquemas
 {
@@ -19,15 +20,15 @@ namespace HESDanfe.Esquemas
         [DebuggerStepThrough]
         public static Versao Parse(string str)
         {
-            if(string.IsNullOrWhiteSpace(str))
+            if (Ext.IsBlank(str))
             {
-                throw new ArgumentException("O parâmetro str não pode ser nulo ou vazio.","str");
+                throw new ArgumentException("O parâmetro str não pode ser nulo ou vazio.", "str");
             }
 
             Match m = Regex.Match(str, _Pattern);
             Versao v = new Versao(0, 0);
 
-            if(!m.Success)
+            if (!m.Success)
             {
                 throw new ArgumentException("A versão não pode ser interpretada.", "str");
             }

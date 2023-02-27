@@ -1,5 +1,6 @@
-﻿using HESDanfe.Graphics;
-using System;
+﻿using System;
+using HESDanfe.Graphics;
+using InnerLibs;
 
 namespace HESDanfe
 {
@@ -7,7 +8,7 @@ namespace HESDanfe
     /// Campo multilinha.
     /// </summary>
     internal class CampoMultilinha : Campo
-    {   
+    {
         TextBlock _tbConteudo;
 
         public CampoMultilinha(string cabecalho, string conteudo, Estilo estilo, AlinhamentoHorizontal alinhamentoHorizontalConteudo = AlinhamentoHorizontal.Esquerda)
@@ -19,18 +20,18 @@ namespace HESDanfe
 
         protected override void DesenharConteudo(Gfx gfx)
         {
-            if (!string.IsNullOrWhiteSpace(Conteudo))
+            if (Ext.IsNotBlank(Conteudo))
             {
                 _tbConteudo.SetPosition(RetanguloDesenhvael.X, RetanguloDesenhvael.Y + Estilo.FonteCampoCabecalho.AlturaLinha + Estilo.PaddingInferior);
                 _tbConteudo.Draw(gfx);
             }
-        }        
+        }
 
         public override float Height
         {
             get
             {
-                return Math.Max(_tbConteudo.Height + Estilo.FonteCampoCabecalho.AlturaLinha + Estilo.PaddingSuperior + 2*Estilo.PaddingInferior , base.Height);
+                return Math.Max(_tbConteudo.Height + Estilo.FonteCampoCabecalho.AlturaLinha + Estilo.PaddingSuperior + 2 * Estilo.PaddingInferior, base.Height);
             }
             set
             {
@@ -39,7 +40,7 @@ namespace HESDanfe
         }
 
         public override string Conteudo { get => base.Conteudo; set { base.Conteudo = value; } }
-        public override float Width { get => base.Width; set { base.Width = value; _tbConteudo.Width = value - 2*Estilo.PaddingHorizontal;  } }
+        public override float Width { get => base.Width; set { base.Width = value; _tbConteudo.Width = value - 2 * Estilo.PaddingHorizontal; } }
 
     }
 }

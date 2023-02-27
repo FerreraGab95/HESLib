@@ -2,6 +2,7 @@
 using HESDanfe.Elementos;
 using HESDanfe.Graphics;
 using HESDanfe.Modelo;
+using InnerLibs;
 
 namespace HESDanfe.Blocos
 {
@@ -36,7 +37,7 @@ namespace HESDanfe.Blocos
             MainVerticalStack = new VerticalStack();
             ViewModel = viewModel ?? throw new ArgumentNullException(nameof(viewModel));
 
-            if (!string.IsNullOrWhiteSpace(Cabecalho))
+            if (Cabecalho.IsNotBlank())
             {
                 MainVerticalStack.Add(new CabecalhoBloco(estilo, Cabecalho));
             }

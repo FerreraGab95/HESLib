@@ -2,6 +2,7 @@
 using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
+using InnerLibs;
 
 namespace HESDanfe
 {
@@ -68,7 +69,7 @@ namespace HESDanfe
         {
             var text = reader.ReadElementString();
 
-            if (!string.IsNullOrWhiteSpace(text))
+            if (text.IsNotBlank())
                 DateTimeOffsetValue = XmlConvert.ToDateTimeOffset(text);
         }
 

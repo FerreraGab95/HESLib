@@ -1,5 +1,6 @@
 ﻿using System.Drawing;
 using HESDanfe.Graphics;
+using InnerLibs;
 
 namespace HESDanfe
 {
@@ -26,7 +27,7 @@ namespace HESDanfe
 
         protected virtual void DesenharCabecalho(Gfx gfx)
         {
-            if (!string.IsNullOrWhiteSpace(Cabecalho))
+            if (Ext.IsNotBlank(Cabecalho))
             {
                 gfx.DrawString(Cabecalho.ToUpper(), RetanguloDesenhvael, Estilo.FonteCampoCabecalho, AlinhamentoHorizontal.Esquerda, AlinhamentoVertical.Topo);
             }
@@ -40,7 +41,7 @@ namespace HESDanfe
             var fonte = IsConteudoNegrito ? Estilo.FonteCampoConteudoNegrito : Estilo.FonteCampoConteudo;
             fonte = fonte.Clonar();
 
-            if (!string.IsNullOrWhiteSpace(Conteudo))
+            if (Ext.IsNotBlank(Conteudo))
             {
                 var textWidth = fonte.MedirLarguraTexto(Conteudo);
 

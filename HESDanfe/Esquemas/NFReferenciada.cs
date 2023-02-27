@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Xml;
 using System.Xml.Serialization;
+using InnerLibs;
 using InnerLibs.BR;
 
 namespace HESDanfe.Esquemas
@@ -80,10 +81,6 @@ namespace HESDanfe.Esquemas
         public string serie { get; set; }
         public string nNF { get; set; }
 
-        public override string ToString()
-        {
-            string cpfCnpj = !string.IsNullOrWhiteSpace(CNPJ) ? CNPJ : CPF;
-            return $"NFP Ref.: Série: {serie} Número: {nNF} Emitente: {cpfCnpj.FormatCPFOrCNPJ()} Modelo: {mod} IE: {IE}";
-        }
+        public override string ToString() => $"NFP Ref.: Série: {serie} Número: {nNF} Emitente: {CNPJ.IfBlank(CPF).FormatCPFOrCNPJ()} Modelo: {mod} IE: {IE}";
     }
 }

@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
+using InnerLibs;
 using org.pdfclown.documents.contents.composition;
 
 namespace HESDanfe
@@ -118,8 +119,8 @@ namespace HESDanfe
         {
             var versionInfo = FileVersionInfo.GetVersionInfo((Assembly.GetEntryAssembly() ?? Assembly.GetExecutingAssembly()).Location);
             var c = versionInfo?.CompanyName;
-            if (string.IsNullOrWhiteSpace(c)) c = "H&S Technologies";
-            return c;
+            return c.IfBlank("H&S Technologies");
+
         }
 
         #endregion Internal Methods
@@ -175,15 +176,15 @@ namespace HESDanfe
         /// </summary>
         public static bool StringContemChaveValor(this string str, string chave, string valor)
         {
-            if (string.IsNullOrWhiteSpace(chave)) throw new ArgumentException(nameof(chave));
-            if (string.IsNullOrWhiteSpace(str)) return false;
+            if (Ext.IsBlank(chave)) throw new ArgumentException(nameof(chave));
+            if (Ext.IsBlank(str)) return false;
 
             return Regex.IsMatch(str, $@"({chave}):?\s*{valor}", RegexOptions.IgnoreCase);
         }
 
         public static string TipoDFeDeChaveAcesso(this string chaveAcesso)
         {
-            if (string.IsNullOrWhiteSpace(chaveAcesso)) throw new ArgumentException(nameof(chaveAcesso));
+            if (Ext.IsBlank(chaveAcesso)) throw new ArgumentException(nameof(chaveAcesso));
 
             if (chaveAcesso.Length == 44)
             {
