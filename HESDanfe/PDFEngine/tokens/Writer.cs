@@ -56,7 +56,7 @@ namespace HESDanfe.Tokens
       <param name="stream">Target stream.</param>
     */
     public static Writer Get(
-      File file,
+      PdfFile file,
       IOutputStream stream
       )
     {
@@ -77,13 +77,13 @@ namespace HESDanfe.Tokens
 
     #region dynamic
     #region fields
-    protected readonly File file;
+    protected readonly PdfFile file;
     protected readonly IOutputStream stream;
     #endregion
 
     #region constructors
     protected Writer(
-      File file,
+      PdfFile file,
       IOutputStream stream
       )
     {
@@ -97,7 +97,7 @@ namespace HESDanfe.Tokens
     /**
       <summary>Gets the file to serialize.</summary>
     */
-    public File File
+    public PdfFile File
     {
       get
       {return file;}

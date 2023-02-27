@@ -43,7 +43,7 @@ namespace HESDanfe.Tokens
     #region dynamic
     #region constructors
     internal CompressedWriter(
-      Files.File file,
+      Files.PdfFile file,
       IOutputStream stream
       ) : base(file, stream)
     {}

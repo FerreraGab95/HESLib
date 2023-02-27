@@ -138,7 +138,7 @@ namespace HESDanfe.Objects
     {
       get
       {
-        File file = File;
+        PdfFile file = File;
         return file != null ? file.Document : null;
       }
     }
@@ -155,7 +155,7 @@ namespace HESDanfe.Objects
     /**
       <summary>Gets the file context.</summary>
     */
-    public File File
+    public PdfFile File
     {
       get
       {return baseObject.File;}
@@ -353,7 +353,7 @@ namespace HESDanfe.Objects
       <param name="context">Document context into which the specified data object has to be
       registered.</param>
       <param name="baseDataObject">PDF data object backing this wrapper.</param>
-      <seealso cref="PdfObjectWrapper(File, PdfDataObject)"/>
+      <seealso cref="PdfObjectWrapper(PdfFile, PdfDataObject)"/>
     */
     protected PdfObjectWrapper(
       Document context,
@@ -370,7 +370,7 @@ namespace HESDanfe.Objects
       <seealso cref="PdfObjectWrapper(Document, PdfDataObject)"/>
     */
     protected PdfObjectWrapper(
-      File context,
+      PdfFile context,
       TDataObject baseDataObject
       ) : this(context.Register(baseDataObject))
     {}

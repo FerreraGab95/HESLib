@@ -30,7 +30,7 @@ using HESDanfe.Documents.Contents.ColorSpaces;
 using HESDanfe.Documents.Contents.Composition;
 using HESDanfe.Documents.Contents.xObjects;
 using HESDanfe.Objects;
-using HESDanfe.Util.Math.geom;
+using HESDanfe.Util.Math.Geom;
 
 using System;
 using System.Collections.Generic;

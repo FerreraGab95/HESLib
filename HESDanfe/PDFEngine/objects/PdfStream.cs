@@ -374,7 +374,7 @@ namespace HESDanfe.Objects
 
     public override void WriteTo(
       IOutputStream stream,
-      File context
+      PdfFile context
       )
     {
       /*

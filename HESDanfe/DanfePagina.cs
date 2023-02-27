@@ -2,9 +2,9 @@
 using System.Drawing;
 using System.Linq;
 using HESDanfe.Blocos;
-using HESDanfe.Graphics;
 using HESDanfe.Documents;
 using HESDanfe.Documents.Contents.Composition;
+using HESDanfe.Graphics;
 
 namespace HESDanfe
 {
@@ -23,8 +23,8 @@ namespace HESDanfe
         public DanfePagina(DANFE danfe)
         {
             Danfe = danfe ?? throw new ArgumentNullException(nameof(danfe));
-            PdfPage = new Page(Danfe.PdfDocument);
-            Danfe.PdfDocument.Pages.Add(PdfPage);
+            PdfPage = new Page(Danfe.Documento);
+            Danfe.Documento.Pages.Add(PdfPage);
 
             PrimitiveComposer = new PrimitiveComposer(PdfPage);
             Gfx = new Gfx(PrimitiveComposer);
@@ -104,7 +104,7 @@ namespace HESDanfe
         {
             if (isPrimeirapagina && Danfe.ViewModel.QuantidadeCanhotos > 0) DesenharCanhoto();
 
-            var blocos = isPrimeirapagina ? Danfe._Blocos : Danfe._Blocos.Where(x => x.VisivelSomentePrimeiraPagina == false);
+            var blocos = isPrimeirapagina ? Danfe.Blocos : Danfe.Blocos.Where(x => x.VisivelSomentePrimeiraPagina == false);
 
             foreach (var bloco in blocos)
             {

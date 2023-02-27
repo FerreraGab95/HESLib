@@ -11,7 +11,7 @@ namespace HESDanfe
 {
     internal class SimplePdfPageTester : IDisposable
     {
-        public File File { get; set; }
+        public PdfFile File { get; set; }
         public Document Document { get; set; }
         public PrimitiveComposer PrimitiveComposer { get; set; }
         public Gfx Gfx { get; set; }
@@ -19,7 +19,7 @@ namespace HESDanfe
 
         public SimplePdfPageTester()
         {
-            File = new File();
+            File = new PdfFile();
             Document = File.Document;
 
             Page = new Page(Document);

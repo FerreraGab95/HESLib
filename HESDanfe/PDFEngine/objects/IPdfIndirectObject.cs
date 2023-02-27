@@ -33,7 +33,7 @@ namespace HESDanfe.Objects
   public interface IPdfIndirectObject
   {
     PdfObject Clone(
-      File context
+      PdfFile context
       );
 
     /**

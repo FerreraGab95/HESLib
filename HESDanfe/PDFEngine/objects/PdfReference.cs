@@ -44,7 +44,7 @@ namespace HESDanfe.Objects
 
     private int objectNumber;
 
-    private File file;
+    private PdfFile file;
     private PdfObject parent;
     private bool updated;
     #endregion
@@ -63,7 +63,7 @@ namespace HESDanfe.Objects
     */
     internal PdfReference(
       FileParser.Reference reference,
-      File file
+      PdfFile file
       )
     {
       this.objectNumber = reference.ObjectNumber;
@@ -171,7 +171,7 @@ namespace HESDanfe.Objects
 
     public override void WriteTo(
       IOutputStream stream,
-      File context
+      PdfFile context
       )
     {stream.Write(IndirectReference);}
 

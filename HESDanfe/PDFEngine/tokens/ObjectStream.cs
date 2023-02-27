@@ -135,7 +135,7 @@ namespace HESDanfe.Tokens
 
     public override void WriteTo(
       IOutputStream stream,
-      File context
+      PdfFile context
       )
     {
       if(entries != null)
@@ -315,7 +315,7 @@ namespace HESDanfe.Tokens
         IBuffer dataBuffer = new Bytes.Buffer();
         IndirectObjects indirectObjects = File.IndirectObjects;
         int objectIndex = -1;
-        File context = File;
+        PdfFile context = File;
         foreach(KeyValuePair<int,ObjectEntry> entry in Entries)
         {
           int objectNumber = entry.Key;

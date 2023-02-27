@@ -112,7 +112,7 @@ namespace HESDanfe.Objects
     #region interface
     #region public
     public override PdfObject Clone(
-      File context
+      PdfFile context
       )
     {return this;} // NOTE: Simple objects are immutable.
 

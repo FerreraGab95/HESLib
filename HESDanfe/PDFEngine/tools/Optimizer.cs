@@ -68,7 +68,7 @@ namespace HESDanfe.Tools
           <param name="file">File to optimize.</param>
         */
         public static void RemoveOrphanedObjects(
-          File file
+          PdfFile file
           )
         {
             // 1. Collecting alive indirect objects...

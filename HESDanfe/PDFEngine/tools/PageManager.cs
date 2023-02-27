@@ -232,7 +232,7 @@ namespace HESDanfe.Tools
           int endIndex
           )
         {
-            Document extractedDocument = new File().Document;
+            Document extractedDocument = new PdfFile().Document;
             {
                 // Add the pages to the target file!
                 /*
@@ -317,7 +317,7 @@ namespace HESDanfe.Tools
             IList<Document> documents = new List<Document>();
             foreach (Page page in pages)
             {
-                Document pageDocument = new File().Document;
+                Document pageDocument = new PdfFile().Document;
                 pageDocument.Pages.Add((Page)page.Clone(pageDocument));
                 documents.Add(pageDocument);
             }

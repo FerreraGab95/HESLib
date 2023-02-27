@@ -79,7 +79,7 @@ namespace HESDanfe.Files
       <summary>Creates a new indirect file identifier.</summary>
     */
     public FileIdentifier(
-      File context
+      PdfFile context
       ) : base(context, CreateBaseDataObject())
     {}
 
@@ -132,7 +132,7 @@ namespace HESDanfe.Files
       {
         using(BinaryWriter buffer = new BinaryWriter(new MemoryStream(), Charset.ISO88591))
         {
-          File file = writer.File;
+          PdfFile file = writer.File;
           try
           {
             // File identifier computation is fulfilled with this information:

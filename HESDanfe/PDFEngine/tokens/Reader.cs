@@ -89,7 +89,7 @@ namespace HESDanfe.Tokens
     #region constructors
     internal Reader(
       IInputStream stream,
-      Files.File file
+      Files.PdfFile file
       )
     {this.parser = new FileParser(stream, file);}
     #endregion

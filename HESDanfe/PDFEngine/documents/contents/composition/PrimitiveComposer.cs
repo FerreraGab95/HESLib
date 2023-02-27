@@ -35,7 +35,7 @@ using Actions = HESDanfe.Documents.Interaction.Actions;
 using HESDanfe.Documents.Interaction.Annotations;
 using HESDanfe.Files;
 using HESDanfe.Objects;
-using HESDanfe.Util.Math.geom;
+using HESDanfe.Util.Math.Geom;
 
 using System;
 using System.Collections;

@@ -54,7 +54,7 @@ namespace HESDanfe.Tokens
     #region dynamic
     #region constructors
     internal PlainWriter(
-      Files.File file,
+      Files.PdfFile file,
       IOutputStream stream
       ) : base(file, stream)
     {}

@@ -281,7 +281,7 @@ namespace HESDanfe.Documents.Contents.Objects
     {
       if(operands != null)
       {
-        File fileContext = context.File;
+        PdfFile fileContext = context.File;
         foreach(PdfDirectObject operand in operands)
         {operand.WriteTo(stream, fileContext); stream.Write(Chunk.Space);}
       }

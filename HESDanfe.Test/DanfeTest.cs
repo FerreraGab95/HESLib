@@ -1,5 +1,7 @@
 ﻿using System;
+using System.IO;
 using HESDanfe.Esquemas.NFe;
+using InnerLibs;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HESDanfe.Test
@@ -8,6 +10,13 @@ namespace HESDanfe.Test
     public class DanfeTest
     {
         #region Public Methods
+
+        [TestMethod]
+        public void MergePDF()
+        {
+            Ext.EnableDebugMessages = true;
+            new DirectoryInfo(@"C:\teste\testeDANFE").MergePdfFiles(@"C:\teste\pdfunico.pdf");
+        }
 
         [TestMethod]
         public void ComBlocoLocalEntrega()

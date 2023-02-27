@@ -36,7 +36,7 @@ namespace HESDanfe.Files
     /**
       <summary>PDF file representation.</summary>
     */
-    public sealed class File
+    public sealed class PdfFile
     : IDisposable
     {
         #region types
@@ -47,17 +47,17 @@ namespace HESDanfe.Files
         {
             private string realFormat;
 
-            private readonly File file;
+            private readonly PdfFile file;
 
             internal ConfigurationImpl(
-              File file
+              PdfFile file
               )
             { this.file = file; }
 
             /**
               <summary>Gets the file associated with this configuration.</summary>
             */
-            public File File
+            public PdfFile File
             {
                 get
                 { return file; }
@@ -92,7 +92,7 @@ namespace HESDanfe.Files
           : PdfIndirectObject
         {
             public ImplicitContainer(
-              File file,
+              PdfFile file,
               PdfDataObject dataObject
               ) : base(file, dataObject, new XRefEntry(int.MinValue, int.MinValue))
             { }
@@ -120,7 +120,7 @@ namespace HESDanfe.Files
         #endregion
 
         #region constructors
-        public File(
+        public PdfFile(
           )
         {
             Initialize();
@@ -131,7 +131,7 @@ namespace HESDanfe.Files
             document = new Document(this);
         }
 
-        public File(
+        public PdfFile(
           string path
           ) : this(
             new Bytes.Stream(
@@ -144,7 +144,7 @@ namespace HESDanfe.Files
             )
         { this.path = path; }
 
-        public File(
+        public PdfFile(
           IInputStream stream
           )
         {

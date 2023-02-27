@@ -2,20 +2,20 @@
 using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
+using HESDanfe.Documents;
 using HESDanfe.Documents.Contents.Composition;
+using HESDanfe.Files;
 using InnerLibs;
 
 namespace HESDanfe
 {
     internal static class Utils
     {
-
-
-
-
         #region Internal Fields
 
         internal const string BairroDistrito = "Bairro / Distrito";
@@ -225,6 +225,43 @@ namespace HESDanfe
         public static RectangleF ToPointMeasure(this RectangleF r) => new RectangleF(r.X.ToPoint(), r.Y.ToPoint(), r.Width.ToPoint(), r.Height.ToPoint());
 
         public static PointF ToPointMeasure(this PointF r) => new PointF(r.X.ToPoint(), r.Y.ToPoint());
+
+        #endregion Public Methods
+    }
+
+    public static class PDFUtils
+    {
+        #region Public Methods
+
+        public static FileInfo MergePdfFiles(this DirectoryInfo inputFiles, string outputFilePath) => MergePdfFiles(outputFilePath, inputFiles.GetFiles("*.pdf").Select(x => x.FullName).OrderBy(x => x.FileNameAsTitle()).ToArray());
+
+        public static FileInfo MergePdfFiles(string outputFilePath, params string[] inputFiles)
+        {
+            using (var outputFile = new PdfFile())
+            {
+
+                // Iterate over each input file and its pages.
+                foreach (var inputFile in inputFiles)
+                {
+                    inputFile.WriteDebug("PDF File:");
+                    if (inputFile.IsFilePath() && File.Exists(inputFile))
+                        using (var inputDocument = new PdfFile(inputFile))
+                        {
+
+                            foreach (var item in inputDocument.Document.Pages)
+                            {
+                                var p = item.Clone(outputFile.Document) as Page;
+                                outputFile.Document.Pages.Add(p);
+
+                            }
+
+                        }
+                }
+
+                outputFile.Save(outputFilePath, SerializationModeEnum.Incremental);
+            }
+            return new FileInfo(outputFilePath);
+        }
 
         #endregion Public Methods
     }

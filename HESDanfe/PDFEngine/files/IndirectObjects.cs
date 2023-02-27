@@ -64,7 +64,7 @@ namespace HESDanfe.Files
     /**
       <summary>Associated file.</summary>
     */
-    private File file;
+    private PdfFile file;
 
     /**
       <summary>Map of matching references of imported indirect objects.</summary>
@@ -101,7 +101,7 @@ namespace HESDanfe.Files
 
     #region constructors
     internal IndirectObjects(
-      File file,
+      PdfFile file,
       SortedDictionary<int,XRefEntry> xrefEntries
       )
     {
@@ -207,7 +207,7 @@ namespace HESDanfe.Files
     /**
       <summary>Gets the file associated to this collection.</summary>
     */
-    public File File
+    public PdfFile File
     {
       get
       {return file;}

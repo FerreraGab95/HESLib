@@ -27,7 +27,7 @@ using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
-namespace HESDanfe.Util.Math.geom
+namespace HESDanfe.Util.Math.Geom
 {
   /**
     <summary>Quadrilateral shape.</summary>

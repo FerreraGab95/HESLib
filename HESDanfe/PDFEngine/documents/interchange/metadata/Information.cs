@@ -33,43 +33,76 @@ namespace HESDanfe.Documents.Interchange.Metadata
     /**
       <summary>Document information [PDF:1.6:10.2.1].</summary>
     */
+
     [PDF(VersionEnum.PDF10)]
     public sealed class Information
     : PdfObjectWrapper<PdfDictionary>,
       IDictionary<PdfName, object>
     {
-        #region static
-        #region interface
-        #region public
-        public static Information Wrap(
-          PdfDirectObject baseObject
-          )
-        { return baseObject != null ? new Information(baseObject) : null; }
-        #endregion
-        #endregion
-        #endregion
-
-        #region dynamic
-        #region constructors
-        public Information(
-          Document context
-          ) : base(context, new PdfDictionary())
-        { }
+        #region Private Constructors
 
         private Information(
-          PdfDirectObject baseObject
-          ) : base(baseObject)
+            PdfDirectObject baseObject
+                           ) : base(baseObject)
         { }
-        #endregion
 
-        #region interface
-        #region public
+        #endregion Private Constructors
+
+        #region Private Methods
+
+        //TODO: Listen to baseDataObject's onChange notification?
+        private void OnChange(
+            PdfName key
+                             )
+        {
+            if (!BaseDataObject.Updated && !PdfName.ModDate.Equals(key))
+            { ModificationDate = DateTime.Now; }
+        }
+
+        #endregion Private Methods
+
+        #region Public Constructors
+
+        public Information(
+            Document context
+                          ) : base(context, new PdfDictionary())
+        { }
+
+        #endregion Public Constructors
+
+        #region Public Indexers
+
+        public object this[
+            PdfName key
+            ]
+        {
+            get
+            { return PdfSimpleObject<object>.GetValue(BaseDataObject[key]); }
+            set
+            {
+                OnChange(key);
+                BaseDataObject[key] = PdfSimpleObject<object>.Get(value);
+            }
+        }
+
+
+
+        #endregion Public Indexers
+
+        #region Public Properties
+
         public string Author
         {
             get
             { return (string)this[PdfName.Author]; }
             set
             { this[PdfName.Author] = value; }
+        }
+
+        public int Count
+        {
+            get
+            { return BaseDataObject.Count; }
         }
 
         public DateTime? CreationDate
@@ -86,6 +119,18 @@ namespace HESDanfe.Documents.Interchange.Metadata
             { return (string)this[PdfName.Creator]; }
             set
             { this[PdfName.Creator] = value; }
+        }
+
+        public bool IsReadOnly
+        {
+            get
+            { return false; }
+        }
+
+        public ICollection<PdfName> Keys
+        {
+            get
+            { return BaseDataObject.Keys; }
         }
 
         [PDF(VersionEnum.PDF11)]
@@ -132,52 +177,70 @@ namespace HESDanfe.Documents.Interchange.Metadata
             { this[PdfName.Title] = value; }
         }
 
-        #region IDictionary
+        public ICollection<object> Values
+        {
+            get
+            {
+                IList<object> values = new List<object>();
+                foreach (PdfDirectObject item in BaseDataObject.Values)
+                { values.Add(PdfSimpleObject<object>.GetValue(item)); }
+                return values;
+            }
+        }
+
+        #endregion Public Properties
+
+        #region Public Methods
+
+        public static Information Wrap(
+                                       PdfDirectObject baseObject
+                                      )
+        { return baseObject != null ? new Information(baseObject) : null; }
+
         public void Add(
-          PdfName key,
-          object value
-          )
+            PdfName key,
+            object value
+                       )
         {
             OnChange(key);
             BaseDataObject.Add(key, PdfSimpleObject<object>.Get(value));
         }
 
-        public bool ContainsKey(
-          PdfName key
-          )
-        { return BaseDataObject.ContainsKey(key); }
-
-        public ICollection<PdfName> Keys
+        public void Clear(
+                         )
         {
-            get
-            { return BaseDataObject.Keys; }
+            BaseDataObject.Clear();
+            ModificationDate = DateTime.Now;
         }
 
+        public bool ContainsKey(
+                   PdfName key
+                               )
+        { return BaseDataObject.ContainsKey(key); }
+
+        public void CopyTo(
+            KeyValuePair<PdfName, object>[] entries,
+            int index
+                          )
+        { throw new NotImplementedException(); }
+
         public bool Remove(
-          PdfName key
-          )
+                   PdfName key
+                          )
         {
             OnChange(key);
             return BaseDataObject.Remove(key);
         }
 
-        public object this[
-          PdfName key
-          ]
-        {
-            get
-            { return PdfSimpleObject<object>.GetValue(BaseDataObject[key]); }
-            set
-            {
-                OnChange(key);
-                BaseDataObject[key] = PdfSimpleObject<object>.Get(value);
-            }
-        }
+        public bool Remove(
+            KeyValuePair<PdfName, object> entry
+                          )
+        { throw new NotImplementedException(); }
 
         public bool TryGetValue(
-          PdfName key,
-          out object value
-          )
+                   PdfName key,
+            out object value
+                               )
         {
             PdfDirectObject valueObject;
             if (BaseDataObject.TryGetValue(key, out valueObject))
@@ -190,92 +253,32 @@ namespace HESDanfe.Documents.Interchange.Metadata
             return false;
         }
 
-        public ICollection<object> Values
-        {
-            get
-            {
-                IList<object> values = new List<object>();
-                foreach (PdfDirectObject item in BaseDataObject.Values)
-                { values.Add(PdfSimpleObject<object>.GetValue(item)); }
-                return values;
-            }
-        }
-
-        #region ICollection
         void ICollection<KeyValuePair<PdfName, object>>.Add(
-          KeyValuePair<PdfName, object> entry
-          )
+            KeyValuePair<PdfName, object> entry
+                                                           )
         { Add(entry.Key, entry.Value); }
 
-        public void Clear(
-          )
-        {
-            BaseDataObject.Clear();
-            ModificationDate = DateTime.Now;
-        }
-
         bool ICollection<KeyValuePair<PdfName, object>>.Contains(
-          KeyValuePair<PdfName, object> entry
-          )
+            KeyValuePair<PdfName, object> entry
+                                                                )
         { return entry.Value.Equals(this[entry.Key]); }
 
-        public void CopyTo(
-          KeyValuePair<PdfName, object>[] entries,
-          int index
-          )
-        { throw new NotImplementedException(); }
-
-        public int Count
-        {
-            get
-            { return BaseDataObject.Count; }
-        }
-
-        public bool IsReadOnly
-        {
-            get
-            { return false; }
-        }
-
-        public bool Remove(
-          KeyValuePair<PdfName, object> entry
-          )
-        { throw new NotImplementedException(); }
-
-        #region IEnumerable<KeyValuePair<PdfName,object>>
         IEnumerator<KeyValuePair<PdfName, object>> IEnumerable<KeyValuePair<PdfName, object>>.GetEnumerator(
-          )
+                                                                                                           )
         {
             foreach (KeyValuePair<PdfName, PdfDirectObject> entry in BaseDataObject)
             {
                 yield return new KeyValuePair<PdfName, object>(
-                  entry.Key,
-                  PdfSimpleObject<object>.GetValue(entry.Value)
-                  );
+                    entry.Key,
+                    PdfSimpleObject<object>.GetValue(entry.Value)
+                                                              );
             }
         }
 
-        #region IEnumerable
         IEnumerator IEnumerable.GetEnumerator(
-          )
+                                             )
         { return ((IEnumerable<KeyValuePair<PdfName, object>>)this).GetEnumerator(); }
-        #endregion
-        #endregion
-        #endregion
-        #endregion
-        #endregion
 
-        #region private
-        //TODO: Listen to baseDataObject's onChange notification?
-        private void OnChange(
-          PdfName key
-          )
-        {
-            if (!BaseDataObject.Updated && !PdfName.ModDate.Equals(key))
-            { ModificationDate = DateTime.Now; }
-        }
-        #endregion
-        #endregion
-        #endregion
+        #endregion Public Methods
     }
 }

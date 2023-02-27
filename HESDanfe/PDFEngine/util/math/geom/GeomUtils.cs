@@ -23,67 +23,65 @@
   this list of conditions.
 */
 
-using System;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 
-namespace HESDanfe.Util.Math.geom
+namespace HESDanfe.Util.Math.Geom
 {
-  /**
-    <summary>Geometric utilities.</summary>
-  */
-  public class GeomUtils
-  {
     /**
-      <summary>Gets the size scaled to the specified limit.</summary>
-      <remarks>In particular, the limit matches the largest dimension and proportionally scales the
-      other one; for example, a limit 300 applied to size Dimension2D(100, 200) returns
-      Dimension2D(150, 300).</remarks>
-      <param name="size">Size to scale.</param>
-      <param name="limit">Scale limit.</param>
-      <returns>Scaled size.</returns>
+      <summary>Geometric utilities.</summary>
     */
-    public static SizeF Scale(
-      SizeF size,
-      float limit
-      )
+    public class GeomUtils
     {
-      if(limit == 0)
-        return new SizeF(size);
-      else
-      {
-        float sizeRatio = size.Width / size.Height;
-        return sizeRatio > 1
-          ? new SizeF(limit, limit / sizeRatio)
-          : new SizeF(limit * sizeRatio, limit);
-      }
-    }
+        /**
+          <summary>Gets the size scaled to the specified limit.</summary>
+          <remarks>In particular, the limit matches the largest dimension and proportionally scales the
+          other one; for example, a limit 300 applied to size Dimension2D(100, 200) returns
+          Dimension2D(150, 300).</remarks>
+          <param name="size">Size to scale.</param>
+          <param name="limit">Scale limit.</param>
+          <returns>Scaled size.</returns>
+        */
+        public static SizeF Scale(
+          SizeF size,
+          float limit
+          )
+        {
+            if (limit == 0)
+                return new SizeF(size);
+            else
+            {
+                float sizeRatio = size.Width / size.Height;
+                return sizeRatio > 1
+                  ? new SizeF(limit, limit / sizeRatio)
+                  : new SizeF(limit * sizeRatio, limit);
+            }
+        }
 
-    /**
-      <summary>Gets the size scaled to the specified limit.</summary>
-      <remarks>In particular, implicit (zero-valued) limit dimensions correspond to proportional
-      dimensions; for example, a limit Dimension2D(0, 300) means 300 high and proportionally wide.
-      </remarks>
-      <param name="size">Size to scale.</param>
-      <param name="limit">Scale limit.</param>
-      <returns>Scaled size.</returns>
-    */
-    public static SizeF Scale(
-      SizeF size,
-      SizeF limit
-      )
-    {
-      if(limit.Width == 0)
-      {
-        if(limit.Height == 0)
-          return new SizeF(size);
-        else
-          return new SizeF(limit.Height * size.Width / size.Height, limit.Height);
-      }
-      else if(limit.Height == 0)
-        return new SizeF(limit.Width, limit.Width * size.Height / size.Width);
-      else
-        return new SizeF(limit);
+        /**
+          <summary>Gets the size scaled to the specified limit.</summary>
+          <remarks>In particular, implicit (zero-valued) limit dimensions correspond to proportional
+          dimensions; for example, a limit Dimension2D(0, 300) means 300 high and proportionally wide.
+          </remarks>
+          <param name="size">Size to scale.</param>
+          <param name="limit">Scale limit.</param>
+          <returns>Scaled size.</returns>
+        */
+        public static SizeF Scale(
+          SizeF size,
+          SizeF limit
+          )
+        {
+            if (limit.Width == 0)
+            {
+                if (limit.Height == 0)
+                    return new SizeF(size);
+                else
+                    return new SizeF(limit.Height * size.Width / size.Height, limit.Height);
+            }
+            else if (limit.Height == 0)
+                return new SizeF(limit.Width, limit.Width * size.Height / size.Width);
+            else
+                return new SizeF(limit);
+        }
     }
-  }
 }

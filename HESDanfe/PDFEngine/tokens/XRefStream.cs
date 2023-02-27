@@ -88,7 +88,7 @@ namespace HESDanfe.Tokens
 
     #region constructors
     public XRefStream(
-      File file
+      PdfFile file
       ) : this(
         new PdfDictionary(
           new PdfName[]
@@ -141,7 +141,7 @@ namespace HESDanfe.Tokens
 
     public override void WriteTo(
       IOutputStream stream,
-      File context
+      PdfFile context
       )
     {
       if(entries != null)

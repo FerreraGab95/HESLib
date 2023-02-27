@@ -213,7 +213,7 @@ namespace HESDanfe.Objects
 
     public override void WriteTo(
       IOutputStream stream,
-      Files.File context
+      Files.PdfFile context
       )
     {
       MemoryStream buffer = new MemoryStream();

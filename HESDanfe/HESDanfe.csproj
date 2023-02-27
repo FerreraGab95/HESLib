@@ -416,7 +416,7 @@
     <Compile Include="PDFEngine\documents\PageLabels.cs" />
     <Compile Include="PDFEngine\documents\Pages.cs" />
     <Compile Include="PDFEngine\Engine.cs" />
-    <Compile Include="PDFEngine\files\File.cs" />
+    <Compile Include="PDFEngine\files\PdfFile.cs" />
     <Compile Include="PDFEngine\files\FileIdentifier.cs" />
     <Compile Include="PDFEngine\files\IndirectObjects.cs" />
     <Compile Include="PDFEngine\files\SerializationModeEnum.cs" />
@@ -506,6 +506,28 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <EmbeddedResource Include="res\pkg\fonts\afm\Courier-Bold.afm" />
+    <EmbeddedResource Include="res\pkg\fonts\afm\Courier-BoldOblique.afm" />
+    <EmbeddedResource Include="res\pkg\fonts\afm\Courier-Oblique.afm" />
+    <EmbeddedResource Include="res\pkg\fonts\afm\Courier.afm" />
+    <EmbeddedResource Include="res\pkg\fonts\afm\Helvetica-Bold.afm" />
+    <EmbeddedResource Include="res\pkg\fonts\afm\Helvetica-BoldOblique.afm" />
+    <EmbeddedResource Include="res\pkg\fonts\afm\Helvetica-Oblique.afm" />
+    <EmbeddedResource Include="res\pkg\fonts\afm\Helvetica.afm" />
+    <EmbeddedResource Include="res\pkg\fonts\afm\Symbol.afm" />
+    <EmbeddedResource Include="res\pkg\fonts\afm\Times-Bold.afm" />
+    <EmbeddedResource Include="res\pkg\fonts\afm\Times-BoldItalic.afm" />
+    <EmbeddedResource Include="res\pkg\fonts\afm\Times-Italic.afm" />
+    <EmbeddedResource Include="res\pkg\fonts\afm\Times-Roman.afm" />
+    <EmbeddedResource Include="res\pkg\fonts\afm\ZapfDingbats.afm" />
+    <EmbeddedResource Include="res\pkg\fonts\AGL20.scsv" />
+    <EmbeddedResource Include="res\pkg\fonts\cff\ExpertCharset" />
+    <EmbeddedResource Include="res\pkg\fonts\cff\ExpertSubsetCharset" />
+    <EmbeddedResource Include="res\pkg\fonts\cff\ISOAdobeCharset" />
+    <EmbeddedResource Include="res\pkg\fonts\cff\StandardStrings" />
+    <EmbeddedResource Include="res\pkg\fonts\cmap\Identity-H" />
+    <EmbeddedResource Include="res\pkg\fonts\cmap\Identity-V" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

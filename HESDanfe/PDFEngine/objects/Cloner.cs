@@ -254,20 +254,20 @@ namespace HESDanfe.Objects
 
     #region dynamic
     #region fields
-    private File context;
+    private PdfFile context;
     private readonly IList<Filter> filters = new List<Filter>(commonFilters);
     #endregion
 
     #region constructors
     public Cloner(
-      File context
+      PdfFile context
       )
     {Context = context;}
     #endregion
 
     #region interface
     #region public
-    public File Context
+    public PdfFile Context
     {
       get
       {return context;}

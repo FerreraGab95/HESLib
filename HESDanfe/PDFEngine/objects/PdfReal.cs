@@ -107,7 +107,7 @@ namespace HESDanfe.Objects
 
     public override void WriteTo(
       IOutputStream stream,
-      File context
+      PdfFile context
       )
     {stream.Write(RawValue.ToString(context.Configuration.RealFormat, formatInfo));}
 

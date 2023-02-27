@@ -47,7 +47,7 @@ namespace HESDanfe.Objects
     */
     public static PdfObject Clone(
       PdfObject @object,
-      File context
+      PdfFile context
       )
     {return @object == null ? null : @object.Clone(context);}
 
@@ -98,7 +98,7 @@ namespace HESDanfe.Objects
       <summary>Creates a deep copy of this object within the specified file context.</summary>
     */
     public virtual PdfObject Clone(
-      File context
+      PdfFile context
       )
     {return Accept(context.Cloner, null);}
 
@@ -133,7 +133,7 @@ namespace HESDanfe.Objects
     /**
       <summary>Gets the file containing this object.</summary>
     */
-    public virtual File File
+    public virtual PdfFile File
     {
       get
       {
@@ -230,7 +230,7 @@ namespace HESDanfe.Objects
     */
     public abstract void WriteTo(
       IOutputStream stream,
-      File context
+      PdfFile context
       );
 
     #region IVisitable

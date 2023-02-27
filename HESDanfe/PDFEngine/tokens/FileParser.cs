@@ -67,13 +67,13 @@ namespace HESDanfe.Tokens
 
     #region dynamic
     #region fields
-    private Files.File file;
+    private Files.PdfFile file;
     #endregion
 
     #region constructors
     internal FileParser(
       IInputStream stream,
-      Files.File file
+      Files.PdfFile file
       ) : base(stream)
     {this.file = file;}
     #endregion

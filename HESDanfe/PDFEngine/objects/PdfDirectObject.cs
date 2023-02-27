@@ -60,7 +60,7 @@ namespace HESDanfe.Objects
     */
     internal static void WriteTo(
       IOutputStream stream,
-      File context,
+      PdfFile context,
       PdfDirectObject obj
       )
     {

@@ -49,7 +49,7 @@ namespace HESDanfe.Objects
     #region dynamic
     #region fields
     private PdfDataObject dataObject;
-    private File file;
+    private PdfFile file;
     private bool original;
     private PdfReference reference;
     private XRefEntry xrefEntry;
@@ -73,7 +73,7 @@ namespace HESDanfe.Objects
         indirect object is new, its offset field MUST be set to 0.</param>
     */
     internal PdfIndirectObject(
-      File file,
+      PdfFile file,
       PdfDataObject dataObject,
       XRefEntry xrefEntry
       )
@@ -124,7 +124,7 @@ namespace HESDanfe.Objects
       {return this;}
     }
 
-    public override File File
+    public override PdfFile File
     {
       get
       {return file;}
@@ -232,7 +232,7 @@ namespace HESDanfe.Objects
 
     public override void WriteTo(
       IOutputStream stream,
-      File context
+      PdfFile context
       )
     {
       // Header.
