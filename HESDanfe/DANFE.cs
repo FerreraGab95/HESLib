@@ -21,11 +21,11 @@ namespace HESDanfe
             Paginas.Add(p);
             p.DesenharBlocos(Paginas.Count == 1);
 
-            if (LicenseKey != Utils.GenerateLicenseKey("hes.com.br"))
+            if (LicenseKey != "hes.com.br".GenerateLicenseKey())
             {
                 p.DesenharCreditos("Impresso com H&S Technologies - hes.com.br");
             }
-            else if (Ext.IsNotBlank(Creditos))
+            else if (Creditos.IsNotBlank())
             {
                 p.DesenharCreditos(Creditos);
             }

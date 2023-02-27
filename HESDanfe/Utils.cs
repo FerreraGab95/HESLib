@@ -3,7 +3,6 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.Reflection;
-using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using InnerLibs;
@@ -13,42 +12,23 @@ namespace HESDanfe
 {
     internal static class Utils
     {
-        #region Private Fields
-
-        private const float PointFactor = 72F / 25.4F;
-
-        #endregion Private Fields
-
         #region Internal Fields
 
         internal const string BairroDistrito = "Bairro / Distrito";
-
         internal const string Cep = "CEP";
-
         internal const string CnpjCpf = "CNPJ / CPF";
-
         internal const string Endereco = "Endereço";
-
         internal const string FoneFax = "Fone / Fax";
-
         internal const string FormatoMoeda = "#,0.00##";
-
         internal const string FormatoNumero = "#,0.####";
-
         internal const string FormatoNumeroNF = @"000\.000\.000";
-
         internal const string InscricaoEstadual = "Inscrição Estadual";
-
         internal const string Municipio = "Município";
-
         internal const string NomeRazaoSocial = "Nome / Razão Social";
-
+        internal const float PointFactor = 72F / 25.4F;
         internal const string Quantidade = "Quantidade";
-
         internal const string RazaoSocial = "Razão Social";
-
         internal const string TextoConsulta = "Consulta de autenticidade no portal nacional da NF-e www.nfe.fazenda.gov.br/portal ou no site da Sefaz Autorizadora";
-
         internal const string UF = "UF";
 
         #endregion Internal Fields
@@ -75,52 +55,15 @@ namespace HESDanfe
 
         internal static string FormatarMoeda(this double? number) => number.HasValue ? number.Value.ToString("C", Cultura) : string.Empty;
 
-        internal static string GenerateLicenseKey(this string productIdentifier)
-        {
-            Encoder enc = Encoding.Unicode.GetEncoder();
-            byte[] unicodeText = new byte[productIdentifier.Length * 2];
-            enc.GetBytes(productIdentifier.ToCharArray(), 0, productIdentifier.Length, unicodeText, 0, true);
-            MD5 md5 = new MD5CryptoServiceProvider();
-            byte[] result = md5.ComputeHash(unicodeText);
 
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < result.Length; i++)
-            {
-                sb.Append(result[i].ToString("X2"));
-            }
-
-            productIdentifier = sb.ToString().Substring(0, 28).ToUpper();
-            char[] serialArray = productIdentifier.ToCharArray();
-            StringBuilder licenseKey = new StringBuilder();
-
-            int j;
-            for (int i = 0; i < 28; i++)
-            {
-                for (j = i; j < 4 + i; j++)
-                {
-                    licenseKey.Append(serialArray[j]);
-                }
-                if (j == 28)
-                {
-                    break;
-                }
-                else
-                {
-                    i = (j) - 1;
-                    licenseKey.Append("-");
-                }
-            }
-            return licenseKey.ToString();
-        }
-
-        internal static AssemblyName GetAssemblyName() => Assembly.GetEntryAssembly()?.GetName() ?? Assembly.GetExecutingAssembly()?.GetName();
+        internal static Assembly GetAssembly() => Assembly.GetEntryAssembly() ?? Assembly.GetExecutingAssembly();
+        internal static AssemblyName GetAssemblyName() => GetAssembly()?.GetName();
 
         internal static string GetCompanyName()
         {
-            var versionInfo = FileVersionInfo.GetVersionInfo((Assembly.GetEntryAssembly() ?? Assembly.GetExecutingAssembly()).Location);
+            var versionInfo = FileVersionInfo.GetVersionInfo(GetAssembly().Location);
             var c = versionInfo?.CompanyName;
             return c.IfBlank("H&S Technologies");
-
         }
 
         #endregion Internal Methods
