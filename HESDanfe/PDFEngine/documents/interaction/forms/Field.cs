@@ -25,17 +25,17 @@
 
 using HESDanfe.bytes;
 using HESDanfe.Documents;
-using HESDanfe.Documents.interaction.annotations;
+using HESDanfe.Documents.Interaction.annotations;
 using HESDanfe.Files;
-using HESDanfe.objects;
-using HESDanfe.util;
+using HESDanfe.Objects;
+using HESDanfe.Util;
 
 using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 
-namespace HESDanfe.Documents.interaction.forms
+namespace HESDanfe.Documents.Interaction.forms
 {
   /**
     <summary>Interactive form field [PDF:1.6:8.6.2].</summary>

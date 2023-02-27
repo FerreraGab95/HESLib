@@ -32,7 +32,7 @@ using xObjects = HESDanfe.Documents.Contents.xObjects;
 
 using System;
 
-namespace HESDanfe.Documents.Contents.entities
+namespace HESDanfe.Documents.Contents.Entities
 {
   /**
     <summary>Abstract specialized graphic object.</summary>

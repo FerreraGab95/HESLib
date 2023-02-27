@@ -28,9 +28,9 @@ using HESDanfe.Documents.Contents;
 using HESDanfe.Documents.Contents.Composition;
 using HESDanfe.Documents.Contents.Objects;
 using xObjects = HESDanfe.Documents.Contents.xObjects;
-using HESDanfe.Documents.interaction.navigation.page;
+using HESDanfe.Documents.Interaction.Navigation.Page;
 using HESDanfe.Files;
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
 using System;
 using System.Collections.Generic;

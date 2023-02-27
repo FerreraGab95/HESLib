@@ -25,11 +25,11 @@
 
 using HESDanfe.bytes;
 using HESDanfe.Documents;
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
 using System;
 
-namespace HESDanfe.Documents.interaction.actions
+namespace HESDanfe.Documents.Interaction.actions
 {
   /**
     <summary>'Reset selected interactive form fields to their default values' action

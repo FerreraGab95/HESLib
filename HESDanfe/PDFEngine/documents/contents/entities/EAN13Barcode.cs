@@ -32,7 +32,7 @@ using xObjects = HESDanfe.Documents.Contents.xObjects;
 using System;
 using System.Drawing;
 
-namespace HESDanfe.Documents.Contents.entities
+namespace HESDanfe.Documents.Contents.Entities
 {
   /**
     <see href="http://en.wikipedia.org/wiki/EAN13">EAN-13 Bar Code</see> object [GS1:7.1:5.1.1.3.1].

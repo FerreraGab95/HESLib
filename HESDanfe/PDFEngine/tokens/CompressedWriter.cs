@@ -25,14 +25,14 @@
 
 using HESDanfe.bytes;
 using HESDanfe.Files;
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace HESDanfe.tokens
+namespace HESDanfe.Tokens
 {
   /**
     <summary>PDF file writer implementing compressed cross-reference stream [PDF:1.6:3.4.7].</summary>

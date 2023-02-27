@@ -25,9 +25,9 @@
 
 using System;
 using System.Collections.Generic;
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
-namespace HESDanfe.Documents.Contents.colorSpaces
+namespace HESDanfe.Documents.Contents.ColorSpaces
 {
     /**
       <summary>Special color space that can contain an arbitrary number of color components [PDF:1.6:4.5.5].</summary>

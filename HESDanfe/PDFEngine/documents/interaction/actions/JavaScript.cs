@@ -25,11 +25,11 @@
 
 using bytes = HESDanfe.bytes;
 using HESDanfe.Documents;
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
 using System;
 
-namespace HESDanfe.Documents.interaction.actions
+namespace HESDanfe.Documents.Interaction.actions
 {
   /**
     <summary>'Cause a script to be compiled and executed by the JavaScript interpreter'

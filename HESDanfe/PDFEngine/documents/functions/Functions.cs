@@ -23,13 +23,13 @@
   this list of conditions.
 */
 
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
 using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.functions
+namespace HESDanfe.Documents.Functions
 {
   /**
     <summary>List of 1-input functions combined in a <see cref="Parent">stitching function</see> [PDF:1.6:3.9.3].</summary>

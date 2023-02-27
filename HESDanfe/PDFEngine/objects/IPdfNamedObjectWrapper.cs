@@ -23,7 +23,7 @@
   this list of conditions.
 */
 
-namespace HESDanfe.objects
+namespace HESDanfe.Objects
 {
   /**
     <summary>High-level representation of a PDF object that can be referenced also through a name.

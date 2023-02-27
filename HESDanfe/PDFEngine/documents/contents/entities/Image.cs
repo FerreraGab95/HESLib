@@ -29,7 +29,7 @@ using HESDanfe.Documents.Contents.Objects;
 using System;
 using System.IO;
 
-namespace HESDanfe.Documents.Contents.entities
+namespace HESDanfe.Documents.Contents.Entities
 {
   /**
     <summary>Abstract image object [PDF:1.6:4.8].</summary>

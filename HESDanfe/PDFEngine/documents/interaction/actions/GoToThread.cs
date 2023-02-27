@@ -25,11 +25,11 @@
 
 using HESDanfe.bytes;
 using HESDanfe.Documents;
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
 using System;
 
-namespace HESDanfe.Documents.interaction.actions
+namespace HESDanfe.Documents.Interaction.actions
 {
   /**
     <summary>'Jump to a specified bead on an article thread' action [PDF:1.6:8.5.3].</summary>

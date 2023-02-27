@@ -24,12 +24,12 @@
 */
 
 using HESDanfe.bytes;
-using HESDanfe.objects;
-using HESDanfe.util.parsers;
+using HESDanfe.Objects;
+using HESDanfe.Util.Parsers;
 
 using System;
 
-namespace HESDanfe.tokens
+namespace HESDanfe.Tokens
 {
   /**
     <summary>Base PDF parser [PDF:1.7:3.2].</summary>

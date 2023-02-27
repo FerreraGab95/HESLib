@@ -25,13 +25,13 @@
 
 using HESDanfe.bytes;
 using HESDanfe.Documents;
-using HESDanfe.Documents.Contents.colorSpaces;
-using HESDanfe.objects;
+using HESDanfe.Documents.Contents.ColorSpaces;
+using HESDanfe.Objects;
 
 using System;
 using System.Drawing;
 
-namespace HESDanfe.Documents.interaction.annotations
+namespace HESDanfe.Documents.Interaction.annotations
 {
   /**
     <summary>Abstract shape annotation.</summary>

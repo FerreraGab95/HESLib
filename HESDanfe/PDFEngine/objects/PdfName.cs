@@ -25,14 +25,14 @@
 
 using HESDanfe.bytes;
 using HESDanfe.Files;
-using tokens = HESDanfe.tokens;
+using Tokens = HESDanfe.Tokens;
 
 using System;
 using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace HESDanfe.objects
+namespace HESDanfe.Objects
 {
   /**
     <summary>PDF name object [PDF:1.6:3.2.4].</summary>
@@ -544,7 +544,7 @@ namespace HESDanfe.objects
     public static readonly PdfName Zoom = new PdfName("Zoom");
     #pragma warning restore 0108
 
-    private static readonly byte[] NamePrefixChunk = tokens::Encoding.Pdf.Encode(tokens.Keyword.NamePrefix);
+    private static readonly byte[] NamePrefixChunk = Tokens::Encoding.Pdf.Encode(Tokens.Keyword.NamePrefix);
     #endregion
 
     #region interface

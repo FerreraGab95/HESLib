@@ -23,35 +23,35 @@
   this list of conditions.
 */
 
-namespace HESDanfe.Documents.Contents.entities
+namespace HESDanfe.Documents.Contents.Entities
 {
-  /**
-    <summary>Abstract <a href="http://en.wikipedia.org/wiki/Barcode">barcode</a> object.</summary>
-  */
-  public abstract class Barcode
-    : Entity
-  {
-    #region dynamic
-    #region fields
-    protected string code;
-    #endregion
-
-    #region constructors
-    protected Barcode(
-      string code
-      )
-    {this.code = code;}
-    #endregion
-
-    #region interface
-    #region public
     /**
-      <summary>Gets the code to represent.</summary>
+      <summary>Abstract <a href="http://en.wikipedia.org/wiki/Barcode">barcode</a> object.</summary>
     */
-    public string Code
-    {get{return code;}}
-    #endregion
-    #endregion
-    #endregion
-  }
+    public abstract class Barcode
+    : Entity
+    {
+        #region dynamic
+        #region fields
+        protected string code;
+        #endregion
+
+        #region constructors
+        protected Barcode(
+          string code
+          )
+        { this.code = code; }
+        #endregion
+
+        #region interface
+        #region public
+        /**
+          <summary>Gets the code to represent.</summary>
+        */
+        public string Code
+        { get { return code; } }
+        #endregion
+        #endregion
+        #endregion
+    }
 }

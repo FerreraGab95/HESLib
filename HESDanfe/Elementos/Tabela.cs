@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Linq;
 using HESDanfe.Graphics;
 using InnerLibs;
-using HESDanfe.Documents.Contents.colorSpaces;
+using HESDanfe.Documents.Contents.ColorSpaces;
 
 namespace HESDanfe
 {

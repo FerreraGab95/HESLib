@@ -26,7 +26,7 @@
 using HESDanfe.Files;
 using HESDanfe.Documents;
 using HESDanfe.Documents.Contents.xObjects;
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
 using System;
 using System.Collections;

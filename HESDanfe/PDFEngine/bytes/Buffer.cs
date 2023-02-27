@@ -26,10 +26,10 @@
 using System;
 using System.IO;
 using HESDanfe.bytes.filters;
-using HESDanfe.objects;
-using HESDanfe.tokens;
-using HESDanfe.util;
-using HESDanfe.util.io;
+using HESDanfe.Objects;
+using HESDanfe.Tokens;
+using HESDanfe.Util;
+using HESDanfe.Util.IO;
 using text = System.Text;
 
 namespace HESDanfe.bytes

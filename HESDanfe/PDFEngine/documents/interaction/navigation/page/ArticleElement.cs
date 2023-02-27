@@ -24,14 +24,14 @@
 */
 
 using HESDanfe.Documents;
-using HESDanfe.objects;
-using HESDanfe.util;
+using HESDanfe.Objects;
+using HESDanfe.Util;
 
 using System;
 using System.Drawing;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.interaction.navigation.page
+namespace HESDanfe.Documents.Interaction.Navigation.Page
 {
   /**
     <summary>Article bead [PDF:1.7:8.3.2].</summary>
@@ -54,7 +54,7 @@ namespace HESDanfe.Documents.interaction.navigation.page
     #region dynamic
     #region constructors
     public ArticleElement(
-      Page page,
+      Documents.Page page,
       RectangleF box
       ) : base(
         page.Document,
@@ -100,7 +100,7 @@ namespace HESDanfe.Documents.interaction.navigation.page
     {
       get
       {
-        HESDanfe.objects.Rectangle box = HESDanfe.objects.Rectangle.Wrap(BaseDataObject[PdfName.R]);
+        HESDanfe.Objects.Rectangle box = HESDanfe.Objects.Rectangle.Wrap(BaseDataObject[PdfName.R]);
         return new RectangleF(
           (float)box.Left,
           (float)(Page.Box.Height - box.Top),
@@ -110,7 +110,7 @@ namespace HESDanfe.Documents.interaction.navigation.page
       }
       set
       {
-        BaseDataObject[PdfName.R] = new HESDanfe.objects.Rectangle(
+        BaseDataObject[PdfName.R] = new HESDanfe.Objects.Rectangle(
           value.X,
           Page.Box.Height - value.Y,
           value.Width,
@@ -129,8 +129,8 @@ namespace HESDanfe.Documents.interaction.navigation.page
       // Shallow removal (references):
       // * thread links
       Article.Elements.Remove(this);
-      // * reference on page
-      Page.ArticleElements.Remove(this);
+            // * reference on page
+            Page.ArticleElements.Remove(this);
 
       // Deep removal (indirect object).
       return base.Delete();
@@ -158,10 +158,10 @@ namespace HESDanfe.Documents.interaction.navigation.page
     /**
       <summary>Gets the location page.</summary>
     */
-    public Page Page
+    public Documents.Page Page
     {
       get
-      {return Page.Wrap(BaseDataObject[PdfName.P]);}
+      {return Documents.Page.Wrap(BaseDataObject[PdfName.P]);}
     }
 
     /**

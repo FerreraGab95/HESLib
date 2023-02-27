@@ -23,7 +23,7 @@
   this list of conditions.
 */
 
-namespace HESDanfe.Documents.interaction.actions
+namespace HESDanfe.Documents.Interaction.actions
 {
   /**
     <summary>Action options.</summary>

@@ -25,13 +25,13 @@
 
 using HESDanfe.bytes;
 using HESDanfe.Documents;
-using HESDanfe.Documents.interaction.annotations;
-using HESDanfe.objects;
-using HESDanfe.util;
+using HESDanfe.Documents.Interaction.annotations;
+using HESDanfe.Objects;
+using HESDanfe.Util;
 
 using System;
 
-namespace HESDanfe.Documents.interaction.forms
+namespace HESDanfe.Documents.Interaction.forms
 {
   /**
     <summary>Combo box [PDF:1.6:8.6.3].</summary>

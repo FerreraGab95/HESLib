@@ -25,12 +25,12 @@
 
 using HESDanfe.bytes;
 using HESDanfe.Files;
-using HESDanfe.tokens;
+using HESDanfe.Tokens;
 
 using System;
 using System.Text;
 
-namespace HESDanfe.objects
+namespace HESDanfe.Objects
 {
   /**
     <summary>PDF indirect object [PDF:1.6:3.2.9].</summary>
@@ -41,8 +41,8 @@ namespace HESDanfe.objects
   {
     #region static
     #region fields
-    private static readonly byte[] BeginIndirectObjectChunk = tokens.Encoding.Pdf.Encode(Symbol.Space + Keyword.BeginIndirectObject + Symbol.LineFeed);
-    private static readonly byte[] EndIndirectObjectChunk = tokens.Encoding.Pdf.Encode(Symbol.LineFeed + Keyword.EndIndirectObject + Symbol.LineFeed);
+    private static readonly byte[] BeginIndirectObjectChunk = Tokens.Encoding.Pdf.Encode(Symbol.Space + Keyword.BeginIndirectObject + Symbol.LineFeed);
+    private static readonly byte[] EndIndirectObjectChunk = Tokens.Encoding.Pdf.Encode(Symbol.LineFeed + Keyword.EndIndirectObject + Symbol.LineFeed);
     #endregion
     #endregion
 

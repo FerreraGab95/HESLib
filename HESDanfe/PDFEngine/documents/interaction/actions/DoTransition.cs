@@ -25,12 +25,12 @@
 
 using HESDanfe.bytes;
 using HESDanfe.Documents;
-using HESDanfe.Documents.interaction.navigation.page;
-using HESDanfe.objects;
+using HESDanfe.Documents.Interaction.Navigation.Page;
+using HESDanfe.Objects;
 
 using System;
 
-namespace HESDanfe.Documents.interaction.actions
+namespace HESDanfe.Documents.Interaction.actions
 {
   /**
     <summary>'Control drawing during a sequence of actions' action [PDF:1.6:8.5.3].</summary>

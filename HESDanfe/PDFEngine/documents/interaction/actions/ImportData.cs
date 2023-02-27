@@ -25,11 +25,11 @@
 
 using HESDanfe.bytes;
 using HESDanfe.Documents;
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
 using System;
 
-namespace HESDanfe.Documents.interaction.actions
+namespace HESDanfe.Documents.Interaction.actions
 {
   /**
     <summary>'Import FDF (Forms Data Format) data into the document's interactive form

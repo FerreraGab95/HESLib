@@ -30,8 +30,8 @@ using HESDanfe.bytes;
 using Fonts = HESDanfe.Documents.Contents.Fonts;
 using HESDanfe.Documents.Contents.Objects;
 using xObjects = HESDanfe.Documents.Contents.xObjects;
-using HESDanfe.objects;
-using HESDanfe.util.math;
+using HESDanfe.Objects;
+using HESDanfe.Util.Math;
 
 using System;
 using System.Collections.Generic;

@@ -23,10 +23,10 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents.interaction.actions;
-using HESDanfe.Documents.interaction.navigation.document;
+using HESDanfe.Documents.Interaction.actions;
+using HESDanfe.Documents.Interaction.Navigation.document;
 using HESDanfe.Files;
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
 using system = System;
 using System.Collections.Generic;

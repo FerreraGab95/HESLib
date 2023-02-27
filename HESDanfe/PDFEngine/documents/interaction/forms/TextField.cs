@@ -31,13 +31,13 @@ using HESDanfe.Documents.Contents.Composition;
 using HESDanfe.Documents.Contents.Objects;
 using HESDanfe.Documents.Contents.tokens;
 using HESDanfe.Documents.Contents.xObjects;
-using HESDanfe.Documents.interaction.annotations;
-using HESDanfe.objects;
-using HESDanfe.util;
+using HESDanfe.Documents.Interaction.annotations;
+using HESDanfe.Objects;
+using HESDanfe.Util;
 using bytes = HESDanfe.bytes;
 using Fonts = HESDanfe.Documents.Contents.Fonts;
 
-namespace HESDanfe.Documents.interaction.forms
+namespace HESDanfe.Documents.Interaction.forms
 {
     /**
       <summary>Text field [PDF:1.6:8.6.3].</summary>

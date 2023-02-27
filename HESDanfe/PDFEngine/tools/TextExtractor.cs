@@ -25,7 +25,7 @@
 
 using HESDanfe.Documents.Contents;
 using HESDanfe.Documents.Contents.Objects;
-using HESDanfe.util.math;
+using HESDanfe.Util.Math;
 
 using System;
 using System.Collections;
@@ -33,7 +33,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
 
-namespace HESDanfe.tools
+namespace HESDanfe.Tools
 {
   /**
     <summary>Tool for extracting text from <see cref="IContentContext">content contexts</see>.</summary>

@@ -23,10 +23,10 @@
   this list of conditions.
 */
 
-using HESDanfe.util;
+using HESDanfe.Util;
 using System;
 
-namespace HESDanfe.tokens
+namespace HESDanfe.Tokens
 {
   /**
     <summary>Adobe standard Latin character set [PDF:1.7:D].</summary>

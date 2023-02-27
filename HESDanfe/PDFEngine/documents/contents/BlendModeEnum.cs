@@ -23,8 +23,8 @@
   this list of conditions.
 */
 
-using HESDanfe.objects;
-using HESDanfe.util;
+using HESDanfe.Objects;
+using HESDanfe.Util;
 
 namespace HESDanfe.Documents.Contents
 {

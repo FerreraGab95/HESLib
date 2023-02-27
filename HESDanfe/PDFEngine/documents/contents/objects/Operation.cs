@@ -25,8 +25,8 @@
 
 using HESDanfe.bytes;
 using HESDanfe.Files;
-using HESDanfe.objects;
-using HESDanfe.tokens;
+using HESDanfe.Objects;
+using HESDanfe.Tokens;
 
 using System;
 using System.Collections.Generic;

@@ -23,12 +23,12 @@
   this list of conditions.
 */
 
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
 using System;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.functions
+namespace HESDanfe.Documents.Functions
 {
   /**
     <summary>PostScript calculator function represented as a stream containing code written in a

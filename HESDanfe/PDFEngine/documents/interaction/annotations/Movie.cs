@@ -26,12 +26,12 @@
 using HESDanfe.bytes;
 using HESDanfe.Documents;
 using multimedia = HESDanfe.Documents.multimedia;
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
 using System;
 using System.Drawing;
 
-namespace HESDanfe.Documents.interaction.annotations
+namespace HESDanfe.Documents.Interaction.annotations
 {
   /**
     <summary>Movie annotation [PDF:1.6:8.4.5].</summary>

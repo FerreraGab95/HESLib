@@ -24,8 +24,8 @@
 */
 
 using HESDanfe.Files;
-using HESDanfe.objects;
-using HESDanfe.util.collections.generic;
+using HESDanfe.Objects;
+using HESDanfe.Util.Collections.Generic;
 
 using System;
 using System.Collections;

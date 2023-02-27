@@ -24,13 +24,13 @@
 */
 
 using HESDanfe.bytes;
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
 using System;
 using System.IO;
 using System.Xml;
 
-namespace HESDanfe.Documents.interchange.metadata
+namespace HESDanfe.Documents.Interchange.Metadata
 {
   /**
     <summary>Metadata stream [PDF:1.6:10.2.2].</summary>

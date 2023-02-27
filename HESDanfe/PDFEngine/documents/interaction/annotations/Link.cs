@@ -25,14 +25,14 @@
 
 using HESDanfe.bytes;
 using HESDanfe.Documents;
-using HESDanfe.Documents.interaction.actions;
-using HESDanfe.Documents.interaction.navigation.document;
-using HESDanfe.objects;
+using HESDanfe.Documents.Interaction.actions;
+using HESDanfe.Documents.Interaction.Navigation.document;
+using HESDanfe.Objects;
 
 using system = System;
 using System.Drawing;
 
-namespace HESDanfe.Documents.interaction.annotations
+namespace HESDanfe.Documents.Interaction.annotations
 {
   /**
     <summary>Link annotation [PDF:1.6:8.4.5].</summary>

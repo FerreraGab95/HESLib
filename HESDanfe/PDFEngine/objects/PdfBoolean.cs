@@ -25,11 +25,11 @@
 
 using HESDanfe.bytes;
 using HESDanfe.Files;
-using HESDanfe.tokens;
+using HESDanfe.Tokens;
 
 using System;
 
-namespace HESDanfe.objects
+namespace HESDanfe.Objects
 {
   /**
     <summary>PDF boolean object [PDF:1.6:3.2.1].</summary>

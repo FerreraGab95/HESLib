@@ -29,7 +29,7 @@ using HESDanfe.Files;
 using System;
 using System.Globalization;
 
-namespace HESDanfe.objects
+namespace HESDanfe.Objects
 {
   /**
     <summary>PDF real number object [PDF:1.6:3.2.2].</summary>

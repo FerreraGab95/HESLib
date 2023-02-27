@@ -25,7 +25,7 @@
 
 using System;
 
-namespace HESDanfe.tokens
+namespace HESDanfe.Tokens
 {
   /**
     <summary>Common data chunks for serialization purposes.</summary>

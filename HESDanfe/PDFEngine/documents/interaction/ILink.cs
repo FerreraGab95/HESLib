@@ -23,11 +23,11 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents.interaction.actions;
-using HESDanfe.Documents.interaction.navigation.document;
-using HESDanfe.objects;
+using HESDanfe.Documents.Interaction.actions;
+using HESDanfe.Documents.Interaction.Navigation.document;
+using HESDanfe.Objects;
 
-namespace HESDanfe.Documents.interaction
+namespace HESDanfe.Documents.Interaction
 {
   /**
     <summary>Link.</summary>

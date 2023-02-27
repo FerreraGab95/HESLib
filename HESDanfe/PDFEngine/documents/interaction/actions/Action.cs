@@ -26,11 +26,11 @@
 using HESDanfe.bytes;
 using HESDanfe.Documents;
 using HESDanfe.Files;
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
 using system = System;
 
-namespace HESDanfe.Documents.interaction.actions
+namespace HESDanfe.Documents.Interaction.actions
 {
   /**
     <summary>Action to be performed by the viewer application [PDF:1.6:8.5].</summary>

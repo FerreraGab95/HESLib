@@ -25,13 +25,13 @@
 
 using HESDanfe.Documents;
 using HESDanfe.Files;
-using HESDanfe.objects;
-using HESDanfe.util;
+using HESDanfe.Objects;
+using HESDanfe.Util;
 
 using System;
 using System.Drawing;
 
-namespace HESDanfe.Documents.interaction.navigation.document
+namespace HESDanfe.Documents.Interaction.Navigation.document
 {
   /**
     <summary>Interaction target [PDF:1.6:8.2.1].</summary>

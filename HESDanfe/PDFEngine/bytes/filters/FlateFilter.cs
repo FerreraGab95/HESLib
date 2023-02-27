@@ -31,7 +31,7 @@
 using System;
 using System.IO;
 using System.IO.Compression;
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
 namespace HESDanfe.bytes.filters
 {

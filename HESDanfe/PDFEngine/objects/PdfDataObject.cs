@@ -23,7 +23,7 @@
   this list of conditions.
 */
 
-namespace HESDanfe.objects
+namespace HESDanfe.Objects
 {
   /**
     <summary>PDF data object.</summary>

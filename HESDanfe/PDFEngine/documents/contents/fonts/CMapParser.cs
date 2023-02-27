@@ -25,11 +25,11 @@
 
 using bytes = HESDanfe.bytes;
 using HESDanfe.Documents.Contents.Objects;
-using HESDanfe.objects;
-using HESDanfe.tokens;
-using HESDanfe.util;
-using HESDanfe.util.math;
-using HESDanfe.util.parsers;
+using HESDanfe.Objects;
+using HESDanfe.Tokens;
+using HESDanfe.Util;
+using HESDanfe.Util.Math;
+using HESDanfe.Util.Parsers;
 
 using System;
 using System.Collections.Generic;

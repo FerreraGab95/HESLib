@@ -23,8 +23,8 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents.interaction.navigation.page;
-using HESDanfe.objects;
+using HESDanfe.Documents.Interaction.Navigation.Page;
+using HESDanfe.Objects;
 
 namespace HESDanfe.Documents
 {

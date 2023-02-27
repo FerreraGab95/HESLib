@@ -25,15 +25,15 @@
 
 using HESDanfe.bytes;
 using HESDanfe.Files;
-using tokens = HESDanfe.tokens;
-using HESDanfe.util;
+using Tokens = HESDanfe.Tokens;
+using HESDanfe.Util;
 
 using System;
 using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace HESDanfe.objects
+namespace HESDanfe.Objects
 {
   /**
     <summary>PDF string object [PDF:1.6:3.2.3].</summary>
@@ -188,7 +188,7 @@ namespace HESDanfe.objects
         switch(serializationMode)
         {
           case SerializationModeEnum.Literal:
-            return tokens::Encoding.Pdf.Decode(RawValue);
+            return Tokens::Encoding.Pdf.Decode(RawValue);
           case SerializationModeEnum.Hex:
             return ConvertUtils.ByteArrayToHex(RawValue);
           default:
@@ -200,7 +200,7 @@ namespace HESDanfe.objects
         switch(serializationMode)
         {
           case SerializationModeEnum.Literal:
-            RawValue = tokens::Encoding.Pdf.Encode((string)value);
+            RawValue = Tokens::Encoding.Pdf.Encode((string)value);
             break;
           case SerializationModeEnum.Hex:
             RawValue = ConvertUtils.HexToByteArray((string)value);
@@ -265,7 +265,7 @@ namespace HESDanfe.objects
             break;
           case SerializationModeEnum.Hex:
             buffer.WriteByte(HexLeftDelimiterCode);
-            byte[] value = tokens::Encoding.Pdf.Encode(ConvertUtils.ByteArrayToHex(rawValue));
+            byte[] value = Tokens::Encoding.Pdf.Encode(ConvertUtils.ByteArrayToHex(rawValue));
             buffer.Write(value,0,value.Length);
             buffer.WriteByte(HexRightDelimiterCode);
             break;

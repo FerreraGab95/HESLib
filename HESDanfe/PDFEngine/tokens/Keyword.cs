@@ -23,7 +23,7 @@
   this list of conditions.
 */
 
-namespace HESDanfe.tokens
+namespace HESDanfe.Tokens
 {
   /**
     <summary>PDF keywords.</summary>

@@ -24,9 +24,9 @@
 */
 
 using HESDanfe.Documents;
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
-namespace HESDanfe.Documents.Contents.colorSpaces
+namespace HESDanfe.Documents.Contents.ColorSpaces
 {
   /**
     <summary>Special color space [PDF:1.6:4.5.5].</summary>

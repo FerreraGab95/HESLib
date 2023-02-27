@@ -25,12 +25,12 @@
 
 using HESDanfe.bytes;
 using HESDanfe.Documents;
-using HESDanfe.Documents.interaction.annotations;
-using HESDanfe.objects;
+using HESDanfe.Documents.Interaction.annotations;
+using HESDanfe.Objects;
 
 using System;
 
-namespace HESDanfe.Documents.interaction.forms
+namespace HESDanfe.Documents.Interaction.forms
 {
   /**
     <summary>Check box field [PDF:1.6:8.6.3].</summary>

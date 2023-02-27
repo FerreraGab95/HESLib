@@ -28,9 +28,9 @@ using HESDanfe.Documents.Contents;
 using HESDanfe.Documents.Contents.Composition;
 using HESDanfe.Documents.Contents.Objects;
 using HESDanfe.Files;
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
-namespace HESDanfe.tools
+namespace HESDanfe.Tools
 {
   /**
     <summary>Tool for content insertion into existing pages.</summary>

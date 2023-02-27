@@ -25,11 +25,11 @@
 
 using System;
 using System.Collections.Generic;
-using HESDanfe.objects;
-using HESDanfe.util.math;
+using HESDanfe.Objects;
+using HESDanfe.Util.Math;
 using drawing = System.Drawing;
 
-namespace HESDanfe.Documents.Contents.colorSpaces
+namespace HESDanfe.Documents.Contents.ColorSpaces
 {
     /**
       <summary>CIE-based ABC double-transformation-stage color space, where A, B and C represent the

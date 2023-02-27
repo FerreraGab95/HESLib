@@ -25,16 +25,16 @@
 
 using HESDanfe.bytes;
 using HESDanfe.Files;
-using HESDanfe.objects;
-using HESDanfe.util;
-using HESDanfe.util.io;
-using HESDanfe.util.parsers;
+using HESDanfe.Objects;
+using HESDanfe.Util;
+using HESDanfe.Util.IO;
+using HESDanfe.Util.Parsers;
 
 using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace HESDanfe.tokens
+namespace HESDanfe.Tokens
 {
   /**
     <summary>Cross-reference stream containing cross-reference information [PDF:1.6:3.4.7].</summary>

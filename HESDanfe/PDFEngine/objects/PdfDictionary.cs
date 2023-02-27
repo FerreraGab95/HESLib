@@ -25,14 +25,14 @@
 
 using HESDanfe.bytes;
 using HESDanfe.Files;
-using HESDanfe.tokens;
+using HESDanfe.Tokens;
 
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using text = System.Text;
 
-namespace HESDanfe.objects
+namespace HESDanfe.Objects
 {
   /**
     <summary>PDF dictionary object [PDF:1.6:3.2.6].</summary>

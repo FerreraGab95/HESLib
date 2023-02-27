@@ -26,17 +26,17 @@
 using HESDanfe.bytes;
 using HESDanfe.Documents;
 using HESDanfe.Documents.Contents;
-using HESDanfe.Documents.Contents.colorSpaces;
+using HESDanfe.Documents.Contents.ColorSpaces;
 using HESDanfe.Documents.Contents.Composition;
 using HESDanfe.Documents.Contents.xObjects;
-using HESDanfe.objects;
-using HESDanfe.util.math.geom;
+using HESDanfe.Objects;
+using HESDanfe.Util.Math.geom;
 
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace HESDanfe.Documents.interaction.annotations
+namespace HESDanfe.Documents.Interaction.annotations
 {
   /**
     <summary>Text markup annotation [PDF:1.6:8.4.5].</summary>
@@ -306,7 +306,7 @@ namespace HESDanfe.Documents.interaction.annotations
       )
     {
       FormXObject normalAppearance;
-      RectangleF box = HESDanfe.objects.Rectangle.Wrap(BaseDataObject[PdfName.Rect]).ToRectangleF();
+      RectangleF box = HESDanfe.Objects.Rectangle.Wrap(BaseDataObject[PdfName.Rect]).ToRectangleF();
       {
         AppearanceStates normalAppearances = Appearance.Normal;
         normalAppearance = normalAppearances[null];

@@ -26,12 +26,12 @@
 using HESDanfe.bytes;
 using HESDanfe.Documents;
 using HESDanfe.Documents.files;
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
 using System;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.interaction.actions
+namespace HESDanfe.Documents.Interaction.actions
 {
   /**
     <summary>'Launch an application' action [PDF:1.6:8.5.3].</summary>

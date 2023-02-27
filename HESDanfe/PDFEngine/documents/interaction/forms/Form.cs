@@ -26,12 +26,12 @@
 using HESDanfe.bytes;
 using HESDanfe.Documents;
 using HESDanfe.Documents.Contents;
-using HESDanfe.Documents.interaction.annotations;
-using HESDanfe.objects;
+using HESDanfe.Documents.Interaction.annotations;
+using HESDanfe.Objects;
 
 using System;
 
-namespace HESDanfe.Documents.interaction.forms
+namespace HESDanfe.Documents.Interaction.forms
 {
   /**
     <summary>Interactive form (AcroForm) [PDF:1.6:8.6.1].</summary>

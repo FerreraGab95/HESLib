@@ -24,13 +24,13 @@
 */
 
 using HESDanfe.Documents;
-using HESDanfe.Documents.Contents.colorSpaces;
+using HESDanfe.Documents.Contents.ColorSpaces;
 using HESDanfe.Documents.Contents.xObjects;
 using HESDanfe.Documents.files;
-using actions = HESDanfe.Documents.interaction.actions;
+using actions = HESDanfe.Documents.Interaction.actions;
 using HESDanfe.Files;
-using HESDanfe.objects;
-using HESDanfe.util;
+using HESDanfe.Objects;
+using HESDanfe.Util;
 
 using System;
 

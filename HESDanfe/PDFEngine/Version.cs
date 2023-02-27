@@ -23,8 +23,8 @@
   this list of conditions.
 */
 
-using HESDanfe.objects;
-using HESDanfe.util.metadata;
+using HESDanfe.Objects;
+using HESDanfe.Util.Metadata;
 
 using System;
 using System.Collections.Generic;

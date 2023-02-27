@@ -24,13 +24,13 @@
 */
 
 using HESDanfe.Documents.Contents.Composition;
-using HESDanfe.objects;
-using HESDanfe.util;
+using HESDanfe.Objects;
+using HESDanfe.Util;
 
 using System;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.interaction
+namespace HESDanfe.Documents.Interaction
 {
   /**
     <summary>Text justification [PDF:1.6:8.4.5,8.6.2].</summary>

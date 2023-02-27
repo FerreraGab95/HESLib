@@ -26,10 +26,10 @@
 using bytes = HESDanfe.bytes;
 using HESDanfe.Documents;
 using HESDanfe.Files;
-using HESDanfe.objects;
-using HESDanfe.tokens;
-using HESDanfe.util.io;
-using HESDanfe.util.parsers;
+using HESDanfe.Objects;
+using HESDanfe.Tokens;
+using HESDanfe.Util.IO;
+using HESDanfe.Util.Parsers;
 
 using System;
 using System.IO;

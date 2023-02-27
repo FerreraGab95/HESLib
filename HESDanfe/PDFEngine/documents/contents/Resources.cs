@@ -24,11 +24,11 @@
 */
 
 using HESDanfe.Documents;
-using HESDanfe.Documents.Contents.colorSpaces;
+using HESDanfe.Documents.Contents.ColorSpaces;
 using HESDanfe.Documents.Contents.Fonts;
 using HESDanfe.Documents.Contents.xObjects;
 using HESDanfe.Files;
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
 using System;
 using System.Collections.Generic;

@@ -27,8 +27,8 @@ using bytes = HESDanfe.bytes;
 using HESDanfe.Documents.Contents.Objects;
 using HESDanfe.Documents.Contents.tokens;
 using HESDanfe.Files;
-using HESDanfe.objects;
-using HESDanfe.util.io;
+using HESDanfe.Objects;
+using HESDanfe.Util.IO;
 
 using System;
 using System.Collections;

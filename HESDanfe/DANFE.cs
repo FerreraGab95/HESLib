@@ -246,7 +246,7 @@ namespace HESDanfe
         public void AdicionarLogoImagem(Stream stream)
         {
             if (stream == null) throw new ArgumentNullException(nameof(stream));
-            var img = HESDanfe.Documents.Contents.entities.Image.Get(stream) ?? throw new InvalidOperationException("O logotipo não pode ser carregado, certifique-se que a imagem esteja no formato JPEG não progressivo.");
+            var img = HESDanfe.Documents.Contents.Entities.Image.Get(stream) ?? throw new InvalidOperationException("O logotipo não pode ser carregado, certifique-se que a imagem esteja no formato JPEG não progressivo.");
             _LogoObject = img.ToXObject(PdfDocument);
         }
 
@@ -408,8 +408,8 @@ namespace HESDanfe
             //metadata do PDF
             var ass = Utils.GetAssemblyName();
             var info = PdfDocument.Information;
-            info[new HESDanfe.objects.PdfName("ChaveAcesso")] = ViewModel.ChaveAcesso;
-            info[new HESDanfe.objects.PdfName("TipoDocumento")] = $"{TipoDocumento}";
+            info[new HESDanfe.Objects.PdfName("ChaveAcesso")] = ViewModel.ChaveAcesso;
+            info[new HESDanfe.Objects.PdfName("TipoDocumento")] = $"{TipoDocumento}";
             info.CreationDate = ViewModel.DataHoraEmissao;
             info.Creator = $"{ass?.Name} {ass?.Version} - Disponível em https://github.com/zonaro/HESDanfe";
             info.Author = Autor;

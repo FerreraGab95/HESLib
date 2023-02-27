@@ -26,7 +26,7 @@
 using HESDanfe.Documents;
 using HESDanfe.Documents.Contents.layers;
 using HESDanfe.Files;
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
 using System;
 using System.Drawing;

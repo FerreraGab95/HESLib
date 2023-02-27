@@ -26,12 +26,12 @@
 using HESDanfe.bytes;
 using HESDanfe.Documents;
 using HESDanfe.Documents.Contents;
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
 using System;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.interaction.annotations
+namespace HESDanfe.Documents.Interaction.annotations
 {
   /**
     <summary>Border characteristics [PDF:1.6:8.4.3].</summary>

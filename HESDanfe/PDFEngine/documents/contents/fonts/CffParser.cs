@@ -24,7 +24,7 @@
 */
 
 using HESDanfe.bytes;
-using HESDanfe.tokens;
+using HESDanfe.Tokens;
 
 using System;
 using System.Collections;

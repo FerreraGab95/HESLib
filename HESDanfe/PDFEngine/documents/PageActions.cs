@@ -23,9 +23,9 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents.interaction.actions;
+using HESDanfe.Documents.Interaction.actions;
 using HESDanfe.Files;
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
 using system = System;
 using System.Collections.Generic;

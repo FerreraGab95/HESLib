@@ -26,11 +26,11 @@
 using HESDanfe.bytes;
 using HESDanfe.Documents;
 using HESDanfe.Documents.multimedia;
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
 using System;
 
-namespace HESDanfe.Documents.interaction.actions
+namespace HESDanfe.Documents.Interaction.actions
 {
   /**
     <summary>'Play a sound' action [PDF:1.6:8.5.3].</summary>

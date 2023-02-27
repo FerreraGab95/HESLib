@@ -28,8 +28,8 @@ using System.IO;
 using System.Reflection;
 using HESDanfe.bytes;
 using HESDanfe.Documents;
-using HESDanfe.objects;
-using HESDanfe.tokens;
+using HESDanfe.Objects;
+using HESDanfe.Tokens;
 
 namespace HESDanfe.Files
 {

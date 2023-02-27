@@ -26,13 +26,13 @@
 using HESDanfe;
 using HESDanfe.Documents;
 using HESDanfe.Files;
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
 using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.interaction.actions
+namespace HESDanfe.Documents.Interaction.actions
 {
   /**
     <summary>Chained actions [PDF:1.6:8.5.1].</summary>

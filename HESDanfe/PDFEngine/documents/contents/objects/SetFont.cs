@@ -25,7 +25,7 @@
 
 using HESDanfe.bytes;
 using HESDanfe.Documents.Contents.Fonts;
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
 using System.Collections.Generic;
 

@@ -25,12 +25,12 @@
 
 using HESDanfe.Documents;
 using HESDanfe.Files;
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
 using System;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.interaction.viewer
+namespace HESDanfe.Documents.Interaction.viewer
 {
   /**
     <summary>Viewer preferences [PDF:1.6:8.1].</summary>

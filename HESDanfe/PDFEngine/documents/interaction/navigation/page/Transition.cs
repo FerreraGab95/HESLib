@@ -24,12 +24,12 @@
 */
 
 using HESDanfe.Documents;
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
 using System;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.interaction.navigation.page
+namespace HESDanfe.Documents.Interaction.Navigation.Page
 {
   /**
     <summary>Visual transition to use when moving to a page during a presentation [PDF:1.6:8.3.3].</summary>

@@ -25,11 +25,11 @@
 
 using HESDanfe.bytes;
 using HESDanfe.Documents;
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
 using System;
 
-namespace HESDanfe.Documents.interaction.annotations
+namespace HESDanfe.Documents.Interaction.annotations
 {
   /**
     <summary>Appearance [PDF:1.6:8.4.4].</summary>

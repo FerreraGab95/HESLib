@@ -23,13 +23,13 @@
   this list of conditions.
 */
 
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
 using System;
 using System.Drawing;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.Contents.colorSpaces
+namespace HESDanfe.Documents.Contents.ColorSpaces
 {
   /**
     <summary>Pattern consisting of a small graphical figure called <i>pattern cell</i> [PDF:1.6:4.6.2].</summary>
@@ -157,7 +157,7 @@ namespace HESDanfe.Documents.Contents.colorSpaces
         /*
           NOTE: 'BBox' entry MUST be defined.
         */
-        HESDanfe.objects.Rectangle box = HESDanfe.objects.Rectangle.Wrap(BaseHeader[PdfName.BBox]);
+        HESDanfe.Objects.Rectangle box = HESDanfe.Objects.Rectangle.Wrap(BaseHeader[PdfName.BBox]);
         return new RectangleF((float)box.X, (float)box.Y, (float)box.Width, (float)box.Height);
       }
     }

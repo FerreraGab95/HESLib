@@ -24,11 +24,11 @@
 */
 
 using HESDanfe.Documents;
-using HESDanfe.Documents.Contents.colorSpaces;
-using HESDanfe.Documents.interaction;
-using actions = HESDanfe.Documents.interaction.actions;
+using HESDanfe.Documents.Contents.ColorSpaces;
+using HESDanfe.Documents.Interaction;
+using actions = HESDanfe.Documents.Interaction.actions;
 using HESDanfe.Files;
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
 using System;
 
@@ -44,7 +44,7 @@ namespace HESDanfe.Documents.multimedia
     #region static
     #region types
     private class ArrayWrapperObject
-      : HESDanfe.objects.Array<Rendition>.IWrapper<Rendition>
+      : HESDanfe.Objects.Array<Rendition>.IWrapper<Rendition>
     {
       public Rendition Wrap(
         PdfDirectObject baseObject
@@ -54,7 +54,7 @@ namespace HESDanfe.Documents.multimedia
     #endregion
 
     #region fields
-    private static readonly HESDanfe.objects.Array<Rendition>.IWrapper<Rendition> ArrayWrapper = new ArrayWrapperObject();
+    private static readonly HESDanfe.Objects.Array<Rendition>.IWrapper<Rendition> ArrayWrapper = new ArrayWrapperObject();
     #endregion
     #endregion
 

@@ -24,12 +24,12 @@
 */
 
 using HESDanfe.Files;
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
 using System;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.Contents.colorSpaces
+namespace HESDanfe.Documents.Contents.ColorSpaces
 {
   /**
     <summary>Paint that consists of a repeating graphical figure or a smoothly varying color gradient

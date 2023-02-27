@@ -24,8 +24,8 @@
 */
 
 using HESDanfe.Documents;
-using HESDanfe.Documents.Contents.colorSpaces;
-using HESDanfe.objects;
+using HESDanfe.Documents.Contents.ColorSpaces;
+using HESDanfe.Objects;
 
 using System;
 using System.Collections;

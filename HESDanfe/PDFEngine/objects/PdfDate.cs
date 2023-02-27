@@ -23,14 +23,14 @@
   this list of conditions.
 */
 
-using tokens = HESDanfe.tokens;
-using HESDanfe.util.parsers;
+using Tokens = HESDanfe.Tokens;
+using HESDanfe.Util.Parsers;
 
 using System;
 using System.Globalization;
 using System.Text;
 
-namespace HESDanfe.objects
+namespace HESDanfe.Objects
 {
   /**
     <summary>PDF date object [PDF:1.6:3.8.3].</summary>
@@ -55,7 +55,7 @@ namespace HESDanfe.objects
 
     /**
       <summary>Converts a PDF date literal into its corresponding date.</summary>
-      <exception cref="HESDanfe.util.parsers.ParseException">Thrown when date literal parsing fails.</exception>
+      <exception cref="HESDanfe.Util.Parsers.ParseException">Thrown when date literal parsing fails.</exception>
     */
     public static DateTime ToDate(
       string value
@@ -141,7 +141,7 @@ namespace HESDanfe.objects
 //            {return ToDate(base.StringValue);}
       {return ToDate((string)base.Value);}
       protected set
-      {RawValue = tokens::Encoding.Pdf.Encode(Format((DateTime)value));}
+      {RawValue = Tokens::Encoding.Pdf.Encode(Format((DateTime)value));}
     }
     #endregion
     #endregion

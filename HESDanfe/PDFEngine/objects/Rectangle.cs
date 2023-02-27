@@ -29,7 +29,7 @@ using HESDanfe.Files;
 using System;
 using System.Drawing;
 
-namespace HESDanfe.objects
+namespace HESDanfe.Objects
 {
   /**
     <summary>PDF rectangle object [PDF:1.6:3.8.4].</summary>

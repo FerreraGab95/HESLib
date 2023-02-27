@@ -25,7 +25,7 @@
 
 using HESDanfe.Files;
 
-namespace HESDanfe.objects
+namespace HESDanfe.Objects
 {
   /**
     <summary>PDF indirect object interface.</summary>

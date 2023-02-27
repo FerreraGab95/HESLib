@@ -23,9 +23,9 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents.Contents.colorSpaces;
+using HESDanfe.Documents.Contents.ColorSpaces;
 using HESDanfe.Documents.Contents.Fonts;
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
 namespace HESDanfe.Documents.Contents
 {

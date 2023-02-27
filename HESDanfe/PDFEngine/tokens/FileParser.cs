@@ -26,15 +26,15 @@
 using HESDanfe.bytes;
 using HESDanfe.Documents;
 using HESDanfe.Files;
-using HESDanfe.objects;
-using HESDanfe.util.parsers;
+using HESDanfe.Objects;
+using HESDanfe.Util.Parsers;
 
 using System;
 using System.Globalization;
 using System.IO;
 using System.Text;
 
-namespace HESDanfe.tokens
+namespace HESDanfe.Tokens
 {
   /**
     <summary>PDF file parser [PDF:1.7:3.2,3.4].</summary>

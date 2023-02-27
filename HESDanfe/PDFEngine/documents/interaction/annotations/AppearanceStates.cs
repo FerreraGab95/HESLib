@@ -26,14 +26,14 @@
 using HESDanfe.bytes;
 using HESDanfe.Documents;
 using HESDanfe.Documents.Contents.xObjects;
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 
-namespace HESDanfe.Documents.interaction.annotations
+namespace HESDanfe.Documents.Interaction.annotations
 {
   /**
     <summary>Appearance states [PDF:1.6:8.4.4].</summary>

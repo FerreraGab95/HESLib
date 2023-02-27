@@ -23,7 +23,7 @@
   this list of conditions.
 */
 
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
 using System;
 using System.Collections;

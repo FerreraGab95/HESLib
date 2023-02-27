@@ -30,7 +30,7 @@ using System.Drawing.Printing;
 using HESDanfe.Documents;
 using HESDanfe.Documents.Contents;
 
-namespace HESDanfe.tools
+namespace HESDanfe.Tools
 {
     /**
       <summary>Tool for rendering <see cref="IContentContext">content contexts</see>.</summary>

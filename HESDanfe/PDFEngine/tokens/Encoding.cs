@@ -26,7 +26,7 @@
 using System;
 using text = System.Text;
 
-namespace HESDanfe.tokens
+namespace HESDanfe.Tokens
 {
   /**
     <summary>Abstract encoding.</summary>

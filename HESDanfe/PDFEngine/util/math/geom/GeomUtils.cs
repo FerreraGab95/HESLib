@@ -27,7 +27,7 @@ using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
-namespace HESDanfe.util.math.geom
+namespace HESDanfe.Util.Math.geom
 {
   /**
     <summary>Geometric utilities.</summary>

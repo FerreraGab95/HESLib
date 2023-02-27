@@ -25,12 +25,12 @@
 
 using HESDanfe.bytes;
 using HESDanfe.Documents;
-using HESDanfe.Documents.interaction.annotations;
-using HESDanfe.objects;
+using HESDanfe.Documents.Interaction.annotations;
+using HESDanfe.Objects;
 
 using System;
 
-namespace HESDanfe.Documents.interaction.actions
+namespace HESDanfe.Documents.Interaction.actions
 {
   /**
     <summary>'Play a movie' action [PDF:1.6:8.5.3].</summary>

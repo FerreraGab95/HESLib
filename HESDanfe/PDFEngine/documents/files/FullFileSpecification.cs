@@ -26,8 +26,8 @@
 using bytes = HESDanfe.bytes;
 using HESDanfe.Documents;
 using HESDanfe.Files;
-using HESDanfe.objects;
-using HESDanfe.util;
+using HESDanfe.Objects;
+using HESDanfe.Util;
 
 using System;
 using System.IO;

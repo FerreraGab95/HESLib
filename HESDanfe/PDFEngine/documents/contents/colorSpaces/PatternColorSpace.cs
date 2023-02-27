@@ -24,14 +24,14 @@
 */
 
 using HESDanfe.Documents;
-using HESDanfe.objects;
-using HESDanfe.util;
+using HESDanfe.Objects;
+using HESDanfe.Util;
 
 using System;
 using System.Collections.Generic;
 using drawing = System.Drawing;
 
-namespace HESDanfe.Documents.Contents.colorSpaces
+namespace HESDanfe.Documents.Contents.ColorSpaces
 {
   /**
     <summary>Pattern color space [PDF:1.6:4.5.5].</summary>

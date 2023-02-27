@@ -26,15 +26,15 @@
 using HESDanfe;
 using HESDanfe.bytes;
 using HESDanfe.Files;
-using HESDanfe.tokens;
-using HESDanfe.util.collections.generic;
+using HESDanfe.Tokens;
+using HESDanfe.Util.Collections.Generic;
 
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using text = System.Text;
 
-namespace HESDanfe.objects
+namespace HESDanfe.Objects
 {
   /**
     <summary>PDF array object, that is a one-dimensional collection of (possibly-heterogeneous)

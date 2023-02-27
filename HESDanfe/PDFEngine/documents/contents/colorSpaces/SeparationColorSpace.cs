@@ -24,14 +24,14 @@
 */
 
 using HESDanfe.Documents;
-using HESDanfe.objects;
-using HESDanfe.util;
+using HESDanfe.Objects;
+using HESDanfe.Util;
 
 using System;
 using System.Collections.Generic;
 using drawing = System.Drawing;
 
-namespace HESDanfe.Documents.Contents.colorSpaces
+namespace HESDanfe.Documents.Contents.ColorSpaces
 {
   /**
     <summary>Special color space that provides a means for specifying the use of additional colorants

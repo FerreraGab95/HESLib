@@ -23,7 +23,7 @@
   this list of conditions.
 */
 
-namespace HESDanfe.util.io
+namespace HESDanfe.Util.IO
 {
   /**
     <summary>Byte order.</summary>

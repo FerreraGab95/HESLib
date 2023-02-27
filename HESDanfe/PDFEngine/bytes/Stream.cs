@@ -25,9 +25,9 @@
 
 using System;
 using System.IO;
-using HESDanfe.tokens;
-using HESDanfe.util;
-using HESDanfe.util.io;
+using HESDanfe.Tokens;
+using HESDanfe.Util;
+using HESDanfe.Util.IO;
 using text = System.Text;
 
 namespace HESDanfe.bytes

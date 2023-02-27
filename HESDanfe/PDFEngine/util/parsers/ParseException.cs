@@ -25,7 +25,7 @@
 
 using System;
 
-namespace HESDanfe.util.parsers
+namespace HESDanfe.Util.Parsers
 {
   /**
     <summary>Exception thrown in case of unexpected condition while parsing.</summary>

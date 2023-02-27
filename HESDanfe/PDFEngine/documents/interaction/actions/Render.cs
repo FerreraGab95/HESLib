@@ -25,14 +25,14 @@
 
 using HESDanfe.bytes;
 using HESDanfe.Documents;
-using HESDanfe.Documents.interaction.annotations;
+using HESDanfe.Documents.Interaction.annotations;
 using HESDanfe.Documents.multimedia;
-using HESDanfe.objects;
-using HESDanfe.util;
+using HESDanfe.Objects;
+using HESDanfe.Util;
 
 using System;
 
-namespace HESDanfe.Documents.interaction.actions
+namespace HESDanfe.Documents.Interaction.actions
 {
   /**
     <summary>'Control the playing of multimedia content' action [PDF:1.6:8.5.3].</summary>

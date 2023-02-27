@@ -25,13 +25,13 @@
 
 using HESDanfe.bytes;
 using HESDanfe.Documents;
-using HESDanfe.Documents.interaction.actions;
-using HESDanfe.Documents.interaction.annotations;
-using HESDanfe.objects;
+using HESDanfe.Documents.Interaction.actions;
+using HESDanfe.Documents.Interaction.annotations;
+using HESDanfe.Objects;
 
 using system = System;
 
-namespace HESDanfe.Documents.interaction.forms
+namespace HESDanfe.Documents.Interaction.forms
 {
   /**
     <summary>Form field actions [PDF:1.6:8.5.2].</summary>

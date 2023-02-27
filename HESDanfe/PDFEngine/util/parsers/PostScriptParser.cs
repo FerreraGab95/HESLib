@@ -24,13 +24,13 @@
 */
 
 using HESDanfe.bytes;
-using HESDanfe.tokens;
+using HESDanfe.Tokens;
 
 using System;
 using System.Globalization;
 using System.Text;
 
-namespace HESDanfe.util.parsers
+namespace HESDanfe.Util.Parsers
 {
   /**
     <summary>PostScript (non-procedural subset) parser [PS].</summary>

@@ -24,9 +24,9 @@
 */
 
 using System.Collections.Generic;
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
-namespace HESDanfe.Documents.Contents.colorSpaces
+namespace HESDanfe.Documents.Contents.ColorSpaces
 {
     /**
       <summary>Color value [PDF:1.6:4.5.1].</summary>

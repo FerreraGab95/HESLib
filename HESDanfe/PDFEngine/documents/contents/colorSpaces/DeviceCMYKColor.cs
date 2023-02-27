@@ -25,9 +25,9 @@
 
 using System;
 using System.Collections.Generic;
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
-namespace HESDanfe.Documents.Contents.colorSpaces
+namespace HESDanfe.Documents.Contents.ColorSpaces
 {
     /**
       <summary>Device Cyan-Magenta-Yellow-Key color value [PDF:1.6:4.5.3].</summary>

@@ -23,8 +23,8 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents.Contents.colorSpaces;
-using HESDanfe.objects;
+using HESDanfe.Documents.Contents.ColorSpaces;
+using HESDanfe.Objects;
 
 namespace HESDanfe.Documents.Contents
 {

@@ -24,14 +24,14 @@
 */
 
 using HESDanfe.Documents;
-using HESDanfe.Documents.interchange.metadata;
-using HESDanfe.objects;
-using HESDanfe.util;
+using HESDanfe.Documents.Interchange.Metadata;
+using HESDanfe.Objects;
+using HESDanfe.Util;
 
 using System;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.interaction.navigation.page
+namespace HESDanfe.Documents.Interaction.Navigation.Page
 {
   /**
     <summary>Article thread [PDF:1.7:8.3.2].</summary>

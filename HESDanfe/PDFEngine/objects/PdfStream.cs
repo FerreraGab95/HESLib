@@ -27,13 +27,13 @@ using HESDanfe.bytes;
 using HESDanfe.bytes.filters;
 using HESDanfe.Documents.files;
 using HESDanfe.Files;
-using HESDanfe.tokens;
+using HESDanfe.Tokens;
 
 using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace HESDanfe.objects
+namespace HESDanfe.Objects
 {
   /**
     <summary>PDF stream object [PDF:1.6:3.2.7].</summary>

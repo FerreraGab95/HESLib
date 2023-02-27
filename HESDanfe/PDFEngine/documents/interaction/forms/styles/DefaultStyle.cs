@@ -24,17 +24,17 @@
 */
 
 using HESDanfe.Documents;
-using HESDanfe.Documents.Contents.colorSpaces;
+using HESDanfe.Documents.Contents.ColorSpaces;
 using HESDanfe.Documents.Contents.Composition;
 using HESDanfe.Documents.Contents.Fonts;
 using HESDanfe.Documents.Contents.xObjects;
-using HESDanfe.Documents.interaction.annotations;
-using HESDanfe.objects;
+using HESDanfe.Documents.Interaction.annotations;
+using HESDanfe.Objects;
 
 using System;
 using System.Drawing;
 
-namespace HESDanfe.Documents.interaction.forms.styles
+namespace HESDanfe.Documents.Interaction.forms.styles
 {
   /**
     <summary>Default field appearance style.</summary>

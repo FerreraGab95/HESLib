@@ -26,16 +26,16 @@
 using HESDanfe.bytes;
 using HESDanfe.Documents;
 using HESDanfe.Files;
-using HESDanfe.objects;
-using HESDanfe.util.collections.generic;
-using HESDanfe.util.parsers;
+using HESDanfe.Objects;
+using HESDanfe.Util.Collections.Generic;
+using HESDanfe.Util.Parsers;
 
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace HESDanfe.tokens
+namespace HESDanfe.Tokens
 {
   /**
     <summary>PDF file reader.</summary>

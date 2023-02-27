@@ -26,14 +26,14 @@
 using HESDanfe;
 using HESDanfe.Documents.Contents;
 using HESDanfe.Documents.Contents.layers;
-using HESDanfe.Documents.interaction.forms;
-using HESDanfe.Documents.interaction.navigation.document;
-using HESDanfe.Documents.interchange.metadata;
-using HESDanfe.Documents.interaction.viewer;
+using HESDanfe.Documents.Interaction.forms;
+using HESDanfe.Documents.Interaction.Navigation.document;
+using HESDanfe.Documents.Interchange.Metadata;
+using HESDanfe.Documents.Interaction.viewer;
 using HESDanfe.Files;
-using HESDanfe.objects;
-using HESDanfe.tokens;
-using HESDanfe.util;
+using HESDanfe.Objects;
+using HESDanfe.Tokens;
+using HESDanfe.Util;
 
 using System;
 using System.Collections.Generic;

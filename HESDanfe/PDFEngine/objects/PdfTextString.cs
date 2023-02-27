@@ -23,13 +23,13 @@
   this list of conditions.
 */
 
-using HESDanfe.tokens;
+using HESDanfe.Tokens;
 
 using System;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace HESDanfe.objects
+namespace HESDanfe.Objects
 {
   /**
     <summary>PDF text string object [PDF:1.6:3.8.1].</summary>

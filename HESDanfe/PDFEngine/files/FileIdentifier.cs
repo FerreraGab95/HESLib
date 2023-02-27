@@ -24,9 +24,9 @@
 */
 
 using HESDanfe.Documents;
-using HESDanfe.Documents.interchange.metadata;
-using HESDanfe.tokens;
-using HESDanfe.objects;
+using HESDanfe.Documents.Interchange.Metadata;
+using HESDanfe.Tokens;
+using HESDanfe.Objects;
 
 using System;
 using System.Collections.Generic;

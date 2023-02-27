@@ -24,14 +24,14 @@
 */
 
 using HESDanfe.Documents;
-using HESDanfe.objects;
-using HESDanfe.util;
+using HESDanfe.Objects;
+using HESDanfe.Util;
 
 using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.interaction.navigation.page
+namespace HESDanfe.Documents.Interaction.Navigation.Page
 {
   /**
     <summary>Article bead [PDF:1.7:8.3.2].</summary>

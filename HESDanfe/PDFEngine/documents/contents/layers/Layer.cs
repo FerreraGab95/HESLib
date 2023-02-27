@@ -24,9 +24,9 @@
 */
 
 using HESDanfe.Files;
-using HESDanfe.objects;
-using HESDanfe.util;
-using HESDanfe.util.math;
+using HESDanfe.Objects;
+using HESDanfe.Util;
+using HESDanfe.Util.Math;
 
 using System;
 using System.Collections.Generic;

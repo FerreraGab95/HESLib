@@ -25,7 +25,7 @@
 
 using System;
 
-namespace HESDanfe.util.math
+namespace HESDanfe.Util.Math
 {
   /**
     <summary>Specialized math operations.</summary>
@@ -93,8 +93,8 @@ namespace HESDanfe.util.math
       double epsilon
       )
     {
-      int exponent = GetExponent(Math.Max(value1, value2));
-      double delta = epsilon * Math.Pow(2, exponent);
+      int exponent = GetExponent(System.Math.Max(value1, value2));
+      double delta = epsilon * System.Math.Pow(2, exponent);
       double difference = value1 - value2;
       if (difference > delta)
         return 1;
@@ -128,7 +128,7 @@ namespace HESDanfe.util.math
         index++
         )
       {
-        switch((int)Math.Sign((data1[index] & 0xff)-(data2[index] & 0xff)))
+        switch((int)System.Math.Sign((data1[index] & 0xff)-(data2[index] & 0xff)))
         {
           case -1:
             return -1;

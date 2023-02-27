@@ -25,8 +25,8 @@
 
 using HESDanfe.Documents;
 using HESDanfe.Documents.Contents;
-using HESDanfe.objects;
-using HESDanfe.tokens;
+using HESDanfe.Objects;
+using HESDanfe.Tokens;
 
 using System;
 using System.Collections;

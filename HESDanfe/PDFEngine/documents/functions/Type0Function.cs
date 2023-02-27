@@ -23,13 +23,13 @@
   this list of conditions.
 */
 
-using HESDanfe.objects;
-using HESDanfe.util.math;
+using HESDanfe.Objects;
+using HESDanfe.Util.Math;
 
 using System;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.functions
+namespace HESDanfe.Documents.Functions
 {
   /**
     <summary>Sampled function using a sequence of sample values to provide an approximation for

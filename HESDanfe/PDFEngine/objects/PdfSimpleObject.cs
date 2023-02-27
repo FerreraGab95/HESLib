@@ -29,7 +29,7 @@ using HESDanfe.Files;
 using System;
 using System.Reflection;
 
-namespace HESDanfe.objects
+namespace HESDanfe.Objects
 {
   /**
     <summary>Abstract PDF simple object.</summary>

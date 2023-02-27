@@ -25,7 +25,7 @@
 
 using System;
 
-namespace HESDanfe.objects
+namespace HESDanfe.Objects
 {
   public interface IPdfSimpleObject
     : IComparable<PdfDirectObject>

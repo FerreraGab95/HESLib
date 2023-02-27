@@ -25,7 +25,7 @@
 
 using HESDanfe.bytes;
 using xObjects = HESDanfe.Documents.Contents.xObjects;
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
 using System.Collections.Generic;
 

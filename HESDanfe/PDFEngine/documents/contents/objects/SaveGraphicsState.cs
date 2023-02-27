@@ -25,7 +25,7 @@
 
 using HESDanfe.bytes;
 
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
 namespace HESDanfe.Documents.Contents.Objects
 {

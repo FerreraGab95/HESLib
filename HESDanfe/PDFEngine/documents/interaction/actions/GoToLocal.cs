@@ -25,12 +25,12 @@
 
 using HESDanfe.bytes;
 using HESDanfe.Documents;
-using HESDanfe.Documents.interaction.navigation.document;
-using HESDanfe.objects;
+using HESDanfe.Documents.Interaction.Navigation.document;
+using HESDanfe.Objects;
 
 using System;
 
-namespace HESDanfe.Documents.interaction.actions
+namespace HESDanfe.Documents.Interaction.actions
 {
   /**
     <summary>'Change the view to a specified destination within the same PDF file' action [PDF:1.6:8.5.3].</summary>

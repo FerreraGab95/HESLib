@@ -23,8 +23,8 @@
   this list of conditions.
 */
 
-using HESDanfe.util;
-using HESDanfe.util.io;
+using HESDanfe.Util;
+using HESDanfe.Util.IO;
 
 namespace HESDanfe.bytes
 {

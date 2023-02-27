@@ -24,10 +24,10 @@
 */
 
 using HESDanfe.Documents.files;
-using HESDanfe.Documents.interaction.actions;
-using HESDanfe.Documents.interaction.navigation.document;
+using HESDanfe.Documents.Interaction.actions;
+using HESDanfe.Documents.Interaction.Navigation.document;
 using HESDanfe.Documents.multimedia;
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
 using System;
 using System.Collections.Generic;

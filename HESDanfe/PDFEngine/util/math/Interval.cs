@@ -25,7 +25,7 @@
 
 using System;
 
-namespace HESDanfe.util.math
+namespace HESDanfe.Util.Math
 {
   /**
     <summary>An interval of comparable objects.</summary>

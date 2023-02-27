@@ -24,11 +24,11 @@
 */
 
 using HESDanfe.Documents;
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
 using System;
 
-namespace HESDanfe.Documents.interaction.navigation.document
+namespace HESDanfe.Documents.Interaction.Navigation.document
 {
   /**
     <summary>Remote interaction target [PDF:1.6:8.2.1].</summary>

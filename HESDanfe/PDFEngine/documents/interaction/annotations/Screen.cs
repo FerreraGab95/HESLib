@@ -26,17 +26,17 @@
 using HESDanfe.bytes;
 using HESDanfe.Documents;
 using HESDanfe.Documents.files;
-using HESDanfe.Documents.interaction.actions;
-using HESDanfe.Documents.interaction.forms;
+using HESDanfe.Documents.Interaction.actions;
+using HESDanfe.Documents.Interaction.forms;
 using HESDanfe.Documents.multimedia;
 using HESDanfe.Files;
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
 using System;
 using System.Collections.Generic;
 using drawing = System.Drawing;
 
-namespace HESDanfe.Documents.interaction.annotations
+namespace HESDanfe.Documents.Interaction.annotations
 {
   /**
     <summary>Screen annotation [PDF:1.6:8.4.5].</summary>

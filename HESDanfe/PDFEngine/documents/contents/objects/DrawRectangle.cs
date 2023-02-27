@@ -24,7 +24,7 @@
 */
 
 using HESDanfe.bytes;
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
 using System.Collections.Generic;
 using System.Drawing;

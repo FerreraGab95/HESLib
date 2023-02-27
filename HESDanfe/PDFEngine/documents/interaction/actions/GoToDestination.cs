@@ -25,12 +25,12 @@
 
 using HESDanfe.bytes;
 using HESDanfe.Documents;
-using HESDanfe.Documents.interaction.navigation.document;
-using HESDanfe.objects;
+using HESDanfe.Documents.Interaction.Navigation.document;
+using HESDanfe.Objects;
 
 using System;
 
-namespace HESDanfe.Documents.interaction.actions
+namespace HESDanfe.Documents.Interaction.actions
 {
   /**
     <summary>Abstract 'go to destination' action.</summary>

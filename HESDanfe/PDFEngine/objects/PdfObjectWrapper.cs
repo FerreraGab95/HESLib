@@ -24,7 +24,7 @@
 */
 
 using HESDanfe.Documents;
-using HESDanfe.Documents.interchange.metadata;
+using HESDanfe.Documents.Interchange.Metadata;
 using HESDanfe.Files;
 
 using System;
@@ -32,7 +32,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace HESDanfe.objects
+namespace HESDanfe.Objects
 {
   /**
     <summary>Base high-level representation of a weakly-typed PDF object.</summary>
@@ -308,9 +308,9 @@ namespace HESDanfe.objects
     <remarks>
       <para>Specialized objects don't inherit directly from their low-level counterparts (e.g.
         <see cref="HESDanfe.Documents.Contents.Contents">Contents</see> extends <see
-        cref="HESDanfe.objects.PdfStream">PdfStream</see>, <see
+        cref="HESDanfe.Objects.PdfStream">PdfStream</see>, <see
         cref="HESDanfe.Documents.Pages">Pages</see> extends <see
-        cref="HESDanfe.objects.PdfArray">PdfArray</see> and so on) because there's no plain
+        cref="HESDanfe.Objects.PdfArray">PdfArray</see> and so on) because there's no plain
         one-to-one mapping between primitive PDF types and specialized instances: the
         <code>Content</code> entry of <code>Page</code> dictionaries may be a simple reference to a
         <code>PdfStream</code> or a <code>PdfArray</code> of references to <code>PdfStream</code>s,

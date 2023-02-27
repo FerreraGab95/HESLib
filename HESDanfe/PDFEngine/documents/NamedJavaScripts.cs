@@ -23,8 +23,8 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents.interaction.actions;
-using HESDanfe.objects;
+using HESDanfe.Documents.Interaction.actions;
+using HESDanfe.Objects;
 
 using System;
 
@@ -55,7 +55,7 @@ namespace HESDanfe.Documents
     protected override JavaScript WrapValue(
       PdfDirectObject baseObject
       )
-    {return (JavaScript)interaction.actions.Action.Wrap(baseObject);}
+    {return (JavaScript)Interaction.actions.Action.Wrap(baseObject);}
     #endregion
     #endregion
     #endregion

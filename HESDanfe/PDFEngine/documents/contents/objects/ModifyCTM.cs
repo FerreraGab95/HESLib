@@ -25,7 +25,7 @@
 
 using System.Collections.Generic;
 using System.Drawing.Drawing2D;
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
 namespace HESDanfe.Documents.Contents.Objects
 {

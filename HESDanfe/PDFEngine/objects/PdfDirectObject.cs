@@ -25,11 +25,11 @@
 
 using HESDanfe.bytes;
 using HESDanfe.Files;
-using HESDanfe.tokens;
+using HESDanfe.Tokens;
 
 using System;
 
-namespace HESDanfe.objects
+namespace HESDanfe.Objects
 {
   /**
     <summary>Abstract PDF direct object.</summary>

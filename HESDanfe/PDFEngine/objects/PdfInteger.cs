@@ -26,7 +26,7 @@
 using HESDanfe.bytes;
 using HESDanfe.Files;
 
-namespace HESDanfe.objects
+namespace HESDanfe.Objects
 {
   /**
     <summary>PDF integer number object [PDF:1.6:3.2.2].</summary>

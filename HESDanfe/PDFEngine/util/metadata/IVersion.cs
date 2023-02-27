@@ -27,7 +27,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace HESDanfe.util.metadata
+namespace HESDanfe.Util.Metadata
 {
   /**
     <summary>Generic software version number.</summary>

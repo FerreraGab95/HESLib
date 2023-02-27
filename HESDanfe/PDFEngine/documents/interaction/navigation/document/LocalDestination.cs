@@ -24,11 +24,11 @@
 */
 
 using HESDanfe.Documents;
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
 using System;
 
-namespace HESDanfe.Documents.interaction.navigation.document
+namespace HESDanfe.Documents.Interaction.Navigation.document
 {
   /**
     <summary>Local interaction target [PDF:1.6:8.2.1].</summary>
@@ -40,7 +40,7 @@ namespace HESDanfe.Documents.interaction.navigation.document
     #region dynamic
     #region constructors
     public LocalDestination(
-      Page page
+      Documents.Page page
       ) : this(
         page,
         ModeEnum.Fit,
@@ -50,7 +50,7 @@ namespace HESDanfe.Documents.interaction.navigation.document
     {}
 
     public LocalDestination(
-      Page page,
+      Documents.Page page,
       ModeEnum mode,
       object location,
       double? zoom
@@ -80,10 +80,10 @@ namespace HESDanfe.Documents.interaction.navigation.document
       {return Documents.Page.Wrap(BaseDataObject[0]);}
       set
       {
-        if(!(value is Page))
+        if(!(value is Documents.Page))
           throw new ArgumentException("It MUST be a Page object.");
 
-        BaseDataObject[0] = ((Page)value).BaseObject;
+                BaseDataObject[0] = ((Documents.Page)value).BaseObject;
       }
     }
     #endregion

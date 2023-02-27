@@ -26,7 +26,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace HESDanfe.util.collections.generic
+namespace HESDanfe.Util.Collections.Generic
 {
   /**
     <summary>Extension collection interface.</summary>

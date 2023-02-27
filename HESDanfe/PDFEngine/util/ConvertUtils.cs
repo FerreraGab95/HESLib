@@ -23,12 +23,12 @@
   this list of conditions.
 */
 
-using HESDanfe.util.io;
+using HESDanfe.Util.IO;
 
 using System;
 using System.Text;
 
-namespace HESDanfe.util
+namespace HESDanfe.Util
 {
   /**
     <summary>Data convertion utility.</summary>
@@ -84,7 +84,7 @@ namespace HESDanfe.util
       )
     {
       int value = 0;
-      length = (int)Math.Min(length,data.Length-index);
+      length = (int)System.Math.Min(length, data.Length - index);
       for(
         int i = index,
           endIndex = index+length;

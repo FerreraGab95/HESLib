@@ -25,7 +25,7 @@
 
 using System;
 
-namespace HESDanfe.util
+namespace HESDanfe.Util
 {
   /**
     <summary>Enumeration utility.</summary>

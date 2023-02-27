@@ -29,7 +29,7 @@
 using System;
 using System.IO;
 using System.Text;
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
 namespace HESDanfe.bytes.filters
 {

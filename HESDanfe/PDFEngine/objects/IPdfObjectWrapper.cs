@@ -25,7 +25,7 @@
 
 using System;
 
-namespace HESDanfe.objects
+namespace HESDanfe.Objects
 {
   /**
     <summary>PDF object wrapper interface.</summary>

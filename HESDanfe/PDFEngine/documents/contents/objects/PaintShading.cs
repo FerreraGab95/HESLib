@@ -24,8 +24,8 @@
 */
 
 using HESDanfe.bytes;
-using colorSpaces = HESDanfe.Documents.Contents.colorSpaces;
-using HESDanfe.objects;
+using ColorSpaces = HESDanfe.Documents.Contents.ColorSpaces;
+using HESDanfe.Objects;
 
 using System.Collections.Generic;
 
@@ -37,7 +37,7 @@ namespace HESDanfe.Documents.Contents.Objects
   [PDF(VersionEnum.PDF13)]
   public sealed class PaintShading
     : Operation,
-      IResourceReference<colorSpaces::Shading>
+      IResourceReference<ColorSpaces::Shading>
   {
     #region static
     #region fields
@@ -61,17 +61,17 @@ namespace HESDanfe.Documents.Contents.Objects
     #region interface
     #region public
     /**
-      <summary>Gets the <see cref="colorSpaces::Shading">shading</see> resource to be painted.
+      <summary>Gets the <see cref="ColorSpaces::Shading">shading</see> resource to be painted.
       </summary>
       <param name="context">Content context.</param>
     */
-    public colorSpaces::Shading GetShading(
+    public ColorSpaces::Shading GetShading(
       IContentContext context
       )
     {return GetResource(context);}
 
     #region IResourceReference
-    public colorSpaces::Shading GetResource(
+    public ColorSpaces::Shading GetResource(
       IContentContext context
       )
     {return context.Resources.Shadings[Name];}

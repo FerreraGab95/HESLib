@@ -24,7 +24,7 @@
 */
 
 using System;
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
 namespace HESDanfe.Documents.multimedia
 {

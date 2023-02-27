@@ -29,11 +29,11 @@ using HESDanfe.Documents.Contents;
 using HESDanfe.Documents.Contents.Composition;
 using HESDanfe.Documents.Contents.Objects;
 using HESDanfe.Files;
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
 using System.Collections.Generic;
 
-namespace HESDanfe.tools
+namespace HESDanfe.Tools
 {
   /**
     <summary>Tool for page management.</summary>

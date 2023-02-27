@@ -27,7 +27,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace HESDanfe.util.metadata
+namespace HESDanfe.Util.Metadata
 {
   /**
     <summary>Version utility.</summary>
@@ -48,7 +48,7 @@ namespace HESDanfe.util.metadata
         IList<int> version2Numbers = version2.Numbers;
         for(
           int index = 0,
-            length = Math.Min(version1Numbers.Count, version2Numbers.Count);
+            length = System.Math.Min(version1Numbers.Count, version2Numbers.Count);
           index < length;
           index++
           )
@@ -60,7 +60,7 @@ namespace HESDanfe.util.metadata
         if(comparison == 0)
         {comparison = version1Numbers.Count - version2Numbers.Count;}
       }
-      return Math.Sign(comparison);
+      return System.Math.Sign(comparison);
     }
 
     public static string ToString(

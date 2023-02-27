@@ -25,13 +25,13 @@
 
 using HESDanfe.bytes;
 using HESDanfe.Files;
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
 using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace HESDanfe.tokens
+namespace HESDanfe.Tokens
 {
   /**
     <summary>Object stream containing a sequence of PDF objects [PDF:1.6:3.4.6].</summary>

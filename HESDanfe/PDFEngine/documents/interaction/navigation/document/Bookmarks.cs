@@ -26,13 +26,13 @@
 using HESDanfe;
 using HESDanfe.Documents;
 using HESDanfe.Files;
-using HESDanfe.objects;
+using HESDanfe.Objects;
 
 using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.interaction.navigation.document
+namespace HESDanfe.Documents.Interaction.Navigation.document
 {
   /**
     <summary>Collection of bookmarks [PDF:1.6:8.2.2].</summary>

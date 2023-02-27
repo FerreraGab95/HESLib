@@ -26,7 +26,7 @@
 using System.Collections.Generic;
 using System.Drawing.Drawing2D;
 using HESDanfe.bytes;
-using HESDanfe.tokens;
+using HESDanfe.Tokens;
 
 namespace HESDanfe.Documents.Contents.Objects
 {

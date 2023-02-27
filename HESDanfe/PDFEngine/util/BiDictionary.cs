@@ -28,7 +28,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace HESDanfe.util
+namespace HESDanfe.Util
 {
   /**
     <summary>Bidirectional bijective map.</summary>

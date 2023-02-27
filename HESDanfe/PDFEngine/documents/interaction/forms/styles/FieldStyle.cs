@@ -24,10 +24,10 @@
 */
 
 using HESDanfe.Documents;
-using HESDanfe.Documents.Contents.colorSpaces;
-using HESDanfe.objects;
+using HESDanfe.Documents.Contents.ColorSpaces;
+using HESDanfe.Objects;
 
-namespace HESDanfe.Documents.interaction.forms.styles
+namespace HESDanfe.Documents.Interaction.forms.styles
 {
   /**
     <summary>Abstract field appearance style.</summary>

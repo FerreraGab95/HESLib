@@ -29,8 +29,8 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Text;
 using HESDanfe.Documents.Contents.Objects;
-using HESDanfe.objects;
-using colors = HESDanfe.Documents.Contents.colorSpaces;
+using HESDanfe.Objects;
+using colors = HESDanfe.Documents.Contents.ColorSpaces;
 using Fonts = HESDanfe.Documents.Contents.Fonts;
 using xObjects = HESDanfe.Documents.Contents.xObjects;
 
