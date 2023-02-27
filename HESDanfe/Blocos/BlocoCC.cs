@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using HESDanfe.Graphics;
 using HESDanfe.Modelo;
 
@@ -8,11 +9,13 @@ namespace HESDanfe.Blocos
     {
         #region Private Fields
 
-        private CampoMultilinha _correcao;
-        private CampoMultilinha _condicao;
-        private FlexibleLine _linha_correcao;
-        private FlexibleLine _linha_condicao;
-        private FlexibleLine _linha_fisco;
+        private CampoMultilinha CampoCorrecao;
+        private CampoMultilinha CampoCondicao;
+        private CampoMultilinha CampoObservacoes;
+        private CampoMultilinha CampoFisco;
+        private FlexibleLine LinhaCorrecao;
+        private FlexibleLine LinhaCondicao;
+        private FlexibleLine LinhaRodape;
 
         #endregion Private Fields
 
@@ -30,24 +33,30 @@ namespace HESDanfe.Blocos
         {
 
 
-            _correcao = new CampoMultilinha("Correção", viewModel.TextoCorrecao, estilo);
 
-            _linha_correcao = new FlexibleLine() { Height = _correcao.Height }
-            .ComElemento(_correcao)
+
+            CampoCondicao = new CampoMultilinha("", viewModel.TextoCondicaoDeUso, estilo);
+
+            LinhaCondicao = new FlexibleLine() { Height = CampoCondicao.Height }
+            .ComElemento(CampoCondicao)
             .ComLarguras(100);
 
-            _condicao = new CampoMultilinha("", viewModel.TextoCondicaoDeUso, estilo);
 
-            _linha_condicao = new FlexibleLine() { Height = _condicao.Height }
-            .ComElemento(_condicao)
+            CampoObservacoes = new CampoMultilinha("", $"PROTOCOLO: {viewModel.ProtocoloCorrecao}{Environment.NewLine}DATA/HORA: {viewModel.DataHoraCorrecao:dd/MM/yyyy HH:mm:ss}{Environment.NewLine}EVENTO: {viewModel.SequenciaCorrecao}", estilo);
+            CampoFisco = new CampoMultilinha("Reservado ao Fisco", ViewModel.TextoAdicionalFisco, estilo);
+            LinhaRodape = new FlexibleLine() { Height = new[] { CampoFisco.Height, CampoObservacoes.Height }.Max() }
+            .ComElemento(CampoObservacoes)
+            .ComElemento(CampoFisco)
+            .ComLarguras(60, 40);
+
+            CampoCorrecao = new CampoMultilinha("Correção", viewModel.TextoCorrecao, estilo);
+
+            LinhaCorrecao = new FlexibleLine() { Height = CampoCorrecao.Height }
+            .ComElemento(CampoCorrecao)
             .ComLarguras(100);
 
-            _linha_fisco = new FlexibleLine() { Height = 35 }
-            .ComElemento(new CampoMultilinha("", $"PROTOCOLO: {viewModel.ProtocoloCorrecao}{Environment.NewLine}DATA/HORA: {viewModel.DataHoraCorrecao:dd/MM/yyyy HH:mm:ss}{Environment.NewLine}EVENTO: {viewModel.SequenciaCorrecao}", estilo))
-            .ComElemento(new CampoMultilinha("Reservado ao Fisco", ViewModel.TextoAdicionalFisco, estilo))
-            .ComLarguras(75, 25);
 
-            MainVerticalStack.Add(_linha_condicao, _linha_correcao, _linha_fisco);
+            MainVerticalStack.Add(LinhaCondicao, LinhaCorrecao, LinhaRodape);
 
         }
 
@@ -66,27 +75,29 @@ namespace HESDanfe.Blocos
             {
                 base.Width = value;
                 // Força o ajuste da altura do InfComplementares
-                if (_correcao != null && _linha_correcao != null)
+
+                if (CampoCondicao != null && LinhaCondicao != null)
                 {
-                    _linha_correcao.Width = value;
-                    _linha_correcao.Posicionar();
-                    _correcao.Height = 50;
-                    _linha_correcao.Height = _correcao.Height;
+                    LinhaCondicao.Width = value;
+                    LinhaCondicao.Posicionar();
+                    CampoCondicao.Height = 20;
+                    LinhaCondicao.Height = CampoCondicao.Height;
                 }
 
-                if (_condicao != null && _linha_condicao != null)
+                if (LinhaRodape != null)
                 {
-                    _linha_condicao.Width = value;
-                    _linha_condicao.Posicionar();
-                    _condicao.Height = 30;
-                    _linha_condicao.Height = _condicao.Height;
-
+                    LinhaRodape.Width = value;
+                    LinhaRodape.Posicionar();
+                    CampoObservacoes.Height = 25;
+                    LinhaRodape.Height = new[] { CampoFisco.Height, CampoObservacoes.Height }.Max();
                 }
 
-                if (_linha_fisco != null)
+                if (CampoCorrecao != null && LinhaCorrecao != null)
                 {
-                    _linha_fisco.Posicionar();
-                    _linha_fisco.Height = 100 - _condicao.Height + _correcao.Height;
+                    LinhaCorrecao.Width = value;
+                    LinhaCorrecao.Posicionar();
+                    CampoCorrecao.Height = 100 - (LinhaCondicao.Height + LinhaRodape.Height);
+                    LinhaCorrecao.Height = CampoCorrecao.Height;
                 }
             }
         }
