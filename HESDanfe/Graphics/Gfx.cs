@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 using System;
-using org.pdfclown.documents.contents.xObjects;
-using org.pdfclown.documents.contents.composition;
+using HESDanfe.Documents.Contents.xObjects;
+using HESDanfe.Documents.Contents.Composition;
 
 namespace HESDanfe.Graphics
 {

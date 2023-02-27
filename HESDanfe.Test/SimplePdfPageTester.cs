@@ -1,14 +1,11 @@
-﻿using HESDanfe.Graphics;
-using org.pdfclown.documents;
-using org.pdfclown.documents.contents.composition;
-using org.pdfclown.documents.contents.fonts;
-using org.pdfclown.files;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using HESDanfe.Documents;
+using HESDanfe.Documents.Contents.Composition;
+using HESDanfe.Documents.Contents.Fonts;
+using HESDanfe.Files;
+using HESDanfe.Graphics;
+
 
 namespace HESDanfe
 {
@@ -21,7 +18,7 @@ namespace HESDanfe
         public Page Page { get; set; }
 
         public SimplePdfPageTester()
-        {            
+        {
             File = new File();
             Document = File.Document;
 

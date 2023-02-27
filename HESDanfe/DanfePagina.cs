@@ -3,8 +3,8 @@ using System.Drawing;
 using System.Linq;
 using HESDanfe.Blocos;
 using HESDanfe.Graphics;
-using org.pdfclown.documents;
-using org.pdfclown.documents.contents.composition;
+using HESDanfe.Documents;
+using HESDanfe.Documents.Contents.Composition;
 
 namespace HESDanfe
 {
@@ -95,7 +95,7 @@ namespace HESDanfe
                         .AddLine("AMBIENTE DE HOMOLOGAÇÃO", Danfe.EstiloPadrao.CriarFonteRegular(30));
 
             Gfx.PrimitiveComposer.BeginLocalState();
-            Gfx.PrimitiveComposer.SetFillColor(new org.pdfclown.documents.contents.colorSpaces.DeviceRGBColor(0.35, 0.35, 0.35));
+            Gfx.PrimitiveComposer.SetFillColor(new HESDanfe.Documents.Contents.colorSpaces.DeviceRGBColor(0.35, 0.35, 0.35));
             ts.Draw(Gfx);
             Gfx.PrimitiveComposer.End();
         }

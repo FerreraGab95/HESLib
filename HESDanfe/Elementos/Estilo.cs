@@ -1,6 +1,6 @@
 ﻿using HESDanfe.Graphics;
 using System;
-using pcf = org.pdfclown.documents.contents.fonts;
+using pcf = HESDanfe.Documents.Contents.Fonts;
 
 namespace HESDanfe
 {

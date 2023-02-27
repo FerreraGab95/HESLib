@@ -5,13 +5,17 @@ using System.Globalization;
 using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
+using HESDanfe.Documents.Contents.Composition;
 using InnerLibs;
-using org.pdfclown.documents.contents.composition;
 
 namespace HESDanfe
 {
     internal static class Utils
     {
+
+
+
+
         #region Internal Fields
 
         internal const string BairroDistrito = "Bairro / Distrito";
@@ -55,8 +59,8 @@ namespace HESDanfe
 
         internal static string FormatarMoeda(this double? number) => number.HasValue ? number.Value.ToString("C", Cultura) : string.Empty;
 
-
         internal static Assembly GetAssembly() => Assembly.GetEntryAssembly() ?? Assembly.GetExecutingAssembly();
+
         internal static AssemblyName GetAssemblyName() => GetAssembly()?.GetName();
 
         internal static string GetCompanyName()

@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using HESDanfe.Blocos;
+using HESDanfe.Documents;
+using HESDanfe.Documents.Contents.Fonts;
 using HESDanfe.Modelo;
 using InnerLibs;
-using org.pdfclown.documents;
-using org.pdfclown.documents.contents.fonts;
-using PDF = org.pdfclown.files;
 
 namespace HESDanfe
 {
@@ -66,7 +65,7 @@ namespace HESDanfe
 
         internal List<BlocoBase> _Blocos;
         internal StandardType1Font.FamilyEnum _FonteFamilia;
-        internal org.pdfclown.documents.contents.xObjects.XObject _LogoObject = null;
+        internal HESDanfe.Documents.Contents.xObjects.XObject _LogoObject = null;
         internal bool disposedValue = false;
 
         #endregion Internal Fields
@@ -79,7 +78,7 @@ namespace HESDanfe
         internal List<DanfePagina> Paginas { get; private set; }
         internal Document PdfDocument => PDFFile.Document;
 
-        internal PDF.File PDFFile { get; private set; }
+        internal Files.File PDFFile { get; private set; }
 
         #endregion Internal Properties
 
@@ -145,7 +144,7 @@ namespace HESDanfe
         public DANFE(DANFEViewModel viewModel, string logoPath)
         {
             ViewModel = viewModel ?? throw new ArgumentNullException(nameof(viewModel));
-            PDFFile = new PDF.File();
+            PDFFile = new Files.File();
             AdicionarLogo(logoPath);
         }
 
@@ -247,7 +246,7 @@ namespace HESDanfe
         public void AdicionarLogoImagem(Stream stream)
         {
             if (stream == null) throw new ArgumentNullException(nameof(stream));
-            var img = org.pdfclown.documents.contents.entities.Image.Get(stream) ?? throw new InvalidOperationException("O logotipo não pode ser carregado, certifique-se que a imagem esteja no formato JPEG não progressivo.");
+            var img = HESDanfe.Documents.Contents.entities.Image.Get(stream) ?? throw new InvalidOperationException("O logotipo não pode ser carregado, certifique-se que a imagem esteja no formato JPEG não progressivo.");
             _LogoObject = img.ToXObject(PdfDocument);
         }
 
@@ -267,7 +266,7 @@ namespace HESDanfe
         {
             if (stream == null) throw new ArgumentNullException(nameof(stream));
 
-            using (var pdfFile = new PDF.File(new org.pdfclown.bytes.Stream(stream)))
+            using (var pdfFile = new Files.File(new HESDanfe.bytes.Stream(stream)))
             {
                 _LogoObject = pdfFile.Document.Pages[0].ToXObject(PdfDocument);
             }
@@ -293,7 +292,7 @@ namespace HESDanfe
         {
             if (stream == null) throw new ArgumentNullException(nameof(stream));
 
-            PDFFile.Save(new org.pdfclown.bytes.Stream(stream), PDF.SerializationModeEnum.Incremental);
+            PDFFile.Save(new HESDanfe.bytes.Stream(stream), Files.SerializationModeEnum.Incremental);
         }
 
         public void Dispose() => Dispose(true);
@@ -409,8 +408,8 @@ namespace HESDanfe
             //metadata do PDF
             var ass = Utils.GetAssemblyName();
             var info = PdfDocument.Information;
-            info[new org.pdfclown.objects.PdfName("ChaveAcesso")] = ViewModel.ChaveAcesso;
-            info[new org.pdfclown.objects.PdfName("TipoDocumento")] = $"{TipoDocumento}";
+            info[new HESDanfe.objects.PdfName("ChaveAcesso")] = ViewModel.ChaveAcesso;
+            info[new HESDanfe.objects.PdfName("TipoDocumento")] = $"{TipoDocumento}";
             info.CreationDate = ViewModel.DataHoraEmissao;
             info.Creator = $"{ass?.Name} {ass?.Version} - Disponível em https://github.com/zonaro/HESDanfe";
             info.Author = Autor;
@@ -420,7 +419,7 @@ namespace HESDanfe
 
             PreencherNumeroFolhas();
 
-            PDFFile.Save(FilePath.FullName, PDF.SerializationModeEnum.Incremental);
+            PDFFile.Save(FilePath.FullName, Files.SerializationModeEnum.Incremental);
 
             return FilePath;
         }

@@ -2,7 +2,7 @@
 using HESDanfe.Graphics;
 using HESDanfe.Modelo;
 using InnerLibs;
-using org.pdfclown.documents.contents.xObjects;
+using HESDanfe.Documents.Contents.xObjects;
 
 namespace HESDanfe
 {

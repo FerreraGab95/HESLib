@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 using HESDanfe.Modelo;
 using InnerLibs.BR;
-using org.pdfclown.documents.contents.xObjects;
+using HESDanfe.Documents.Contents.xObjects;
 
 namespace HESDanfe.Blocos
 {
