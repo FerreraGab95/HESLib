@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>HESDanfe</RootNamespace>
     <AssemblyName>HESDanfe</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="InnerLibs">
+      <HintPath>..\..\Innerlibs\InnerLibs\bin\Debug\net472\InnerLibs.dll</HintPath>
+    </Reference>
     <Reference Include="PDFClown, Version=0.1.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PDFClown.NET.2.0.0\lib\PDFClown.dll</HintPath>
     </Reference>
@@ -59,7 +63,6 @@
     <Compile Include="Blocos\BlocoLocalEntregaRetirada\BlocoLocalRetirada.cs" />
     <Compile Include="Blocos\TabelaProdutosServicos.cs" />
     <Compile Include="Blocos\BlocoTransportador.cs" />
-    <Compile Include="Constantes.cs" />
     <Compile Include="DANFE.cs" />
     <Compile Include="DanfePagina.cs" />
     <Compile Include="Elementos\Barcode128C.cs" />
@@ -90,8 +93,6 @@
     <Compile Include="Enumeracoes\PosicaoBloco.cs" />
     <Compile Include="Esquemas\ProcEventoNFe.cs" />
     <Compile Include="Esquemas\NFReferenciada.cs" />
-    <Compile Include="Extensions.cs" />
-    <Compile Include="Formatador.cs" />
     <Compile Include="Graphics\Fonte.cs" />
     <Compile Include="Modelo\CalculoImpostoViewModel.cs" />
     <Compile Include="Modelo\CalculoIssqnViewModel.cs" />
@@ -107,7 +108,6 @@
     <Compile Include="Esquemas\Namespaces.cs" />
     <Compile Include="Esquemas\ProcNFe.cs" />
     <Compile Include="Esquemas\Versao.cs" />
-    <Compile Include="Strings.cs" />
     <Compile Include="Structs\DateTimeOffsetIso8601.cs" />
     <Compile Include="Utils.cs" />
   </ItemGroup>

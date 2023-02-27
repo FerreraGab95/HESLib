@@ -1,6 +1,6 @@
 ﻿using System;
-using HESDanfe.Graphics;
 using HESDanfe.Elementos;
+using HESDanfe.Graphics;
 using HESDanfe.Modelo;
 
 namespace HESDanfe.Blocos
@@ -46,7 +46,7 @@ namespace HESDanfe.Blocos
         {
             var l = new LinhaCampos(Estilo, Width);
             l.Width = Width;
-            l.Height = Constantes.CampoAltura;
+            l.Height = Utils.CampoAltura;
             MainVerticalStack.Add(l);
             return l;
         }
@@ -60,6 +60,6 @@ namespace HESDanfe.Blocos
         }
 
         public override float Height { get => MainVerticalStack.Height; set => throw new NotSupportedException(); }
-        public override bool PossuiContono => false;            
+        public override bool PossuiContono => false;
     }
 }

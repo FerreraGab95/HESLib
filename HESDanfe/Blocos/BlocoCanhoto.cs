@@ -11,7 +11,7 @@ namespace HESDanfe.Blocos
         public BlocoCanhoto(DANFEViewModel viewModel, Estilo estilo) : base(viewModel, estilo)
         {
             var textoRecebimento = new TextoSimples(estilo, viewModel.TextoRecebimento) { Height = TextoRecebimentoAltura, TamanhoFonte = 8 };
-            var nfe = new NumeroNfSerie(estilo, viewModel.NfNumero.ToString(Formatador.FormatoNumeroNF), viewModel.NfSerie.ToString()) { Height = AlturaLinha2 + TextoRecebimentoAltura, Width = 30 };
+            var nfe = new NumeroNfSerie(estilo, viewModel.NfNumero.ToString(Utils.FormatoNumeroNF), viewModel.NfSerie.ToString()) { Height = AlturaLinha2 + TextoRecebimentoAltura, Width = 30 };
 
             var campos = new LinhaCampos(Estilo) { Height = AlturaLinha2 }
                .ComCampo("Data de Recebimento", null)
@@ -21,7 +21,7 @@ namespace HESDanfe.Blocos
             var coluna1 = new VerticalStack();
             coluna1.Add(textoRecebimento, campos);
 
-            var linha = new FlexibleLine() {Height = coluna1.Height }
+            var linha = new FlexibleLine() { Height = coluna1.Height }
             .ComElemento(coluna1)
             .ComElemento(nfe)
             .ComLarguras(0, 16);

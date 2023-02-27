@@ -1,6 +1,5 @@
-﻿using HESDanfe.Graphics;
-using System;
-using System.Drawing;
+﻿using System.Drawing;
+using HESDanfe.Graphics;
 
 namespace HESDanfe
 {
@@ -22,7 +21,7 @@ namespace HESDanfe
             this.Conteudo = conteudo;
             AlinhamentoHorizontalConteudo = alinhamentoHorizontalConteudo;
             IsConteudoNegrito = true;
-            Height = Constantes.CampoAltura;
+            Height = Utils.CampoAltura;
         }
 
         protected virtual void DesenharCabecalho(Gfx gfx)

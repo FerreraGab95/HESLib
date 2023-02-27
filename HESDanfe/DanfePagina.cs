@@ -30,9 +30,9 @@ namespace HESDanfe
             Gfx = new Gfx(PrimitiveComposer);
 
             if (Danfe.ViewModel.Orientacao == Orientacao.Retrato)
-                Retangulo = new RectangleF(0, 0, Constantes.A4Largura, Constantes.A4Altura);
+                Retangulo = new RectangleF(0, 0, Utils.A4Largura, Utils.A4Altura);
             else
-                Retangulo = new RectangleF(0, 0, Constantes.A4Altura, Constantes.A4Largura);
+                Retangulo = new RectangleF(0, 0, Utils.A4Altura, Utils.A4Largura);
 
             RetanguloDesenhavel = Retangulo.InflatedRetangle(Danfe.ViewModel.Margem);
             RetanguloCreditos = new RectangleF(RetanguloDesenhavel.X, RetanguloDesenhavel.Bottom + Danfe.EstiloPadrao.PaddingSuperior, RetanguloDesenhavel.Width, Retangulo.Height - RetanguloDesenhavel.Height - Danfe.EstiloPadrao.PaddingSuperior);

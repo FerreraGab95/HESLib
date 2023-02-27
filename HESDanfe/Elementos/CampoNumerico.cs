@@ -1,5 +1,4 @@
-﻿using System;
-using HESDanfe.Graphics;
+﻿using HESDanfe.Graphics;
 
 namespace HESDanfe.Elementos
 {
@@ -19,7 +18,7 @@ namespace HESDanfe.Elementos
 
         protected override void DesenharConteudo(Gfx gfx)
         {
-            base.Conteudo = ConteudoNumerico.HasValue ? ConteudoNumerico.Value.ToString($"N{CasasDecimais}", Formatador.Cultura) : null;
+            base.Conteudo = ConteudoNumerico.HasValue ? ConteudoNumerico.Value.ToString($"N{CasasDecimais}", Utils.Cultura) : null;
             base.DesenharConteudo(gfx);
         }
     }

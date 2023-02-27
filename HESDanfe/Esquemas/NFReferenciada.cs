@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Xml;
 using System.Xml.Serialization;
+using InnerLibs.BR;
 
 namespace HESDanfe.Esquemas
 {
@@ -24,7 +25,7 @@ namespace HESDanfe.Esquemas
             if (TipoNFReferenciada == TipoNFReferenciada.refCTe || TipoNFReferenciada == TipoNFReferenciada.refNFe)
             {
                 string chaveAcesso = Item.ToString();
-                return $"{Utils.TipoDFeDeChaveAcesso(chaveAcesso)} Ref.: {Formatador.FormatarChaveAcesso(Item.ToString())}";
+                return $"{Utils.TipoDFeDeChaveAcesso(chaveAcesso)} Ref.: {Utils.FormatarChaveAcesso(Item.ToString())}";
             }
             else
                 return Item.ToString();
@@ -64,7 +65,7 @@ namespace HESDanfe.Esquemas
         public string serie { get; set; }
         public string nNF { get; set; }
 
-        public override string ToString() => $"NF Ref.: Série: {serie} Número: {nNF} Emitente: {Formatador.FormatarCnpj(CNPJ)} Modelo: {mod}";
+        public override string ToString() => $"NF Ref.: Série: {serie} Número: {nNF} Emitente: {CNPJ.FormatCNPJ()} Modelo: {mod}";
     }
 
     [Serializable]
@@ -82,7 +83,7 @@ namespace HESDanfe.Esquemas
         public override string ToString()
         {
             string cpfCnpj = !string.IsNullOrWhiteSpace(CNPJ) ? CNPJ : CPF;
-            return $"NFP Ref.: Série: {serie} Número: {nNF} Emitente: {Formatador.FormatarCpfCnpj(cpfCnpj)} Modelo: {mod} IE: {IE}";
+            return $"NFP Ref.: Série: {serie} Número: {nNF} Emitente: {cpfCnpj.FormatCPFOrCNPJ()} Modelo: {mod} IE: {IE}";
         }
     }
 }

@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using HESDanfe.Blocos;
 using HESDanfe.Modelo;
+using InnerLibs;
 using org.pdfclown.documents;
 using org.pdfclown.documents.contents.fonts;
 using PDF = org.pdfclown.files;
@@ -182,20 +183,25 @@ namespace HESDanfe
         /// <param name="ChaveNFe"></param>
         /// <param name="SequenciaEvento"></param>
         /// <returns></returns>
-        public static string GerarNomePdfCCE(string ChaveNFe, int SequenciaEvento) => $"DANFE-{ChaveNFe}-CCE-{SequenciaEvento}.pdf";
+        public static string GerarNomePdfCCE(string ChaveNFe, int SequenciaEvento) => $"DANFE-{ChaveNFe.RemoveMask()}-CCE-{SequenciaEvento}.pdf";
 
         /// <summary>
         /// Gera um nome padronizado para o DANFE
         /// </summary>
         /// <param name="ChaveNFe"></param>
         /// <returns></returns>
-        public static string GerarNomePdfDANFE(string ChaveNFe) => $"DANFE-{ChaveNFe}.pdf";
+        public static string GerarNomePdfDANFE(string ChaveNFe) => $"DANFE-{ChaveNFe.RemoveMask()}.pdf";
 
         /// <inheritdoc cref="GerarPDF(string, string, string, DirectoryInfo)"/>
         public static IEnumerable<FileInfo> GerarPDF(string PathNFe, string PathCCe, DirectoryInfo outputPath) => GerarPDF(PathNFe, PathCCe, null, outputPath);
 
         /// <inheritdoc cref="GerarPDF(string, string, string, DirectoryInfo)"/>
         public static FileInfo GerarPDF(string PathNFe, DirectoryInfo outputPath) => GerarPDF(PathNFe, null, null, outputPath).FirstOrDefault();
+
+
+
+
+
 
         /// <summary>
         /// Gera um DANFE em PDF com as informações fornecidas
@@ -347,7 +353,7 @@ namespace HESDanfe
             FonteNegrito = new StandardType1Font(PdfDocument, _FonteFamilia, true, false);
             FonteItalico = new StandardType1Font(PdfDocument, _FonteFamilia, false, true);
 
-            EstiloPadrao = Extensions.CriarEstilo();
+            EstiloPadrao = Utils.CriarEstilo();
 
             Paginas = new List<DanfePagina>();
 
@@ -371,9 +377,9 @@ namespace HESDanfe
                 if (ViewModel.Duplicatas.Count > 0)
                     AdicionarBloco<BlocoDuplicataFatura>();
 
-                AdicionarBloco<BlocoCalculoImposto>(ViewModel.Orientacao == Orientacao.Paisagem ? EstiloPadrao : Extensions.CriarEstilo(4.75F));
+                AdicionarBloco<BlocoCalculoImposto>(ViewModel.Orientacao == Orientacao.Paisagem ? EstiloPadrao : Utils.CriarEstilo(4.75F));
                 AdicionarBloco<BlocoTransportador>();
-                AdicionarBloco<BlocoDadosAdicionais>(Extensions.CriarEstilo(tFonteCampoConteudo: 8));
+                AdicionarBloco<BlocoDadosAdicionais>(Utils.CriarEstilo(tFonteCampoConteudo: 8));
 
                 if (ViewModel.CalculoIssqn.Mostrar)
                     AdicionarBloco<BlocoCalculoIssqn>();

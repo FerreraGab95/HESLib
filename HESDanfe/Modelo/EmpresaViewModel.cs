@@ -1,5 +1,5 @@
-﻿using System;
-using System.Text;
+﻿using System.Text;
+using InnerLibs.BR;
 
 namespace HESDanfe.Modelo
 {
@@ -64,7 +64,7 @@ namespace HESDanfe.Modelo
         /// <para>Tag fone</para>
         /// </summary>
         public string Telefone { get; set; }
-        
+
         /// <summary>
         /// <para>CNPJ ou CPF</para>
         /// <para>Tag CNPJ ou CPF</para>
@@ -118,7 +118,7 @@ namespace HESDanfe.Modelo
         /// <summary>
         /// Linha 1 do Endereço
         /// </summary>
-        public string EnderecoLinha2 => $"{EnderecoBairro} - CEP: {Formatador.FormatarCEP(EnderecoCep)}";
+        public string EnderecoLinha2 => $"{EnderecoBairro} - CEP: {EnderecoCep.FormatCEP()}";
 
 
         /// <summary>
@@ -132,11 +132,11 @@ namespace HESDanfe.Modelo
                     .Append(Municipio).Append(" - ").Append(EnderecoUf);
 
                 if (!string.IsNullOrWhiteSpace(Telefone))
-                    sb.Append(" Fone: ").Append(Formatador.FormatarTelefone(Telefone));
+                    sb.Append(" Fone: ").Append(Telefone.FormatTelephoneNumber());
 
-                return sb.ToString();               
+                return sb.ToString();
             }
         }
-        
+
     }
 }

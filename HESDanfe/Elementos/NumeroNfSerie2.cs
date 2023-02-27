@@ -87,7 +87,7 @@ namespace HESDanfe
                 AlinhamentoVertical = AlinhamentoVertical.Topo,
                 AlinhamentoHorizontal = AlinhamentoHorizontal.Centro
             }
-            .AddLine("Nº.: " + ViewModel.NfNumero.ToString(Formatador.FormatoNumeroNF), f4)
+            .AddLine("Nº.: " + ViewModel.NfNumero.ToString(Utils.FormatoNumeroNF), f4)
             .AddLine($"Série: {ViewModel.NfSerie}", f4);
 
             ts.Draw(gfx);

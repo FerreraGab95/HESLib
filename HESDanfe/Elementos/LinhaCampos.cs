@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace HESDanfe.Elementos
+﻿namespace HESDanfe.Elementos
 {
     /// <summary>
     /// Linha de campos, posiciona e muda a largura desses elementos de forma proporcional.
@@ -9,7 +7,7 @@ namespace HESDanfe.Elementos
     {
         public Estilo Estilo { get; private set; }
 
-        public LinhaCampos(Estilo estilo, float width, float height = Constantes.CampoAltura) : base()
+        public LinhaCampos(Estilo estilo, float width, float height = Utils.CampoAltura) : base()
         {
             Estilo = estilo;
             SetSize(width, height);

@@ -684,7 +684,7 @@ namespace HESDanfe.Modelo
 
             var infoProto = procNfe.protNFe.infProt;
 
-            model.ProtocoloAutorizacao = string.Format(Formatador.Cultura, "{0} - {1}", infoProto.nProt, infoProto.dhRecbto.DateTimeOffsetValue.DateTime);
+            model.ProtocoloAutorizacao = string.Format(Utils.Cultura, "{0} - {1}", infoProto.nProt, infoProto.dhRecbto.DateTimeOffsetValue.DateTime);
 
             ExtrairDatas(model, infNfe);
 

@@ -1,6 +1,7 @@
 ﻿using System.Drawing;
-using org.pdfclown.documents.contents.xObjects;
 using HESDanfe.Modelo;
+using InnerLibs.BR;
+using org.pdfclown.documents.contents.xObjects;
 
 namespace HESDanfe.Blocos
 {
@@ -15,7 +16,7 @@ namespace HESDanfe.Blocos
         public BlocoIdentificacaoEmitente(DANFEViewModel viewModel, Estilo estilo) : base(viewModel, estilo)
         {
 
-            var textoConsulta = new TextoSimples(Estilo, Strings.TextoConsulta)
+            var textoConsulta = new TextoSimples(Estilo, Utils.TextoConsulta)
             {
                 Height = 8,
                 AlinhamentoHorizontal = AlinhamentoHorizontal.Centro,
@@ -23,7 +24,7 @@ namespace HESDanfe.Blocos
                 TamanhoFonte = 9
             };
 
-            var campoChaveAcesso = new Campo("Chave de Acesso", Formatador.FormatarChaveAcesso(ViewModel.ChaveAcesso), estilo, AlinhamentoHorizontal.Centro) { Height = Constantes.CampoAltura };
+            var campoChaveAcesso = new Campo("Chave de Acesso", Utils.FormatarChaveAcesso(ViewModel.ChaveAcesso), estilo, AlinhamentoHorizontal.Centro) { Height = Utils.CampoAltura };
             var codigoBarras = new Barcode128C(viewModel.ChaveAcesso, Estilo) { Height = AlturaLinha1 - textoConsulta.Height - campoChaveAcesso.Height };
 
             var coluna3 = new VerticalStack();
@@ -48,7 +49,7 @@ namespace HESDanfe.Blocos
             AdicionarLinhaCampos()
                 .ComCampo("Inscrição Estadual", ViewModel.Emitente.Ie, AlinhamentoHorizontal.Centro)
                 .ComCampo("Inscrição Estadual do Subst. Tributário", ViewModel.Emitente.IeSt, AlinhamentoHorizontal.Centro)
-                .ComCampo("Cnpj", Formatador.FormatarCnpj(ViewModel.Emitente.CnpjCpf), AlinhamentoHorizontal.Centro)
+                .ComCampo("Cnpj", ViewModel.Emitente.CnpjCpf.FormatCNPJ(), AlinhamentoHorizontal.Centro)
                 .ComLargurasIguais();
 
         }
