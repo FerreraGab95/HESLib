@@ -23,7 +23,7 @@
   this list of conditions.
 */
 
-namespace HESDanfe.Documents.Interaction.actions
+namespace HESDanfe.Documents.Interaction.Actions
 {
   /**
     <summary>Go-to action.</summary>

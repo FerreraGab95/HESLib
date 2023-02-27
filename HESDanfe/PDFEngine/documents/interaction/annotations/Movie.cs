@@ -23,15 +23,15 @@
   this list of conditions.
 */
 
-using HESDanfe.bytes;
+using HESDanfe.Bytes;
 using HESDanfe.Documents;
-using multimedia = HESDanfe.Documents.multimedia;
+using Multimedia = HESDanfe.Documents.Multimedia;
 using HESDanfe.Objects;
 
 using System;
 using System.Drawing;
 
-namespace HESDanfe.Documents.Interaction.annotations
+namespace HESDanfe.Documents.Interaction.Annotations
 {
   /**
     <summary>Movie annotation [PDF:1.6:8.4.5].</summary>
@@ -46,7 +46,7 @@ namespace HESDanfe.Documents.Interaction.annotations
       Page page,
       RectangleF box,
       string text,
-      multimedia::Movie content
+      Multimedia::Movie content
       ) : base(page, PdfName.Movie, box, text)
     {Content = content;}
 
@@ -61,10 +61,10 @@ namespace HESDanfe.Documents.Interaction.annotations
     /**
       <summary>Gets/Sets the movie to be played.</summary>
     */
-    public multimedia::Movie Content
+    public Multimedia::Movie Content
     {
       get
-      {return new multimedia::Movie(BaseDataObject[PdfName.Movie]);}
+      {return new Multimedia::Movie(BaseDataObject[PdfName.Movie]);}
       set
       {
         if(value == null)

@@ -26,14 +26,14 @@
 using HESDanfe.Documents;
 using HESDanfe.Documents.Contents.ColorSpaces;
 using HESDanfe.Documents.Interaction;
-using actions = HESDanfe.Documents.Interaction.actions;
+using actions = HESDanfe.Documents.Interaction.Actions;
 using HESDanfe.Files;
 using HESDanfe.Objects;
 using HESDanfe.Util;
 
 using System;
 
-namespace HESDanfe.Documents.multimedia
+namespace HESDanfe.Documents.Multimedia
 {
   /**
     <summary>Media play parameters [PDF:1.7:9.1.4].</summary>

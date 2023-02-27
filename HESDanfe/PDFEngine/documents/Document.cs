@@ -25,11 +25,11 @@
 
 using HESDanfe;
 using HESDanfe.Documents.Contents;
-using HESDanfe.Documents.Contents.layers;
-using HESDanfe.Documents.Interaction.forms;
-using HESDanfe.Documents.Interaction.Navigation.document;
+using HESDanfe.Documents.Contents.Layers;
+using HESDanfe.Documents.Interaction.Forms;
+using HESDanfe.Documents.Interaction.Navigation.Document;
 using HESDanfe.Documents.Interchange.Metadata;
-using HESDanfe.Documents.Interaction.viewer;
+using HESDanfe.Documents.Interaction.Viewer;
 using HESDanfe.Files;
 using HESDanfe.Objects;
 using HESDanfe.Tokens;

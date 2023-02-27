@@ -266,7 +266,7 @@ namespace HESDanfe
         {
             if (stream == null) throw new ArgumentNullException(nameof(stream));
 
-            using (var pdfFile = new Files.File(new HESDanfe.bytes.Stream(stream)))
+            using (var pdfFile = new Files.File(new HESDanfe.Bytes.Stream(stream)))
             {
                 _LogoObject = pdfFile.Document.Pages[0].ToXObject(PdfDocument);
             }
@@ -292,7 +292,7 @@ namespace HESDanfe
         {
             if (stream == null) throw new ArgumentNullException(nameof(stream));
 
-            PDFFile.Save(new HESDanfe.bytes.Stream(stream), Files.SerializationModeEnum.Incremental);
+            PDFFile.Save(new HESDanfe.Bytes.Stream(stream), Files.SerializationModeEnum.Incremental);
         }
 
         public void Dispose() => Dispose(true);

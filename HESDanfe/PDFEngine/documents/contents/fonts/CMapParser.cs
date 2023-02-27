@@ -23,7 +23,7 @@
   this list of conditions.
 */
 
-using bytes = HESDanfe.bytes;
+using Bytes = HESDanfe.Bytes;
 using HESDanfe.Documents.Contents.Objects;
 using HESDanfe.Objects;
 using HESDanfe.Tokens;
@@ -58,11 +58,11 @@ namespace HESDanfe.Documents.Contents.Fonts
     #region constructors
     public CMapParser(
       io::Stream stream
-      ) : this(new bytes::Buffer(stream))
+      ) : this(new Bytes::Buffer(stream))
     {}
 
     public CMapParser(
-      bytes::IInputStream stream
+      Bytes::IInputStream stream
       ) : base(stream)
     {}
     #endregion

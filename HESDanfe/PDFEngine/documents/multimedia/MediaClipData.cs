@@ -26,15 +26,15 @@
 using HESDanfe.Documents;
 using HESDanfe.Documents.Contents.ColorSpaces;
 using HESDanfe.Documents.Contents.xObjects;
-using HESDanfe.Documents.files;
-using actions = HESDanfe.Documents.Interaction.actions;
+using HESDanfe.Documents.Files;
+using actions = HESDanfe.Documents.Interaction.Actions;
 using HESDanfe.Files;
 using HESDanfe.Objects;
 using HESDanfe.Util;
 
 using System;
 
-namespace HESDanfe.Documents.multimedia
+namespace HESDanfe.Documents.Multimedia
 {
   /**
     <summary>Media clip data [PDF:1.7:9.1.3].</summary>

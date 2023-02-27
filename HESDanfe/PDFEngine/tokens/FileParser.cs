@@ -23,7 +23,7 @@
   this list of conditions.
 */
 
-using HESDanfe.bytes;
+using HESDanfe.Bytes;
 using HESDanfe.Documents;
 using HESDanfe.Files;
 using HESDanfe.Objects;
@@ -170,17 +170,17 @@ namespace HESDanfe.Tokens
         if(PdfName.ObjStm.Equals(streamType)) // Object stream [PDF:1.6:3.4.6].
           return new ObjectStream(
             streamHeader,
-            new bytes.Buffer(data)
+            new Bytes.Buffer(data)
             );
         else if(PdfName.XRef.Equals(streamType)) // Cross-reference stream [PDF:1.6:3.4.7].
           return new XRefStream(
             streamHeader,
-            new bytes.Buffer(data)
+            new Bytes.Buffer(data)
             );
         else // Generic stream.
           return new PdfStream(
             streamHeader,
-            new bytes.Buffer(data)
+            new Bytes.Buffer(data)
             );
         }
         else // Stand-alone dictionary.

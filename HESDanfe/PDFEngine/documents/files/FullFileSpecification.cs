@@ -23,7 +23,7 @@
   this list of conditions.
 */
 
-using bytes = HESDanfe.bytes;
+using Bytes = HESDanfe.Bytes;
 using HESDanfe.Documents;
 using HESDanfe.Files;
 using HESDanfe.Objects;
@@ -33,7 +33,7 @@ using System;
 using System.IO;
 using System.Net;
 
-namespace HESDanfe.Documents.files
+namespace HESDanfe.Documents.Files
 {
   /**
     <summary>Extended reference to the contents of another file [PDF:1.6:3.10.2].</summary>
@@ -155,7 +155,7 @@ namespace HESDanfe.Documents.files
       }
     }
 
-    public override bytes::IInputStream GetInputStream(
+    public override Bytes::IInputStream GetInputStream(
       )
     {
       if(PdfName.URL.Equals(BaseDictionary[PdfName.FS])) // Remote resource [PDF:1.7:3.10.4].
@@ -167,7 +167,7 @@ namespace HESDanfe.Documents.files
         {throw new Exception("Failed to instantiate URL for " + Path, e);}
         WebClient webClient = new WebClient();
         try
-        {return new bytes::Buffer(webClient.OpenRead(fileUrl));}
+        {return new Bytes::Buffer(webClient.OpenRead(fileUrl));}
         catch(Exception e)
         {throw new Exception("Failed to open input stream for " + Path, e);}
       }
@@ -175,7 +175,7 @@ namespace HESDanfe.Documents.files
         return base.GetInputStream();
     }
 
-    public override bytes::IOutputStream GetOutputStream(
+    public override Bytes::IOutputStream GetOutputStream(
       )
     {
       if(PdfName.URL.Equals(BaseDictionary[PdfName.FS])) // Remote resource [PDF:1.7:3.10.4].
@@ -187,7 +187,7 @@ namespace HESDanfe.Documents.files
         {throw new Exception("Failed to instantiate URL for " + Path, e);}
         WebClient webClient = new WebClient();
         try
-        {return new bytes::Stream(webClient.OpenWrite(fileUrl));}
+        {return new Bytes::Stream(webClient.OpenWrite(fileUrl));}
         catch(Exception e)
         {throw new Exception("Failed to open output stream for " + Path, e);}
       }

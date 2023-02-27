@@ -23,45 +23,41 @@
   this list of conditions.
 */
 
-using HESDanfe.bytes;
-using HESDanfe.Documents;
-using HESDanfe.Documents.Interaction.annotations;
+using HESDanfe.Documents.Interaction.Annotations;
 using HESDanfe.Objects;
 
-using System;
-
-namespace HESDanfe.Documents.Interaction.forms
+namespace HESDanfe.Documents.Interaction.Forms
 {
-  /**
-    <summary>Button field [PDF:1.6:8.6.3].</summary>
-  */
-  [PDF(VersionEnum.PDF12)]
-  public abstract class ButtonField
-    : Field
-  {
-    #region dynamic
-    #region constructors
     /**
-      <summary>Creates a new button field within the given document context.</summary>
+      <summary>Button field [PDF:1.6:8.6.3].</summary>
     */
-    protected ButtonField(
-      string name,
-      Widget widget
-      ) : base(
-        PdfName.Btn,
-        name,
-        widget
-        )
-    {}
+    [PDF(VersionEnum.PDF12)]
+    public abstract class ButtonField
+    : Field
+    {
+        #region dynamic
+        #region constructors
+        /**
+          <summary>Creates a new button field within the given document context.</summary>
+        */
+        protected ButtonField(
+          string name,
+          Widget widget
+          ) : base(
+            PdfName.Btn,
+            name,
+            widget
+            )
+        { }
 
-    protected ButtonField(
-      PdfDirectObject baseObject
-      ) : base(baseObject)
-    {}
-    #endregion
+        protected ButtonField(
+          PdfDirectObject baseObject
+          ) : base(baseObject)
+        { }
+        #endregion
 
-    #region interface
-    #endregion
-    #endregion
-  }
+        #region interface
+        #endregion
+        #endregion
+    }
 }

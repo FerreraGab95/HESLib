@@ -23,8 +23,8 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents.Interaction.actions;
-using HESDanfe.Documents.Interaction.Navigation.document;
+using HESDanfe.Documents.Interaction.Actions;
+using HESDanfe.Documents.Interaction.Navigation.Document;
 using HESDanfe.Objects;
 
 namespace HESDanfe.Documents.Interaction

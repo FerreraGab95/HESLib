@@ -23,9 +23,9 @@
   this list of conditions.
 */
 
-using HESDanfe.bytes;
+using HESDanfe.Bytes;
 using HESDanfe.Documents;
-using HESDanfe.Documents.Contents.layers;
+using HESDanfe.Documents.Contents.Layers;
 using HESDanfe.Objects;
 using HESDanfe.Util;
 
@@ -34,7 +34,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace HESDanfe.Documents.Interaction.actions
+namespace HESDanfe.Documents.Interaction.Actions
 {
   /**
     <summary>'Set the state of one or more optional content groups' action [PDF:1.6:8.5.3].</summary>

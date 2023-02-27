@@ -27,7 +27,7 @@ using HESDanfe.Documents;
 using HESDanfe.Documents.Contents.ColorSpaces;
 using HESDanfe.Objects;
 
-namespace HESDanfe.Documents.Interaction.forms.styles
+namespace HESDanfe.Documents.Interaction.Forms.Styles
 {
   /**
     <summary>Abstract field appearance style.</summary>

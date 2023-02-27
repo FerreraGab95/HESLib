@@ -29,7 +29,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.Contents.layers
+namespace HESDanfe.Documents.Contents.Layers
 {
   /**
     <summary>Optional content membership [PDF:1.7:4.10.1].</summary>

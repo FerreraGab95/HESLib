@@ -23,7 +23,7 @@
   this list of conditions.
 */
 
-using HESDanfe.bytes;
+using HESDanfe.Bytes;
 using HESDanfe.Documents;
 using HESDanfe.Documents.Contents.ColorSpaces;
 using HESDanfe.Objects;
@@ -31,7 +31,7 @@ using HESDanfe.Objects;
 using System;
 using System.Drawing;
 
-namespace HESDanfe.Documents.Interaction.annotations
+namespace HESDanfe.Documents.Interaction.Annotations
 {
   /**
     <summary>Abstract shape annotation.</summary>

@@ -89,13 +89,13 @@ namespace HESDanfe.Documents.Interaction.Navigation.Page
     #region dynamic
     #region constructors
     public PageLabel(
-      Document context,
+      Documents.Document context,
       NumberStyleEnum numberStyle
       ) : this(context, null, numberStyle, DefaultNumberBase)
     {}
 
     public PageLabel(
-      Document context,
+      Documents.Document context,
       String prefix,
       NumberStyleEnum numberStyle,
       int numberBase

@@ -23,9 +23,9 @@
   this list of conditions.
 */
 
-using HESDanfe.bytes;
+using HESDanfe.Bytes;
 using HESDanfe.Documents;
-using HESDanfe.Documents.Interaction.annotations;
+using HESDanfe.Documents.Interaction.Annotations;
 using HESDanfe.Files;
 using HESDanfe.Objects;
 using HESDanfe.Util;
@@ -35,7 +35,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 
-namespace HESDanfe.Documents.Interaction.forms
+namespace HESDanfe.Documents.Interaction.Forms
 {
   /**
     <summary>Interactive form field [PDF:1.6:8.6.2].</summary>

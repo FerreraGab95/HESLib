@@ -23,7 +23,7 @@
   this list of conditions.
 */
 
-using bytes = HESDanfe.bytes;
+using Bytes = HESDanfe.Bytes;
 using HESDanfe.Documents;
 using HESDanfe.Files;
 using HESDanfe.Objects;
@@ -52,7 +52,7 @@ namespace HESDanfe.Documents.Contents.Fonts
     #region public
     new public static CompositeFont Get(
       Document context,
-      bytes::IInputStream fontData
+      Bytes::IInputStream fontData
       )
     {
       OpenFontParser parser = new OpenFontParser(fontData);
@@ -285,7 +285,7 @@ namespace HESDanfe.Documents.Contents.Fonts
       )
     {
       // CMap [PDF:1.6:5.6.4].
-      bytes::Buffer cmapBuffer = new bytes::Buffer();
+      Bytes::Buffer cmapBuffer = new Bytes::Buffer();
       cmapBuffer.Append(
         "%!PS-Adobe-3.0 Resource-CMap\n"
           + "%%DocumentNeededResources: ProcSet (CIDInit)\n"
@@ -314,7 +314,7 @@ namespace HESDanfe.Documents.Contents.Fonts
           + glyphIndexes.Count + " begincidchar\n"
         );
       // ToUnicode [PDF:1.6:5.9.2].
-      bytes::Buffer toUnicodeBuffer = new bytes::Buffer();
+      Bytes::Buffer toUnicodeBuffer = new Bytes::Buffer();
       toUnicodeBuffer.Append(
         "/CIDInit /ProcSet findresource begin\n"
           + "12 dict begin\n"
@@ -334,7 +334,7 @@ namespace HESDanfe.Documents.Contents.Fonts
           + glyphIndexes.Count + " beginbfchar\n"
         );
       // CIDToGIDMap [PDF:1.6:5.6.3].
-      bytes::Buffer gIdBuffer = new bytes::Buffer();
+      Bytes::Buffer gIdBuffer = new Bytes::Buffer();
       gIdBuffer.Append((byte)0);
       gIdBuffer.Append((byte)0);
       int code = 0;
@@ -493,7 +493,7 @@ namespace HESDanfe.Documents.Contents.Fonts
 
         // FontFile.
         fontDescriptor[PdfName.FontFile2] = File.Register(
-          new PdfStream(new bytes::Buffer(parser.FontData.ToByteArray()))
+          new PdfStream(new Bytes::Buffer(parser.FontData.ToByteArray()))
           );
       }
       return File.Register(fontDescriptor);

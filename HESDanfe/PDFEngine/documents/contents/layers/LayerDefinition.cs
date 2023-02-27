@@ -27,7 +27,7 @@ using HESDanfe.Objects;
 
 using System;
 
-namespace HESDanfe.Documents.Contents.layers
+namespace HESDanfe.Documents.Contents.Layers
 {
   /**
     <summary>Optional content properties [PDF:1.7:4.10.3].</summary>

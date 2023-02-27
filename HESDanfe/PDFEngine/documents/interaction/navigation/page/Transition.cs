@@ -323,7 +323,7 @@ namespace HESDanfe.Documents.Interaction.Navigation.Page
       <summary>Creates a new action within the given document context.</summary>
     */
     public Transition(
-      Document context
+      Documents.Document context
       ) : base(
         context,
         new PdfDictionary(
@@ -334,7 +334,7 @@ namespace HESDanfe.Documents.Interaction.Navigation.Page
     {}
 
     public Transition(
-      Document context,
+      Documents.Document context,
       StyleEnum style
       ) : this(
         context,
@@ -348,7 +348,7 @@ namespace HESDanfe.Documents.Interaction.Navigation.Page
     {}
 
     public Transition(
-      Document context,
+      Documents.Document context,
       StyleEnum style,
       double duration
       ) : this(
@@ -363,7 +363,7 @@ namespace HESDanfe.Documents.Interaction.Navigation.Page
     {}
 
     public Transition(
-      Document context,
+      Documents.Document context,
       StyleEnum style,
       double duration,
       OrientationEnum orientation,

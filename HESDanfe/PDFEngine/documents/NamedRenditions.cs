@@ -23,8 +23,8 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents.Interaction.actions;
-using HESDanfe.Documents.multimedia;
+using HESDanfe.Documents.Interaction.Actions;
+using HESDanfe.Documents.Multimedia;
 using HESDanfe.Objects;
 
 using System;

@@ -26,7 +26,7 @@
 using HESDanfe.Util;
 using HESDanfe.Util.IO;
 
-namespace HESDanfe.bytes
+namespace HESDanfe.Bytes
 {
     /**
       <summary>

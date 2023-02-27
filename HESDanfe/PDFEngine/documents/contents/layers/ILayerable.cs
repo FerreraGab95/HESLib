@@ -23,22 +23,20 @@
   this list of conditions.
 */
 
-using System;
-
-namespace HESDanfe.Documents.Contents.layers
+namespace HESDanfe.Documents.Contents.Layers
 {
-  /**
-    <summary>Object that can be associated to a layer.</summary>
-  */
-  public interface ILayerable
-  {
     /**
-      <summary>Gets/Sets the layer associated to this object.</summary>
+      <summary>Object that can be associated to a layer.</summary>
     */
-    LayerEntity Layer
+    public interface ILayerable
     {
-      get;
-      set;
+        /**
+          <summary>Gets/Sets the layer associated to this object.</summary>
+        */
+        LayerEntity Layer
+        {
+            get;
+            set;
+        }
     }
-  }
 }

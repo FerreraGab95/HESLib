@@ -23,214 +23,212 @@
   this list of conditions.
 */
 
-using bytes = HESDanfe.bytes;
+using System.Collections.Generic;
 using HESDanfe.Documents.Contents.Objects;
 using HESDanfe.Objects;
 using HESDanfe.Tokens;
+using Bytes = HESDanfe.Bytes;
 
-using System;
-using System.Collections.Generic;
-
-namespace HESDanfe.Documents.Contents.tokens
+namespace HESDanfe.Documents.Contents.Tokens
 {
-  /**
-    <summary>Content stream parser [PDF:1.6:3.7.1].</summary>
-  */
-  public sealed class ContentParser
+    /**
+      <summary>Content stream parser [PDF:1.6:3.7.1].</summary>
+    */
+    public sealed class ContentParser
     : BaseParser
-  {
-    #region dynamic
-    #region constructors
-    internal ContentParser(
-      bytes::IInputStream stream
-      ) : base(stream)
-    {}
-
-    public ContentParser(
-      byte[] data
-      ) : base(data)
-    {}
-    #endregion
-
-    #region interface
-    #region public
-    /**
-      <summary>Parses the next content object [PDF:1.6:4.1].</summary>
-    */
-    public ContentObject ParseContentObject(
-      )
     {
-      Operation operation = ParseOperation();
-      if(operation is PaintXObject) // External object.
-        return new XObject((PaintXObject)operation);
-      else if(operation is PaintShading) // Shading.
-        return new Shading((PaintShading)operation);
-      else if(operation is BeginSubpath
-        || operation is DrawRectangle) // Path.
-        return ParsePath(operation);
-      else if(operation is BeginText) // Text.
-        return new Text(
-          ParseContentObjects()
-          );
-      else if(operation is SaveGraphicsState) // Local graphics state.
-        return new LocalGraphicsState(
-          ParseContentObjects()
-          );
-      else if(operation is BeginMarkedContent) // Marked-content sequence.
-        return new MarkedContent(
-          (BeginMarkedContent)operation,
-          ParseContentObjects()
-          );
-      else if(operation is BeginInlineImage) // Inline image.
-        return ParseInlineImage();
-      else // Single operation.
-        return operation;
-    }
+        #region dynamic
+        #region constructors
+        internal ContentParser(
+          Bytes::IInputStream stream
+          ) : base(stream)
+        { }
 
-    /**
-      <summary>Parses the next content objects.</summary>
-    */
-    public IList<ContentObject> ParseContentObjects(
-      )
-    {
-      List<ContentObject> contentObjects = new List<ContentObject>();
-      while(MoveNext())
-      {
-        ContentObject contentObject = ParseContentObject();
-        // Multiple-operation graphics object end?
-        if(contentObject is EndText // Text.
-          || contentObject is RestoreGraphicsState // Local graphics state.
-          || contentObject is EndMarkedContent // End marked-content sequence.
-          || contentObject is EndInlineImage) // Inline image.
-          return contentObjects;
+        public ContentParser(
+          byte[] data
+          ) : base(data)
+        { }
+        #endregion
 
-        contentObjects.Add(contentObject);
-      }
-      return contentObjects;
-    }
-
-    /**
-      <summary>Parses the next operation.</summary>
-    */
-    public Operation ParseOperation(
-      )
-    {
-      string operator_ = null;
-      List<PdfDirectObject> operands = new List<PdfDirectObject>();
-      // Parsing the operation parts...
-      do
-      {
-        switch(TokenType)
+        #region interface
+        #region public
+        /**
+          <summary>Parses the next content object [PDF:1.6:4.1].</summary>
+        */
+        public ContentObject ParseContentObject(
+          )
         {
-          case TokenTypeEnum.Keyword:
-            operator_ = (string)Token;
-            break;
-          default:
-            operands.Add((PdfDirectObject)ParsePdfObject());
-            break;
+            Operation operation = ParseOperation();
+            if (operation is PaintXObject) // External object.
+                return new XObject((PaintXObject)operation);
+            else if (operation is PaintShading) // Shading.
+                return new Shading((PaintShading)operation);
+            else if (operation is BeginSubpath
+              || operation is DrawRectangle) // Path.
+                return ParsePath(operation);
+            else if (operation is BeginText) // Text.
+                return new Text(
+                  ParseContentObjects()
+                  );
+            else if (operation is SaveGraphicsState) // Local graphics state.
+                return new LocalGraphicsState(
+                  ParseContentObjects()
+                  );
+            else if (operation is BeginMarkedContent) // Marked-content sequence.
+                return new MarkedContent(
+                  (BeginMarkedContent)operation,
+                  ParseContentObjects()
+                  );
+            else if (operation is BeginInlineImage) // Inline image.
+                return ParseInlineImage();
+            else // Single operation.
+                return operation;
         }
-      } while(operator_ == null && MoveNext());
-      return Operation.Get(operator_,operands);
-    }
 
-    public override PdfDataObject ParsePdfObject(
-      )
-    {
-      switch(TokenType)
-      {
-        case TokenTypeEnum.Literal:
-          if(Token is string)
-            return new PdfString(
-              Encoding.Pdf.Encode((string)Token),
-              PdfString.SerializationModeEnum.Literal
+        /**
+          <summary>Parses the next content objects.</summary>
+        */
+        public IList<ContentObject> ParseContentObjects(
+          )
+        {
+            List<ContentObject> contentObjects = new List<ContentObject>();
+            while (MoveNext())
+            {
+                ContentObject contentObject = ParseContentObject();
+                // Multiple-operation graphics object end?
+                if (contentObject is EndText // Text.
+                  || contentObject is RestoreGraphicsState // Local graphics state.
+                  || contentObject is EndMarkedContent // End marked-content sequence.
+                  || contentObject is EndInlineImage) // Inline image.
+                    return contentObjects;
+
+                contentObjects.Add(contentObject);
+            }
+            return contentObjects;
+        }
+
+        /**
+          <summary>Parses the next operation.</summary>
+        */
+        public Operation ParseOperation(
+          )
+        {
+            string operator_ = null;
+            List<PdfDirectObject> operands = new List<PdfDirectObject>();
+            // Parsing the operation parts...
+            do
+            {
+                switch (TokenType)
+                {
+                    case TokenTypeEnum.Keyword:
+                        operator_ = (string)Token;
+                        break;
+                    default:
+                        operands.Add((PdfDirectObject)ParsePdfObject());
+                        break;
+                }
+            } while (operator_ == null && MoveNext());
+            return Operation.Get(operator_, operands);
+        }
+
+        public override PdfDataObject ParsePdfObject(
+          )
+        {
+            switch (TokenType)
+            {
+                case TokenTypeEnum.Literal:
+                    if (Token is string)
+                        return new PdfString(
+                          Encoding.Pdf.Encode((string)Token),
+                          PdfString.SerializationModeEnum.Literal
+                          );
+                    break;
+                case TokenTypeEnum.Hex:
+                    return new PdfString(
+                      (string)Token,
+                      PdfString.SerializationModeEnum.Hex
+                      );
+            }
+            return base.ParsePdfObject();
+        }
+        #endregion
+
+        #region private
+        private InlineImage ParseInlineImage(
+          )
+        {
+            /*
+              NOTE: Inline images use a peculiar syntax that's an exception to the usual rule
+              that the data in a content stream is interpreted according to the standard PDF syntax
+              for objects.
+            */
+            InlineImageHeader header;
+            {
+                List<PdfDirectObject> operands = new List<PdfDirectObject>();
+                // Parsing the image entries...
+                while (MoveNext()
+                  && TokenType != TokenTypeEnum.Keyword) // Not keyword (i.e. end at image data beginning (ID operator)).
+                { operands.Add((PdfDirectObject)ParsePdfObject()); }
+                header = new InlineImageHeader(operands);
+            }
+
+            InlineImageBody body;
+            {
+                Bytes::IInputStream stream = Stream;
+                MoveNext();
+                Bytes::Buffer data = new Bytes::Buffer();
+                byte prevByte = 0;
+                while (true)
+                {
+                    byte curByte = (byte)stream.ReadByte();
+                    if (prevByte == 'E' && curByte == 'I')
+                        break;
+
+                    data.Append(prevByte = curByte);
+                }
+                body = new InlineImageBody(data);
+            }
+
+            return new InlineImage(
+              header,
+              body
               );
-          break;
-        case TokenTypeEnum.Hex:
-          return new PdfString(
-            (string)Token,
-            PdfString.SerializationModeEnum.Hex
-            );
-      }
-      return base.ParsePdfObject();
-    }
-    #endregion
-
-    #region private
-    private InlineImage ParseInlineImage(
-      )
-    {
-      /*
-        NOTE: Inline images use a peculiar syntax that's an exception to the usual rule
-        that the data in a content stream is interpreted according to the standard PDF syntax
-        for objects.
-      */
-      InlineImageHeader header;
-      {
-        List<PdfDirectObject> operands = new List<PdfDirectObject>();
-        // Parsing the image entries...
-        while(MoveNext()
-          && TokenType != TokenTypeEnum.Keyword) // Not keyword (i.e. end at image data beginning (ID operator)).
-        {operands.Add((PdfDirectObject)ParsePdfObject());}
-        header = new InlineImageHeader(operands);
-      }
-
-      InlineImageBody body;
-      {
-        bytes::IInputStream stream = Stream;
-        MoveNext();
-        bytes::Buffer data = new bytes::Buffer();
-        byte prevByte = 0;
-        while(true)
-        {
-          byte curByte = (byte)stream.ReadByte();
-          if(prevByte == 'E' && curByte == 'I')
-            break;
-
-          data.Append(prevByte = curByte);
         }
-        body = new InlineImageBody(data);
-      }
 
-      return new InlineImage(
-        header,
-        body
-        );
-    }
-
-    private Path ParsePath(
-      Operation beginOperation
-      )
-    {
-      /*
-        NOTE: Paths do not have an explicit end operation, so we must infer it
-        looking for the first non-painting operation.
-      */
-      IList<ContentObject> operations = new List<ContentObject>();
-      {
-        operations.Add(beginOperation);
-        long position = Position;
-        bool closeable = false;
-        while(MoveNext())
+        private Path ParsePath(
+          Operation beginOperation
+          )
         {
-          Operation operation = ParseOperation();
-          // Multiple-operation graphics object closeable?
-          if(operation is PaintPath) // Painting operation.
-          {closeable = true;}
-          else if(closeable) // Past end (first non-painting operation).
-          {
-            Seek(position); // Rolls back to the last path-related operation.
+            /*
+              NOTE: Paths do not have an explicit end operation, so we must infer it
+              looking for the first non-painting operation.
+            */
+            IList<ContentObject> operations = new List<ContentObject>();
+            {
+                operations.Add(beginOperation);
+                long position = Position;
+                bool closeable = false;
+                while (MoveNext())
+                {
+                    Operation operation = ParseOperation();
+                    // Multiple-operation graphics object closeable?
+                    if (operation is PaintPath) // Painting operation.
+                    { closeable = true; }
+                    else if (closeable) // Past end (first non-painting operation).
+                    {
+                        Seek(position); // Rolls back to the last path-related operation.
 
-            break;
-          }
+                        break;
+                    }
 
-          operations.Add(operation);
-          position = Position;
+                    operations.Add(operation);
+                    position = Position;
+                }
+            }
+            return new Path(operations);
         }
-      }
-      return new Path(operations);
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 }

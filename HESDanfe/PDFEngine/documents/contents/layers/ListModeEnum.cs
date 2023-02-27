@@ -28,7 +28,7 @@ using HESDanfe.Util;
 
 using System;
 
-namespace HESDanfe.Documents.Contents.layers
+namespace HESDanfe.Documents.Contents.Layers
 {
   /**
     <summary>List mode specifying which layers should be displayed to the user.</summary>

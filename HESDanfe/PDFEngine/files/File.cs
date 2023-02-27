@@ -26,7 +26,7 @@
 using System;
 using System.IO;
 using System.Reflection;
-using HESDanfe.bytes;
+using HESDanfe.Bytes;
 using HESDanfe.Documents;
 using HESDanfe.Objects;
 using HESDanfe.Tokens;
@@ -134,7 +134,7 @@ namespace HESDanfe.Files
         public File(
           string path
           ) : this(
-            new bytes.Stream(
+            new Bytes.Stream(
               new FileStream(
                 path,
                 FileMode.Open,
@@ -296,7 +296,7 @@ namespace HESDanfe.Files
               System.IO.FileAccess.Write
               );
             Save(
-              new bytes.Stream(outputStream),
+              new Bytes.Stream(outputStream),
               mode
               );
             outputStream.Flush();

@@ -32,7 +32,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.Interaction.actions
+namespace HESDanfe.Documents.Interaction.Actions
 {
   /**
     <summary>Chained actions [PDF:1.6:8.5.1].</summary>

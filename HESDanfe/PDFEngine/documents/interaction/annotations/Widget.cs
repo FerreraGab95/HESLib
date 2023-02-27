@@ -23,9 +23,9 @@
   this list of conditions.
 */
 
-using HESDanfe.bytes;
+using HESDanfe.Bytes;
 using HESDanfe.Documents;
-using HESDanfe.Documents.Interaction.forms;
+using HESDanfe.Documents.Interaction.Forms;
 using HESDanfe.Objects;
 using HESDanfe.Util;
 
@@ -33,7 +33,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace HESDanfe.Documents.Interaction.annotations
+namespace HESDanfe.Documents.Interaction.Annotations
 {
   /**
     <summary>Widget annotation [PDF:1.6:8.4.5].</summary>

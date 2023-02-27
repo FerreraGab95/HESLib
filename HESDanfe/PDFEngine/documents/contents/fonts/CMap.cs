@@ -23,7 +23,7 @@
   this list of conditions.
 */
 
-using bytes = HESDanfe.bytes;
+using Bytes = HESDanfe.Bytes;
 using HESDanfe.Objects;
 using HESDanfe.Util;
 
@@ -46,7 +46,7 @@ namespace HESDanfe.Documents.Contents.Fonts
       <param name="stream">Character map data.</param>
     */
     public static IDictionary<ByteArray,int> Get(
-      bytes::IInputStream stream
+      Bytes::IInputStream stream
       )
     {
       CMapParser parser = new CMapParser(stream);
@@ -106,7 +106,7 @@ namespace HESDanfe.Documents.Contents.Fonts
         if(cmapResourceStream == null)
           return null;
 
-        cmap = Get(new bytes::Buffer(cmapResourceStream));
+        cmap = Get(new Bytes::Buffer(cmapResourceStream));
       }
       return cmap;
     }

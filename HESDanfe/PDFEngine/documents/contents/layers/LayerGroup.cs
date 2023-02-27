@@ -27,7 +27,7 @@ using HESDanfe.Objects;
 
 using System;
 
-namespace HESDanfe.Documents.Contents.layers
+namespace HESDanfe.Documents.Contents.Layers
 {
   /**
     <summary>A generic collection of layers.</summary>

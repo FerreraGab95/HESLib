@@ -23,16 +23,16 @@
   this list of conditions.
 */
 
-using HESDanfe.bytes;
+using HESDanfe.Bytes;
 using HESDanfe.Documents;
-using HESDanfe.Documents.Interaction.annotations;
-using HESDanfe.Documents.multimedia;
+using HESDanfe.Documents.Interaction.Annotations;
+using HESDanfe.Documents.Multimedia;
 using HESDanfe.Objects;
 using HESDanfe.Util;
 
 using System;
 
-namespace HESDanfe.Documents.Interaction.actions
+namespace HESDanfe.Documents.Interaction.Actions
 {
   /**
     <summary>'Control the playing of multimedia content' action [PDF:1.6:8.5.3].</summary>

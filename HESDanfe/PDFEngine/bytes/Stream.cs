@@ -30,7 +30,7 @@ using HESDanfe.Util;
 using HESDanfe.Util.IO;
 using text = System.Text;
 
-namespace HESDanfe.bytes
+namespace HESDanfe.Bytes
 {
     /**
       <summary>Generic stream.</summary>

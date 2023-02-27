@@ -28,7 +28,7 @@ using HESDanfe.Objects;
 
 using System;
 
-namespace HESDanfe.Documents.Interaction.Navigation.document
+namespace HESDanfe.Documents.Interaction.Navigation.Document
 {
   /**
     <summary>Local interaction target [PDF:1.6:8.2.1].</summary>

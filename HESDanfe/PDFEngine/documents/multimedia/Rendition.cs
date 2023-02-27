@@ -27,7 +27,7 @@ using HESDanfe;
 using HESDanfe.Documents;
 using HESDanfe.Documents.Contents.ColorSpaces;
 using HESDanfe.Documents.Interaction;
-using actions = HESDanfe.Documents.Interaction.actions;
+using actions = HESDanfe.Documents.Interaction.Actions;
 using HESDanfe.Documents.Interchange.Access;
 using HESDanfe.Files;
 using HESDanfe.Objects;
@@ -37,7 +37,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace HESDanfe.Documents.multimedia
+namespace HESDanfe.Documents.Multimedia
 {
   /**
     <summary>Rendition [PDF:1.7:9.1.2].</summary>

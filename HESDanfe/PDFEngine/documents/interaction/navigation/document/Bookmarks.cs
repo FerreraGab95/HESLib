@@ -32,7 +32,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.Interaction.Navigation.document
+namespace HESDanfe.Documents.Interaction.Navigation.Document
 {
   /**
     <summary>Collection of bookmarks [PDF:1.6:8.2.2].</summary>
@@ -56,7 +56,7 @@ namespace HESDanfe.Documents.Interaction.Navigation.document
     #region dynamic
     #region constructors
     public Bookmarks(
-      Document context
+      Documents.Document context
       ) : base(
         context,
         new PdfDictionary(

@@ -29,15 +29,15 @@ using System.Drawing;
 using HESDanfe.Documents.Contents;
 using HESDanfe.Documents.Contents.Composition;
 using HESDanfe.Documents.Contents.Objects;
-using HESDanfe.Documents.Contents.tokens;
+using HESDanfe.Documents.Contents.Tokens;
 using HESDanfe.Documents.Contents.xObjects;
-using HESDanfe.Documents.Interaction.annotations;
+using HESDanfe.Documents.Interaction.Annotations;
 using HESDanfe.Objects;
 using HESDanfe.Util;
-using bytes = HESDanfe.bytes;
+using Bytes = HESDanfe.Bytes;
 using Fonts = HESDanfe.Documents.Contents.Fonts;
 
-namespace HESDanfe.Documents.Interaction.forms
+namespace HESDanfe.Documents.Interaction.Forms
 {
     /**
       <summary>Text field [PDF:1.6:8.6.3].</summary>
@@ -210,7 +210,7 @@ namespace HESDanfe.Documents.Interaction.forms
                             normalAppearanceFonts[defaultFontName] = defaultFont;
                         }
                     }
-                    bytes::Buffer buffer = new bytes::Buffer();
+                    Bytes::Buffer buffer = new Bytes::Buffer();
                     new SetFont(defaultFontName, IsMultiline ? 10 : 0).WriteTo(buffer, Document);
                     widget.BaseDataObject[PdfName.DA] = defaultAppearanceState = new PdfString(buffer.ToByteArray());
                 }

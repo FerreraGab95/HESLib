@@ -23,14 +23,14 @@
   this list of conditions.
 */
 
-using HESDanfe.bytes;
+using HESDanfe.Bytes;
 using HESDanfe.Documents;
 using HESDanfe.Objects;
 
 using System;
 using System.Drawing;
 
-namespace HESDanfe.Documents.Interaction.annotations
+namespace HESDanfe.Documents.Interaction.Annotations
 {
   /**
     <summary>Polyline annotation [PDF:1.6:8.4.5].</summary>

@@ -23,7 +23,7 @@
   this list of conditions.
 */
 
-using HESDanfe.bytes;
+using HESDanfe.Bytes;
 
 using System.Drawing;
 using System.Drawing.Drawing2D;

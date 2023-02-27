@@ -23,7 +23,7 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents.Interaction.annotations;
+using HESDanfe.Documents.Interaction.Annotations;
 using HESDanfe.Files;
 using HESDanfe.Objects;
 using HESDanfe.Util.Collections.Generic;

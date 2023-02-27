@@ -23,7 +23,7 @@
   this list of conditions.
 */
 
-using HESDanfe.bytes;
+using HESDanfe.Bytes;
 using xObjects = HESDanfe.Documents.Contents.xObjects;
 using HESDanfe.Objects;
 

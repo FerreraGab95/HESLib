@@ -23,9 +23,9 @@
   this list of conditions.
 */
 
-using bytes = HESDanfe.bytes;
+using Bytes = HESDanfe.Bytes;
 using HESDanfe.Documents.Contents.Objects;
-using HESDanfe.Documents.Contents.tokens;
+using HESDanfe.Documents.Contents.Tokens;
 using HESDanfe.Files;
 using HESDanfe.Objects;
 using HESDanfe.Util.IO;
@@ -53,12 +53,12 @@ namespace HESDanfe.Documents.Contents
       <summary>Content stream wrapper.</summary>
     */
     private class ContentStream
-      : bytes::IInputStream
+      : Bytes::IInputStream
     {
       private readonly PdfDataObject baseDataObject;
 
       private long basePosition;
-      private bytes::IInputStream stream;
+      private Bytes::IInputStream stream;
       private int streamIndex = -1;
 
       public ContentStream(
@@ -369,7 +369,7 @@ namespace HESDanfe.Documents.Contents
       }
 
       // Get the stream buffer!
-      bytes::IBuffer buffer = stream.Body;
+      Bytes::IBuffer buffer = stream.Body;
       // Delete old contents from the stream buffer!
       buffer.SetLength(0);
       // Serializing the new contents into the stream buffer...

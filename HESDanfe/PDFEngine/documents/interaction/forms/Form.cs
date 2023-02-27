@@ -23,15 +23,15 @@
   this list of conditions.
 */
 
-using HESDanfe.bytes;
+using HESDanfe.Bytes;
 using HESDanfe.Documents;
 using HESDanfe.Documents.Contents;
-using HESDanfe.Documents.Interaction.annotations;
+using HESDanfe.Documents.Interaction.Annotations;
 using HESDanfe.Objects;
 
 using System;
 
-namespace HESDanfe.Documents.Interaction.forms
+namespace HESDanfe.Documents.Interaction.Forms
 {
   /**
     <summary>Interactive form (AcroForm) [PDF:1.6:8.6.1].</summary>

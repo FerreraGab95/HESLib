@@ -31,7 +31,7 @@ using HESDanfe.Util;
 using System;
 using System.Drawing;
 
-namespace HESDanfe.Documents.Interaction.Navigation.document
+namespace HESDanfe.Documents.Interaction.Navigation.Document
 {
   /**
     <summary>Interaction target [PDF:1.6:8.2.1].</summary>
@@ -186,7 +186,7 @@ namespace HESDanfe.Documents.Interaction.Navigation.document
       <param name="zoom">Magnification factor to use when displaying the page.</param>
     */
     protected Destination(
-      Document context,
+      Documents.Document context,
       object page,
       ModeEnum mode,
       object location,

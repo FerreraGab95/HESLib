@@ -23,7 +23,7 @@
   this list of conditions.
 */
 
-namespace HESDanfe.Documents.files
+namespace HESDanfe.Documents.Files
 {
   /**
     <summary>File resource.</summary>

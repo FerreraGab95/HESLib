@@ -23,7 +23,7 @@
   this list of conditions.
 */
 
-using HESDanfe.bytes;
+using HESDanfe.Bytes;
 using HESDanfe.Files;
 using HESDanfe.Objects;
 using HESDanfe.Util;
@@ -96,7 +96,7 @@ namespace HESDanfe.Tokens
           new PdfDirectObject[]
             {PdfName.XRef}
           ),
-        new bytes.Buffer()
+        new Bytes.Buffer()
         )
     {
       PdfDictionary header = Header;

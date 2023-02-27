@@ -23,16 +23,16 @@
   this list of conditions.
 */
 
-using HESDanfe.bytes;
+using HESDanfe.Bytes;
 using HESDanfe.Documents;
-using HESDanfe.Documents.files;
+using HESDanfe.Documents.Files;
 using HESDanfe.Objects;
 
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace HESDanfe.Documents.Interaction.annotations
+namespace HESDanfe.Documents.Interaction.Annotations
 {
   /**
     <summary>File attachment annotation [PDF:1.6:8.4.5].</summary>

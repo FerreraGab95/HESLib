@@ -54,7 +54,7 @@ namespace HESDanfe.Documents.Interaction.Navigation.Page
     #region dynamic
     #region constructors
     public Article(
-      Document context
+      Documents.Document context
       ) : base(
         context,
         new PdfDictionary(

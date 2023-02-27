@@ -23,14 +23,14 @@
   this list of conditions.
 */
 
-using HESDanfe.bytes;
+using HESDanfe.Bytes;
 using HESDanfe.Documents;
-using HESDanfe.Documents.Interaction.Navigation.document;
+using HESDanfe.Documents.Interaction.Navigation.Document;
 using HESDanfe.Objects;
 
 using System;
 
-namespace HESDanfe.Documents.Interaction.actions
+namespace HESDanfe.Documents.Interaction.Actions
 {
   /**
     <summary>'Change the view to a specified destination within the same PDF file' action [PDF:1.6:8.5.3].</summary>

@@ -29,7 +29,7 @@ using HESDanfe.Util;
 using System;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.Contents.layers
+namespace HESDanfe.Documents.Contents.Layers
 {
   /**
     <summary>Layer entity.</summary>

@@ -28,7 +28,7 @@ using HESDanfe.Objects;
 using System;
 using System.IO;
 
-namespace HESDanfe.Documents.files
+namespace HESDanfe.Documents.Files
 {
   /**
     <summary>Simple reference to the contents of another file [PDF:1.6:3.10.2].</summary>

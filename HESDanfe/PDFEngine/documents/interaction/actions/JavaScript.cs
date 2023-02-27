@@ -23,13 +23,13 @@
   this list of conditions.
 */
 
-using bytes = HESDanfe.bytes;
+using Bytes = HESDanfe.Bytes;
 using HESDanfe.Documents;
 using HESDanfe.Objects;
 
 using System;
 
-namespace HESDanfe.Documents.Interaction.actions
+namespace HESDanfe.Documents.Interaction.Actions
 {
   /**
     <summary>'Cause a script to be compiled and executed by the JavaScript interpreter'
@@ -57,7 +57,7 @@ namespace HESDanfe.Documents.Interaction.actions
         return ((PdfTextString)scriptObject).StringValue;
       else
       {
-        bytes::IBuffer scriptBuffer = ((PdfStream)scriptObject).Body;
+        Bytes::IBuffer scriptBuffer = ((PdfStream)scriptObject).Body;
         return scriptBuffer.GetString(0,(int)scriptBuffer.Length);
       }
     }
@@ -77,7 +77,7 @@ namespace HESDanfe.Documents.Interaction.actions
       // Insert the script!
       if(scriptObject is PdfStream)
       {
-        bytes::IBuffer scriptBuffer = ((PdfStream)scriptObject).Body;
+        Bytes::IBuffer scriptBuffer = ((PdfStream)scriptObject).Body;
         scriptBuffer.SetLength(0);
         scriptBuffer.Append(value);
       }

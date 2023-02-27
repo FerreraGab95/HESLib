@@ -23,7 +23,7 @@
   this list of conditions.
 */
 
-using HESDanfe.bytes;
+using HESDanfe.Bytes;
 using HESDanfe.Documents;
 using HESDanfe.Documents.Contents.xObjects;
 using HESDanfe.Objects;
@@ -32,7 +32,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace HESDanfe.Documents.Interaction.annotations
+namespace HESDanfe.Documents.Interaction.Annotations
 {
   /**
     <summary>Dual-state widget annotation.</summary>

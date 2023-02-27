@@ -28,7 +28,7 @@ using HESDanfe.Objects;
 
 using System;
 
-namespace HESDanfe.Documents.Contents.layers
+namespace HESDanfe.Documents.Contents.Layers
 {
   /**
     <summary>Object that can be inserted into a hierarchical layer structure.</summary>

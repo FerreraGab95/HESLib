@@ -24,7 +24,7 @@
 */
 
 using HESDanfe.Documents;
-using HESDanfe.Documents.Interaction.Navigation.document;
+using HESDanfe.Documents.Interaction.Navigation.Document;
 using HESDanfe.Files;
 using HESDanfe.Objects;
 

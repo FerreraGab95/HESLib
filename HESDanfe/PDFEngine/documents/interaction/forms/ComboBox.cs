@@ -23,15 +23,15 @@
   this list of conditions.
 */
 
-using HESDanfe.bytes;
+using HESDanfe.Bytes;
 using HESDanfe.Documents;
-using HESDanfe.Documents.Interaction.annotations;
+using HESDanfe.Documents.Interaction.Annotations;
 using HESDanfe.Objects;
 using HESDanfe.Util;
 
 using System;
 
-namespace HESDanfe.Documents.Interaction.forms
+namespace HESDanfe.Documents.Interaction.Forms
 {
   /**
     <summary>Combo box [PDF:1.6:8.6.3].</summary>

@@ -23,7 +23,7 @@
   this list of conditions.
 */
 
-using bytes = HESDanfe.bytes;
+using Bytes = HESDanfe.Bytes;
 using HESDanfe.Documents;
 using HESDanfe.Files;
 using HESDanfe.Objects;
@@ -129,7 +129,7 @@ namespace HESDanfe.Documents.Contents.Fonts
       <summary>Gets whether the given data represents a valid Open Font.</summary>
     */
     public static bool IsOpenFont(
-      bytes::IInputStream fontData
+      Bytes::IInputStream fontData
       )
     {
       long position = fontData.Position;
@@ -185,14 +185,14 @@ namespace HESDanfe.Documents.Contents.Fonts
     public Dictionary<int,int> GlyphKernings;
     public Dictionary<int,int> GlyphWidths;
 
-    public bytes::IInputStream FontData;
+    public Bytes::IInputStream FontData;
 
     private Dictionary<string,int> tableOffsets;
     #endregion
 
     #region constructors
     internal OpenFontParser(
-      bytes::IInputStream fontData
+      Bytes::IInputStream fontData
       )
     {
       FontData = fontData;

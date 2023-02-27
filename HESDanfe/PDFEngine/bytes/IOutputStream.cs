@@ -23,7 +23,7 @@
   this list of conditions.
 */
 
-namespace HESDanfe.bytes
+namespace HESDanfe.Bytes
 {
     /**
       <summary>Output stream interface.</summary>

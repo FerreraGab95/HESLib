@@ -26,7 +26,7 @@
 using HESDanfe.Documents;
 using HESDanfe.Documents.Contents.ColorSpaces;
 using HESDanfe.Documents.Interaction;
-using actions = HESDanfe.Documents.Interaction.actions;
+using actions = HESDanfe.Documents.Interaction.Actions;
 using HESDanfe.Files;
 using HESDanfe.Objects;
 using HESDanfe.Util.Math;
@@ -35,7 +35,7 @@ using HESDanfe.Util.Metadata;
 using System;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.multimedia
+namespace HESDanfe.Documents.Multimedia
 {
   /**
     <summary>Software identifier [PDF:1.7:9.1.6].</summary>

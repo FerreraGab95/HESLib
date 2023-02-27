@@ -28,7 +28,7 @@ using HESDanfe.Objects;
 
 using System;
 
-namespace HESDanfe.Documents.Interaction.Navigation.document
+namespace HESDanfe.Documents.Interaction.Navigation.Document
 {
   /**
     <summary>Remote interaction target [PDF:1.6:8.2.1].</summary>
@@ -40,7 +40,7 @@ namespace HESDanfe.Documents.Interaction.Navigation.document
     #region dynamic
     #region constructors
     public RemoteDestination(
-      Document context,
+      Documents.Document context,
       int pageIndex
       ) : this(
         context,
@@ -52,7 +52,7 @@ namespace HESDanfe.Documents.Interaction.Navigation.document
     {}
 
     public RemoteDestination(
-      Document context,
+      Documents.Document context,
       int pageIndex,
       ModeEnum mode,
       object location,

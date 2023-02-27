@@ -23,7 +23,7 @@
   this list of conditions.
 */
 
-using HESDanfe.bytes;
+using HESDanfe.Bytes;
 using HESDanfe.Documents;
 using HESDanfe.Files;
 using HESDanfe.Objects;
@@ -102,7 +102,7 @@ namespace HESDanfe.Documents.Contents.Fonts
     {
       return Get(
         context,
-        new bytes.Stream(
+        new Bytes.Stream(
           new io::FileStream(
             path,
             io::FileMode.Open,

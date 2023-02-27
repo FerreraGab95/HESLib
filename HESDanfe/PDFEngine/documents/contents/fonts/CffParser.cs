@@ -23,7 +23,7 @@
   this list of conditions.
 */
 
-using HESDanfe.bytes;
+using HESDanfe.Bytes;
 using HESDanfe.Tokens;
 
 using System;
@@ -74,7 +74,7 @@ namespace HESDanfe.Documents.Contents.Fonts
       public static Dict Parse(
         byte[] data
         )
-      {return Parse(new bytes.Buffer(data));}
+      {return Parse(new Bytes.Buffer(data));}
 
       public static Dict Parse(
         IInputStream stream
@@ -296,7 +296,7 @@ namespace HESDanfe.Documents.Contents.Fonts
       public static Index Parse(
         byte[] data
         )
-      {return Parse(new bytes.Buffer(data));}
+      {return Parse(new Bytes.Buffer(data));}
 
       public static Index Parse(
         IInputStream stream

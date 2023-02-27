@@ -23,168 +23,164 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents;
-using HESDanfe.Files;
+using System.Collections.Generic;
 using HESDanfe.Objects;
 
-using System;
-using System.Collections.Generic;
-
-namespace HESDanfe.Documents.Interaction.viewer
+namespace HESDanfe.Documents.Interaction.Viewer
 {
-  /**
-    <summary>Viewer preferences [PDF:1.6:8.1].</summary>
-  */
-  [PDF(VersionEnum.PDF12)]
-  public sealed class ViewerPreferences
+    /**
+      <summary>Viewer preferences [PDF:1.6:8.1].</summary>
+    */
+    [PDF(VersionEnum.PDF12)]
+    public sealed class ViewerPreferences
     : PdfObjectWrapper<PdfDictionary>
-  {
-    #region types
-    /**
-      <summary>Predominant reading order for text [PDF:1.6:8.1].</summary>
-    */
-    public enum DirectionEnum
     {
-      /**
-        <summary>Left to right.</summary>
-      */
-      LeftToRight,
-      /**
-        <summary>Right to left.</summary>
-      */
-      RightToLeft
-    };
-    #endregion
+        #region types
+        /**
+          <summary>Predominant reading order for text [PDF:1.6:8.1].</summary>
+        */
+        public enum DirectionEnum
+        {
+            /**
+              <summary>Left to right.</summary>
+            */
+            LeftToRight,
+            /**
+              <summary>Right to left.</summary>
+            */
+            RightToLeft
+        };
+        #endregion
 
-    #region static
-    #region fields
-    private static readonly Dictionary<DirectionEnum,PdfName> DirectionEnumCodes;
-    #endregion
+        #region static
+        #region fields
+        private static readonly Dictionary<DirectionEnum, PdfName> DirectionEnumCodes;
+        #endregion
 
-    #region constructors
-    static ViewerPreferences()
-    {
-      DirectionEnumCodes = new Dictionary<DirectionEnum,PdfName>();
-      DirectionEnumCodes[DirectionEnum.LeftToRight] = PdfName.L2R;
-      DirectionEnumCodes[DirectionEnum.RightToLeft] = PdfName.R2L;
+        #region constructors
+        static ViewerPreferences()
+        {
+            DirectionEnumCodes = new Dictionary<DirectionEnum, PdfName>();
+            DirectionEnumCodes[DirectionEnum.LeftToRight] = PdfName.L2R;
+            DirectionEnumCodes[DirectionEnum.RightToLeft] = PdfName.R2L;
+        }
+        #endregion
+
+        #region interface
+        #region public
+        public static ViewerPreferences Wrap(
+          PdfDirectObject baseObject
+          )
+        { return baseObject != null ? new ViewerPreferences(baseObject) : null; }
+        #endregion
+
+        #region private
+        /**
+          <summary>Gets the code corresponding to the given value.</summary>
+        */
+        private static PdfName ToCode(
+          DirectionEnum value
+          )
+        { return DirectionEnumCodes[value]; }
+
+        /**
+          <summary>Gets the direction corresponding to the given value.</summary>
+        */
+        private static DirectionEnum ToDirectionEnum(
+          PdfName value
+          )
+        {
+            foreach (KeyValuePair<DirectionEnum, PdfName> direction in DirectionEnumCodes)
+            {
+                if (direction.Value.Equals(value))
+                    return direction.Key;
+            }
+            return DirectionEnum.LeftToRight;
+        }
+        #endregion
+        #endregion
+        #endregion
+
+        #region dynamic
+        #region constructors
+        public ViewerPreferences(
+          Document context
+          ) : base(context, new PdfDictionary())
+        { }
+
+        private ViewerPreferences(
+          PdfDirectObject baseObject
+          ) : base(baseObject)
+        { }
+        #endregion
+
+        #region interface
+        #region public
+        public bool CenterWindow
+        {
+            get
+            { return (bool)Get(PdfName.CenterWindow, false); }
+            set
+            { BaseDataObject[PdfName.CenterWindow] = PdfBoolean.Get(value); }
+        }
+
+        public DirectionEnum Direction
+        {
+            get
+            { return ToDirectionEnum((PdfName)BaseDataObject[PdfName.Direction]); }
+            set
+            { BaseDataObject[PdfName.Direction] = ToCode(value); }
+        }
+
+        public bool DisplayDocTitle
+        {
+            get
+            { return (bool)Get(PdfName.DisplayDocTitle, false); }
+            set
+            { BaseDataObject[PdfName.DisplayDocTitle] = PdfBoolean.Get(value); }
+        }
+
+        public bool FitWindow
+        {
+            get
+            { return (bool)Get(PdfName.FitWindow, false); }
+            set
+            { BaseDataObject[PdfName.FitWindow] = PdfBoolean.Get(value); }
+        }
+
+        public bool HideMenubar
+        {
+            get
+            { return (bool)Get(PdfName.HideMenubar, false); }
+            set
+            { BaseDataObject[PdfName.HideMenubar] = PdfBoolean.Get(value); }
+        }
+
+        public bool HideToolbar
+        {
+            get
+            { return (bool)Get(PdfName.HideToolbar, false); }
+            set
+            { BaseDataObject[PdfName.HideToolbar] = PdfBoolean.Get(value); }
+        }
+
+        public bool HideWindowUI
+        {
+            get
+            { return (bool)Get(PdfName.HideWindowUI, false); }
+            set
+            { BaseDataObject[PdfName.HideWindowUI] = PdfBoolean.Get(value); }
+        }
+        #endregion
+
+        #region private
+        private object Get(
+          PdfName key,
+          object defaultValue
+          )
+        { return PdfSimpleObject<object>.GetValue(BaseDataObject[key], defaultValue); }
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-
-    #region interface
-    #region public
-    public static ViewerPreferences Wrap(
-      PdfDirectObject baseObject
-      )
-    {return baseObject != null ? new ViewerPreferences(baseObject) : null;}
-    #endregion
-
-    #region private
-    /**
-      <summary>Gets the code corresponding to the given value.</summary>
-    */
-    private static PdfName ToCode(
-      DirectionEnum value
-      )
-    {return DirectionEnumCodes[value];}
-
-    /**
-      <summary>Gets the direction corresponding to the given value.</summary>
-    */
-    private static DirectionEnum ToDirectionEnum(
-      PdfName value
-      )
-    {
-      foreach(KeyValuePair<DirectionEnum,PdfName> direction in DirectionEnumCodes)
-      {
-        if(direction.Value.Equals(value))
-          return direction.Key;
-      }
-      return DirectionEnum.LeftToRight;
-    }
-    #endregion
-    #endregion
-    #endregion
-
-    #region dynamic
-    #region constructors
-    public ViewerPreferences(
-      Document context
-      ) : base(context, new PdfDictionary())
-    {}
-
-    private ViewerPreferences(
-      PdfDirectObject baseObject
-      ) : base(baseObject)
-    {}
-    #endregion
-
-    #region interface
-    #region public
-    public bool CenterWindow
-    {
-      get
-      {return (bool)Get(PdfName.CenterWindow, false);}
-      set
-      {BaseDataObject[PdfName.CenterWindow] = PdfBoolean.Get(value);}
-    }
-
-    public DirectionEnum Direction
-    {
-      get
-      {return ToDirectionEnum((PdfName)BaseDataObject[PdfName.Direction]);}
-      set
-      {BaseDataObject[PdfName.Direction] = ToCode(value);}
-    }
-
-    public bool DisplayDocTitle
-    {
-      get
-      {return (bool)Get(PdfName.DisplayDocTitle, false);}
-      set
-      {BaseDataObject[PdfName.DisplayDocTitle] = PdfBoolean.Get(value);}
-    }
-
-    public bool FitWindow
-    {
-      get
-      {return (bool)Get(PdfName.FitWindow, false);}
-      set
-      {BaseDataObject[PdfName.FitWindow] = PdfBoolean.Get(value);}
-    }
-
-    public bool HideMenubar
-    {
-      get
-      {return (bool)Get(PdfName.HideMenubar, false);}
-      set
-      {BaseDataObject[PdfName.HideMenubar] = PdfBoolean.Get(value);}
-    }
-
-    public bool HideToolbar
-    {
-      get
-      {return (bool)Get(PdfName.HideToolbar, false);}
-      set
-      {BaseDataObject[PdfName.HideToolbar] = PdfBoolean.Get(value);}
-    }
-
-    public bool HideWindowUI
-    {
-      get
-      {return (bool)Get(PdfName.HideWindowUI, false);}
-      set
-      {BaseDataObject[PdfName.HideWindowUI] = PdfBoolean.Get(value);}
-    }
-    #endregion
-
-    #region private
-    private object Get(
-      PdfName key,
-      object defaultValue
-      )
-    {return PdfSimpleObject<object>.GetValue(BaseDataObject[key], defaultValue);}
-    #endregion
-    #endregion
-    #endregion
-  }
 }

@@ -26,7 +26,7 @@
 using System;
 using HESDanfe.Objects;
 
-namespace HESDanfe.Documents.multimedia
+namespace HESDanfe.Documents.Multimedia
 {
     /**
       <summary>Media offset [PDF:1.7:9.1.5].</summary>

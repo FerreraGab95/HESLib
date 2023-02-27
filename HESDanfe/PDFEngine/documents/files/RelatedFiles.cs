@@ -23,7 +23,7 @@
   this list of conditions.
 */
 
-using HESDanfe.bytes;
+using HESDanfe.Bytes;
 using HESDanfe.Documents;
 using HESDanfe.Objects;
 
@@ -32,7 +32,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 
-namespace HESDanfe.Documents.files
+namespace HESDanfe.Documents.Files
 {
   /**
     <summary>Embedded files referenced by another one (dependencies) [PDF:1.6:3.10.3].</summary>

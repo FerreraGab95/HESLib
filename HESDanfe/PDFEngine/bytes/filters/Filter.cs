@@ -26,7 +26,7 @@
 using System;
 using HESDanfe.Objects;
 
-namespace HESDanfe.bytes.filters
+namespace HESDanfe.Bytes.filters
 {
     /**
       <summary>Abstract filter [PDF:1.6:3.3].</summary>

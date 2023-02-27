@@ -23,9 +23,9 @@
   this list of conditions.
 */
 
-using HESDanfe.bytes;
-using HESDanfe.bytes.filters;
-using HESDanfe.Documents.files;
+using HESDanfe.Bytes;
+using HESDanfe.Bytes.filters;
+using HESDanfe.Documents.Files;
 using HESDanfe.Files;
 using HESDanfe.Tokens;
 
@@ -70,7 +70,7 @@ namespace HESDanfe.Objects
     public PdfStream(
       ) : this(
         new PdfDictionary(),
-        new bytes.Buffer()
+        new Bytes.Buffer()
         )
     {}
 
@@ -78,7 +78,7 @@ namespace HESDanfe.Objects
       PdfDictionary header
       ) : this(
         header,
-        new bytes.Buffer()
+        new Bytes.Buffer()
         )
     {}
 
@@ -183,7 +183,7 @@ namespace HESDanfe.Objects
           if(filter is PdfName) // Single filter.
           {
             body.Decode(
-              bytes.filters.Filter.Get((PdfName)filter),
+              Bytes.filters.Filter.Get((PdfName)filter),
               (PdfDictionary)parameters
               );
           }
@@ -201,7 +201,7 @@ namespace HESDanfe.Objects
                 parametersIterator.MoveNext();
                 filterParameters = (PdfDictionary)Resolve(parametersIterator.Current);
               }
-              body.Decode(bytes.filters.Filter.Get((PdfName)Resolve(filterIterator.Current)), filterParameters);
+              body.Decode(Bytes.filters.Filter.Get((PdfName)Resolve(filterIterator.Current)), filterParameters);
             }
           }
           Filter = null; // The stream is free from encodings.
@@ -406,7 +406,7 @@ namespace HESDanfe.Objects
               // Set the filter to apply!
               filterObject = PdfName.FlateDecode; // zlib/deflate filter.
               // Get encoded body data applying the filter to the stream!
-              bodyData = body.Encode(bytes.filters.Filter.Get((PdfName)filterObject), null);
+              bodyData = body.Encode(Bytes.filters.Filter.Get((PdfName)filterObject), null);
               // Set 'Filter' entry!
               Filter = filterObject;
             }

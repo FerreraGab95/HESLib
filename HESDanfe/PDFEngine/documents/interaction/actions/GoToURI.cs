@@ -23,13 +23,13 @@
   this list of conditions.
 */
 
-using HESDanfe.bytes;
+using HESDanfe.Bytes;
 using HESDanfe.Documents;
 using HESDanfe.Objects;
 
 using System;
 
-namespace HESDanfe.Documents.Interaction.actions
+namespace HESDanfe.Documents.Interaction.Actions
 {
   /**
     <summary>'Cause a URI (Uniform Resource Identifier) to be resolved' action [PDF:1.6:8.5.3].</summary>

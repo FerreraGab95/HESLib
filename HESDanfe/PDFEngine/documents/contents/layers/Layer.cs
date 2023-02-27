@@ -31,7 +31,7 @@ using HESDanfe.Util.Math;
 using System;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.Contents.layers
+namespace HESDanfe.Documents.Contents.Layers
 {
   /**
     <summary>Optional content group [PDF:1.7:4.10.1].</summary>

@@ -23,7 +23,7 @@
   this list of conditions.
 */
 
-using HESDanfe.bytes;
+using HESDanfe.Bytes;
 using HESDanfe.Files;
 using HESDanfe.Objects;
 
@@ -311,8 +311,8 @@ namespace HESDanfe.Tokens
       int dataByteOffset;
       {
         // Serializing the entries into the stream buffer...
-        IBuffer indexBuffer = new bytes.Buffer();
-        IBuffer dataBuffer = new bytes.Buffer();
+        IBuffer indexBuffer = new Bytes.Buffer();
+        IBuffer dataBuffer = new Bytes.Buffer();
         IndirectObjects indirectObjects = File.IndirectObjects;
         int objectIndex = -1;
         File context = File;

@@ -23,7 +23,7 @@
   this list of conditions.
 */
 
-using HESDanfe.bytes;
+using HESDanfe.Bytes;
 using HESDanfe.Tokens;
 
 using System;
@@ -131,7 +131,7 @@ namespace HESDanfe.Util.Parsers
     public PostScriptParser(
       byte[] data
       )
-    {this.stream = new HESDanfe.bytes.Buffer(data);}
+    {this.stream = new HESDanfe.Bytes.Buffer(data);}
     #endregion
 
     #region interface

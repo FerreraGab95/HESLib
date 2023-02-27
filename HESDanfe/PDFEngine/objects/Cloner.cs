@@ -23,9 +23,9 @@
   this list of conditions.
 */
 
-using HESDanfe.bytes;
+using HESDanfe.Bytes;
 using HESDanfe.Documents;
-using HESDanfe.Documents.Interaction.forms;
+using HESDanfe.Documents.Interaction.Forms;
 using HESDanfe.Files;
 using HESDanfe.Tokens;
 

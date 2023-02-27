@@ -26,13 +26,13 @@
 using HESDanfe.Documents;
 using HESDanfe.Documents.Contents.ColorSpaces;
 using HESDanfe.Documents.Interaction;
-using actions = HESDanfe.Documents.Interaction.actions;
+using actions = HESDanfe.Documents.Interaction.Actions;
 using HESDanfe.Files;
 using HESDanfe.Objects;
 
 using System;
 
-namespace HESDanfe.Documents.multimedia
+namespace HESDanfe.Documents.Multimedia
 {
   /**
     <summary>Selector rendition [PDF:1.7:9.1.2].</summary>

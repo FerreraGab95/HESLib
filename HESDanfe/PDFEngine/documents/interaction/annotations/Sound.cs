@@ -23,16 +23,16 @@
   this list of conditions.
 */
 
-using HESDanfe.bytes;
+using HESDanfe.Bytes;
 using HESDanfe.Documents;
-using multimedia = HESDanfe.Documents.multimedia;
+using Multimedia = HESDanfe.Documents.Multimedia;
 using HESDanfe.Objects;
 
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace HESDanfe.Documents.Interaction.annotations
+namespace HESDanfe.Documents.Interaction.Annotations
 {
   /**
     <summary>Sound annotation [PDF:1.6:8.4.5].</summary>
@@ -107,7 +107,7 @@ namespace HESDanfe.Documents.Interaction.annotations
       Page page,
       RectangleF box,
       string text,
-      multimedia::Sound content
+      Multimedia::Sound content
       ) : base(page, PdfName.Sound, box, text)
     {Content = content;}
 
@@ -133,11 +133,11 @@ namespace HESDanfe.Documents.Interaction.annotations
     /**
       <summary>Gets/Sets the sound to be played.</summary>
     */
-    public multimedia::Sound Content
+    public Multimedia::Sound Content
     {
       get
       {
-        return new multimedia::Sound(
+        return new Multimedia::Sound(
           BaseDataObject[PdfName.Sound]
           );
       }

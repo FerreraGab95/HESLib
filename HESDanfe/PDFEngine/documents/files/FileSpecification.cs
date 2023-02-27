@@ -23,14 +23,14 @@
   this list of conditions.
 */
 
-using bytes = HESDanfe.bytes;
+using Bytes = HESDanfe.Bytes;
 using HESDanfe.Files;
 using HESDanfe.Objects;
 
 using System;
 using io = System.IO;
 
-namespace HESDanfe.Documents.files
+namespace HESDanfe.Documents.Files
 {
   /**
     <summary>Reference to the contents of another file (file specification) [PDF:1.6:3.10.2].</summary>
@@ -149,10 +149,10 @@ namespace HESDanfe.Documents.files
     /**
       <summary>Gets an input stream to read from the file.</summary>
     */
-    public virtual bytes::IInputStream GetInputStream(
+    public virtual Bytes::IInputStream GetInputStream(
       )
     {
-      return new bytes::Stream(
+      return new Bytes::Stream(
         new io::FileStream(
           GetAbsolutePath(),
           io::FileMode.Open,
@@ -164,10 +164,10 @@ namespace HESDanfe.Documents.files
     /**
       <summary>Gets an output stream to write into the file.</summary>
     */
-    public virtual bytes::IOutputStream GetOutputStream(
+    public virtual Bytes::IOutputStream GetOutputStream(
       )
     {
-      return new bytes::Stream(
+      return new Bytes::Stream(
         new io::FileStream(
           GetAbsolutePath(),
           io::FileMode.Create,

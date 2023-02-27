@@ -23,14 +23,14 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents.Interaction.actions;
+using HESDanfe.Documents.Interaction.Actions;
 using HESDanfe.Files;
 using HESDanfe.Objects;
 
 using system = System;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.Interaction.annotations
+namespace HESDanfe.Documents.Interaction.Annotations
 {
   /**
     <summary>Widget actions [PDF:1.6:8.5.2].</summary>

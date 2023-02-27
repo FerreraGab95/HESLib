@@ -23,7 +23,7 @@
   this list of conditions.
 */
 
-using bytes = HESDanfe.bytes;
+using Bytes = HESDanfe.Bytes;
 using HESDanfe.Documents;
 using HESDanfe.Files;
 using HESDanfe.Objects;
@@ -220,7 +220,7 @@ namespace HESDanfe.Documents.Contents.Fonts
       {
         fontMetricsStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("fonts.afm." + fontName);
 
-        AfmParser parser = new AfmParser(new bytes::Stream(fontMetricsStream));
+        AfmParser parser = new AfmParser(new Bytes::Stream(fontMetricsStream));
         metrics = parser.Metrics;
         symbolic = metrics.IsCustomEncoding;
         glyphIndexes = parser.GlyphIndexes;

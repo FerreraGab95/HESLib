@@ -23,16 +23,16 @@
   this list of conditions.
 */
 
-using HESDanfe.bytes;
+using HESDanfe.Bytes;
 using HESDanfe.Documents;
 using HESDanfe.Documents.Contents;
-using HESDanfe.Documents.Contents.layers;
+using HESDanfe.Documents.Contents.Layers;
 using colors = HESDanfe.Documents.Contents.ColorSpaces;
 using Fonts = HESDanfe.Documents.Contents.Fonts;
 using Objects = HESDanfe.Documents.Contents.Objects;
 using HESDanfe.Documents.Contents.xObjects;
-using actions = HESDanfe.Documents.Interaction.actions;
-using HESDanfe.Documents.Interaction.annotations;
+using Actions = HESDanfe.Documents.Interaction.Actions;
+using HESDanfe.Documents.Interaction.Annotations;
 using HESDanfe.Files;
 using HESDanfe.Objects;
 using HESDanfe.Util.Math.geom;
@@ -856,7 +856,7 @@ namespace HESDanfe.Documents.Contents.Composition
     */
     public Link ShowText(
       string value,
-      actions::Action action
+      Actions::Action action
       )
     {
       return ShowText(
@@ -898,7 +898,7 @@ namespace HESDanfe.Documents.Contents.Composition
     public Link ShowText(
       string value,
       PointF location,
-      actions::Action action
+      Actions::Action action
       )
     {
       return ShowText(
@@ -1079,7 +1079,7 @@ namespace HESDanfe.Documents.Contents.Composition
       XAlignmentEnum xAlignment,
       YAlignmentEnum yAlignment,
       double rotation,
-      actions::Action action
+      Actions::Action action
       )
     {
       IContentContext contentContext = scanner.ContentContext;

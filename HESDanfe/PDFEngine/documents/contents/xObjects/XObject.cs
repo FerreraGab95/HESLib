@@ -24,7 +24,7 @@
 */
 
 using HESDanfe.Documents;
-using HESDanfe.Documents.Contents.layers;
+using HESDanfe.Documents.Contents.Layers;
 using HESDanfe.Files;
 using HESDanfe.Objects;
 
