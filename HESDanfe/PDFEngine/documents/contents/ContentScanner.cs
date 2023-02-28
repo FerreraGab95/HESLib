@@ -179,10 +179,8 @@ namespace HESDanfe.Documents.Contents
             */
             public IList<BlendModeEnum> BlendMode
             {
-                get
-                { return blendMode; }
-                set
-                { blendMode = value; }
+                get => blendMode;
+                set => blendMode = value;
             }
 
             /**
@@ -190,10 +188,8 @@ namespace HESDanfe.Documents.Contents
             */
             public double CharSpace
             {
-                get
-                { return charSpace; }
-                set
-                { charSpace = value; }
+                get => charSpace;
+                set => charSpace = value;
             }
 
             /**
@@ -201,10 +197,8 @@ namespace HESDanfe.Documents.Contents
             */
             public Matrix Ctm
             {
-                get
-                { return ctm; }
-                set
-                { ctm = value; }
+                get => ctm;
+                set => ctm = value;
             }
 
             /**
@@ -212,10 +206,8 @@ namespace HESDanfe.Documents.Contents
             */
             public colors::Color FillColor
             {
-                get
-                { return fillColor; }
-                set
-                { fillColor = value; }
+                get => fillColor;
+                set => fillColor = value;
             }
 
             /**
@@ -223,10 +215,8 @@ namespace HESDanfe.Documents.Contents
             */
             public colors::ColorSpace FillColorSpace
             {
-                get
-                { return fillColorSpace; }
-                set
-                { fillColorSpace = value; }
+                get => fillColorSpace;
+                set => fillColorSpace = value;
             }
 
             /**
@@ -234,10 +224,8 @@ namespace HESDanfe.Documents.Contents
             */
             public Fonts::Font Font
             {
-                get
-                { return font; }
-                set
-                { font = value; }
+                get => font;
+                set => font = value;
             }
 
             /**
@@ -245,10 +233,8 @@ namespace HESDanfe.Documents.Contents
             */
             public double FontSize
             {
-                get
-                { return fontSize; }
-                set
-                { fontSize = value; }
+                get => fontSize;
+                set => fontSize = value;
             }
 
             /**
@@ -306,10 +292,8 @@ namespace HESDanfe.Documents.Contents
             */
             public double Lead
             {
-                get
-                { return lead; }
-                set
-                { lead = value; }
+                get => lead;
+                set => lead = value;
             }
 
             /**
@@ -317,10 +301,8 @@ namespace HESDanfe.Documents.Contents
             */
             public LineCapEnum LineCap
             {
-                get
-                { return lineCap; }
-                set
-                { lineCap = value; }
+                get => lineCap;
+                set => lineCap = value;
             }
 
             /**
@@ -328,10 +310,8 @@ namespace HESDanfe.Documents.Contents
             */
             public LineDash LineDash
             {
-                get
-                { return lineDash; }
-                set
-                { lineDash = value; }
+                get => lineDash;
+                set => lineDash = value;
             }
 
             /**
@@ -339,10 +319,8 @@ namespace HESDanfe.Documents.Contents
             */
             public LineJoinEnum LineJoin
             {
-                get
-                { return lineJoin; }
-                set
-                { lineJoin = value; }
+                get => lineJoin;
+                set => lineJoin = value;
             }
 
             /**
@@ -350,10 +328,8 @@ namespace HESDanfe.Documents.Contents
             */
             public double LineWidth
             {
-                get
-                { return lineWidth; }
-                set
-                { lineWidth = value; }
+                get => lineWidth;
+                set => lineWidth = value;
             }
 
             /**
@@ -361,10 +337,8 @@ namespace HESDanfe.Documents.Contents
             */
             public double MiterLimit
             {
-                get
-                { return miterLimit; }
-                set
-                { miterLimit = value; }
+                get => miterLimit;
+                set => miterLimit = value;
             }
 
             /**
@@ -372,10 +346,8 @@ namespace HESDanfe.Documents.Contents
             */
             public TextRenderModeEnum RenderMode
             {
-                get
-                { return renderMode; }
-                set
-                { renderMode = value; }
+                get => renderMode;
+                set => renderMode = value;
             }
 
             /**
@@ -383,10 +355,8 @@ namespace HESDanfe.Documents.Contents
             */
             public double Rise
             {
-                get
-                { return rise; }
-                set
-                { rise = value; }
+                get => rise;
+                set => rise = value;
             }
 
             /**
@@ -394,10 +364,8 @@ namespace HESDanfe.Documents.Contents
             */
             public double Scale
             {
-                get
-                { return scale; }
-                set
-                { scale = value; }
+                get => scale;
+                set => scale = value;
             }
 
             /**
@@ -414,10 +382,8 @@ namespace HESDanfe.Documents.Contents
             */
             public colors::Color StrokeColor
             {
-                get
-                { return strokeColor; }
-                set
-                { strokeColor = value; }
+                get => strokeColor;
+                set => strokeColor = value;
             }
 
             /**
@@ -425,10 +391,8 @@ namespace HESDanfe.Documents.Contents
             */
             public colors::ColorSpace StrokeColorSpace
             {
-                get
-                { return strokeColorSpace; }
-                set
-                { strokeColorSpace = value; }
+                get => strokeColorSpace;
+                set => strokeColorSpace = value;
             }
 
             /**
@@ -471,10 +435,8 @@ namespace HESDanfe.Documents.Contents
             */
             public Matrix Tlm
             {
-                get
-                { return tlm; }
-                set
-                { tlm = value; }
+                get => tlm;
+                set => tlm = value;
             }
 
             /**
@@ -482,10 +444,8 @@ namespace HESDanfe.Documents.Contents
             */
             public Matrix Tm
             {
-                get
-                { return tm; }
-                set
-                { tm = value; }
+                get => tm;
+                set => tm = value;
             }
 
             /**
@@ -507,10 +467,8 @@ namespace HESDanfe.Documents.Contents
             */
             public double WordSpace
             {
-                get
-                { return wordSpace; }
-                set
-                { wordSpace = value; }
+                get => wordSpace;
+                set => wordSpace = value;
             }
             #endregion
 

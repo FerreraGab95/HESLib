@@ -67,25 +67,24 @@ namespace HESDanfe.Documents.Contents.Objects
     #region interface
     #region public
     public override byte[] Text
-    {
-      get
-      {
-        MemoryStream textStream = new MemoryStream();
-        foreach(PdfDirectObject element in ((PdfArray)operands[0]))
         {
-          if(element is PdfString)
-          {
-            byte[] elementValue = ((PdfString)element).RawValue;
-            textStream.Write(elementValue,0,elementValue.Length);
-          }
+            get
+            {
+                MemoryStream textStream = new MemoryStream();
+                foreach (PdfDirectObject element in ((PdfArray)operands[0]))
+                {
+                    if (element is PdfString)
+                    {
+                        byte[] elementValue = ((PdfString)element).RawValue;
+                        textStream.Write(elementValue, 0, elementValue.Length);
+                    }
+                }
+                return textStream.ToArray();
+            }
+            set => Value = new List<object>() { (object)value };
         }
-        return textStream.ToArray();
-      }
-      set
-      {Value = new List<object>(){(object)value};}
-    }
 
-    public override IList<object> Value
+        public override IList<object> Value
     {
       get
       {

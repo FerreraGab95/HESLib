@@ -392,22 +392,21 @@ namespace HESDanfe.Documents.Interaction.Navigation.Page
       <summary>Gets/Sets the transition direction.</summary>
     */
     public DirectionEnum Direction
-    {
-      get
-      {return ToDirectionEnum(BaseDataObject[PdfName.Di]);}
-      set
-      {
-        if(value == DefaultDirection)
-        {BaseDataObject.Remove(PdfName.Di);}
-        else
-        {BaseDataObject[PdfName.Di] = ToCode(value);}
-      }
-    }
+        {
+            get => ToDirectionEnum(BaseDataObject[PdfName.Di]);
+            set
+            {
+                if (value == DefaultDirection)
+                { BaseDataObject.Remove(PdfName.Di); }
+                else
+                { BaseDataObject[PdfName.Di] = ToCode(value); }
+            }
+        }
 
-    /**
-      <summary>Gets/Sets the duration of the transition effect, in seconds.</summary>
-    */
-    public double Duration
+        /**
+          <summary>Gets/Sets the duration of the transition effect, in seconds.</summary>
+        */
+        public double Duration
     {
       get
       {
@@ -429,38 +428,36 @@ namespace HESDanfe.Documents.Interaction.Navigation.Page
       <summary>Gets/Sets the transition orientation.</summary>
     */
     public OrientationEnum Orientation
-    {
-      get
-      {return ToOrientationEnum((PdfName)BaseDataObject[PdfName.Dm]);}
-      set
-      {
-        if(value == DefaultOrientation)
-        {BaseDataObject.Remove(PdfName.Dm);}
-        else
-        {BaseDataObject[PdfName.Dm] = ToCode(value);}
-      }
-    }
+        {
+            get => ToOrientationEnum((PdfName)BaseDataObject[PdfName.Dm]);
+            set
+            {
+                if (value == DefaultOrientation)
+                { BaseDataObject.Remove(PdfName.Dm); }
+                else
+                { BaseDataObject[PdfName.Dm] = ToCode(value); }
+            }
+        }
 
-    /**
-      <summary>Gets/Sets the transition direction on page.</summary>
-    */
-    public PageDirectionEnum PageDirection
-    {
-      get
-      {return ToPageDirectionEnum((PdfName)BaseDataObject[PdfName.M]);}
-      set
-      {
-        if(value == DefaultPageDirection)
-        {BaseDataObject.Remove(PdfName.M);}
-        else
-        {BaseDataObject[PdfName.M] = ToCode(value);}
-      }
-    }
+        /**
+          <summary>Gets/Sets the transition direction on page.</summary>
+        */
+        public PageDirectionEnum PageDirection
+        {
+            get => ToPageDirectionEnum((PdfName)BaseDataObject[PdfName.M]);
+            set
+            {
+                if (value == DefaultPageDirection)
+                { BaseDataObject.Remove(PdfName.M); }
+                else
+                { BaseDataObject[PdfName.M] = ToCode(value); }
+            }
+        }
 
-    /**
-      <summary>Gets/Sets the scale at which the changes are drawn.</summary>
-    */
-    [PDF(VersionEnum.PDF15)]
+        /**
+          <summary>Gets/Sets the scale at which the changes are drawn.</summary>
+        */
+        [PDF(VersionEnum.PDF15)]
     public double Scale
     {
       get
@@ -483,19 +480,18 @@ namespace HESDanfe.Documents.Interaction.Navigation.Page
       <summary>Gets/Sets the transition style.</summary>
     */
     public StyleEnum Style
-    {
-      get
-      {return ToStyleEnum((PdfName)BaseDataObject[PdfName.S]);}
-      set
-      {
-        if(value == DefaultStyle)
-        {BaseDataObject.Remove(PdfName.S);}
-        else
-        {BaseDataObject[PdfName.S] = ToCode(value);}
-      }
+        {
+            get => ToStyleEnum((PdfName)BaseDataObject[PdfName.S]);
+            set
+            {
+                if (value == DefaultStyle)
+                { BaseDataObject.Remove(PdfName.S); }
+                else
+                { BaseDataObject[PdfName.S] = ToCode(value); }
+            }
+        }
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 }

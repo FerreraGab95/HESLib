@@ -123,21 +123,20 @@ namespace HESDanfe.Documents.Contents.xObjects
       <summary>Gets the size of the image (in samples).</summary>
     */
     public override SizeF Size
-    {
-      get
-      {
-        PdfDictionary header = BaseDataObject.Header;
+        {
+            get
+            {
+                PdfDictionary header = BaseDataObject.Header;
 
-        return new SizeF(
-          ((PdfInteger)header[PdfName.Width]).RawValue,
-          ((PdfInteger)header[PdfName.Height]).RawValue
-          );
-      }
-      set
-      {throw new NotSupportedException();}
+                return new SizeF(
+                  ((PdfInteger)header[PdfName.Width]).RawValue,
+                  ((PdfInteger)header[PdfName.Height]).RawValue
+                  );
+            }
+            set => throw new NotSupportedException();
+        }
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 }

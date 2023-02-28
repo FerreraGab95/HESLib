@@ -127,73 +127,57 @@ namespace HESDanfe.Objects
     #region public
     public double Bottom
     {
-      get
-      {return ((IPdfNumber)BaseDataObject[1]).RawValue;}
-      set
-      {BaseDataObject[1] = PdfReal.Get(value);}
+      get => ((IPdfNumber)BaseDataObject[1]).RawValue;
+      set => BaseDataObject[1] = PdfReal.Get(value);
     }
 
-    public double Height
+        public double Height
     {
-      get
-      {return (Top - Bottom);}
-      set
-      {Bottom = Top - value;}
+      get => (Top - Bottom);
+      set => Bottom = Top - value;
     }
 
-    public double Left
+        public double Left
     {
-      get
-      {return ((IPdfNumber)BaseDataObject[0]).RawValue;}
-      set
-      {BaseDataObject[0] = PdfReal.Get(value);}
+      get => ((IPdfNumber)BaseDataObject[0]).RawValue;
+      set => BaseDataObject[0] = PdfReal.Get(value);
     }
 
-    public double Right
+        public double Right
     {
-      get
-      {return ((IPdfNumber)BaseDataObject[2]).RawValue;}
-      set
-      {BaseDataObject[2] = PdfReal.Get(value);}
+      get => ((IPdfNumber)BaseDataObject[2]).RawValue;
+      set => BaseDataObject[2] = PdfReal.Get(value);
     }
 
-    public double Top
+        public double Top
     {
-      get
-      {return ((IPdfNumber)BaseDataObject[3]).RawValue;}
-      set
-      {BaseDataObject[3] = PdfReal.Get(value);}
+      get => ((IPdfNumber)BaseDataObject[3]).RawValue;
+      set => BaseDataObject[3] = PdfReal.Get(value);
     }
 
-    public RectangleF ToRectangleF(
+        public RectangleF ToRectangleF(
       )
     {return new RectangleF((float)X, (float)Y, (float)Width, (float)Height);}
 
     public double Width
     {
-      get
-      {return Right - Left;}
-      set
-      {Right = Left + value;}
+      get => Right - Left;
+      set => Right = Left + value;
     }
 
-    public double X
+        public double X
     {
-      get
-      {return Left;}
-      set
-      {Left = value;}
+      get => Left;
+      set => Left = value;
     }
 
-    public double Y
+        public double Y
     {
-      get
-      {return Bottom;}
-      set
-      {Bottom = value;}
+      get => Bottom;
+      set => Bottom = value;
     }
-    #endregion
-    #endregion
-    #endregion
-  }
+        #endregion
+        #endregion
+        #endregion
+    }
 }

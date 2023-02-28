@@ -62,19 +62,18 @@ namespace HESDanfe.Documents.Interaction.Annotations
       <summary>Gets/Sets the movie to be played.</summary>
     */
     public Multimedia::Movie Content
-    {
-      get
-      {return new Multimedia::Movie(BaseDataObject[PdfName.Movie]);}
-      set
-      {
-        if(value == null)
-          throw new ArgumentException("Movie MUST be defined.");
+        {
+            get => new Multimedia::Movie(BaseDataObject[PdfName.Movie]);
+            set
+            {
+                if (value == null)
+                    throw new ArgumentException("Movie MUST be defined.");
 
-        BaseDataObject[PdfName.Movie] = value.BaseObject;
-      }
+                BaseDataObject[PdfName.Movie] = value.BaseObject;
+            }
+        }
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 }

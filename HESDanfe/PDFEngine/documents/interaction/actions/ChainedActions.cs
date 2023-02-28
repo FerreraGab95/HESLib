@@ -102,26 +102,25 @@ namespace HESDanfe.Documents.Interaction.Actions
     public Action this[
       int index
       ]
-    {
-      get
-      {
-        PdfDataObject baseDataObject = BaseDataObject;
-        if(baseDataObject is PdfDictionary) // Single action.
         {
-          if(index != 0)
-            throw new ArgumentException("Index: " + index + ", Size: 1");
+            get
+            {
+                PdfDataObject baseDataObject = BaseDataObject;
+                if (baseDataObject is PdfDictionary) // Single action.
+                {
+                    if (index != 0)
+                        throw new ArgumentException("Index: " + index + ", Size: 1");
 
-          return Action.Wrap(BaseObject);
+                    return Action.Wrap(BaseObject);
+                }
+                else // Multiple actions.
+                    return Action.Wrap(((PdfArray)baseDataObject)[index]);
+            }
+            set => EnsureArray()[index] = value.BaseObject;
         }
-        else // Multiple actions.
-          return Action.Wrap(((PdfArray)baseDataObject)[index]);
-      }
-      set
-      {EnsureArray()[index] = value.BaseObject;}
-    }
 
-    #region ICollection
-    public void Add(
+        #region ICollection
+        public void Add(
       Action value
       )
     {EnsureArray().Add(value.BaseObject);}

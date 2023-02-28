@@ -303,10 +303,8 @@ namespace HESDanfe.Documents.Contents.Composition
         */
         public bool Hyphenation
         {
-            get
-            { return hyphenation; }
-            set
-            { hyphenation = value; }
+            get => hyphenation;
+            set => hyphenation = value;
         }
 
         /**
@@ -316,10 +314,8 @@ namespace HESDanfe.Documents.Contents.Composition
         */
         public char HyphenationCharacter
         {
-            get
-            { return hyphenationCharacter; }
-            set
-            { hyphenationCharacter = value; }
+            get => hyphenationCharacter;
+            set => hyphenationCharacter = value;
         }
 
         /**
@@ -328,10 +324,8 @@ namespace HESDanfe.Documents.Contents.Composition
         */
         public LineAlignmentEnum LineAlignment
         {
-            get
-            { return lineAlignment; }
-            set
-            { lineAlignment = value; }
+            get => lineAlignment;
+            set => lineAlignment = value;
         }
 
         /**
@@ -340,10 +334,8 @@ namespace HESDanfe.Documents.Contents.Composition
         */
         public Length LineSpace
         {
-            get
-            { return lineSpace; }
-            set
-            { lineSpace = value; }
+            get => lineSpace;
+            set => lineSpace = value;
         }
 
         /**

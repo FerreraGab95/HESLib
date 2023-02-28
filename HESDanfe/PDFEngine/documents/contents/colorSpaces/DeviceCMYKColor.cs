@@ -90,34 +90,26 @@ namespace HESDanfe.Documents.Contents.ColorSpaces
 
         public double C
         {
-            get
-            { return GetComponentValue(0); }
-            set
-            { SetComponentValue(0, value); }
+            get => GetComponentValue(0);
+            set => SetComponentValue(0, value);
         }
 
         public double K
         {
-            get
-            { return GetComponentValue(3); }
-            set
-            { SetComponentValue(3, value); }
+            get => GetComponentValue(3);
+            set => SetComponentValue(3, value);
         }
 
         public double M
         {
-            get
-            { return GetComponentValue(1); }
-            set
-            { SetComponentValue(1, value); }
+            get => GetComponentValue(1);
+            set => SetComponentValue(1, value);
         }
 
         public double Y
         {
-            get
-            { return GetComponentValue(2); }
-            set
-            { SetComponentValue(2, value); }
+            get => GetComponentValue(2);
+            set => SetComponentValue(2, value);
         }
 
         #endregion Public Properties

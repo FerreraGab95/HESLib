@@ -84,11 +84,12 @@ namespace HESDanfe.Blocos
                     LinhaCondicao.Height = CampoCondicao.Height;
                 }
 
-                if (LinhaRodape != null)
+                if (LinhaRodape != null && CampoObservacoes != null && CampoFisco != null)
                 {
                     LinhaRodape.Width = value;
                     LinhaRodape.Posicionar();
-                    CampoObservacoes.Height = 25;
+                    CampoObservacoes.Height = 30;
+                    CampoFisco.Height = CampoObservacoes.Height;
                     LinhaRodape.Height = new[] { CampoFisco.Height, CampoObservacoes.Height }.Max();
                 }
 

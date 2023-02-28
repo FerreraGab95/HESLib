@@ -121,14 +121,12 @@ namespace HESDanfe.Documents.Contents.xObjects
     #region ILayerable
     public LayerEntity Layer
     {
-      get
-      {return (LayerEntity)PropertyList.Wrap(BaseDataObject.Header[PdfName.OC]);}
-      set
-      {BaseDataObject.Header[PdfName.OC] = value.BaseObject;}
+      get => (LayerEntity)PropertyList.Wrap(BaseDataObject.Header[PdfName.OC]);
+      set => BaseDataObject.Header[PdfName.OC] = value.BaseObject;
     }
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-  }
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+    }
 }

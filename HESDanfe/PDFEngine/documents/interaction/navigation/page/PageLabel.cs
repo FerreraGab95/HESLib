@@ -128,39 +128,33 @@ namespace HESDanfe.Documents.Interaction.Navigation.Page
     */
     public int NumberBase
     {
-      get
-      {return (int)PdfSimpleObject<object>.GetValue(BaseDataObject[PdfName.St], DefaultNumberBase);}
-      set
-      {BaseDataObject[PdfName.St] = value <= DefaultNumberBase ? null : PdfInteger.Get(value);}
+      get => (int)PdfSimpleObject<object>.GetValue(BaseDataObject[PdfName.St], DefaultNumberBase);
+      set => BaseDataObject[PdfName.St] = value <= DefaultNumberBase ? null : PdfInteger.Get(value);
     }
 
-    /**
-      <summary>Gets/Sets the numbering style to be used for the numeric suffix of each page label in
-      this range.</summary>
-      <remarks>If no style is defined, the numeric suffix isn't displayed at all.</remarks>
-    */
-    public NumberStyleEnum NumberStyle
+        /**
+          <summary>Gets/Sets the numbering style to be used for the numeric suffix of each page label in
+          this range.</summary>
+          <remarks>If no style is defined, the numeric suffix isn't displayed at all.</remarks>
+        */
+        public NumberStyleEnum NumberStyle
     {
-      get
-      {return NumberStyleEnumExtension.Get((PdfName)BaseDataObject[PdfName.S]);}
-      set
-      {BaseDataObject[PdfName.S] = value.GetCode();}
+      get => NumberStyleEnumExtension.Get((PdfName)BaseDataObject[PdfName.S]);
+      set => BaseDataObject[PdfName.S] = value.GetCode();
     }
 
-    /**
-      <summary>Gets/Sets the label prefix for page labels in this range.</summary>
-    */
-    public string Prefix
+        /**
+          <summary>Gets/Sets the label prefix for page labels in this range.</summary>
+        */
+        public string Prefix
     {
-      get
-      {return (string)PdfSimpleObject<object>.GetValue(BaseDataObject[PdfName.P]);}
-      set
-      {BaseDataObject[PdfName.P] = value != null ? new PdfTextString(value) : null;}
+      get => (string)PdfSimpleObject<object>.GetValue(BaseDataObject[PdfName.P]);
+      set => BaseDataObject[PdfName.P] = value != null ? new PdfTextString(value) : null;
     }
-    #endregion
-    #endregion
-    #endregion
-  }
+        #endregion
+        #endregion
+        #endregion
+    }
 
   internal static class NumberStyleEnumExtension
   {

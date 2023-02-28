@@ -58,8 +58,7 @@ namespace HESDanfe.Documents.Multimedia
             */
             public override object Value
             {
-                get
-                { return ((PdfInteger)BaseDataObject[PdfName.F]).IntValue; }
+                get => ((PdfInteger)BaseDataObject[PdfName.F]).IntValue;
                 set
                 {
                     int intValue = (int)value;
@@ -93,10 +92,8 @@ namespace HESDanfe.Documents.Multimedia
             */
             public override object Value
             {
-                get
-                { return ((PdfTextString)BaseDataObject[PdfName.M]).StringValue; }
-                set
-                { BaseDataObject[PdfName.M] = PdfTextString.Get(value); }
+                get => ((PdfTextString)BaseDataObject[PdfName.M]).StringValue;
+                set => BaseDataObject[PdfName.M] = PdfTextString.Get(value);
             }
         }
 
@@ -122,10 +119,8 @@ namespace HESDanfe.Documents.Multimedia
             */
             public override object Value
             {
-                get
-                { return Timespan.Time; }
-                set
-                { Timespan.Time = (double)value; }
+                get => Timespan.Time;
+                set => Timespan.Time = (double)value;
             }
 
             private Timespan Timespan

@@ -219,47 +219,42 @@ namespace HESDanfe.Documents
     [PDF(VersionEnum.PDF12)]
     public PageActions Actions
     {
-      get
-      {return new PageActions(BaseDataObject.Get<PdfDictionary>(PdfName.AA));}
-      set
-      {BaseDataObject[PdfName.AA] = value.BaseObject;}
+      get => new PageActions(BaseDataObject.Get<PdfDictionary>(PdfName.AA));
+      set => BaseDataObject[PdfName.AA] = value.BaseObject;
     }
 
-    /**
-      <summary>Gets/Sets the annotations associated to the page.</summary>
-    */
-    public PageAnnotations Annotations
-    {
-      get
-      {return new PageAnnotations(BaseDataObject.Get<PdfArray>(PdfName.Annots), this);}
-      set
-      {BaseDataObject[PdfName.Annots] = value.BaseObject;}
-    }
-
-    /**
-      <summary>Gets/Sets the extent of the page's meaningful content (including potential white space)
-      as intended by the page's creator [PDF:1.7:10.10.1].</summary>
-      <seealso cref="CropBox"/>
-    */
-    [PDF(VersionEnum.PDF13)]
-    public drawing::RectangleF ArtBox
-    {
-      get
-      {
-        /*
-          NOTE: The default value is the page's crop box.
+        /**
+          <summary>Gets/Sets the annotations associated to the page.</summary>
         */
-        PdfDirectObject artBoxObject = GetInheritableAttribute(PdfName.ArtBox);
-        return artBoxObject != null ? Rectangle.Wrap(artBoxObject).ToRectangleF() : CropBox;
-      }
-      set
-      {BaseDataObject[PdfName.ArtBox] = new Rectangle(value).BaseDataObject;}
+        public PageAnnotations Annotations
+    {
+      get => new PageAnnotations(BaseDataObject.Get<PdfArray>(PdfName.Annots), this);
+      set => BaseDataObject[PdfName.Annots] = value.BaseObject;
     }
 
-    /**
-      <summary>Gets the page article beads.</summary>
-    */
-    public PageArticleElements ArticleElements
+        /**
+          <summary>Gets/Sets the extent of the page's meaningful content (including potential white space)
+          as intended by the page's creator [PDF:1.7:10.10.1].</summary>
+          <seealso cref="CropBox"/>
+        */
+        [PDF(VersionEnum.PDF13)]
+    public drawing::RectangleF ArtBox
+        {
+            get
+            {
+                /*
+                  NOTE: The default value is the page's crop box.
+                */
+                PdfDirectObject artBoxObject = GetInheritableAttribute(PdfName.ArtBox);
+                return artBoxObject != null ? Rectangle.Wrap(artBoxObject).ToRectangleF() : CropBox;
+            }
+            set => BaseDataObject[PdfName.ArtBox] = new Rectangle(value).BaseDataObject;
+        }
+
+        /**
+          <summary>Gets the page article beads.</summary>
+        */
+        public PageArticleElements ArticleElements
     {
       get
       {return new PageArticleElements(BaseDataObject.Get<PdfArray>(PdfName.B), this);}
@@ -277,70 +272,67 @@ namespace HESDanfe.Documents
     */
     [PDF(VersionEnum.PDF13)]
     public drawing::RectangleF BleedBox
-    {
-      get
-      {
-        /*
-          NOTE: The default value is the page's crop box.
-        */
-        PdfDirectObject bleedBoxObject = GetInheritableAttribute(PdfName.BleedBox);
-        return bleedBoxObject != null ? Rectangle.Wrap(bleedBoxObject).ToRectangleF() : CropBox;
-      }
-      set
-      {BaseDataObject[PdfName.BleedBox] = new Rectangle(value).BaseDataObject;}
-    }
+        {
+            get
+            {
+                /*
+                  NOTE: The default value is the page's crop box.
+                */
+                PdfDirectObject bleedBoxObject = GetInheritableAttribute(PdfName.BleedBox);
+                return bleedBoxObject != null ? Rectangle.Wrap(bleedBoxObject).ToRectangleF() : CropBox;
+            }
+            set => BaseDataObject[PdfName.BleedBox] = new Rectangle(value).BaseDataObject;
+        }
 
-    /**
-      <summary>Gets/Sets the region to which the contents of the page are to be clipped (cropped)
-      when displayed or printed [PDF:1.7:10.10.1].</summary>
-      <remarks>
-        <para>Unlike the other boxes, the crop box has no defined meaning in terms of physical page
-        geometry or intended use; it merely imposes clipping on the page contents. However, in the
-        absence of additional information, the crop box determines how the page's contents are to be
-        positioned on the output medium.</para>
-      </remarks>
-      <seealso cref="Box"/>
-    */
-    public drawing::RectangleF CropBox
-    {
-      get
-      {
-        /*
-          NOTE: The default value is the page's media box.
+        /**
+          <summary>Gets/Sets the region to which the contents of the page are to be clipped (cropped)
+          when displayed or printed [PDF:1.7:10.10.1].</summary>
+          <remarks>
+            <para>Unlike the other boxes, the crop box has no defined meaning in terms of physical page
+            geometry or intended use; it merely imposes clipping on the page contents. However, in the
+            absence of additional information, the crop box determines how the page's contents are to be
+            positioned on the output medium.</para>
+          </remarks>
+          <seealso cref="Box"/>
         */
-        PdfDirectObject cropBoxObject = GetInheritableAttribute(PdfName.CropBox);
-        return cropBoxObject != null ? Rectangle.Wrap(cropBoxObject).ToRectangleF() : Box;
-      }
-      set
-      {BaseDataObject[PdfName.CropBox] = new Rectangle(value).BaseDataObject;}
-    }
+        public drawing::RectangleF CropBox
+        {
+            get
+            {
+                /*
+                  NOTE: The default value is the page's media box.
+                */
+                PdfDirectObject cropBoxObject = GetInheritableAttribute(PdfName.CropBox);
+                return cropBoxObject != null ? Rectangle.Wrap(cropBoxObject).ToRectangleF() : Box;
+            }
+            set => BaseDataObject[PdfName.CropBox] = new Rectangle(value).BaseDataObject;
+        }
 
-    /**
-      <summary>Gets/Sets the page's display duration.</summary>
-      <remarks>
-        <para>The page's display duration (also called its advance timing)
-        is the maximum length of time, in seconds, that the page is displayed
-        during presentations before the viewer application automatically advances
-        to the next page.</para>
-        <para>By default, the viewer does not advance automatically.</para>
-      </remarks>
-    */
-    [PDF(VersionEnum.PDF11)]
+        /**
+          <summary>Gets/Sets the page's display duration.</summary>
+          <remarks>
+            <para>The page's display duration (also called its advance timing)
+            is the maximum length of time, in seconds, that the page is displayed
+            during presentations before the viewer application automatically advances
+            to the next page.</para>
+            <para>By default, the viewer does not advance automatically.</para>
+          </remarks>
+        */
+        [PDF(VersionEnum.PDF11)]
     public double Duration
-    {
-      get
-      {
-        IPdfNumber durationObject = (IPdfNumber)BaseDataObject[PdfName.Dur];
-        return durationObject == null ? 0 : durationObject.RawValue;
-      }
-      set
-      {BaseDataObject[PdfName.Dur] = (value == 0 ? null : PdfReal.Get(value));}
-    }
+        {
+            get
+            {
+                IPdfNumber durationObject = (IPdfNumber)BaseDataObject[PdfName.Dur];
+                return durationObject == null ? 0 : durationObject.RawValue;
+            }
+            set => BaseDataObject[PdfName.Dur] = (value == 0 ? null : PdfReal.Get(value));
+        }
 
-    /**
-      <summary>Gets the index of the page.</summary>
-    */
-    public int Index
+        /**
+          <summary>Gets the index of the page.</summary>
+        */
+        public int Index
     {
       get
       {
@@ -395,80 +387,72 @@ namespace HESDanfe.Documents
       <summary>Gets/Sets the page size.</summary>
     */
     public drawing::SizeF Size
-    {
-      get
-      {return Box.Size;}
-      set
-      {
-        drawing::RectangleF box;
-        try
-        {box = Box;}
-        catch
-        {box = new drawing::RectangleF(0, 0, 0, 0);}
-        box.Size = value;
-        Box = box;
-      }
-    }
+        {
+            get => Box.Size;
+            set
+            {
+                drawing::RectangleF box;
+                try
+                { box = Box; }
+                catch
+                { box = new drawing::RectangleF(0, 0, 0, 0); }
+                box.Size = value;
+                Box = box;
+            }
+        }
 
-    /**
-      <summary>Gets/Sets the tab order to be used for annotations on the page.</summary>
-    */
-    [PDF(VersionEnum.PDF15)]
+        /**
+          <summary>Gets/Sets the tab order to be used for annotations on the page.</summary>
+        */
+        [PDF(VersionEnum.PDF15)]
     public TabOrderEnum TabOrder
     {
-      get
-      {return ToTabOrderEnum((PdfName)BaseDataObject[PdfName.Tabs]);}
-      set
-      {BaseDataObject[PdfName.Tabs] = ToCode(value);}
+      get => ToTabOrderEnum((PdfName)BaseDataObject[PdfName.Tabs]);
+      set => BaseDataObject[PdfName.Tabs] = ToCode(value);
     }
 
-    /**
-      <summary>Gets the transition effect to be used
-      when displaying the page during presentations.</summary>
-    */
-    [PDF(VersionEnum.PDF11)]
+        /**
+          <summary>Gets the transition effect to be used
+          when displaying the page during presentations.</summary>
+        */
+        [PDF(VersionEnum.PDF11)]
     public Transition Transition
     {
-      get
-      {return Transition.Wrap(BaseDataObject[PdfName.Trans]);}
-      set
-      {BaseDataObject[PdfName.Trans] = value.BaseObject;}
+      get => Transition.Wrap(BaseDataObject[PdfName.Trans]);
+      set => BaseDataObject[PdfName.Trans] = value.BaseObject;
     }
 
-    /**
-      <summary>Gets/Sets the intended dimensions of the finished page after trimming
-      [PDF:1.7:10.10.1].</summary>
-      <remarks>
-        <para>It may be smaller than the media box to allow for production-related content, such as
-        printing instructions, cut marks, or color bars.</para>
-      </remarks>
-      <seealso cref="CropBox"/>
-    */
-    [PDF(VersionEnum.PDF13)]
-    public drawing::RectangleF TrimBox
-    {
-      get
-      {
-        /*
-          NOTE: The default value is the page's crop box.
+        /**
+          <summary>Gets/Sets the intended dimensions of the finished page after trimming
+          [PDF:1.7:10.10.1].</summary>
+          <remarks>
+            <para>It may be smaller than the media box to allow for production-related content, such as
+            printing instructions, cut marks, or color bars.</para>
+          </remarks>
+          <seealso cref="CropBox"/>
         */
-        PdfDirectObject trimBoxObject = GetInheritableAttribute(PdfName.TrimBox);
-        return trimBoxObject != null ? Rectangle.Wrap(trimBoxObject).ToRectangleF() : CropBox;
-      }
-      set
-      {BaseDataObject[PdfName.TrimBox] = new Rectangle(value).BaseDataObject;}
-    }
+        [PDF(VersionEnum.PDF13)]
+    public drawing::RectangleF TrimBox
+        {
+            get
+            {
+                /*
+                  NOTE: The default value is the page's crop box.
+                */
+                PdfDirectObject trimBoxObject = GetInheritableAttribute(PdfName.TrimBox);
+                return trimBoxObject != null ? Rectangle.Wrap(trimBoxObject).ToRectangleF() : CropBox;
+            }
+            set => BaseDataObject[PdfName.TrimBox] = new Rectangle(value).BaseDataObject;
+        }
 
-    #region IContentContext
-    public drawing::RectangleF Box
+        #region IContentContext
+        public drawing::RectangleF Box
     {
-      get
-      {return Rectangle.Wrap(GetInheritableAttribute(PdfName.MediaBox)).ToRectangleF();}
-      set
-      {BaseDataObject[PdfName.MediaBox] = new Rectangle(value).BaseDataObject;}
+      get => Rectangle.Wrap(GetInheritableAttribute(PdfName.MediaBox)).ToRectangleF();
+      set => BaseDataObject[PdfName.MediaBox] = new Rectangle(value).BaseDataObject;
     }
 
-    public Contents.Contents Contents
+        public Contents.Contents Contents
     {
       get
       {
@@ -499,14 +483,12 @@ namespace HESDanfe.Documents
 
     public RotationEnum Rotation
     {
-      get
-      {return RotationEnumExtension.Get((PdfInteger)GetInheritableAttribute(PdfName.Rotate));}
-      set
-      {BaseDataObject[PdfName.Rotate] = PdfInteger.Get((int)value);}
+      get => RotationEnumExtension.Get((PdfInteger)GetInheritableAttribute(PdfName.Rotate));
+      set => BaseDataObject[PdfName.Rotate] = PdfInteger.Get((int)value);
     }
 
-    #region IContentEntity
-    public ContentObject ToInlineObject(
+        #region IContentEntity
+        public ContentObject ToInlineObject(
       PrimitiveComposer composer
       )
     {throw new NotImplementedException();}

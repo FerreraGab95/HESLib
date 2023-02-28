@@ -537,25 +537,21 @@ namespace HESDanfe.Util.Parsers
     */
     public object Token
     {
-      get
-      {return token;}
-      protected set
-      {token = value;}
+      get => token;
+      protected set => token = value;
     }
 
-    /**
-      <summary>Gets the currently-parsed token type.</summary>
-    */
-    public TokenTypeEnum TokenType
+        /**
+          <summary>Gets the currently-parsed token type.</summary>
+        */
+        public TokenTypeEnum TokenType
     {
-      get
-      {return tokenType;}
-      protected set
-      {tokenType = value;}
+      get => tokenType;
+      protected set => tokenType = value;
     }
 
-    #region IDisposable
-    public void Dispose(
+        #region IDisposable
+        public void Dispose(
       )
     {
       if(stream != null)

@@ -74,13 +74,11 @@ namespace HESDanfe.Documents.Multimedia
     */
     public double Time
     {
-      get
-      {return ((IPdfNumber)BaseDataObject[PdfName.V]).DoubleValue;}
-      set
-      {BaseDataObject[PdfName.V] = PdfReal.Get(value);}
+      get => ((IPdfNumber)BaseDataObject[PdfName.V]).DoubleValue;
+      set => BaseDataObject[PdfName.V] = PdfReal.Get(value);
     }
-    #endregion
-    #endregion
-    #endregion
-  }
+        #endregion
+        #endregion
+        #endregion
+    }
 }

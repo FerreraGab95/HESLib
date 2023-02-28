@@ -64,50 +64,42 @@ namespace HESDanfe.Documents
     [PDF(VersionEnum.PDF12)]
     public NamedDestinations Destinations
     {
-      get
-      {return new NamedDestinations(BaseDataObject.Get<PdfDictionary>(PdfName.Dests, false));}
-      set
-      {BaseDataObject[PdfName.Dests] = value.BaseObject;}
+      get => new NamedDestinations(BaseDataObject.Get<PdfDictionary>(PdfName.Dests, false));
+      set => BaseDataObject[PdfName.Dests] = value.BaseObject;
     }
 
-    /**
-      <summary>Gets/Sets the named embedded files.</summary>
-    */
-    [PDF(VersionEnum.PDF14)]
+        /**
+          <summary>Gets/Sets the named embedded files.</summary>
+        */
+        [PDF(VersionEnum.PDF14)]
     public NamedEmbeddedFiles EmbeddedFiles
     {
-      get
-      {return new NamedEmbeddedFiles(BaseDataObject.Get<PdfDictionary>(PdfName.EmbeddedFiles, false));}
-      set
-      {BaseDataObject[PdfName.EmbeddedFiles] = value.BaseObject;}
+      get => new NamedEmbeddedFiles(BaseDataObject.Get<PdfDictionary>(PdfName.EmbeddedFiles, false));
+      set => BaseDataObject[PdfName.EmbeddedFiles] = value.BaseObject;
     }
 
-    /**
-      <summary>Gets/Sets the named JavaScript actions.</summary>
-    */
-    [PDF(VersionEnum.PDF13)]
+        /**
+          <summary>Gets/Sets the named JavaScript actions.</summary>
+        */
+        [PDF(VersionEnum.PDF13)]
     public NamedJavaScripts JavaScripts
     {
-      get
-      {return new NamedJavaScripts(BaseDataObject.Get<PdfDictionary>(PdfName.JavaScript, false));}
-      set
-      {BaseDataObject[PdfName.JavaScript] = value.BaseObject;}
+      get => new NamedJavaScripts(BaseDataObject.Get<PdfDictionary>(PdfName.JavaScript, false));
+      set => BaseDataObject[PdfName.JavaScript] = value.BaseObject;
     }
 
-    /**
-      <summary>Gets/Sets the named renditions.</summary>
-    */
-    [PDF(VersionEnum.PDF15)]
+        /**
+          <summary>Gets/Sets the named renditions.</summary>
+        */
+        [PDF(VersionEnum.PDF15)]
     public NamedRenditions Renditions
     {
-      get
-      {return new NamedRenditions(BaseDataObject.Get<PdfDictionary>(PdfName.Renditions, false));}
-      set
-      {BaseDataObject[PdfName.Renditions] = value.BaseObject;}
+      get => new NamedRenditions(BaseDataObject.Get<PdfDictionary>(PdfName.Renditions, false));
+      set => BaseDataObject[PdfName.Renditions] = value.BaseObject;
     }
 
-    #region ICompositeDictionary
-    public PdfObjectWrapper Get(
+        #region ICompositeDictionary
+        public PdfObjectWrapper Get(
       Type type
       )
     {

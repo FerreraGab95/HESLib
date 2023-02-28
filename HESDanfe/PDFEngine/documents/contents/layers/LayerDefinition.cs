@@ -68,50 +68,40 @@ namespace HESDanfe.Documents.Contents.Layers
     */
     public Array<LayerConfiguration> AlternateConfigurations
     {
-      get
-      {return Array<LayerConfiguration>.Wrap<LayerConfiguration>(BaseDataObject.Get<PdfArray>(PdfName.Configs));}
-      set
-      {BaseDataObject[PdfName.Configs] = value.BaseObject;}
+      get => Array<LayerConfiguration>.Wrap<LayerConfiguration>(BaseDataObject.Get<PdfArray>(PdfName.Configs));
+      set => BaseDataObject[PdfName.Configs] = value.BaseObject;
     }
 
-    /**
-      <summary>Gets the default layer configuration, that is the initial state of the optional
-      content groups when a document is first opened.</summary>
-    */
-    public LayerConfiguration DefaultConfiguration
+        /**
+          <summary>Gets the default layer configuration, that is the initial state of the optional
+          content groups when a document is first opened.</summary>
+        */
+        public LayerConfiguration DefaultConfiguration
     {
-      get
-      {return new LayerConfiguration(BaseDataObject[PdfName.D]);}
-      set
-      {BaseDataObject[PdfName.D] = value.BaseObject;}
+      get => new LayerConfiguration(BaseDataObject[PdfName.D]);
+      set => BaseDataObject[PdfName.D] = value.BaseObject;
     }
 
-    #region ILayerConfiguration
-    public string Creator
+        #region ILayerConfiguration
+        public string Creator
     {
-      get
-      {return DefaultConfiguration.Creator;}
-      set
-      {DefaultConfiguration.Creator = value;}
+      get => DefaultConfiguration.Creator;
+      set => DefaultConfiguration.Creator = value;
     }
 
-    public Layers Layers
+        public Layers Layers
     {
-      get
-      {return DefaultConfiguration.Layers;}
-      set
-      {DefaultConfiguration.Layers = value;}
+      get => DefaultConfiguration.Layers;
+      set => DefaultConfiguration.Layers = value;
     }
 
-    public ListModeEnum ListMode
+        public ListModeEnum ListMode
     {
-      get
-      {return DefaultConfiguration.ListMode;}
-      set
-      {DefaultConfiguration.ListMode = value;}
+      get => DefaultConfiguration.ListMode;
+      set => DefaultConfiguration.ListMode = value;
     }
 
-    public Array<LayerGroup> OptionGroups
+        public Array<LayerGroup> OptionGroups
     {
       get
       {return DefaultConfiguration.OptionGroups;}
@@ -119,33 +109,29 @@ namespace HESDanfe.Documents.Contents.Layers
 
     public string Title
     {
-      get
-      {return DefaultConfiguration.Title;}
-      set
-      {DefaultConfiguration.Title = value;}
+      get => DefaultConfiguration.Title;
+      set => DefaultConfiguration.Title = value;
     }
 
-    public bool? Visible
+        public bool? Visible
     {
-      get
-      {return DefaultConfiguration.Visible;}
-      set
-      {DefaultConfiguration.Visible = value;}
+      get => DefaultConfiguration.Visible;
+      set => DefaultConfiguration.Visible = value;
     }
-    #endregion
-    #endregion
+        #endregion
+        #endregion
 
-    #region internal
-    /**
-      <summary>Gets the collection of all the layer objects in the document.</summary>
-    */
-    /*
-     * TODO: manage layer removal from file (unregistration) -- attach a removal listener
-     * to the IndirectObjects collection: anytime a PdfDictionary with Type==PdfName.OCG is removed,
-     * that listener MUST update this collection.
-     * Listener MUST be instantiated when LayerDefinition is associated to the document.
-     */
-    internal PdfArray AllLayersObject
+        #region internal
+        /**
+          <summary>Gets the collection of all the layer objects in the document.</summary>
+        */
+        /*
+         * TODO: manage layer removal from file (unregistration) -- attach a removal listener
+         * to the IndirectObjects collection: anytime a PdfDictionary with Type==PdfName.OCG is removed,
+         * that listener MUST update this collection.
+         * Listener MUST be instantiated when LayerDefinition is associated to the document.
+         */
+        internal PdfArray AllLayersObject
     {
       get
       {return (PdfArray)BaseDataObject.Resolve(PdfName.OCGs);}

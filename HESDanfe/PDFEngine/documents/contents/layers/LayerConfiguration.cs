@@ -77,29 +77,23 @@ namespace HESDanfe.Documents.Contents.Layers
     #region ILayerConfiguration
     public string Creator
     {
-      get
-      {return (string)PdfSimpleObject<object>.GetValue(BaseDataObject[PdfName.Creator]);}
-      set
-      {BaseDataObject[PdfName.Creator] = PdfTextString.Get(value);}
+      get => (string)PdfSimpleObject<object>.GetValue(BaseDataObject[PdfName.Creator]);
+      set => BaseDataObject[PdfName.Creator] = PdfTextString.Get(value);
     }
 
-    public Layers Layers
+        public Layers Layers
     {
-      get
-      {return Layers.Wrap(BaseDataObject.Get<PdfArray>(PdfName.Order));}
-      set
-      {BaseDataObject[PdfName.Order] = value.BaseObject;}
+      get => Layers.Wrap(BaseDataObject.Get<PdfArray>(PdfName.Order));
+      set => BaseDataObject[PdfName.Order] = value.BaseObject;
     }
 
-    public ListModeEnum ListMode
+        public ListModeEnum ListMode
     {
-      get
-      {return ListModeEnumExtension.Get((PdfName)BaseDataObject[PdfName.ListMode]);}
-      set
-      {BaseDataObject[PdfName.ListMode] = value.GetName();}
+      get => ListModeEnumExtension.Get((PdfName)BaseDataObject[PdfName.ListMode]);
+      set => BaseDataObject[PdfName.ListMode] = value.GetName();
     }
 
-    public Array<LayerGroup> OptionGroups
+        public Array<LayerGroup> OptionGroups
     {
       get
       {return Array<LayerGroup>.Wrap<LayerGroup>(BaseDataObject.Get<PdfArray>(PdfName.RBGroups));}
@@ -107,31 +101,28 @@ namespace HESDanfe.Documents.Contents.Layers
 
     public string Title
     {
-      get
-      {return (string)PdfSimpleObject<object>.GetValue(BaseDataObject[PdfName.Name]);}
-      set
-      {BaseDataObject[PdfName.Name] = PdfTextString.Get(value);}
+      get => (string)PdfSimpleObject<object>.GetValue(BaseDataObject[PdfName.Name]);
+      set => BaseDataObject[PdfName.Name] = PdfTextString.Get(value);
     }
 
-    public bool? Visible
-    {
-      get
-      {return BaseStateEnumExtension.Get((PdfName)BaseDataObject[PdfName.BaseState]).IsEnabled();}
-      set
-      {
-        /*
-          NOTE: Base state can be altered only in case of alternate configuration; default ones MUST
-          be set to default state (that is ON).
-        */
-        if(!(BaseObject.Parent is PdfDictionary)) // Not the default configuration?
-        {BaseDataObject[PdfName.BaseState] = BaseStateEnumExtension.Get(value).GetName();}
-      }
-    }
-    #endregion
-    #endregion
+        public bool? Visible
+        {
+            get => BaseStateEnumExtension.Get((PdfName)BaseDataObject[PdfName.BaseState]).IsEnabled();
+            set
+            {
+                /*
+                  NOTE: Base state can be altered only in case of alternate configuration; default ones MUST
+                  be set to default state (that is ON).
+                */
+                if (!(BaseObject.Parent is PdfDictionary)) // Not the default configuration?
+                { BaseDataObject[PdfName.BaseState] = BaseStateEnumExtension.Get(value).GetName(); }
+            }
+        }
+        #endregion
+        #endregion
 
-    #region internal
-    internal bool IsVisible(
+        #region internal
+        internal bool IsVisible(
       Layer layer
       )
     {

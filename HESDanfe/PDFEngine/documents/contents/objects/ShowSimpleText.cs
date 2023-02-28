@@ -63,13 +63,11 @@ namespace HESDanfe.Documents.Contents.Objects
     #region public
     public override byte[] Text
     {
-      get
-      {return ((PdfString)operands[0]).RawValue;}
-      set
-      {operands[0] = new PdfString(value);}
+      get => ((PdfString)operands[0]).RawValue;
+      set => operands[0] = new PdfString(value);
     }
-    #endregion
-    #endregion
-    #endregion
-  }
+        #endregion
+        #endregion
+        #endregion
+    }
 }

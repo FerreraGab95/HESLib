@@ -62,26 +62,24 @@ namespace HESDanfe.Documents.Interaction.Actions
       <summary>Gets/Sets the sound to be played.</summary>
     */
     public Sound Sound
-    {
-      get
-      {
-        /*
-          NOTE: 'Sound' entry MUST exist.
-        */
-        return new Sound(
-          BaseDataObject[PdfName.Sound]
-          );
-      }
-      set
-      {
-        if(value == null)
-          throw new ArgumentException("Sound MUST be defined.");
+        {
+            get =>
+              /*
+NOTE: 'Sound' entry MUST exist.
+*/
+              new Sound(
+                BaseDataObject[PdfName.Sound]
+                );
+            set
+            {
+                if (value == null)
+                    throw new ArgumentException("Sound MUST be defined.");
 
-        BaseDataObject[PdfName.Sound] = value.BaseObject;
-      }
+                BaseDataObject[PdfName.Sound] = value.BaseObject;
+            }
+        }
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 }

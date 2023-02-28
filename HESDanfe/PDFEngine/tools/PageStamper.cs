@@ -112,41 +112,40 @@ namespace HESDanfe.Tools
     }
 
     public Page Page
-    {
-      get
-      {return page;}
-      set
-      {
-        page = value;
-        if(page == null)
         {
-          background = null;
-          foreground = null;
-        }
-        else
-        {
-          // Background.
-          background = CreateFilter();
-          // Open the background local state!
-          background.Add(SaveGraphicsState.Value);
-          // Close the background local state!
-          background.Add(RestoreGraphicsState.Value);
-          // Open the middleground local state!
-          background.Add(SaveGraphicsState.Value);
-          // Move into the background!
-          background.Scanner.Move(1);
+            get => page;
+            set
+            {
+                page = value;
+                if (page == null)
+                {
+                    background = null;
+                    foreground = null;
+                }
+                else
+                {
+                    // Background.
+                    background = CreateFilter();
+                    // Open the background local state!
+                    background.Add(SaveGraphicsState.Value);
+                    // Close the background local state!
+                    background.Add(RestoreGraphicsState.Value);
+                    // Open the middleground local state!
+                    background.Add(SaveGraphicsState.Value);
+                    // Move into the background!
+                    background.Scanner.Move(1);
 
-          // Foregrond.
-          foreground = CreateFilter();
-          // Close the middleground local state!
-          foreground.Add(RestoreGraphicsState.Value);
+                    // Foregrond.
+                    foreground = CreateFilter();
+                    // Close the middleground local state!
+                    foreground.Add(RestoreGraphicsState.Value);
+                }
+            }
         }
-      }
-    }
-    #endregion
+        #endregion
 
-    #region private
-    private PrimitiveComposer CreateFilter(
+        #region private
+        private PrimitiveComposer CreateFilter(
       )
     {
       return new PrimitiveComposer(

@@ -210,14 +210,12 @@ namespace HESDanfe.Objects
       int index
       ]
     {
-      get
-      {return itemWrapper.Wrap(BaseDataObject[index]);}
-      set
-      {BaseDataObject[index] = value.BaseObject;}
+      get => itemWrapper.Wrap(BaseDataObject[index]);
+      set => BaseDataObject[index] = value.BaseObject;
     }
 
-    #region ICollection<TItem>
-    public virtual void Add(
+        #region ICollection<TItem>
+        public virtual void Add(
       TItem item
       )
     {BaseDataObject.Add(item.BaseObject);}

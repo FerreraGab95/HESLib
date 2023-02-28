@@ -100,40 +100,34 @@ namespace HESDanfe.Documents.Files
     */
     public RelatedFiles Dependencies
     {
-      get
-      {return GetDependencies(PdfName.F);}
-      set
-      {SetDependencies(PdfName.F,value);}
+      get => GetDependencies(PdfName.F);
+      set => SetDependencies(PdfName.F, value);
     }
 
-    /**
-      <summary>Gets/Sets the description of the file.</summary>
-    */
-    public string Description
+        /**
+          <summary>Gets/Sets the description of the file.</summary>
+        */
+        public string Description
     {
-      get
-      {return (string)PdfSimpleObject<object>.GetValue(BaseDictionary[PdfName.Desc]);}
-      set
-      {BaseDictionary[PdfName.Desc] = new PdfTextString(value);}
+      get => (string)PdfSimpleObject<object>.GetValue(BaseDictionary[PdfName.Desc]);
+      set => BaseDictionary[PdfName.Desc] = new PdfTextString(value);
     }
 
-    /**
-      <summary>Gets/Sets the embedded file corresponding to this file.</summary>
-    */
-    public EmbeddedFile EmbeddedFile
+        /**
+          <summary>Gets/Sets the embedded file corresponding to this file.</summary>
+        */
+        public EmbeddedFile EmbeddedFile
     {
-      get
-      {return GetEmbeddedFile(PdfName.F);}
-      set
-      {SetEmbeddedFile(PdfName.F,value);}
+      get => GetEmbeddedFile(PdfName.F);
+      set => SetEmbeddedFile(PdfName.F, value);
     }
 
-    /**
-      <summary>Gets/Sets the file system to be used to interpret this file specification.</summary>
-      <returns>Either <see cref="StandardFileSystemEnum"/> (standard file system) or
-      <see cref="String"/> (custom file system).</returns>
-    */
-    public object FileSystem
+        /**
+          <summary>Gets/Sets the file system to be used to interpret this file specification.</summary>
+          <returns>Either <see cref="StandardFileSystemEnum"/> (standard file system) or
+          <see cref="String"/> (custom file system).</returns>
+        */
+        public object FileSystem
     {
       get
       {
@@ -200,13 +194,11 @@ namespace HESDanfe.Documents.Files
     */
     public FileIdentifier ID
     {
-      get
-      {return FileIdentifier.Wrap(BaseDictionary[PdfName.ID]);}
-      set
-      {BaseDictionary[PdfName.ID] = value.BaseObject;}
+      get => FileIdentifier.Wrap(BaseDictionary[PdfName.ID]);
+      set => BaseDictionary[PdfName.ID] = value.BaseObject;
     }
 
-    public override string Path
+        public override string Path
     {
       get
       {return GetPath(PdfName.F);}
@@ -223,15 +215,13 @@ namespace HESDanfe.Documents.Files
     */
     public bool Volatile
     {
-      get
-      {return (bool)PdfSimpleObject<object>.GetValue(BaseDictionary[PdfName.V], false);}
-      set
-      {BaseDictionary[PdfName.V] = PdfBoolean.Get(value);}
+      get => (bool)PdfSimpleObject<object>.GetValue(BaseDictionary[PdfName.V], false);
+      set => BaseDictionary[PdfName.V] = PdfBoolean.Get(value);
     }
-    #endregion
+        #endregion
 
-    #region private
-    private PdfDictionary BaseDictionary
+        #region private
+        private PdfDictionary BaseDictionary
     {
       get
       {return (PdfDictionary)BaseDataObject;}

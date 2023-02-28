@@ -112,14 +112,12 @@ namespace HESDanfe.Documents.Interaction.Actions
     */
     public string Script
     {
-      get
-      {return GetScript(BaseDataObject, PdfName.JS);}
-      set
-      {SetScript(BaseDataObject, PdfName.JS, value);}
+      get => GetScript(BaseDataObject, PdfName.JS);
+      set => SetScript(BaseDataObject, PdfName.JS, value);
     }
 
-    #region IPdfNamedObjectWrapper
-    public PdfString Name
+        #region IPdfNamedObjectWrapper
+        public PdfString Name
     {
       get
       {return RetrieveName();}

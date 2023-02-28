@@ -177,13 +177,11 @@ namespace HESDanfe.Tokens
       int key
       ]
     {
-      get
-      {return Entries[key];}
-      set
-      {Entries[key] = value;}
+      get => Entries[key];
+      set => Entries[key] = value;
     }
 
-    public bool TryGetValue(
+        public bool TryGetValue(
       int key,
       out XRefEntry value
       )

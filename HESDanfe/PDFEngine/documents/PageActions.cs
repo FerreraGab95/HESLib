@@ -59,24 +59,20 @@ namespace HESDanfe.Documents
     */
     public Action OnClose
     {
-      get
-      {return Action.Wrap(BaseDataObject[PdfName.C]);}
-      set
-      {BaseDataObject[PdfName.C] = value.BaseObject;}
+      get => Action.Wrap(BaseDataObject[PdfName.C]);
+      set => BaseDataObject[PdfName.C] = value.BaseObject;
     }
 
-    /**
-      <summary>Gets/Sets the action to be performed when the page is opened.</summary>
-    */
-    public Action OnOpen
+        /**
+          <summary>Gets/Sets the action to be performed when the page is opened.</summary>
+        */
+        public Action OnOpen
     {
-      get
-      {return Action.Wrap(BaseDataObject[PdfName.O]);}
-      set
-      {BaseDataObject[PdfName.O] = value.BaseObject;}
+      get => Action.Wrap(BaseDataObject[PdfName.O]);
+      set => BaseDataObject[PdfName.O] = value.BaseObject;
     }
-    #endregion
-    #endregion
-    #endregion
-  }
+        #endregion
+        #endregion
+        #endregion
+    }
 }

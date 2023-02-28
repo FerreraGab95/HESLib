@@ -60,10 +60,8 @@ namespace HESDanfe.Bytes
 
         public ByteOrderEnum ByteOrder
         {
-            get
-            { return byteOrder; }
-            set
-            { byteOrder = value; }
+            get => byteOrder;
+            set => byteOrder = value;
         }
 
         public long Length
@@ -71,10 +69,8 @@ namespace HESDanfe.Bytes
 
         public long Position
         {
-            get
-            { return stream.Position; }
-            set
-            { stream.Position = value; }
+            get => stream.Position;
+            set => stream.Position = value;
         }
 
         #endregion Public Properties

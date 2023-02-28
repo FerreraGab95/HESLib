@@ -65,13 +65,11 @@ namespace HESDanfe.Documents.Contents.Objects
 
     public TextRenderModeEnum Value
     {
-      get
-      {return (TextRenderModeEnum)((IPdfNumber)operands[0]).Value;}
-      set
-      {operands[0] = PdfInteger.Get((int)value);}
+      get => (TextRenderModeEnum)((IPdfNumber)operands[0]).Value;
+      set => operands[0] = PdfInteger.Get((int)value);
     }
-    #endregion
-    #endregion
-    #endregion
-  }
+        #endregion
+        #endregion
+        #endregion
+    }
 }

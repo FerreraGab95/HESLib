@@ -79,24 +79,20 @@ namespace HESDanfe.Documents.Interaction.Forms
     */
     public Fields Fields
     {
-      get
-      {return new Fields(BaseDataObject.Get<PdfArray>(PdfName.Fields));}
-      set
-      {BaseDataObject[PdfName.Fields] = value.BaseObject;}
+      get => new Fields(BaseDataObject.Get<PdfArray>(PdfName.Fields));
+      set => BaseDataObject[PdfName.Fields] = value.BaseObject;
     }
 
-    /**
-      <summary>Gets/Sets the default resources used by fields.</summary>
-    */
-    public Resources Resources
+        /**
+          <summary>Gets/Sets the default resources used by fields.</summary>
+        */
+        public Resources Resources
     {
-      get
-      {return Resources.Wrap(BaseDataObject.Get<PdfDictionary>(PdfName.DR));}
-      set
-      {BaseDataObject[PdfName.DR] = value.BaseObject;}
+      get => Resources.Wrap(BaseDataObject.Get<PdfDictionary>(PdfName.DR));
+      set => BaseDataObject[PdfName.DR] = value.BaseObject;
     }
-    #endregion
-    #endregion
-    #endregion
-  }
+        #endregion
+        #endregion
+        #endregion
+    }
 }

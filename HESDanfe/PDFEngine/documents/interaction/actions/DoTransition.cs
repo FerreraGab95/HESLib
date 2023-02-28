@@ -63,13 +63,11 @@ namespace HESDanfe.Documents.Interaction.Actions
     */
     public Transition Transition
     {
-      get
-      {return Transition.Wrap(BaseDataObject[PdfName.Trans]);}
-      set
-      {BaseDataObject[PdfName.Trans] = value.BaseObject;}
+      get => Transition.Wrap(BaseDataObject[PdfName.Trans]);
+      set => BaseDataObject[PdfName.Trans] = value.BaseObject;
     }
-    #endregion
-    #endregion
-    #endregion
-  }
+        #endregion
+        #endregion
+        #endregion
+    }
 }

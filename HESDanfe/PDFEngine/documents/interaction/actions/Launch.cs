@@ -145,56 +145,50 @@ namespace HESDanfe.Documents.Interaction.Actions
         <summary>Gets/Sets the default directory.</summary>
       */
       public string DefaultDirectory
+            {
+                get
+                {
+                    PdfString defaultDirectoryObject = (PdfString)BaseDataObject[PdfName.D];
+                    return defaultDirectoryObject != null ? (string)defaultDirectoryObject.Value : null;
+                }
+                set => BaseDataObject[PdfName.D] = new PdfString(value);
+            }
+
+            /**
+              <summary>Gets/Sets the file name of the application to be launched
+              or the document to be opened or printed.</summary>
+            */
+            public string FileName
       {
-        get
-        {
-          PdfString defaultDirectoryObject = (PdfString)BaseDataObject[PdfName.D];
-          return defaultDirectoryObject != null ? (string)defaultDirectoryObject.Value : null;
+        get => (string)((PdfString)BaseDataObject[PdfName.F]).Value;
+        set => BaseDataObject[PdfName.F] = new PdfString(value);
+      }
+
+            /**
+              <summary>Gets/Sets the operation to perform.</summary>
+            */
+            public OperationEnum Operation
+      {
+        get => ToOperationEnum((PdfString)BaseDataObject[PdfName.O]);
+        set => BaseDataObject[PdfName.O] = ToCode(value);
+      }
+
+            /**
+              <summary>Gets/Sets the parameter string to be passed to the application.</summary>
+            */
+            public string ParameterString
+            {
+                get
+                {
+                    PdfString parameterStringObject = (PdfString)BaseDataObject[PdfName.P];
+                    return parameterStringObject != null ? (string)parameterStringObject.Value : null;
+                }
+                set => BaseDataObject[PdfName.P] = new PdfString(value);
+            }
+            #endregion
+            #endregion
+            #endregion
         }
-        set
-        {BaseDataObject[PdfName.D] = new PdfString(value);}
-      }
-
-      /**
-        <summary>Gets/Sets the file name of the application to be launched
-        or the document to be opened or printed.</summary>
-      */
-      public string FileName
-      {
-        get
-        {return (string)((PdfString)BaseDataObject[PdfName.F]).Value;}
-        set
-        {BaseDataObject[PdfName.F] = new PdfString(value);}
-      }
-
-      /**
-        <summary>Gets/Sets the operation to perform.</summary>
-      */
-      public OperationEnum Operation
-      {
-        get
-        {return ToOperationEnum((PdfString)BaseDataObject[PdfName.O]);}
-        set
-        {BaseDataObject[PdfName.O] = ToCode(value);}
-      }
-
-      /**
-        <summary>Gets/Sets the parameter string to be passed to the application.</summary>
-      */
-      public string ParameterString
-      {
-        get
-        {
-          PdfString parameterStringObject = (PdfString)BaseDataObject[PdfName.P];
-          return parameterStringObject != null ? (string)parameterStringObject.Value : null;
-        }
-        set
-        {BaseDataObject[PdfName.P] = new PdfString(value);}
-      }
-      #endregion
-      #endregion
-      #endregion
-    }
     #endregion
 
     #region dynamic

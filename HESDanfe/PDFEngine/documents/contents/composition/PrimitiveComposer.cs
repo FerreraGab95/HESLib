@@ -583,16 +583,14 @@ namespace HESDanfe.Documents.Contents.Composition
     */
     public ContentScanner Scanner
     {
-      get
-      {return scanner;}
-      set
-      {scanner = value;}
+      get => scanner;
+      set => scanner = value;
     }
 
-    /**
-      <summary>Gets the current graphics state [PDF:1.6:4.3].</summary>
-    */
-    public ContentScanner.GraphicsState State
+        /**
+          <summary>Gets the current graphics state [PDF:1.6:4.3].</summary>
+        */
+        public ContentScanner.GraphicsState State
     {
       get
       {return scanner.State;}

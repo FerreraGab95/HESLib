@@ -63,24 +63,23 @@ namespace HESDanfe.Documents.Interaction.Annotations
     #region interface
     #region public
     public override Action Action
-    {
-      get
-      {return base.Action;}
-      set
-      {
-        /*
-          NOTE: This entry is not permitted in link annotations if a 'Dest' entry is present.
-        */
-        if(BaseDataObject.ContainsKey(PdfName.Dest)
-          && value != null)
-        {BaseDataObject.Remove(PdfName.Dest);}
+        {
+            get => base.Action;
+            set
+            {
+                /*
+                  NOTE: This entry is not permitted in link annotations if a 'Dest' entry is present.
+                */
+                if (BaseDataObject.ContainsKey(PdfName.Dest)
+                  && value != null)
+                { BaseDataObject.Remove(PdfName.Dest); }
 
-        base.Action = value;
-      }
-    }
+                base.Action = value;
+            }
+        }
 
-    #region ILink
-    public PdfObjectWrapper Target
+        #region ILink
+        public PdfObjectWrapper Target
     {
       get
       {

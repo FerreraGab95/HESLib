@@ -155,8 +155,7 @@ namespace HESDanfe.Documents.Interaction.Actions
                 PdfDirectObject nextObject = BaseDataObject[PdfName.Next];
                 return nextObject != null ? new ChainedActions(nextObject, this) : null;
             }
-            set
-            { BaseDataObject[PdfName.Next] = value.BaseObject; }
+            set => BaseDataObject[PdfName.Next] = value.BaseObject;
         }
         #endregion
         #endregion

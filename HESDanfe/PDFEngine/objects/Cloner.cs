@@ -268,19 +268,18 @@ namespace HESDanfe.Objects
     #region interface
     #region public
     public PdfFile Context
-    {
-      get
-      {return context;}
-      set
-      {
-        if(value == null)
-          throw new ArgumentException("value required");
+        {
+            get => context;
+            set
+            {
+                if (value == null)
+                    throw new ArgumentException("value required");
 
-        context = value;
-      }
-    }
+                context = value;
+            }
+        }
 
-    public IList<Filter> Filters
+        public IList<Filter> Filters
     {
       get
       {return filters;}

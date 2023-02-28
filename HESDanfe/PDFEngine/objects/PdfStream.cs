@@ -133,27 +133,21 @@ namespace HESDanfe.Objects
 
     public PdfDirectObject Filter
     {
-      get
-      {
-        return (PdfDirectObject)(header[PdfName.F] == null
+      get => (PdfDirectObject)(header[PdfName.F] == null
           ? header.Resolve(PdfName.Filter)
           : header.Resolve(PdfName.FFilter));
-      }
-      protected set
-      {
-        header[
+      protected set => header[
           header[PdfName.F] == null
             ? PdfName.Filter
             : PdfName.FFilter
           ] = value;
-      }
     }
 
-    /**
-      <summary>Gets the stream body.</summary>
-      <param name="decode">Defines whether the body has to be decoded.</param>
-    */
-    public IBuffer GetBody(
+        /**
+          <summary>Gets the stream body.</summary>
+          <param name="decode">Defines whether the body has to be decoded.</param>
+        */
+        public IBuffer GetBody(
       bool decode
       )
     {
@@ -222,37 +216,29 @@ namespace HESDanfe.Objects
 
     public PdfDirectObject Parameters
     {
-      get
-      {
-        return (PdfDirectObject)(header[PdfName.F] == null
+      get => (PdfDirectObject)(header[PdfName.F] == null
           ? header.Resolve(PdfName.DecodeParms)
           : header.Resolve(PdfName.FDecodeParms));
-      }
-      protected set
-      {
-        header[
+      protected set => header[
           header[PdfName.F] == null
             ? PdfName.DecodeParms
             : PdfName.FDecodeParms
           ] = value;
-      }
     }
 
-    public override PdfObject Parent
+        public override PdfObject Parent
     {
-      get
-      {return parent;}
-      internal set
-      {parent = value;}
+      get => parent;
+      internal set => parent = value;
     }
 
-    /**
-      <param name="preserve">Indicates whether the data from the old data source substitutes the
-      new one. This way data can be imported to/exported from local or preserved in case of external
-      file location changed.</param>
-      <seealso cref="DataFile"/>
-    */
-    public void SetDataFile(
+        /**
+          <param name="preserve">Indicates whether the data from the old data source substitutes the
+          new one. This way data can be imported to/exported from local or preserved in case of external
+          file location changed.</param>
+          <seealso cref="DataFile"/>
+        */
+        public void SetDataFile(
       FileSpecification value,
       bool preserve
       )
@@ -358,21 +344,17 @@ namespace HESDanfe.Objects
 
     public override bool Updateable
     {
-      get
-      {return updateable;}
-      set
-      {updateable = value;}
+      get => updateable;
+      set => updateable = value;
     }
 
-    public override bool Updated
+        public override bool Updated
     {
-      get
-      {return updated;}
-      protected internal set
-      {updated = value;}
+      get => updated;
+      protected internal set => updated = value;
     }
 
-    public override void WriteTo(
+        public override void WriteTo(
       IOutputStream stream,
       PdfFile context
       )
@@ -469,24 +451,20 @@ namespace HESDanfe.Objects
     [PDF(VersionEnum.PDF12)]
     public FileSpecification DataFile
     {
-      get
-      {return FileSpecification.Wrap(header[PdfName.F]);}
-      set
-      {SetDataFile(value, false);}
+      get => FileSpecification.Wrap(header[PdfName.F]);
+      set => SetDataFile(value, false);
     }
-    #endregion
-    #endregion
+        #endregion
+        #endregion
 
-    #region protected
-    protected internal override bool Virtual
+        #region protected
+        protected internal override bool Virtual
     {
-      get
-      {return virtual_;}
-      set
-      {virtual_ = value;}
+      get => virtual_;
+      set => virtual_ = value;
     }
-    #endregion
-    #endregion
-    #endregion
-  }
+        #endregion
+        #endregion
+        #endregion
+    }
 }

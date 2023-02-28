@@ -111,16 +111,15 @@ namespace HESDanfe.Documents.Contents.Layers
       <summary>Gets/Sets the visibility policy of this entity.</summary>
     */
     public virtual VisibilityPolicyEnum VisibilityPolicy
-    {
-      get
-      {return VisibilityPolicyEnum.AllOn;}
-      set
-      {}
+        {
+            get => VisibilityPolicyEnum.AllOn;
+            set
+            { }
+        }
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 
   internal static class VisibilityPolicyEnumExtension
   {

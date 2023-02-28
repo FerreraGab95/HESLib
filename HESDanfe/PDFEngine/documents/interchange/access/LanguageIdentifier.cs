@@ -109,10 +109,8 @@ namespace HESDanfe.Documents.Interchange.Access
         */
         public IList<string> Components
         {
-            get
-            { return new List<string>(BaseDataObject.StringValue.Split('-')); }
-            set
-            { BaseObject = new PdfTextString(String.Join("-", value)); }
+            get => new List<string>(BaseDataObject.StringValue.Split('-'));
+            set => BaseObject = new PdfTextString(String.Join("-", value));
         }
         #endregion
         #endregion

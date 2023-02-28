@@ -62,19 +62,18 @@ namespace HESDanfe.Documents.Interaction.Actions
     #region interface
     #region public
     public override FileSpecification DestinationFile
-    {
-      get
-      {return base.DestinationFile;}
-      set
-      {
-        if(value == null)
-          throw new ArgumentNullException("value");
+        {
+            get => base.DestinationFile;
+            set
+            {
+                if (value == null)
+                    throw new ArgumentNullException("value");
 
-        base.DestinationFile = value;
-      }
+                base.DestinationFile = value;
+            }
+        }
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 }

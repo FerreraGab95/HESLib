@@ -199,39 +199,37 @@ namespace HESDanfe.Documents.Interaction.Annotations
       <summary>Gets/Sets the border style.</summary>
     */
     public StyleEnum Style
-    {
-      get
-      {return ToStyleEnum((PdfName)BaseDataObject[PdfName.S]);}
-      set
-      {
-        if(value == 0
-          || value == DefaultStyle)
-        {BaseDataObject.Remove(PdfName.S);}
-        else
-        {BaseDataObject[PdfName.S] = ToCode(value);}
-      }
-    }
+        {
+            get => ToStyleEnum((PdfName)BaseDataObject[PdfName.S]);
+            set
+            {
+                if (value == 0
+                  || value == DefaultStyle)
+                { BaseDataObject.Remove(PdfName.S); }
+                else
+                { BaseDataObject[PdfName.S] = ToCode(value); }
+            }
+        }
 
-    /**
-      <summary>Gets/Sets the border width in points.</summary>
-    */
-    public double Width
-    {
-      get
-      {
-        /*
-          NOTE: 'W' entry may be undefined.
+        /**
+          <summary>Gets/Sets the border width in points.</summary>
         */
-        IPdfNumber widthObject = (IPdfNumber)BaseDataObject[PdfName.W];
-        return widthObject == null
-          ? DefaultWidth
-          : widthObject.RawValue;
-      }
-      set
-      {BaseDataObject[PdfName.W] = PdfReal.Get(value);}
+        public double Width
+        {
+            get
+            {
+                /*
+                  NOTE: 'W' entry may be undefined.
+                */
+                IPdfNumber widthObject = (IPdfNumber)BaseDataObject[PdfName.W];
+                return widthObject == null
+                  ? DefaultWidth
+                  : widthObject.RawValue;
+            }
+            set => BaseDataObject[PdfName.W] = PdfReal.Get(value);
+        }
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 }

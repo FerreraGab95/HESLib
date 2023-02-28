@@ -74,38 +74,32 @@ namespace HESDanfe.Documents.Multimedia
     */
     public Array<MediaPlayer> AllowedPlayers
     {
-      get
-      {return Array<MediaPlayer>.Wrap<MediaPlayer>(BaseDataObject.Get<PdfArray>(PdfName.A));}
-      set
-      {BaseDataObject[PdfName.A] = PdfObjectWrapper.GetBaseObject(value);}
+      get => Array<MediaPlayer>.Wrap<MediaPlayer>(BaseDataObject.Get<PdfArray>(PdfName.A));
+      set => BaseDataObject[PdfName.A] = PdfObjectWrapper.GetBaseObject(value);
     }
 
-    /**
-      <summary>Gets/Sets a set of players that must NOT be used in playing the associated media object.
-      </summary>
-      <remarks>This collection takes priority over <see cref="RequiredPlayers"/>.</remarks>
-    */
-    public Array<MediaPlayer> ForbiddenPlayers
+        /**
+          <summary>Gets/Sets a set of players that must NOT be used in playing the associated media object.
+          </summary>
+          <remarks>This collection takes priority over <see cref="RequiredPlayers"/>.</remarks>
+        */
+        public Array<MediaPlayer> ForbiddenPlayers
     {
-      get
-      {return Array<MediaPlayer>.Wrap<MediaPlayer>(BaseDataObject.Get<PdfArray>(PdfName.NU));}
-      set
-      {BaseDataObject[PdfName.NU] = PdfObjectWrapper.GetBaseObject(value);}
+      get => Array<MediaPlayer>.Wrap<MediaPlayer>(BaseDataObject.Get<PdfArray>(PdfName.NU));
+      set => BaseDataObject[PdfName.NU] = PdfObjectWrapper.GetBaseObject(value);
     }
 
-    /**
-      <summary>Gets/Sets a set of players, one of which must be used in playing the associated media object.
-      </summary>
-    */
-    public Array<MediaPlayer> RequiredPlayers
+        /**
+          <summary>Gets/Sets a set of players, one of which must be used in playing the associated media object.
+          </summary>
+        */
+        public Array<MediaPlayer> RequiredPlayers
     {
-      get
-      {return Array<MediaPlayer>.Wrap<MediaPlayer>(BaseDataObject.Get<PdfArray>(PdfName.MU));}
-      set
-      {BaseDataObject[PdfName.MU] = PdfObjectWrapper.GetBaseObject(value);}
+      get => Array<MediaPlayer>.Wrap<MediaPlayer>(BaseDataObject.Get<PdfArray>(PdfName.MU));
+      set => BaseDataObject[PdfName.MU] = PdfObjectWrapper.GetBaseObject(value);
     }
-    #endregion
-    #endregion
-    #endregion
-  }
+        #endregion
+        #endregion
+        #endregion
+    }
 }

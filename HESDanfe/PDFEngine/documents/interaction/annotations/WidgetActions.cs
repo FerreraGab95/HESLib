@@ -65,24 +65,20 @@ namespace HESDanfe.Documents.Interaction.Annotations
     */
     public Action OnBlur
     {
-      get
-      {return Action.Wrap(BaseDataObject[PdfName.Bl]);}
-      set
-      {BaseDataObject[PdfName.Bl] = value.BaseObject;}
+      get => Action.Wrap(BaseDataObject[PdfName.Bl]);
+      set => BaseDataObject[PdfName.Bl] = value.BaseObject;
     }
 
-    /**
-      <summary>Gets/Sets the action to be performed when the annotation receives the input focus.</summary>
-    */
-    public Action OnFocus
+        /**
+          <summary>Gets/Sets the action to be performed when the annotation receives the input focus.</summary>
+        */
+        public Action OnFocus
     {
-      get
-      {return Action.Wrap(BaseDataObject[PdfName.Fo]);}
-      set
-      {BaseDataObject[PdfName.Fo] = value.BaseObject;}
+      get => Action.Wrap(BaseDataObject[PdfName.Fo]);
+      set => BaseDataObject[PdfName.Fo] = value.BaseObject;
     }
-    #endregion
-    #endregion
-    #endregion
-  }
+        #endregion
+        #endregion
+        #endregion
+    }
 }

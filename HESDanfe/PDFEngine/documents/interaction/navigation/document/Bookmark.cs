@@ -102,8 +102,7 @@ namespace HESDanfe.Documents.Interaction.Navigation.Document
         [PDF(VersionEnum.PDF14)]
         public DeviceRGBColor Color
         {
-            get
-            { return DeviceRGBColor.Get((PdfArray)BaseDataObject[PdfName.C]); }
+            get => DeviceRGBColor.Get((PdfArray)BaseDataObject[PdfName.C]);
             set
             {
                 if (value == null)
@@ -195,10 +194,8 @@ namespace HESDanfe.Documents.Interaction.Navigation.Document
         */
         public string Title
         {
-            get
-            { return (string)((PdfTextString)BaseDataObject[PdfName.Title]).Value; }
-            set
-            { BaseDataObject[PdfName.Title] = new PdfTextString(value); }
+            get => (string)((PdfTextString)BaseDataObject[PdfName.Title]).Value;
+            set => BaseDataObject[PdfName.Title] = new PdfTextString(value);
         }
 
         #region ILink
@@ -229,8 +226,7 @@ namespace HESDanfe.Documents.Interaction.Navigation.Document
         #region private
         private Actions::Action Action
         {
-            get
-            { return Actions.Action.Wrap(BaseDataObject[PdfName.A]); }
+            get => Actions.Action.Wrap(BaseDataObject[PdfName.A]);
             set
             {
                 if (value == null)

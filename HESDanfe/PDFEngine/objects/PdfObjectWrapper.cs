@@ -168,27 +168,25 @@ namespace HESDanfe.Objects
     #region IPdfObjectWrapper
     public virtual PdfDirectObject BaseObject
     {
-      get
-      {return baseObject;}
-      protected set
-      {baseObject = value;}
+      get => baseObject;
+      protected set => baseObject = value;
     }
-    #endregion
-    #endregion
+        #endregion
+        #endregion
 
-    #region protected
-    /**
-      <summary>Checks whether the specified feature is compatible with the
-        <see cref="Document.Version">document's conformance version</see>.</summary>
-      <param name="feature">Entity whose compatibility has to be checked. Supported types:
-        <list type="bullet">
-          <item><see cref="VersionEnum"/></item>
-          <item><see cref="string">Property name</see> resolvable to an <see cref="MemberInfo">annotated getter method</see></item>
-          <item><see cref="MemberInfo"/></item>
-        </list>
-      </param>
-    */
-    protected void CheckCompatibility(
+        #region protected
+        /**
+          <summary>Checks whether the specified feature is compatible with the
+            <see cref="Document.Version">document's conformance version</see>.</summary>
+          <param name="feature">Entity whose compatibility has to be checked. Supported types:
+            <list type="bullet">
+              <item><see cref="VersionEnum"/></item>
+              <item><see cref="string">Property name</see> resolvable to an <see cref="MemberInfo">annotated getter method</see></item>
+              <item><see cref="MemberInfo"/></item>
+            </list>
+          </param>
+        */
+        protected void CheckCompatibility(
       object feature
       )
     {

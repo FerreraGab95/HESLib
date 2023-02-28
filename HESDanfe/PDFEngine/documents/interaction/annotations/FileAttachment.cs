@@ -136,23 +136,19 @@ namespace HESDanfe.Documents.Interaction.Annotations
     */
     public IconTypeEnum IconType
     {
-      get
-      {return ToIconTypeEnum((PdfName)BaseDataObject[PdfName.Name]);}
-      set
-      {BaseDataObject[PdfName.Name] = ToCode(value);}
+      get => ToIconTypeEnum((PdfName)BaseDataObject[PdfName.Name]);
+      set => BaseDataObject[PdfName.Name] = ToCode(value);
     }
 
-    #region IFileResource
-    public FileSpecification DataFile
+        #region IFileResource
+        public FileSpecification DataFile
     {
-      get
-      {return FileSpecification.Wrap(BaseDataObject[PdfName.FS]);}
-      set
-      {BaseDataObject[PdfName.FS] = value.BaseObject;}
+      get => FileSpecification.Wrap(BaseDataObject[PdfName.FS]);
+      set => BaseDataObject[PdfName.FS] = value.BaseObject;
     }
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-  }
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+    }
 }

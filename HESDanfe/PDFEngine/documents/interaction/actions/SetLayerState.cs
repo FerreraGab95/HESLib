@@ -179,22 +179,21 @@ namespace HESDanfe.Documents.Interaction.Actions
       }
 
       public StateModeEnum Mode
-      {
-        get
-        {return mode;}
-        set
-        {
-          mode = value;
-  
-          if(baseStates != null)
-          {
-            int baseIndex = baseStates.GetBaseIndex(this);
-            baseStates.BaseDataObject[baseIndex] = value.GetName();
-          }
-        }
-      }
+            {
+                get => mode;
+                set
+                {
+                    mode = value;
 
-      public override int GetHashCode(
+                    if (baseStates != null)
+                    {
+                        int baseIndex = baseStates.GetBaseIndex(this);
+                        baseStates.BaseDataObject[baseIndex] = value.GetName();
+                    }
+                }
+            }
+
+            public override int GetHashCode(
         )
       {return mode.GetHashCode() ^ layers.Count;}
 
@@ -286,18 +285,17 @@ namespace HESDanfe.Documents.Interaction.Actions
       public LayerState this[
         int index
         ]
-      {
-        get
-        {return items[index];}
-        set
-        {
-          RemoveAt(index);
-          Insert(index, value);
-        }
-      }
+            {
+                get => items[index];
+                set
+                {
+                    RemoveAt(index);
+                    Insert(index, value);
+                }
+            }
 
-      #region ICollection<LayerState>
-      public void Add(
+            #region ICollection<LayerState>
+            public void Add(
         LayerState item
         )
       {
@@ -497,15 +495,13 @@ namespace HESDanfe.Documents.Interaction.Actions
     #region public
     public LayerStates States
     {
-      get
-      {return new LayerStates(BaseDataObject[PdfName.State]);}
-      set
-      {BaseDataObject[PdfName.State] = value.BaseObject;}
+      get => new LayerStates(BaseDataObject[PdfName.State]);
+      set => BaseDataObject[PdfName.State] = value.BaseObject;
     }
-    #endregion
-    #endregion
-    #endregion
-  }
+        #endregion
+        #endregion
+        #endregion
+    }
 
   internal static class StateModeEnumExtension
   {

@@ -171,19 +171,17 @@ namespace HESDanfe.Objects
 
     public override PdfObject Parent
     {
-      get
-      {return parent;}
-      internal set
-      {parent = value;}
+      get => parent;
+      internal set => parent = value;
     }
 
-    /**
-      <summary>Gets the dereferenced value corresponding to the given index.</summary>
-      <remarks>This method takes care to resolve the value returned by
-      <see cref="this[int]">this[int]</see>.</remarks>
-      <param name="index">Index of the item to return.</param>
-    */
-    public PdfDataObject Resolve(
+        /**
+          <summary>Gets the dereferenced value corresponding to the given index.</summary>
+          <remarks>This method takes care to resolve the value returned by
+          <see cref="this[int]">this[int]</see>.</remarks>
+          <param name="index">Index of the item to return.</param>
+        */
+        public PdfDataObject Resolve(
       int index
       )
     {return Resolve(this[index]);}
@@ -233,21 +231,17 @@ namespace HESDanfe.Objects
 
     public override bool Updateable
     {
-      get
-      {return updateable;}
-      set
-      {updateable = value;}
+      get => updateable;
+      set => updateable = value;
     }
 
-    public override bool Updated
+        public override bool Updated
     {
-      get
-      {return updated;}
-      protected internal set
-      {updated = value;}
+      get => updated;
+      protected internal set => updated = value;
     }
 
-    public override void WriteTo(
+        public override void WriteTo(
       IOutputStream stream,
       PdfFile context
       )
@@ -294,20 +288,19 @@ namespace HESDanfe.Objects
     public PdfDirectObject this[
       int index
       ]
-    {
-      get
-      {return items[index];}
-      set
-      {
-        PdfDirectObject oldItem = items[index];
-        items[index] = (PdfDirectObject)Include(value);
-        Exclude(oldItem);
-        Update();
-      }
-    }
+        {
+            get => items[index];
+            set
+            {
+                PdfDirectObject oldItem = items[index];
+                items[index] = (PdfDirectObject)Include(value);
+                Exclude(oldItem);
+                Update();
+            }
+        }
 
-    #region ICollection
-    public void Add(
+        #region ICollection
+        public void Add(
       PdfDirectObject item
       )
     {
@@ -374,13 +367,11 @@ namespace HESDanfe.Objects
     #region protected
     protected internal override bool Virtual
     {
-      get
-      {return virtual_;}
-      set
-      {virtual_ = value;}
+      get => virtual_;
+      set => virtual_ = value;
     }
-    #endregion
-    #endregion
-    #endregion
-  }
+        #endregion
+        #endregion
+        #endregion
+    }
 }

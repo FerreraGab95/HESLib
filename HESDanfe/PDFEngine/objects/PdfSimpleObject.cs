@@ -131,25 +131,22 @@ namespace HESDanfe.Objects
     {return RawValue.GetHashCode();}
 
     public sealed override PdfObject Parent
+        {
+            get => null; // NOTE: As simple objects are immutable, no parent can be associated.
+            internal set
+            {/* NOOP: As simple objects are immutable, no parent can be associated. */}
+        }
+
+        /**
+          <summary>Gets/Sets the low-level representation of the value.</summary>
+        */
+        public virtual TValue RawValue
     {
-      get
-      {return null;} // NOTE: As simple objects are immutable, no parent can be associated.
-      internal set
-      {/* NOOP: As simple objects are immutable, no parent can be associated. */}
+      get => value;
+      protected set => this.value = value;
     }
 
-    /**
-      <summary>Gets/Sets the low-level representation of the value.</summary>
-    */
-    public virtual TValue RawValue
-    {
-      get
-      {return value;}
-      protected set
-      {this.value = value;}
-    }
-
-    public override PdfObject Swap(
+        public override PdfObject Swap(
       PdfObject other
       )
     {throw new NotSupportedException("Immutable object");}
@@ -159,43 +156,38 @@ namespace HESDanfe.Objects
     {return Value.ToString();}
 
     public override bool Updateable
-    {
-      get
-      {return false;} // NOTE: Simple objects are immutable.
-      set
-      {/* NOOP: As simple objects are immutable, no update can be done. */}
-    }
+        {
+            get => false; // NOTE: Simple objects are immutable.
+            set
+            {/* NOOP: As simple objects are immutable, no update can be done. */}
+        }
 
-    public sealed override bool Updated
-    {
-      get
-      {return false;} // NOTE: Simple objects are immutable.
-      protected internal set
-      {/* NOOP: As simple objects are immutable, no update can be done. */}
-    }
+        public sealed override bool Updated
+        {
+            get => false; // NOTE: Simple objects are immutable.
+            protected internal set
+            {/* NOOP: As simple objects are immutable, no update can be done. */}
+        }
 
-    /**
-      <summary>Gets/Sets the high-level representation of the value.</summary>
-    */
-    public virtual object Value
+        /**
+          <summary>Gets/Sets the high-level representation of the value.</summary>
+        */
+        public virtual object Value
     {
-      get
-      {return value;}
-      protected set
-      {this.value = (TValue)value;}
+      get => value;
+      protected set => this.value = (TValue)value;
     }
-    #endregion
+        #endregion
 
-    #region protected
-    protected internal override bool Virtual
-    {
-      get
-      {return false;}
-      set
-      {/* NOOP */}
+        #region protected
+        protected internal override bool Virtual
+        {
+            get => false;
+            set
+            {/* NOOP */}
+        }
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 }

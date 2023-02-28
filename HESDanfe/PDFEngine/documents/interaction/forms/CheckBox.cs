@@ -101,13 +101,11 @@ namespace HESDanfe.Documents.Interaction.Forms
 
     public override object Value
     {
-      get
-      {return base.Value;}
-      set
-      {Checked = !(value == null || value.Equals(String.Empty) || value.Equals(PdfName.Off.Value));}
+      get => base.Value;
+      set => Checked = !(value == null || value.Equals(String.Empty) || value.Equals(PdfName.Off.Value));
     }
-    #endregion
-    #endregion
-    #endregion
-  }
+        #endregion
+        #endregion
+        #endregion
+    }
 }

@@ -78,43 +78,35 @@ namespace HESDanfe.Util.Math
     */
     public T High
     {
-      get
-      {return high;}
-      set
-      {high = value;}
+      get => high;
+      set => high = value;
     }
 
-    /**
-      <summary>Gets/Sets whether the higher endpoint is inclusive.</summary>
-    */
-    public bool HighInclusive
+        /**
+          <summary>Gets/Sets whether the higher endpoint is inclusive.</summary>
+        */
+        public bool HighInclusive
     {
-      get
-      {return highInclusive;}
-      set
-      {highInclusive = value;}
+      get => highInclusive;
+      set => highInclusive = value;
     }
 
-    /**
-      <summary>Gets/Sets the lower interval endpoint.</summary>
-    */
-    public T Low
+        /**
+          <summary>Gets/Sets the lower interval endpoint.</summary>
+        */
+        public T Low
     {
-      get
-      {return low;}
-      set
-      {low = value;}
+      get => low;
+      set => low = value;
     }
 
-    /**
-      <summary>Gets/Sets whether the lower endpoint is inclusive.</summary>
-    */
-    public bool LowInclusive
+        /**
+          <summary>Gets/Sets whether the lower endpoint is inclusive.</summary>
+        */
+        public bool LowInclusive
     {
-      get
-      {return lowInclusive;}
-      set
-      {lowInclusive = value;}
+      get => lowInclusive;
+      set => lowInclusive = value;
     }
-  }
+    }
 }

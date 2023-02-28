@@ -212,8 +212,7 @@ namespace HESDanfe.Tools
         */
         public Document Document
         {
-            get
-            { return document; }
+            get => document;
             set
             {
                 document = value;

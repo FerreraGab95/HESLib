@@ -77,45 +77,42 @@ namespace HESDanfe.Documents.Interaction.Forms
     */
     public bool Toggleable
     {
-      get
-      {return (Flags & FlagsEnum.NoToggleToOff) != FlagsEnum.NoToggleToOff;}
-      set
-      {Flags = EnumUtils.Mask(Flags, FlagsEnum.NoToggleToOff, !value);}
+      get => (Flags & FlagsEnum.NoToggleToOff) != FlagsEnum.NoToggleToOff;
+      set => Flags = EnumUtils.Mask(Flags, FlagsEnum.NoToggleToOff, !value);
     }
 
-    public override object Value
-    {
-      get
-      {return base.Value;}
-      set
-      {
-        /*
-          NOTE: The parent field's V entry holds a name object corresponding to the appearance state
-          of whichever child field is currently in the on state; the default value for this entry is
-          Off.
-        */
-        PdfName selectedWidgetName = new PdfName((string)value);
-        bool selected = false;
-        // Selecting the current appearance state for each widget...
-        foreach(Widget widget in Widgets)
+        public override object Value
         {
-          PdfName currentState;
-          if(((DualWidget)widget).WidgetName.Equals(value)) // Selected state.
-          {
-            selected = true;
-            currentState = selectedWidgetName;
-          }
-          else // Unselected state.
-          {currentState = PdfName.Off;}
+            get => base.Value;
+            set
+            {
+                /*
+                  NOTE: The parent field's V entry holds a name object corresponding to the appearance state
+                  of whichever child field is currently in the on state; the default value for this entry is
+                  Off.
+                */
+                PdfName selectedWidgetName = new PdfName((string)value);
+                bool selected = false;
+                // Selecting the current appearance state for each widget...
+                foreach (Widget widget in Widgets)
+                {
+                    PdfName currentState;
+                    if (((DualWidget)widget).WidgetName.Equals(value)) // Selected state.
+                    {
+                        selected = true;
+                        currentState = selectedWidgetName;
+                    }
+                    else // Unselected state.
+                    { currentState = PdfName.Off; }
 
-          widget.BaseDataObject[PdfName.AS] = currentState;
+                    widget.BaseDataObject[PdfName.AS] = currentState;
+                }
+                // Select the current widget!
+                BaseDataObject[PdfName.V] = (selected ? selectedWidgetName : null);
+            }
         }
-        // Select the current widget!
-        BaseDataObject[PdfName.V] = (selected ? selectedWidgetName : null);
-      }
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 }

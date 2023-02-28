@@ -168,89 +168,76 @@ namespace HESDanfe.Documents.Multimedia
         */
         public LocationEnum? Location
         {
-          get
-          {return LocationEnumExtension.Get((PdfInteger)BaseDataObject[PdfName.P]);}
-          set
-          {BaseDataObject[PdfName.P] = (value.HasValue ? value.Value.GetCode() : null);}
+          get => LocationEnumExtension.Get((PdfInteger)BaseDataObject[PdfName.P]);
+          set => BaseDataObject[PdfName.P] = (value.HasValue ? value.Value.GetCode() : null);
         }
 
-        /**
-          <summary>Gets/Sets what should occur if the floating window is positioned totally or
-          partially offscreen (that is, not visible on any physical monitor).</summary>
-        */
-        public OffscreenBehaviorEnum? OffscreenBehavior
+                /**
+                  <summary>Gets/Sets what should occur if the floating window is positioned totally or
+                  partially offscreen (that is, not visible on any physical monitor).</summary>
+                */
+                public OffscreenBehaviorEnum? OffscreenBehavior
         {
-          get
-          {return OffscreenBehaviorEnumExtension.Get((PdfInteger)BaseDataObject[PdfName.O]);}
-          set
-          {BaseDataObject[PdfName.O] = (value.HasValue ? value.Value.GetCode() : null);}
+          get => OffscreenBehaviorEnumExtension.Get((PdfInteger)BaseDataObject[PdfName.O]);
+          set => BaseDataObject[PdfName.O] = (value.HasValue ? value.Value.GetCode() : null);
         }
 
-        /**
-          <summary>Gets/Sets the window relative to which the floating window should be positioned.
-          </summary>
-        */
-        public RelatedWindowEnum? RelatedWindow
+                /**
+                  <summary>Gets/Sets the window relative to which the floating window should be positioned.
+                  </summary>
+                */
+                public RelatedWindowEnum? RelatedWindow
         {
-          get
-          {return RelatedWindowEnumExtension.Get((PdfInteger)BaseDataObject[PdfName.RT]);}
-          set
-          {BaseDataObject[PdfName.RT] = (value.HasValue ? value.Value.GetCode() : null);}
+          get => RelatedWindowEnumExtension.Get((PdfInteger)BaseDataObject[PdfName.RT]);
+          set => BaseDataObject[PdfName.RT] = (value.HasValue ? value.Value.GetCode() : null);
         }
 
-        /**
-          <summary>Gets/Sets how the floating window may be resized by a user.</summary>
-        */
-        public ResizeBehaviorEnum? ResizeBehavior
+                /**
+                  <summary>Gets/Sets how the floating window may be resized by a user.</summary>
+                */
+                public ResizeBehaviorEnum? ResizeBehavior
         {
-          get
-          {return ResizeBehaviorEnumExtension.Get((PdfInteger)BaseDataObject[PdfName.R]);}
-          set
-          {BaseDataObject[PdfName.R] = (value.HasValue ? value.Value.GetCode() : null);}
+          get => ResizeBehaviorEnumExtension.Get((PdfInteger)BaseDataObject[PdfName.R]);
+          set => BaseDataObject[PdfName.R] = (value.HasValue ? value.Value.GetCode() : null);
         }
 
-        /**
-          <summary>Gets/Sets the floating window's width and height, in pixels.</summary>
-          <remarks>These values correspond to the dimensions of the rectangle in which the media
-          will play, not including such items as title bar and resizing handles.</remarks>
-        */
-        public drawing::Size Size
+                /**
+                  <summary>Gets/Sets the floating window's width and height, in pixels.</summary>
+                  <remarks>These values correspond to the dimensions of the rectangle in which the media
+                  will play, not including such items as title bar and resizing handles.</remarks>
+                */
+                public drawing::Size Size
+                {
+                    get
+                    {
+                        PdfArray sizeObject = (PdfArray)BaseDataObject[PdfName.D];
+                        return new drawing::Size(((PdfInteger)sizeObject[0]).IntValue, ((PdfInteger)sizeObject[1]).IntValue);
+                    }
+                    set => BaseDataObject[PdfName.D] = new PdfArray(PdfInteger.Get(value.Width), PdfInteger.Get(value.Height));
+                }
+
+                /**
+                  <summary>Gets/Sets whether the floating window should include user interface elements that
+                  allow a user to close it.</summary>
+                  <remarks>Meaningful only if <see cref="TitleBarVisible"/> is true.</remarks>
+                */
+                public bool Closeable
         {
-          get
-          {
-            PdfArray sizeObject = (PdfArray)BaseDataObject[PdfName.D];
-            return new drawing::Size(((PdfInteger)sizeObject[0]).IntValue, ((PdfInteger)sizeObject[1]).IntValue);
-          }
-          set
-          {BaseDataObject[PdfName.D] = new PdfArray(PdfInteger.Get(value.Width), PdfInteger.Get(value.Height));}
+          get => (bool)PdfBoolean.GetValue(BaseDataObject[PdfName.UC], true);
+          set => BaseDataObject[PdfName.UC] = PdfBoolean.Get(value);
         }
 
-        /**
-          <summary>Gets/Sets whether the floating window should include user interface elements that
-          allow a user to close it.</summary>
-          <remarks>Meaningful only if <see cref="TitleBarVisible"/> is true.</remarks>
-        */
-        public bool Closeable
+                /**
+                  <summary>Gets/Sets whether the floating window should have a title bar.</summary>
+                */
+                public bool TitleBarVisible
         {
-          get
-          {return (bool)PdfBoolean.GetValue(BaseDataObject[PdfName.UC], true);}
-          set
-          {BaseDataObject[PdfName.UC] = PdfBoolean.Get(value);}
+          get => (bool)PdfBoolean.GetValue(BaseDataObject[PdfName.T], true);
+          set => BaseDataObject[PdfName.T] = PdfBoolean.Get(value);
         }
 
-        /**
-          <summary>Gets/Sets whether the floating window should have a title bar.</summary>
-        */
-        public bool TitleBarVisible
-        {
-          get
-          {return (bool)PdfBoolean.GetValue(BaseDataObject[PdfName.T], true);}
-          set
-          {BaseDataObject[PdfName.T] = PdfBoolean.Get(value);}
-        }
-
-        //TODO: TT entry!
-      }
+                //TODO: TT entry!
+            }
 
       public enum WindowTypeEnum
       {
@@ -286,65 +273,56 @@ namespace HESDanfe.Documents.Multimedia
       */
       public DeviceRGBColor BackgroundColor
       {
-        get
-        {return DeviceRGBColor.Get((PdfArray)BaseDataObject[PdfName.B]);}
-        set
-        {BaseDataObject[PdfName.B] = PdfObjectWrapper.GetBaseObject(value);}
+        get => DeviceRGBColor.Get((PdfArray)BaseDataObject[PdfName.B]);
+        set => BaseDataObject[PdfName.B] = PdfObjectWrapper.GetBaseObject(value);
       }
 
-      /**
-        <summary>Gets/Sets the opacity of the background color.</summary>
-        <returns>A number in the range 0 to 1, where 0 means full transparency and 1 full opacity.
-        </returns>
-      */
-      public double BackgroundOpacity
+            /**
+              <summary>Gets/Sets the opacity of the background color.</summary>
+              <returns>A number in the range 0 to 1, where 0 means full transparency and 1 full opacity.
+              </returns>
+            */
+            public double BackgroundOpacity
+            {
+                get => (double)PdfReal.GetValue(BaseDataObject[PdfName.O], 1d);
+                set
+                {
+                    if (value < 0)
+                    { value = 0; }
+                    else if (value > 1)
+                    { value = 1; }
+                    BaseDataObject[PdfName.O] = PdfReal.Get(value);
+                }
+            }
+
+            /**
+              <summary>Gets/Sets the options used in displaying floating windows.</summary>
+            */
+            public FloatingWindowParametersObject FloatingWindowParameters
       {
-        get
-        {return (double)PdfReal.GetValue(BaseDataObject[PdfName.O], 1d);}
-        set
-        {
-          if(value < 0)
-          {value = 0;}
-          else if(value > 1)
-          {value = 1;}
-          BaseDataObject[PdfName.O] = PdfReal.Get(value);
+        get => new FloatingWindowParametersObject(BaseDataObject.Get<PdfDictionary>(PdfName.F));
+        set => BaseDataObject[PdfName.F] = PdfObjectWrapper.GetBaseObject(value);
+      }
+
+            /**
+              <summary>Gets/Sets which monitor in a multi-monitor system a floating or full-screen window
+              should appear on.</summary>
+            */
+            public MonitorSpecifierEnum? MonitorSpecifier
+      {
+        get => MonitorSpecifierEnumExtension.Get((PdfInteger)BaseDataObject[PdfName.M]);
+        set => BaseDataObject[PdfName.M] = (value.HasValue ? value.Value.GetCode() : null);
+      }
+
+            /**
+              <summary>Gets/Sets the type of window that the media object should play in.</summary>
+            */
+            public WindowTypeEnum? WindowType
+      {
+        get => WindowTypeEnumExtension.Get((PdfInteger)BaseDataObject[PdfName.W]);
+        set => BaseDataObject[PdfName.W] = (value.HasValue ? value.Value.GetCode() : null);
+      }
         }
-      }
-
-      /**
-        <summary>Gets/Sets the options used in displaying floating windows.</summary>
-      */
-      public FloatingWindowParametersObject FloatingWindowParameters
-      {
-        get
-        {return new FloatingWindowParametersObject(BaseDataObject.Get<PdfDictionary>(PdfName.F));}
-        set
-        {BaseDataObject[PdfName.F] = PdfObjectWrapper.GetBaseObject(value);}
-      }
-
-      /**
-        <summary>Gets/Sets which monitor in a multi-monitor system a floating or full-screen window
-        should appear on.</summary>
-      */
-      public MonitorSpecifierEnum? MonitorSpecifier
-      {
-        get
-        {return MonitorSpecifierEnumExtension.Get((PdfInteger)BaseDataObject[PdfName.M]);}
-        set
-        {BaseDataObject[PdfName.M] = (value.HasValue ? value.Value.GetCode() : null);}
-      }
-
-      /**
-        <summary>Gets/Sets the type of window that the media object should play in.</summary>
-      */
-      public WindowTypeEnum? WindowType
-      {
-        get
-        {return WindowTypeEnumExtension.Get((PdfInteger)BaseDataObject[PdfName.W]);}
-        set
-        {BaseDataObject[PdfName.W] = (value.HasValue ? value.Value.GetCode() : null);}
-      }
-    }
     #endregion
 
     #region dynamic
@@ -376,27 +354,23 @@ namespace HESDanfe.Documents.Multimedia
     */
     public Viability Preferences
     {
-      get
-      {return new Viability(BaseDataObject.Get<PdfDictionary>(PdfName.BE));}
-      set
-      {BaseDataObject[PdfName.BE] = PdfObjectWrapper.GetBaseObject(value);}
+      get => new Viability(BaseDataObject.Get<PdfDictionary>(PdfName.BE));
+      set => BaseDataObject[PdfName.BE] = PdfObjectWrapper.GetBaseObject(value);
     }
-  
-    /**
-      <summary>Gets/Sets the minimum requirements the renderer must honor in order to be considered
-      viable.</summary>
-    */
-    public Viability Requirements
+
+        /**
+          <summary>Gets/Sets the minimum requirements the renderer must honor in order to be considered
+          viable.</summary>
+        */
+        public Viability Requirements
     {
-      get
-      {return new Viability(BaseDataObject.Get<PdfDictionary>(PdfName.MH));}
-      set
-      {BaseDataObject[PdfName.MH] = PdfObjectWrapper.GetBaseObject(value);}
+      get => new Viability(BaseDataObject.Get<PdfDictionary>(PdfName.MH));
+      set => BaseDataObject[PdfName.MH] = PdfObjectWrapper.GetBaseObject(value);
     }
-    #endregion
-    #endregion
-    #endregion
-  }
+        #endregion
+        #endregion
+        #endregion
+    }
 
   internal static class LocationEnumExtension
   {

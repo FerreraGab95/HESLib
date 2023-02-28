@@ -310,54 +310,49 @@ namespace HESDanfe.Tools
     */
     public AreaModeEnum AreaMode
     {
-      get{return areaMode;}
-      set{areaMode = value;}
+      get => areaMode;
+      set => areaMode = value;
     }
 
-    /**
-      <summary>Gets the graphic areas whose text has to be extracted.</summary>
-    */
-    public IList<RectangleF> Areas
+        /**
+          <summary>Gets the graphic areas whose text has to be extracted.</summary>
+        */
+        public IList<RectangleF> Areas
     {
-      get
-      {return areas;}
-      set
-      {areas = (value == null ? new List<RectangleF>() : new List<RectangleF>(value));}
+      get => areas;
+      set => areas = (value == null ? new List<RectangleF>() : new List<RectangleF>(value));
     }
 
-    /**
-      <summary>Gets the admitted outer area (in points) for containment matching purposes.</summary>
-      <remarks>This measure is useful to ensure that text whose boxes overlap with the area bounds
-      is not excluded from the match.</remarks>
-    */
-    public float AreaTolerance
+        /**
+          <summary>Gets the admitted outer area (in points) for containment matching purposes.</summary>
+          <remarks>This measure is useful to ensure that text whose boxes overlap with the area bounds
+          is not excluded from the match.</remarks>
+        */
+        public float AreaTolerance
     {
-      get
-      {return areaTolerance;}
-      set
-      {areaTolerance = value;}
+      get => areaTolerance;
+      set => areaTolerance = value;
     }
 
-    /**
-      <summary>Gets/Sets whether the text strings have to be dehyphenated.</summary>
-    */
-    public bool Dehyphenated
-    {
-      get
-      {return dehyphenated;}
-      set
-      {
-        dehyphenated = value;
-        if(dehyphenated)
-        {Sorted = true;}
-      }
-    }
+        /**
+          <summary>Gets/Sets whether the text strings have to be dehyphenated.</summary>
+        */
+        public bool Dehyphenated
+        {
+            get => dehyphenated;
+            set
+            {
+                dehyphenated = value;
+                if (dehyphenated)
+                { Sorted = true; }
+            }
+        }
 
-    /**
-      <summary>Extracts text strings from the specified content context.</summary>
-      <param name="contentContext">Source content context.</param>
-    */
-    public IDictionary<RectangleF?,IList<ITextString>> Extract(
+        /**
+          <summary>Extracts text strings from the specified content context.</summary>
+          <param name="contentContext">Source content context.</param>
+        */
+        public IDictionary<RectangleF?,IList<ITextString>> Extract(
       IContentContext contentContext
       )
     {
@@ -572,23 +567,22 @@ namespace HESDanfe.Tools
       <summary>Gets/Sets whether the text strings have to be sorted.</summary>
     */
     public bool Sorted
-    {
-      get
-      {return sorted;}
-      set
-      {
-        sorted = value;
-        if(!sorted)
-        {Dehyphenated = false;}
-      }
-    }
-    #endregion
+        {
+            get => sorted;
+            set
+            {
+                sorted = value;
+                if (!sorted)
+                { Dehyphenated = false; }
+            }
+        }
+        #endregion
 
-    #region private
-    /**
-      <summary>Scans a content level looking for text.</summary>
-    */
-    private void Extract(
+        #region private
+        /**
+          <summary>Scans a content level looking for text.</summary>
+        */
+        private void Extract(
       ContentScanner level,
       IList<ContentScanner.TextStringWrapper> extractedTextStrings
       )

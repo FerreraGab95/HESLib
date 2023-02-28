@@ -120,8 +120,7 @@ namespace HESDanfe.Documents.Files
                 PdfDate dateObject = (PdfDate)GetInfo(PdfName.CreationDate);
                 return dateObject != null ? (DateTime?)dateObject.Value : null;
             }
-            set
-            { SetInfo(PdfName.CreationDate, PdfDate.Get(value)); }
+            set => SetInfo(PdfName.CreationDate, PdfDate.Get(value));
         }
 
         /**
@@ -143,8 +142,7 @@ namespace HESDanfe.Documents.Files
                 PdfName subtype = (PdfName)BaseDataObject.Header[PdfName.Subtype];
                 return subtype != null ? (string)subtype.Value : null;
             }
-            set
-            { BaseDataObject.Header[PdfName.Subtype] = new PdfName(value); }
+            set => BaseDataObject.Header[PdfName.Subtype] = new PdfName(value);
         }
 
         /**
@@ -157,8 +155,7 @@ namespace HESDanfe.Documents.Files
                 PdfDate dateObject = (PdfDate)GetInfo(PdfName.ModDate);
                 return (DateTime?)(dateObject != null ? dateObject.Value : null);
             }
-            set
-            { SetInfo(PdfName.ModDate, PdfDate.Get(value)); }
+            set => SetInfo(PdfName.ModDate, PdfDate.Get(value));
         }
 
         /**
@@ -171,8 +168,7 @@ namespace HESDanfe.Documents.Files
                 PdfInteger sizeObject = (PdfInteger)GetInfo(PdfName.Size);
                 return sizeObject != null ? sizeObject.IntValue : 0;
             }
-            set
-            { SetInfo(PdfName.Size, PdfInteger.Get(value)); }
+            set => SetInfo(PdfName.Size, PdfInteger.Get(value));
         }
         #endregion
 

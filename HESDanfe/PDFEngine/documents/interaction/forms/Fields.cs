@@ -107,56 +107,52 @@ namespace HESDanfe.Documents.Interaction.Forms
     public Field this[
       string key
       ]
-    {
-      get
-      {
-        /*
-          TODO: It is possible for different field dictionaries to have the SAME fully qualified field
-          name if they are descendants of a common ancestor with that name and have no
-          partial field names (T entries) of their own. Such field dictionaries are different
-          representations of the same underlying field; they should differ only in properties
-          that specify their visual appearance. In particular, field dictionaries with the same
-          fully qualified field name must have the same field type (FT), value (V), and default
-          value (DV).
-         */
-        PdfReference valueFieldReference = null;
         {
-          IEnumerator partialNamesIterator = key.Split('.').GetEnumerator();
-          IEnumerator<PdfDirectObject> fieldObjectsIterator = BaseDataObject.GetEnumerator();
-          while(partialNamesIterator.MoveNext())
-          {
-            string partialName = (string)partialNamesIterator.Current;
-            valueFieldReference = null;
-            while(fieldObjectsIterator != null
-              && fieldObjectsIterator.MoveNext())
+            get
             {
-              PdfReference fieldReference = (PdfReference)fieldObjectsIterator.Current;
-              PdfDictionary fieldDictionary = (PdfDictionary)fieldReference.DataObject;
-              PdfTextString fieldName = (PdfTextString)fieldDictionary[PdfName.T];
-              if(fieldName != null && fieldName.Value.Equals(partialName))
-              {
-                valueFieldReference = fieldReference;
-                PdfArray kidFieldObjects = (PdfArray)fieldDictionary.Resolve(PdfName.Kids);
-                fieldObjectsIterator = (kidFieldObjects == null ? null : kidFieldObjects.GetEnumerator());
-                break;
-              }
+                /*
+                  TODO: It is possible for different field dictionaries to have the SAME fully qualified field
+                  name if they are descendants of a common ancestor with that name and have no
+                  partial field names (T entries) of their own. Such field dictionaries are different
+                  representations of the same underlying field; they should differ only in properties
+                  that specify their visual appearance. In particular, field dictionaries with the same
+                  fully qualified field name must have the same field type (FT), value (V), and default
+                  value (DV).
+                 */
+                PdfReference valueFieldReference = null;
+                {
+                    IEnumerator partialNamesIterator = key.Split('.').GetEnumerator();
+                    IEnumerator<PdfDirectObject> fieldObjectsIterator = BaseDataObject.GetEnumerator();
+                    while (partialNamesIterator.MoveNext())
+                    {
+                        string partialName = (string)partialNamesIterator.Current;
+                        valueFieldReference = null;
+                        while (fieldObjectsIterator != null
+                          && fieldObjectsIterator.MoveNext())
+                        {
+                            PdfReference fieldReference = (PdfReference)fieldObjectsIterator.Current;
+                            PdfDictionary fieldDictionary = (PdfDictionary)fieldReference.DataObject;
+                            PdfTextString fieldName = (PdfTextString)fieldDictionary[PdfName.T];
+                            if (fieldName != null && fieldName.Value.Equals(partialName))
+                            {
+                                valueFieldReference = fieldReference;
+                                PdfArray kidFieldObjects = (PdfArray)fieldDictionary.Resolve(PdfName.Kids);
+                                fieldObjectsIterator = (kidFieldObjects == null ? null : kidFieldObjects.GetEnumerator());
+                                break;
+                            }
+                        }
+                        if (valueFieldReference == null)
+                            break;
+                    }
+                }
+                return Field.Wrap(valueFieldReference);
             }
-            if(valueFieldReference == null)
-              break;
-          }
-        }
-        return Field.Wrap(valueFieldReference);
-      }
-      set
-      {
-        throw new NotImplementedException();
-    /*
+            set => throw new NotImplementedException();/*
     TODO:put the field into the correct position, based on the full name (key)!!!
     */
-      }
-    }
+        }
 
-    public bool TryGetValue(
+        public bool TryGetValue(
       string key,
       out Field value
       )

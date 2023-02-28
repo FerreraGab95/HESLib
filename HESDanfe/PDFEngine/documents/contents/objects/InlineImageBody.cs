@@ -55,13 +55,11 @@ namespace HESDanfe.Documents.Contents.Objects
     #region public
     public IBuffer Value
     {
-      get
-      {return value;}
-      set
-      {this.value = value;}
+      get => value;
+      set => this.value = value;
     }
 
-    public override void WriteTo(
+        public override void WriteTo(
       IOutputStream stream,
       Document context
       )

@@ -165,14 +165,13 @@ namespace HESDanfe.Objects
     {return original;}
 
     public override PdfObject Parent
-    {
-      get
-      {return null;} // NOTE: As indirect objects are root objects, no parent can be associated.
-      internal set
-      {/* NOOP: As indirect objects are root objects, no parent can be associated. */}
-    }
+        {
+            get => null; // NOTE: As indirect objects are root objects, no parent can be associated.
+            internal set
+            {/* NOOP: As indirect objects are root objects, no parent can be associated. */}
+        }
 
-    public override PdfObject Swap(
+        public override PdfObject Swap(
       PdfObject other
       )
     {
@@ -205,32 +204,29 @@ namespace HESDanfe.Objects
 
     public override bool Updateable
     {
-      get
-      {return updateable;}
-      set
-      {updateable = value;}
+      get => updateable;
+      set => updateable = value;
     }
 
-    public override bool Updated
-    {
-      get
-      {return updated;}
-      protected internal set
-      {
-        if(value && original)
+        public override bool Updated
         {
-          /*
-            NOTE: It's expected that DropOriginal() is invoked by IndirectObjects indexer;
-            such an action is delegated because clients may invoke directly the indexer skipping
-            this method.
-          */
-          file.IndirectObjects.Update(this);
+            get => updated;
+            protected internal set
+            {
+                if (value && original)
+                {
+                    /*
+                      NOTE: It's expected that DropOriginal() is invoked by IndirectObjects indexer;
+                      such an action is delegated because clients may invoke directly the indexer skipping
+                      this method.
+                    */
+                    file.IndirectObjects.Update(this);
+                }
+                updated = value;
+            }
         }
-        updated = value;
-      }
-    }
 
-    public override void WriteTo(
+        public override void WriteTo(
       IOutputStream stream,
       PdfFile context
       )
@@ -338,29 +334,28 @@ namespace HESDanfe.Objects
 
     #region protected
     protected internal override bool Virtual
-    {
-      get
-      {return virtual_;}
-      set
-      {
-        if(virtual_ && !value)
         {
-          /*
-            NOTE: When a virtual indirect object becomes concrete it must be registered.
-          */
-          file.IndirectObjects.AddVirtual(this);
-          virtual_ = false;
-          Reference.Update();
+            get => virtual_;
+            set
+            {
+                if (virtual_ && !value)
+                {
+                    /*
+                      NOTE: When a virtual indirect object becomes concrete it must be registered.
+                    */
+                    file.IndirectObjects.AddVirtual(this);
+                    virtual_ = false;
+                    Reference.Update();
+                }
+                else
+                { virtual_ = value; }
+                dataObject.Virtual = virtual_;
+            }
         }
-        else
-        {virtual_ = value;}
-        dataObject.Virtual = virtual_;
-      }
-    }
-    #endregion
+        #endregion
 
-    #region internal
-    internal void DropFile(
+        #region internal
+        internal void DropFile(
       )
     {
       Uncompress();

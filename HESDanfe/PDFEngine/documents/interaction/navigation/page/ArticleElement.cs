@@ -97,33 +97,30 @@ namespace HESDanfe.Documents.Interaction.Navigation.Page
       <summary>Gets/Sets the location on the page in default user space units.</summary>
     */
     public RectangleF Box
-    {
-      get
-      {
-        HESDanfe.Objects.Rectangle box = HESDanfe.Objects.Rectangle.Wrap(BaseDataObject[PdfName.R]);
-        return new RectangleF(
-          (float)box.Left,
-          (float)(Page.Box.Height - box.Top),
-          (float)box.Width,
-          (float)box.Height
-          );
-      }
-      set
-      {
-        BaseDataObject[PdfName.R] = new HESDanfe.Objects.Rectangle(
-          value.X,
-          Page.Box.Height - value.Y,
-          value.Width,
-          value.Height
-          ).BaseDataObject;
-      }
-    }
+        {
+            get
+            {
+                HESDanfe.Objects.Rectangle box = HESDanfe.Objects.Rectangle.Wrap(BaseDataObject[PdfName.R]);
+                return new RectangleF(
+                  (float)box.Left,
+                  (float)(Page.Box.Height - box.Top),
+                  (float)box.Width,
+                  (float)box.Height
+                  );
+            }
+            set => BaseDataObject[PdfName.R] = new HESDanfe.Objects.Rectangle(
+                value.X,
+                Page.Box.Height - value.Y,
+                value.Width,
+                value.Height
+                ).BaseDataObject;
+        }
 
-    /**
-      <summary>Deletes this bead removing also its references on the page and its article thread.
-      </summary>
-    */
-    public override bool Delete(
+        /**
+          <summary>Deletes this bead removing also its references on the page and its article thread.
+          </summary>
+        */
+        public override bool Delete(
       )
     {
       // Shallow removal (references):

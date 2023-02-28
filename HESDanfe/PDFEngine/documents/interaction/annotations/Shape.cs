@@ -62,24 +62,23 @@ namespace HESDanfe.Documents.Interaction.Annotations
       <summary>Gets/Sets the color with which to fill the interior of the annotation's shape.</summary>
     */
     public DeviceRGBColor FillColor
-    {
-      get
-      {
-        PdfArray fillColorObject = (PdfArray)BaseDataObject[PdfName.IC];
-//TODO:use baseObject constructor!!!
-        return fillColorObject != null
-          ? new DeviceRGBColor(
-            ((IPdfNumber)fillColorObject[0]).RawValue,
-            ((IPdfNumber)fillColorObject[1]).RawValue,
-            ((IPdfNumber)fillColorObject[2]).RawValue
-            )
-          : null;
-      }
-      set
-      {BaseDataObject[PdfName.IC] = (PdfDirectObject)value.BaseDataObject;}
+        {
+            get
+            {
+                PdfArray fillColorObject = (PdfArray)BaseDataObject[PdfName.IC];
+                //TODO:use baseObject constructor!!!
+                return fillColorObject != null
+                  ? new DeviceRGBColor(
+                    ((IPdfNumber)fillColorObject[0]).RawValue,
+                    ((IPdfNumber)fillColorObject[1]).RawValue,
+                    ((IPdfNumber)fillColorObject[2]).RawValue
+                    )
+                  : null;
+            }
+            set => BaseDataObject[PdfName.IC] = (PdfDirectObject)value.BaseDataObject;
+        }
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 }

@@ -99,40 +99,34 @@ namespace HESDanfe.Documents.Contents.Entities
     */
     public int BitsPerComponent
     {
-      get
-      {return bitsPerComponent;}
-      protected set
-      {bitsPerComponent = value;}
+      get => bitsPerComponent;
+      protected set => bitsPerComponent = value;
     }
 
-    /**
-      <summary>Gets/Sets the height of the image in samples [PDF:1.6:4.8.2].</summary>
-    */
-    public int Height
+        /**
+          <summary>Gets/Sets the height of the image in samples [PDF:1.6:4.8.2].</summary>
+        */
+        public int Height
     {
-      get
-      {return height;}
-      protected set
-      {height = value;}
+      get => height;
+      protected set => height = value;
     }
 
-    /**
-      <summary>Gets/Sets the width of the image in samples [PDF:1.6:4.8.2].</summary>
-    */
-    public int Width
+        /**
+          <summary>Gets/Sets the width of the image in samples [PDF:1.6:4.8.2].</summary>
+        */
+        public int Width
     {
-      get
-      {return width;}
-      protected set
-      {width = value;}
+      get => width;
+      protected set => width = value;
     }
-    #endregion
+        #endregion
 
-    #region protected
-    /**
-      <summary>Gets the underlying stream.</summary>
-    */
-    protected System.IO.Stream Stream
+        #region protected
+        /**
+          <summary>Gets the underlying stream.</summary>
+        */
+        protected System.IO.Stream Stream
     {
       get
       {return stream;}

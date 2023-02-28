@@ -251,26 +251,25 @@ namespace HESDanfe.Documents.Interaction.Navigation.Page
     public ArticleElement this[
       int index
       ]
-    {
-      get
-      {
-        if(index < 0)
-          throw new ArgumentOutOfRangeException();
+        {
+            get
+            {
+                if (index < 0)
+                    throw new ArgumentOutOfRangeException();
 
-        ElementGetter getter = new ElementGetter(index);
-        Iterate(getter);
-        PdfDictionary bead = getter.Bead;
-        if(bead == null)
-          throw new ArgumentOutOfRangeException();
+                ElementGetter getter = new ElementGetter(index);
+                Iterate(getter);
+                PdfDictionary bead = getter.Bead;
+                if (bead == null)
+                    throw new ArgumentOutOfRangeException();
 
-        return ArticleElement.Wrap(bead.Reference);
-      }
-      set
-      {throw new NotImplementedException();}
-    }
+                return ArticleElement.Wrap(bead.Reference);
+            }
+            set => throw new NotImplementedException();
+        }
 
-    #region ICollection<TItem>
-    public void Add(
+        #region ICollection<TItem>
+        public void Add(
       ArticleElement @object
       )
     {
@@ -344,21 +343,20 @@ namespace HESDanfe.Documents.Interaction.Navigation.Page
 
     #region private
     private PdfDictionary FirstBead
-    {
-      get
-      {return (PdfDictionary)BaseDataObject.Resolve(PdfName.F);}
-      set
-      {
-        PdfDictionary oldValue = FirstBead;
-        BaseDataObject[PdfName.F] = PdfObject.Unresolve(value);
-        if(value != null)
-        {value[PdfName.T] = BaseObject;}
-        if(oldValue != null)
-        {oldValue.Remove(PdfName.T);}
-      }
-    }
+        {
+            get => (PdfDictionary)BaseDataObject.Resolve(PdfName.F);
+            set
+            {
+                PdfDictionary oldValue = FirstBead;
+                BaseDataObject[PdfName.F] = PdfObject.Unresolve(value);
+                if (value != null)
+                { value[PdfName.T] = BaseObject; }
+                if (oldValue != null)
+                { oldValue.Remove(PdfName.T); }
+            }
+        }
 
-    private void Iterate(
+        private void Iterate(
       IPredicate predicate
       )
     {

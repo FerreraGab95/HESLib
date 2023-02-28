@@ -339,13 +339,13 @@ namespace HESDanfe
 
             if (FilePath.IsDirectoryPath())
             {
-                FilePath = System.IO.Path.Combine(FilePath, System.IO.Path.GetDirectoryName(FilePath) + ".pdf");
+                FilePath = System.IO.Path.Combine(FilePath, $"{System.IO.Path.GetDirectoryName(FilePath)}-{TipoDocumento}.pdf");
             }
             else
 
             if (FilePath.IsFilePath())
             {
-                FilePath = System.IO.Path.Combine(new FileInfo(FilePath).Directory.FullName, System.IO.Path.GetFileNameWithoutExtension(FilePath) + ".pdf");
+                FilePath = System.IO.Path.Combine(new FileInfo(FilePath).Directory.FullName, $"{System.IO.Path.GetFileNameWithoutExtension(FilePath)}.pdf");
             }
             else
             {

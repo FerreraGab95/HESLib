@@ -63,14 +63,12 @@ namespace HESDanfe.Documents.Multimedia
     #region IFileResource
     public FileSpecification DataFile
     {
-      get
-      {return FileSpecification.Wrap(BaseDataObject[PdfName.F]);}
-      set
-      {BaseDataObject[PdfName.F] = value.BaseObject;}
+      get => FileSpecification.Wrap(BaseDataObject[PdfName.F]);
+      set => BaseDataObject[PdfName.F] = value.BaseObject;
     }
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-  }
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+    }
 }

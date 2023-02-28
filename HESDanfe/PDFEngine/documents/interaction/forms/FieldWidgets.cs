@@ -109,26 +109,25 @@ namespace HESDanfe.Documents.Interaction.Forms
     public Widget this[
       int index
       ]
-    {
-      get
-      {
-        PdfDataObject baseDataObject = BaseDataObject;
-        if(baseDataObject is PdfDictionary) // Single annotation.
         {
-          if(index != 0)
-            throw new ArgumentException("Index: " + index + ", Size: 1");
+            get
+            {
+                PdfDataObject baseDataObject = BaseDataObject;
+                if (baseDataObject is PdfDictionary) // Single annotation.
+                {
+                    if (index != 0)
+                        throw new ArgumentException("Index: " + index + ", Size: 1");
 
-          return NewWidget(BaseObject);
+                    return NewWidget(BaseObject);
+                }
+
+                return NewWidget(((PdfArray)baseDataObject)[index]);
+            }
+            set => EnsureArray()[index] = value.BaseObject;
         }
 
-        return NewWidget(((PdfArray)baseDataObject)[index]);
-      }
-      set
-      {EnsureArray()[index] = value.BaseObject;}
-    }
-
-    #region ICollection
-    public void Add(
+        #region ICollection
+        public void Add(
       Widget value
       )
     {

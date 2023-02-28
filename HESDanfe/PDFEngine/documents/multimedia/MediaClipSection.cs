@@ -58,13 +58,11 @@ namespace HESDanfe.Documents.Multimedia
     #region public
     public override PdfObjectWrapper Data
     {
-      get
-      {return MediaClip.Wrap(BaseDataObject[PdfName.D]).Data;}
-      set
-      {throw new NotImplementedException();}
+      get => MediaClip.Wrap(BaseDataObject[PdfName.D]).Data;
+      set => throw new NotImplementedException();
     }
-    #endregion
-    #endregion
-    #endregion
-  }
+        #endregion
+        #endregion
+        #endregion
+    }
 }

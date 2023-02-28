@@ -142,62 +142,52 @@ namespace HESDanfe.Tokens
     */
     public int Generation
     {
-      get
-      {return generation;}
-      internal set
-      {generation = value;}
+      get => generation;
+      internal set => generation = value;
     }
 
-    /**
-      <summary>Gets the object number.</summary>
-    */
-    public int Number
+        /**
+          <summary>Gets the object number.</summary>
+        */
+        public int Number
     {
-      get
-      {return number;}
-      internal set
-      {number = value;}
+      get => number;
+      internal set => number = value;
     }
 
-    /**
-      <summary>Gets its indirect-object byte offset within the serialized file (in-use entry),
-      the next free-object object number (free entry) or the object index within its object stream
-      (compressed entry).</summary>
-    */
-    public int Offset
+        /**
+          <summary>Gets its indirect-object byte offset within the serialized file (in-use entry),
+          the next free-object object number (free entry) or the object index within its object stream
+          (compressed entry).</summary>
+        */
+        public int Offset
     {
-      get
-      {return offset;}
-      internal set
-      {offset = value;}
+      get => offset;
+      internal set => offset = value;
     }
 
-    /**
-      <summary>Gets the object number of the object stream in which this object is stored [PDF:1.6:3.4.7],
-      in case it is a <see cref="UsageEnum.InUseCompressed">compressed</see> one.</summary>
-      <returns>-1 in case this is <see cref="UsageEnum.InUse">not a compressed</see>-object entry.</returns>
-    */
-    public int StreamNumber
+        /**
+          <summary>Gets the object number of the object stream in which this object is stored [PDF:1.6:3.4.7],
+          in case it is a <see cref="UsageEnum.InUseCompressed">compressed</see> one.</summary>
+          <returns>-1 in case this is <see cref="UsageEnum.InUse">not a compressed</see>-object entry.</returns>
+        */
+        public int StreamNumber
     {
-      get
-      {return streamNumber;}
-      internal set
-      {streamNumber = value;}
+      get => streamNumber;
+      internal set => streamNumber = value;
     }
 
-    /**
-      <summary>Gets the usage state.</summary>
-    */
-    public UsageEnum Usage
+        /**
+          <summary>Gets the usage state.</summary>
+        */
+        public UsageEnum Usage
     {
-      get
-      {return usage;}
-      internal set
-      {usage = value;}
+      get => usage;
+      internal set => usage = value;
     }
 
-    #region ICloneable
-    public object Clone(
+        #region ICloneable
+        public object Clone(
       )
     {return MemberwiseClone();}
     #endregion

@@ -64,24 +64,20 @@ namespace HESDanfe.Documents.Interaction.Forms
     */
     public bool Editable
     {
-      get
-      {return (Flags & FlagsEnum.Edit) == FlagsEnum.Edit;}
-      set
-      {Flags = EnumUtils.Mask(Flags, FlagsEnum.Edit, value);}
+      get => (Flags & FlagsEnum.Edit) == FlagsEnum.Edit;
+      set => Flags = EnumUtils.Mask(Flags, FlagsEnum.Edit, value);
     }
 
-    /**
-      <summary>Gets/Sets whether the edited text is spell checked.</summary>
-    */
-    public bool SpellChecked
+        /**
+          <summary>Gets/Sets whether the edited text is spell checked.</summary>
+        */
+        public bool SpellChecked
     {
-      get
-      {return (Flags & FlagsEnum.DoNotSpellCheck) != FlagsEnum.DoNotSpellCheck;}
-      set
-      {Flags = EnumUtils.Mask(Flags, FlagsEnum.DoNotSpellCheck, !value);}
+      get => (Flags & FlagsEnum.DoNotSpellCheck) != FlagsEnum.DoNotSpellCheck;
+      set => Flags = EnumUtils.Mask(Flags, FlagsEnum.DoNotSpellCheck, !value);
     }
-    #endregion
-    #endregion
-    #endregion
-  }
+        #endregion
+        #endregion
+        #endregion
+    }
 }

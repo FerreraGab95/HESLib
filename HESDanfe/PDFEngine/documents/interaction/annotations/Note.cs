@@ -152,31 +152,28 @@ namespace HESDanfe.Documents.Interaction.Annotations
     */
     public IconTypeEnum IconType
     {
-      get
-      {return ToIconTypeEnum((PdfName)BaseDataObject[PdfName.Name]);}
-      set
-      {BaseDataObject[PdfName.Name] = ToCode(value);}
+      get => ToIconTypeEnum((PdfName)BaseDataObject[PdfName.Name]);
+      set => BaseDataObject[PdfName.Name] = ToCode(value);
     }
 
-    /**
-      <summary>Gets/Sets whether the annotation should initially be displayed open.</summary>
-    */
-    public bool IsOpen
-    {
-      get
-      {
-        PdfBoolean openObject = (PdfBoolean)BaseDataObject[PdfName.Open];
-        return openObject != null
-          ? openObject.BooleanValue
-          : false;
-      }
-      set
-      {BaseDataObject[PdfName.Open] = PdfBoolean.Get(value);}
-    }
+        /**
+          <summary>Gets/Sets whether the annotation should initially be displayed open.</summary>
+        */
+        public bool IsOpen
+        {
+            get
+            {
+                PdfBoolean openObject = (PdfBoolean)BaseDataObject[PdfName.Open];
+                return openObject != null
+                  ? openObject.BooleanValue
+                  : false;
+            }
+            set => BaseDataObject[PdfName.Open] = PdfBoolean.Get(value);
+        }
 
-  //TODO:State and StateModel!!!
-    #endregion
-    #endregion
-    #endregion
-  }
+        //TODO:State and StateModel!!!
+        #endregion
+        #endregion
+        #endregion
+    }
 }

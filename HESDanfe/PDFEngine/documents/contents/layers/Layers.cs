@@ -139,13 +139,11 @@ namespace HESDanfe.Documents.Contents.Layers
       int index
       ]
     {
-      get
-      {return base[GetBaseIndex(index)];}
-      set
-      {base[GetBaseIndex(index)] = value;}
+      get => base[GetBaseIndex(index)];
+      set => base[GetBaseIndex(index)] = value;
     }
 
-    public override string ToString(
+        public override string ToString(
       )
     {return Title;}
 

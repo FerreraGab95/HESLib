@@ -75,10 +75,8 @@ namespace HESDanfe.Documents.Interaction.Forms
         */
         public bool IsMultiline
         {
-            get
-            { return (Flags & FlagsEnum.Multiline) == FlagsEnum.Multiline; }
-            set
-            { Flags = EnumUtils.Mask(Flags, FlagsEnum.Multiline, value); }
+            get => (Flags & FlagsEnum.Multiline) == FlagsEnum.Multiline;
+            set => Flags = EnumUtils.Mask(Flags, FlagsEnum.Multiline, value);
         }
 
         /**
@@ -86,10 +84,8 @@ namespace HESDanfe.Documents.Interaction.Forms
         */
         public bool IsPassword
         {
-            get
-            { return (Flags & FlagsEnum.Password) == FlagsEnum.Password; }
-            set
-            { Flags = EnumUtils.Mask(Flags, FlagsEnum.Password, value); }
+            get => (Flags & FlagsEnum.Password) == FlagsEnum.Password;
+            set => Flags = EnumUtils.Mask(Flags, FlagsEnum.Password, value);
         }
 
         /**
@@ -97,10 +93,8 @@ namespace HESDanfe.Documents.Interaction.Forms
         */
         public JustificationEnum Justification
         {
-            get
-            { return JustificationEnumExtension.Get((PdfInteger)BaseDataObject[PdfName.Q]); }
-            set
-            { BaseDataObject[PdfName.Q] = value.GetCode(); }
+            get => JustificationEnumExtension.Get((PdfInteger)BaseDataObject[PdfName.Q]);
+            set => BaseDataObject[PdfName.Q] = value.GetCode();
         }
 
         /**
@@ -114,8 +108,7 @@ namespace HESDanfe.Documents.Interaction.Forms
                 PdfInteger maxLengthObject = (PdfInteger)PdfObject.Resolve(GetInheritableAttribute(PdfName.MaxLen));
                 return maxLengthObject != null ? maxLengthObject.IntValue : Int32.MaxValue;
             }
-            set
-            { BaseDataObject[PdfName.MaxLen] = (value != Int32.MaxValue ? PdfInteger.Get(value) : null); }
+            set => BaseDataObject[PdfName.MaxLen] = (value != Int32.MaxValue ? PdfInteger.Get(value) : null);
         }
 
         /**
@@ -123,16 +116,13 @@ namespace HESDanfe.Documents.Interaction.Forms
         */
         public bool SpellChecked
         {
-            get
-            { return (Flags & FlagsEnum.DoNotSpellCheck) != FlagsEnum.DoNotSpellCheck; }
-            set
-            { Flags = EnumUtils.Mask(Flags, FlagsEnum.DoNotSpellCheck, !value); }
+            get => (Flags & FlagsEnum.DoNotSpellCheck) != FlagsEnum.DoNotSpellCheck;
+            set => Flags = EnumUtils.Mask(Flags, FlagsEnum.DoNotSpellCheck, !value);
         }
 
         public override object Value
         {
-            get
-            { return base.Value; }
+            get => base.Value;
             set
             {
                 string stringValue = (string)value;

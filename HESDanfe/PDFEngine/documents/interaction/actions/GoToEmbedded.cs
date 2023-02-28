@@ -294,16 +294,14 @@ namespace HESDanfe.Documents.Interaction.Actions
       */
       public RelationEnum Relation
       {
-        get
-        {return ToRelationEnum((PdfName)BaseDataObject[PdfName.R]);}
-        set
-        {BaseDataObject[PdfName.R] = ToCode(value);}
+        get => ToRelationEnum((PdfName)BaseDataObject[PdfName.R]);
+        set => BaseDataObject[PdfName.R] = ToCode(value);
       }
 
-      /**
-        <summary>Gets/Sets a further path information to the target document.</summary>
-      */
-      public PathElement Next
+            /**
+              <summary>Gets/Sets a further path information to the target document.</summary>
+            */
+            public PathElement Next
       {
         get
         {

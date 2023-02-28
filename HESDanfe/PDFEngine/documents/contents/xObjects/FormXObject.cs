@@ -91,42 +91,39 @@ namespace HESDanfe.Documents.Contents.xObjects
     #region interface
     #region public
     public override Matrix Matrix
-    {
-      get
-      {
-        /*
-          NOTE: Form-space-to-user-space matrix is identity [1 0 0 1 0 0] by default,
-          but may be adjusted by setting the Matrix entry in the form dictionary [PDF:1.6:4.9].
-        */
-        PdfArray matrix = (PdfArray)BaseDataObject.Header.Resolve(PdfName.Matrix);
-        if(matrix == null)
-          return new Matrix();
-        else
-          return new Matrix(
-            ((IPdfNumber)matrix[0]).FloatValue,
-            ((IPdfNumber)matrix[1]).FloatValue,
-            ((IPdfNumber)matrix[2]).FloatValue,
-            ((IPdfNumber)matrix[3]).FloatValue,
-            ((IPdfNumber)matrix[4]).FloatValue,
-            ((IPdfNumber)matrix[5]).FloatValue
-            );
-      }
-      set
-      {
-        BaseDataObject.Header[PdfName.Matrix] = value != null
-          ? new PdfArray(
-            PdfReal.Get(value.Elements[0]),
-            PdfReal.Get(value.Elements[1]),
-            PdfReal.Get(value.Elements[2]),
-            PdfReal.Get(value.Elements[3]),
-            PdfReal.Get(value.Elements[4]),
-            PdfReal.Get(value.Elements[5])
-            )
-          : null;
-      }
-    }
+        {
+            get
+            {
+                /*
+                  NOTE: Form-space-to-user-space matrix is identity [1 0 0 1 0 0] by default,
+                  but may be adjusted by setting the Matrix entry in the form dictionary [PDF:1.6:4.9].
+                */
+                PdfArray matrix = (PdfArray)BaseDataObject.Header.Resolve(PdfName.Matrix);
+                if (matrix == null)
+                    return new Matrix();
+                else
+                    return new Matrix(
+                      ((IPdfNumber)matrix[0]).FloatValue,
+                      ((IPdfNumber)matrix[1]).FloatValue,
+                      ((IPdfNumber)matrix[2]).FloatValue,
+                      ((IPdfNumber)matrix[3]).FloatValue,
+                      ((IPdfNumber)matrix[4]).FloatValue,
+                      ((IPdfNumber)matrix[5]).FloatValue
+                      );
+            }
+            set => BaseDataObject.Header[PdfName.Matrix] = value != null
+                ? new PdfArray(
+                  PdfReal.Get(value.Elements[0]),
+                  PdfReal.Get(value.Elements[1]),
+                  PdfReal.Get(value.Elements[2]),
+                  PdfReal.Get(value.Elements[3]),
+                  PdfReal.Get(value.Elements[4]),
+                  PdfReal.Get(value.Elements[5])
+                  )
+                : null;
+        }
 
-    public override drawing::SizeF Size
+        public override drawing::SizeF Size
     {
       get
       {
@@ -149,13 +146,11 @@ namespace HESDanfe.Documents.Contents.xObjects
     #region IContentContext
     public drawing::RectangleF Box
     {
-      get
-      {return Rectangle.Wrap(BaseDataObject.Header[PdfName.BBox]).ToRectangleF();}
-      set
-      {BaseDataObject.Header[PdfName.BBox] = new Rectangle(value).BaseDataObject;}
+      get => Rectangle.Wrap(BaseDataObject.Header[PdfName.BBox]).ToRectangleF();
+      set => BaseDataObject.Header[PdfName.BBox] = new Rectangle(value).BaseDataObject;
     }
 
-    public Contents Contents
+        public Contents Contents
     {
       get
       {return Contents.Wrap(BaseObject, this);}
@@ -172,13 +167,11 @@ namespace HESDanfe.Documents.Contents.xObjects
 
     public Resources Resources
     {
-      get
-      {return Resources.Wrap(BaseDataObject.Header.Get<PdfDictionary>(PdfName.Resources));}
-      set
-      {BaseDataObject.Header[PdfName.Resources] = PdfObjectWrapper.GetBaseObject(value);}
+      get => Resources.Wrap(BaseDataObject.Header.Get<PdfDictionary>(PdfName.Resources));
+      set => BaseDataObject.Header[PdfName.Resources] = PdfObjectWrapper.GetBaseObject(value);
     }
 
-    public RotationEnum Rotation
+        public RotationEnum Rotation
     {
       get
       {return RotationEnum.Downward;}

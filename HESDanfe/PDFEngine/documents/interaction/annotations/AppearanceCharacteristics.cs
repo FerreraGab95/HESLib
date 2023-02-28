@@ -217,44 +217,39 @@ namespace HESDanfe.Documents.Interaction.Annotations
         <summary>Gets/Sets whether not to take into consideration the line width of the border.</summary>
       */
       public bool BorderExcluded
+            {
+                get
+                {
+                    PdfBoolean borderExcludedObject = (PdfBoolean)BaseDataObject[PdfName.FB];
+                    return borderExcludedObject != null
+                      ? borderExcludedObject.RawValue
+                      : false;
+                }
+                set => BaseDataObject[PdfName.FB] = PdfBoolean.Get(value);
+            }
+
+            /**
+              <summary>Gets/Sets the circumstances under which the icon should be scaled inside the annotation box.</summary>
+            */
+            public ScaleModeEnum ScaleMode
       {
-        get
-        {
-          PdfBoolean borderExcludedObject = (PdfBoolean)BaseDataObject[PdfName.FB];
-          return borderExcludedObject != null
-            ? borderExcludedObject.RawValue
-            : false;
-        }
-        set
-        {BaseDataObject[PdfName.FB] = PdfBoolean.Get(value);}
+        get => ToScaleModeEnum((PdfName)BaseDataObject[PdfName.SW]);
+        set => BaseDataObject[PdfName.SW] = ToCode(value);
       }
 
-      /**
-        <summary>Gets/Sets the circumstances under which the icon should be scaled inside the annotation box.</summary>
-      */
-      public ScaleModeEnum ScaleMode
+            /**
+              <summary>Gets/Sets the type of scaling to use.</summary>
+            */
+            public ScaleTypeEnum ScaleType
       {
-        get
-        {return ToScaleModeEnum((PdfName)BaseDataObject[PdfName.SW]);}
-        set
-        {BaseDataObject[PdfName.SW] = ToCode(value);}
+        get => ToScaleTypeEnum((PdfName)BaseDataObject[PdfName.S]);
+        set => BaseDataObject[PdfName.S] = ToCode(value);
       }
 
-      /**
-        <summary>Gets/Sets the type of scaling to use.</summary>
-      */
-      public ScaleTypeEnum ScaleType
-      {
-        get
-        {return ToScaleTypeEnum((PdfName)BaseDataObject[PdfName.S]);}
-        set
-        {BaseDataObject[PdfName.S] = ToCode(value);}
-      }
-
-      /**
-        <summary>Gets/Sets the horizontal alignment of the icon inside the annotation box.</summary>
-      */
-      public XAlignmentEnum XAlignment
+            /**
+              <summary>Gets/Sets the horizontal alignment of the icon inside the annotation box.</summary>
+            */
+            public XAlignmentEnum XAlignment
       {
         get
         {
@@ -411,155 +406,139 @@ namespace HESDanfe.Documents.Interaction.Annotations
       (Pushbutton fields only).</summary>
     */
     public string AlternateCaption
+        {
+            get
+            {
+                PdfTextString alternateCaptionObject = (PdfTextString)BaseDataObject[PdfName.AC];
+                return alternateCaptionObject != null ? (string)alternateCaptionObject.Value : null;
+            }
+            set => BaseDataObject[PdfName.AC] = new PdfTextString(value);
+        }
+
+        /**
+          <summary>Gets/Sets the widget annotation's alternate (down) icon definition,
+          displayed when the mouse button is pressed within its active area
+          (Pushbutton fields only).</summary>
+        */
+        public FormXObject AlternateIcon
     {
-      get
-      {
-        PdfTextString alternateCaptionObject = (PdfTextString)BaseDataObject[PdfName.AC];
-        return alternateCaptionObject != null ? (string)alternateCaptionObject.Value : null;
-      }
-      set
-      {BaseDataObject[PdfName.AC] = new PdfTextString(value);}
+      get => FormXObject.Wrap(BaseDataObject[PdfName.IX]);
+      set => BaseDataObject[PdfName.IX] = value.BaseObject;
     }
 
-    /**
-      <summary>Gets/Sets the widget annotation's alternate (down) icon definition,
-      displayed when the mouse button is pressed within its active area
-      (Pushbutton fields only).</summary>
-    */
-    public FormXObject AlternateIcon
+        /**
+          <summary>Gets/Sets the widget annotation's background color.</summary>
+        */
+        public DeviceColor BackgroundColor
     {
-      get
-      {return FormXObject.Wrap(BaseDataObject[PdfName.IX]);}
-      set
-      {BaseDataObject[PdfName.IX] = value.BaseObject;}
+      get => GetColor(PdfName.BG);
+      set => SetColor(PdfName.BG, value);
     }
 
-    /**
-      <summary>Gets/Sets the widget annotation's background color.</summary>
-    */
-    public DeviceColor BackgroundColor
+        /**
+          <summary>Gets/Sets the widget annotation's border color.</summary>
+        */
+        public DeviceColor BorderColor
     {
-      get
-      {return GetColor(PdfName.BG);}
-      set
-      {SetColor(PdfName.BG, value);}
+      get => GetColor(PdfName.BC);
+      set => SetColor(PdfName.BC, value);
     }
 
-    /**
-      <summary>Gets/Sets the widget annotation's border color.</summary>
-    */
-    public DeviceColor BorderColor
+        /**
+          <summary>Gets/Sets the position of the caption relative to its icon (Pushbutton fields only).</summary>
+        */
+        public CaptionPositionEnum CaptionPosition
+        {
+            get
+            {
+                PdfInteger captionPositionObject = (PdfInteger)BaseDataObject[PdfName.TP];
+                return captionPositionObject != null ? (CaptionPositionEnum)captionPositionObject.RawValue : CaptionPositionEnum.CaptionOnly;
+            }
+            set => BaseDataObject[PdfName.TP] = PdfInteger.Get((int)value);
+        }
+
+        /**
+          <summary>Gets/Sets the icon fit specifying how to display the widget annotation's icon
+          within its annotation box (Pushbutton fields only).
+          If present, the icon fit applies to all of the annotation's icons
+          (normal, rollover, and alternate).</summary>
+        */
+        public IconFitObject IconFit
+        {
+            get
+            {
+                PdfDirectObject iconFitObject = BaseDataObject[PdfName.IF];
+                return iconFitObject != null ? new IconFitObject(iconFitObject) : null;
+            }
+            set => BaseDataObject[PdfName.IF] = PdfObjectWrapper.GetBaseObject(value);
+        }
+
+        /**
+          <summary>Gets/Sets the widget annotation's normal caption,
+          displayed when it is not interacting with the user (Button fields only).</summary>
+        */
+        public string NormalCaption
+        {
+            get
+            {
+                PdfTextString normalCaptionObject = (PdfTextString)BaseDataObject[PdfName.CA];
+                return normalCaptionObject != null ? (string)normalCaptionObject.Value : null;
+            }
+            set => BaseDataObject[PdfName.CA] = PdfTextString.Get(value);
+        }
+
+        /**
+          <summary>Gets/Sets the widget annotation's normal icon definition,
+          displayed when it is not interacting with the user (Pushbutton fields only).</summary>
+        */
+        public FormXObject NormalIcon
     {
-      get
-      {return GetColor(PdfName.BC);}
-      set
-      {SetColor(PdfName.BC, value);}
+      get => FormXObject.Wrap(BaseDataObject[PdfName.I]);
+      set => BaseDataObject[PdfName.I] = PdfObjectWrapper.GetBaseObject(value);
     }
 
-    /**
-      <summary>Gets/Sets the position of the caption relative to its icon (Pushbutton fields only).</summary>
-    */
-    public CaptionPositionEnum CaptionPosition
-    {
-      get
-      {
-        PdfInteger captionPositionObject = (PdfInteger)BaseDataObject[PdfName.TP];
-        return captionPositionObject != null ? (CaptionPositionEnum)captionPositionObject.RawValue : CaptionPositionEnum.CaptionOnly;
-      }
-      set
-      {BaseDataObject[PdfName.TP] = PdfInteger.Get((int)value);}
-    }
+        /**
+          <summary>Gets/Sets the widget annotation's orientation.</summary>
+        */
+        public OrientationEnum Orientation
+        {
+            get
+            {
+                PdfInteger orientationObject = (PdfInteger)BaseDataObject[PdfName.R];
+                return orientationObject != null ? (OrientationEnum)orientationObject.RawValue : OrientationEnum.Up;
+            }
+            set => BaseDataObject[PdfName.R] = PdfInteger.Get((int)value);
+        }
 
-    /**
-      <summary>Gets/Sets the icon fit specifying how to display the widget annotation's icon
-      within its annotation box (Pushbutton fields only).
-      If present, the icon fit applies to all of the annotation's icons
-      (normal, rollover, and alternate).</summary>
-    */
-    public IconFitObject IconFit
-    {
-      get
-      {
-        PdfDirectObject iconFitObject = BaseDataObject[PdfName.IF];
-        return iconFitObject != null ? new IconFitObject(iconFitObject) : null;
-      }
-      set
-      {BaseDataObject[PdfName.IF] = PdfObjectWrapper.GetBaseObject(value);}
-    }
+        /**
+          <summary>Gets/Sets the widget annotation's rollover caption,
+          displayed when the user rolls the cursor into its active area
+          without pressing the mouse button (Pushbutton fields only).</summary>
+        */
+        public string RolloverCaption
+        {
+            get
+            {
+                PdfTextString rolloverCaptionObject = (PdfTextString)BaseDataObject[PdfName.RC];
+                return rolloverCaptionObject != null ? (string)rolloverCaptionObject.Value : null;
+            }
+            set => BaseDataObject[PdfName.RC] = PdfTextString.Get(value);
+        }
 
-    /**
-      <summary>Gets/Sets the widget annotation's normal caption,
-      displayed when it is not interacting with the user (Button fields only).</summary>
-    */
-    public string NormalCaption
+        /**
+          <summary>Gets/Sets the widget annotation's rollover icon definition,
+          displayed when the user rolls the cursor into its active area
+          without pressing the mouse button (Pushbutton fields only).</summary>
+        */
+        public FormXObject RolloverIcon
     {
-      get
-      {
-        PdfTextString normalCaptionObject = (PdfTextString)BaseDataObject[PdfName.CA];
-        return normalCaptionObject != null ? (string)normalCaptionObject.Value : null;
-      }
-      set
-      {BaseDataObject[PdfName.CA] = PdfTextString.Get(value);}
+      get => FormXObject.Wrap(BaseDataObject[PdfName.RI]);
+      set => BaseDataObject[PdfName.RI] = PdfObjectWrapper.GetBaseObject(value);
     }
+        #endregion
 
-    /**
-      <summary>Gets/Sets the widget annotation's normal icon definition,
-      displayed when it is not interacting with the user (Pushbutton fields only).</summary>
-    */
-    public FormXObject NormalIcon
-    {
-      get
-      {return FormXObject.Wrap(BaseDataObject[PdfName.I]);}
-      set
-      {BaseDataObject[PdfName.I] = PdfObjectWrapper.GetBaseObject(value);}
-    }
-
-    /**
-      <summary>Gets/Sets the widget annotation's orientation.</summary>
-    */
-    public OrientationEnum Orientation
-    {
-      get
-      {
-        PdfInteger orientationObject = (PdfInteger)BaseDataObject[PdfName.R];
-        return orientationObject != null ? (OrientationEnum)orientationObject.RawValue : OrientationEnum.Up;
-      }
-      set
-      {BaseDataObject[PdfName.R] = PdfInteger.Get((int)value);}
-    }
-
-    /**
-      <summary>Gets/Sets the widget annotation's rollover caption,
-      displayed when the user rolls the cursor into its active area
-      without pressing the mouse button (Pushbutton fields only).</summary>
-    */
-    public string RolloverCaption
-    {
-      get
-      {
-        PdfTextString rolloverCaptionObject = (PdfTextString)BaseDataObject[PdfName.RC];
-        return rolloverCaptionObject != null ? (string)rolloverCaptionObject.Value : null;
-      }
-      set
-      {BaseDataObject[PdfName.RC] = PdfTextString.Get(value);}
-    }
-
-    /**
-      <summary>Gets/Sets the widget annotation's rollover icon definition,
-      displayed when the user rolls the cursor into its active area
-      without pressing the mouse button (Pushbutton fields only).</summary>
-    */
-    public FormXObject RolloverIcon
-    {
-      get
-      {return FormXObject.Wrap(BaseDataObject[PdfName.RI]);}
-      set
-      {BaseDataObject[PdfName.RI] = PdfObjectWrapper.GetBaseObject(value);}
-    }
-    #endregion
-
-    #region private
-    private DeviceColor GetColor(
+        #region private
+        private DeviceColor GetColor(
       PdfName key
       )
     {return DeviceColor.Get((PdfArray)BaseDataObject.Resolve(key));}

@@ -127,13 +127,11 @@ namespace HESDanfe.Tokens
     */
     public ObjectStream BaseStream
     {
-      get
-      {return (ObjectStream)Header.Resolve(PdfName.Extends);}
-      set
-      {Header[PdfName.Extends] = value.Reference;}
+      get => (ObjectStream)Header.Resolve(PdfName.Extends);
+      set => Header[PdfName.Extends] = value.Reference;
     }
 
-    public override void WriteTo(
+        public override void WriteTo(
       IOutputStream stream,
       PdfFile context
       )
@@ -170,17 +168,16 @@ namespace HESDanfe.Tokens
     public PdfDataObject this[
       int key
       ]
-    {
-      get
-      {
-        ObjectEntry entry = Entries[key];
-        return (entry != null ? entry.DataObject : null);
-      }
-      set
-      {Entries[key] = new ObjectEntry(value, parser);}
-    }
+        {
+            get
+            {
+                ObjectEntry entry = Entries[key];
+                return (entry != null ? entry.DataObject : null);
+            }
+            set => Entries[key] = new ObjectEntry(value, parser);
+        }
 
-    public bool TryGetValue(
+        public bool TryGetValue(
       int key,
       out PdfDataObject value
       )

@@ -242,21 +242,20 @@ namespace HESDanfe.Documents.Interaction.Forms
       <summary>Gets/Sets the field's behavior in response to trigger events.</summary>
     */
     public FieldActions Actions
-    {
-      get
-      {
-        PdfDirectObject actionsObject = BaseDataObject[PdfName.AA];
-        return actionsObject != null ? new FieldActions(actionsObject) : null;
-      }
-      set
-      {BaseDataObject[PdfName.AA] = value.BaseObject;}
-    }
+        {
+            get
+            {
+                PdfDirectObject actionsObject = BaseDataObject[PdfName.AA];
+                return actionsObject != null ? new FieldActions(actionsObject) : null;
+            }
+            set => BaseDataObject[PdfName.AA] = value.BaseObject;
+        }
 
-    /**
-      <summary>Gets the default value to which this field reverts when a <see cref="ResetForm">reset
-      -form</see> action} is executed.</summary>
-    */
-    public object DefaultValue
+        /**
+          <summary>Gets the default value to which this field reverts when a <see cref="ResetForm">reset
+          -form</see> action} is executed.</summary>
+        */
+        public object DefaultValue
     {
       get
       {
@@ -278,33 +277,30 @@ namespace HESDanfe.Documents.Interaction.Forms
     */
     public bool Exportable
     {
-      get
-      {return (Flags & FlagsEnum.NoExport) != FlagsEnum.NoExport;}
-      set
-      {Flags = EnumUtils.Mask(Flags, FlagsEnum.NoExport, !value);}
+      get => (Flags & FlagsEnum.NoExport) != FlagsEnum.NoExport;
+      set => Flags = EnumUtils.Mask(Flags, FlagsEnum.NoExport, !value);
     }
 
-    /**
-      <summary>Gets/Sets the field flags.</summary>
-    */
-    public FlagsEnum Flags
-    {
-      get
-      {
-        PdfInteger flagsObject = (PdfInteger)PdfObject.Resolve(GetInheritableAttribute(PdfName.Ff));
-        return (FlagsEnum)Enum.ToObject(
-          typeof(FlagsEnum),
-          (flagsObject == null ? 0 : flagsObject.RawValue)
-          );
-      }
-      set
-      {BaseDataObject[PdfName.Ff] = PdfInteger.Get((int)value);}
-    }
+        /**
+          <summary>Gets/Sets the field flags.</summary>
+        */
+        public FlagsEnum Flags
+        {
+            get
+            {
+                PdfInteger flagsObject = (PdfInteger)PdfObject.Resolve(GetInheritableAttribute(PdfName.Ff));
+                return (FlagsEnum)Enum.ToObject(
+                  typeof(FlagsEnum),
+                  (flagsObject == null ? 0 : flagsObject.RawValue)
+                  );
+            }
+            set => BaseDataObject[PdfName.Ff] = PdfInteger.Get((int)value);
+        }
 
-    /**
-      <summary>Gets the fully-qualified field name.</summary>
-    */
-    public string FullName
+        /**
+          <summary>Gets the fully-qualified field name.</summary>
+        */
+        public string FullName
     {
       get
       {
@@ -336,61 +332,54 @@ namespace HESDanfe.Documents.Interaction.Forms
     */
     public string Name
     {
-      get
-      {return (string)((PdfTextString)GetInheritableAttribute(PdfName.T)).Value;} // NOTE: Despite the field name is not a canonical 'inheritable' attribute, sometimes it's not expressed at leaf level.
-      set
-      {BaseDataObject[PdfName.T] = new PdfTextString(value);}
+      get => (string)((PdfTextString)GetInheritableAttribute(PdfName.T)).Value; // NOTE: Despite the field name is not a canonical 'inheritable' attribute, sometimes it's not expressed at leaf level.
+      set => BaseDataObject[PdfName.T] = new PdfTextString(value);
     }
 
-    /**
-      <summary>Gets/Sets whether the user may not change the value of the field.</summary>
-    */
-    public bool ReadOnly
+        /**
+          <summary>Gets/Sets whether the user may not change the value of the field.</summary>
+        */
+        public bool ReadOnly
     {
-      get
-      {return (Flags & FlagsEnum.ReadOnly) == FlagsEnum.ReadOnly;}
-      set
-      {Flags = EnumUtils.Mask(Flags, FlagsEnum.ReadOnly, value);}
+      get => (Flags & FlagsEnum.ReadOnly) == FlagsEnum.ReadOnly;
+      set => Flags = EnumUtils.Mask(Flags, FlagsEnum.ReadOnly, value);
     }
 
-    /**
-      <summary>Gets/Sets whether the field must have a value at the time it is exported by a
-      submit-form action.</summary>
-    */
-    public bool Required
+        /**
+          <summary>Gets/Sets whether the field must have a value at the time it is exported by a
+          submit-form action.</summary>
+        */
+        public bool Required
     {
-      get
-      {return (Flags & FlagsEnum.Required) == FlagsEnum.Required;}
-      set
-      {Flags = EnumUtils.Mask(Flags, FlagsEnum.Required, value);}
+      get => (Flags & FlagsEnum.Required) == FlagsEnum.Required;
+      set => Flags = EnumUtils.Mask(Flags, FlagsEnum.Required, value);
     }
 
-    /**
-      <summary>Gets/Sets the field value.</summary>
-    */
-    public virtual object Value
-    {
-      get
-      {
-        PdfDataObject valueObject = PdfObject.Resolve(GetInheritableAttribute(PdfName.V));
-        return valueObject != null
-          ? valueObject.GetType().InvokeMember(
-            "Value",
-            BindingFlags.GetProperty,
-            null,
-            valueObject,
-            null
-            )
-          : null;
-      }
-      set
-      {BaseDataObject[PdfName.V] = new PdfString((string)value);}
-    }
+        /**
+          <summary>Gets/Sets the field value.</summary>
+        */
+        public virtual object Value
+        {
+            get
+            {
+                PdfDataObject valueObject = PdfObject.Resolve(GetInheritableAttribute(PdfName.V));
+                return valueObject != null
+                  ? valueObject.GetType().InvokeMember(
+                    "Value",
+                    BindingFlags.GetProperty,
+                    null,
+                    valueObject,
+                    null
+                    )
+                  : null;
+            }
+            set => BaseDataObject[PdfName.V] = new PdfString((string)value);
+        }
 
-    /**
-      <summary>Gets the widget annotations that are associated with this field.</summary>
-    */
-    public FieldWidgets Widgets
+        /**
+          <summary>Gets the widget annotations that are associated with this field.</summary>
+        */
+        public FieldWidgets Widgets
     {
       get
       {

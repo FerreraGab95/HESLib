@@ -135,33 +135,30 @@ namespace HESDanfe.Documents.Contents.Objects
     */
     public PdfName Tag
     {
-      get
-      {return (PdfName)operands[0];}
-      set
-      {operands[0] = value;}
+      get => (PdfName)operands[0];
+      set => operands[0] = value;
     }
 
-    #region IResourceReference
-    public PropertyList GetResource(
+        #region IResourceReference
+        public PropertyList GetResource(
       IContentContext context
       )
     {return GetProperties(context);}
 
     public PdfName Name
-    {
-      get
-      {
-        object properties = Properties;
-        return (properties is PdfName ? (PdfName)properties : null);
-      }
-      set
-      {Properties = value;}
-    }
-    #endregion
-    #endregion
+        {
+            get
+            {
+                object properties = Properties;
+                return (properties is PdfName ? (PdfName)properties : null);
+            }
+            set => Properties = value;
+        }
+        #endregion
+        #endregion
 
-    #region protected
-    protected abstract string PropertyListOperator
+        #region protected
+        protected abstract string PropertyListOperator
     {get;}
 
     protected abstract string SimpleOperator

@@ -102,13 +102,11 @@ namespace HESDanfe.Documents.Interaction.Navigation.Page
     */
     public Information Information
     {
-      get
-      {return Information.Wrap(BaseDataObject.Get<PdfDictionary>(PdfName.I));}
-      set
-      {BaseDataObject[PdfName.I] = PdfObjectWrapper.GetBaseObject(value);}
+      get => Information.Wrap(BaseDataObject.Get<PdfDictionary>(PdfName.I));
+      set => BaseDataObject[PdfName.I] = PdfObjectWrapper.GetBaseObject(value);
     }
-    #endregion
-    #endregion
-    #endregion
-  }
+        #endregion
+        #endregion
+        #endregion
+    }
 }

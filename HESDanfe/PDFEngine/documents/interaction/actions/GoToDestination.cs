@@ -62,19 +62,18 @@ namespace HESDanfe.Documents.Interaction.Actions
       <summary>Gets/Sets the destination to jump to.</summary>
     */
     public T Destination
-    {
-      get
-      {return Document.ResolveName<T>(BaseDataObject[PdfName.D]);}
-      set
-      {
-        if(value == null)
-          throw new ArgumentException("Destination MUST be defined.");
+        {
+            get => Document.ResolveName<T>(BaseDataObject[PdfName.D]);
+            set
+            {
+                if (value == null)
+                    throw new ArgumentException("Destination MUST be defined.");
 
-        BaseDataObject[PdfName.D] = value.NamedBaseObject;
-      }
+                BaseDataObject[PdfName.D] = value.NamedBaseObject;
+            }
+        }
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 }

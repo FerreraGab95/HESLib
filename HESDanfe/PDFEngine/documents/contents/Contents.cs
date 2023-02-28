@@ -71,13 +71,11 @@ namespace HESDanfe.Documents.Contents
 
       public ByteOrderEnum ByteOrder
       {
-        get
-        {return stream.ByteOrder;}
-        set
-        {throw new NotSupportedException();}
+        get => stream.ByteOrder;
+        set => throw new NotSupportedException();
       }
 
-      public void Dispose(
+            public void Dispose(
         )
       {/* NOOP */}
 
@@ -99,13 +97,11 @@ namespace HESDanfe.Documents.Contents
 
       public long Position
       {
-        get
-        {return basePosition + stream.Position;}
-        set
-        {Seek(value);}
+        get => basePosition + stream.Position;
+        set => Seek(value);
       }
 
-      public void Read(
+            public void Read(
         byte[] data
         )
       {throw new NotImplementedException();}
@@ -402,12 +398,12 @@ namespace HESDanfe.Documents.Contents
       int index
       ]
     {
-      get{return items[index];}
-      set{items[index] = value;}
+      get => items[index];
+      set => items[index] = value;
     }
 
-    #region ICollection
-    public void Add(
+        #region ICollection
+        public void Add(
       ContentObject obj
       )
     {items.Add(obj);}

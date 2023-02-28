@@ -105,18 +105,17 @@ namespace HESDanfe.Documents.Interaction.Forms
     public ChoiceItem this[
       int index
       ]
-    {
-      get
-      {return new ChoiceItem(BaseDataObject[index], this);}
-      set
-      {
-        BaseDataObject[index] = value.BaseObject;
-        value.Items = this;
-      }
-    }
+        {
+            get => new ChoiceItem(BaseDataObject[index], this);
+            set
+            {
+                BaseDataObject[index] = value.BaseObject;
+                value.Items = this;
+            }
+        }
 
-    #region ICollection
-    public void Add(
+        #region ICollection
+        public void Add(
       ChoiceItem value
       )
     {

@@ -275,34 +275,33 @@ namespace HESDanfe.Documents.Interaction.Annotations
       <summary>Gets/Sets the markup type.</summary>
     */
     public MarkupTypeEnum MarkupType
-    {
-      get
-      {return ToMarkupTypeEnum((PdfName)BaseDataObject[PdfName.Subtype]);}
-      set
-      {
-        BaseDataObject[PdfName.Subtype] = ToCode(value);
-        switch(value)
         {
-          case MarkupTypeEnum.Highlight:
-            Color = new DeviceRGBColor(1, 1, 0);
-            break;
-          case MarkupTypeEnum.Squiggly:
-            Color = new DeviceRGBColor(1, 0, 0);
-            break;
-          default:
-            Color = new DeviceRGBColor(0, 0, 0);
-            break;
+            get => ToMarkupTypeEnum((PdfName)BaseDataObject[PdfName.Subtype]);
+            set
+            {
+                BaseDataObject[PdfName.Subtype] = ToCode(value);
+                switch (value)
+                {
+                    case MarkupTypeEnum.Highlight:
+                        Color = new DeviceRGBColor(1, 1, 0);
+                        break;
+                    case MarkupTypeEnum.Squiggly:
+                        Color = new DeviceRGBColor(1, 0, 0);
+                        break;
+                    default:
+                        Color = new DeviceRGBColor(0, 0, 0);
+                        break;
+                }
+                RefreshAppearance();
+            }
         }
-        RefreshAppearance();
-      }
-    }
-    #endregion
+        #endregion
 
-    #region private
-    /*
-      TODO: refresh should happen just before serialization, on document event (e.g. OnWrite())
-    */
-    private void RefreshAppearance(
+        #region private
+        /*
+          TODO: refresh should happen just before serialization, on document event (e.g. OnWrite())
+        */
+        private void RefreshAppearance(
       )
     {
       FormXObject normalAppearance;

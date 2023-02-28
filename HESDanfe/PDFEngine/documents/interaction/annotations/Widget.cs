@@ -146,41 +146,36 @@ namespace HESDanfe.Documents.Interaction.Annotations
     #region interface
     #region public
     public override AnnotationActions Actions
+        {
+            get
+            {
+                PdfDirectObject actionsObject = BaseDataObject[PdfName.AA];
+                return actionsObject != null ? new WidgetActions(this, actionsObject) : null;
+            }
+            set => base.Actions = value;
+        }
+
+        /**
+          <summary>Gets/Sets the annotation's appearance characteristics to be used for its visual
+          presentation on the page.</summary>
+        */
+        public AppearanceCharacteristics AppearanceCharacteristics
     {
-      get
-      {
-        PdfDirectObject actionsObject = BaseDataObject[PdfName.AA];
-        return actionsObject != null ? new WidgetActions(this, actionsObject) : null;
-      }
-      set
-      {base.Actions = value;}
+      get => AppearanceCharacteristics.Wrap(BaseDataObject.Get<PdfDictionary>(PdfName.MK));
+      set => BaseDataObject[PdfName.MK] = value.BaseObject;
     }
 
-    /**
-      <summary>Gets/Sets the annotation's appearance characteristics to be used for its visual
-      presentation on the page.</summary>
-    */
-    public AppearanceCharacteristics AppearanceCharacteristics
+        /**
+          <summary>Gets/Sets the annotation's highlighting mode, the visual effect to be used
+          when the mouse button is pressed or held down inside its active area.</summary>
+        */
+        public HighlightModeEnum HighlightMode
     {
-      get
-      {return AppearanceCharacteristics.Wrap(BaseDataObject.Get<PdfDictionary>(PdfName.MK));}
-      set
-      {BaseDataObject[PdfName.MK] = value.BaseObject;}
+      get => ToHighlightModeEnum((PdfName)BaseDataObject[PdfName.H]);
+      set => BaseDataObject[PdfName.H] = ToCode(value);
     }
-
-    /**
-      <summary>Gets/Sets the annotation's highlighting mode, the visual effect to be used
-      when the mouse button is pressed or held down inside its active area.</summary>
-    */
-    public HighlightModeEnum HighlightMode
-    {
-      get
-      {return ToHighlightModeEnum((PdfName)BaseDataObject[PdfName.H]);}
-      set
-      {BaseDataObject[PdfName.H] = ToCode(value);}
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 }

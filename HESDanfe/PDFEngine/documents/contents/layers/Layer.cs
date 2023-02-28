@@ -143,54 +143,47 @@ namespace HESDanfe.Documents.Contents.Layers
     */
     public string ContentType
     {
-      get
-      {return (string)PdfSimpleObject<object>.GetValue(GetUsageEntry(PdfName.CreatorInfo)[PdfName.Subtype]);}
-      set
-      {GetUsageEntry(PdfName.CreatorInfo)[PdfName.Subtype] = PdfName.Get(value);}
+      get => (string)PdfSimpleObject<object>.GetValue(GetUsageEntry(PdfName.CreatorInfo)[PdfName.Subtype]);
+      set => GetUsageEntry(PdfName.CreatorInfo)[PdfName.Subtype] = PdfName.Get(value);
     }
 
-    /**
-      <summary>Gets/Sets the name of the application that created this layer.</summary>
-    */
-    public string Creator
+        /**
+          <summary>Gets/Sets the name of the application that created this layer.</summary>
+        */
+        public string Creator
     {
-      get
-      {return (string)PdfSimpleObject<object>.GetValue(GetUsageEntry(PdfName.CreatorInfo)[PdfName.Creator]);}
-      set
-      {GetUsageEntry(PdfName.CreatorInfo)[PdfName.Creator] = PdfTextString.Get(value);}
+      get => (string)PdfSimpleObject<object>.GetValue(GetUsageEntry(PdfName.CreatorInfo)[PdfName.Creator]);
+      set => GetUsageEntry(PdfName.CreatorInfo)[PdfName.Creator] = PdfTextString.Get(value);
     }
 
-    /**
-      <summary>Gets/Sets whether this layer is visible when the document is saved by a viewer
-      application to a format that does not support optional content.</summary>
-    */
-    public bool Exportable
+        /**
+          <summary>Gets/Sets whether this layer is visible when the document is saved by a viewer
+          application to a format that does not support optional content.</summary>
+        */
+        public bool Exportable
+        {
+            get => StateEnumExtension.Get((PdfName)GetUsageEntry(PdfName.Export)[PdfName.ExportState]).IsEnabled();
+            set
+            {
+                GetUsageEntry(PdfName.Export)[PdfName.ExportState] = StateEnumExtension.Get(value).GetName();
+                DefaultConfiguration.SetUsageApplication(PdfName.Export, PdfName.Export, this, true);
+            }
+        }
+
+        /**
+          <summary>Gets/Sets the language (and possibly locale) of the content controlled by this layer.
+          </summary>
+        */
+        public string Language
     {
-      get
-      {return StateEnumExtension.Get((PdfName)GetUsageEntry(PdfName.Export)[PdfName.ExportState]).IsEnabled();}
-      set
-      {
-        GetUsageEntry(PdfName.Export)[PdfName.ExportState] = StateEnumExtension.Get(value).GetName();
-        DefaultConfiguration.SetUsageApplication(PdfName.Export, PdfName.Export, this, true);
-      }
+      get => (string)PdfSimpleObject<object>.GetValue(GetUsageEntry(PdfName.Language)[PdfName.Lang]);
+      set => GetUsageEntry(PdfName.Language)[PdfName.Lang] = PdfTextString.Get(value);
     }
 
-    /**
-      <summary>Gets/Sets the language (and possibly locale) of the content controlled by this layer.
-      </summary>
-    */
-    public string Language
-    {
-      get
-      {return (string)PdfSimpleObject<object>.GetValue(GetUsageEntry(PdfName.Language)[PdfName.Lang]);}
-      set
-      {GetUsageEntry(PdfName.Language)[PdfName.Lang] = PdfTextString.Get(value);}
-    }
-
-    /**
-      <summary>Gets/Sets the sublayers.</summary>
-    */
-    public Layers Layers
+        /**
+          <summary>Gets/Sets the sublayers.</summary>
+        */
+        public Layers Layers
     {
       get
       {
@@ -214,18 +207,17 @@ namespace HESDanfe.Documents.Contents.Layers
       user interface of a viewer application.</summary>
     */
     public bool Locked
-    {
-      get
-      {return DefaultConfiguration.BaseDataObject.Resolve<PdfArray>(PdfName.Locked).Contains(BaseObject);}
-      set
-      {
-        PdfArray lockedArrayObject = DefaultConfiguration.BaseDataObject.Resolve<PdfArray>(PdfName.Locked);
-        if(!lockedArrayObject.Contains(BaseObject))
-        {lockedArrayObject.Add(BaseObject);}
-      }
-    }
+        {
+            get => DefaultConfiguration.BaseDataObject.Resolve<PdfArray>(PdfName.Locked).Contains(BaseObject);
+            set
+            {
+                PdfArray lockedArrayObject = DefaultConfiguration.BaseDataObject.Resolve<PdfArray>(PdfName.Locked);
+                if (!lockedArrayObject.Contains(BaseObject))
+                { lockedArrayObject.Add(BaseObject); }
+            }
+        }
 
-    public override LayerMembership Membership
+        public override LayerMembership Membership
     {
       get
       {
@@ -261,17 +253,16 @@ namespace HESDanfe.Documents.Contents.Layers
       application.</summary>
     */
     public bool Printable
-    {
-      get
-      {return StateEnumExtension.Get((PdfName)GetUsageEntry(PdfName.Print)[PdfName.PrintState]).IsEnabled();}
-      set
-      {
-        GetUsageEntry(PdfName.Print)[PdfName.PrintState] = StateEnumExtension.Get(value).GetName();
-        DefaultConfiguration.SetUsageApplication(PdfName.Print, PdfName.Print, this, true);
-      }
-    }
+        {
+            get => StateEnumExtension.Get((PdfName)GetUsageEntry(PdfName.Print)[PdfName.PrintState]).IsEnabled();
+            set
+            {
+                GetUsageEntry(PdfName.Print)[PdfName.PrintState] = StateEnumExtension.Get(value).GetName();
+                DefaultConfiguration.SetUsageApplication(PdfName.Print, PdfName.Print, this, true);
+            }
+        }
 
-    public override string ToString(
+        public override string ToString(
       )
     {return Title;}
 
@@ -280,49 +271,45 @@ namespace HESDanfe.Documents.Contents.Layers
       application.</summary>
     */
     public bool Viewable
-    {
-      get
-      {return StateEnumExtension.Get((PdfName)GetUsageEntry(PdfName.View)[PdfName.ViewState]).IsEnabled();}
-      set
-      {
-        GetUsageEntry(PdfName.View)[PdfName.ViewState] = StateEnumExtension.Get(value).GetName();
-        DefaultConfiguration.SetUsageApplication(PdfName.View, PdfName.View, this, true);
-      }
-    }
+        {
+            get => StateEnumExtension.Get((PdfName)GetUsageEntry(PdfName.View)[PdfName.ViewState]).IsEnabled();
+            set
+            {
+                GetUsageEntry(PdfName.View)[PdfName.ViewState] = StateEnumExtension.Get(value).GetName();
+                DefaultConfiguration.SetUsageApplication(PdfName.View, PdfName.View, this, true);
+            }
+        }
 
-    public override IList<Layer> VisibilityLayers
+        public override IList<Layer> VisibilityLayers
     {
       get
       {return Membership.VisibilityLayers;}
     }
 
     public override VisibilityPolicyEnum VisibilityPolicy
+        {
+            get => Membership.VisibilityPolicy;
+            set
+            {
+                if (!value.Equals(Membership.VisibilityPolicy))
+                    throw new NotSupportedException("Single layers cannot manage custom state policies; use LayerMembership instead.");
+            }
+        }
+
+        /**
+          <summary>Gets/Sets whether this layer is initially visible.</summary>
+        */
+        public bool Visible
     {
-      get
-      {return Membership.VisibilityPolicy;}
-      set
-      {
-        if(!value.Equals(Membership.VisibilityPolicy))
-          throw new NotSupportedException("Single layers cannot manage custom state policies; use LayerMembership instead.");
-      }
+      get => DefaultConfiguration.IsVisible(this);
+      set => DefaultConfiguration.SetVisible(this, value);
     }
 
-    /**
-      <summary>Gets/Sets whether this layer is initially visible.</summary>
-    */
-    public bool Visible
-    {
-      get
-      {return DefaultConfiguration.IsVisible(this);}
-      set
-      {DefaultConfiguration.SetVisible(this, value);}
-    }
-
-    /**
-      <summary>Gets/Sets the range of magnifications at which the content in this layer is best
-      viewed.</summary>
-    */
-    public Interval<double> ZoomRange
+        /**
+          <summary>Gets/Sets the range of magnifications at which the content in this layer is best
+          viewed.</summary>
+        */
+        public Interval<double> ZoomRange
     {
       get
       {
@@ -351,16 +338,14 @@ namespace HESDanfe.Documents.Contents.Layers
     #region ILayerNode
     public string Title
     {
-      get
-      {return (string)((PdfTextString)BaseDataObject[PdfName.Name]).Value;}
-      set
-      {BaseDataObject[PdfName.Name] = new PdfTextString(value);}
+      get => (string)((PdfTextString)BaseDataObject[PdfName.Name]).Value;
+      set => BaseDataObject[PdfName.Name] = new PdfTextString(value);
     }
-    #endregion
-    #endregion
+        #endregion
+        #endregion
 
-    #region private
-    private LayerConfiguration DefaultConfiguration
+        #region private
+        private LayerConfiguration DefaultConfiguration
     {
       get
       {return Document.Layer.DefaultConfiguration;}

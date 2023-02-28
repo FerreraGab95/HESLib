@@ -650,64 +650,63 @@ namespace HESDanfe.Objects
     public virtual TValue this[
       TKey key
       ]
-    {
-      get
-      {
-        PdfDictionary parent = BaseDataObject;
-        while(true)
         {
-          Children children = Children.Get(parent, pairsKey);
-          if(children.IsLeaf()) // Leaf node.
-          {
-            int low = 0, high = children.Items.Count - children.Info.ItemCount;
-            while(true)
+            get
             {
-              if(low > high)
-                return null;
+                PdfDictionary parent = BaseDataObject;
+                while (true)
+                {
+                    Children children = Children.Get(parent, pairsKey);
+                    if (children.IsLeaf()) // Leaf node.
+                    {
+                        int low = 0, high = children.Items.Count - children.Info.ItemCount;
+                        while (true)
+                        {
+                            if (low > high)
+                                return null;
 
-              int mid = (mid = ((low + high) / 2)) - (mid % 2);
-              int comparison = key.CompareTo(children.Items[mid]);
-              if(comparison < 0)
-              {high = mid - 2;}
-              else if(comparison > 0)
-              {low = mid + 2;}
-              else
-              {
-                // We got it!
-                return WrapValue(children.Items[mid + 1]);
-              }
-            }
-          }
-          else // Intermediate node.
-          {
-            int low = 0, high = children.Items.Count - children.Info.ItemCount;
-            while(true)
-            {
-              if(low > high)
-                return null;
+                            int mid = (mid = ((low + high) / 2)) - (mid % 2);
+                            int comparison = key.CompareTo(children.Items[mid]);
+                            if (comparison < 0)
+                            { high = mid - 2; }
+                            else if (comparison > 0)
+                            { low = mid + 2; }
+                            else
+                            {
+                                // We got it!
+                                return WrapValue(children.Items[mid + 1]);
+                            }
+                        }
+                    }
+                    else // Intermediate node.
+                    {
+                        int low = 0, high = children.Items.Count - children.Info.ItemCount;
+                        while (true)
+                        {
+                            if (low > high)
+                                return null;
 
-              int mid = (low + high) / 2;
-              PdfDictionary kid = (PdfDictionary)children.Items.Resolve(mid);
-              PdfArray limits = (PdfArray)kid.Resolve(PdfName.Limits);
-              if(key.CompareTo(limits[0]) < 0)
-              {high = mid - 1;}
-              else if(key.CompareTo(limits[1]) > 0)
-              {low = mid + 1;}
-              else
-              {
-                // Go down one level!
-                parent = kid;
-                break;
-              }
+                            int mid = (low + high) / 2;
+                            PdfDictionary kid = (PdfDictionary)children.Items.Resolve(mid);
+                            PdfArray limits = (PdfArray)kid.Resolve(PdfName.Limits);
+                            if (key.CompareTo(limits[0]) < 0)
+                            { high = mid - 1; }
+                            else if (key.CompareTo(limits[1]) > 0)
+                            { low = mid + 1; }
+                            else
+                            {
+                                // Go down one level!
+                                parent = kid;
+                                break;
+                            }
+                        }
+                    }
+                }
             }
-          }
+            set => Add(key, value, true);
         }
-      }
-      set
-      {Add(key, value, true);}
-    }
 
-    public virtual bool TryGetValue(
+        public virtual bool TryGetValue(
       TKey key,
       out TValue value
       )

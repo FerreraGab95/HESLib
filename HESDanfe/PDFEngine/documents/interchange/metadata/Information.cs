@@ -76,8 +76,7 @@ namespace HESDanfe.Documents.Interchange.Metadata
             PdfName key
             ]
         {
-            get
-            { return PdfSimpleObject<object>.GetValue(BaseDataObject[key]); }
+            get => PdfSimpleObject<object>.GetValue(BaseDataObject[key]);
             set
             {
                 OnChange(key);
@@ -93,10 +92,8 @@ namespace HESDanfe.Documents.Interchange.Metadata
 
         public string Author
         {
-            get
-            { return (string)this[PdfName.Author]; }
-            set
-            { this[PdfName.Author] = value; }
+            get => (string)this[PdfName.Author];
+            set => this[PdfName.Author] = value;
         }
 
         public int Count
@@ -107,18 +104,14 @@ namespace HESDanfe.Documents.Interchange.Metadata
 
         public DateTime? CreationDate
         {
-            get
-            { return (DateTime?)this[PdfName.CreationDate]; }
-            set
-            { this[PdfName.CreationDate] = value; }
+            get => (DateTime?)this[PdfName.CreationDate];
+            set => this[PdfName.CreationDate] = value;
         }
 
         public string Creator
         {
-            get
-            { return (string)this[PdfName.Creator]; }
-            set
-            { this[PdfName.Creator] = value; }
+            get => (string)this[PdfName.Creator];
+            set => this[PdfName.Creator] = value;
         }
 
         public bool IsReadOnly
@@ -136,45 +129,35 @@ namespace HESDanfe.Documents.Interchange.Metadata
         [PDF(VersionEnum.PDF11)]
         public string Keywords
         {
-            get
-            { return (string)this[PdfName.Keywords]; }
-            set
-            { this[PdfName.Keywords] = value; }
+            get => (string)this[PdfName.Keywords];
+            set => this[PdfName.Keywords] = value;
         }
 
         [PDF(VersionEnum.PDF11)]
         public DateTime? ModificationDate
         {
-            get
-            { return (DateTime?)this[PdfName.ModDate]; }
-            set
-            { this[PdfName.ModDate] = value; }
+            get => (DateTime?)this[PdfName.ModDate];
+            set => this[PdfName.ModDate] = value;
         }
 
         public string Producer
         {
-            get
-            { return (string)this[PdfName.Producer]; }
-            set
-            { this[PdfName.Producer] = value; }
+            get => (string)this[PdfName.Producer];
+            set => this[PdfName.Producer] = value;
         }
 
         [PDF(VersionEnum.PDF11)]
         public string Subject
         {
-            get
-            { return (string)this[PdfName.Subject]; }
-            set
-            { this[PdfName.Subject] = value; }
+            get => (string)this[PdfName.Subject];
+            set => this[PdfName.Subject] = value;
         }
 
         [PDF(VersionEnum.PDF11)]
         public string Title
         {
-            get
-            { return (string)this[PdfName.Title]; }
-            set
-            { this[PdfName.Title] = value; }
+            get => (string)this[PdfName.Title];
+            set => this[PdfName.Title] = value;
         }
 
         public ICollection<object> Values

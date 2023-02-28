@@ -64,16 +64,14 @@ namespace HESDanfe.Documents.Interaction.Actions
     */
     public virtual FileSpecification DestinationFile
     {
-      get
-      {return FileSpecification.Wrap(BaseDataObject[PdfName.F]);}
-      set
-      {BaseDataObject[PdfName.F] = (value != null ? value.BaseObject : null);}
+      get => FileSpecification.Wrap(BaseDataObject[PdfName.F]);
+      set => BaseDataObject[PdfName.F] = (value != null ? value.BaseObject : null);
     }
 
-    /**
-      <summary>Gets/Sets the action options.</summary>
-    */
-    public OptionsEnum Options
+        /**
+          <summary>Gets/Sets the action options.</summary>
+        */
+        public OptionsEnum Options
     {
       get
       {

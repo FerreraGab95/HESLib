@@ -148,10 +148,8 @@ namespace HESDanfe.Bytes
 
         public ByteOrderEnum ByteOrder
         {
-            get
-            { return byteOrder; }
-            set
-            { byteOrder = value; }
+            get => byteOrder;
+            set => byteOrder = value;
         }
 
         public int Capacity
@@ -162,10 +160,8 @@ namespace HESDanfe.Bytes
 
         public bool Dirty
         {
-            get
-            { return dirty; }
-            set
-            { dirty = value; }
+            get => dirty;
+            set => dirty = value;
         }
 
         public long Length
@@ -176,8 +172,7 @@ namespace HESDanfe.Bytes
 
         public long Position
         {
-            get
-            { return position; }
+            get => position;
             set
             {
                 if (value < 0)

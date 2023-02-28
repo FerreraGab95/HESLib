@@ -65,13 +65,11 @@ namespace HESDanfe.Documents.Contents.Objects
 
     public LineJoinEnum Value
     {
-      get
-      {return (LineJoinEnum)((IPdfNumber)operands[0]).Value;}
-      set
-      {operands[0] = PdfInteger.Get((int)value);}
+      get => (LineJoinEnum)((IPdfNumber)operands[0]).Value;
+      set => operands[0] = PdfInteger.Get((int)value);
     }
-    #endregion
-    #endregion
-    #endregion
-  }
+        #endregion
+        #endregion
+        #endregion
+    }
 }

@@ -63,20 +63,17 @@ namespace HESDanfe.Documents.Interaction.Actions
     */
     public Uri URI
     {
-      get
-      {
+      get =>
         /*
-          NOTE: 'URI' entry MUST exist.
-        */
-        return new Uri(
+NOTE: 'URI' entry MUST exist.
+*/
+        new Uri(
           (string)((PdfString)BaseDataObject[PdfName.URI]).Value
           );
-      }
-      set
-      {BaseDataObject[PdfName.URI] = new PdfString(value.ToString());}
+      set => BaseDataObject[PdfName.URI] = new PdfString(value.ToString());
     }
-    #endregion
-    #endregion
-    #endregion
-  }
+        #endregion
+        #endregion
+        #endregion
+    }
 }

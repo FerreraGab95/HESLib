@@ -102,30 +102,27 @@ namespace HESDanfe.Documents.Interaction.Navigation.Document
     public Bookmark this[
       int index
       ]
-    {
-      get
-      {
-        PdfReference bookmarkObject = (PdfReference)BaseDataObject[PdfName.First];
-        while(index > 0)
         {
-          bookmarkObject = (PdfReference)((PdfDictionary)bookmarkObject.DataObject)[PdfName.Next];
-          // Did we go past the collection range?
-          if(bookmarkObject == null)
-            throw new ArgumentOutOfRangeException();
+            get
+            {
+                PdfReference bookmarkObject = (PdfReference)BaseDataObject[PdfName.First];
+                while (index > 0)
+                {
+                    bookmarkObject = (PdfReference)((PdfDictionary)bookmarkObject.DataObject)[PdfName.Next];
+                    // Did we go past the collection range?
+                    if (bookmarkObject == null)
+                        throw new ArgumentOutOfRangeException();
 
-          index--;
+                    index--;
+                }
+
+                return new Bookmark(bookmarkObject);
+            }
+            set => throw new NotImplementedException();
         }
 
-        return new Bookmark(bookmarkObject);
-      }
-      set
-      {
-        throw new NotImplementedException();
-      }
-    }
-
-    #region ICollection
-    public void Add(
+        #region ICollection
+        public void Add(
       Bookmark bookmark
       )
     {

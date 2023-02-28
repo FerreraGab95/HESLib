@@ -165,94 +165,84 @@ namespace HESDanfe.Documents.Multimedia
       */
       public bool Autoplay
       {
-        get
-        {return (Boolean)PdfBoolean.GetValue(BaseDataObject[PdfName.A], true);}
-        set
-        {BaseDataObject[PdfName.A] = PdfBoolean.Get(value);}
+        get => (Boolean)PdfBoolean.GetValue(BaseDataObject[PdfName.A], true);
+        set => BaseDataObject[PdfName.A] = PdfBoolean.Get(value);
       }
 
-      /**
-        <summary>Gets/Sets the temporal duration, corresponding to the notion of simple duration in
-        SMIL.</summary>
-        <returns>
-          <list type="bullet">
-            <item><code>Double.NEGATIVE_INFINITY</code>: intrinsic duration of the associated media;
-            </item>
-            <item><code>Double.POSITIVE_INFINITY</code>: infinite duration;</item>
-            <item>non-infinite positive: explicit duration.</item>
-          </list>
-        </returns>
-      */
-      public double Duration
+            /**
+              <summary>Gets/Sets the temporal duration, corresponding to the notion of simple duration in
+              SMIL.</summary>
+              <returns>
+                <list type="bullet">
+                  <item><code>Double.NEGATIVE_INFINITY</code>: intrinsic duration of the associated media;
+                  </item>
+                  <item><code>Double.POSITIVE_INFINITY</code>: infinite duration;</item>
+                  <item>non-infinite positive: explicit duration.</item>
+                </list>
+              </returns>
+            */
+            public double Duration
+            {
+                get
+                {
+                    PdfDirectObject durationObject = BaseDataObject[PdfName.D];
+                    return durationObject != null ? new DurationObject(durationObject).Value : Double.NegativeInfinity;
+                }
+                set => BaseDataObject[PdfName.D] = new DurationObject(value).BaseObject;
+            }
+
+            /**
+              <summary>Gets/Sets the manner in which the player should treat a visual media type that does
+              not exactly fit the rectangle in which it plays.</summary>
+            */
+            public FitModeEnum? FitMode
       {
-        get
-        {
-          PdfDirectObject durationObject = BaseDataObject[PdfName.D];
-          return durationObject != null ? new DurationObject(durationObject).Value : Double.NegativeInfinity;
+        get => FitModeEnumExtension.Get((PdfInteger)BaseDataObject[PdfName.F]);
+        set => BaseDataObject[PdfName.F] = (value.HasValue ? value.Value.GetCode() : null);
+      }
+
+            /**
+              <summary>Gets/Sets whether to display a player-specific controller user interface (for
+              example, play/pause/stop controls) when playing.</summary>
+            */
+            public bool PlayerSpecificControl
+      {
+        get => (Boolean)PdfBoolean.GetValue(BaseDataObject[PdfName.C], false);
+        set => BaseDataObject[PdfName.C] = PdfBoolean.Get(value);
+      }
+
+            /**
+              <summary>Gets/Sets the number of iterations of the duration to repeat; similar to SMIL's
+              <code>repeatCount</code> attribute.</summary>
+              <returns>
+                <list type="bullet">
+                  <item><code>0</code>: repeat forever;</item>
+                </list>
+              </returns>
+            */
+            public double RepeatCount
+      {
+        get => (Double)PdfReal.GetValue(BaseDataObject[PdfName.RC], 1d);
+        set => BaseDataObject[PdfName.RC] = PdfReal.Get(value);
+      }
+
+            /**
+              <summary>Gets/Sets the volume level as a percentage of recorded volume level. A zero value
+              is equivalent to mute.</summary>
+            */
+            public int Volume
+            {
+                get => (int)PdfInteger.GetValue(BaseDataObject[PdfName.V], 100);
+                set
+                {
+                    if (value < 0)
+                    { value = 0; }
+                    else if (value > 100)
+                    { value = 100; }
+                    BaseDataObject[PdfName.V] = PdfInteger.Get(value);
+                }
+            }
         }
-        set
-        {BaseDataObject[PdfName.D] = new DurationObject(value).BaseObject;}
-      }
-
-      /**
-        <summary>Gets/Sets the manner in which the player should treat a visual media type that does
-        not exactly fit the rectangle in which it plays.</summary>
-      */
-      public FitModeEnum? FitMode
-      {
-        get
-        {return FitModeEnumExtension.Get((PdfInteger)BaseDataObject[PdfName.F]);}
-        set
-        {BaseDataObject[PdfName.F] = (value.HasValue ? value.Value.GetCode() : null);}
-      }
-
-      /**
-        <summary>Gets/Sets whether to display a player-specific controller user interface (for
-        example, play/pause/stop controls) when playing.</summary>
-      */
-      public bool PlayerSpecificControl
-      {
-        get
-        {return (Boolean)PdfBoolean.GetValue(BaseDataObject[PdfName.C], false);}
-        set
-        {BaseDataObject[PdfName.C] = PdfBoolean.Get(value);}
-      }
-
-      /**
-        <summary>Gets/Sets the number of iterations of the duration to repeat; similar to SMIL's
-        <code>repeatCount</code> attribute.</summary>
-        <returns>
-          <list type="bullet">
-            <item><code>0</code>: repeat forever;</item>
-          </list>
-        </returns>
-      */
-      public double RepeatCount
-      {
-        get
-        {return (Double)PdfReal.GetValue(BaseDataObject[PdfName.RC], 1d);}
-        set
-        {BaseDataObject[PdfName.RC] = PdfReal.Get(value);}
-      }
-  
-      /**
-        <summary>Gets/Sets the volume level as a percentage of recorded volume level. A zero value
-        is equivalent to mute.</summary>
-      */
-      public int Volume
-      {
-        get
-        {return (int)PdfInteger.GetValue(BaseDataObject[PdfName.V], 100);}
-        set
-        {
-          if(value < 0)
-          {value = 0;}
-          else if(value > 100)
-          {value = 100;}
-          BaseDataObject[PdfName.V] = PdfInteger.Get(value);
-        }
-      }
-    }
     #endregion
 
     #region dynamic
@@ -283,39 +273,33 @@ namespace HESDanfe.Documents.Multimedia
     */
     public MediaPlayers Players
     {
-      get
-      {return MediaPlayers.Wrap(BaseDataObject.Get<PdfDictionary>(PdfName.PL));}
-      set
-      {BaseDataObject[PdfName.PL] = PdfObjectWrapper.GetBaseObject(value);}
+      get => MediaPlayers.Wrap(BaseDataObject.Get<PdfDictionary>(PdfName.PL));
+      set => BaseDataObject[PdfName.PL] = PdfObjectWrapper.GetBaseObject(value);
     }
 
-    /**
-      <summary>Gets/Sets the preferred options the renderer should attempt to honor without affecting
-      its viability.</summary>
-    */
-    public Viability Preferences
+        /**
+          <summary>Gets/Sets the preferred options the renderer should attempt to honor without affecting
+          its viability.</summary>
+        */
+        public Viability Preferences
     {
-      get
-      {return new Viability(BaseDataObject.Get<PdfDictionary>(PdfName.BE));}
-      set
-      {BaseDataObject[PdfName.BE] = PdfObjectWrapper.GetBaseObject(value);}
+      get => new Viability(BaseDataObject.Get<PdfDictionary>(PdfName.BE));
+      set => BaseDataObject[PdfName.BE] = PdfObjectWrapper.GetBaseObject(value);
     }
 
-    /**
-      <summary>Gets/Sets the minimum requirements the renderer must honor in order to be considered
-      viable.</summary>
-    */
-    public Viability Requirements
+        /**
+          <summary>Gets/Sets the minimum requirements the renderer must honor in order to be considered
+          viable.</summary>
+        */
+        public Viability Requirements
     {
-      get
-      {return new Viability(BaseDataObject.Get<PdfDictionary>(PdfName.MH));}
-      set
-      {BaseDataObject[PdfName.MH] = PdfObjectWrapper.GetBaseObject(value);}
+      get => new Viability(BaseDataObject.Get<PdfDictionary>(PdfName.MH));
+      set => BaseDataObject[PdfName.MH] = PdfObjectWrapper.GetBaseObject(value);
     }
-    #endregion
-    #endregion
-    #endregion
-  }
+        #endregion
+        #endregion
+        #endregion
+    }
 
   internal static class FitModeEnumExtension
   {

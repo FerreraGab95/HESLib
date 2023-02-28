@@ -160,8 +160,7 @@ namespace HESDanfe.Tools
 
             public IList<Page> Pages
             {
-                get
-                { return pages; }
+                get => pages;
                 set
                 {
                     pages = value;

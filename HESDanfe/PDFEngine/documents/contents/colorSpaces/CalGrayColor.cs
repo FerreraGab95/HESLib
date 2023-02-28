@@ -74,10 +74,8 @@ namespace HESDanfe.Documents.Contents.ColorSpaces
 
         public double G
         {
-            get
-            { return GetComponentValue(0); }
-            set
-            { SetComponentValue(0, value); }
+            get => GetComponentValue(0);
+            set => SetComponentValue(0, value);
         }
 
         #endregion Public Properties

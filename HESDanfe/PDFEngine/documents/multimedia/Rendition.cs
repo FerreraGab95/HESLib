@@ -262,26 +262,22 @@ namespace HESDanfe.Documents.Multimedia
     */
     public Viability Preferences
     {
-      get
-      {return new Viability(BaseDataObject.Get<PdfDictionary>(PdfName.BE));}
-      set
-      {BaseDataObject[PdfName.BE] = PdfObjectWrapper.GetBaseObject(value);}
+      get => new Viability(BaseDataObject.Get<PdfDictionary>(PdfName.BE));
+      set => BaseDataObject[PdfName.BE] = PdfObjectWrapper.GetBaseObject(value);
     }
 
-    /**
-      <summary>Gets/Sets the minimum requirements the renderer must honor in order to be considered
-      viable [PDF:1.7:9.1.1].</summary>
-    */
-    public Viability Requirements
+        /**
+          <summary>Gets/Sets the minimum requirements the renderer must honor in order to be considered
+          viable [PDF:1.7:9.1.1].</summary>
+        */
+        public Viability Requirements
     {
-      get
-      {return new Viability(BaseDataObject.Get<PdfDictionary>(PdfName.MH));}
-      set
-      {BaseDataObject[PdfName.MH] = PdfObjectWrapper.GetBaseObject(value);}
+      get => new Viability(BaseDataObject.Get<PdfDictionary>(PdfName.MH));
+      set => BaseDataObject[PdfName.MH] = PdfObjectWrapper.GetBaseObject(value);
     }
 
-    #region IPdfNamedObjectWrapper
-    public PdfString Name
+        #region IPdfNamedObjectWrapper
+        public PdfString Name
     {
       get
       {return RetrieveName();}

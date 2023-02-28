@@ -82,13 +82,11 @@ namespace HESDanfe.Documents.Contents
     [PDF(VersionEnum.PDF14)]
     public bool AlphaShape
     {
-      get
-      {return (bool)PdfSimpleObject<object>.GetValue(BaseDataObject[PdfName.AIS], false);}
-      set
-      {BaseDataObject[PdfName.AIS] = PdfBoolean.Get(value);}
+      get => (bool)PdfSimpleObject<object>.GetValue(BaseDataObject[PdfName.AIS], false);
+      set => BaseDataObject[PdfName.AIS] = PdfBoolean.Get(value);
     }
 
-    public void ApplyTo(
+        public void ApplyTo(
       ContentScanner.GraphicsState state
       )
     {
@@ -164,13 +162,11 @@ namespace HESDanfe.Documents.Contents
     [PDF(VersionEnum.PDF14)]
     public double? FillAlpha
     {
-      get
-      {return (double?)PdfSimpleObject<PdfObject>.GetValue(BaseDataObject[PdfName.ca]);}
-      set
-      {BaseDataObject[PdfName.ca] = PdfReal.Get(value);}
+      get => (double?)PdfSimpleObject<PdfObject>.GetValue(BaseDataObject[PdfName.ca]);
+      set => BaseDataObject[PdfName.ca] = PdfReal.Get(value);
     }
 
-    [PDF(VersionEnum.PDF13)]
+        [PDF(VersionEnum.PDF13)]
     public Font Font
     {
       get
@@ -210,17 +206,16 @@ namespace HESDanfe.Documents.Contents
 
     [PDF(VersionEnum.PDF13)]
     public LineCapEnum? LineCap
-    {
-      get
-      {
-        PdfInteger lineCapObject = (PdfInteger)BaseDataObject[PdfName.LC];
-        return lineCapObject != null ? (LineCapEnum)lineCapObject.RawValue : (LineCapEnum?)null;
-      }
-      set
-      {BaseDataObject[PdfName.LC] = value.HasValue ? PdfInteger.Get(value.Value) : null;}
-    }
+        {
+            get
+            {
+                PdfInteger lineCapObject = (PdfInteger)BaseDataObject[PdfName.LC];
+                return lineCapObject != null ? (LineCapEnum)lineCapObject.RawValue : (LineCapEnum?)null;
+            }
+            set => BaseDataObject[PdfName.LC] = value.HasValue ? PdfInteger.Get(value.Value) : null;
+        }
 
-    [PDF(VersionEnum.PDF13)]
+        [PDF(VersionEnum.PDF13)]
     public LineDash LineDash
     {
       get
@@ -260,55 +255,50 @@ namespace HESDanfe.Documents.Contents
 
     [PDF(VersionEnum.PDF13)]
     public LineJoinEnum? LineJoin
-    {
-      get
-      {
-        PdfInteger lineJoinObject = (PdfInteger)BaseDataObject[PdfName.LJ];
-        return lineJoinObject != null ? (LineJoinEnum)lineJoinObject.RawValue : (LineJoinEnum?)null;
-      }
-      set
-      {BaseDataObject[PdfName.LJ] = value.HasValue ? PdfInteger.Get(value.Value) : null;}
-    }
+        {
+            get
+            {
+                PdfInteger lineJoinObject = (PdfInteger)BaseDataObject[PdfName.LJ];
+                return lineJoinObject != null ? (LineJoinEnum)lineJoinObject.RawValue : (LineJoinEnum?)null;
+            }
+            set => BaseDataObject[PdfName.LJ] = value.HasValue ? PdfInteger.Get(value.Value) : null;
+        }
 
-    [PDF(VersionEnum.PDF13)]
+        [PDF(VersionEnum.PDF13)]
     public double? LineWidth
-    {
-      get
-      {
-        IPdfNumber lineWidthObject = (IPdfNumber)BaseDataObject[PdfName.LW];
-        return lineWidthObject != null ? lineWidthObject.RawValue : (double?)null;
-      }
-      set
-      {BaseDataObject[PdfName.LW] = PdfReal.Get(value);}
-    }
+        {
+            get
+            {
+                IPdfNumber lineWidthObject = (IPdfNumber)BaseDataObject[PdfName.LW];
+                return lineWidthObject != null ? lineWidthObject.RawValue : (double?)null;
+            }
+            set => BaseDataObject[PdfName.LW] = PdfReal.Get(value);
+        }
 
-    [PDF(VersionEnum.PDF13)]
+        [PDF(VersionEnum.PDF13)]
     public double? MiterLimit
-    {
-      get
-      {
-        IPdfNumber miterLimitObject = (IPdfNumber)BaseDataObject[PdfName.ML];
-        return miterLimitObject != null ? miterLimitObject.RawValue : (double?)null;
-      }
-      set
-      {BaseDataObject[PdfName.ML] = PdfReal.Get(value);}
-    }
+        {
+            get
+            {
+                IPdfNumber miterLimitObject = (IPdfNumber)BaseDataObject[PdfName.ML];
+                return miterLimitObject != null ? miterLimitObject.RawValue : (double?)null;
+            }
+            set => BaseDataObject[PdfName.ML] = PdfReal.Get(value);
+        }
 
-    /**
-      <summary>Gets/Sets the stroking alpha constant, specifying the constant shape or constant
-      opacity value to be used for stroking operations in the transparent imaging model
-      [PDF:1.7:7.2.6].</summary>
-    */
-    [PDF(VersionEnum.PDF14)]
+        /**
+          <summary>Gets/Sets the stroking alpha constant, specifying the constant shape or constant
+          opacity value to be used for stroking operations in the transparent imaging model
+          [PDF:1.7:7.2.6].</summary>
+        */
+        [PDF(VersionEnum.PDF14)]
     public double? StrokeAlpha
     {
-      get
-      {return (double?)PdfSimpleObject<PdfObject>.GetValue(BaseDataObject[PdfName.CA]);}
-      set
-      {BaseDataObject[PdfName.CA] = PdfReal.Get(value);}
+      get => (double?)PdfSimpleObject<PdfObject>.GetValue(BaseDataObject[PdfName.CA]);
+      set => BaseDataObject[PdfName.CA] = PdfReal.Get(value);
     }
-    #endregion
-    #endregion
-    #endregion
-  }
+        #endregion
+        #endregion
+        #endregion
+    }
 }

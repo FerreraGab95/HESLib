@@ -127,24 +127,20 @@ namespace HESDanfe.Objects
       )
     {return visitor.Visit(this, data);}
 
-    public override SerializationModeEnum SerializationMode {
-      get
-      {return base.SerializationMode;}
-      set
-      {/* NOOP: Serialization MUST be kept literal. */}
-    }
+    public override SerializationModeEnum SerializationMode
+        {
+            get => base.SerializationMode;
+            set
+            {/* NOOP: Serialization MUST be kept literal. */}
+        }
 
-    public override object Value
+        public override object Value
     {
-      get
-      // FIXME: proper call to base.StringValue could NOT be done due to an unexpected Mono runtime SIGSEGV (TOO BAD).
-//            {return ToDate(base.StringValue);}
-      {return ToDate((string)base.Value);}
-      protected set
-      {RawValue = Tokens::Encoding.Pdf.Encode(Format((DateTime)value));}
+      get => ToDate((string)base.Value);
+      protected set => RawValue = Tokens::Encoding.Pdf.Encode(Format((DateTime)value));
     }
-    #endregion
-    #endregion
-    #endregion
-  }
+        #endregion
+        #endregion
+        #endregion
+    }
 }

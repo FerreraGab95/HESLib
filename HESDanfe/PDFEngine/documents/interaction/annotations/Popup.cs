@@ -63,30 +63,27 @@ namespace HESDanfe.Documents.Interaction.Annotations
       <summary>Gets/Sets whether the annotation should initially be displayed open.</summary>
     */
     public bool IsOpen
-    {
-      get
-      {
-        PdfBoolean openObject = (PdfBoolean)BaseDataObject[PdfName.Open];
-        return openObject != null
-          ? openObject.BooleanValue
-          : false;
-      }
-      set
-      {BaseDataObject[PdfName.Open] = PdfBoolean.Get(value);}
-    }
+        {
+            get
+            {
+                PdfBoolean openObject = (PdfBoolean)BaseDataObject[PdfName.Open];
+                return openObject != null
+                  ? openObject.BooleanValue
+                  : false;
+            }
+            set => BaseDataObject[PdfName.Open] = PdfBoolean.Get(value);
+        }
 
-    /**
-      <summary>Gets/Sets the parent annotation.</summary>
-    */
-    public Annotation Parent
+        /**
+          <summary>Gets/Sets the parent annotation.</summary>
+        */
+        public Annotation Parent
     {
-      get
-      {return Annotation.Wrap(BaseDataObject[PdfName.Parent]);}
-      set
-      {BaseDataObject[PdfName.Parent] = value.BaseObject;}
+      get => Annotation.Wrap(BaseDataObject[PdfName.Parent]);
+      set => BaseDataObject[PdfName.Parent] = value.BaseObject;
     }
-    #endregion
-    #endregion
-    #endregion
-  }
+        #endregion
+        #endregion
+        #endregion
+    }
 }

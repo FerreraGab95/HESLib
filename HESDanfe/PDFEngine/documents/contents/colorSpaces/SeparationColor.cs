@@ -96,13 +96,11 @@ namespace HESDanfe.Documents.Contents.ColorSpaces
     */
     public double Intensity
     {
-      get
-      {return GetComponentValue(0);}
-      set
-      {SetComponentValue(0, value);}
+      get => GetComponentValue(0);
+      set => SetComponentValue(0, value);
     }
-    #endregion
-    #endregion
-    #endregion
-  }
+        #endregion
+        #endregion
+        #endregion
+    }
 }

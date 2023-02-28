@@ -182,22 +182,21 @@ namespace HESDanfe.Documents.Interaction.Annotations
       <summary>Gets/Sets whether the contents should be shown as a caption.</summary>
     */
     public bool CaptionVisible
-    {
-      get
-      {
-        PdfBoolean captionVisibleObject = (PdfBoolean)BaseDataObject[PdfName.Cap];
-        return captionVisibleObject != null
-          ? captionVisibleObject.BooleanValue
-          : false;
-      }
-      set
-      {BaseDataObject[PdfName.Cap] = PdfBoolean.Get(value);}
-    }
+        {
+            get
+            {
+                PdfBoolean captionVisibleObject = (PdfBoolean)BaseDataObject[PdfName.Cap];
+                return captionVisibleObject != null
+                  ? captionVisibleObject.BooleanValue
+                  : false;
+            }
+            set => BaseDataObject[PdfName.Cap] = PdfBoolean.Get(value);
+        }
 
-    /**
-      <summary>Gets/Sets the ending coordinates.</summary>
-    */
-    public PointF EndPoint
+        /**
+          <summary>Gets/Sets the ending coordinates.</summary>
+        */
+        public PointF EndPoint
     {
       get
       {
@@ -219,44 +218,42 @@ namespace HESDanfe.Documents.Interaction.Annotations
       <summary>Gets/Sets the style of the ending line ending.</summary>
     */
     public LineEndStyleEnum EndStyle
-    {
-      get
-      {
-        PdfArray endstylesObject = (PdfArray)BaseDataObject[PdfName.LE];
-        return endstylesObject != null
-          ? ToLineEndStyleEnum((PdfName)endstylesObject[1])
-          : DefaultLineEndStyle;
-      }
-      set
-      {EnsureLineEndStylesObject()[1] = ToCode(value);}
-    }
+        {
+            get
+            {
+                PdfArray endstylesObject = (PdfArray)BaseDataObject[PdfName.LE];
+                return endstylesObject != null
+                  ? ToLineEndStyleEnum((PdfName)endstylesObject[1])
+                  : DefaultLineEndStyle;
+            }
+            set => EnsureLineEndStylesObject()[1] = ToCode(value);
+        }
 
-    /**
-      <summary>Gets/Sets the color with which to fill the interior of the annotation's line endings.</summary>
-    */
-    public DeviceRGBColor FillColor
-    {
-      get
-      {
-        PdfArray fillColorObject = (PdfArray)BaseDataObject[PdfName.IC];
-        if(fillColorObject == null)
-          return null;
-//TODO:use baseObject constructor!!!
-        return new DeviceRGBColor(
-          ((IPdfNumber)fillColorObject[0]).RawValue,
-          ((IPdfNumber)fillColorObject[1]).RawValue,
-          ((IPdfNumber)fillColorObject[2]).RawValue
-          );
-      }
-      set
-      {BaseDataObject[PdfName.IC] = (PdfDirectObject)value.BaseDataObject;}
-    }
+        /**
+          <summary>Gets/Sets the color with which to fill the interior of the annotation's line endings.</summary>
+        */
+        public DeviceRGBColor FillColor
+        {
+            get
+            {
+                PdfArray fillColorObject = (PdfArray)BaseDataObject[PdfName.IC];
+                if (fillColorObject == null)
+                    return null;
+                //TODO:use baseObject constructor!!!
+                return new DeviceRGBColor(
+                  ((IPdfNumber)fillColorObject[0]).RawValue,
+                  ((IPdfNumber)fillColorObject[1]).RawValue,
+                  ((IPdfNumber)fillColorObject[2]).RawValue
+                  );
+            }
+            set => BaseDataObject[PdfName.IC] = (PdfDirectObject)value.BaseDataObject;
+        }
 
-    /**
-      <summary>Gets/Sets the length of leader line extensions that extend
-      in the opposite direction from the leader lines.</summary>
-    */
-    public double LeaderLineExtensionLength
+        /**
+          <summary>Gets/Sets the length of leader line extensions that extend
+          in the opposite direction from the leader lines.</summary>
+        */
+        public double LeaderLineExtensionLength
     {
       get
       {
@@ -284,22 +281,21 @@ namespace HESDanfe.Documents.Interaction.Annotations
       to its ending point; a negative value indicates the opposite direction.</remarks>
     */
     public double LeaderLineLength
-    {
-      get
-      {
-        IPdfNumber leaderLineLengthObject = (IPdfNumber)BaseDataObject[PdfName.LL];
-        return leaderLineLengthObject != null
-          ? -leaderLineLengthObject.RawValue
-          : DefaultLeaderLineLength;
-      }
-      set
-      {BaseDataObject[PdfName.LL] = PdfReal.Get(-value);}
-    }
+        {
+            get
+            {
+                IPdfNumber leaderLineLengthObject = (IPdfNumber)BaseDataObject[PdfName.LL];
+                return leaderLineLengthObject != null
+                  ? -leaderLineLengthObject.RawValue
+                  : DefaultLeaderLineLength;
+            }
+            set => BaseDataObject[PdfName.LL] = PdfReal.Get(-value);
+        }
 
-    /**
-      <summary>Gets/Sets the starting coordinates.</summary>
-    */
-    public PointF StartPoint
+        /**
+          <summary>Gets/Sets the starting coordinates.</summary>
+        */
+        public PointF StartPoint
     {
       get
       {
@@ -321,21 +317,20 @@ namespace HESDanfe.Documents.Interaction.Annotations
       <summary>Gets/Sets the style of the starting line ending.</summary>
     */
     public LineEndStyleEnum StartStyle
-    {
-      get
-      {
-        PdfArray endstylesObject = (PdfArray)BaseDataObject[PdfName.LE];
-        return endstylesObject != null
-          ? ToLineEndStyleEnum((PdfName)endstylesObject[0])
-          : DefaultLineEndStyle;
-      }
-      set
-      {EnsureLineEndStylesObject()[0] = ToCode(value);}
-    }
-    #endregion
+        {
+            get
+            {
+                PdfArray endstylesObject = (PdfArray)BaseDataObject[PdfName.LE];
+                return endstylesObject != null
+                  ? ToLineEndStyleEnum((PdfName)endstylesObject[0])
+                  : DefaultLineEndStyle;
+            }
+            set => EnsureLineEndStylesObject()[0] = ToCode(value);
+        }
+        #endregion
 
-    #region private
-    private PdfArray EnsureLineEndStylesObject(
+        #region private
+        private PdfArray EnsureLineEndStylesObject(
       )
     {
       PdfArray endStylesObject = (PdfArray)BaseDataObject[PdfName.LE];

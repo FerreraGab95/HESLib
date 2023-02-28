@@ -75,19 +75,18 @@ namespace HESDanfe.Documents.Interaction.Navigation.Document
       <summary>Gets/Sets the target page.</summary>
     */
     public override object Page
-    {
-      get
-      {return Documents.Page.Wrap(BaseDataObject[0]);}
-      set
-      {
-        if(!(value is Documents.Page))
-          throw new ArgumentException("It MUST be a Page object.");
+        {
+            get => Documents.Page.Wrap(BaseDataObject[0]);
+            set
+            {
+                if (!(value is Documents.Page))
+                    throw new ArgumentException("It MUST be a Page object.");
 
                 BaseDataObject[0] = ((Documents.Page)value).BaseObject;
-      }
+            }
+        }
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 }

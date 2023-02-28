@@ -73,16 +73,14 @@ namespace HESDanfe.Documents.Contents.Objects
 
     public PdfName Name
     {
-      get
-      {return Operation.Name;}
-      set
-      {Operation.Name = value;}
+      get => Operation.Name;
+      set => Operation.Name = value;
     }
-    #endregion
-    #endregion
+        #endregion
+        #endregion
 
-    #region private
-    private PaintXObject Operation
+        #region private
+        private PaintXObject Operation
     {
       get
       {return (PaintXObject)Objects[0];}

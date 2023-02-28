@@ -116,24 +116,18 @@ namespace HESDanfe.Documents.Contents.Objects
 
     public override byte[] Text
     {
-      get
-      {
-        return ((PdfString)operands[
+      get => ((PdfString)operands[
           operator_.Equals(SimpleOperatorKeyword) ? 0 : 2
           ]).RawValue;
-      }
-      set
-      {
-        operands[
+      set => operands[
           operator_.Equals(SimpleOperatorKeyword) ? 0 : 2
           ] = new PdfString(value);
-      }
     }
 
-    /**
-      <summary>Gets/Sets the word spacing.</summary>
-    */
-    public double? WordSpace
+        /**
+          <summary>Gets/Sets the word spacing.</summary>
+        */
+        public double? WordSpace
     {
       get
       {

@@ -66,21 +66,20 @@ namespace HESDanfe.Documents
     public override Rendition this[
       PdfString key
       ]
-    {
-      get
-      {return base[key];}
-      set
-      {
-        Rendition oldValue = base[key];
-        base[key] = value;
-        UpdateName(oldValue, null);
-        UpdateName(value, key);
-      }
-    }
-    #endregion
+        {
+            get => base[key];
+            set
+            {
+                Rendition oldValue = base[key];
+                base[key] = value;
+                UpdateName(oldValue, null);
+                UpdateName(value, key);
+            }
+        }
+        #endregion
 
-    #region protected
-    protected override Rendition WrapValue(
+        #region protected
+        protected override Rendition WrapValue(
       PdfDirectObject baseObject
       )
     {return Rendition.Wrap(baseObject);}

@@ -124,33 +124,28 @@ namespace HESDanfe.Documents.Interaction.Annotations
     */
     public IconTypeEnum IconType
     {
-      get
-      {return ToIconTypeEnum((PdfName)BaseDataObject[PdfName.Name]);}
-      set
-      {BaseDataObject[PdfName.Name] = ToCode(value);}
+      get => ToIconTypeEnum((PdfName)BaseDataObject[PdfName.Name]);
+      set => BaseDataObject[PdfName.Name] = ToCode(value);
     }
 
-    /**
-      <summary>Gets/Sets the sound to be played.</summary>
-    */
-    public Multimedia::Sound Content
-    {
-      get
-      {
-        return new Multimedia::Sound(
-          BaseDataObject[PdfName.Sound]
-          );
-      }
-      set
-      {
-        if(value == null)
-          throw new ArgumentException("Content MUST be defined.");
+        /**
+          <summary>Gets/Sets the sound to be played.</summary>
+        */
+        public Multimedia::Sound Content
+        {
+            get => new Multimedia::Sound(
+                BaseDataObject[PdfName.Sound]
+                );
+            set
+            {
+                if (value == null)
+                    throw new ArgumentException("Content MUST be defined.");
 
-        BaseDataObject[PdfName.Sound] = value.BaseObject;
-      }
+                BaseDataObject[PdfName.Sound] = value.BaseObject;
+            }
+        }
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 }

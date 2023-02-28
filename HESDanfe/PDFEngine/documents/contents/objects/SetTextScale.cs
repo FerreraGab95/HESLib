@@ -69,13 +69,11 @@ namespace HESDanfe.Documents.Contents.Objects
     */
     public double Value
     {
-      get
-      {return ((IPdfNumber)operands[0]).RawValue;}
-      set
-      {operands[0] = PdfReal.Get(value);}
+      get => ((IPdfNumber)operands[0]).RawValue;
+      set => operands[0] = PdfReal.Get(value);
     }
-    #endregion
-    #endregion
-    #endregion
-  }
+        #endregion
+        #endregion
+        #endregion
+    }
 }

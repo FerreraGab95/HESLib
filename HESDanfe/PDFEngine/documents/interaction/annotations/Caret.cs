@@ -122,13 +122,11 @@ namespace HESDanfe.Documents.Interaction.Annotations
     */
     public SymbolTypeEnum SymbolType
     {
-      get
-      {return ToSymbolTypeEnum((PdfName)BaseDataObject[PdfName.Sy]);}
-      set
-      {BaseDataObject[PdfName.Sy] = ToCode(value);}
+      get => ToSymbolTypeEnum((PdfName)BaseDataObject[PdfName.Sy]);
+      set => BaseDataObject[PdfName.Sy] = ToCode(value);
     }
-    #endregion
-    #endregion
-    #endregion
-  }
+        #endregion
+        #endregion
+        #endregion
+    }
 }

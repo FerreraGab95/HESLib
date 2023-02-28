@@ -277,61 +277,60 @@ namespace HESDanfe.Files
     public PdfIndirectObject this[
       int index
       ]
-    {
-      get
-      {
-        if(index < 0 || index >= Count)
-          throw new ArgumentOutOfRangeException();
-    
-        PdfIndirectObject obj;
-        if(!modifiedObjects.TryGetValue(index, out obj))
         {
-          if(!wokenObjects.TryGetValue(index, out obj))
-          {
-            XRefEntry xrefEntry;
-            if(!xrefEntries.TryGetValue(index, out xrefEntry))
+            get
             {
-              /*
-                NOTE: The cross-reference table (comprising the original cross-reference section and
-                all update sections) MUST contain one entry for each object number from 0 to the
-                maximum object number used in the file, even if one or more of the object numbers in
-                this range do not actually occur in the file. However, for resilience purposes
-                missing entries are treated as free ones.
-              */
-              xrefEntries[index] = xrefEntry = new XRefEntry(
-                index,
-                XRefEntry.GenerationUnreusable,
-                0,
-                XRefEntry.UsageEnum.Free
-                );
+                if (index < 0 || index >= Count)
+                    throw new ArgumentOutOfRangeException();
+
+                PdfIndirectObject obj;
+                if (!modifiedObjects.TryGetValue(index, out obj))
+                {
+                    if (!wokenObjects.TryGetValue(index, out obj))
+                    {
+                        XRefEntry xrefEntry;
+                        if (!xrefEntries.TryGetValue(index, out xrefEntry))
+                        {
+                            /*
+                              NOTE: The cross-reference table (comprising the original cross-reference section and
+                              all update sections) MUST contain one entry for each object number from 0 to the
+                              maximum object number used in the file, even if one or more of the object numbers in
+                              this range do not actually occur in the file. However, for resilience purposes
+                              missing entries are treated as free ones.
+                            */
+                            xrefEntries[index] = xrefEntry = new XRefEntry(
+                              index,
+                              XRefEntry.GenerationUnreusable,
+                              0,
+                              XRefEntry.UsageEnum.Free
+                              );
+                        }
+
+                        // Awake the object!
+                        /*
+                          NOTE: This operation allows to keep a consistent state across the whole session,
+                          avoiding multiple incoherent instantiations of the same original indirect object.
+                        */
+                        wokenObjects[index] = obj = new PdfIndirectObject(file, null, xrefEntry);
+                    }
+                }
+                return obj;
             }
-
-            // Awake the object!
-            /*
-              NOTE: This operation allows to keep a consistent state across the whole session,
-              avoiding multiple incoherent instantiations of the same original indirect object.
-            */
-            wokenObjects[index] = obj = new PdfIndirectObject(file, null, xrefEntry);
-          }
+            set => throw new NotSupportedException();
         }
-        return obj;
-      }
-      set
-      {throw new NotSupportedException();}
-    }
 
-    #region ICollection
-    /**
-      <summary>Registers an <i>external</i> indirect object.</summary>
-      <remarks>
-        <para>External indirect objects come from alien PDF files; therefore, this is a powerful way
-        to import contents from a file into another one.</para>
-        <para>To register and get an external indirect object, use <see
-        cref="AddExternal(PdfIndirectObject)"/></para>
-      </remarks>
-      <returns>Whether the indirect object was successfully registered.</returns>
-    */
-    public void Add(
+        #region ICollection
+        /**
+          <summary>Registers an <i>external</i> indirect object.</summary>
+          <remarks>
+            <para>External indirect objects come from alien PDF files; therefore, this is a powerful way
+            to import contents from a file into another one.</para>
+            <para>To register and get an external indirect object, use <see
+            cref="AddExternal(PdfIndirectObject)"/></para>
+          </remarks>
+          <returns>Whether the indirect object was successfully registered.</returns>
+        */
+        public void Add(
       PdfIndirectObject obj
       )
     {AddExternal(obj);}

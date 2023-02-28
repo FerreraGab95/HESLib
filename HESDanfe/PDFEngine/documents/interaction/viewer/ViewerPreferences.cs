@@ -118,58 +118,44 @@ namespace HESDanfe.Documents.Interaction.Viewer
         #region public
         public bool CenterWindow
         {
-            get
-            { return (bool)Get(PdfName.CenterWindow, false); }
-            set
-            { BaseDataObject[PdfName.CenterWindow] = PdfBoolean.Get(value); }
+            get => (bool)Get(PdfName.CenterWindow, false);
+            set => BaseDataObject[PdfName.CenterWindow] = PdfBoolean.Get(value);
         }
 
         public DirectionEnum Direction
         {
-            get
-            { return ToDirectionEnum((PdfName)BaseDataObject[PdfName.Direction]); }
-            set
-            { BaseDataObject[PdfName.Direction] = ToCode(value); }
+            get => ToDirectionEnum((PdfName)BaseDataObject[PdfName.Direction]);
+            set => BaseDataObject[PdfName.Direction] = ToCode(value);
         }
 
         public bool DisplayDocTitle
         {
-            get
-            { return (bool)Get(PdfName.DisplayDocTitle, false); }
-            set
-            { BaseDataObject[PdfName.DisplayDocTitle] = PdfBoolean.Get(value); }
+            get => (bool)Get(PdfName.DisplayDocTitle, false);
+            set => BaseDataObject[PdfName.DisplayDocTitle] = PdfBoolean.Get(value);
         }
 
         public bool FitWindow
         {
-            get
-            { return (bool)Get(PdfName.FitWindow, false); }
-            set
-            { BaseDataObject[PdfName.FitWindow] = PdfBoolean.Get(value); }
+            get => (bool)Get(PdfName.FitWindow, false);
+            set => BaseDataObject[PdfName.FitWindow] = PdfBoolean.Get(value);
         }
 
         public bool HideMenubar
         {
-            get
-            { return (bool)Get(PdfName.HideMenubar, false); }
-            set
-            { BaseDataObject[PdfName.HideMenubar] = PdfBoolean.Get(value); }
+            get => (bool)Get(PdfName.HideMenubar, false);
+            set => BaseDataObject[PdfName.HideMenubar] = PdfBoolean.Get(value);
         }
 
         public bool HideToolbar
         {
-            get
-            { return (bool)Get(PdfName.HideToolbar, false); }
-            set
-            { BaseDataObject[PdfName.HideToolbar] = PdfBoolean.Get(value); }
+            get => (bool)Get(PdfName.HideToolbar, false);
+            set => BaseDataObject[PdfName.HideToolbar] = PdfBoolean.Get(value);
         }
 
         public bool HideWindowUI
         {
-            get
-            { return (bool)Get(PdfName.HideWindowUI, false); }
-            set
-            { BaseDataObject[PdfName.HideWindowUI] = PdfBoolean.Get(value); }
+            get => (bool)Get(PdfName.HideWindowUI, false);
+            set => BaseDataObject[PdfName.HideWindowUI] = PdfBoolean.Get(value);
         }
         #endregion
 

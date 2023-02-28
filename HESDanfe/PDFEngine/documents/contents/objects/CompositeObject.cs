@@ -73,10 +73,8 @@ namespace HESDanfe.Documents.Contents.Objects
         */
         public virtual Operation Header
         {
-            get
-            { return null; }
-            set
-            { throw new NotSupportedException(); }
+            get => null;
+            set => throw new NotSupportedException();
         }
 
         /**

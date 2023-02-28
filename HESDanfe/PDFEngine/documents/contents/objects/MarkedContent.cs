@@ -71,13 +71,11 @@ namespace HESDanfe.Documents.Contents.Objects
     */
     public override Operation Header
     {
-      get
-      {return header;}
-      set
-      {header = (BeginMarkedContent)value;}
+      get => header;
+      set => header = (BeginMarkedContent)value;
     }
 
-    public override void WriteTo(
+        public override void WriteTo(
       IOutputStream stream,
       Document context
       )

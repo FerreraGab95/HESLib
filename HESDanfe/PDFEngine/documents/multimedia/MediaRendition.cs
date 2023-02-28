@@ -61,37 +61,31 @@ namespace HESDanfe.Documents.Multimedia
     */
     public MediaClip Clip
     {
-      get
-      {return MediaClip.Wrap(BaseDataObject[PdfName.C]);}
-      set
-      {BaseDataObject[PdfName.C] = PdfObjectWrapper.GetBaseObject(value);}
+      get => MediaClip.Wrap(BaseDataObject[PdfName.C]);
+      set => BaseDataObject[PdfName.C] = PdfObjectWrapper.GetBaseObject(value);
     }
 
-    /**
-      <summary>Gets/Sets the parameters that specify how this media rendition should be played.
-      </summary>
-    */
-    public MediaPlayParameters PlayParameters
+        /**
+          <summary>Gets/Sets the parameters that specify how this media rendition should be played.
+          </summary>
+        */
+        public MediaPlayParameters PlayParameters
     {
-      get
-      {return new MediaPlayParameters(BaseDataObject.Get<PdfDictionary>(PdfName.P));}
-      set
-      {BaseDataObject[PdfName.P] = PdfObjectWrapper.GetBaseObject(value);}
+      get => new MediaPlayParameters(BaseDataObject.Get<PdfDictionary>(PdfName.P));
+      set => BaseDataObject[PdfName.P] = PdfObjectWrapper.GetBaseObject(value);
     }
 
-    /**
-      <summary>Gets/Sets the parameters that specify where the media rendition object should be
-      played.<summary>
-    */
-    public MediaScreenParameters ScreenParameters
+        /**
+          <summary>Gets/Sets the parameters that specify where the media rendition object should be
+          played.<summary>
+        */
+        public MediaScreenParameters ScreenParameters
     {
-      get
-      {return new MediaScreenParameters(BaseDataObject.Get<PdfDictionary>(PdfName.SP));}
-      set
-      {BaseDataObject[PdfName.SP] = PdfObjectWrapper.GetBaseObject(value);}
+      get => new MediaScreenParameters(BaseDataObject.Get<PdfDictionary>(PdfName.SP));
+      set => BaseDataObject[PdfName.SP] = PdfObjectWrapper.GetBaseObject(value);
     }
-    #endregion
-    #endregion
-    #endregion
-  }
+        #endregion
+        #endregion
+        #endregion
+    }
 }

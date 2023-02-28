@@ -208,8 +208,7 @@ namespace HESDanfe.Documents.Contents.Fonts
             {
                 get
                 { IList<object> value; entries.TryGetValue(key, out value); return value; }
-                set
-                { throw new NotSupportedException(); }
+                set => throw new NotSupportedException();
             }
 
             public bool TryGetValue(
@@ -349,10 +348,8 @@ namespace HESDanfe.Documents.Contents.Fonts
               int index
               ]
             {
-                get
-                { return data[index]; }
-                set
-                { throw new NotSupportedException(); }
+                get => data[index];
+                set => throw new NotSupportedException();
             }
 
             public void Add(

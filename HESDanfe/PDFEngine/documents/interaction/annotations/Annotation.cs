@@ -201,10 +201,8 @@ namespace HESDanfe.Documents.Interaction.Annotations
         [PDF(VersionEnum.PDF11)]
         public virtual Actions.Action Action
         {
-            get
-            { return Interaction.Actions.Action.Wrap(BaseDataObject[PdfName.A]); }
-            set
-            { BaseDataObject[PdfName.A] = PdfObjectWrapper.GetBaseObject(value); }
+            get => Interaction.Actions.Action.Wrap(BaseDataObject[PdfName.A]);
+            set => BaseDataObject[PdfName.A] = PdfObjectWrapper.GetBaseObject(value);
         }
 
         /**
@@ -213,10 +211,8 @@ namespace HESDanfe.Documents.Interaction.Annotations
         [PDF(VersionEnum.PDF12)]
         public virtual AnnotationActions Actions
         {
-            get
-            { return new AnnotationActions(this, BaseDataObject.Get<PdfDictionary>(PdfName.AA)); }
-            set
-            { BaseDataObject[PdfName.AA] = PdfObjectWrapper.GetBaseObject(value); }
+            get => new AnnotationActions(this, BaseDataObject.Get<PdfDictionary>(PdfName.AA));
+            set => BaseDataObject[PdfName.AA] = PdfObjectWrapper.GetBaseObject(value);
         }
 
         /**
@@ -225,10 +221,8 @@ namespace HESDanfe.Documents.Interaction.Annotations
         [PDF(VersionEnum.PDF12)]
         public Appearance Appearance
         {
-            get
-            { return Appearance.Wrap(BaseDataObject.Get<PdfDictionary>(PdfName.AP)); }
-            set
-            { BaseDataObject[PdfName.AP] = PdfObjectWrapper.GetBaseObject(value); }
+            get => Appearance.Wrap(BaseDataObject.Get<PdfDictionary>(PdfName.AP));
+            set => BaseDataObject[PdfName.AP] = PdfObjectWrapper.GetBaseObject(value);
         }
 
         /**
@@ -237,8 +231,7 @@ namespace HESDanfe.Documents.Interaction.Annotations
         [PDF(VersionEnum.PDF11)]
         public Border Border
         {
-            get
-            { return new Border(BaseDataObject.Get<PdfDictionary>(PdfName.BS)); }
+            get => new Border(BaseDataObject.Get<PdfDictionary>(PdfName.BS));
             set
             {
                 BaseDataObject[PdfName.BS] = PdfObjectWrapper.GetBaseObject(value);
@@ -263,15 +256,12 @@ namespace HESDanfe.Documents.Interaction.Annotations
                   (float)box.Height
                   );
             }
-            set
-            {
-                BaseDataObject[PdfName.Rect] = new HESDanfe.Objects.Rectangle(
+            set => BaseDataObject[PdfName.Rect] = new HESDanfe.Objects.Rectangle(
                   value.X,
                   GetPageHeight() - value.Y,
                   value.Width,
                   value.Height
                   ).BaseDataObject;
-            }
         }
 
         /**
@@ -280,10 +270,8 @@ namespace HESDanfe.Documents.Interaction.Annotations
         [PDF(VersionEnum.PDF11)]
         public DeviceColor Color
         {
-            get
-            { return DeviceColor.Get((PdfArray)BaseDataObject[PdfName.C]); }
-            set
-            { BaseDataObject[PdfName.C] = PdfObjectWrapper.GetBaseObject(value); }
+            get => DeviceColor.Get((PdfArray)BaseDataObject[PdfName.C]);
+            set => BaseDataObject[PdfName.C] = PdfObjectWrapper.GetBaseObject(value);
         }
 
         /**
@@ -313,8 +301,7 @@ namespace HESDanfe.Documents.Interaction.Annotations
                   ? 0
                   : (FlagsEnum)Enum.ToObject(typeof(FlagsEnum), flagsObject.RawValue);
             }
-            set
-            { BaseDataObject[PdfName.F] = PdfInteger.Get((int)value); }
+            set => BaseDataObject[PdfName.F] = PdfInteger.Get((int)value);
         }
 
         /**
@@ -331,8 +318,7 @@ namespace HESDanfe.Documents.Interaction.Annotations
                 PdfDirectObject modificationDateObject = BaseDataObject[PdfName.M];
                 return (DateTime?)(modificationDateObject is PdfDate ? ((PdfDate)modificationDateObject).Value : null);
             }
-            set
-            { BaseDataObject[PdfName.M] = PdfDate.Get(value); }
+            set => BaseDataObject[PdfName.M] = PdfDate.Get(value);
         }
 
         /**
@@ -342,10 +328,8 @@ namespace HESDanfe.Documents.Interaction.Annotations
         [PDF(VersionEnum.PDF14)]
         public string Name
         {
-            get
-            { return (string)PdfSimpleObject<Object>.GetValue(BaseDataObject[PdfName.NM]); }
-            set
-            { BaseDataObject[PdfName.NM] = PdfTextString.Get(value); }
+            get => (string)PdfSimpleObject<Object>.GetValue(BaseDataObject[PdfName.NM]);
+            set => BaseDataObject[PdfName.NM] = PdfTextString.Get(value);
         }
 
         /**
@@ -364,10 +348,8 @@ namespace HESDanfe.Documents.Interaction.Annotations
         [PDF(VersionEnum.PDF11)]
         public bool Printable
         {
-            get
-            { return (Flags & FlagsEnum.Print) == FlagsEnum.Print; }
-            set
-            { Flags = EnumUtils.Mask(Flags, FlagsEnum.Print, value); }
+            get => (Flags & FlagsEnum.Print) == FlagsEnum.Print;
+            set => Flags = EnumUtils.Mask(Flags, FlagsEnum.Print, value);
         }
 
         /**
@@ -377,8 +359,7 @@ namespace HESDanfe.Documents.Interaction.Annotations
         */
         public string Text
         {
-            get
-            { return (string)PdfSimpleObject<Object>.GetValue(BaseDataObject[PdfName.Contents]); }
+            get => (string)PdfSimpleObject<Object>.GetValue(BaseDataObject[PdfName.Contents]);
             set
             {
                 if (value == null)
@@ -394,20 +375,16 @@ namespace HESDanfe.Documents.Interaction.Annotations
         [PDF(VersionEnum.PDF11)]
         public bool Visible
         {
-            get
-            { return (Flags & FlagsEnum.Hidden) != FlagsEnum.Hidden; }
-            set
-            { Flags = EnumUtils.Mask(Flags, FlagsEnum.Hidden, !value); }
+            get => (Flags & FlagsEnum.Hidden) != FlagsEnum.Hidden;
+            set => Flags = EnumUtils.Mask(Flags, FlagsEnum.Hidden, !value);
         }
 
         #region ILayerable
         [PDF(VersionEnum.PDF15)]
         public LayerEntity Layer
         {
-            get
-            { return (LayerEntity)PropertyList.Wrap(BaseDataObject[PdfName.OC]); }
-            set
-            { BaseDataObject[PdfName.OC] = PdfObjectWrapper.GetBaseObject(value); }
+            get => (LayerEntity)PropertyList.Wrap(BaseDataObject[PdfName.OC]);
+            set => BaseDataObject[PdfName.OC] = PdfObjectWrapper.GetBaseObject(value);
         }
         #endregion
         #endregion

@@ -106,10 +106,8 @@ namespace HESDanfe.Documents
             */
             public CompatibilityModeEnum CompatibilityMode
             {
-                get
-                { return compatibilityMode; }
-                set
-                { compatibilityMode = value; }
+                get => compatibilityMode;
+                set => compatibilityMode = value;
             }
 
             /**
@@ -126,10 +124,8 @@ namespace HESDanfe.Documents
             */
             public XRefModeEnum XrefMode
             {
-                get
-                { return xrefMode; }
-                set
-                { document.CheckCompatibility(xrefMode = value); }
+                get => xrefMode;
+                set => document.CheckCompatibility(xrefMode = value);
             }
         }
 
@@ -257,10 +253,8 @@ namespace HESDanfe.Documents
         [PDF(VersionEnum.PDF14)]
         public DocumentActions Actions
         {
-            get
-            { return new DocumentActions(BaseDataObject.Get<PdfDictionary>(PdfName.AA)); }
-            set
-            { BaseDataObject[PdfName.AA] = PdfObjectWrapper.GetBaseObject(value); }
+            get => new DocumentActions(BaseDataObject.Get<PdfDictionary>(PdfName.AA));
+            set => BaseDataObject[PdfName.AA] = PdfObjectWrapper.GetBaseObject(value);
         }
 
         /**
@@ -269,10 +263,8 @@ namespace HESDanfe.Documents
         [PDF(VersionEnum.PDF11)]
         public Articles Articles
         {
-            get
-            { return Articles.Wrap(BaseDataObject.Get<PdfArray>(PdfName.Threads, false)); }
-            set
-            { BaseDataObject[PdfName.Threads] = PdfObjectWrapper.GetBaseObject(value); }
+            get => Articles.Wrap(BaseDataObject.Get<PdfArray>(PdfName.Threads, false));
+            set => BaseDataObject[PdfName.Threads] = PdfObjectWrapper.GetBaseObject(value);
         }
 
         /**
@@ -280,10 +272,8 @@ namespace HESDanfe.Documents
         */
         public Bookmarks Bookmarks
         {
-            get
-            { return Bookmarks.Wrap(BaseDataObject.Get<PdfDictionary>(PdfName.Outlines, false)); }
-            set
-            { BaseDataObject[PdfName.Outlines] = PdfObjectWrapper.GetBaseObject(value); }
+            get => Bookmarks.Wrap(BaseDataObject.Get<PdfDictionary>(PdfName.Outlines, false));
+            set => BaseDataObject[PdfName.Outlines] = PdfObjectWrapper.GetBaseObject(value);
         }
 
         public override object Clone(
@@ -296,10 +286,8 @@ namespace HESDanfe.Documents
         */
         public ConfigurationImpl Configuration
         {
-            get
-            { return configuration; }
-            set
-            { configuration = value; }
+            get => configuration;
+            set => configuration = value;
         }
 
         /**
@@ -332,10 +320,8 @@ namespace HESDanfe.Documents
         [PDF(VersionEnum.PDF12)]
         public Form Form
         {
-            get
-            { return Form.Wrap(BaseDataObject.Get<PdfDictionary>(PdfName.AcroForm)); }
-            set
-            { BaseDataObject[PdfName.AcroForm] = PdfObjectWrapper.GetBaseObject(value); }
+            get => Form.Wrap(BaseDataObject.Get<PdfDictionary>(PdfName.AcroForm));
+            set => BaseDataObject[PdfName.AcroForm] = PdfObjectWrapper.GetBaseObject(value);
         }
 
         /**
@@ -388,10 +374,8 @@ namespace HESDanfe.Documents
         */
         public Information Information
         {
-            get
-            { return Information.Wrap(File.Trailer.Get<PdfDictionary>(PdfName.Info, false)); }
-            set
-            { File.Trailer[PdfName.Info] = PdfObjectWrapper.GetBaseObject(value); }
+            get => Information.Wrap(File.Trailer.Get<PdfDictionary>(PdfName.Info, false));
+            set => File.Trailer[PdfName.Info] = PdfObjectWrapper.GetBaseObject(value);
         }
 
         /**
@@ -400,8 +384,7 @@ namespace HESDanfe.Documents
         [PDF(VersionEnum.PDF15)]
         public LayerDefinition Layer
         {
-            get
-            { return LayerDefinition.Wrap(BaseDataObject.Get<PdfDictionary>(PdfName.OCProperties)); }
+            get => LayerDefinition.Wrap(BaseDataObject.Get<PdfDictionary>(PdfName.OCProperties));
             set
             {
                 CheckCompatibility("Layer");
@@ -415,10 +398,8 @@ namespace HESDanfe.Documents
         [PDF(VersionEnum.PDF12)]
         public Names Names
         {
-            get
-            { return new Names(BaseDataObject.Get<PdfDictionary>(PdfName.Names)); }
-            set
-            { BaseDataObject[PdfName.Names] = PdfObjectWrapper.GetBaseObject(value); }
+            get => new Names(BaseDataObject.Get<PdfDictionary>(PdfName.Names));
+            set => BaseDataObject[PdfName.Names] = PdfObjectWrapper.GetBaseObject(value);
         }
 
         /**
@@ -427,8 +408,7 @@ namespace HESDanfe.Documents
         [PDF(VersionEnum.PDF13)]
         public PageLabels PageLabels
         {
-            get
-            { return new PageLabels(BaseDataObject.Get<PdfDictionary>(PdfName.PageLabels)); }
+            get => new PageLabels(BaseDataObject.Get<PdfDictionary>(PdfName.PageLabels));
             set
             {
                 CheckCompatibility("PageLabels");
@@ -441,10 +421,8 @@ namespace HESDanfe.Documents
         */
         public PageLayoutEnum PageLayout
         {
-            get
-            { return PageLayoutEnumExtension.Get((PdfName)BaseDataObject[PdfName.PageLayout]); }
-            set
-            { BaseDataObject[PdfName.PageLayout] = value.GetName(); }
+            get => PageLayoutEnumExtension.Get((PdfName)BaseDataObject[PdfName.PageLayout]);
+            set => BaseDataObject[PdfName.PageLayout] = value.GetName();
         }
 
         /**
@@ -452,10 +430,8 @@ namespace HESDanfe.Documents
         */
         public PageModeEnum PageMode
         {
-            get
-            { return PageModeEnumExtension.Get((PdfName)BaseDataObject[PdfName.PageMode]); }
-            set
-            { BaseDataObject[PdfName.PageMode] = value.GetName(); }
+            get => PageModeEnumExtension.Get((PdfName)BaseDataObject[PdfName.PageMode]);
+            set => BaseDataObject[PdfName.PageMode] = value.GetName();
         }
 
         /**
@@ -463,10 +439,8 @@ namespace HESDanfe.Documents
         */
         public Pages Pages
         {
-            get
-            { return new Pages(BaseDataObject[PdfName.Pages]); }
-            set
-            { BaseDataObject[PdfName.Pages] = PdfObjectWrapper.GetBaseObject(value); }
+            get => new Pages(BaseDataObject[PdfName.Pages]);
+            set => BaseDataObject[PdfName.Pages] = PdfObjectWrapper.GetBaseObject(value);
         }
 
         /**
@@ -520,10 +494,8 @@ namespace HESDanfe.Documents
         */
         public Resources Resources
         {
-            get
-            { return Resources.Wrap(((PdfDictionary)BaseDataObject.Resolve(PdfName.Pages)).Get<PdfDictionary>(PdfName.Resources)); }
-            set
-            { ((PdfDictionary)BaseDataObject.Resolve(PdfName.Pages))[PdfName.Resources] = PdfObjectWrapper.GetBaseObject(value); }
+            get => Resources.Wrap(((PdfDictionary)BaseDataObject.Resolve(PdfName.Pages)).Get<PdfDictionary>(PdfName.Resources));
+            set => ((PdfDictionary)BaseDataObject.Resolve(PdfName.Pages))[PdfName.Resources] = PdfObjectWrapper.GetBaseObject(value);
         }
 
         /**
@@ -550,8 +522,7 @@ namespace HESDanfe.Documents
 
                 return (version.CompareTo(fileVersion) > 0 ? version : fileVersion);
             }
-            set
-            { BaseDataObject[PdfName.Version] = PdfName.Get(value); }
+            set => BaseDataObject[PdfName.Version] = PdfName.Get(value);
         }
 
         /**
@@ -559,10 +530,8 @@ namespace HESDanfe.Documents
         */
         public ViewerPreferences ViewerPreferences
         {
-            get
-            { return ViewerPreferences.Wrap(BaseDataObject.Get<PdfDictionary>(PdfName.ViewerPreferences)); }
-            set
-            { BaseDataObject[PdfName.ViewerPreferences] = PdfObjectWrapper.GetBaseObject(value); }
+            get => ViewerPreferences.Wrap(BaseDataObject.Get<PdfDictionary>(PdfName.ViewerPreferences));
+            set => BaseDataObject[PdfName.ViewerPreferences] = PdfObjectWrapper.GetBaseObject(value);
         }
         #endregion
 

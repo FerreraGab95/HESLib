@@ -69,13 +69,11 @@ namespace HESDanfe.Documents.Multimedia
     */
     public SoftwareIdentifier Identifier
     {
-      get
-      {return SoftwareIdentifier.Wrap(BaseDataObject.Get<PdfDictionary>(PdfName.PID));}
-      set
-      {BaseDataObject[PdfName.PID] = value.BaseObject;}
+      get => SoftwareIdentifier.Wrap(BaseDataObject.Get<PdfDictionary>(PdfName.PID));
+      set => BaseDataObject[PdfName.PID] = value.BaseObject;
     }
-    #endregion
-    #endregion
-    #endregion
-  }
+        #endregion
+        #endregion
+        #endregion
+    }
 }

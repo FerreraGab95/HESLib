@@ -83,10 +83,8 @@ namespace HESDanfe.Documents.Contents.ColorSpaces
 
         public int Index
         {
-            get
-            { return ((PdfInteger)((PdfArray)BaseDataObject)[0]).IntValue; }
-            set
-            { ((PdfArray)BaseDataObject)[0] = PdfInteger.Get(value); }
+            get => ((PdfInteger)((PdfArray)BaseDataObject)[0]).IntValue;
+            set => ((PdfArray)BaseDataObject)[0] = PdfInteger.Get(value);
         }
 
         #endregion Public Properties

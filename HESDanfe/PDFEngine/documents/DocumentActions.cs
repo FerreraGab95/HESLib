@@ -60,61 +60,51 @@ namespace HESDanfe.Documents
     */
     public Action AfterPrint
     {
-      get
-      {return Action.Wrap(BaseDataObject[PdfName.DP]);}
-      set
-      {BaseDataObject[PdfName.DP] = value.BaseObject;}
+      get => Action.Wrap(BaseDataObject[PdfName.DP]);
+      set => BaseDataObject[PdfName.DP] = value.BaseObject;
     }
 
-    /**
-      <summary>Gets/Sets the action to be performed after saving the document.</summary>
-    */
-    public Action AfterSave
+        /**
+          <summary>Gets/Sets the action to be performed after saving the document.</summary>
+        */
+        public Action AfterSave
     {
-      get
-      {return Action.Wrap(BaseDataObject[PdfName.DS]);}
-      set
-      {BaseDataObject[PdfName.DS] = value.BaseObject;}
+      get => Action.Wrap(BaseDataObject[PdfName.DS]);
+      set => BaseDataObject[PdfName.DS] = value.BaseObject;
     }
 
-    /**
-      <summary>Gets/Sets the action to be performed before printing the document.</summary>
-    */
-    public Action BeforePrint
+        /**
+          <summary>Gets/Sets the action to be performed before printing the document.</summary>
+        */
+        public Action BeforePrint
     {
-      get
-      {return Action.Wrap(BaseDataObject[PdfName.WP]);}
-      set
-      {BaseDataObject[PdfName.WP] = value.BaseObject;}
+      get => Action.Wrap(BaseDataObject[PdfName.WP]);
+      set => BaseDataObject[PdfName.WP] = value.BaseObject;
     }
 
-    /**
-      <summary>Gets/Sets the action to be performed before saving the document.</summary>
-    */
-    public Action BeforeSave
+        /**
+          <summary>Gets/Sets the action to be performed before saving the document.</summary>
+        */
+        public Action BeforeSave
     {
-      get
-      {return Action.Wrap(BaseDataObject[PdfName.WS]);}
-      set
-      {BaseDataObject[PdfName.WS] = value.BaseObject;}
+      get => Action.Wrap(BaseDataObject[PdfName.WS]);
+      set => BaseDataObject[PdfName.WS] = value.BaseObject;
     }
 
-    /**
-      <summary>Gets/Sets the action to be performed before closing the document.</summary>
-    */
-    public Action OnClose
+        /**
+          <summary>Gets/Sets the action to be performed before closing the document.</summary>
+        */
+        public Action OnClose
     {
-      get
-      {return Action.Wrap(BaseDataObject[PdfName.DC]);}
-      set
-      {BaseDataObject[PdfName.DC] = value.BaseObject;}
+      get => Action.Wrap(BaseDataObject[PdfName.DC]);
+      set => BaseDataObject[PdfName.DC] = value.BaseObject;
     }
 
-    /**
-      <summary>Gets/Sets the destination to be displayed or the action to be performed
-      after opening the document.</summary>
-    */
-    public PdfObjectWrapper OnOpen
+        /**
+          <summary>Gets/Sets the destination to be displayed or the action to be performed
+          after opening the document.</summary>
+        */
+        public PdfObjectWrapper OnOpen
     {
       get
       {

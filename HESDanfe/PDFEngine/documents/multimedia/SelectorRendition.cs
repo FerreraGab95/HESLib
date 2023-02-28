@@ -79,13 +79,11 @@ namespace HESDanfe.Documents.Multimedia
     */
     public Array<Rendition> Renditions
     {
-      get
-      {return Array<Rendition>.Wrap<Rendition>(ArrayWrapper, BaseDataObject.Get<PdfArray>(PdfName.R));}
-      set
-      {BaseDataObject[PdfName.R] = value.BaseObject;}
+      get => Array<Rendition>.Wrap<Rendition>(ArrayWrapper, BaseDataObject.Get<PdfArray>(PdfName.R));
+      set => BaseDataObject[PdfName.R] = value.BaseObject;
     }
-    #endregion
-    #endregion
-    #endregion
-  }
+        #endregion
+        #endregion
+        #endregion
+    }
 }

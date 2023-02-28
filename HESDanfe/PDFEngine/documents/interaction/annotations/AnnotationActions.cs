@@ -71,106 +71,88 @@ namespace HESDanfe.Documents.Interaction.Annotations
     */
     public Action OnActivate
     {
-      get
-      {return parent.Action;}
-      set
-      {parent.Action = value;}
+      get => parent.Action;
+      set => parent.Action = value;
     }
 
-    /**
-      <summary>Gets/Sets the action to be performed when the cursor enters the annotation's active area.</summary>
-    */
-    public Action OnEnter
+        /**
+          <summary>Gets/Sets the action to be performed when the cursor enters the annotation's active area.</summary>
+        */
+        public Action OnEnter
     {
-      get
-      {return this[PdfName.E];}
-      set
-      {this[PdfName.E] = value;}
+      get => this[PdfName.E];
+      set => this[PdfName.E] = value;
     }
 
-    /**
-      <summary>Gets/Sets the action to be performed when the cursor exits the annotation's active area.</summary>
-    */
-    public Action OnExit
+        /**
+          <summary>Gets/Sets the action to be performed when the cursor exits the annotation's active area.</summary>
+        */
+        public Action OnExit
     {
-      get
-      {return this[PdfName.X];}
-      set
-      {this[PdfName.X] = value;}
+      get => this[PdfName.X];
+      set => this[PdfName.X] = value;
     }
 
-    /**
-      <summary>Gets/Sets the action to be performed when the mouse button is pressed
-      inside the annotation's active area.</summary>
-    */
-    public Action OnMouseDown
+        /**
+          <summary>Gets/Sets the action to be performed when the mouse button is pressed
+          inside the annotation's active area.</summary>
+        */
+        public Action OnMouseDown
     {
-      get
-      {return this[PdfName.D];}
-      set
-      {this[PdfName.D] = value;}
+      get => this[PdfName.D];
+      set => this[PdfName.D] = value;
     }
 
-    /**
-      <summary>Gets/Sets the action to be performed when the mouse button is released
-      inside the annotation's active area.</summary>
-    */
-    public Action OnMouseUp
+        /**
+          <summary>Gets/Sets the action to be performed when the mouse button is released
+          inside the annotation's active area.</summary>
+        */
+        public Action OnMouseUp
     {
-      get
-      {return this[PdfName.U];}
-      set
-      {this[PdfName.U] = value;}
+      get => this[PdfName.U];
+      set => this[PdfName.U] = value;
     }
 
-    /**
-      <summary>Gets/Sets the action to be performed when the page containing the annotation is closed.</summary>
-    */
-    public Action OnPageClose
+        /**
+          <summary>Gets/Sets the action to be performed when the page containing the annotation is closed.</summary>
+        */
+        public Action OnPageClose
     {
-      get
-      {return this[PdfName.PC];}
-      set
-      {this[PdfName.PC] = value;}
+      get => this[PdfName.PC];
+      set => this[PdfName.PC] = value;
     }
 
-    /**
-      <summary>Gets/Sets the action to be performed when the page containing the annotation
-      is no longer visible in the viewer application's user interface.</summary>
-    */
-    public Action OnPageInvisible
+        /**
+          <summary>Gets/Sets the action to be performed when the page containing the annotation
+          is no longer visible in the viewer application's user interface.</summary>
+        */
+        public Action OnPageInvisible
     {
-      get
-      {return this[PdfName.PI];}
-      set
-      {this[PdfName.PI] = value;}
+      get => this[PdfName.PI];
+      set => this[PdfName.PI] = value;
     }
 
-    /**
-      <summary>Gets/Sets the action to be performed when the page containing the annotation is opened.</summary>
-    */
-    public Action OnPageOpen
+        /**
+          <summary>Gets/Sets the action to be performed when the page containing the annotation is opened.</summary>
+        */
+        public Action OnPageOpen
     {
-      get
-      {return this[PdfName.PO];}
-      set
-      {this[PdfName.PO] = value;}
+      get => this[PdfName.PO];
+      set => this[PdfName.PO] = value;
     }
 
-    /**
-      <summary>Gets/Sets the action to be performed when the page containing the annotation
-      becomes visible in the viewer application's user interface.</summary>
-    */
-    public Action OnPageVisible
+        /**
+          <summary>Gets/Sets the action to be performed when the page containing the annotation
+          becomes visible in the viewer application's user interface.</summary>
+        */
+        public Action OnPageVisible
     {
-      get
-      {return this[PdfName.PV];}
-      set
-      {this[PdfName.PV] = value;}
+      get => this[PdfName.PV];
+      set => this[PdfName.PV] = value;
     }
 
-    #region IDictionary
-    public void Add(
+        #region IDictionary
+        public void Add(
       PdfName key,
       Action value
       )
@@ -207,13 +189,11 @@ namespace HESDanfe.Documents.Interaction.Annotations
       PdfName key
       ]
     {
-      get
-      {return Action.Wrap(BaseDataObject[key]);}
-      set
-      {BaseDataObject[key] = (value != null ? value.BaseObject : null);}
+      get => Action.Wrap(BaseDataObject[key]);
+      set => BaseDataObject[key] = (value != null ? value.BaseObject : null);
     }
 
-    public bool TryGetValue(
+        public bool TryGetValue(
       PdfName key,
       out Action value
       )

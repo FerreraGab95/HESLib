@@ -151,13 +151,11 @@ namespace HESDanfe.Objects
     */
     public virtual SerializationModeEnum SerializationMode
     {
-      get
-      {return serializationMode;}
-      set
-      {serializationMode = value;}
+      get => serializationMode;
+      set => serializationMode = value;
     }
 
-    public string StringValue
+        public string StringValue
     {
       get
       {return (string)Value;}

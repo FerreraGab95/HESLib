@@ -206,13 +206,11 @@ namespace HESDanfe.Documents.Contents.Objects
     */
     public virtual IList<object> Value
     {
-      get
-      {return new List<object>(){Text};}
-      set
-      {Text = (byte[])value[0];}
+      get => new List<object>() { Text };
+      set => Text = (byte[])value[0];
     }
-    #endregion
-    #endregion
-    #endregion
-  }
+        #endregion
+        #endregion
+        #endregion
+    }
 }

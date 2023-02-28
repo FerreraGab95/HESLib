@@ -59,53 +59,41 @@ namespace HESDanfe.Documents.Interaction.Forms.Styles
 
     public Color BackColor
     {
-      get
-      {return backColor;}
-      set
-      {backColor = value;}
+      get => backColor;
+      set => backColor = value;
     }
 
-    public char CheckSymbol
+        public char CheckSymbol
     {
-      get
-      {return checkSymbol;}
-      set
-      {checkSymbol = value;}
+      get => checkSymbol;
+      set => checkSymbol = value;
     }
 
-    public double FontSize
+        public double FontSize
     {
-      get
-      {return fontSize;}
-      set
-      {fontSize = value;}
+      get => fontSize;
+      set => fontSize = value;
     }
 
-    public Color ForeColor
+        public Color ForeColor
     {
-      get
-      {return foreColor;}
-      set
-      {foreColor = value;}
+      get => foreColor;
+      set => foreColor = value;
     }
 
-    public bool GraphicsVisibile
+        public bool GraphicsVisibile
     {
-      get
-      {return graphicsVisibile;}
-      set
-      {graphicsVisibile = value;}
+      get => graphicsVisibile;
+      set => graphicsVisibile = value;
     }
 
-    public char RadioSymbol
+        public char RadioSymbol
     {
-      get
-      {return radioSymbol;}
-      set
-      {radioSymbol = value;}
+      get => radioSymbol;
+      set => radioSymbol = value;
     }
-    #endregion
-    #endregion
-    #endregion
-  }
+        #endregion
+        #endregion
+        #endregion
+    }
 }

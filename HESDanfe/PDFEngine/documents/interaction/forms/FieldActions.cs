@@ -61,50 +61,42 @@ namespace HESDanfe.Documents.Interaction.Forms
     */
     public JavaScript OnCalculate
     {
-      get
-      {return (JavaScript)Action.Wrap(BaseDataObject[PdfName.C]);}
-      set
-      {BaseDataObject[PdfName.C] = value.BaseObject;}
+      get => (JavaScript)Action.Wrap(BaseDataObject[PdfName.C]);
+      set => BaseDataObject[PdfName.C] = value.BaseObject;
     }
 
-    /**
-      <summary>Gets/Sets a JavaScript action to be performed when the user types a keystroke
-      into a text field or combo box or modifies the selection in a scrollable list box.</summary>
-    */
-    public JavaScript OnChange
+        /**
+          <summary>Gets/Sets a JavaScript action to be performed when the user types a keystroke
+          into a text field or combo box or modifies the selection in a scrollable list box.</summary>
+        */
+        public JavaScript OnChange
     {
-      get
-      {return (JavaScript)Action.Wrap(BaseDataObject[PdfName.K]);}
-      set
-      {BaseDataObject[PdfName.K] = value.BaseObject;}
+      get => (JavaScript)Action.Wrap(BaseDataObject[PdfName.K]);
+      set => BaseDataObject[PdfName.K] = value.BaseObject;
     }
 
-    /**
-      <summary>Gets/Sets a JavaScript action to be performed before the field is formatted
-      to display its current value.</summary>
-      <remarks>This action can modify the field's value before formatting.</remarks>
-    */
-    public JavaScript OnFormat
+        /**
+          <summary>Gets/Sets a JavaScript action to be performed before the field is formatted
+          to display its current value.</summary>
+          <remarks>This action can modify the field's value before formatting.</remarks>
+        */
+        public JavaScript OnFormat
     {
-      get
-      {return (JavaScript)Action.Wrap(BaseDataObject[PdfName.F]);}
-      set
-      {BaseDataObject[PdfName.F] = value.BaseObject;}
+      get => (JavaScript)Action.Wrap(BaseDataObject[PdfName.F]);
+      set => BaseDataObject[PdfName.F] = value.BaseObject;
     }
 
-    /**
-      <summary>Gets/Sets a JavaScript action to be performed when the field's value is changed.</summary>
-      <remarks>This action can check the new value for validity.</remarks>
-    */
-    public JavaScript OnValidate
+        /**
+          <summary>Gets/Sets a JavaScript action to be performed when the field's value is changed.</summary>
+          <remarks>This action can check the new value for validity.</remarks>
+        */
+        public JavaScript OnValidate
     {
-      get
-      {return (JavaScript)Action.Wrap(BaseDataObject[PdfName.V]);}
-      set
-      {BaseDataObject[PdfName.V] = value.BaseObject;}
+      get => (JavaScript)Action.Wrap(BaseDataObject[PdfName.V]);
+      set => BaseDataObject[PdfName.V] = value.BaseObject;
     }
-    #endregion
-    #endregion
-    #endregion
-  }
+        #endregion
+        #endregion
+        #endregion
+    }
 }

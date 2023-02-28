@@ -112,21 +112,20 @@ namespace HESDanfe.Documents.Interaction.Actions
       <summary>Gets/Sets whether to show the annotations.</summary>
     */
     public bool Visible
-    {
-      get
-      {
-        PdfBoolean hideObject = (PdfBoolean)BaseDataObject[PdfName.H];
-        return hideObject != null
-          ? !hideObject.BooleanValue
-          : false;
-      }
-      set
-      {BaseDataObject[PdfName.H] = PdfBoolean.Get(!value);}
-    }
-    #endregion
+        {
+            get
+            {
+                PdfBoolean hideObject = (PdfBoolean)BaseDataObject[PdfName.H];
+                return hideObject != null
+                  ? !hideObject.BooleanValue
+                  : false;
+            }
+            set => BaseDataObject[PdfName.H] = PdfBoolean.Get(!value);
+        }
+        #endregion
 
-    #region private
-    private void FillObjects(
+        #region private
+        private void FillObjects(
       PdfDataObject objectObject,
       ICollection<PdfObjectWrapper> objects
       )

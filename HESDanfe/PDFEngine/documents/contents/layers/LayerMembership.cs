@@ -87,28 +87,27 @@ namespace HESDanfe.Documents.Contents.Layers
       public Layer this[
         int index
         ]
-      {
-        get
-        {
-          PdfDataObject baseDataObject = BaseDataObject;
-          if(baseDataObject == null) // No layer.
-            return null;
-          else if(baseDataObject is PdfDictionary) // Single layer.
-          {
-            if(index != 0)
-              throw new IndexOutOfRangeException();
+            {
+                get
+                {
+                    PdfDataObject baseDataObject = BaseDataObject;
+                    if (baseDataObject == null) // No layer.
+                        return null;
+                    else if (baseDataObject is PdfDictionary) // Single layer.
+                    {
+                        if (index != 0)
+                            throw new IndexOutOfRangeException();
 
-            return Layer.Wrap(BaseObject);
-          }
-          else // Multiple layers.
-            return Layer.Wrap(((PdfArray)baseDataObject)[index]);
-        }
-        set
-        {EnsureArray()[index] = value.BaseObject;}
-      }
+                        return Layer.Wrap(BaseObject);
+                    }
+                    else // Multiple layers.
+                        return Layer.Wrap(((PdfArray)baseDataObject)[index]);
+                }
+                set => EnsureArray()[index] = value.BaseObject;
+            }
 
-      #region ICollection<Page>
-      public void Add(
+            #region ICollection<Page>
+            public void Add(
         Layer item
         )
       {EnsureArray().Add(item.BaseObject);}
@@ -243,13 +242,11 @@ namespace HESDanfe.Documents.Contents.Layers
 
     public override VisibilityPolicyEnum VisibilityPolicy
     {
-      get
-      {return VisibilityPolicyEnumExtension.Get((PdfName)BaseDataObject[PdfName.P]);}
-      set
-      {BaseDataObject[PdfName.P] = value.GetName();}
+      get => VisibilityPolicyEnumExtension.Get((PdfName)BaseDataObject[PdfName.P]);
+      set => BaseDataObject[PdfName.P] = value.GetName();
     }
-    #endregion
-    #endregion
-    #endregion
-  }
+        #endregion
+        #endregion
+        #endregion
+    }
 }

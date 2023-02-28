@@ -74,8 +74,7 @@ namespace HESDanfe.Files
                     { SetRealFormat(5); }
                     return realFormat;
                 }
-                set
-                { realFormat = value; }
+                set => realFormat = value;
             }
 
             /**
@@ -180,8 +179,7 @@ namespace HESDanfe.Files
 
                 return cloner;
             }
-            set
-            { cloner = value; }
+            set => cloner = value;
         }
 
         /**
@@ -229,10 +227,8 @@ namespace HESDanfe.Files
         */
         public string Path
         {
-            get
-            { return path; }
-            set
-            { path = value; }
+            get => path;
+            set => path = value;
         }
 
         /**

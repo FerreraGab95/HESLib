@@ -110,14 +110,12 @@ namespace HESDanfe.Documents.Contents.Objects
 
     public PdfName Name
     {
-      get
-      {return (PdfName)operands[0];}
-      set
-      {operands[0] = value;}
+      get => (PdfName)operands[0];
+      set => operands[0] = value;
     }
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-  }
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+    }
 }

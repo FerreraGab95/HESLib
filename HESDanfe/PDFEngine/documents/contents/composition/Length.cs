@@ -89,23 +89,19 @@ namespace HESDanfe.Documents.Contents.Composition
     */
     public UnitModeEnum UnitMode
     {
-      get
-      {return unitMode;}
-      set
-      {unitMode = value;}
+      get => unitMode;
+      set => unitMode = value;
     }
 
-    /**
-      <summary>Gets/Sets the distance value.</summary>
-      <remarks>According to the applied unit mode, this value can be
-      either an absolute measure or a ratio to be resolved through a base value.</remarks>
-    */
-    public double Value
+        /**
+          <summary>Gets/Sets the distance value.</summary>
+          <remarks>According to the applied unit mode, this value can be
+          either an absolute measure or a ratio to be resolved through a base value.</remarks>
+        */
+        public double Value
     {
-      get
-      {return value;}
-      set
-      {this.value = value;}
+      get => value;
+      set => this.value = value;
     }
-  }
+    }
 }

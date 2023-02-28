@@ -64,37 +64,31 @@ namespace HESDanfe.Documents.Interaction.Forms
     #region public
     public ChoiceItems Items
     {
-      get
-      {return new ChoiceItems(BaseDataObject.Get<PdfArray>(PdfName.Opt));}
-      set
-      {BaseDataObject[PdfName.Opt] = value.BaseObject;}
+      get => new ChoiceItems(BaseDataObject.Get<PdfArray>(PdfName.Opt));
+      set => BaseDataObject[PdfName.Opt] = value.BaseObject;
     }
 
-    /**
-      <summary>Gets/Sets whether more than one of the field's items may be selected simultaneously.
-      </summary>
-    */
-    public bool MultiSelect
+        /**
+          <summary>Gets/Sets whether more than one of the field's items may be selected simultaneously.
+          </summary>
+        */
+        public bool MultiSelect
     {
-      get
-      {return (Flags & FlagsEnum.MultiSelect) == FlagsEnum.MultiSelect;}
-      set
-      {Flags = EnumUtils.Mask(Flags, FlagsEnum.MultiSelect, value);}
+      get => (Flags & FlagsEnum.MultiSelect) == FlagsEnum.MultiSelect;
+      set => Flags = EnumUtils.Mask(Flags, FlagsEnum.MultiSelect, value);
     }
 
-    /**
-      <summary>Gets/Sets whether validation action is triggered as soon as a selection is made,
-      without requiring the user to exit the field.</summary>
-    */
-    public bool ValidatedOnChange
+        /**
+          <summary>Gets/Sets whether validation action is triggered as soon as a selection is made,
+          without requiring the user to exit the field.</summary>
+        */
+        public bool ValidatedOnChange
     {
-      get
-      {return (Flags & FlagsEnum.CommitOnSelChange) == FlagsEnum.CommitOnSelChange;}
-      set
-      {Flags = EnumUtils.Mask(Flags, FlagsEnum.CommitOnSelChange, value);}
+      get => (Flags & FlagsEnum.CommitOnSelChange) == FlagsEnum.CommitOnSelChange;
+      set => Flags = EnumUtils.Mask(Flags, FlagsEnum.CommitOnSelChange, value);
     }
-    #endregion
-    #endregion
-    #endregion
-  }
+        #endregion
+        #endregion
+        #endregion
+    }
 }

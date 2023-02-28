@@ -94,18 +94,17 @@ namespace HESDanfe.Documents.Functions
     public Function this[
       int index
       ]
-    {
-      get
-      {return Function.Wrap(BaseDataObject[index]);}
-      set
-      {
-        Validate(value);
-        BaseDataObject[index] = value.BaseObject;
-      }
-    }
+        {
+            get => Function.Wrap(BaseDataObject[index]);
+            set
+            {
+                Validate(value);
+                BaseDataObject[index] = value.BaseObject;
+            }
+        }
 
-    #region ICollection
-    public void Add(
+        #region ICollection
+        public void Add(
       Function value
       )
     {

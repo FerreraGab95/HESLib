@@ -95,22 +95,21 @@ namespace HESDanfe.Util.Math.Geom
     {return new GraphicsPathIterator(Path);}
 
     public PointF[] Points
-    {
-      get
-      {return points;}
-      set
-      {
-        if(value.Length != 4)
-          throw new ArgumentException("Cardinality MUST be 4.","points");
+        {
+            get => points;
+            set
+            {
+                if (value.Length != 4)
+                    throw new ArgumentException("Cardinality MUST be 4.", "points");
 
-        points = value;
-        path = null;
-      }
-    }
-    #endregion
+                points = value;
+                path = null;
+            }
+        }
+        #endregion
 
-    #region private
-    private GraphicsPath Path
+        #region private
+        private GraphicsPath Path
     {
       get
       {

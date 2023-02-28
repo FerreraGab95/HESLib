@@ -78,19 +78,18 @@ namespace HESDanfe.Documents.Interaction.Navigation.Document
       <summary>Gets/Sets the index of the target page.</summary>
     */
     public override object Page
-    {
-      get
-      {return ((PdfInteger)BaseDataObject[0]).IntValue;}
-      set
-      {
-        if(!(value is Int32))
-          throw new ArgumentException("It MUST be an integer number.");
+        {
+            get => ((PdfInteger)BaseDataObject[0]).IntValue;
+            set
+            {
+                if (!(value is Int32))
+                    throw new ArgumentException("It MUST be an integer number.");
 
-        BaseDataObject[0] = PdfInteger.Get((int)value);
-      }
+                BaseDataObject[0] = PdfInteger.Get((int)value);
+            }
+        }
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 }

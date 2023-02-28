@@ -92,13 +92,11 @@ namespace HESDanfe.Documents.Contents
       PdfName key
       ]
     {
-      get
-      {return Wrap(BaseDataObject[key]);}
-      set
-      {BaseDataObject[key] = value.BaseObject;}
+      get => Wrap(BaseDataObject[key]);
+      set => BaseDataObject[key] = value.BaseObject;
     }
 
-    public bool TryGetValue(
+        public bool TryGetValue(
       PdfName key,
       out TValue value
       )

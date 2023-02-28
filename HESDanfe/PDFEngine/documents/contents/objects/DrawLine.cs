@@ -89,22 +89,19 @@ namespace HESDanfe.Documents.Contents.Objects
       <summary>Gets/Sets the final endpoint.</summary>
     */
     public PointF Point
-    {
-      get
-      {
-        return new PointF(
-          ((IPdfNumber)operands[0]).FloatValue,
-          ((IPdfNumber)operands[1]).FloatValue
-          );
-      }
-      set
-      {
-        operands[0] = PdfReal.Get(value.X);
-        operands[1] = PdfReal.Get(value.Y);
-      }
-    }
+        {
+            get => new PointF(
+                ((IPdfNumber)operands[0]).FloatValue,
+                ((IPdfNumber)operands[1]).FloatValue
+                );
+            set
+            {
+                operands[0] = PdfReal.Get(value.X);
+                operands[1] = PdfReal.Get(value.Y);
+            }
+        }
 
-    public override void Scan(
+        public override void Scan(
       ContentScanner.GraphicsState state
       )
     {

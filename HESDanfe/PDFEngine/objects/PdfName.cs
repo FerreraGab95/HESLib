@@ -649,44 +649,43 @@ namespace HESDanfe.Objects
     }
 
     public override object Value
-    {
-      get
-      {return base.Value;}
-      protected set
-      {
-        /*
-          NOTE: Before being accepted, any character sequence identifying a name MUST be normalized
-          escaping reserved characters.
-        */
-        StringBuilder buffer = new StringBuilder();
         {
-          string stringValue = (string)value;
-          int index = 0;
-          Match unescapedMatch = UnescapedPattern.Match(stringValue);
-          while(unescapedMatch.Success)
-          {
-            int start = unescapedMatch.Index;
-            if(start > index)
-            {buffer.Append(stringValue.Substring(index,start-index));}
-  
-            buffer.Append(
-              '#' + String.Format(
-                "{0:x}",
-                (int)unescapedMatch.Groups[0].Value[0]
-                )
-              );
+            get => base.Value;
+            protected set
+            {
+                /*
+                  NOTE: Before being accepted, any character sequence identifying a name MUST be normalized
+                  escaping reserved characters.
+                */
+                StringBuilder buffer = new StringBuilder();
+                {
+                    string stringValue = (string)value;
+                    int index = 0;
+                    Match unescapedMatch = UnescapedPattern.Match(stringValue);
+                    while (unescapedMatch.Success)
+                    {
+                        int start = unescapedMatch.Index;
+                        if (start > index)
+                        { buffer.Append(stringValue.Substring(index, start - index)); }
 
-            index = start + unescapedMatch.Length;
-            unescapedMatch = unescapedMatch.NextMatch();
-          }
-          if(index < stringValue.Length)
-          {buffer.Append(stringValue.Substring(index));}
+                        buffer.Append(
+                          '#' + String.Format(
+                            "{0:x}",
+                            (int)unescapedMatch.Groups[0].Value[0]
+                            )
+                          );
+
+                        index = start + unescapedMatch.Length;
+                        unescapedMatch = unescapedMatch.NextMatch();
+                    }
+                    if (index < stringValue.Length)
+                    { buffer.Append(stringValue.Substring(index)); }
+                }
+                RawValue = buffer.ToString();
+            }
         }
-        RawValue = buffer.ToString();
-      }
-    }
 
-    public override void WriteTo(
+        public override void WriteTo(
       IOutputStream stream,
       PdfFile context
       )

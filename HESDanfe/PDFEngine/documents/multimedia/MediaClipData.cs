@@ -85,16 +85,15 @@ namespace HESDanfe.Documents.Multimedia
         found within the media data.</summary>
       */
       public Uri BaseURL
-      {
-        get
-        {
-          PdfString baseURLObject = (PdfString)BaseDataObject[PdfName.BU];
-          return baseURLObject != null ? new Uri(baseURLObject.StringValue) : null;
+            {
+                get
+                {
+                    PdfString baseURLObject = (PdfString)BaseDataObject[PdfName.BU];
+                    return baseURLObject != null ? new Uri(baseURLObject.StringValue) : null;
+                }
+                set => BaseDataObject[PdfName.BU] = (value != null ? new PdfString(value.ToString()) : null);
+            }
         }
-        set
-        {BaseDataObject[PdfName.BU] = (value != null ? new PdfString(value.ToString()) : null);}
-      }
-    }
     #endregion
 
     #region dynamic
@@ -118,83 +117,72 @@ namespace HESDanfe.Documents.Multimedia
     #region interface
     #region public
     public override PdfObjectWrapper Data
-    {
-      get
-      {
-        PdfDirectObject dataObject = BaseDataObject[PdfName.D];
-        if(dataObject == null)
-          return null;
+        {
+            get
+            {
+                PdfDirectObject dataObject = BaseDataObject[PdfName.D];
+                if (dataObject == null)
+                    return null;
 
-        if(dataObject.Resolve() is PdfStream)
-          return FormXObject.Wrap(dataObject);
-        else
-          return FileSpecification.Wrap(dataObject);
-      }
-      set
-      {BaseDataObject[PdfName.D] = PdfObjectWrapper.GetBaseObject(value);}
+                if (dataObject.Resolve() is PdfStream)
+                    return FormXObject.Wrap(dataObject);
+                else
+                    return FileSpecification.Wrap(dataObject);
+            }
+            set => BaseDataObject[PdfName.D] = PdfObjectWrapper.GetBaseObject(value);
+        }
+
+        /**
+          <summary>Gets/Sets the MIME type of data [RFC 2045].</summary>
+        */
+        public string MimeType
+    {
+      get => (string)PdfString.GetValue(BaseDataObject[PdfName.CT]);
+      set => BaseDataObject[PdfName.CT] = (value != null ? new PdfString(value) : null);
     }
 
-    /**
-      <summary>Gets/Sets the MIME type of data [RFC 2045].</summary>
-    */
-    public string MimeType
+        /**
+          <summary>Gets/Sets the player rules for playing this media.</summary>
+        */
+        public MediaPlayers Players
     {
-      get
-      {return (string)PdfString.GetValue(BaseDataObject[PdfName.CT]);}
-      set
-      {BaseDataObject[PdfName.CT] = (value != null ? new PdfString(value) : null);}
+      get => MediaPlayers.Wrap(BaseDataObject.Get<PdfDictionary>(PdfName.PL));
+      set => BaseDataObject[PdfName.PL] = PdfObjectWrapper.GetBaseObject(value);
     }
 
-    /**
-      <summary>Gets/Sets the player rules for playing this media.</summary>
-    */
-    public MediaPlayers Players
+        /**
+          <summary>Gets/Sets the preferred options the renderer should attempt to honor without affecting its
+          viability.</summary>
+        */
+        public Viability Preferences
     {
-      get
-      {return MediaPlayers.Wrap(BaseDataObject.Get<PdfDictionary>(PdfName.PL));}
-      set
-      {BaseDataObject[PdfName.PL] = PdfObjectWrapper.GetBaseObject(value);}
+      get => new Viability(BaseDataObject.Get<PdfDictionary>(PdfName.BE));
+      set => BaseDataObject[PdfName.BE] = PdfObjectWrapper.GetBaseObject(value);
     }
 
-    /**
-      <summary>Gets/Sets the preferred options the renderer should attempt to honor without affecting its
-      viability.</summary>
-    */
-    public Viability Preferences
+        /**
+          <summary>Gets/Sets the minimum requirements the renderer must honor in order to be considered viable.
+          </summary>
+        */
+        public Viability Requirements
     {
-      get
-      {return new Viability(BaseDataObject.Get<PdfDictionary>(PdfName.BE));}
-      set
-      {BaseDataObject[PdfName.BE] = PdfObjectWrapper.GetBaseObject(value);}
+      get => new Viability(BaseDataObject.Get<PdfDictionary>(PdfName.MH));
+      set => BaseDataObject[PdfName.MH] = PdfObjectWrapper.GetBaseObject(value);
     }
 
-    /**
-      <summary>Gets/Sets the minimum requirements the renderer must honor in order to be considered viable.
-      </summary>
-    */
-    public Viability Requirements
+        /**
+          <summary>Gets/Sets the circumstance under which it is acceptable to write a temporary file in order
+          to play this media clip.</summary>
+        */
+        public TempFilePermissionEnum? TempFilePermission
     {
-      get
-      {return new Viability(BaseDataObject.Get<PdfDictionary>(PdfName.MH));}
-      set
-      {BaseDataObject[PdfName.MH] = PdfObjectWrapper.GetBaseObject(value);}
+      get => TempFilePermissionEnumExtension.Get((PdfString)BaseDataObject.Resolve<PdfDictionary>(PdfName.P)[PdfName.TF]);
+      set => BaseDataObject.Resolve<PdfDictionary>(PdfName.P)[PdfName.TF] = (value.HasValue ? value.Value.GetCode() : null);
     }
-
-    /**
-      <summary>Gets/Sets the circumstance under which it is acceptable to write a temporary file in order
-      to play this media clip.</summary>
-    */
-    public TempFilePermissionEnum? TempFilePermission
-    {
-      get
-      {return TempFilePermissionEnumExtension.Get((PdfString)BaseDataObject.Resolve<PdfDictionary>(PdfName.P)[PdfName.TF]);}
-      set
-      {BaseDataObject.Resolve<PdfDictionary>(PdfName.P)[PdfName.TF] = (value.HasValue ? value.Value.GetCode() : null);}
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 
   internal static class TempFilePermissionEnumExtension
   {

@@ -138,13 +138,11 @@ namespace HESDanfe.Objects
 
     public override PdfObject Parent
     {
-      get
-      {return parent;}
-      internal set
-      {parent = value;}
+      get => parent;
+      internal set => parent = value;
     }
 
-    public override PdfObject Swap(
+        public override PdfObject Swap(
       PdfObject other
       )
     {return IndirectObject.Swap(((PdfReference)other).IndirectObject).Reference;}
@@ -155,21 +153,17 @@ namespace HESDanfe.Objects
 
     public override bool Updateable
     {
-      get
-      {return IndirectObject.Updateable;}
-      set
-      {IndirectObject.Updateable = value;}
+      get => IndirectObject.Updateable;
+      set => IndirectObject.Updateable = value;
     }
 
-    public override bool Updated
+        public override bool Updated
     {
-      get
-      {return updated;}
-      protected internal set
-      {updated = value;}
+      get => updated;
+      protected internal set => updated = value;
     }
 
-    public override void WriteTo(
+        public override void WriteTo(
       IOutputStream stream,
       PdfFile context
       )
@@ -178,13 +172,11 @@ namespace HESDanfe.Objects
     #region IPdfIndirectObject
     public PdfDataObject DataObject
     {
-      get
-      {return IndirectObject.DataObject;}
-      set
-      {IndirectObject.DataObject = value;}
+      get => IndirectObject.DataObject;
+      set => IndirectObject.DataObject = value;
     }
 
-    public void Delete(
+        public void Delete(
       )
     {IndirectObject.Delete();}
 
@@ -210,13 +202,11 @@ namespace HESDanfe.Objects
     #region protected
     protected internal override bool Virtual
     {
-      get
-      {return IndirectObject.Virtual;}
-      set
-      {IndirectObject.Virtual = value;}
+      get => IndirectObject.Virtual;
+      set => IndirectObject.Virtual = value;
     }
-    #endregion
-    #endregion
-    #endregion
-  }
+        #endregion
+        #endregion
+        #endregion
+    }
 }

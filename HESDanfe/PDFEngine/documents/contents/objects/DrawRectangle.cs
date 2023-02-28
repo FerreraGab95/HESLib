@@ -77,13 +77,11 @@ namespace HESDanfe.Documents.Contents.Objects
     #region public
     public double Height
     {
-      get
-      {return ((IPdfNumber)operands[3]).RawValue;}
-      set
-      {operands[3] = PdfReal.Get(value);}
+      get => ((IPdfNumber)operands[3]).RawValue;
+      set => operands[3] = PdfReal.Get(value);
     }
 
-    public override void Scan(
+        public override void Scan(
       ContentScanner.GraphicsState state
       )
     {
@@ -103,29 +101,23 @@ namespace HESDanfe.Documents.Contents.Objects
 
     public double Width
     {
-      get
-      {return ((IPdfNumber)operands[2]).RawValue;}
-      set
-      {operands[2] = PdfReal.Get(value);}
+      get => ((IPdfNumber)operands[2]).RawValue;
+      set => operands[2] = PdfReal.Get(value);
     }
 
-    public double X
+        public double X
     {
-      get
-      {return ((IPdfNumber)operands[0]).RawValue;}
-      set
-      {operands[0] = PdfReal.Get(value);}
+      get => ((IPdfNumber)operands[0]).RawValue;
+      set => operands[0] = PdfReal.Get(value);
     }
 
-    public double Y
+        public double Y
     {
-      get
-      {return ((IPdfNumber)operands[1]).RawValue;}
-      set
-      {operands[1] = PdfReal.Get(value);}
+      get => ((IPdfNumber)operands[1]).RawValue;
+      set => operands[1] = PdfReal.Get(value);
     }
-    #endregion
-    #endregion
-    #endregion
-  }
+        #endregion
+        #endregion
+        #endregion
+    }
 }

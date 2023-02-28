@@ -70,67 +70,54 @@ namespace HESDanfe.Documents.Contents
     #region public
     public ColorSpaceResources ColorSpaces
     {
-      get
-      {return new ColorSpaceResources(BaseDataObject.Get<PdfDictionary>(PdfName.ColorSpace));}
-      set
-      {BaseDataObject[PdfName.ColorSpace] = value.BaseObject;}
+      get => new ColorSpaceResources(BaseDataObject.Get<PdfDictionary>(PdfName.ColorSpace));
+      set => BaseDataObject[PdfName.ColorSpace] = value.BaseObject;
     }
 
-    public ExtGStateResources ExtGStates
+        public ExtGStateResources ExtGStates
     {
-      get
-      {return new ExtGStateResources(BaseDataObject.Get<PdfDictionary>(PdfName.ExtGState));}
-      set
-      {BaseDataObject[PdfName.ExtGState] = value.BaseObject;}
+      get => new ExtGStateResources(BaseDataObject.Get<PdfDictionary>(PdfName.ExtGState));
+      set => BaseDataObject[PdfName.ExtGState] = value.BaseObject;
     }
 
-    public FontResources Fonts
+        public FontResources Fonts
     {
-      get
-      {return new FontResources(BaseDataObject.Get<PdfDictionary>(PdfName.Font));}
-      set
-      {BaseDataObject[PdfName.Font] = value.BaseObject;}
+      get => new FontResources(BaseDataObject.Get<PdfDictionary>(PdfName.Font));
+      set => BaseDataObject[PdfName.Font] = value.BaseObject;
     }
 
-    public PatternResources Patterns
+        public PatternResources Patterns
     {
-      get
-      {return new PatternResources(BaseDataObject.Get<PdfDictionary>(PdfName.Pattern));}
-      set
-      {BaseDataObject[PdfName.Pattern] = value.BaseObject;}
+      get => new PatternResources(BaseDataObject.Get<PdfDictionary>(PdfName.Pattern));
+      set => BaseDataObject[PdfName.Pattern] = value.BaseObject;
     }
 
-    [PDF(VersionEnum.PDF12)]
+        [PDF(VersionEnum.PDF12)]
     public PropertyListResources PropertyLists
-    {
-      get
-      {return new PropertyListResources(BaseDataObject.Get<PdfDictionary>(PdfName.Properties));}
-      set
-      {
-        CheckCompatibility("PropertyLists");
-        BaseDataObject[PdfName.Properties] = value.BaseObject;
-      }
-    }
+        {
+            get => new PropertyListResources(BaseDataObject.Get<PdfDictionary>(PdfName.Properties));
+            set
+            {
+                CheckCompatibility("PropertyLists");
+                BaseDataObject[PdfName.Properties] = value.BaseObject;
+            }
+        }
 
-    [PDF(VersionEnum.PDF13)]
+        [PDF(VersionEnum.PDF13)]
     public ShadingResources Shadings
     {
-      get
-      {return new ShadingResources(BaseDataObject.Get<PdfDictionary>(PdfName.Shading));}
-      set
-      {BaseDataObject[PdfName.Shading] = value.BaseObject;}
+      get => new ShadingResources(BaseDataObject.Get<PdfDictionary>(PdfName.Shading));
+      set => BaseDataObject[PdfName.Shading] = value.BaseObject;
     }
 
-    public XObjectResources XObjects
+        public XObjectResources XObjects
     {
-      get
-      {return new XObjectResources(BaseDataObject.Get<PdfDictionary>(PdfName.XObject));}
-      set
-      {BaseDataObject[PdfName.XObject] = value.BaseObject;}
+      get => new XObjectResources(BaseDataObject.Get<PdfDictionary>(PdfName.XObject));
+      set => BaseDataObject[PdfName.XObject] = value.BaseObject;
     }
 
-    #region ICompositeDictionary
-    public PdfObjectWrapper Get(
+        #region ICompositeDictionary
+        public PdfObjectWrapper Get(
       Type type
       )
     {

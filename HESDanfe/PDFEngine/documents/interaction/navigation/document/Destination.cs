@@ -276,49 +276,48 @@ namespace HESDanfe.Documents.Interaction.Navigation.Document
       <summary>Gets the destination mode.</summary>
     */
     public ModeEnum Mode
-    {
-      get
-      {return ModeEnumExtension.Get((PdfName)BaseDataObject[1]).Value;}
-      set
-      {
-        PdfArray baseDataObject = BaseDataObject;
-
-        baseDataObject[1] = value.GetName();
-
-        // Adjusting parameter list...
-        int parametersCount;
-        switch(value)
         {
-          case ModeEnum.Fit:
-          case ModeEnum.FitBoundingBox:
-            parametersCount = 2;
-            break;
-          case ModeEnum.FitBoundingBoxHorizontal:
-          case ModeEnum.FitBoundingBoxVertical:
-          case ModeEnum.FitHorizontal:
-          case ModeEnum.FitVertical:
-            parametersCount = 3;
-            break;
-          case ModeEnum.XYZ:
-            parametersCount = 5;
-            break;
-          case ModeEnum.FitRectangle:
-            parametersCount = 6;
-            break;
-          default:
-            throw new NotSupportedException("Mode unknown: " + value);
-        }
-        while(baseDataObject.Count < parametersCount)
-        {baseDataObject.Add(null);}
-        while(baseDataObject.Count > parametersCount)
-        {baseDataObject.RemoveAt(baseDataObject.Count - 1);}
-      }
-    }
+            get => ModeEnumExtension.Get((PdfName)BaseDataObject[1]).Value;
+            set
+            {
+                PdfArray baseDataObject = BaseDataObject;
 
-    /**
-      <summary>Gets/Sets the target page reference.</summary>
-    */
-    public abstract object Page
+                baseDataObject[1] = value.GetName();
+
+                // Adjusting parameter list...
+                int parametersCount;
+                switch (value)
+                {
+                    case ModeEnum.Fit:
+                    case ModeEnum.FitBoundingBox:
+                        parametersCount = 2;
+                        break;
+                    case ModeEnum.FitBoundingBoxHorizontal:
+                    case ModeEnum.FitBoundingBoxVertical:
+                    case ModeEnum.FitHorizontal:
+                    case ModeEnum.FitVertical:
+                        parametersCount = 3;
+                        break;
+                    case ModeEnum.XYZ:
+                        parametersCount = 5;
+                        break;
+                    case ModeEnum.FitRectangle:
+                        parametersCount = 6;
+                        break;
+                    default:
+                        throw new NotSupportedException("Mode unknown: " + value);
+                }
+                while (baseDataObject.Count < parametersCount)
+                { baseDataObject.Add(null); }
+                while (baseDataObject.Count > parametersCount)
+                { baseDataObject.RemoveAt(baseDataObject.Count - 1); }
+            }
+        }
+
+        /**
+          <summary>Gets/Sets the target page reference.</summary>
+        */
+        public abstract object Page
     {
       get;
       set;

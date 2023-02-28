@@ -83,28 +83,24 @@ namespace HESDanfe.Documents.Contents.Objects
     */
     public double Size
     {
-      get
-      {return ((IPdfNumber)operands[1]).RawValue;}
-      set
-      {operands[1] = PdfReal.Get(value);}
+      get => ((IPdfNumber)operands[1]).RawValue;
+      set => operands[1] = PdfReal.Get(value);
     }
 
-    #region IResourceReference
-    public Font GetResource(
+        #region IResourceReference
+        public Font GetResource(
       IContentContext context
       )
     {return context.Resources.Fonts[Name];}
 
     public PdfName Name
     {
-      get
-      {return (PdfName)operands[0];}
-      set
-      {operands[0] = value;}
+      get => (PdfName)operands[0];
+      set => operands[0] = value;
     }
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-  }
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+    }
 }

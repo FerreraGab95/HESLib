@@ -167,27 +167,24 @@ namespace HESDanfe.Documents.Interaction.Annotations
     */
     public JustificationEnum Justification
     {
-      get
-      {return JustificationEnumExtension.Get((PdfInteger)BaseDataObject[PdfName.Q]);}
-      set
-      {BaseDataObject[PdfName.Q] = value.GetCode();}
+      get => JustificationEnumExtension.Get((PdfInteger)BaseDataObject[PdfName.Q]);
+      set => BaseDataObject[PdfName.Q] = value.GetCode();
     }
 
-    /**
-      <summary>Gets/Sets the callout line attached to the free text annotation.</summary>
-    */
-    public LineObject Line
-    {
-      get
-      {
-        PdfArray calloutLineObject = (PdfArray)BaseDataObject[PdfName.CL];
-        return calloutLineObject != null ? new LineObject(calloutLineObject) : null;
-      }
-      set
-      {BaseDataObject[PdfName.CL] = value.BaseObject;}
+        /**
+          <summary>Gets/Sets the callout line attached to the free text annotation.</summary>
+        */
+        public LineObject Line
+        {
+            get
+            {
+                PdfArray calloutLineObject = (PdfArray)BaseDataObject[PdfName.CL];
+                return calloutLineObject != null ? new LineObject(calloutLineObject) : null;
+            }
+            set => BaseDataObject[PdfName.CL] = value.BaseObject;
+        }
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 }
