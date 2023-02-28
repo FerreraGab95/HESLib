@@ -90,33 +90,25 @@ namespace HESDanfe.Tokens
       this.file = file;
       this.stream = stream;
     }
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    /**
-      <summary>Gets the file to serialize.</summary>
-    */
-    public PdfFile File
-    {
-      get
-      {return file;}
-    }
+        #region interface
+        #region public
+        /**
+          <summary>Gets the file to serialize.</summary>
+        */
+        public PdfFile File => file;
 
-    /**
-      <summary>Gets the target stream.</summary>
-    */
-    public IOutputStream Stream
-    {
-      get
-      {return stream;}
-    }
+        /**
+          <summary>Gets the target stream.</summary>
+        */
+        public IOutputStream Stream => stream;
 
-    /**
-      <summary>Serializes the <see cref="File">file</see> to the <see cref="Stream">target stream</see>.</summary>
-      <param name="mode">Serialization mode.</param>
-     */
-    public void Write(
+        /**
+          <summary>Serializes the <see cref="File">file</see> to the <see cref="Stream">target stream</see>.</summary>
+          <param name="mode">Serialization mode.</param>
+         */
+        public void Write(
       SerializationModeEnum mode
       )
     {

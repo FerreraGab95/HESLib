@@ -74,29 +74,21 @@ namespace HESDanfe.Documents.Contents.xObjects
       PdfDirectObject baseObject
       ) : base(baseObject)
     {}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    /**
-      <summary>Gets the number of bits per color component.</summary>
-    */
-    public int BitsPerComponent
-    {
-      get
-      {return ((PdfInteger)BaseDataObject.Header[PdfName.BitsPerComponent]).RawValue;}
-    }
+        #region interface
+        #region public
+        /**
+          <summary>Gets the number of bits per color component.</summary>
+        */
+        public int BitsPerComponent => ((PdfInteger)BaseDataObject.Header[PdfName.BitsPerComponent]).RawValue;
 
-    /**
-      <summary>Gets the color space in which samples are specified.</summary>
-    */
-    public string ColorSpace
-    {
-      get
-      {return ((PdfName)BaseDataObject.Header[PdfName.ColorSpace]).RawValue;}
-    }
+        /**
+          <summary>Gets the color space in which samples are specified.</summary>
+        */
+        public string ColorSpace => ((PdfName)BaseDataObject.Header[PdfName.ColorSpace]).RawValue;
 
-    public override Matrix Matrix
+        public override Matrix Matrix
     {
       get
       {

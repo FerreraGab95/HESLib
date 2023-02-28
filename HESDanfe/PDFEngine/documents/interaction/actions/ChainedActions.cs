@@ -70,14 +70,13 @@ namespace HESDanfe.Documents.Interaction.Actions
       )
     {throw new NotImplementedException();} // TODO:verify
 
-    /**
-      <summary>Gets the parent action.</summary>
-    */
-    public Action Parent
-    {get{return parent;}}
+        /**
+          <summary>Gets the parent action.</summary>
+        */
+        public Action Parent => parent;
 
-    #region IList
-    public int IndexOf(
+        #region IList
+        public int IndexOf(
       Action value
       )
     {
@@ -158,10 +157,9 @@ namespace HESDanfe.Documents.Interaction.Actions
       }
     }
 
-    public bool IsReadOnly
-    {get{return false;}}
+        public bool IsReadOnly => false;
 
-    public bool Remove(
+        public bool Remove(
       Action value
       )
     {return EnsureArray().Remove(((Action)value).BaseObject);}

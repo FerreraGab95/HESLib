@@ -48,14 +48,13 @@ namespace HESDanfe.Documents.Contents.Fonts
       PdfDirectObject baseObject
       ) : base(baseObject)
     {}
-    #endregion
+        #endregion
 
-    #region interface
-    #region protected
-    protected override PdfDictionary Descriptor
-    {get{return (PdfDictionary)BaseDataObject.Resolve(PdfName.FontDescriptor);}}
+        #region interface
+        #region protected
+        protected override PdfDictionary Descriptor => (PdfDictionary)BaseDataObject.Resolve(PdfName.FontDescriptor);
 
-    protected abstract void LoadEncoding(
+        protected abstract void LoadEncoding(
       );
 
     /**

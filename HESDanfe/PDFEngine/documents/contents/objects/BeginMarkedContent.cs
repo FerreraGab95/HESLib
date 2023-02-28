@@ -62,23 +62,15 @@ namespace HESDanfe.Documents.Contents.Objects
       IList<PdfDirectObject> operands
       ) : base(operator_, operands)
     {}
-    #endregion
+        #endregion
 
-    #region interface
-    #region protected
-    protected override string PropertyListOperator
-    {
-      get
-      {return PropertyListOperatorKeyword;}
-    }
+        #region interface
+        #region protected
+        protected override string PropertyListOperator => PropertyListOperatorKeyword;
 
-    protected override string SimpleOperator
-    {
-      get
-      {return SimpleOperatorKeyword;}
+        protected override string SimpleOperator => SimpleOperatorKeyword;
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 }

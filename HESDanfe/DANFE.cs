@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using HESDanfe.Blocos;
+using HESDanfe.Bytes;
 using HESDanfe.Documents;
 using HESDanfe.Documents.Contents.Fonts;
 using HESDanfe.Files;
@@ -104,6 +105,122 @@ namespace HESDanfe
 
         internal T CriarBloco<T>(Estilo estilo) where T : BlocoBase => (T)Activator.CreateInstance(typeof(T), ViewModel, estilo);
 
+        internal void GerarInterno(TipoDocumento TipoDocumento)
+        {
+            var oldTipo = ViewModel.TipoDocumento;
+
+            ViewModel.TipoDocumento = TipoDocumento;
+
+            this.OutputFile = new PdfFile();
+
+            _LogoObject = (Documents.Contents.xObjects.XObject)_LogoObject.Clone(Documento);
+
+            // De acordo com o item 7.7, a fonte deve ser Times New Roman ou Courier New.
+            _FonteFamilia = StandardType1Font.FamilyEnum.Times;
+            FonteRegular = new StandardType1Font(Documento, _FonteFamilia, false, false);
+            FonteNegrito = new StandardType1Font(Documento, _FonteFamilia, true, false);
+            FonteItalico = new StandardType1Font(Documento, _FonteFamilia, false, true);
+
+            EstiloPadrao = Utils.CriarEstilo();
+
+            Paginas = new List<DanfePagina>();
+
+            Blocos = new List<BlocoBase>();
+
+            Canhoto = CriarBloco<BlocoCanhoto>();
+            IdentificacaoEmitente = AdicionarBloco<BlocoIdentificacaoEmitente>();
+
+            IdentificacaoEmitente.Logo = _LogoObject;
+
+            AdicionarBloco<BlocoDestinatarioRemetente>();
+            AdicionarBloco<BlocoDadosAdicionais>(Utils.CriarEstilo(tFonteCampoConteudo: 8));
+
+            if (ViewModel.TipoDocumento == TipoDocumento.DANFE)
+            {
+                if (ViewModel.LocalRetirada != null && ViewModel.ExibirBlocoLocalRetirada)
+                    AdicionarBloco<BlocoLocalRetirada>();
+
+                if (ViewModel.LocalEntrega != null && ViewModel.ExibirBlocoLocalEntrega)
+                    AdicionarBloco<BlocoLocalEntrega>();
+
+                if (ViewModel.Duplicatas.Count > 0)
+                    AdicionarBloco<BlocoDuplicataFatura>();
+
+                AdicionarBloco<BlocoCalculoImposto>(ViewModel.Orientacao == Orientacao.Paisagem ? EstiloPadrao : Utils.CriarEstilo(4.75F));
+                AdicionarBloco<BlocoTransportador>();
+
+                if (ViewModel.CalculoIssqn.Mostrar)
+                    AdicionarBloco<BlocoCalculoIssqn>();
+
+                var tabela = new TabelaProdutosServicos(ViewModel, EstiloPadrao);
+
+                while (true)
+                {
+                    DanfePagina p = CriarPagina();
+
+                    tabela.SetPosition(p.RetanguloCorpo.Location);
+                    tabela.SetSize(p.RetanguloCorpo.Size);
+                    tabela.Draw(p.Gfx);
+
+                    p.Gfx.Stroke();
+                    p.Gfx.Flush();
+
+                    if (tabela.CompletamenteDesenhada) break;
+                }
+            }
+            else if (ViewModel.TipoDocumento == TipoDocumento.CCE)
+            {
+                AdicionarBloco<BlocoCondicaoCCE>(Utils.CriarEstilo(tFonteCampoConteudo: 10));
+
+                const int FirstCount = 3500;
+                int OtherCount = FirstCount + 2550;
+
+                var textopagina = "";
+                int size = FirstCount;
+                foreach (Paragraph par in new TextStructure(ViewModel.TextoCorrecao))
+                {
+                    foreach (var s in par)
+                    {
+                        var frase = s.ToString() + (par.Last() == s ? Environment.NewLine : " ");
+                        if (textopagina.Length + frase.Length < size)
+                        {
+                            textopagina += frase;
+                        }
+                        else
+                        {
+                            var p = CriarPagina();
+                            var correcao = new TextoSimples(EstiloPadrao, textopagina)
+                            {
+                                TamanhoFonte = 12
+                            };
+                            correcao.SetPosition(p.RetanguloCorpo.Location);
+                            correcao.SetSize(p.RetanguloCorpo.Size);
+                            correcao.Draw(p.Gfx);
+                            p.Gfx.Stroke();
+                            p.Gfx.Flush();
+                            textopagina = "";
+                            size = OtherCount;
+                        }
+                    }
+                }
+            }
+
+            PreencherNumeroFolhas();
+
+            //metadata do PDF
+            var info = Documento.Information;
+            info[new Objects.PdfName("ChaveAcesso")] = ViewModel.ChaveAcesso;
+            info[new Objects.PdfName("TipoDocumento")] = $"{TipoDocumento}";
+            info.CreationDate = ViewModel.DataHoraEmissao;
+            info.Creator = $"{Utils.GetAssemblyName()?.Name} {Utils.GetAssemblyName()?.Version} - Disponível em https://github.com/zonaro/HESDanfe";
+            info.Author = Autor;
+
+            info.Subject = ViewModel.TipoDocumento == TipoDocumento.DANFE ? "Documento Auxiliar da NFe" : "Carta de Correção Eletrônica";
+            info.Title = $"{ViewModel.TipoDocumento}";
+
+            ViewModel.TipoDocumento = oldTipo;
+        }
+
         internal void PreencherNumeroFolhas()
         {
             int nFolhas = Paginas.Count;
@@ -167,6 +284,8 @@ namespace HESDanfe
         /// </summary>
         public string Creditos { get; set; }
 
+        public bool GerarCCE => ViewModel != null && Ext.IsNotBlank(ViewModel.TextoCorrecao) && ViewModel.SequenciaCorrecao > 0;
+
         /// <summary>
         /// Informações extraidas do XML da nota fiscal e da carta de correção
         /// </summary>
@@ -182,14 +301,16 @@ namespace HESDanfe
         /// <param name="ChaveNFe"></param>
         /// <param name="SequenciaEvento"></param>
         /// <returns></returns>
-        public static string GerarNomePdfCCE(string ChaveNFe, int SequenciaEvento) => $"DANFE-{ChaveNFe.RemoveMask()}-CCE-{SequenciaEvento}.pdf";
+        public static string GerarNomePdfCCE(string ChaveNFe, int SequenciaEvento) => $"DANFE-{Utils.FormatarChaveAcesso(ChaveNFe).RemoveMask()}-CCE-{SequenciaEvento}.pdf";
 
         /// <summary>
         /// Gera um nome padronizado para o DANFE
         /// </summary>
         /// <param name="ChaveNFe"></param>
         /// <returns></returns>
-        public static string GerarNomePdfDANFE(string ChaveNFe) => $"DANFE-{ChaveNFe.RemoveMask()}.pdf";
+        public static string GerarNomePdfDANFE(string ChaveNFe) => $"DANFE-{Utils.FormatarChaveAcesso(ChaveNFe).RemoveMask()}.pdf";
+
+        public static string GerarNomeUnico(string ChaveNFe, int SequenciaEvento) => $"DANFE-CCE-{Utils.FormatarChaveAcesso(ChaveNFe).RemoveMask()}-{SequenciaEvento}.pdf";
 
         /// <inheritdoc cref="GerarPDF(string, string, string, DirectoryInfo)"/>
         public static IEnumerable<FileInfo> GerarPDF(string PathNFe, string PathCCe, DirectoryInfo outputPath) => GerarPDF(PathNFe, PathCCe, null, outputPath);
@@ -238,7 +359,7 @@ namespace HESDanfe
         /// <param name="stream"></param>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
-        public void AdicionarLogoImagem(Stream stream)
+        public void AdicionarLogoImagem(System.IO.Stream stream)
         {
             if (stream == null) throw new ArgumentNullException(nameof(stream));
             var img = Documents.Contents.Entities.Image.Get(stream) ?? throw new InvalidOperationException("O logotipo não pode ser carregado, certifique-se que a imagem esteja no formato JPEG não progressivo.");
@@ -257,7 +378,7 @@ namespace HESDanfe
         }
 
         /// <inheritdoc cref="AdicionarLogoImagem(Stream)"/>
-        public void AdicionarLogoPdf(Stream stream)
+        public void AdicionarLogoPdf(System.IO.Stream stream)
         {
             if (stream == null) throw new ArgumentNullException(nameof(stream));
 
@@ -278,19 +399,50 @@ namespace HESDanfe
             }
         }
 
-        /// <summary>
-        /// Copia os bytes do PDF para um outro Stream
-        /// </summary>
-        /// <param name="stream"></param>
-        /// <exception cref="ArgumentNullException"></exception>
-        public void CopiarParaStream(Stream stream)
+        public string AjustarCaminhoPDF(string FilePath, TipoDocumento? TipoDocumento = null)
         {
-            if (stream == null) throw new ArgumentNullException(nameof(stream));
+            FilePath = FilePath.IfBlank(System.IO.Path.GetTempPath());
 
-            OutputFile.Save(new HESDanfe.Bytes.Stream(stream), Files.SerializationModeEnum.Incremental);
+            if (FilePath.IsDirectoryPath())
+            {
+                var n = (ViewModel?.ChaveAcesso).IfBlank(System.IO.Path.GetDirectoryName(FilePath));
+                if (n.IsNumber())
+                {
+                    if (TipoDocumento.HasValue == false)
+                    {
+                        n = GerarNomeUnico(n, ViewModel?.SequenciaCorrecao ?? 0);
+                    }
+                    else if (TipoDocumento.Value == Modelo.TipoDocumento.DANFE)
+                    {
+                        n = GerarNomePdfDANFE(n);
+                    }
+                    else
+                    {
+                        n = GerarNomePdfCCE(n, ViewModel?.SequenciaCorrecao ?? 0);
+                    }
+                }
+
+                FilePath = System.IO.Path.Combine(FilePath, $"{Path.GetFileNameWithoutExtension(n)}.pdf");
+            }
+
+            if (FilePath.IsFilePath())
+            {
+                FilePath = new FileInfo(FilePath).ReplaceExtension("pdf").FullName.WriteDebug("PDF FilePath");
+            }
+            else
+            {
+                throw new ArgumentException("Caminho do documento inválido", nameof(FilePath));
+            }
+            return FilePath;
         }
 
         public void Dispose() => Dispose(true);
+
+        public PdfFile Gerar(TipoDocumento TipoDocumento)
+        {
+            GerarInterno(TipoDocumento);
+            return OutputFile;
+        }
 
         /// <summary>
         /// Gera os PDFs no diretório especificado em <paramref name="path"/>
@@ -304,13 +456,13 @@ namespace HESDanfe
 
             path.CreateDirectoryIfNotExists();
 
-            var nfe = System.IO.Path.Combine(path.FullName, GerarNomePdfDANFE(ViewModel.ChaveAcesso));
+            var nfe = AjustarCaminhoPDF(path.FullName, TipoDocumento.DANFE);
 
             yield return Gerar(nfe, TipoDocumento.DANFE);
 
-            if (Ext.IsNotBlank(ViewModel.TextoCorrecao) && ViewModel.SequenciaCorrecao > 0)
+            if (GerarCCE)
             {
-                var cce = System.IO.Path.Combine(path.FullName, GerarNomePdfCCE(ViewModel.ChaveAcesso, ViewModel.SequenciaCorrecao));
+                var cce = AjustarCaminhoPDF(path.FullName, TipoDocumento.CCE);
                 yield return Gerar(cce, TipoDocumento.CCE);
             }
         }
@@ -322,6 +474,7 @@ namespace HESDanfe
         /// <param name="TipoDocumento">Tipo do documento (DANFE ou CCE)</param>
         /// <returns></returns>
         public FileInfo Gerar(FileInfo FilePath, TipoDocumento TipoDocumento) => Gerar(FilePath.FullName, TipoDocumento);
+
         public FileInfo Gerar(string FilePath) => Gerar(FilePath, ViewModel.TipoDocumento);
 
         public FileInfo Gerar(FileInfo FilePath) => Gerar(FilePath, ViewModel.TipoDocumento);
@@ -334,150 +487,39 @@ namespace HESDanfe
         /// <returns></returns>
         public FileInfo Gerar(string FilePath, TipoDocumento TipoDocumento)
         {
-            var oldTipo = ViewModel.TipoDocumento;
-
-            ViewModel.TipoDocumento = TipoDocumento;
-
-            if (FilePath.IsBlank())
-            {
-                throw new ArgumentNullException(nameof(FilePath), "Caminho do documento não especificado");
-            }
-
-            if (FilePath.IsDirectoryPath())
-            {
-                FilePath = System.IO.Path.Combine(FilePath, $"{System.IO.Path.GetDirectoryName(FilePath)}-{TipoDocumento}.pdf");
-            }
-            else
-
-            if (FilePath.IsFilePath())
-            {
-                FilePath = System.IO.Path.Combine(new FileInfo(FilePath).Directory.FullName, $"{System.IO.Path.GetFileNameWithoutExtension(FilePath)}.pdf");
-            }
-            else
-            {
-                throw new ArgumentException("Caminho do documento inválido", nameof(FilePath));
-            }
-
-            this.OutputFile = new PdfFile();
-
-            _LogoObject = (Documents.Contents.xObjects.XObject)_LogoObject.Clone(Documento);
-
-            // De acordo com o item 7.7, a fonte deve ser Times New Roman ou Courier New.
-            _FonteFamilia = StandardType1Font.FamilyEnum.Times;
-            FonteRegular = new StandardType1Font(Documento, _FonteFamilia, false, false);
-            FonteNegrito = new StandardType1Font(Documento, _FonteFamilia, true, false);
-            FonteItalico = new StandardType1Font(Documento, _FonteFamilia, false, true);
-
-            EstiloPadrao = Utils.CriarEstilo();
-
-            Paginas = new List<DanfePagina>();
-
-            Blocos = new List<BlocoBase>();
-
-            Canhoto = CriarBloco<BlocoCanhoto>();
-            IdentificacaoEmitente = AdicionarBloco<BlocoIdentificacaoEmitente>();
-
-            IdentificacaoEmitente.Logo = _LogoObject;
-
-            AdicionarBloco<BlocoDestinatarioRemetente>();
-            AdicionarBloco<BlocoDadosAdicionais>(Utils.CriarEstilo(tFonteCampoConteudo: 8));
-
-            if (ViewModel.TipoDocumento == TipoDocumento.DANFE)
-            {
-                if (ViewModel.LocalRetirada != null && ViewModel.ExibirBlocoLocalRetirada)
-                    AdicionarBloco<BlocoLocalRetirada>();
-
-                if (ViewModel.LocalEntrega != null && ViewModel.ExibirBlocoLocalEntrega)
-                    AdicionarBloco<BlocoLocalEntrega>();
-
-                if (ViewModel.Duplicatas.Count > 0)
-                    AdicionarBloco<BlocoDuplicataFatura>();
-
-                AdicionarBloco<BlocoCalculoImposto>(ViewModel.Orientacao == Orientacao.Paisagem ? EstiloPadrao : Utils.CriarEstilo(4.75F));
-                AdicionarBloco<BlocoTransportador>();
-
-                if (ViewModel.CalculoIssqn.Mostrar)
-                    AdicionarBloco<BlocoCalculoIssqn>();
-
-                var tabela = new TabelaProdutosServicos(ViewModel, EstiloPadrao);
-
-                while (true)
-                {
-                    DanfePagina p = CriarPagina();
-
-                    tabela.SetPosition(p.RetanguloCorpo.Location);
-                    tabela.SetSize(p.RetanguloCorpo.Size);
-                    tabela.Draw(p.Gfx);
-
-                    p.Gfx.Stroke();
-                    p.Gfx.Flush();
-
-                    if (tabela.CompletamenteDesenhada) break;
-                }
-            }
-            else if (ViewModel.TipoDocumento == TipoDocumento.CCE)
-            {
-                AdicionarBloco<BlocoCondicaoCCE>(Utils.CriarEstilo(tFonteCampoConteudo: 10));
-
-
-                const int FirstCount = 3500;
-                int OtherCount = FirstCount + 2550;
-
-
-                var textopagina = "";
-                int size = FirstCount;
-                foreach (Paragraph par in new TextStructure(ViewModel.TextoCorrecao))
-                {
-                    foreach (var s in par)
-                    {
-                        var frase = s.ToString() + (par.Last() == s ? Environment.NewLine : " ");
-                        if (textopagina.Length + frase.Length < size)
-                        {
-                            textopagina += frase;
-                        }
-                        else
-                        {
-                            var p = CriarPagina();
-                            var correcao = new TextoSimples(EstiloPadrao, textopagina)
-                            {
-                                TamanhoFonte = 12
-                            };
-                            correcao.SetPosition(p.RetanguloCorpo.Location);
-                            correcao.SetSize(p.RetanguloCorpo.Size);
-                            correcao.Draw(p.Gfx);
-                            p.Gfx.Stroke();
-                            p.Gfx.Flush();
-                            textopagina = "";
-                            size = OtherCount;
-                        }
-
-                    }
-
-                }
-
-
-
-
-
-            }
-
-            PreencherNumeroFolhas();
-
-            //metadata do PDF
-            var info = Documento.Information;
-            info[new Objects.PdfName("ChaveAcesso")] = ViewModel.ChaveAcesso;
-            info[new Objects.PdfName("TipoDocumento")] = $"{TipoDocumento}";
-            info.CreationDate = ViewModel.DataHoraEmissao;
-            info.Creator = $"{Utils.GetAssemblyName()?.Name} {Utils.GetAssemblyName()?.Version} - Disponível em https://github.com/zonaro/HESDanfe";
-            info.Author = Autor;
-
-            info.Subject = ViewModel.TipoDocumento == TipoDocumento.DANFE ? "Documento Auxiliar da NFe" : "Carta de Correção Eletrônica";
-            info.Title = $"{ViewModel.TipoDocumento}";
-
-            OutputFile.Save(FilePath, SerializationModeEnum.Incremental);
-            ViewModel.TipoDocumento = oldTipo;
-            return FilePath.ToFileInfo();
+            GerarInterno(TipoDocumento);
+            return OutputFile.Save(AjustarCaminhoPDF(FilePath), SerializationModeEnum.Incremental);
         }
+
+        public byte[] GerarBytes(TipoDocumento TipoDocumento) => Gerar(TipoDocumento).ToBytes(SerializationModeEnum.Incremental);
+
+        public FileInfo GerarUnico(string outputPath) => GerarUnico(outputPath, SerializationModeEnum.Incremental);
+
+        public FileInfo GerarUnico(string outputPath, SerializationModeEnum serializationMode)
+        {
+            using (var x = GerarUnico())
+            {
+                return x.Save(AjustarCaminhoPDF(outputPath), serializationMode);
+
+            }
+        }
+
+        public PdfFile GerarUnico()
+        {
+            var danfe = Gerar(TipoDocumento.DANFE);
+            if (GerarCCE)
+            {
+                var cce = Gerar(TipoDocumento.CCE);
+
+                return PDFUtils.MergePDF(danfe, cce);
+            }
+            else
+            {
+                return danfe;
+            }
+        }
+
+        public byte[] GerarUnicoBytes() => GerarUnico().ToBytes(SerializationModeEnum.Incremental);
 
         #endregion Public Methods
     }

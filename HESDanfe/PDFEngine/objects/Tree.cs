@@ -226,25 +226,17 @@ namespace HESDanfe.Objects
           kids = (PdfArray)kidsObject.Resolve();
         }
       }
-      #endregion
+            #endregion
 
-      #region interface
-      #region public
-      #region IEnumerator<KeyValuePair<TKey,TValue>>
-      KeyValuePair<TKey,TValue> IEnumerator<KeyValuePair<TKey,TValue>>.Current
-      {
-        get
-        {return current.Value;}
-      }
+            #region interface
+            #region public
+            #region IEnumerator<KeyValuePair<TKey,TValue>>
+            KeyValuePair<TKey, TValue> IEnumerator<KeyValuePair<TKey, TValue>>.Current => current.Value;
 
-      #region IEnumerator
-      public object Current
-      {
-        get
-        {return ((IEnumerator<KeyValuePair<TKey,TValue>>)this).Current;}
-      }
+            #region IEnumerator
+            public object Current => ((IEnumerator<KeyValuePair<TKey, TValue>>)this).Current;
 
-      public bool MoveNext(
+            public bool MoveNext(
         )
       {return (current = GetNext()) != null;}
 
@@ -363,12 +355,8 @@ namespace HESDanfe.Objects
         )
       {keys.Add((TKey)names[offset]);}
 
-      public ICollection<TKey> Collection
-      {
-        get
-        {return keys;}
-      }
-    }
+            public ICollection<TKey> Collection => keys;
+        }
 
     private class ValuesFiller
       : IFiller<TValue>
@@ -387,12 +375,8 @@ namespace HESDanfe.Objects
         )
       {values.Add(tree.WrapValue(names[offset + 1]));}
 
-      public ICollection<TValue> Collection
-      {
-        get
-        {return values;}
-      }
-    }
+            public ICollection<TValue> Collection => values;
+        }
     #endregion
 
     #region static
@@ -746,19 +730,11 @@ namespace HESDanfe.Objects
       )
     {throw new NotImplementedException();}
 
-    public virtual int Count
-    {
-      get
-      {return GetCount(BaseDataObject);}
-    }
+        public virtual int Count => GetCount(BaseDataObject);
 
-    public virtual bool IsReadOnly
-    {
-      get
-      {return false;}
-    }
+        public virtual bool IsReadOnly => false;
 
-    public virtual bool Remove(
+        public virtual bool Remove(
       KeyValuePair<TKey,TValue> keyValuePair
       )
     {throw new NotSupportedException();}

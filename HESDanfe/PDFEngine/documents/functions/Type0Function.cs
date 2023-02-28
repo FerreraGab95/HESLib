@@ -75,29 +75,23 @@ namespace HESDanfe.Documents.Functions
       return null;
     }
 
-    /**
-      <summary>Gets the linear mapping of input values into the domain of the function's sample table.</summary>
-    */
-    public IList<Interval<int>> DomainEncodes
-    {
-      get
-      {
-        return GetIntervals<int>(
-          PdfName.Encode,
-          delegate(IList<Interval<int>> intervals)
-          {
-            foreach(int sampleCount in SampleCounts)
-            {intervals.Add(new Interval<int>(0, sampleCount-1));}
-            return intervals;
-          }
-          );
-      }
-    }
+        /**
+          <summary>Gets the linear mapping of input values into the domain of the function's sample table.</summary>
+        */
+        public IList<Interval<int>> DomainEncodes => GetIntervals<int>(
+              PdfName.Encode,
+              delegate (IList<Interval<int>> intervals)
+              {
+                  foreach (int sampleCount in SampleCounts)
+                  { intervals.Add(new Interval<int>(0, sampleCount - 1)); }
+                  return intervals;
+              }
+              );
 
-    /**
-      <summary>Gets the order of interpolation between samples.</summary>
-    */
-    public InterpolationOrderEnum Order
+        /**
+          <summary>Gets the order of interpolation between samples.</summary>
+        */
+        public InterpolationOrderEnum Order
     {
       get
       {
@@ -108,28 +102,20 @@ namespace HESDanfe.Documents.Functions
       }
     }
 
-    /**
-      <summary>Gets the linear mapping of sample values into the ranges of the function's output values.</summary>
-    */
-    public IList<Interval<double>> RangeDecodes
-    {
-      get
-      {return GetIntervals<double>(PdfName.Decode, null);}
-    }
+        /**
+          <summary>Gets the linear mapping of sample values into the ranges of the function's output values.</summary>
+        */
+        public IList<Interval<double>> RangeDecodes => GetIntervals<double>(PdfName.Decode, null);
 
-    /**
-      <summary>Gets the number of bits used to represent each sample.</summary>
-    */
-    public int SampleBitsCount
-    {
-      get
-      {return ((PdfInteger)Dictionary[PdfName.BitsPerSample]).RawValue;}
-    }
+        /**
+          <summary>Gets the number of bits used to represent each sample.</summary>
+        */
+        public int SampleBitsCount => ((PdfInteger)Dictionary[PdfName.BitsPerSample]).RawValue;
 
-    /**
-      <summary>Gets the number of samples in each input dimension of the sample table.</summary>
-    */
-    public IList<int> SampleCounts
+        /**
+          <summary>Gets the number of samples in each input dimension of the sample table.</summary>
+        */
+        public IList<int> SampleCounts
     {
       get
       {

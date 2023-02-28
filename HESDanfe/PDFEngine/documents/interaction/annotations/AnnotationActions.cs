@@ -166,13 +166,9 @@ namespace HESDanfe.Documents.Interaction.Annotations
         || (PdfName.A.Equals(key) && parent.BaseDataObject.ContainsKey(key));
     }
 
-    public ICollection<PdfName> Keys
-    {
-      get
-      {return BaseDataObject.Keys;}
-    }
+        public ICollection<PdfName> Keys => BaseDataObject.Keys;
 
-    public bool Remove(
+        public bool Remove(
       PdfName key
       )
     {
@@ -247,19 +243,11 @@ namespace HESDanfe.Documents.Interaction.Annotations
       )
     {throw new system::NotImplementedException();}
 
-    public int Count
-    {
-      get
-      {return BaseDataObject.Count + (parent.BaseDataObject.ContainsKey(PdfName.A) ? 1 : 0);}
-    }
+        public int Count => BaseDataObject.Count + (parent.BaseDataObject.ContainsKey(PdfName.A) ? 1 : 0);
 
-    public bool IsReadOnly
-    {
-      get
-      {return false;}
-    }
+        public bool IsReadOnly => false;
 
-    public bool Remove(
+        public bool Remove(
       KeyValuePair<PdfName,Action> entry
       )
     {

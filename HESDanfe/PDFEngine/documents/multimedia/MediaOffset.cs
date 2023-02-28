@@ -123,11 +123,7 @@ namespace HESDanfe.Documents.Multimedia
                 set => Timespan.Time = (double)value;
             }
 
-            private Timespan Timespan
-            {
-                get
-                { return new Timespan(BaseDataObject[PdfName.T]); }
-            }
+            private Timespan Timespan => new Timespan(BaseDataObject[PdfName.T]);
         }
         #endregion
 

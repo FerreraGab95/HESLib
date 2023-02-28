@@ -93,13 +93,9 @@ namespace HESDanfe.Documents.Contents.Layers
       set => BaseDataObject[PdfName.ListMode] = value.GetName();
     }
 
-        public Array<LayerGroup> OptionGroups
-    {
-      get
-      {return Array<LayerGroup>.Wrap<LayerGroup>(BaseDataObject.Get<PdfArray>(PdfName.RBGroups));}
-    }
+        public Array<LayerGroup> OptionGroups => Array<LayerGroup>.Wrap<LayerGroup>(BaseDataObject.Get<PdfArray>(PdfName.RBGroups));
 
-    public string Title
+        public string Title
     {
       get => (string)PdfSimpleObject<object>.GetValue(BaseDataObject[PdfName.Name]);
       set => BaseDataObject[PdfName.Name] = PdfTextString.Get(value);
@@ -218,30 +214,22 @@ namespace HESDanfe.Documents.Contents.Layers
         {offLayersObject.Add(layerObject);}
       }
     }
-    #endregion
+        #endregion
 
-    #region private
-    /**
-      <summary>Gets the collection of the layer objects whose state is set to OFF.</summary>
-    */
-    private PdfArray OffLayersObject
-    {
-      get
-      {return BaseDataObject.Resolve<PdfArray>(PdfName.OFF);}
-    }
+        #region private
+        /**
+          <summary>Gets the collection of the layer objects whose state is set to OFF.</summary>
+        */
+        private PdfArray OffLayersObject => BaseDataObject.Resolve<PdfArray>(PdfName.OFF);
 
-    /**
-      <summary>Gets the collection of the layer objects whose state is set to ON.</summary>
-    */
-    private PdfArray OnLayersObject
-    {
-      get
-      {return BaseDataObject.Resolve<PdfArray>(PdfName.ON);}
+        /**
+          <summary>Gets the collection of the layer objects whose state is set to ON.</summary>
+        */
+        private PdfArray OnLayersObject => BaseDataObject.Resolve<PdfArray>(PdfName.ON);
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 
   internal static class BaseStateEnumExtension
   {

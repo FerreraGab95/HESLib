@@ -80,13 +80,9 @@ namespace HESDanfe.Documents.Contents.Objects
         #endregion
 
         #region private
-        private PaintXObject Operation
-    {
-      get
-      {return (PaintXObject)Objects[0];}
+        private PaintXObject Operation => (PaintXObject)Objects[0];
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 }

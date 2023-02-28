@@ -55,23 +55,15 @@ namespace HESDanfe.Documents.Contents
       this.dashArray = dashArray;
       this.dashPhase = dashPhase;
     }
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public double[] DashArray
-    {
-      get
-      {return dashArray;}
-    }
+        #region interface
+        #region public
+        public double[] DashArray => dashArray;
 
-    public double DashPhase
-    {
-      get
-      {return dashPhase;}
+        public double DashPhase => dashPhase;
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 }

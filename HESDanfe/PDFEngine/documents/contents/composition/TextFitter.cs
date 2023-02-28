@@ -181,100 +181,60 @@ endFitting:
       return (fittedWidth > 0);
     }
 
-    /**
-      <summary>Gets the begin index of the fitted text inside the available text.</summary>
-    */
-    public int BeginIndex
-    {
-      get
-      {return beginIndex;}
-    }
+        /**
+          <summary>Gets the begin index of the fitted text inside the available text.</summary>
+        */
+        public int BeginIndex => beginIndex;
 
-    /**
-      <summary>Gets the end index of the fitted text inside the available text.</summary>
-    */
-    public int EndIndex
-    {
-      get
-      {return endIndex;}
-    }
+        /**
+          <summary>Gets the end index of the fitted text inside the available text.</summary>
+        */
+        public int EndIndex => endIndex;
 
-    /**
-      <summary>Gets the fitted text.</summary>
-    */
-    public string FittedText
-    {
-      get
-      {return fittedText;}
-    }
+        /**
+          <summary>Gets the fitted text.</summary>
+        */
+        public string FittedText => fittedText;
 
-    /**
-      <summary>Gets the fitted text's width.</summary>
-    */
-    public double FittedWidth
-    {
-      get
-      {return fittedWidth;}
-    }
+        /**
+          <summary>Gets the fitted text's width.</summary>
+        */
+        public double FittedWidth => fittedWidth;
 
-    /**
-      <summary>Gets the font used to fit the text.</summary>
-    */
-    public Font Font
-    {
-      get
-      {return font;}
-    }
+        /**
+          <summary>Gets the font used to fit the text.</summary>
+        */
+        public Font Font => font;
 
-    /**
-      <summary>Gets the size of the font used to fit the text.</summary>
-    */
-    public double FontSize
-    {
-      get
-      {return fontSize;}
-    }
+        /**
+          <summary>Gets the size of the font used to fit the text.</summary>
+        */
+        public double FontSize => fontSize;
 
-    /**
-      <summary>Gets whether the hyphenation algorithm has to be applied.</summary>
-    */
-    public bool Hyphenation
-    {
-      get
-      {return hyphenation;}
-    }
+        /**
+          <summary>Gets whether the hyphenation algorithm has to be applied.</summary>
+        */
+        public bool Hyphenation => hyphenation;
 
-    /**
-      <summary>Gets/Sets the character shown at the end of the line before a hyphenation break.
-      </summary>
-    */
-    public char HyphenationCharacter
-    {
-      get
-      {return hyphenationCharacter;}
-    }
+        /**
+          <summary>Gets/Sets the character shown at the end of the line before a hyphenation break.
+          </summary>
+        */
+        public char HyphenationCharacter => hyphenationCharacter;
 
-    /**
-      <summary>Gets the available text.</summary>
-    */
-    public string Text
-    {
-      get
-      {return text;}
-    }
+        /**
+          <summary>Gets the available text.</summary>
+        */
+        public string Text => text;
 
-    /**
-      <summary>Gets the available width.</summary>
-    */
-    public double Width
-    {
-      get
-      {return width;}
-    }
-    #endregion
+        /**
+          <summary>Gets the available width.</summary>
+        */
+        public double Width => width;
+        #endregion
 
-    #region private
-    private  void Hyphenate(
+        #region private
+        private  void Hyphenate(
       bool hyphenation,
       ref int index,
       ref int wordEndIndex,

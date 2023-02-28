@@ -30,6 +30,7 @@ using HESDanfe.Bytes;
 using HESDanfe.Documents;
 using HESDanfe.Objects;
 using HESDanfe.Tokens;
+using InnerLibs;
 
 namespace HESDanfe.Files
 {
@@ -57,11 +58,7 @@ namespace HESDanfe.Files
             /**
               <summary>Gets the file associated with this configuration.</summary>
             */
-            public PdfFile File
-            {
-                get
-                { return file; }
-            }
+            public PdfFile File => file;
 
             /**
               <summary>Gets/Sets the format applied to real number serialization.</summary>
@@ -185,20 +182,12 @@ namespace HESDanfe.Files
         /**
           <summary>Gets the file configuration.</summary>
         */
-        public ConfigurationImpl Configuration
-        {
-            get
-            { return configuration; }
-        }
+        public ConfigurationImpl Configuration => configuration;
 
         /**
           <summary>Gets the high-level representation of the file content.</summary>
         */
-        public Document Document
-        {
-            get
-            { return document; }
-        }
+        public Document Document => document;
 
         public override int GetHashCode(
           )
@@ -207,20 +196,12 @@ namespace HESDanfe.Files
         /**
           <summary>Gets the identifier of this file.</summary>
         */
-        public FileIdentifier ID
-        {
-            get
-            { return FileIdentifier.Wrap(Trailer[PdfName.ID]); }
-        }
+        public FileIdentifier ID => FileIdentifier.Wrap(Trailer[PdfName.ID]);
 
         /**
           <summary>Gets the indirect objects collection.</summary>
         */
-        public IndirectObjects IndirectObjects
-        {
-            get
-            { return indirectObjects; }
-        }
+        public IndirectObjects IndirectObjects => indirectObjects;
 
         /**
           <summary>Gets/Sets the file path.</summary>
@@ -235,11 +216,7 @@ namespace HESDanfe.Files
           <summary>Gets the data reader backing this file.</summary>
           <returns><code>null</code> in case of newly-created file.</returns>
         */
-        public Reader Reader
-        {
-            get
-            { return reader; }
-        }
+        public Reader Reader => reader;
 
         /**
           <summary>Registers an <b>internal data object</b>.</summary>
@@ -261,7 +238,7 @@ namespace HESDanfe.Files
           <summary>Serializes the file to the current file-system path.</summary>
           <param name="mode">Serialization mode.</param>
         */
-        public void Save(
+        public FileInfo Save(
           SerializationModeEnum mode
           )
         {
@@ -273,7 +250,7 @@ namespace HESDanfe.Files
               open stream; its update is therefore delayed to its disposal, when the temporary file will
               overwrite it (see Dispose() method).
             */
-            Save(TempPath, mode);
+            return Save(TempPath, mode);
         }
 
         /**
@@ -281,7 +258,7 @@ namespace HESDanfe.Files
           <param name="path">Target path.</param>
           <param name="mode">Serialization mode.</param>
         */
-        public void Save(
+        public FileInfo Save(
           string path,
           SerializationModeEnum mode
           )
@@ -297,6 +274,7 @@ namespace HESDanfe.Files
               );
             outputStream.Flush();
             outputStream.Close();
+            return path.ToFileInfo();
         }
 
         /**
@@ -329,11 +307,7 @@ namespace HESDanfe.Files
         /**
           <summary>Gets the file trailer.</summary>
         */
-        public PdfDictionary Trailer
-        {
-            get
-            { return trailer; }
-        }
+        public PdfDictionary Trailer => trailer;
 
         /**
           <summary>Unregisters an internal object.</summary>
@@ -349,11 +323,7 @@ namespace HESDanfe.Files
           use the <see cref="HESDanfe.Documents.Document.Version">Document.Version</see> method.
           </remarks>
         */
-        public Version Version
-        {
-            get
-            { return version; }
-        }
+        public Version Version => version;
 
         #region IDisposable
         public void Dispose(
@@ -389,11 +359,7 @@ namespace HESDanfe.Files
           )
         { return (PdfDictionary)new ImplicitContainer(this, trailer).DataObject; }
 
-        private string TempPath
-        {
-            get
-            { return (path == null ? null : path + ".tmp"); }
-        }
+        private string TempPath => (path == null ? null : path + ".tmp");
         #endregion
         #endregion
         #endregion

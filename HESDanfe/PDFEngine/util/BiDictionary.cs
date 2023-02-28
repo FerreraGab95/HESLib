@@ -104,13 +104,9 @@ namespace HESDanfe.Util
       )
     {return dictionary.ContainsKey(key);}
 
-    public ICollection<TKey> Keys
-    {
-      get
-      {return dictionary.Keys;}
-    }
+        public ICollection<TKey> Keys => dictionary.Keys;
 
-    public bool Remove(
+        public bool Remove(
       TKey key
       )
     {
@@ -157,14 +153,10 @@ namespace HESDanfe.Util
       )
     {return dictionary.TryGetValue(key,out value);}
 
-    public ICollection<TValue> Values
-    {
-      get
-      {return dictionary.Values;}
-    }
+        public ICollection<TValue> Values => dictionary.Values;
 
-    #region ICollection
-    void ICollection<KeyValuePair<TKey,TValue>>.Add(
+        #region ICollection
+        void ICollection<KeyValuePair<TKey,TValue>>.Add(
       KeyValuePair<TKey,TValue> keyValuePair
       )
     {Add(keyValuePair.Key,keyValuePair.Value);}
@@ -187,19 +179,11 @@ namespace HESDanfe.Util
       )
     {throw new NotImplementedException();}
 
-    public virtual int Count
-    {
-      get
-      {return dictionary.Count;}
-    }
+        public virtual int Count => dictionary.Count;
 
-    public bool IsReadOnly
-    {
-      get
-      {return false;}
-    }
+        public bool IsReadOnly => false;
 
-    public bool Remove(
+        public bool Remove(
       KeyValuePair<TKey,TValue> keyValuePair
       )
     {

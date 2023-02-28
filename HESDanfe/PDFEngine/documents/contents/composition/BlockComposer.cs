@@ -59,11 +59,7 @@ namespace HESDanfe.Documents.Contents.Composition
               ) : base(null)
             { }
 
-            public List<ContentObject> Objects
-            {
-                get
-                { return objects; }
-            }
+            public List<ContentObject> Objects => objects;
 
             public override void WriteTo(
               IOutputStream stream,
@@ -216,11 +212,7 @@ namespace HESDanfe.Documents.Contents.Composition
         /**
           <summary>Gets the base composer.</summary>
         */
-        public PrimitiveComposer BaseComposer
-        {
-            get
-            { return baseComposer; }
-        }
+        public PrimitiveComposer BaseComposer => baseComposer;
 
         /**
           <summary>Begins a content block.</summary>
@@ -259,11 +251,7 @@ namespace HESDanfe.Documents.Contents.Composition
         /**
           <summary>Gets the area occupied by the already-placed block contents.</summary>
         */
-        public RectangleF BoundBox
-        {
-            get
-            { return boundBox; }
-        }
+        public RectangleF BoundBox => boundBox;
 
         /**
           <summary>Ends the content block.</summary>
@@ -291,11 +279,7 @@ namespace HESDanfe.Documents.Contents.Composition
         /**
           <summary>Gets the area where to place the block contents.</summary>
         */
-        public RectangleF Frame
-        {
-            get
-            { return frame; }
-        }
+        public RectangleF Frame => frame;
 
         /**
           <summary>Gets/Sets whether the hyphenation algorithm has to be applied.</summary>
@@ -341,11 +325,7 @@ namespace HESDanfe.Documents.Contents.Composition
         /**
           <summary>Gets the content scanner.</summary>
         */
-        public ContentScanner Scanner
-        {
-            get
-            { return scanner; }
-        }
+        public ContentScanner Scanner => scanner;
 
         /**
           <summary>Ends current paragraph.</summary>
@@ -629,20 +609,12 @@ namespace HESDanfe.Documents.Contents.Composition
         /**
           <summary>Gets the horizontal alignment applied to the current content block.</summary>
         */
-        public XAlignmentEnum XAlignment
-        {
-            get
-            { return xAlignment; }
-        }
+        public XAlignmentEnum XAlignment => xAlignment;
 
         /**
           <summary>Gets the vertical alignment applied to the current content block.</summary>
         */
-        public YAlignmentEnum YAlignment
-        {
-            get
-            { return yAlignment; }
-        }
+        public YAlignmentEnum YAlignment => yAlignment;
         #endregion
 
         #region private

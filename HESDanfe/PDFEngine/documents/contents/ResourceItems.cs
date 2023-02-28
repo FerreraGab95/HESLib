@@ -77,13 +77,9 @@ namespace HESDanfe.Documents.Contents
       )
     {return BaseDataObject.ContainsKey(key);}
 
-    public ICollection<PdfName> Keys
-    {
-      get
-      {return BaseDataObject.Keys;}
-    }
+        public ICollection<PdfName> Keys => BaseDataObject.Keys;
 
-    public bool Remove(
+        public bool Remove(
       PdfName key
       )
     {return BaseDataObject.Remove(key);}
@@ -140,19 +136,11 @@ namespace HESDanfe.Documents.Contents
       )
     {throw new NotImplementedException();}
 
-    public int Count
-    {
-      get
-      {return BaseDataObject.Count;}
-    }
+        public int Count => BaseDataObject.Count;
 
-    public bool IsReadOnly
-    {
-      get
-      {return false;}
-    }
+        public bool IsReadOnly => false;
 
-    public bool Remove(
+        public bool Remove(
       KeyValuePair<PdfName,TValue> entry
       )
     {

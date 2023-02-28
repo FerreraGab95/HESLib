@@ -118,20 +118,16 @@ namespace HESDanfe.Documents.Contents.ColorSpaces
       )
     {throw new NotImplementedException();}
 
-    public override IList<PdfDirectObject> Components
-    {
-      get
-      {return new List<PdfDirectObject>();}//TODO:verify (see SetFillColor/SetStrokeColor -- name!)!
-    }
+        public override IList<PdfDirectObject> Components => new List<PdfDirectObject>();
 
-    /**
-      <summary>Gets the pattern matrix, a transformation matrix that maps the pattern's
-      internal coordinate system to the default coordinate system of the pattern's
-      parent content stream (the content stream in which the pattern is defined as a resource).</summary>
-      <remarks>The concatenation of the pattern matrix with that of the parent content stream establishes
-      the pattern coordinate space, within which all graphics objects in the pattern are interpreted.</remarks>
-    */
-    public double[] Matrix
+        /**
+          <summary>Gets the pattern matrix, a transformation matrix that maps the pattern's
+          internal coordinate system to the default coordinate system of the pattern's
+          parent content stream (the content stream in which the pattern is defined as a resource).</summary>
+          <remarks>The concatenation of the pattern matrix with that of the parent content stream establishes
+          the pattern coordinate space, within which all graphics objects in the pattern are interpreted.</remarks>
+        */
+        public double[] Matrix
     {
       get
       {
@@ -161,19 +157,15 @@ namespace HESDanfe.Documents.Contents.ColorSpaces
             };
       }
     }
-    #endregion
+        #endregion
 
-    #region protected
-    /**
-      <summary>Gets this pattern's dictionary.</summary>
-    */
-    protected PdfDictionary Dictionary
-    {
-      get
-      {return GetDictionary(BaseDataObject);}
+        #region protected
+        /**
+          <summary>Gets this pattern's dictionary.</summary>
+        */
+        protected PdfDictionary Dictionary => GetDictionary(BaseDataObject);
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 }

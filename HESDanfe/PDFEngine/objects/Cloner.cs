@@ -136,12 +136,8 @@ namespace HESDanfe.Objects
         )
       {return true;}
 
-      public string Name
-      {
-        get
-        {return name;}
-      }
-    }
+            public string Name => name;
+        }
 
     private class AnnotationsFilter
       : Filter
@@ -279,13 +275,9 @@ namespace HESDanfe.Objects
             }
         }
 
-        public IList<Filter> Filters
-    {
-      get
-      {return filters;}
-    }
+        public IList<Filter> Filters => filters;
 
-    public override PdfObject Visit(
+        public override PdfObject Visit(
       ObjectStream obj,
       object data
       )

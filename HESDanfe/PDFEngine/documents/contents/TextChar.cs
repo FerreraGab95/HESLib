@@ -56,27 +56,23 @@ namespace HESDanfe.Documents.Contents
       this.style = style;
       this.virtual_ = virtual_;
     }
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public RectangleF Box
-    {get{return box;}}
+        #region interface
+        #region public
+        public RectangleF Box => box;
 
-    public TextStyle Style
-    {get{return style;}}
+        public TextStyle Style => style;
 
-    public override string ToString(
+        public override string ToString(
       )
     {return Value.ToString();}
 
-    public char Value
-    {get{return value;}}
+        public char Value => value;
 
-    public bool Virtual
-    {get{return virtual_;}}
-    #endregion
-    #endregion
-    #endregion
-  }
+        public bool Virtual => virtual_;
+        #endregion
+        #endregion
+        #endregion
+    }
 }

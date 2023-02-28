@@ -276,25 +276,21 @@ namespace HESDanfe.Documents.Contents.Fonts
       Initialize();
       Load();
     }
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    /**
-      <summary>Gets the unscaled vertical offset from the baseline to the ascender line (ascent).
-      The value is a positive number.</summary>
-    */
-    public virtual double Ascent
-    {
-      get
-      {return ((IPdfNumber)Descriptor[PdfName.Ascent]).RawValue;}
-    }
+        #region interface
+        #region public
+        /**
+          <summary>Gets the unscaled vertical offset from the baseline to the ascender line (ascent).
+          The value is a positive number.</summary>
+        */
+        public virtual double Ascent => ((IPdfNumber)Descriptor[PdfName.Ascent]).RawValue;
 
-    /**
-      <summary>Gets the text from the given internal representation.</summary>
-      <param name="code">Internal representation to decode.</param>
-    */
-    public string Decode(
+        /**
+          <summary>Gets the text from the given internal representation.</summary>
+          <param name="code">Internal representation to decode.</param>
+        */
+        public string Decode(
       byte[] code
       )
     {
@@ -339,21 +335,17 @@ namespace HESDanfe.Documents.Contents.Fonts
       return textBuilder.ToString();
     }
 
-    /**
-      <summary>Gets the unscaled vertical offset from the baseline to the descender line (descent).
-      The value is a negative number.</summary>
-    */
-    public virtual double Descent
-    {
-      get
-      {return ((IPdfNumber)Descriptor[PdfName.Descent]).RawValue;}
-    }
+        /**
+          <summary>Gets the unscaled vertical offset from the baseline to the descender line (descent).
+          The value is a negative number.</summary>
+        */
+        public virtual double Descent => ((IPdfNumber)Descriptor[PdfName.Descent]).RawValue;
 
-    /**
-      <summary>Gets the internal representation of the given text.</summary>
-      <param name="text">Text to encode.</param>
-    */
-    public byte[] Encode(
+        /**
+          <summary>Gets the internal representation of the given text.</summary>
+          <param name="text">Text to encode.</param>
+        */
+        public byte[] Encode(
       string text
       )
     {
@@ -597,39 +589,27 @@ namespace HESDanfe.Documents.Contents.Fonts
       )
     {return GetWidth(text) * GetScalingFactor(size);}
 
-    /**
-      <summary>Gets the unscaled line height.</summary>
-    */
-    public double LineHeight
-    {
-      get
-      {return Ascent - Descent;}
-    }
+        /**
+          <summary>Gets the unscaled line height.</summary>
+        */
+        public double LineHeight => Ascent - Descent;
 
-    /**
-      <summary>Gets the PostScript name of the font.</summary>
-    */
-    public string Name
-    {
-      get
-      {return ((PdfName)BaseDataObject[PdfName.BaseFont]).ToString();}
-    }
+        /**
+          <summary>Gets the PostScript name of the font.</summary>
+        */
+        public string Name => ((PdfName)BaseDataObject[PdfName.BaseFont]).ToString();
 
-    /**
-      <summary>Gets whether the font encoding is custom (that is non-Unicode).</summary>
-    */
-    public bool Symbolic
-    {
-      get
-      {return symbolic;}
-    }
-    #endregion
+        /**
+          <summary>Gets whether the font encoding is custom (that is non-Unicode).</summary>
+        */
+        public bool Symbolic => symbolic;
+        #endregion
 
-    #region protected
-    /**
-      <summary>Gets the font descriptor.</summary>
-    */
-    protected abstract PdfDictionary Descriptor
+        #region protected
+        /**
+          <summary>Gets the font descriptor.</summary>
+        */
+        protected abstract PdfDictionary Descriptor
     {
       get;
     }

@@ -69,17 +69,13 @@ namespace HESDanfe.Documents.Interaction.Forms
       )
     {throw new NotImplementedException();} // TODO:verify field reference.
 
-    /**
-      <summary>Gets the field associated to these widgets.</summary>
-    */
-    public Field Field
-    {
-      get
-      {return field;}
-    }
+        /**
+          <summary>Gets the field associated to these widgets.</summary>
+        */
+        public Field Field => field;
 
-    #region IList
-    public int IndexOf(
+        #region IList
+        public int IndexOf(
       Widget value
       )
     {
@@ -169,13 +165,9 @@ namespace HESDanfe.Documents.Interaction.Forms
       }
     }
 
-    public bool IsReadOnly
-    {
-      get
-      {return false;}
-    }
+        public bool IsReadOnly => false;
 
-    public bool Remove(
+        public bool Remove(
       Widget value
       )
     {return EnsureArray().Remove(value.BaseObject);}

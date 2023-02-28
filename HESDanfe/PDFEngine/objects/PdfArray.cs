@@ -326,19 +326,11 @@ namespace HESDanfe.Objects
       )
     {this.items.CopyTo(items, index);}
 
-    public int Count
-    {
-      get
-      {return items.Count;}
-    }
+        public int Count => items.Count;
 
-    public bool IsReadOnly
-    {
-      get
-      {return false;}
-    }
+        public bool IsReadOnly => false;
 
-    public bool Remove(
+        public bool Remove(
       PdfDirectObject item
       )
     {

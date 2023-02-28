@@ -52,26 +52,13 @@ namespace HESDanfe.Documents.Contents.ColorSpaces
 
         #region Public Properties
 
-        public override int ComponentCount
-        {
-            get
-            {
+        public override int ComponentCount =>
                 // FIXME: Auto-generated method stub
-                return 0;
-            }
-        }
+                0;
 
-        public override Color DefaultColor
-        {
-            get
-            { return DeviceGrayColor.Default; } // FIXME:temporary hack...
-        }
+        public override Color DefaultColor => DeviceGrayColor.Default;
 
-        public PdfStream Profile
-        {
-            get
-            { return (PdfStream)((PdfArray)BaseDataObject).Resolve(1); }
-        }
+        public PdfStream Profile => (PdfStream)((PdfArray)BaseDataObject).Resolve(1);
 
         #endregion Public Properties
 

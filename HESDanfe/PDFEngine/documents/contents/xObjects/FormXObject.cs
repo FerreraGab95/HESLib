@@ -150,13 +150,9 @@ namespace HESDanfe.Documents.Contents.xObjects
       set => BaseDataObject.Header[PdfName.BBox] = new Rectangle(value).BaseDataObject;
     }
 
-        public Contents Contents
-    {
-      get
-      {return Contents.Wrap(BaseObject, this);}
-    }
+        public Contents Contents => Contents.Wrap(BaseObject, this);
 
-    public void Render(
+        public void Render(
       drawing::Graphics context,
       drawing::SizeF size
       )
@@ -171,14 +167,10 @@ namespace HESDanfe.Documents.Contents.xObjects
       set => BaseDataObject.Header[PdfName.Resources] = PdfObjectWrapper.GetBaseObject(value);
     }
 
-        public RotationEnum Rotation
-    {
-      get
-      {return RotationEnum.Downward;}
-    }
+        public RotationEnum Rotation => RotationEnum.Downward;
 
-    #region IContentEntity
-    public ContentObject ToInlineObject(
+        #region IContentEntity
+        public ContentObject ToInlineObject(
       PrimitiveComposer composer
       )
     {throw new NotImplementedException();}

@@ -101,13 +101,9 @@ namespace HESDanfe.Documents.Contents.Layers
       set => DefaultConfiguration.ListMode = value;
     }
 
-        public Array<LayerGroup> OptionGroups
-    {
-      get
-      {return DefaultConfiguration.OptionGroups;}
-    }
+        public Array<LayerGroup> OptionGroups => DefaultConfiguration.OptionGroups;
 
-    public string Title
+        public string Title
     {
       get => DefaultConfiguration.Title;
       set => DefaultConfiguration.Title = value;
@@ -131,15 +127,11 @@ namespace HESDanfe.Documents.Contents.Layers
          * that listener MUST update this collection.
          * Listener MUST be instantiated when LayerDefinition is associated to the document.
          */
-        internal PdfArray AllLayersObject
-    {
-      get
-      {return (PdfArray)BaseDataObject.Resolve(PdfName.OCGs);}
-    }
-    #endregion
+        internal PdfArray AllLayersObject => (PdfArray)BaseDataObject.Resolve(PdfName.OCGs);
+        #endregion
 
-    #region private
-    private void Initialize(
+        #region private
+        private void Initialize(
       )
     {
       PdfDictionary baseDataObject = BaseDataObject;

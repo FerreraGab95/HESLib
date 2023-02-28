@@ -374,11 +374,10 @@ namespace HESDanfe.Documents.Contents
       {item.WriteTo(buffer, context);}
     }
 
-    public IContentContext ContentContext
-    {get{return contentContext;}}
+        public IContentContext ContentContext => contentContext;
 
-    #region IList
-    public int IndexOf(
+        #region IList
+        public int IndexOf(
       ContentObject obj
       )
     {return items.IndexOf(obj);}
@@ -423,13 +422,11 @@ namespace HESDanfe.Documents.Contents
       )
     {items.CopyTo(objs,index);}
 
-    public int Count
-    {get{return items.Count;}}
+        public int Count => items.Count;
 
-    public bool IsReadOnly
-    {get{return false;}}
+        public bool IsReadOnly => false;
 
-    public bool Remove(
+        public bool Remove(
       ContentObject obj
       )
     {return items.Remove(obj);}

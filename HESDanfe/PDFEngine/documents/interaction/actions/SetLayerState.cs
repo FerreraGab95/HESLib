@@ -120,12 +120,8 @@ namespace HESDanfe.Documents.Interaction.Actions
           InsertItem(index, item);
         }
 
-        private LayerStates BaseStates
-        {
-          get
-          {return parentState != null ? parentState.baseStates : null;}
-        }
-      }
+                private LayerStates BaseStates => parentState != null ? parentState.baseStates : null;
+            }
 
       private readonly LayersImpl layers;
       private StateModeEnum mode;
@@ -172,13 +168,9 @@ namespace HESDanfe.Documents.Interaction.Actions
         return true;
       }
 
-      public IList<Layer> Layers
-      {
-        get
-        {return layers;}
-      }
+            public IList<Layer> Layers => layers;
 
-      public StateModeEnum Mode
+            public StateModeEnum Mode
             {
                 get => mode;
                 set
@@ -331,19 +323,11 @@ namespace HESDanfe.Documents.Interaction.Actions
         )
       {throw new NotImplementedException();}
 
-      public int Count
-      {
-        get
-        {return items.Count;}
-      }
+            public int Count => items.Count;
 
-      public bool IsReadOnly
-      {
-        get
-        {return false;}
-      }
+            public bool IsReadOnly => false;
 
-      public bool Remove(
+            public bool Remove(
         LayerState item
         )
       {

@@ -52,11 +52,7 @@ namespace HESDanfe.Documents.Contents.ColorSpaces
 
         #region Protected Properties
 
-        protected PdfDictionary Dictionary
-        {
-            get
-            { return (PdfDictionary)((PdfArray)BaseDataObject)[1]; }
-        }
+        protected PdfDictionary Dictionary => (PdfDictionary)((PdfArray)BaseDataObject)[1];
 
         #endregion Protected Properties
 

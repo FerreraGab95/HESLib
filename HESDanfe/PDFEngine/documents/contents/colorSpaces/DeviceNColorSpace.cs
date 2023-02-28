@@ -50,11 +50,7 @@ namespace HESDanfe.Documents.Contents.ColorSpaces
 
         #region Public Properties
 
-        public override int ComponentCount
-        {
-            get
-            { return ((PdfArray)((PdfArray)BaseDataObject)[1]).Count; }
-        }
+        public override int ComponentCount => ((PdfArray)((PdfArray)BaseDataObject)[1]).Count;
 
         public override IList<string> ComponentNames
         {

@@ -86,35 +86,23 @@ namespace HESDanfe
       this.major = major;
       this.minor = minor;
     }
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public int Major
-    {
-      get
-      {return major;}
-    }
+        #region interface
+        #region public
+        public int Major => major;
 
-    public int Minor
-    {
-      get
-      {return minor;}
-    }
+        public int Minor => minor;
 
-    public override string ToString(
+        public override string ToString(
       )
     {return VersionUtils.ToString(this);}
 
-    #region IVersion
-    public IList<int> Numbers
-    {
-      get
-      {return new List<int>{major, minor};}
-    }
+        #region IVersion
+        public IList<int> Numbers => new List<int> { major, minor };
 
-    #region IComparable
-    public int CompareTo(
+        #region IComparable
+        public int CompareTo(
       IVersion value
       )
     {return VersionUtils.CompareTo(this, value);}

@@ -81,13 +81,9 @@ namespace HESDanfe.Tokens
         )
       {return code < 128 || (code > 160 && code < 256);}
 
-      public override int Count
-      {
-        get
-        {return 256;}
-      }
+            public override int Count => 256;
 
-      public override int GetKey(
+            public override int GetKey(
         char value
         )
       {

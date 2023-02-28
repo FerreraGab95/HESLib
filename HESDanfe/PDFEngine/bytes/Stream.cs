@@ -64,8 +64,7 @@ namespace HESDanfe.Bytes
             set => byteOrder = value;
         }
 
-        public long Length
-        { get { return stream.Length; } }
+        public long Length => stream.Length;
 
         public long Position
         {

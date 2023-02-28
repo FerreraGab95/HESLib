@@ -96,11 +96,7 @@ namespace HESDanfe.Documents.Interchange.Metadata
             set => this[PdfName.Author] = value;
         }
 
-        public int Count
-        {
-            get
-            { return BaseDataObject.Count; }
-        }
+        public int Count => BaseDataObject.Count;
 
         public DateTime? CreationDate
         {
@@ -114,17 +110,9 @@ namespace HESDanfe.Documents.Interchange.Metadata
             set => this[PdfName.Creator] = value;
         }
 
-        public bool IsReadOnly
-        {
-            get
-            { return false; }
-        }
+        public bool IsReadOnly => false;
 
-        public ICollection<PdfName> Keys
-        {
-            get
-            { return BaseDataObject.Keys; }
-        }
+        public ICollection<PdfName> Keys => BaseDataObject.Keys;
 
         [PDF(VersionEnum.PDF11)]
         public string Keywords

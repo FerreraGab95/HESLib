@@ -229,17 +229,15 @@ namespace HESDanfe.Documents.Contents.Objects
       this.operator_ = operator_;
       this.operands = operands;
     }
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public string Operator
-    {get{return operator_;}}
+        #region interface
+        #region public
+        public string Operator => operator_;
 
-    public IList<PdfDirectObject> Operands
-    {get{return operands;}}
+        public IList<PdfDirectObject> Operands => operands;
 
-    public override string ToString(
+        public override string ToString(
       )
     {
       StringBuilder buffer = new StringBuilder();

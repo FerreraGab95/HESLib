@@ -78,16 +78,12 @@ namespace HESDanfe.Documents
       base.Insert(index, @object);
     }
 
-    /**
-      <summary>Gets the page associated to these elements.</summary>
-    */
-    public Page Page
-    {
-      get
-      {return page;}
-    }
+        /**
+          <summary>Gets the page associated to these elements.</summary>
+        */
+        public Page Page => page;
 
-    public override void RemoveAt(
+        public override void RemoveAt(
       int index
       )
     {

@@ -45,12 +45,8 @@ namespace HESDanfe.Documents.Interaction.Navigation.Page
     private sealed class ElementCounter
       : ElementEvaluator
     {
-      public int Count
-      {
-        get
-        {return index + 1;}
-      }
-    }
+            public int Count => index + 1;
+        }
 
     private class ElementEvaluator
       : IPredicate
@@ -93,12 +89,8 @@ namespace HESDanfe.Documents.Interaction.Navigation.Page
         return false;
       }
 
-      public PdfDictionary Bead
-      {
-        get
-        {return bead;}
-      }
-    }
+            public PdfDictionary Bead => bead;
+        }
 
     private sealed class ElementIndexer
       : ElementEvaluator
@@ -118,12 +110,8 @@ namespace HESDanfe.Documents.Interaction.Navigation.Page
         return @object.Equals(searchedBead);
       }
 
-      public int Index
-      {
-        get
-        {return index;}
-      }
-    }
+            public int Index => index;
+        }
 
     private sealed class ElementListBuilder
       : ElementEvaluator
@@ -138,12 +126,8 @@ namespace HESDanfe.Documents.Interaction.Navigation.Page
         return false;
       }
 
-      public IList<ArticleElement> Elements
-      {
-        get
-        {return elements;}
-      }
-    }
+            public IList<ArticleElement> Elements => elements;
+        }
 
     private class Enumerator
       : IEnumerator<ArticleElement>
@@ -157,19 +141,11 @@ namespace HESDanfe.Documents.Interaction.Navigation.Page
         )
       {nextObject = firstObject = elements.BaseDataObject[PdfName.F];}
 
-      ArticleElement IEnumerator<ArticleElement>.Current
-      {
-        get
-        {return ArticleElement.Wrap(currentObject);}
-      }
+            ArticleElement IEnumerator<ArticleElement>.Current => ArticleElement.Wrap(currentObject);
 
-      public object Current
-      {
-        get
-        {return ((IEnumerator<ArticleElement>)this).Current;}
-      }
+            public object Current => ((IEnumerator<ArticleElement>)this).Current;
 
-      public bool MoveNext(
+            public bool MoveNext(
         )
       {
         if(nextObject == null)
@@ -309,13 +285,9 @@ namespace HESDanfe.Documents.Interaction.Navigation.Page
       }
     }
 
-    public bool IsReadOnly
-    {
-      get
-      {return false;}
-    }
+        public bool IsReadOnly => false;
 
-    public bool Remove(
+        public bool Remove(
       ArticleElement @object
       )
     {

@@ -107,17 +107,13 @@ namespace HESDanfe.Documents.Contents.Objects
       }
       operands.Add(name);
     }
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public IList<PdfDirectObject> Components
-    {
-      get
-      {return operands;}
-    }
+        #region interface
+        #region public
+        public IList<PdfDirectObject> Components => operands;
 
-    public override void Scan(
+        public override void Scan(
       ContentScanner.GraphicsState state
       )
     {

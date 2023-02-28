@@ -80,11 +80,7 @@ namespace HESDanfe.Documents.Contents.Objects
         /**
           <summary>Gets the list of inner objects.</summary>
         */
-        public IList<ContentObject> Objects
-        {
-            get
-            { return objects; }
-        }
+        public IList<ContentObject> Objects => objects;
 
         public override void Scan(
           ContentScanner.GraphicsState state

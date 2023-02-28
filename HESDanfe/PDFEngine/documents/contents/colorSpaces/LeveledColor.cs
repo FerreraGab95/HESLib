@@ -42,17 +42,13 @@ namespace HESDanfe.Documents.Contents.ColorSpaces
       PdfDirectObject baseObject
       ) : base(colorSpace, baseObject)
     {}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public sealed override IList<PdfDirectObject> Components
-    {
-      get
-      {return BaseArray;}
-    }
+        #region interface
+        #region public
+        public sealed override IList<PdfDirectObject> Components => BaseArray;
 
-    public override bool Equals(
+        public override bool Equals(
       object obj
       )
     {
@@ -79,25 +75,21 @@ namespace HESDanfe.Documents.Contents.ColorSpaces
       {hashCode ^= component.GetHashCode();}
       return hashCode;
     }
-    #endregion
+        #endregion
 
-    #region protected
-    /*
-      NOTE: This is a workaround to the horrible lack of covariance support in C# 3 which forced me
-      to flatten type parameters at top hierarchy level (see Java implementation). Anyway, suggestions
-      to overcome this issue are welcome!
-    */
-    protected PdfArray BaseArray
-    {
-      get
-      {return (PdfArray)BaseDataObject;}
-    }
+        #region protected
+        /*
+          NOTE: This is a workaround to the horrible lack of covariance support in C# 3 which forced me
+          to flatten type parameters at top hierarchy level (see Java implementation). Anyway, suggestions
+          to overcome this issue are welcome!
+        */
+        protected PdfArray BaseArray => (PdfArray)BaseDataObject;
 
-    /**
-      <summary>Gets the specified color component.</summary>
-      <param name="index">Component index.</param>
-    */
-    protected double GetComponentValue(
+        /**
+          <summary>Gets the specified color component.</summary>
+          <param name="index">Component index.</param>
+        */
+        protected double GetComponentValue(
       int index
       )
     {return ((IPdfNumber)Components[index]).RawValue;}

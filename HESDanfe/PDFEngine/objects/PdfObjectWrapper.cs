@@ -94,31 +94,23 @@ namespace HESDanfe.Objects
       return clone;
     }
 
-    /**
-      <summary>Gets the indirect object containing the base object.</summary>
-    */
-    public PdfIndirectObject Container
-    {
-      get
-      {return baseObject.Container;}
-    }
+        /**
+          <summary>Gets the indirect object containing the base object.</summary>
+        */
+        public PdfIndirectObject Container => baseObject.Container;
 
-    /**
-      <summary>Gets the indirect object containing the base data object.</summary>
-    */
-    public PdfIndirectObject DataContainer
-    {
-      get
-      {return baseObject.DataContainer;}
-    }
+        /**
+          <summary>Gets the indirect object containing the base data object.</summary>
+        */
+        public PdfIndirectObject DataContainer => baseObject.DataContainer;
 
-    /**
-      <summary>Removes the object from its document context.</summary>
-      <remarks>The object is no more usable after this method returns.</remarks>
-      <returns>Whether the object was actually decontextualized (only indirect objects can be
-      decontextualize).</returns>
-    */
-    public virtual bool Delete(
+        /**
+          <summary>Removes the object from its document context.</summary>
+          <remarks>The object is no more usable after this method returns.</remarks>
+          <returns>Whether the object was actually decontextualized (only indirect objects can be
+          decontextualize).</returns>
+        */
+        public virtual bool Delete(
       )
     {
       // Is the object indirect?
@@ -152,16 +144,12 @@ namespace HESDanfe.Objects
         && ((PdfObjectWrapper)obj).baseObject.Equals(baseObject);
     }
 
-    /**
-      <summary>Gets the file context.</summary>
-    */
-    public PdfFile File
-    {
-      get
-      {return baseObject.File;}
-    }
+        /**
+          <summary>Gets the file context.</summary>
+        */
+        public PdfFile File => baseObject.File;
 
-    public override int GetHashCode(
+        public override int GetHashCode(
       )
     {return baseObject.GetHashCode();}
 
@@ -372,23 +360,19 @@ namespace HESDanfe.Objects
       TDataObject baseDataObject
       ) : this(context.Register(baseDataObject))
     {}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    /**
-      <summary>Gets the underlying data object.</summary>
-    */
-    public TDataObject BaseDataObject
-    {
-      get
-      {return (TDataObject)PdfObject.Resolve(BaseObject);}
-    }
+        #region interface
+        #region public
+        /**
+          <summary>Gets the underlying data object.</summary>
+        */
+        public TDataObject BaseDataObject => (TDataObject)PdfObject.Resolve(BaseObject);
 
-    /**
-      <summary>Gets whether the underlying data object is concrete.</summary>
-    */
-    public bool Exists(
+        /**
+          <summary>Gets whether the underlying data object is concrete.</summary>
+        */
+        public bool Exists(
       )
     {return !BaseDataObject.Virtual;}
 

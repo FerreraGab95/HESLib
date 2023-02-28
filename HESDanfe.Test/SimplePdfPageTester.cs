@@ -1,53 +1,23 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
 using HESDanfe.Documents;
 using HESDanfe.Documents.Contents.Composition;
 using HESDanfe.Documents.Contents.Fonts;
 using HESDanfe.Files;
 using HESDanfe.Graphics;
 
-
 namespace HESDanfe
 {
     internal class SimplePdfPageTester : IDisposable
     {
-        public PdfFile File { get; set; }
-        public Document Document { get; set; }
-        public PrimitiveComposer PrimitiveComposer { get; set; }
-        public Gfx Gfx { get; set; }
-        public Page Page { get; set; }
+        #region Private Fields
 
-        public SimplePdfPageTester()
-        {
-            File = new PdfFile();
-            Document = File.Document;
+        private bool disposedValue = false;
 
-            Page = new Page(Document);
-            Document.Pages.Add(Page);
+        #endregion Private Fields
 
-            PrimitiveComposer = new PrimitiveComposer(Page);
-            Gfx = new Gfx(PrimitiveComposer);
-        }
-
-        public void Save(string path)
-        {
-            File.Save(path, SerializationModeEnum.Standard);
-        }
-
-        public Estilo CriarEstilo()
-        {
-            return new Estilo(new StandardType1Font(Document, StandardType1Font.FamilyEnum.Times, false, false),
-                      new StandardType1Font(Document, StandardType1Font.FamilyEnum.Times, true, false),
-                      new StandardType1Font(Document, StandardType1Font.FamilyEnum.Times, false, true));
-        }
-
-        public void Save()
-        {
-            Save(new StackTrace().GetFrame(1).GetMethod().Name + ".pdf");
-        }
-
-        #region IDisposable Support
-        private bool disposedValue = false; // To detect redundant calls
+        #region Protected Methods
 
         protected virtual void Dispose(bool disposing)
         {
@@ -66,20 +36,63 @@ namespace HESDanfe
             }
         }
 
-        // TODO: override a finalizer only if Dispose(bool disposing) above has code to free unmanaged resources.
-        // ~SimplePdfPageTester() {
-        //   // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
-        //   Dispose(false);
-        // }
+        #endregion Protected Methods
+
+        #region Public Constructors
+
+        public SimplePdfPageTester()
+        {
+            File = new PdfFile();
+            Document = File.Document;
+
+            Page = new Page(Document);
+            Document.Pages.Add(Page);
+
+            PrimitiveComposer = new PrimitiveComposer(Page);
+            Gfx = new Gfx(PrimitiveComposer);
+        }
+
+        #endregion Public Constructors
+
+        #region Public Properties
+
+        public Document Document { get; set; }
+        public PdfFile File { get; set; }
+        public Gfx Gfx { get; set; }
+        public Page Page { get; set; }
+        public PrimitiveComposer PrimitiveComposer { get; set; }
+
+        #endregion Public Properties
+
+        #region Public Methods
+
+        public Estilo CriarEstilo()
+        {
+            return new Estilo(new StandardType1Font(Document, StandardType1Font.FamilyEnum.Times, false, false),
+                       new StandardType1Font(Document, StandardType1Font.FamilyEnum.Times, true, false),
+                       new StandardType1Font(Document, StandardType1Font.FamilyEnum.Times, false, true));
+        }
 
         // This code added to correctly implement the disposable pattern.
         public void Dispose()
         {
             // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
             Dispose(true);
-            // TODO: uncomment the following line if the finalizer is overridden above.
-            // GC.SuppressFinalize(this);
+            // TODO: uncomment the following line if the finalizer is overridden above. GC.SuppressFinalize(this);
         }
-        #endregion
+
+        public FileInfo Save(string path) => File.Save(path, SerializationModeEnum.Standard);
+
+        public void Save()
+        {
+            Save(new StackTrace().GetFrame(1).GetMethod().Name + ".pdf");
+        }
+
+        #endregion Public Methods
+
+        // To detect redundant calls
+        // TODO: override a finalizer only if Dispose(bool disposing) above has code to free unmanaged resources.
+        // ~SimplePdfPageTester() { // Do not change this code. Put cleanup code in Dispose(bool
+        // disposing) above. Dispose(false); }
     }
 }

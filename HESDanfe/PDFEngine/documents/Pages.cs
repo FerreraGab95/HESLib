@@ -171,17 +171,9 @@ namespace HESDanfe.Documents
 
             #region Public Properties
 
-            public object Current
-            {
-                get
-                { return ((IEnumerator<Page>)this).Current; }
-            }
+            public object Current => ((IEnumerator<Page>)this).Current;
 
-            Page IEnumerator<Page>.Current
-            {
-                get
-                { return current; }
-            }
+            Page IEnumerator<Page>.Current => current;
 
             #endregion Public Properties
 
@@ -363,8 +355,7 @@ namespace HESDanfe.Documents
 
         #region Public Properties
 
-        public int Count
-        { get { return ((PdfInteger)BaseDataObject[PdfName.Count]).RawValue; } }
+        public int Count => ((PdfInteger)BaseDataObject[PdfName.Count]).RawValue;
 
         public bool IsReadOnly => false;
 

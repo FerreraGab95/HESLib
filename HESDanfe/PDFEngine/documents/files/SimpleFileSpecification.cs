@@ -49,18 +49,14 @@ namespace HESDanfe.Documents.Files
       PdfDirectObject baseObject
       ) : base(baseObject)
     {}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public override string Path
-    {
-      get
-      {return (string)((PdfString)BaseDataObject).Value;}
+        #region interface
+        #region public
+        public override string Path => (string)((PdfString)BaseDataObject).Value;
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 }
 

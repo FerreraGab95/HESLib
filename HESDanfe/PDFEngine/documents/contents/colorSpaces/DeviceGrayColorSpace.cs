@@ -69,17 +69,9 @@ namespace HESDanfe.Documents.Contents.ColorSpaces
 
         #region Public Properties
 
-        public override int ComponentCount
-        {
-            get
-            { return 1; }
-        }
+        public override int ComponentCount => 1;
 
-        public override Color DefaultColor
-        {
-            get
-            { return DeviceGrayColor.Default; }
-        }
+        public override Color DefaultColor => DeviceGrayColor.Default;
 
         #endregion Public Properties
 

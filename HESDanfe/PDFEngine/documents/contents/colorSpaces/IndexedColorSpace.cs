@@ -89,17 +89,9 @@ namespace HESDanfe.Documents.Contents.ColorSpaces
             }
         }
 
-        public override int ComponentCount
-        {
-            get
-            { return 1; }
-        }
+        public override int ComponentCount => 1;
 
-        public override Color DefaultColor
-        {
-            get
-            { return IndexedColor.Default; }
-        }
+        public override Color DefaultColor => IndexedColor.Default;
 
         #endregion Public Properties
 

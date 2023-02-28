@@ -84,20 +84,18 @@ namespace HESDanfe.Documents.Contents.Fonts
       PdfDirectObject baseObject
       ) : base(baseObject)
     {}
-    #endregion
+        #endregion
 
-    #region interface
-    #region protected
-    /**
-      <summary>Gets the CIDFont dictionary that is the descendant of this composite font.</summary>
-    */
-    protected PdfDictionary CIDFontDictionary
-    {get{return (PdfDictionary)((PdfArray)BaseDataObject.Resolve(PdfName.DescendantFonts)).Resolve(0);}}
+        #region interface
+        #region protected
+        /**
+          <summary>Gets the CIDFont dictionary that is the descendant of this composite font.</summary>
+        */
+        protected PdfDictionary CIDFontDictionary => (PdfDictionary)((PdfArray)BaseDataObject.Resolve(PdfName.DescendantFonts)).Resolve(0);
 
-    protected override PdfDictionary Descriptor
-    {get{return (PdfDictionary)CIDFontDictionary.Resolve(PdfName.FontDescriptor);}}
+        protected override PdfDictionary Descriptor => (PdfDictionary)CIDFontDictionary.Resolve(PdfName.FontDescriptor);
 
-    protected void LoadEncoding(
+        protected void LoadEncoding(
       )
     {
       PdfDataObject encodingObject = BaseDataObject.Resolve(PdfName.Encoding);

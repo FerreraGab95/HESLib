@@ -67,20 +67,16 @@ namespace HESDanfe.Util.Parsers
       long position
       ) : base(message, cause)
     {this.position = position;}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    /**
-      <summary>Gets the offset where error happened.</summary>
-    */
-    public long Position
-    {
-      get
-      {return position;}
+        #region interface
+        #region public
+        /**
+          <summary>Gets the offset where error happened.</summary>
+        */
+        public long Position => position;
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 }

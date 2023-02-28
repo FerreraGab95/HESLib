@@ -60,24 +60,20 @@ namespace HESDanfe.Documents.Contents.ColorSpaces
       PdfDirectObject baseObject
       ) : base(baseObject)
     {}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    /**
-      <summary>Gets the alternate color space used in case any of the <see cref="ComponentNames">component names</see>
-      in the color space do not correspond to a component available on the device.</summary>
-    */
-    public ColorSpace AlternateSpace
-    {
-      get
-      {return ColorSpace.Wrap(((PdfArray)BaseDataObject)[2]);}
-    }
+        #region interface
+        #region public
+        /**
+          <summary>Gets the alternate color space used in case any of the <see cref="ComponentNames">component names</see>
+          in the color space do not correspond to a component available on the device.</summary>
+        */
+        public ColorSpace AlternateSpace => ColorSpace.Wrap(((PdfArray)BaseDataObject)[2]);
 
-    /**
-      <summary>Gets the names of the color components.</summary>
-    */
-    public abstract IList<string> ComponentNames
+        /**
+          <summary>Gets the names of the color components.</summary>
+        */
+        public abstract IList<string> ComponentNames
     {
       get;
     }
@@ -100,17 +96,13 @@ namespace HESDanfe.Documents.Contents.ColorSpaces
       return new drawing::SolidBrush(drawing::Color.Black);
     }
 
-    /**
-      <summary>Gets the function to transform a tint value into color component values
-      in the <see cref="AlternateSpace">alternate color space</see>.</summary>
-    */
-    public Function TintFunction
-    {
-      get
-      {return Function.Wrap(((PdfArray)BaseDataObject)[3]);}
+        /**
+          <summary>Gets the function to transform a tint value into color component values
+          in the <see cref="AlternateSpace">alternate color space</see>.</summary>
+        */
+        public Function TintFunction => Function.Wrap(((PdfArray)BaseDataObject)[3]);
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 }

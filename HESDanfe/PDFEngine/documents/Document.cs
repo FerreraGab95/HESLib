@@ -113,11 +113,7 @@ namespace HESDanfe.Documents
             /**
               <summary>Gets the document associated with this configuration.</summary>
             */
-            public Document Document
-            {
-                get
-                { return document; }
-            }
+            public Document Document => document;
 
             /**
               <summary>Gets the document's cross-reference mode.</summary>
@@ -539,17 +535,12 @@ namespace HESDanfe.Documents
         /**
           <summary>Gets the default media box.</summary>
         */
-        private PdfArray MediaBox
-        {
-            get
-            {
+        private PdfArray MediaBox =>
                 /*
-                  NOTE: Document media box MUST be associated with the page-tree root node in order to be
-                  inheritable by all the pages.
-                */
-                return (PdfArray)((PdfDictionary)BaseDataObject.Resolve(PdfName.Pages)).Resolve(PdfName.MediaBox);
-            }
-        }
+NOTE: Document media box MUST be associated with the page-tree root node in order to be
+inheritable by all the pages.
+*/
+                (PdfArray)((PdfDictionary)BaseDataObject.Resolve(PdfName.Pages)).Resolve(PdfName.MediaBox);
         #endregion
         #endregion
         #endregion

@@ -371,11 +371,7 @@ namespace HESDanfe.Documents.Contents
             /**
               <summary>Gets the scanner associated to this state.</summary>
             */
-            public ContentScanner Scanner
-            {
-                get
-                { return scanner; }
-            }
+            public ContentScanner Scanner => scanner;
 
             /**
               <summary>Gets/Sets the current color for stroking operations [PDF:1.6:4.5.1].</summary>
@@ -549,8 +545,7 @@ namespace HESDanfe.Documents.Contents
             /**
               <summary>Gets the object's bounding box.</summary>
             */
-            public virtual RectangleF? Box
-            { get { return box; } }
+            public virtual RectangleF? Box => box;
             #endregion
             #endregion
             #endregion
@@ -584,8 +579,7 @@ namespace HESDanfe.Documents.Contents
             /**
               <summary>Gets the underlying data object.</summary>
             */
-            public TDataObject BaseDataObject
-            { get { return baseDataObject; } }
+            public TDataObject BaseDataObject => baseDataObject;
             #endregion
             #endregion
             #endregion
@@ -613,8 +607,7 @@ namespace HESDanfe.Documents.Contents
             /**
               <summary>Gets the inline image.</summary>
             */
-            public InlineImage InlineImage
-            { get { return BaseDataObject; } }
+            public InlineImage InlineImage => BaseDataObject;
         }
 
         /**
@@ -654,8 +647,7 @@ namespace HESDanfe.Documents.Contents
             /**
               <summary>Gets the text strings.</summary>
             */
-            public List<TextStringWrapper> TextStrings
-            { get { return textStrings; } }
+            public List<TextStringWrapper> TextStrings => textStrings;
 
             private void Extract(
               ContentScanner level
@@ -755,8 +747,7 @@ namespace HESDanfe.Documents.Contents
             /**
               <summary>Gets the text style.</summary>
             */
-            public TextStyle Style
-            { get { return style; } }
+            public TextStyle Style => style;
 
             public String Text
             {
@@ -769,8 +760,7 @@ namespace HESDanfe.Documents.Contents
                 }
             }
 
-            public List<TextChar> TextChars
-            { get { return textChars; } }
+            public List<TextChar> TextChars => textChars;
         }
 
         /**
@@ -801,14 +791,12 @@ namespace HESDanfe.Documents.Contents
             /**
               <summary>Gets the corresponding resource key.</summary>
             */
-            public PdfName Name
-            { get { return name; } }
+            public PdfName Name => name;
 
             /**
               <summary>Gets the external object.</summary>
             */
-            public xObjects::XObject XObject
-            { get { return xObject; } }
+            public xObjects::XObject XObject => xObject;
         }
         #endregion
 
@@ -932,33 +920,24 @@ namespace HESDanfe.Documents.Contents
           <remarks>It can be either the user-space area (dry scanning)
           or the device-space area (wet scanning).</remarks>
         */
-        public SizeF CanvasSize
-        {
-            get
-            {
-                return renderSize.HasValue
+        public SizeF CanvasSize => renderSize.HasValue
                   ? renderSize.Value // Device-dependent (device-space) area.
                   : ContentContext.Box.Size; // Device-independent (user-space) area.
-            }
-        }
 
         /**
           <summary>Gets the current child scan level.</summary>
         */
-        public ContentScanner ChildLevel
-        { get { return childLevel; } }
+        public ContentScanner ChildLevel => childLevel;
 
         /**
           <summary>Gets the content context associated to the content objects collection.</summary>
         */
-        public IContentContext ContentContext
-        { get { return contents.ContentContext; } }
+        public IContentContext ContentContext => contents.ContentContext;
 
         /**
           <summary>Gets the content objects collection this scanner is inspecting.</summary>
         */
-        public Contents Contents
-        { get { return contents; } }
+        public Contents Contents => contents;
 
         /**
           <summary>Gets/Sets the current content object.</summary>
@@ -982,14 +961,12 @@ namespace HESDanfe.Documents.Contents
         /**
           <summary>Gets the current content object's information.</summary>
         */
-        public GraphicsObjectWrapper CurrentWrapper
-        { get { return GraphicsObjectWrapper.Get(this); } }
+        public GraphicsObjectWrapper CurrentWrapper => GraphicsObjectWrapper.Get(this);
 
         /**
           <summary>Gets the current position.</summary>
         */
-        public int Index
-        { get { return index; } }
+        public int Index => index;
 
         /**
           <summary>Inserts a content object at the current position.</summary>
@@ -1127,20 +1104,12 @@ namespace HESDanfe.Documents.Contents
         /**
           <summary>Gets the current parent object.</summary>
         */
-        public CompositeObject Parent
-        {
-            get
-            { return (parentLevel == null ? null : (CompositeObject)parentLevel.Current); }
-        }
+        public CompositeObject Parent => (parentLevel == null ? null : (CompositeObject)parentLevel.Current);
 
         /**
           <summary>Gets the parent scan level.</summary>
         */
-        public ContentScanner ParentLevel
-        {
-            get
-            { return parentLevel; }
-        }
+        public ContentScanner ParentLevel => parentLevel;
 
         /**
           <summary>Removes the content object at the current position.</summary>
@@ -1210,21 +1179,13 @@ namespace HESDanfe.Documents.Contents
           <summary>Gets the rendering context.</summary>
           <returns><code>null</code> in case of dry scanning.</returns>
         */
-        public System.Drawing.Graphics RenderContext
-        {
-            get
-            { return renderContext; }
-        }
+        public System.Drawing.Graphics RenderContext => renderContext;
 
         /**
           <summary>Gets the rendering object.</summary>
           <returns><code>null</code> in case of scanning outside a shape.</returns>
         */
-        public GraphicsPath RenderObject
-        {
-            get
-            { return renderObject; }
-        }
+        public GraphicsPath RenderObject => renderObject;
 
         /**
           <summary>Gets the root scan level.</summary>
@@ -1248,11 +1209,7 @@ namespace HESDanfe.Documents.Contents
         /**
           <summary>Gets the current graphics state applied to the current content object.</summary>
         */
-        public GraphicsState State
-        {
-            get
-            { return state; }
-        }
+        public GraphicsState State => state;
         #endregion
 
         #region protected

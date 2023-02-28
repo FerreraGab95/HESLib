@@ -69,17 +69,9 @@ namespace HESDanfe.Documents.Contents.ColorSpaces
 
         #region Public Properties
 
-        public override int ComponentCount
-        {
-            get
-            { return 4; }
-        }
+        public override int ComponentCount => 4;
 
-        public override Color DefaultColor
-        {
-            get
-            { return DeviceCMYKColor.Default; }
-        }
+        public override Color DefaultColor => DeviceCMYKColor.Default;
 
         #endregion Public Properties
 

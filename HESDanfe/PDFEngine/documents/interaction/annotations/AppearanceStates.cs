@@ -59,17 +59,16 @@ namespace HESDanfe.Documents.Interaction.Annotations
       this.appearance = appearance;
       this.statesKey = statesKey;
     }
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    /**
-      <summary>Gets the appearance associated to these states.</summary>
-    */
-    public Appearance Appearance
-    {get{return appearance;}}
+        #region interface
+        #region public
+        /**
+          <summary>Gets the appearance associated to these states.</summary>
+        */
+        public Appearance Appearance => appearance;
 
-    public override object Clone(
+        public override object Clone(
       Document context
       )
     {throw new NotImplementedException();} // TODO: verify appearance reference.
@@ -103,10 +102,9 @@ namespace HESDanfe.Documents.Interaction.Annotations
         return ((PdfDictionary)baseDataObject).ContainsKey(key);
     }
 
-    public ICollection<PdfName> Keys
-    {get{throw new NotImplementedException();}}
+        public ICollection<PdfName> Keys => throw new NotImplementedException();
 
-    public bool Remove(
+        public bool Remove(
       PdfName key
       )
     {
@@ -168,11 +166,10 @@ namespace HESDanfe.Documents.Interaction.Annotations
       return (value != null || ContainsKey(key));
     }
 
-    public ICollection<FormXObject> Values
-    {get{throw new NotImplementedException();}}
+        public ICollection<FormXObject> Values => throw new NotImplementedException();
 
-    #region ICollection
-    void ICollection<KeyValuePair<PdfName,FormXObject>>.Add(
+        #region ICollection
+        void ICollection<KeyValuePair<PdfName,FormXObject>>.Add(
       KeyValuePair<PdfName,FormXObject> entry
       )
     {Add(entry.Key,entry.Value);}
@@ -214,10 +211,9 @@ namespace HESDanfe.Documents.Interaction.Annotations
       }
     }
 
-    public bool IsReadOnly
-    {get{return false;}}
+        public bool IsReadOnly => false;
 
-    public bool Remove(
+        public bool Remove(
       KeyValuePair<PdfName,FormXObject> entry
       )
     {throw new NotImplementedException();}

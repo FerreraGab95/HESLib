@@ -376,24 +376,18 @@ namespace HESDanfe.Documents.Contents.Entities
       return elementWidths;
     }
 
-    /**
-      Gets the barcode's graphical size.
-    */
-    private Size Size
-    {
-      get
-      {
-        return new Size(
-          DigitWidth * 13 // Digits.
-            + 3*2 // Left and right guards.
-            + 5, // Center guard.
-          BarHeight // Non-guard bar.
-            + DigitHeight // Digit.
-          );
-      }
+        /**
+          Gets the barcode's graphical size.
+        */
+        private Size Size => new Size(
+              DigitWidth * 13 // Digits.
+                + 3 * 2 // Left and right guards.
+                + 5, // Center guard.
+              BarHeight // Non-guard bar.
+                + DigitHeight // Digit.
+              );
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 }

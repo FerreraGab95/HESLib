@@ -72,13 +72,9 @@ namespace HESDanfe.Objects
       )
     {return visitor.Visit(this, data);}
 
-    public bool BooleanValue
-    {
-      get
-      {return (bool)Value;}
-    }
+        public bool BooleanValue => (bool)Value;
 
-    public override int CompareTo(
+        public override int CompareTo(
       PdfDirectObject obj
       )
     {throw new NotImplementedException();}

@@ -82,35 +82,27 @@ namespace HESDanfe.Documents.Contents.Layers
       PdfDirectObject baseObject
       ) : base(baseObject)
     {}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    /**
-      <summary>Gets the default membership.</summary>
-      <remarks>This collection corresponds to the hierarchical relation between this layer entity
-      and its ascendants.</remarks>
-    */
-    public virtual LayerMembership Membership
-    {
-      get
-      {return null;}
-    }
+        #region interface
+        #region public
+        /**
+          <summary>Gets the default membership.</summary>
+          <remarks>This collection corresponds to the hierarchical relation between this layer entity
+          and its ascendants.</remarks>
+        */
+        public virtual LayerMembership Membership => null;
 
-    /**
-      <summary>Gets the layers whose states determine the visibility of content controlled by this
-      entity.</summary>
-    */
-    public virtual IList<Layer> VisibilityLayers
-    {
-      get
-      {return null;}
-    }
+        /**
+          <summary>Gets the layers whose states determine the visibility of content controlled by this
+          entity.</summary>
+        */
+        public virtual IList<Layer> VisibilityLayers => null;
 
-    /**
-      <summary>Gets/Sets the visibility policy of this entity.</summary>
-    */
-    public virtual VisibilityPolicyEnum VisibilityPolicy
+        /**
+          <summary>Gets/Sets the visibility policy of this entity.</summary>
+        */
+        public virtual VisibilityPolicyEnum VisibilityPolicy
         {
             get => VisibilityPolicyEnum.AllOn;
             set

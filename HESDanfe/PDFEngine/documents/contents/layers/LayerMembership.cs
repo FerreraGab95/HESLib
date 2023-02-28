@@ -149,13 +149,9 @@ namespace HESDanfe.Documents.Contents.Layers
         }
       }
 
-      public bool IsReadOnly
-      {
-        get
-        {return false;}
-      }
+            public bool IsReadOnly => false;
 
-      public bool Remove(
+            public bool Remove(
         Layer item
         )
       {return EnsureArray().Remove(item.BaseObject);}
@@ -224,23 +220,15 @@ namespace HESDanfe.Documents.Contents.Layers
       PdfDirectObject baseObject
       ) : base(baseObject)
     {}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public override LayerMembership Membership
-    {
-      get
-      {return this;}
-    }
+        #region interface
+        #region public
+        public override LayerMembership Membership => this;
 
-    public override IList<Layer> VisibilityLayers
-    {
-      get
-      {return new VisibilityLayersImpl(this);}
-    }
+        public override IList<Layer> VisibilityLayers => new VisibilityLayersImpl(this);
 
-    public override VisibilityPolicyEnum VisibilityPolicy
+        public override VisibilityPolicyEnum VisibilityPolicy
     {
       get => VisibilityPolicyEnumExtension.Get((PdfName)BaseDataObject[PdfName.P]);
       set => BaseDataObject[PdfName.P] = value.GetName();

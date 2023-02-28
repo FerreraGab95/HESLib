@@ -239,19 +239,11 @@ namespace HESDanfe.Objects
       )
     {throw new NotImplementedException();}
 
-    public virtual int Count
-    {
-      get
-      {return BaseDataObject.Count;}
-    }
+        public virtual int Count => BaseDataObject.Count;
 
-    public virtual bool IsReadOnly
-    {
-      get
-      {return false;}
-    }
+        public virtual bool IsReadOnly => false;
 
-    public virtual bool Remove(
+        public virtual bool Remove(
       TItem item
       )
     {return BaseDataObject.Remove(item.BaseObject);}

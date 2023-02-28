@@ -115,23 +115,18 @@ namespace HESDanfe.Objects
       )
     {return visitor.Visit(this, data);}
 
-    /**
-      <summary>Gets the decoded stream body.</summary>
-    */
-    public IBuffer Body
-    {
-      get
-      {
-        /*
-          NOTE: Encoding filters are removed by default because they belong to a lower layer (token
-          layer), so that it's appropriate and consistent to transparently keep the object layer
-          unaware of such a facility.
+        /**
+          <summary>Gets the decoded stream body.</summary>
         */
-        return GetBody(true);
-      }
-    }
+        public IBuffer Body =>
+            /*
+NOTE: Encoding filters are removed by default because they belong to a lower layer (token
+layer), so that it's appropriate and consistent to transparently keep the object layer
+unaware of such a facility.
+*/
+            GetBody(true);
 
-    public PdfDirectObject Filter
+        public PdfDirectObject Filter
     {
       get => (PdfDirectObject)(header[PdfName.F] == null
           ? header.Resolve(PdfName.Filter)
@@ -205,16 +200,12 @@ namespace HESDanfe.Objects
       return body;
     }
 
-    /**
-      <summary>Gets the stream header.</summary>
-    */
-    public PdfDictionary Header
-    {
-      get
-      {return header;}
-    }
+        /**
+          <summary>Gets the stream header.</summary>
+        */
+        public PdfDictionary Header => header;
 
-    public PdfDirectObject Parameters
+        public PdfDirectObject Parameters
     {
       get => (PdfDirectObject)(header[PdfName.F] == null
           ? header.Resolve(PdfName.DecodeParms)

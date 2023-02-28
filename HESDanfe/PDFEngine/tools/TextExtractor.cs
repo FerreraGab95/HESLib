@@ -87,19 +87,11 @@ namespace HESDanfe.Tools
         )
       {this.intervals = intervals;}
 
-      public Interval<int> Current
-      {
-        get
-        {return intervals[index];}
-      }
+            public Interval<int> Current => intervals[index];
 
-      object IEnumerator.Current
-      {
-        get
-        {return this.Current;}
-      }
+            object IEnumerator.Current => this.Current;
 
-      public void Dispose(
+            public void Dispose(
         )
       {/* NOOP */}
 
@@ -117,12 +109,8 @@ namespace HESDanfe.Tools
         )
       {throw new NotSupportedException();}
 
-      public IList<ITextString> TextStrings
-      {
-        get
-        {return textStrings;}
-      }
-    }
+            public IList<ITextString> TextStrings => textStrings;
+        }
 
     /**
       <summary>Text string.</summary>
@@ -161,12 +149,8 @@ namespace HESDanfe.Tools
         }
       }
 
-      public List<TextChar> TextChars
-      {
-        get
-        {return textChars;}
-      }
-    }
+            public List<TextChar> TextChars => textChars;
+        }
 
     /**
       <summary>Text string position comparer.</summary>

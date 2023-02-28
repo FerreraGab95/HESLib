@@ -610,13 +610,9 @@ namespace HESDanfe.Objects
       return RawValue.CompareTo(((PdfName)obj).RawValue);
     }
 
-    public string StringValue
-    {
-      get
-      {return (string)Value;}
-    }
+        public string StringValue => (string)Value;
 
-    public override string ToString(
+        public override string ToString(
       )
     {
       /*

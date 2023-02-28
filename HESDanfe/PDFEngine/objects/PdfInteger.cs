@@ -89,33 +89,17 @@ namespace HESDanfe.Objects
       )
     {stream.Write(RawValue.ToString());}
 
-    #region IPdfNumber
-    public double DoubleValue
-    {
-      get
-      {return RawValue;}
-    }
+        #region IPdfNumber
+        public double DoubleValue => RawValue;
 
-    public float FloatValue
-    {
-      get
-      {return RawValue;}
-    }
+        public float FloatValue => RawValue;
 
-    public int IntValue
-    {
-      get
-      {return RawValue;}
-    }
+        public int IntValue => RawValue;
 
-    double IPdfSimpleObject<double>.RawValue
-    {
-      get
-      {return this.RawValue;}
+        double IPdfSimpleObject<double>.RawValue => this.RawValue;
+        #endregion
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-  }
 }

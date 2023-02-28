@@ -68,20 +68,16 @@ namespace HESDanfe.Documents.Contents.Objects
       WindModeEnum clipMode
       ) : base(operator_)
     {this.clipMode = clipMode;}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    /**
-      <summary>Gets the clipping rule.</summary>
-    */
-    public WindModeEnum ClipMode
-    {
-      get
-      {return clipMode;}
-    }
+        #region interface
+        #region public
+        /**
+          <summary>Gets the clipping rule.</summary>
+        */
+        public WindModeEnum ClipMode => clipMode;
 
-    public override void Scan(
+        public override void Scan(
       ContentScanner.GraphicsState state
       )
     {

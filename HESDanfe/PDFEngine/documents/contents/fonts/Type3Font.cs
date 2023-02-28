@@ -49,25 +49,17 @@ namespace HESDanfe.Documents.Contents.Fonts
       PdfDirectObject baseObject
       ) : base(baseObject)
     {}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public override double Ascent
-    {
-      get
-      {return 0;}
-    }
+        #region interface
+        #region public
+        public override double Ascent => 0;
 
-    public override double Descent
-    {
-      get
-      {return 0;}
-    }
-    #endregion
+        public override double Descent => 0;
+        #endregion
 
-    #region protected
-    protected override void LoadEncoding(
+        #region protected
+        protected override void LoadEncoding(
       )
     {
       //FIXME: consolidate with Type1Font and TrueTypeFont!

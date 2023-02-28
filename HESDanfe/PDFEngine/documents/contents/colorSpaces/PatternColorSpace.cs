@@ -68,19 +68,11 @@ namespace HESDanfe.Documents.Contents.ColorSpaces
       )
     {throw new NotImplementedException();}
 
-    public override int ComponentCount
-    {
-      get
-      {return 0;}
-    }
+        public override int ComponentCount => 0;
 
-    public override Color DefaultColor
-    {
-      get
-      {return Pattern.Default;}
-    }
+        public override Color DefaultColor => Pattern.Default;
 
-    public override Color GetColor(
+        public override Color GetColor(
       IList<PdfDirectObject> components,
       IContentContext context
       )

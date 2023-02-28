@@ -304,13 +304,9 @@ namespace HESDanfe.Objects
       )
     {return entries.ContainsKey(key);}
 
-    public ICollection<PdfName> Keys
-    {
-      get
-      {return entries.Keys;}
-    }
+        public ICollection<PdfName> Keys => entries.Keys;
 
-    public bool Remove(
+        public bool Remove(
       PdfName key
       )
     {
@@ -359,14 +355,10 @@ namespace HESDanfe.Objects
       )
     {return entries.TryGetValue(key,out value);}
 
-    public ICollection<PdfDirectObject> Values
-    {
-      get
-      {return entries.Values;}
-    }
+        public ICollection<PdfDirectObject> Values => entries.Values;
 
-    #region ICollection
-    void ICollection<KeyValuePair<PdfName,PdfDirectObject>>.Add(
+        #region ICollection
+        void ICollection<KeyValuePair<PdfName,PdfDirectObject>>.Add(
       KeyValuePair<PdfName,PdfDirectObject> entry
       )
     {Add(entry.Key, entry.Value);}
@@ -389,19 +381,11 @@ namespace HESDanfe.Objects
       )
     {throw new NotImplementedException();}
 
-    public int Count
-    {
-      get
-      {return entries.Count;}
-    }
+        public int Count => entries.Count;
 
-    public bool IsReadOnly
-    {
-      get
-      {return false;}
-    }
+        public bool IsReadOnly => false;
 
-    public bool Remove(
+        public bool Remove(
       KeyValuePair<PdfName,PdfDirectObject> entry
       )
     {

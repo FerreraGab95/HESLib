@@ -71,13 +71,9 @@ namespace HESDanfe.Documents.Contents.Objects
         #endregion
 
         #region private
-        private PaintShading Operation
-    {
-      get
-      {return (PaintShading)Objects[0];}
+        private PaintShading Operation => (PaintShading)Objects[0];
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 }

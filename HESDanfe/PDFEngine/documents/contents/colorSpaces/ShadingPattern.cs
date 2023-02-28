@@ -45,33 +45,25 @@ namespace HESDanfe.Documents.Contents.ColorSpaces
       PdfDirectObject baseObject
       ) : base(baseObject)
     {}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    /**
-      <summary>Gets the graphics state parameters to be put into effect temporarily
-      while the shading pattern is painted.</summary>
-      <remarks>Any parameters that are not so specified are inherited from the graphics state
-      that was in effect at the beginning of the content stream in which the pattern
-      is defined as a resource.</remarks>
-     */
-    public ExtGState ExtGState
-    {
-      get
-      {return ExtGState.Wrap(((PdfDictionary)BaseDataObject)[PdfName.ExtGState]);}
-    }
+        #region interface
+        #region public
+        /**
+          <summary>Gets the graphics state parameters to be put into effect temporarily
+          while the shading pattern is painted.</summary>
+          <remarks>Any parameters that are not so specified are inherited from the graphics state
+          that was in effect at the beginning of the content stream in which the pattern
+          is defined as a resource.</remarks>
+         */
+        public ExtGState ExtGState => ExtGState.Wrap(((PdfDictionary)BaseDataObject)[PdfName.ExtGState]);
 
-    /**
-      <summary>Gets a shading object defining the shading pattern's gradient fill.</summary>
-    */
-    public Shading Shading
-    {
-      get
-      {return Shading.Wrap(((PdfDictionary)BaseDataObject)[PdfName.Shading]);}
+        /**
+          <summary>Gets a shading object defining the shading pattern's gradient fill.</summary>
+        */
+        public Shading Shading => Shading.Wrap(((PdfDictionary)BaseDataObject)[PdfName.Shading]);
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 }

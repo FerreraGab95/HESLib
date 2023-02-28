@@ -162,13 +162,9 @@ namespace HESDanfe.Tokens
       )
     {return Entries.ContainsKey(key);}
 
-    public ICollection<int> Keys
-    {
-      get
-      {return Entries.Keys;}
-    }
+        public ICollection<int> Keys => Entries.Keys;
 
-    public bool Remove(
+        public bool Remove(
       int key
       )
     {return Entries.Remove(key);}
@@ -198,14 +194,10 @@ namespace HESDanfe.Tokens
       }
     }
 
-    public ICollection<XRefEntry> Values
-    {
-      get
-      {return Entries.Values;}
-    }
+        public ICollection<XRefEntry> Values => Entries.Values;
 
-    #region ICollection
-    void ICollection<KeyValuePair<int,XRefEntry>>.Add(
+        #region ICollection
+        void ICollection<KeyValuePair<int,XRefEntry>>.Add(
       KeyValuePair<int,XRefEntry> entry
       )
     {Add(entry.Key, entry.Value);}
@@ -230,19 +222,11 @@ namespace HESDanfe.Tokens
       )
     {Entries.CopyTo(entries, index);}
 
-    public int Count
-    {
-      get
-      {return Entries.Count;}
-    }
+        public int Count => Entries.Count;
 
-    public bool IsReadOnly
-    {
-      get
-      {return false;}
-    }
+        public bool IsReadOnly => false;
 
-    public bool Remove(
+        public bool Remove(
       KeyValuePair<int,XRefEntry> entry
       )
     {

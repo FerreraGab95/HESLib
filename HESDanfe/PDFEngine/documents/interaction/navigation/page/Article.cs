@@ -87,20 +87,16 @@ namespace HESDanfe.Documents.Interaction.Navigation.Page
       // Deep removal (indirect object).
       return base.Delete();
     }
-  
-    /**
-      <summary>Gets the beads associated to this thread.</summary>
-    */
-    public ArticleElements Elements
-    {
-      get
-      {return ArticleElements.Wrap(BaseObject);}
-    }
 
-    /**
-      <summary>Gets/Sets common article metadata.</summary>
-    */
-    public Information Information
+        /**
+          <summary>Gets the beads associated to this thread.</summary>
+        */
+        public ArticleElements Elements => ArticleElements.Wrap(BaseObject);
+
+        /**
+          <summary>Gets/Sets common article metadata.</summary>
+        */
+        public Information Information
     {
       get => Information.Wrap(BaseDataObject.Get<PdfDictionary>(PdfName.I));
       set => BaseDataObject[PdfName.I] = PdfObjectWrapper.GetBaseObject(value);

@@ -15,7 +15,7 @@ namespace HESDanfe.Test
         public void MergePDF()
         {
             Ext.EnableDebugMessages = true;
-            new DirectoryInfo(@"C:\teste\testeDANFE").MergePdfFiles(@"C:\teste\pdfunico.pdf");
+            new DirectoryInfo(@"C:\teste\testeDANFE").MergePDF(@"C:\teste\pdfunico.pdf");
         }
 
         [TestMethod]

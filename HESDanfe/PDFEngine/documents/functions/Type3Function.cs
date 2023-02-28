@@ -77,27 +77,19 @@ namespace HESDanfe.Documents.Functions
       }
     }
 
-    /**
-      <summary>Gets the mapping of each <see cref="DomainBounds">subdomain</see> into the domain
-      of the corresponding <see cref="Functions">function</see>.</summary>
-    */
-    public IList<Interval<double>> DomainEncodes
-    {
-      get
-      {return GetIntervals<double>(PdfName.Encode, null);}
-    }
+        /**
+          <summary>Gets the mapping of each <see cref="DomainBounds">subdomain</see> into the domain
+          of the corresponding <see cref="Functions">function</see>.</summary>
+        */
+        public IList<Interval<double>> DomainEncodes => GetIntervals<double>(PdfName.Encode, null);
 
-    /**
-      <summary>Gets the 1-input functions making up this stitching function.</summary>
-      <remarks>The output dimensionality of all functions must be the same.</remarks>
-    */
-    public Functions Functions
-    {
-      get
-      {return new Functions(Dictionary[PdfName.Functions], this);}
+        /**
+          <summary>Gets the 1-input functions making up this stitching function.</summary>
+          <remarks>The output dimensionality of all functions must be the same.</remarks>
+        */
+        public Functions Functions => new Functions(Dictionary[PdfName.Functions], this);
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 }

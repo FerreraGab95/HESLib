@@ -87,8 +87,7 @@ namespace HESDanfe.Documents.Contents.ColorSpaces
         #region Public Properties
 
         //TODO:remove?
-        public ColorSpace ColorSpace
-        { get { return colorSpace; } }
+        public ColorSpace ColorSpace => colorSpace;
 
         /**
           <summary>Gets the components defining this color value.</summary>

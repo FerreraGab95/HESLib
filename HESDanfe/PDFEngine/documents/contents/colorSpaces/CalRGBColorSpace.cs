@@ -52,17 +52,9 @@ namespace HESDanfe.Documents.Contents.ColorSpaces
 
         #region Public Properties
 
-        public override int ComponentCount
-        {
-            get
-            { return 3; }
-        }
+        public override int ComponentCount => 3;
 
-        public override Color DefaultColor
-        {
-            get
-            { return CalRGBColor.Default; }
-        }
+        public override Color DefaultColor => CalRGBColor.Default;
 
         public override double[] Gamma
         {

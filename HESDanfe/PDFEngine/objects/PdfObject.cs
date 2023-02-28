@@ -142,22 +142,18 @@ namespace HESDanfe.Objects
       }
     }
 
-    /**
-      <summary>Gets the indirect object corresponding to this object.</summary>
-      <seealso cref="Container"/>
-      <seealso cref="DataContainer"/>
-    */
-    public virtual PdfIndirectObject IndirectObject
-    {
-      get
-      {return Parent as PdfIndirectObject;}
-    }
+        /**
+          <summary>Gets the indirect object corresponding to this object.</summary>
+          <seealso cref="Container"/>
+          <seealso cref="DataContainer"/>
+        */
+        public virtual PdfIndirectObject IndirectObject => Parent as PdfIndirectObject;
 
-    /**
-      <summary>Gets/Sets the parent of this object.</summary>
-      <seealso cref="Container"/>
-    */
-    public abstract PdfObject Parent
+        /**
+          <summary>Gets/Sets the parent of this object.</summary>
+          <seealso cref="Container"/>
+        */
+        public abstract PdfObject Parent
     {
       get;
       internal set;

@@ -336,11 +336,7 @@ namespace HESDanfe.Documents.Interaction.Annotations
           <summary>Gets/Sets the associated page.</summary>
         */
         [PDF(VersionEnum.PDF13)]
-        public Page Page
-        {
-            get
-            { return Page.Wrap(BaseDataObject[PdfName.P]); }
-        }
+        public Page Page => Page.Wrap(BaseDataObject[PdfName.P]);
 
         /**
           <summary>Gets/Sets whether to print the annotation when the page is printed.</summary>

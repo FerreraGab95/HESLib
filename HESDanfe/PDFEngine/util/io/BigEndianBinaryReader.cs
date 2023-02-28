@@ -47,20 +47,19 @@ namespace HESDanfe.Util.IO
       Stream stream
       )
     {this.stream = stream;}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    /**
-      <summary>Gets the underlying stream.</summary>
-    */
-    public Stream BaseStream
-    {get{return stream;}}
+        #region interface
+        #region public
+        /**
+          <summary>Gets the underlying stream.</summary>
+        */
+        public Stream BaseStream => stream;
 
-    /**
-      <summary>Closes the reader, including the underlying stream.</summary>
-    */
-    public void Close(
+        /**
+          <summary>Closes the reader, including the underlying stream.</summary>
+        */
+        public void Close(
       )
     {Dispose();}
 

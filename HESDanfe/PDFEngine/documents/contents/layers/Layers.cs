@@ -85,28 +85,22 @@ namespace HESDanfe.Documents.Contents.Layers
       PdfDirectObject baseObject
       ) : base(Wrapper, baseObject)
     {}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public override int Count
-    {
-      get
-      {
-        return Evaluate(delegate(
-          int currentNodeIndex,
-          int currentBaseIndex
-          )
-        {
-          if(currentBaseIndex == -1)
-            return currentNodeIndex;
-          else
-            return -1;
-        }) + 1;
-      }
-    }
+        #region interface
+        #region public
+        public override int Count => Evaluate(delegate (
+                                            int currentNodeIndex,
+                                            int currentBaseIndex
+                                            )
+                                          {
+                                              if (currentBaseIndex == -1)
+                                                  return currentNodeIndex;
+                                              else
+                                                  return -1;
+                                          }) + 1;
 
-    public override int IndexOf(
+        public override int IndexOf(
       ILayerNode item
       )
     {return GetNodeIndex(base.IndexOf(item));}
@@ -147,14 +141,10 @@ namespace HESDanfe.Documents.Contents.Layers
       )
     {return Title;}
 
-    #region ILayerNode
-    Layers ILayerNode.Layers
-    {
-      get
-      {return this;}
-    }
+        #region ILayerNode
+        Layers ILayerNode.Layers => this;
 
-    public string Title
+        public string Title
     {
       get
       {

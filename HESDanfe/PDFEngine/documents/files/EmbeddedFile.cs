@@ -126,11 +126,7 @@ namespace HESDanfe.Documents.Files
         /**
           <summary>Gets the data contained within this file.</summary>
         */
-        public Bytes::IBuffer Data
-        {
-            get
-            { return BaseDataObject.Body; }
-        }
+        public Bytes::IBuffer Data => BaseDataObject.Body;
 
         /**
           <summary>Gets/Sets the MIME media type name of this file [RFC 2046].</summary>
@@ -185,11 +181,7 @@ namespace HESDanfe.Documents.Files
         /**
           <summary>Gets the file parameters.</summary>
         */
-        private PdfDictionary Params
-        {
-            get
-            { return BaseDataObject.Header.Resolve<PdfDictionary>(PdfName.Params); }
-        }
+        private PdfDictionary Params => BaseDataObject.Header.Resolve<PdfDictionary>(PdfName.Params);
 
         /**
           <see cref="GetInfo(PdfName)"/>

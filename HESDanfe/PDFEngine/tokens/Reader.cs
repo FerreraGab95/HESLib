@@ -61,24 +61,12 @@ namespace HESDanfe.Tokens
         this.xrefEntries = xrefEntries;
       }
 
-      public PdfDictionary Trailer
-      {
-        get
-        {return trailer;}
-      }
+            public PdfDictionary Trailer => trailer;
 
-      public Version Version
-      {
-        get
-        {return version;}
-      }
+            public Version Version => version;
 
-      public SortedDictionary<int,XRefEntry> XrefEntries
-      {
-        get
-        {return xrefEntries;}
-      }
-    }
+            public SortedDictionary<int, XRefEntry> XrefEntries => xrefEntries;
+        }
     #endregion
 
     #region dynamic
@@ -100,16 +88,12 @@ namespace HESDanfe.Tokens
       )
     {return parser.GetHashCode();}
 
-    public FileParser Parser
-    {
-      get
-      {return parser;}
-    }
+        public FileParser Parser => parser;
 
-    /**
-      <summary>Retrieves the file information.</summary>
-    */
-    public FileInfo ReadInfo(
+        /**
+          <summary>Retrieves the file information.</summary>
+        */
+        public FileInfo ReadInfo(
       )
     {
   //TODO:hybrid xref table/stream

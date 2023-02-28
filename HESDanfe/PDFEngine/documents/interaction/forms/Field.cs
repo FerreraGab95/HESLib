@@ -397,16 +397,12 @@ namespace HESDanfe.Documents.Interaction.Forms
           );
       }
     }
-    #endregion
+        #endregion
 
-    #region protected
-    protected PdfString DefaultAppearanceState
-    {
-      get
-      {return (PdfString)GetInheritableAttribute(PdfName.DA);}
-    }
+        #region protected
+        protected PdfString DefaultAppearanceState => (PdfString)GetInheritableAttribute(PdfName.DA);
 
-    protected PdfDirectObject GetInheritableAttribute(
+        protected PdfDirectObject GetInheritableAttribute(
       PdfName key
       )
     {return GetInheritableAttribute(BaseDataObject, key);}

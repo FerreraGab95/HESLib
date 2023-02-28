@@ -53,7 +53,7 @@ namespace HESDanfe
 
         internal static string Formatar(this TimeSpan? timeSpan) => timeSpan.HasValue ? timeSpan.Value.ToString() : string.Empty;
 
-        internal static string FormatarChaveAcesso(string chaveAcesso) => Regex.Replace(chaveAcesso, ".{4}", "$0 ").TrimEnd();
+        internal static string FormatarChaveAcesso(string chaveAcesso) => chaveAcesso.IsNumber() ? (Regex.Replace(chaveAcesso, ".{4}", "$0 ").TrimEnd()) : chaveAcesso;
 
         internal static string FormatarDataHora(this DateTime? dateTime) => dateTime.HasValue ? dateTime.Value.ToString("dd/MM/yyyy HH:mm:ss") : string.Empty;
 
@@ -233,34 +233,45 @@ namespace HESDanfe
     {
         #region Public Methods
 
-        public static FileInfo MergePdfFiles(this DirectoryInfo inputFiles, string outputFilePath) => MergePdfFiles(outputFilePath, inputFiles.GetFiles("*.pdf").Select(x => x.FullName).OrderBy(x => x.FileNameAsTitle()).ToArray());
-
-        public static FileInfo MergePdfFiles(string outputFilePath, params string[] inputFiles)
+        public static PdfFile MergePDF(params PdfFile[] files)
         {
-            using (var outputFile = new PdfFile())
+            var outputFile = new PdfFile();
+
+            foreach (var inputFile in files)
             {
-
-                // Iterate over each input file and its pages.
-                foreach (var inputFile in inputFiles)
+                foreach (var item in inputFile.Document.Pages)
                 {
-                    inputFile.WriteDebug("PDF File:");
-                    if (inputFile.IsFilePath() && File.Exists(inputFile))
-                        using (var inputDocument = new PdfFile(inputFile))
-                        {
-
-                            foreach (var item in inputDocument.Document.Pages)
-                            {
-                                var p = item.Clone(outputFile.Document) as Page;
-                                outputFile.Document.Pages.Add(p);
-
-                            }
-
-                        }
+                    var p = item.Clone(outputFile.Document) as Page;
+                    outputFile.Document.Pages.Add(p);
                 }
-
-                outputFile.Save(outputFilePath, SerializationModeEnum.Incremental);
             }
-            return new FileInfo(outputFilePath);
+
+            return outputFile;
+        }
+
+        public static FileInfo MergePDF(this DirectoryInfo inputFiles, string outputFilePath) => MergePDF(outputFilePath, SerializationModeEnum.Incremental, inputFiles.GetFiles("*.pdf").Select(x => x.FullName).OrderBy(x => x.FileNameAsTitle()).ToArray());
+
+        public static FileInfo MergePDF(this DirectoryInfo inputFiles, SerializationModeEnum SerializationMode, string outputFilePath) => MergePDF(outputFilePath, SerializationMode, inputFiles.GetFiles("*.pdf").Select(x => x.FullName).OrderBy(x => x.FileNameAsTitle()).ToArray());
+
+        public static FileInfo MergePDF(string outputFilePath, params string[] inputFiles) => MergePDF(outputFilePath, SerializationModeEnum.Incremental, inputFiles);
+
+        public static FileInfo MergePDF(string outputFilePath, SerializationModeEnum SerializationMode, params string[] inputFiles)
+        {
+            inputFiles = inputFiles ?? Array.Empty<string>();
+            var files = inputFiles.Where(x => x.IsFilePath() && File.Exists(x)).Select(x => new PdfFile(x)).ToArray();
+            using (var f = MergePDF(files))
+            {
+                return f.Save(outputFilePath, SerializationMode);
+            }
+        }
+
+        public static byte[] ToBytes(this PdfFile file, Files.SerializationModeEnum SerializationMode)
+        {
+            using (var m = new MemoryStream())
+            {
+                file.Save(new HESDanfe.Bytes.Stream(m), SerializationMode);
+                return m.ToBytes();
+            }
         }
 
         #endregion Public Methods

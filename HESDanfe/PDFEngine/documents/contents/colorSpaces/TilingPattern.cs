@@ -59,15 +59,11 @@ namespace HESDanfe.Documents.Contents.ColorSpaces
           )
       {this.color = color;}
 
-      /**
-        <summary>Gets the color applied to the stencil.</summary>
-      */
-      public Color Color
-      {
-        get
-        {return color;}
-      }
-    }
+            /**
+              <summary>Gets the color applied to the stencil.</summary>
+            */
+            public Color Color => color;
+        }
 
     /**
       <summary>Pattern cell color mode.</summary>
@@ -162,60 +158,36 @@ namespace HESDanfe.Documents.Contents.ColorSpaces
       }
     }
 
-    /**
-      <summary>Gets how the color of the pattern cell is to be specified.</summary>
-    */
-    public PaintTypeEnum PaintType
-    {
-      get
-      {return (PaintTypeEnum)((PdfInteger)BaseHeader[PdfName.PaintType]).RawValue;}
-    }
+        /**
+          <summary>Gets how the color of the pattern cell is to be specified.</summary>
+        */
+        public PaintTypeEnum PaintType => (PaintTypeEnum)((PdfInteger)BaseHeader[PdfName.PaintType]).RawValue;
 
-    /**
-      <summary>Gets the named resources required by the pattern's content stream.</summary>
-    */
-    public Resources Resources
-    {
-      get
-      {return Resources.Wrap(BaseHeader[PdfName.Resources]);}
-    }
+        /**
+          <summary>Gets the named resources required by the pattern's content stream.</summary>
+        */
+        public Resources Resources => Resources.Wrap(BaseHeader[PdfName.Resources]);
 
-    /**
-      <summary>Gets how to adjust the spacing of tiles relative to the device pixel grid.</summary>
-    */
-    public TilingTypeEnum TilingType
-    {
-      get
-      {return (TilingTypeEnum)((PdfInteger)BaseHeader[PdfName.TilingType]).RawValue;}
-    }
+        /**
+          <summary>Gets how to adjust the spacing of tiles relative to the device pixel grid.</summary>
+        */
+        public TilingTypeEnum TilingType => (TilingTypeEnum)((PdfInteger)BaseHeader[PdfName.TilingType]).RawValue;
 
-    /**
-      <summary>Gets the horizontal spacing between pattern cells (expressed in the pattern coordinate system).</summary>
-    */
-    public double XStep
-    {
-      get
-      {return ((IPdfNumber)BaseHeader[PdfName.XStep]).RawValue;}
-    }
+        /**
+          <summary>Gets the horizontal spacing between pattern cells (expressed in the pattern coordinate system).</summary>
+        */
+        public double XStep => ((IPdfNumber)BaseHeader[PdfName.XStep]).RawValue;
 
-    /**
-      <summary>Gets the vertical spacing between pattern cells (expressed in the pattern coordinate system).</summary>
-    */
-    public double YStep
-    {
-      get
-      {return ((IPdfNumber)BaseHeader[PdfName.YStep]).RawValue;}
-    }
-    #endregion
+        /**
+          <summary>Gets the vertical spacing between pattern cells (expressed in the pattern coordinate system).</summary>
+        */
+        public double YStep => ((IPdfNumber)BaseHeader[PdfName.YStep]).RawValue;
+        #endregion
 
-    #region private
-    private PdfDictionary BaseHeader
-    {
-      get
-      {return ((PdfStream)BaseDataObject).Header;}
+        #region private
+        private PdfDictionary BaseHeader => ((PdfStream)BaseDataObject).Header;
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 }

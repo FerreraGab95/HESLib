@@ -150,17 +150,13 @@ namespace HESDanfe.Util.Parsers
       )
     {MoveNext(offset); return Token;}
 
-    public long Length
-    {
-      get
-      {return stream.Length;}
-    }
+        public long Length => stream.Length;
 
-    /**
-      <summary>Moves the pointer to the next token.</summary>
-      <param name="offset">Number of tokens to skip before reaching the intended one.</param>
-    */
-    public bool MoveNext(
+        /**
+          <summary>Moves the pointer to the next token.</summary>
+          <param name="offset">Number of tokens to skip before reaching the intended one.</param>
+        */
+        public bool MoveNext(
       int offset
       )
     {
@@ -468,16 +464,12 @@ namespace HESDanfe.Util.Parsers
       return true;
     }
 
-    public long Position
-    {
-      get
-      {return stream.Position;}
-    }
+        public long Position => stream.Position;
 
-    /**
-      <summary>Moves the pointer to the given absolute byte position.</summary>
-    */
-    public void Seek(
+        /**
+          <summary>Moves the pointer to the given absolute byte position.</summary>
+        */
+        public void Seek(
       long offset
       )
     {stream.Seek(offset);}
@@ -526,16 +518,12 @@ namespace HESDanfe.Util.Parsers
       return true;
     }
 
-    public IInputStream Stream
-    {
-      get
-      {return stream;}
-    }
+        public IInputStream Stream => stream;
 
-    /**
-      <summary>Gets the currently-parsed token.</summary>
-    */
-    public object Token
+        /**
+          <summary>Gets the currently-parsed token.</summary>
+        */
+        public object Token
     {
       get => token;
       protected set => token = value;

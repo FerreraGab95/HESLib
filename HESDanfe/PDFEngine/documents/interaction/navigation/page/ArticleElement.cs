@@ -143,34 +143,22 @@ namespace HESDanfe.Documents.Interaction.Navigation.Page
       return thread != null && BaseObject.Equals(thread[PdfName.F]);
     }
 
-    /**
-      <summary>Gets the next bead.</summary>
-    */
-    public ArticleElement Next
-    {
-      get
-      {return ArticleElement.Wrap(BaseDataObject[PdfName.N]);}
-    }
+        /**
+          <summary>Gets the next bead.</summary>
+        */
+        public ArticleElement Next => ArticleElement.Wrap(BaseDataObject[PdfName.N]);
 
-    /**
-      <summary>Gets the location page.</summary>
-    */
-    public Documents.Page Page
-    {
-      get
-      {return Documents.Page.Wrap(BaseDataObject[PdfName.P]);}
-    }
+        /**
+          <summary>Gets the location page.</summary>
+        */
+        public Documents.Page Page => Documents.Page.Wrap(BaseDataObject[PdfName.P]);
 
-    /**
-      <summary>Gets the previous bead.</summary>
-    */
-    public ArticleElement Previous
-    {
-      get
-      {return ArticleElement.Wrap(BaseDataObject[PdfName.V]);}
+        /**
+          <summary>Gets the previous bead.</summary>
+        */
+        public ArticleElement Previous => ArticleElement.Wrap(BaseDataObject[PdfName.V]);
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 }

@@ -90,11 +90,7 @@ namespace HESDanfe.Documents.Interaction.Navigation.Document
         /**
           <summary>Gets the child bookmarks.</summary>
         */
-        public Bookmarks Bookmarks
-        {
-            get
-            { return Bookmarks.Wrap(BaseObject); }
-        }
+        public Bookmarks Bookmarks => Bookmarks.Wrap(BaseObject);
 
         /**
           <summary>Gets/Sets the bookmark text color.</summary>

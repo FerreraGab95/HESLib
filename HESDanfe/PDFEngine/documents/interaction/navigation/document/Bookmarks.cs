@@ -187,10 +187,9 @@ namespace HESDanfe.Documents.Interaction.Navigation.Document
       }
     }
 
-    public bool IsReadOnly
-    {get{return false;}}
+        public bool IsReadOnly => false;
 
-    public bool Remove(
+        public bool Remove(
       Bookmark bookmark
       )
     {throw new NotImplementedException();}

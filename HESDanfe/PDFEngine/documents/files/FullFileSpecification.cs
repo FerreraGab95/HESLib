@@ -198,13 +198,9 @@ namespace HESDanfe.Documents.Files
       set => BaseDictionary[PdfName.ID] = value.BaseObject;
     }
 
-        public override string Path
-    {
-      get
-      {return GetPath(PdfName.F);}
-    }
+        public override string Path => GetPath(PdfName.F);
 
-    public void SetPath(
+        public void SetPath(
       string value
       )
     {SetPath(PdfName.F,value);}
@@ -221,16 +217,12 @@ namespace HESDanfe.Documents.Files
         #endregion
 
         #region private
-        private PdfDictionary BaseDictionary
-    {
-      get
-      {return (PdfDictionary)BaseDataObject;}
-    }
+        private PdfDictionary BaseDictionary => (PdfDictionary)BaseDataObject;
 
-    /**
-      <summary>Gets the related files associated to the given key.</summary>
-    */
-    private RelatedFiles GetDependencies(
+        /**
+          <summary>Gets the related files associated to the given key.</summary>
+        */
+        private RelatedFiles GetDependencies(
       PdfName key
       )
     {

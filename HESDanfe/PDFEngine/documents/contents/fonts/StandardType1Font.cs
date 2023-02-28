@@ -129,24 +129,13 @@ namespace HESDanfe.Documents.Contents.Fonts
 
         #region interface
         #region public
-        public override double Ascent
-        {
-            get
-            { return metrics.Ascender; }
-        }
+        public override double Ascent => metrics.Ascender;
 
-        public override double Descent
-        {
-            get
-            { return metrics.Descender; }
-        }
+        public override double Descent => metrics.Descender;
 
         public override FlagsEnum Flags
-        {
             //TODO:IMPL!!!
-            get
-            { return 0; }
-        }
+            => 0;
         #endregion
 
         #region protected

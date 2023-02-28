@@ -111,27 +111,15 @@ namespace HESDanfe.Objects
       )
     {stream.Write(RawValue.ToString(context.Configuration.RealFormat, formatInfo));}
 
-    #region IPdfNumber
-    public double DoubleValue
-    {
-      get
-      {return RawValue;}
-    }
+        #region IPdfNumber
+        public double DoubleValue => RawValue;
 
-    public float FloatValue
-    {
-      get
-      {return (float)RawValue;}
-    }
+        public float FloatValue => (float)RawValue;
 
-    public int IntValue
-    {
-      get
-      {return (int)Math.Round(RawValue);}
+        public int IntValue => (int)Math.Round(RawValue);
+        #endregion
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-  }
 }

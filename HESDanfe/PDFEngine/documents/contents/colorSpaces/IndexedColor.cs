@@ -75,11 +75,7 @@ namespace HESDanfe.Documents.Contents.ColorSpaces
 
         #region Public Properties
 
-        public override IList<PdfDirectObject> Components
-        {
-            get
-            { return (PdfArray)BaseDataObject; }
-        }
+        public override IList<PdfDirectObject> Components => (PdfArray)BaseDataObject;
 
         public int Index
         {

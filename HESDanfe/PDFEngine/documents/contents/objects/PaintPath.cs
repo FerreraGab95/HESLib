@@ -149,29 +149,17 @@ namespace HESDanfe.Documents.Contents.Objects
         /**
           <summary>Gets the filling rule.</summary>
         */
-        public WindModeEnum FillMode
-        {
-            get
-            { return fillMode; }
-        }
+        public WindModeEnum FillMode => fillMode;
 
         /**
           <summary>Gets whether the current path has to be closed.</summary>
         */
-        public bool Closed
-        {
-            get
-            { return closed; }
-        }
+        public bool Closed => closed;
 
         /**
           <summary>Gets whether the current path has to be filled.</summary>
         */
-        public bool Filled
-        {
-            get
-            { return filled; }
-        }
+        public bool Filled => filled;
 
         public override void Scan(
           ContentScanner.GraphicsState state
@@ -202,11 +190,7 @@ namespace HESDanfe.Documents.Contents.Objects
         /**
           <summary>Gets whether the current path has to be stroked.</summary>
         */
-        public bool Stroked
-        {
-            get
-            { return stroked; }
-        }
+        public bool Stroked => stroked;
         #endregion
         #endregion
         #endregion

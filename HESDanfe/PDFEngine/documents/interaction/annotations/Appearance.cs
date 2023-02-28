@@ -60,38 +60,26 @@ namespace HESDanfe.Documents.Interaction.Annotations
       PdfDirectObject baseObject
       ) : base(baseObject)
     {}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    /**
-      <summary>Gets the annotation's down appearance.</summary>
-    */
-    public AppearanceStates Down
-    {
-      get
-      {return new AppearanceStates(PdfName.D, this);}
-    }
+        #region interface
+        #region public
+        /**
+          <summary>Gets the annotation's down appearance.</summary>
+        */
+        public AppearanceStates Down => new AppearanceStates(PdfName.D, this);
 
-    /**
-      <summary>Gets the annotation's normal appearance.</summary>
-    */
-    public AppearanceStates Normal
-    {
-      get
-      {return new AppearanceStates(PdfName.N, this);}
-    }
+        /**
+          <summary>Gets the annotation's normal appearance.</summary>
+        */
+        public AppearanceStates Normal => new AppearanceStates(PdfName.N, this);
 
-    /**
-      <summary>Gets the annotation's rollover appearance.</summary>
-    */
-    public AppearanceStates Rollover
-    {
-      get
-      {return new AppearanceStates(PdfName.R, this);}
+        /**
+          <summary>Gets the annotation's rollover appearance.</summary>
+        */
+        public AppearanceStates Rollover => new AppearanceStates(PdfName.R, this);
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 }

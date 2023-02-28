@@ -62,17 +62,13 @@ namespace HESDanfe.Documents.Functions
       )
     {return new NotImplementedException();}
 
-    /**
-      <summary>Gets the parent stitching function.</summary>
-    */
-    public Type3Function Parent
-    {
-      get
-      {return parent;}
-    }
+        /**
+          <summary>Gets the parent stitching function.</summary>
+        */
+        public Type3Function Parent => parent;
 
-    #region IList
-    public int IndexOf(
+        #region IList
+        public int IndexOf(
       Function value
       )
     {return BaseDataObject.IndexOf(value.BaseObject);}
@@ -127,19 +123,11 @@ namespace HESDanfe.Documents.Functions
       )
     {throw new NotImplementedException();}
 
-    public int Count
-    {
-      get
-      {return BaseDataObject.Count;}
-    }
+        public int Count => BaseDataObject.Count;
 
-    public bool IsReadOnly
-    {
-      get
-      {return false;}
-    }
+        public bool IsReadOnly => false;
 
-    public bool Remove(
+        public bool Remove(
       Function value
       )
     {return BaseDataObject.Remove(value.BaseObject);}

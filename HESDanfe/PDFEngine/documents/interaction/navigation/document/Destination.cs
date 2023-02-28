@@ -352,23 +352,15 @@ namespace HESDanfe.Documents.Interaction.Navigation.Document
       }
     }
 
-    #region IPdfNamedObjectWrapper
-    public PdfString Name
-    {
-      get
-      {return RetrieveName();}
-    }
+        #region IPdfNamedObjectWrapper
+        public PdfString Name => RetrieveName();
 
-    public PdfDirectObject NamedBaseObject
-    {
-      get
-      {return RetrieveNamedBaseObject();}
+        public PdfDirectObject NamedBaseObject => RetrieveNamedBaseObject();
+        #endregion
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-  }
 
   internal static class ModeEnumExtension
   {

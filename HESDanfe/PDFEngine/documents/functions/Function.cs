@@ -165,20 +165,12 @@ namespace HESDanfe.Documents.Functions
           <summary>Gets the (inclusive) domains of the input values.</summary>
           <remarks>Input values outside the declared domains are clipped to the nearest boundary value.</remarks>
         */
-        public IList<Interval<double>> Domains
-        {
-            get
-            { return GetIntervals<double>(PdfName.Domain, null); }
-        }
+        public IList<Interval<double>> Domains => GetIntervals<double>(PdfName.Domain, null);
 
         /**
           <summary>Gets the number of input values (parameters) of this function.</summary>
         */
-        public int InputCount
-        {
-            get
-            { return ((PdfArray)Dictionary[PdfName.Domain]).Count / 2; }
-        }
+        public int InputCount => ((PdfArray)Dictionary[PdfName.Domain]).Count / 2;
 
         /**
           <summary>Gets the number of output values (results) of this function.</summary>
@@ -198,22 +190,14 @@ namespace HESDanfe.Documents.Functions
           if this entry is absent, no clipping is done.</remarks>
           <returns><code>null</code> in case of unbounded ranges.</returns>
         */
-        public IList<Interval<double>> Ranges
-        {
-            get
-            { return GetIntervals<double>(PdfName.Range, null); }
-        }
+        public IList<Interval<double>> Ranges => GetIntervals<double>(PdfName.Range, null);
         #endregion
 
         #region protected
         /**
           <summary>Gets this function's dictionary.</summary>
         */
-        protected PdfDictionary Dictionary
-        {
-            get
-            { return GetDictionary(BaseDataObject); }
-        }
+        protected PdfDictionary Dictionary => GetDictionary(BaseDataObject);
 
         /**
           <summary>Gets the intervals corresponding to the specified key.</summary>

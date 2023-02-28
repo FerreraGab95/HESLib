@@ -99,19 +99,11 @@ namespace HESDanfe.Tools
       streams.Add(foreground.Scanner.Contents.BaseObject);
     }
 
-    public PrimitiveComposer Background
-    {
-      get
-      {return background;}
-    }
+        public PrimitiveComposer Background => background;
 
-    public PrimitiveComposer Foreground
-    {
-      get
-      {return foreground;}
-    }
+        public PrimitiveComposer Foreground => foreground;
 
-    public Page Page
+        public Page Page
         {
             get => page;
             set

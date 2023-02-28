@@ -118,11 +118,7 @@ namespace HESDanfe.Documents.Contents.Objects
             { context.Transform = state.Ctm; }
         }
 
-        public Matrix Value
-        {
-            get
-            {
-                return new Matrix(
+        public Matrix Value => new Matrix(
                   ((IPdfNumber)operands[0]).FloatValue, // a.
                   ((IPdfNumber)operands[1]).FloatValue, // b.
                   ((IPdfNumber)operands[2]).FloatValue, // c.
@@ -130,8 +126,6 @@ namespace HESDanfe.Documents.Contents.Objects
                   ((IPdfNumber)operands[4]).FloatValue, // e.
                   ((IPdfNumber)operands[5]).FloatValue // f.
                   );
-            }
-        }
         #endregion
         #endregion
         #endregion

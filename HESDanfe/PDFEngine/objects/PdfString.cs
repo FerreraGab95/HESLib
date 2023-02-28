@@ -155,13 +155,9 @@ namespace HESDanfe.Objects
       set => serializationMode = value;
     }
 
-        public string StringValue
-    {
-      get
-      {return (string)Value;}
-    }
+        public string StringValue => (string)Value;
 
-    public byte[] ToByteArray(
+        public byte[] ToByteArray(
       )
     {return (byte[])RawValue.Clone();}
 

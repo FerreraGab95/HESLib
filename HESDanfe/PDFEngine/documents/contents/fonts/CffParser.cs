@@ -191,11 +191,7 @@ namespace HESDanfe.Documents.Contents.Fonts
               )
             { return entries.ContainsKey(key); }
 
-            public ICollection<int> Keys
-            {
-                get
-                { return entries.Keys; }
-            }
+            public ICollection<int> Keys => entries.Keys;
 
             public bool Remove(
               int key
@@ -217,11 +213,7 @@ namespace HESDanfe.Documents.Contents.Fonts
               )
             { return entries.TryGetValue(key, out value); }
 
-            public ICollection<IList<object>> Values
-            {
-                get
-                { return entries.Values; }
-            }
+            public ICollection<IList<object>> Values => entries.Values;
 
             void ICollection<KeyValuePair<int, IList<object>>>.Add(
               KeyValuePair<int, IList<object>> keyValuePair
@@ -243,17 +235,9 @@ namespace HESDanfe.Documents.Contents.Fonts
               )
             { throw new NotImplementedException(); }
 
-            public int Count
-            {
-                get
-                { return entries.Count; }
-            }
+            public int Count => entries.Count;
 
-            public bool IsReadOnly
-            {
-                get
-                { return true; }
-            }
+            public bool IsReadOnly => true;
 
             public bool Remove(
               KeyValuePair<int, IList<object>> keyValuePair
@@ -372,17 +356,9 @@ namespace HESDanfe.Documents.Contents.Fonts
               )
             { throw new NotImplementedException(); }
 
-            public int Count
-            {
-                get
-                { return data.Length; }
-            }
+            public int Count => data.Length;
 
-            public bool IsReadOnly
-            {
-                get
-                { return true; }
-            }
+            public bool IsReadOnly => true;
 
             public bool Remove(
               byte[] item

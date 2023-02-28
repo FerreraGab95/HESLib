@@ -95,22 +95,16 @@ namespace HESDanfe.Documents.Contents.Objects
       state.Tm = state.Tlm.Clone();
     }
 
-    public Matrix Value
-    {
-      get
-      {
-        return new Matrix(
-          ((IPdfNumber)operands[0]).FloatValue,
-          ((IPdfNumber)operands[1]).FloatValue,
-          ((IPdfNumber)operands[2]).FloatValue,
-          ((IPdfNumber)operands[3]).FloatValue,
-          ((IPdfNumber)operands[4]).FloatValue,
-          ((IPdfNumber)operands[5]).FloatValue
-          );
-      }
+        public Matrix Value => new Matrix(
+              ((IPdfNumber)operands[0]).FloatValue,
+              ((IPdfNumber)operands[1]).FloatValue,
+              ((IPdfNumber)operands[2]).FloatValue,
+              ((IPdfNumber)operands[3]).FloatValue,
+              ((IPdfNumber)operands[4]).FloatValue,
+              ((IPdfNumber)operands[5]).FloatValue
+              );
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 }

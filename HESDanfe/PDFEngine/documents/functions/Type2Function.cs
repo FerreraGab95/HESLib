@@ -102,16 +102,12 @@ namespace HESDanfe.Documents.Functions
       }
     }
 
-    /**
-      <summary>Gets the interpolation exponent.</summary>
-    */
-    public double Exponent
-    {
-      get
-      {return ((IPdfNumber)Dictionary[PdfName.N]).RawValue;}
+        /**
+          <summary>Gets the interpolation exponent.</summary>
+        */
+        public double Exponent => ((IPdfNumber)Dictionary[PdfName.N]).RawValue;
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 }

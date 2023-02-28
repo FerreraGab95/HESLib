@@ -173,19 +173,11 @@ namespace HESDanfe.Documents.Contents.Objects
       )
     {throw new NotImplementedException();}
 
-    public int Count
-    {
-      get
-      {return operands.Count / 2;}
-    }
+        public int Count => operands.Count / 2;
 
-    public bool IsReadOnly
-    {
-      get
-      {return false;}
-    }
+        public bool IsReadOnly => false;
 
-    public bool Remove(
+        public bool Remove(
       KeyValuePair<PdfName,PdfDirectObject> keyValuePair
       )
     {throw new NotImplementedException();}

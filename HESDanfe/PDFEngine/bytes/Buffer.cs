@@ -152,11 +152,7 @@ namespace HESDanfe.Bytes
             set => byteOrder = value;
         }
 
-        public int Capacity
-        {
-            get
-            { return data.Length; }
-        }
+        public int Capacity => data.Length;
 
         public bool Dirty
         {
@@ -164,11 +160,7 @@ namespace HESDanfe.Bytes
             set => dirty = value;
         }
 
-        public long Length
-        {
-            get
-            { return length; }
-        }
+        public long Length => length;
 
         public long Position
         {

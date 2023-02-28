@@ -204,16 +204,12 @@ namespace HESDanfe.Files
       return indirectObject;
     }
 
-    /**
-      <summary>Gets the file associated to this collection.</summary>
-    */
-    public PdfFile File
-    {
-      get
-      {return file;}
-    }
+        /**
+          <summary>Gets the file associated to this collection.</summary>
+        */
+        public PdfFile File => file;
 
-    public bool IsEmpty(
+        public bool IsEmpty(
       )
     {
       /*
@@ -358,24 +354,16 @@ namespace HESDanfe.Files
       )
     {throw new NotSupportedException();}
 
-    /**
-      <summary>Gets the number of entries available (both in-use and free) in the
-      collection.</summary>
-      <returns>The number of entries available in the collection.</returns>
-    */
-    public int Count
-    {
-      get
-      {return lastObjectNumber + 1;}
-    }
+        /**
+          <summary>Gets the number of entries available (both in-use and free) in the
+          collection.</summary>
+          <returns>The number of entries available in the collection.</returns>
+        */
+        public int Count => lastObjectNumber + 1;
 
-    public bool IsReadOnly
-    {
-      get
-      {return false;}
-    }
+        public bool IsReadOnly => false;
 
-    public bool Remove(
+        public bool Remove(
       PdfIndirectObject obj
       )
     {
@@ -418,13 +406,9 @@ namespace HESDanfe.Files
       return obj;
     }
 
-    internal SortedDictionary<int,PdfIndirectObject> ModifiedObjects
-    {
-      get
-      {return modifiedObjects;}
-    }
+        internal SortedDictionary<int, PdfIndirectObject> ModifiedObjects => modifiedObjects;
 
-    internal PdfIndirectObject Update(
+        internal PdfIndirectObject Update(
       PdfIndirectObject obj
       )
     {

@@ -94,49 +94,33 @@ namespace HESDanfe.Objects
           && ((PdfReference)@object).Id.Equals(Id));
     }
 
-    /**
-      <summary>Gets the generation number.</summary>
-    */
-    public int GenerationNumber
-    {
-      get
-      {return IndirectObject.XrefEntry.Generation;}
-    }
+        /**
+          <summary>Gets the generation number.</summary>
+        */
+        public int GenerationNumber => IndirectObject.XrefEntry.Generation;
 
-    public override int GetHashCode(
+        public override int GetHashCode(
       )
     {return IndirectObject.GetHashCode();}
 
-    /**
-      <summary>Gets the object identifier.</summary>
-      <remarks>This corresponds to the serialized representation of an object identifier within a PDF file.</remarks>
-    */
-    public string Id
-    {
-      get
-      {return ("" + ObjectNumber + Symbol.Space + GenerationNumber);}
-    }
+        /**
+          <summary>Gets the object identifier.</summary>
+          <remarks>This corresponds to the serialized representation of an object identifier within a PDF file.</remarks>
+        */
+        public string Id => ("" + ObjectNumber + Symbol.Space + GenerationNumber);
 
-    /**
-      <summary>Gets the object reference.</summary>
-      <remarks>This corresponds to the serialized representation of a reference within a PDF file.</remarks>
-    */
-    public string IndirectReference
-    {
-      get
-      {return (Id + Symbol.Space + Symbol.CapitalR);}
-    }
+        /**
+          <summary>Gets the object reference.</summary>
+          <remarks>This corresponds to the serialized representation of a reference within a PDF file.</remarks>
+        */
+        public string IndirectReference => (Id + Symbol.Space + Symbol.CapitalR);
 
-    /**
-      <summary>Gets the object number.</summary>
-    */
-    public int ObjectNumber
-    {
-      get
-      {return IndirectObject.XrefEntry.Number;}
-    }
+        /**
+          <summary>Gets the object number.</summary>
+        */
+        public int ObjectNumber => IndirectObject.XrefEntry.Number;
 
-    public override PdfObject Parent
+        public override PdfObject Parent
     {
       get => parent;
       internal set => parent = value;
@@ -191,16 +175,12 @@ namespace HESDanfe.Objects
       }
     }
 
-    public override PdfReference Reference
-    {
-      get
-      {return this;}
-    }
-    #endregion
-    #endregion
+        public override PdfReference Reference => this;
+        #endregion
+        #endregion
 
-    #region protected
-    protected internal override bool Virtual
+        #region protected
+        protected internal override bool Virtual
     {
       get => IndirectObject.Virtual;
       set => IndirectObject.Virtual = value;

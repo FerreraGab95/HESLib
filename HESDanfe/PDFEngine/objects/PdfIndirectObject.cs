@@ -118,19 +118,11 @@ namespace HESDanfe.Objects
       }
     }
 
-    public override PdfIndirectObject Container
-    {
-      get
-      {return this;}
-    }
+        public override PdfIndirectObject Container => this;
 
-    public override PdfFile File
-    {
-      get
-      {return file;}
-    }
+        public override PdfFile File => file;
 
-    public override int GetHashCode(
+        public override int GetHashCode(
       )
     {
       /*
@@ -239,14 +231,10 @@ namespace HESDanfe.Objects
       stream.Write(EndIndirectObjectChunk);
     }
 
-    public XRefEntry XrefEntry
-    {
-      get
-      {return xrefEntry;}
-    }
+        public XRefEntry XrefEntry => xrefEntry;
 
-    #region IPdfIndirectObject
-    public PdfDataObject DataObject
+        #region IPdfIndirectObject
+        public PdfDataObject DataObject
     {
       get
       {
@@ -305,19 +293,11 @@ namespace HESDanfe.Objects
       file.IndirectObjects.RemoveAt(xrefEntry.Number);
     }
 
-    public override PdfIndirectObject IndirectObject
-    {
-      get
-      {return this;}
-    }
+        public override PdfIndirectObject IndirectObject => this;
 
-    public override PdfReference Reference
-    {
-      get
-      {return reference;}
-    }
+        public override PdfReference Reference => reference;
 
-    public override string ToString(
+        public override string ToString(
       )
     {
       StringBuilder buffer = new StringBuilder();

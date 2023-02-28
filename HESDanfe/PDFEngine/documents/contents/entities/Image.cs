@@ -126,13 +126,9 @@ namespace HESDanfe.Documents.Contents.Entities
         /**
           <summary>Gets the underlying stream.</summary>
         */
-        protected System.IO.Stream Stream
-    {
-      get
-      {return stream;}
+        protected System.IO.Stream Stream => stream;
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 }

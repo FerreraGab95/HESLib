@@ -57,32 +57,24 @@ namespace HESDanfe.Documents.Contents.Objects
       objects.Add(header);
       objects.Add(body);
     }
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    /**
-      <summary>Gets the image body.</summary>
-    */
-    public Operation Body
-    {
-      get
-      {return (Operation)Objects[1];}
-    }
+        #region interface
+        #region public
+        /**
+          <summary>Gets the image body.</summary>
+        */
+        public Operation Body => (Operation)Objects[1];
 
-    /**
-      <summary>Gets the image header.</summary>
-    */
-    public override Operation Header
-    {
-      get
-      {return (Operation)Objects[0];}
-    }
+        /**
+          <summary>Gets the image header.</summary>
+        */
+        public override Operation Header => (Operation)Objects[0];
 
-    /**
-      <summary>Gets the image size.</summary>
-    */
-    public Size Size
+        /**
+          <summary>Gets the image size.</summary>
+        */
+        public Size Size
     {
       get
       {

@@ -138,13 +138,11 @@ namespace HESDanfe.Documents.Interaction.Forms
       )
     {throw new NotImplementedException();}
 
-    public int Count
-    {get{return BaseDataObject.Count;}}
+        public int Count => BaseDataObject.Count;
 
-    public bool IsReadOnly
-    {get{return false;}}
+        public bool IsReadOnly => false;
 
-    public bool Remove(
+        public bool Remove(
       ChoiceItem value
       )
     {return BaseDataObject.Remove(value.BaseObject);}

@@ -229,19 +229,11 @@ namespace HESDanfe.Documents.Files
       )
     {throw new NotImplementedException();}
 
-    public int Count
-    {
-      get
-      {return BaseDataObject.Count;}
-    }
+        public int Count => BaseDataObject.Count;
 
-    public bool IsReadOnly
-    {
-      get
-      {return false;}
-    }
+        public bool IsReadOnly => false;
 
-    public bool Remove(
+        public bool Remove(
       KeyValuePair<string,EmbeddedFile> entry
       )
     {throw new NotImplementedException();}

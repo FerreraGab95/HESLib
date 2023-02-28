@@ -254,23 +254,19 @@ namespace HESDanfe.Documents
         /**
           <summary>Gets the page article beads.</summary>
         */
-        public PageArticleElements ArticleElements
-    {
-      get
-      {return new PageArticleElements(BaseDataObject.Get<PdfArray>(PdfName.B), this);}
-    }
+        public PageArticleElements ArticleElements => new PageArticleElements(BaseDataObject.Get<PdfArray>(PdfName.B), this);
 
-    /**
-      <summary>Gets/Sets the region to which the contents of the page should be clipped when output
-      in a production environment [PDF:1.7:10.10.1].</summary>
-      <remarks>
-        <para>This may include any extra bleed area needed to accommodate the physical limitations of
-        cutting, folding, and trimming equipment. The actual printed page may include printing marks
-        that fall outside the bleed box.</para>
-      </remarks>
-      <seealso cref="CropBox"/>
-    */
-    [PDF(VersionEnum.PDF13)]
+        /**
+          <summary>Gets/Sets the region to which the contents of the page should be clipped when output
+          in a production environment [PDF:1.7:10.10.1].</summary>
+          <remarks>
+            <para>This may include any extra bleed area needed to accommodate the physical limitations of
+            cutting, folding, and trimming equipment. The actual printed page may include printing marks
+            that fall outside the bleed box.</para>
+          </remarks>
+          <seealso cref="CropBox"/>
+        */
+        [PDF(VersionEnum.PDF13)]
     public drawing::RectangleF BleedBox
         {
             get

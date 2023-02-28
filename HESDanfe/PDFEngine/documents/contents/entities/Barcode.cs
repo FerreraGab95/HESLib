@@ -48,8 +48,7 @@ namespace HESDanfe.Documents.Contents.Entities
         /**
           <summary>Gets the code to represent.</summary>
         */
-        public string Code
-        { get { return code; } }
+        public string Code => code;
         #endregion
         #endregion
         #endregion

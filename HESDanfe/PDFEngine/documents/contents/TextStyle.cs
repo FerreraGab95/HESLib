@@ -64,32 +64,25 @@ namespace HESDanfe.Documents.Contents
       this.fillColor = fillColor;
       this.fillColorSpace = fillColorSpace;
     }
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public Color FillColor
-    {get{return fillColor;}}
+        #region interface
+        #region public
+        public Color FillColor => fillColor;
 
-    public ColorSpace FillColorSpace
-    {get{return fillColorSpace;}}
+        public ColorSpace FillColorSpace => fillColorSpace;
 
-    public Font Font
-    {get{return font;}}
+        public Font Font => font;
 
-    public double FontSize
-    {get{return fontSize;}}
+        public double FontSize => fontSize;
 
-    public TextRenderModeEnum RenderMode
-    {get{return renderMode;}}
+        public TextRenderModeEnum RenderMode => renderMode;
 
-    public Color StrokeColor
-    {get{return strokeColor;}}
+        public Color StrokeColor => strokeColor;
 
-    public ColorSpace StrokeColorSpace
-    {get{return strokeColorSpace;}}
-    #endregion
-    #endregion
-    #endregion
-  }
+        public ColorSpace StrokeColorSpace => strokeColorSpace;
+        #endregion
+        #endregion
+        #endregion
+    }
 }

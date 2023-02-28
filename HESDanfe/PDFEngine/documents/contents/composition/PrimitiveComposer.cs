@@ -590,19 +590,15 @@ namespace HESDanfe.Documents.Contents.Composition
         /**
           <summary>Gets the current graphics state [PDF:1.6:4.3].</summary>
         */
-        public ContentScanner.GraphicsState State
-    {
-      get
-      {return scanner.State;}
-    }
+        public ContentScanner.GraphicsState State => scanner.State;
 
-    /**
-      <summary>Applies a rotation to the coordinate system from user space to device space
-      [PDF:1.6:4.2.2].</summary>
-      <param name="angle">Rotational counterclockwise angle.</param>
-      <seealso cref="ApplyMatrix(double,double,double,double,double,double)"/>
-    */
-    public void Rotate(
+        /**
+          <summary>Applies a rotation to the coordinate system from user space to device space
+          [PDF:1.6:4.2.2].</summary>
+          <param name="angle">Rotational counterclockwise angle.</param>
+          <seealso cref="ApplyMatrix(double,double,double,double,double,double)"/>
+        */
+        public void Rotate(
       double angle
       )
     {

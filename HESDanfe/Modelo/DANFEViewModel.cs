@@ -398,14 +398,10 @@ namespace HESDanfe.Modelo
 
         public int SequenciaCorrecao { get; set; }
 
-        public TipoDocumento TipoDocumento { get; set; } = TipoDocumento.DANFE;
-
         public virtual string TextoAdicional
         {
             get
             {
-
-
                 if (TipoDocumento == TipoDocumento.CCE)
                 {
                     return $"PROTOCOLO: {ProtocoloCorrecao}{Environment.NewLine}DATA/HORA: {DataHoraCorrecao:dd/MM/yyyy HH:mm:ss}{Environment.NewLine}EVENTO: {SequenciaCorrecao}";
@@ -414,13 +410,13 @@ namespace HESDanfe.Modelo
                 {
                     StringBuilder sb = new StringBuilder();
 
-
                     if (!string.IsNullOrEmpty(InformacoesComplementares))
                         sb.AppendChaveValor("Inf. Contribuinte", InformacoesComplementares).Replace(";", "\r\n");
 
                     if (!string.IsNullOrEmpty(Destinatario.Email))
                     {
-                        // Adiciona um espaço após a virgula caso necessário, isso facilita a quebra de linha.
+                        // Adiciona um espaço após a virgula caso necessário, isso facilita a quebra
+                        // de linha.
                         var destEmail = Regex.Replace(Destinatario.Email, @"(?<=\S)([,;])(?=\S)", "$1 ").Trim(new char[] { ' ', ',', ';' });
                         sb.AppendChaveValor("Email do Destinatário", destEmail);
                     }
@@ -457,7 +453,6 @@ namespace HESDanfe.Modelo
 
                     return sb.ToString();
                 }
-
             }
         }
 
@@ -502,6 +497,8 @@ namespace HESDanfe.Modelo
         /// Tipo de Ambiente
         /// </summary>
         public TAmb TipoAmbiente { get; set; } = TAmb.Producao;
+
+        public TipoDocumento TipoDocumento { get; set; } = TipoDocumento.DANFE;
 
         /// <summary>
         /// Tipo de emissão

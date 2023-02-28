@@ -280,13 +280,9 @@ namespace HESDanfe.Documents.Contents.Layers
             }
         }
 
-        public override IList<Layer> VisibilityLayers
-    {
-      get
-      {return Membership.VisibilityLayers;}
-    }
+        public override IList<Layer> VisibilityLayers => Membership.VisibilityLayers;
 
-    public override VisibilityPolicyEnum VisibilityPolicy
+        public override VisibilityPolicyEnum VisibilityPolicy
         {
             get => Membership.VisibilityPolicy;
             set
@@ -345,17 +341,13 @@ namespace HESDanfe.Documents.Contents.Layers
         #endregion
 
         #region private
-        private LayerConfiguration DefaultConfiguration
-    {
-      get
-      {return Document.Layer.DefaultConfiguration;}
-    }
+        private LayerConfiguration DefaultConfiguration => Document.Layer.DefaultConfiguration;
 
-    /**
-      <summary>Finds the location of the sublayers object in the default configuration; in case no
-      sublayers object is associated to this object, its virtual position is indicated.</summary>
-    */
-    private LayersLocation FindLayersLocation(
+        /**
+          <summary>Finds the location of the sublayers object in the default configuration; in case no
+          sublayers object is associated to this object, its virtual position is indicated.</summary>
+        */
+        private LayersLocation FindLayersLocation(
       )
     {
       LayersLocation location = FindLayersLocation(DefaultConfiguration);
@@ -442,15 +434,11 @@ namespace HESDanfe.Documents.Contents.Layers
       )
     {return Usage.Resolve<PdfDictionary>(key);}
 
-    private PdfDictionary Usage
-    {
-      get
-      {return BaseDataObject.Resolve<PdfDictionary>(PdfName.Usage);}
+        private PdfDictionary Usage => BaseDataObject.Resolve<PdfDictionary>(PdfName.Usage);
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 
   internal static class StateEnumExtension
   {

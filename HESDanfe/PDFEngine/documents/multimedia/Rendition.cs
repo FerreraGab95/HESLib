@@ -59,21 +59,17 @@ namespace HESDanfe.Documents.Multimedia
         ) : base(baseObject)
       {}
 
-      /**
-        <summary>Gets the minimum system's bandwidth (in bits per second).</summary>
-        <remarks>Equivalent to SMIL's systemBitrate attribute.</remarks>
-      */
-      public int? Bandwidth
-      {
-        get
-        {return (int?)PdfInteger.GetValue(MediaCriteria[PdfName.R]);}
-      }
+            /**
+              <summary>Gets the minimum system's bandwidth (in bits per second).</summary>
+              <remarks>Equivalent to SMIL's systemBitrate attribute.</remarks>
+            */
+            public int? Bandwidth => (int?)PdfInteger.GetValue(MediaCriteria[PdfName.R]);
 
-      /**
-        <summary>Gets the minimum screen color depth (in bits per pixel).</summary>
-        <remarks>Equivalent to SMIL's systemScreenDepth attribute.</remarks>
-      */
-      public int? ScreenDepth
+            /**
+              <summary>Gets the minimum screen color depth (in bits per pixel).</summary>
+              <remarks>Equivalent to SMIL's systemScreenDepth attribute.</remarks>
+            */
+            public int? ScreenDepth
       {
         get
         {
@@ -104,19 +100,15 @@ namespace HESDanfe.Documents.Multimedia
         }
       }
 
-      /**
-        <summary>Gets the list of supported viewer applications.</summary>
-      */
-      public Array<SoftwareIdentifier> Renderers
-      {
-        get
-        {return Array<SoftwareIdentifier>.Wrap<SoftwareIdentifier>(MediaCriteria.Get<PdfArray>(PdfName.V));}
-      }
+            /**
+              <summary>Gets the list of supported viewer applications.</summary>
+            */
+            public Array<SoftwareIdentifier> Renderers => Array<SoftwareIdentifier>.Wrap<SoftwareIdentifier>(MediaCriteria.Get<PdfArray>(PdfName.V));
 
-      /**
-        <summary>Gets the PDF version range supported by the viewer application.</summary>
-      */
-      public Interval<Version> Version
+            /**
+              <summary>Gets the PDF version range supported by the viewer application.</summary>
+            */
+            public Interval<Version> Version
       {
         get
         {
@@ -151,52 +143,32 @@ namespace HESDanfe.Documents.Multimedia
         }
       }
 
-      /**
-        <summary>Gets whether to hear audio descriptions.</summary>
-        <remarks>Equivalent to SMIL's systemAudioDesc attribute.</remarks>
-      */
-      public bool AudioDescriptionEnabled
-      {
-        get
-        {return (bool)PdfBoolean.GetValue(MediaCriteria[PdfName.A]);}
-      }
+            /**
+              <summary>Gets whether to hear audio descriptions.</summary>
+              <remarks>Equivalent to SMIL's systemAudioDesc attribute.</remarks>
+            */
+            public bool AudioDescriptionEnabled => (bool)PdfBoolean.GetValue(MediaCriteria[PdfName.A]);
 
-      /**
-        <summary>Gets whether to hear audio overdubs.</summary>
-      */
-      public bool AudioOverdubEnabled
-      {
-        get
-        {return (bool)PdfBoolean.GetValue(MediaCriteria[PdfName.O]);}
-      }
+            /**
+              <summary>Gets whether to hear audio overdubs.</summary>
+            */
+            public bool AudioOverdubEnabled => (bool)PdfBoolean.GetValue(MediaCriteria[PdfName.O]);
 
-      /**
-        <summary>Gets whether to see subtitles.</summary>
-      */
-      public bool SubtitleEnabled
-      {
-        get
-        {return (bool)PdfBoolean.GetValue(MediaCriteria[PdfName.S]);}
-      }
+            /**
+              <summary>Gets whether to see subtitles.</summary>
+            */
+            public bool SubtitleEnabled => (bool)PdfBoolean.GetValue(MediaCriteria[PdfName.S]);
 
-      /**
-        <summary>Gets whether to see text captions.</summary>
-        <remarks>Equivalent to SMIL's systemCaptions attribute.</remarks>
-      */
-      public bool TextCaptionEnabled
-      {
-        get
-        {return (bool)PdfBoolean.GetValue(MediaCriteria[PdfName.C]);}
-      }
+            /**
+              <summary>Gets whether to see text captions.</summary>
+              <remarks>Equivalent to SMIL's systemCaptions attribute.</remarks>
+            */
+            public bool TextCaptionEnabled => (bool)PdfBoolean.GetValue(MediaCriteria[PdfName.C]);
 
-      private PdfDictionary MediaCriteria
-      {
-        get
-        {return BaseDataObject.Resolve<PdfDictionary>(PdfName.C);}
-      }
+            private PdfDictionary MediaCriteria => BaseDataObject.Resolve<PdfDictionary>(PdfName.C);
 
-      //TODO:setters!
-    }
+            //TODO:setters!
+        }
     #endregion
 
     #region static
@@ -277,22 +249,14 @@ namespace HESDanfe.Documents.Multimedia
     }
 
         #region IPdfNamedObjectWrapper
-        public PdfString Name
-    {
-      get
-      {return RetrieveName();}
-    }
+        public PdfString Name => RetrieveName();
 
-    public PdfDirectObject NamedBaseObject
-    {
-      get
-      {return RetrieveNamedBaseObject();}
-    }
-    #endregion
-    #endregion
+        public PdfDirectObject NamedBaseObject => RetrieveNamedBaseObject();
+        #endregion
+        #endregion
 
-    #region protected
-    protected override PdfString RetrieveName(
+        #region protected
+        protected override PdfString RetrieveName(
       )
     {
       /*

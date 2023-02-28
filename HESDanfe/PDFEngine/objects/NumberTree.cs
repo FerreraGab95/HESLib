@@ -51,17 +51,13 @@ namespace HESDanfe.Objects
       PdfDirectObject baseObject
       ) : base(baseObject)
     {}
-    #endregion
+        #endregion
 
-    #region interface
-    #region protected
-    protected override PdfName PairsKey
-    {
-      get
-      {return PdfName.Nums;}
+        #region interface
+        #region protected
+        protected override PdfName PairsKey => PdfName.Nums;
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 }

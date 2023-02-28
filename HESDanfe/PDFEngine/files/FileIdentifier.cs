@@ -91,36 +91,28 @@ namespace HESDanfe.Files
       PdfDirectObject baseObject
       ) : base(baseObject)
     {}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    /**
-      <summary>Gets the permanent identifier based on the contents of the file at the time it was
-      originally created.</summary>
-    */
-    public string BaseID
-    {
-      get
-      {return (string)((PdfString)BaseDataObject[0]).Value;}
-    }
+        #region interface
+        #region public
+        /**
+          <summary>Gets the permanent identifier based on the contents of the file at the time it was
+          originally created.</summary>
+        */
+        public string BaseID => (string)((PdfString)BaseDataObject[0]).Value;
 
-    /**
-      <summary>Gets the changing identifier based on the file's contents at the time it was last
-      updated.</summary>
-    */
-    public string VersionID
-    {
-      get
-      {return (string)((PdfString)BaseDataObject[1]).Value;}
-    }
+        /**
+          <summary>Gets the changing identifier based on the file's contents at the time it was last
+          updated.</summary>
+        */
+        public string VersionID => (string)((PdfString)BaseDataObject[1]).Value;
 
-    /**
-      <summary>Computes a new version identifier based on the file's contents.</summary>
-      <remarks>This method is typically invoked internally during file serialization.</remarks>
-      <param name="writer">File serializer.</param>
-    */
-    public void Update(
+        /**
+          <summary>Computes a new version identifier based on the file's contents.</summary>
+          <remarks>This method is typically invoked internally during file serialization.</remarks>
+          <param name="writer">File serializer.</param>
+        */
+        public void Update(
       Writer writer
       )
     {

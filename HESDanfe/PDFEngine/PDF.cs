@@ -41,13 +41,9 @@ namespace HESDanfe
       )
     {this.value = value;}
 
-    /**
-      <summary>Gets the compatible version (minimum PDF version supporting the annotated element).</summary>
-    */
-    public VersionEnum Value
-    {
-      get
-      {return value;}
+        /**
+          <summary>Gets the compatible version (minimum PDF version supporting the annotated element).</summary>
+        */
+        public VersionEnum Value => value;
     }
-  }
 }

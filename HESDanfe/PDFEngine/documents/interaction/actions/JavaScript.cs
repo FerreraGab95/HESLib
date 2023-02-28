@@ -117,20 +117,12 @@ namespace HESDanfe.Documents.Interaction.Actions
     }
 
         #region IPdfNamedObjectWrapper
-        public PdfString Name
-    {
-      get
-      {return RetrieveName();}
-    }
+        public PdfString Name => RetrieveName();
 
-    public PdfDirectObject NamedBaseObject
-    {
-      get
-      {return RetrieveNamedBaseObject();}
+        public PdfDirectObject NamedBaseObject => RetrieveNamedBaseObject();
+        #endregion
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-  }
 }

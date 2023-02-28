@@ -76,16 +76,9 @@ namespace HESDanfe.Documents.Interaction.Forms
     //TODO: avoid getter (use raw matching).
     {return this[key] != null;}
 
-    public ICollection<string> Keys
-    {
-      get
-      {
-        throw new NotImplementedException();
-      //TODO: retrieve all the full names (keys)!!!
-      }
-    }
+        public ICollection<string> Keys => throw new NotImplementedException();//TODO: retrieve all the full names (keys)!!!
 
-    public bool Remove(
+        public bool Remove(
       string key
       )
     {
@@ -193,19 +186,11 @@ namespace HESDanfe.Documents.Interaction.Forms
       )
     {throw new NotImplementedException();}
 
-    public int Count
-    {
-      get
-      {return Values.Count;}
-    }
+        public int Count => Values.Count;
 
-    public bool IsReadOnly
-    {
-      get
-      {return false;}
-    }
+        public bool IsReadOnly => false;
 
-    public bool Remove(
+        public bool Remove(
       KeyValuePair<string,Field> entry
       )
     {throw new NotImplementedException();}

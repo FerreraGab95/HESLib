@@ -73,35 +73,23 @@ namespace HESDanfe.Documents.Contents.ColorSpaces
       )
     {throw new NotImplementedException();}
 
-    public override int ComponentCount
-    {
-      get
-      {return 1;}
-    }
+        public override int ComponentCount => 1;
 
-    /**
-      <summary>Gets the name of the colorant that this separation color space is intended
-      to represent.</summary>
-      <remarks>Special names:
-        <list type="bullet">
-          <item><see cref="AllComponentName">All</see></item>
-          <item><see cref="NoneComponentName">None</see></item>
-        </list>
-      </remarks>
-    */
-    public override IList<string> ComponentNames
-    {
-      get
-      {return new List<string>(new string[]{(string)((PdfName)((PdfArray)BaseDataObject)[1]).Value});}
-    }
+        /**
+          <summary>Gets the name of the colorant that this separation color space is intended
+          to represent.</summary>
+          <remarks>Special names:
+            <list type="bullet">
+              <item><see cref="AllComponentName">All</see></item>
+              <item><see cref="NoneComponentName">None</see></item>
+            </list>
+          </remarks>
+        */
+        public override IList<string> ComponentNames => new List<string>(new string[] { (string)((PdfName)((PdfArray)BaseDataObject)[1]).Value });
 
-    public override Color DefaultColor
-    {
-      get
-      {return SeparationColor.Default;}
-    }
+        public override Color DefaultColor => SeparationColor.Default;
 
-    public override Color GetColor(
+        public override Color GetColor(
       IList<PdfDirectObject> components,
       IContentContext context
       )
