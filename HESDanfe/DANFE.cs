@@ -402,6 +402,10 @@ namespace HESDanfe
         public string AjustarCaminhoPDF(string FilePath, TipoDocumento? TipoDocumento = null)
         {
             FilePath = FilePath.IfBlank(System.IO.Path.GetTempPath());
+            if (!FilePath.IsPath())
+            {
+                FilePath = Path.Combine(System.IO.Path.GetTempPath(), FilePath);
+            }
 
             if (FilePath.IsDirectoryPath())
             {
