@@ -10,9 +10,9 @@ namespace HESDanfe.Blocos
     {
         public CabecalhoBloco CabecalhoBloco { get; private set; }
         public Tabela Tabela { get; private set; }
-        public DANFEViewModel ViewModel { get; private set; }
+        public DANFEModel ViewModel { get; private set; }
 
-        public TabelaProdutosServicos(DANFEViewModel viewModel, Estilo estilo) : base(estilo)
+        public TabelaProdutosServicos(DANFEModel viewModel, Estilo estilo) : base(estilo)
         {
             ViewModel = viewModel ?? throw new ArgumentNullException(nameof(viewModel));
             CabecalhoBloco = new CabecalhoBloco(estilo, "DADOS DOS PRODUTOS / SERVIÇOS");

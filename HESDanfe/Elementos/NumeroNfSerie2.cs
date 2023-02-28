@@ -7,9 +7,9 @@ namespace HESDanfe
     class NumeroNfSerie2 : ElementoBase
     {
         public RectangleF RetanguloNumeroFolhas { get; private set; }
-        public DANFEViewModel ViewModel { get; private set; }
+        public DANFEModel ViewModel { get; private set; }
 
-        public NumeroNfSerie2(Estilo estilo, DANFEViewModel viewModel) : base(estilo)
+        public NumeroNfSerie2(Estilo estilo, DANFEModel viewModel) : base(estilo)
         {
             ViewModel = viewModel;
         }

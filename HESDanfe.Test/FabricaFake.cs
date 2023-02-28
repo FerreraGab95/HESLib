@@ -62,9 +62,9 @@ namespace HESDanfe.Test
             };
         }
 
-        public static DANFEViewModel DanfeViewModel_1()
+        public static DANFEModel DanfeViewModel_1()
         {
-            var m = new DANFEViewModel()
+            var m = new DANFEModel()
             {
                 NfNumero = 888888888,
                 NfSerie = 888,

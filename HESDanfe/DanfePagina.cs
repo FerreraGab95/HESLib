@@ -4,6 +4,7 @@ using System.Linq;
 using HESDanfe.Blocos;
 using HESDanfe.Documents;
 using HESDanfe.Documents.Contents.Composition;
+using HESDanfe.Files;
 using HESDanfe.Graphics;
 
 namespace HESDanfe
@@ -20,22 +21,24 @@ namespace HESDanfe
         public RectangleF RetanguloCreditos { get; private set; }
         public RectangleF Retangulo { get; private set; }
 
-        public DanfePagina(DANFE danfe)
+        public DanfePagina(DANFE danfe, PdfFile pdf)
         {
-            Danfe = danfe ?? throw new ArgumentNullException(nameof(danfe));
-            PdfPage = new Page(Danfe.Documento);
-            Danfe.Documento.Pages.Add(PdfPage);
+            danfe = danfe ?? throw new ArgumentNullException(nameof(pdf));
+            pdf = pdf ?? throw new ArgumentNullException(nameof(danfe));
+            this.Danfe = danfe;
+            PdfPage = new Page(pdf.Document);
+            pdf.Document.Pages.Add(PdfPage);
 
             PrimitiveComposer = new PrimitiveComposer(PdfPage);
             Gfx = new Gfx(PrimitiveComposer);
 
-            if (Danfe.ViewModel.Orientacao == Orientacao.Retrato)
+            if (danfe.ViewModel.Orientacao == Orientacao.Retrato)
                 Retangulo = new RectangleF(0, 0, Utils.A4Largura, Utils.A4Altura);
             else
                 Retangulo = new RectangleF(0, 0, Utils.A4Altura, Utils.A4Largura);
 
-            RetanguloDesenhavel = Retangulo.InflatedRetangle(Danfe.ViewModel.Margem);
-            RetanguloCreditos = new RectangleF(RetanguloDesenhavel.X, RetanguloDesenhavel.Bottom + Danfe.EstiloPadrao.PaddingSuperior, RetanguloDesenhavel.Width, Retangulo.Height - RetanguloDesenhavel.Height - Danfe.EstiloPadrao.PaddingSuperior);
+            RetanguloDesenhavel = Retangulo.InflatedRetangle(danfe.ViewModel.Margem);
+            RetanguloCreditos = new RectangleF(RetanguloDesenhavel.X, RetanguloDesenhavel.Bottom + danfe.EstiloPadrao.PaddingSuperior, RetanguloDesenhavel.Width, Retangulo.Height - RetanguloDesenhavel.Height - danfe.EstiloPadrao.PaddingSuperior);
             PdfPage.Size = new SizeF(Retangulo.Width.ToPoint(), Retangulo.Height.ToPoint());
         }
 

@@ -19,22 +19,22 @@ namespace HESDanfe.Test
         {
             var model = FabricaFake.DanfeViewModel_1();
             model.Orientacao = Orientacao.Retrato;
-            using (DANFE d = new DANFE(model))
+            DANFE d = new DANFE(model);
+
+            if (logoPath.EndsWith(".pdf", StringComparison.InvariantCultureIgnoreCase))
             {
-                if (logoPath.EndsWith(".pdf", StringComparison.InvariantCultureIgnoreCase))
-                {
-                    d.AdicionarLogoPdf(logoPath);
-                    model.Emitente.NomeFantasia = "Logo Vetor Ltda.";
-                }
-                else
-                {
-                    d.AdicionarLogoImagem(logoPath);
-                    model.Emitente.NomeFantasia = "Logo Raster Ltda.";
-                }
-
-
-                d.Gerar(Path.Combine(OutputDirectoryName, pdfName + ".pdf"), Modelo.TipoDocumento.DANFE);
+                d.AdicionarLogoPdf(logoPath);
+                model.Emitente.NomeFantasia = "Logo Vetor Ltda.";
             }
+            else
+            {
+                d.AdicionarLogoImagem(logoPath);
+                model.Emitente.NomeFantasia = "Logo Raster Ltda.";
+            }
+
+
+            d.Gerar(Path.Combine(OutputDirectoryName, pdfName + ".pdf"), Modelo.TipoDocumento.DANFE);
+
         }
 
 

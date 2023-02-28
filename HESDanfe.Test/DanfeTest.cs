@@ -18,6 +18,8 @@ namespace HESDanfe.Test
             new DirectoryInfo(@"C:\teste\testeDANFE").MergePDF(@"C:\teste\pdfunico.pdf");
         }
 
+
+
         [TestMethod]
         public void ComBlocoLocalEntrega()
         {

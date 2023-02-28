@@ -6,7 +6,7 @@ namespace HESDanfe.Blocos
     internal class BlocoDuplicataFatura : BlocoBase
     {      
 
-        public BlocoDuplicataFatura(DANFEViewModel viewModel, Estilo estilo) : base(viewModel, estilo)
+        public BlocoDuplicataFatura(DANFEModel viewModel, Estilo estilo) : base(viewModel, estilo)
         {
             var de = viewModel.Duplicatas.Select(x => new Duplicata(estilo, x)).ToList();
             var eh = de.First().Height;

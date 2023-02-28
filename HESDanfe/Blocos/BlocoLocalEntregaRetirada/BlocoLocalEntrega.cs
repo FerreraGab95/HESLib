@@ -4,7 +4,7 @@ namespace HESDanfe.Blocos
 {
     class BlocoLocalEntrega : BlocoLocalEntregaRetirada
     {
-        public BlocoLocalEntrega(DANFEViewModel viewModel, Estilo estilo) 
+        public BlocoLocalEntrega(DANFEModel viewModel, Estilo estilo) 
             : base(viewModel, estilo, viewModel.LocalEntrega)
         {
         }

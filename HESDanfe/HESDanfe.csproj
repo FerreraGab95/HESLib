@@ -93,7 +93,7 @@
     <Compile Include="Graphics\Fonte.cs" />
     <Compile Include="Modelo\CalculoImpostoViewModel.cs" />
     <Compile Include="Modelo\CalculoIssqnViewModel.cs" />
-    <Compile Include="Modelo\DANFEViewModel.cs" />
+    <Compile Include="Modelo\DANFEModel.cs" />
     <Compile Include="Modelo\EmpresaViewModel.cs" />
     <Compile Include="Modelo\DuplicataViewModel.cs" />
     <Compile Include="Modelo\LocalEntregaRetiradaViewModel.cs" />

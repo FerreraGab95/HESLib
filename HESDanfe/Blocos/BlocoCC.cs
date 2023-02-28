@@ -26,7 +26,7 @@ namespace HESDanfe.Blocos
 
         #region Public Constructors
 
-        public BlocoCondicaoCCE(DANFEViewModel viewModel, Estilo estilo) : base(viewModel, estilo)
+        public BlocoCondicaoCCE(DANFEModel viewModel, Estilo estilo) : base(viewModel, estilo)
         {
 
 

@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System.IO;
 using HESDanfe.Modelo;
+using InnerLibs;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HESDanfe.Test
@@ -42,6 +43,22 @@ namespace HESDanfe.Test
             }
         }
 
+        [TestMethod]
+
+        public void TestarUnico()
+        {
+            DANFE.LicenseKey = "147A-6E0A-D208-792D-47A7-FCB1-A8B1";
+
+
+            var nfe = @"C:\svn\EnviaSADWeb\Envia\Uploads\XmlDistribuicao\35210701818337000173550010000618721000618732-procNFe.xml";
+            var cce = @"C:/svn/EnviaSADWeb/Envia/Uploads/XmlDistribuicaoEventos/35230204667427000107550000234567891234567909_110110_01-proceventonfe.xml";
+            var logo = @"C:\Users\H&S\Pictures\logo_envia_large.jpg";
+
+            var d = new DANFE(nfe, cce, logo);
+            d.ViewModel.TextoCorrecao = Ext.RandomIpsum(100);
+            d.GerarUnico();
+        }
+
         public void TestXml(string xmlPath, string ccePath = null)
         {
             var outPdfFilePath = Path.Combine(OutputDirectory, Path.GetFileNameWithoutExtension(xmlPath) + ".pdf");
@@ -49,11 +66,10 @@ namespace HESDanfe.Test
             {
                 ccePath = Path.Combine(InputXmlDirectoryPrefix, ccePath);
             }
-            var model = DANFEViewModel.CriarDeArquivoXml(Path.Combine(InputXmlDirectoryPrefix, xmlPath), ccePath);
-            using (DANFE danfe = new DANFE(model))
-            {
-                danfe.Gerar(new FileInfo(outPdfFilePath), TipoDocumento.DANFE);
-            }
+            var model = DANFEModel.CriarDeArquivoXml(Path.Combine(InputXmlDirectoryPrefix, xmlPath), ccePath);
+            DANFE danfe = new DANFE(model);
+            danfe.Gerar(outPdfFilePath, TipoDocumento.DANFE);
+
         }
 
         [TestMethod]

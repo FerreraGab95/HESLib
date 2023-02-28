@@ -11,7 +11,7 @@ namespace HESDanfe.Blocos
         private Campo _cReservadoFisco;
         public const float InfComplementaresLarguraPorcentagem = 75;
 
-        public BlocoDadosAdicionais(DANFEViewModel viewModel, Estilo estilo) : base(viewModel, estilo)
+        public BlocoDadosAdicionais(DANFEModel viewModel, Estilo estilo) : base(viewModel, estilo)
         {
             _cInfComplementares = new CampoMultilinha("Informações Complementares", ViewModel.TextoAdicional, estilo);
             _cReservadoFisco = new CampoMultilinha("Reservado ao Fisco", ViewModel.TextoAdicionalFisco, estilo);

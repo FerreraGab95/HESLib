@@ -11,7 +11,7 @@ namespace HESDanfe.Blocos
         public const float LarguraCampoUf = 7F * Proporcao;
         public const float LarguraFrete = 34F * Proporcao;
 
-        public BlocoTransportador(DANFEViewModel viewModel, Estilo campoEstilo) : base(viewModel, campoEstilo)
+        public BlocoTransportador(DANFEModel viewModel, Estilo campoEstilo) : base(viewModel, campoEstilo)
         {
             var transportadora = viewModel.Transportadora;
 

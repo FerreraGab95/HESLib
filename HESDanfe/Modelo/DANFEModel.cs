@@ -15,7 +15,7 @@ namespace HESDanfe.Modelo
     /// <summary>
     /// Modelo de dados utilizado para o DANFE ou CC.
     /// </summary>
-    public class DANFEViewModel
+    public class DANFEModel
 
     {
         #region Private Fields
@@ -94,7 +94,7 @@ namespace HESDanfe.Modelo
             return m;
         }
 
-        private static DANFEViewModel CriarDeArquivoXmlInternal(TextReader nfeReader, TextReader cceReader = null)
+        private static DANFEModel CriarDeArquivoXmlInternal(TextReader nfeReader, TextReader cceReader = null)
         {
             ProcNFe nfe = null;
             ProcEventoNFe cce = null;
@@ -147,7 +147,7 @@ namespace HESDanfe.Modelo
             vICMSUFRemet = i.vICMSUFRemet
         };
 
-        internal static void ExtrairDatas(DANFEViewModel model, InfNFe infNfe)
+        internal static void ExtrairDatas(DANFEModel model, InfNFe infNfe)
         {
             var ide = infNfe.ide;
 
@@ -183,7 +183,7 @@ namespace HESDanfe.Modelo
 
         #region Public Constructors
 
-        public DANFEViewModel()
+        public DANFEModel()
         {
             QuantidadeCanhotos = 1;
             Margem = 4;
@@ -520,9 +520,9 @@ namespace HESDanfe.Modelo
 
         #region Public Methods
 
-        public static DANFEViewModel Create(ProcNFe procNfe, ProcEventoNFe procEventoNFe = null)
+        public static DANFEModel Create(ProcNFe procNfe, ProcEventoNFe procEventoNFe = null)
         {
-            var model = new DANFEViewModel();
+            var model = new DANFEModel();
 
             var infNfe = procNfe.NFe.infNFe;
             var ide = infNfe.ide;
@@ -729,7 +729,7 @@ namespace HESDanfe.Modelo
         /// </summary>
         /// <param name="caminhoNFe"></param>
         /// <returns></returns>
-        public static DANFEViewModel CriarDeArquivoXml(string caminhoNFe, string caminhoCCe)
+        public static DANFEModel CriarDeArquivoXml(string caminhoNFe, string caminhoCCe)
         {
             using (var sr = new StreamReader(caminhoNFe, true))
             {
@@ -752,7 +752,7 @@ namespace HESDanfe.Modelo
         /// </summary>
         /// <param name="nfeStream"></param>
         /// <returns>Modelo</returns>
-        public static DANFEViewModel CriarDeArquivoXml(Stream nfeStream, Stream cceStream = null)
+        public static DANFEModel CriarDeArquivoXml(Stream nfeStream, Stream cceStream = null)
         {
             if (nfeStream == null) throw new ArgumentNullException(nameof(nfeStream));
 
@@ -775,7 +775,7 @@ namespace HESDanfe.Modelo
         /// <summary>
         /// Cria o modelo a partir de uma string xml.
         /// </summary>
-        public static DANFEViewModel CriarDeStringXml(string nfeXML, string cceXML = null)
+        public static DANFEModel CriarDeStringXml(string nfeXML, string cceXML = null)
         {
             if (nfeXML == null) throw new ArgumentNullException(nameof(nfeXML));
 

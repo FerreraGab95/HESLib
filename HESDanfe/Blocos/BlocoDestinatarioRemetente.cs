@@ -5,7 +5,7 @@ namespace HESDanfe.Blocos
 {
     internal class BlocoDestinatarioRemetente : BlocoBase
     {
-        public BlocoDestinatarioRemetente(DANFEViewModel viewModel, Estilo estilo) : base(viewModel, estilo)
+        public BlocoDestinatarioRemetente(DANFEModel viewModel, Estilo estilo) : base(viewModel, estilo)
         {
             var destinatario = viewModel.Destinatario;
 
