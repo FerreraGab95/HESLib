@@ -1,8 +1,7 @@
 # HES Danfe
 
-HES Danfe é uma biblioteca em C# que permite a geração do DANFE em formato PDF. É um fork de DanfeSharp com algumas melhorias e implementações novas
-
-A biblioteca PDF Clown é utilizada para a escrita dos arquivos em PDF.
+HES Danfe é uma biblioteca em C# que permite a geração do DANFE em formato PDF. É um fork de DanfeSharp + PDF Clown com algumas melhorias e implementações novas
+ 
 
 Exemplo de uso:
 ```csharp
