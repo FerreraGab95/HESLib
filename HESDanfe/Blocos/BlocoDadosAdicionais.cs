@@ -14,7 +14,7 @@ namespace HESDanfe.Blocos
         public BlocoDadosAdicionais(DANFEViewModel viewModel, Estilo estilo) : base(viewModel, estilo)
         {
             _cInfComplementares = new CampoMultilinha("Informações Complementares", ViewModel.TextoAdicional, estilo);
-            _cReservadoFisco = new CampoMultilinha("Reservado ao fisco", ViewModel.TextoAdicionalFisco, estilo);
+            _cReservadoFisco = new CampoMultilinha("Reservado ao Fisco", ViewModel.TextoAdicionalFisco, estilo);
 
             _Linha = new FlexibleLine() { Height = _cInfComplementares.Height }
             .ComElemento(_cInfComplementares)

@@ -398,53 +398,66 @@ namespace HESDanfe.Modelo
 
         public int SequenciaCorrecao { get; set; }
 
+        public TipoDocumento TipoDocumento { get; set; } = TipoDocumento.DANFE;
+
         public virtual string TextoAdicional
         {
             get
             {
-                StringBuilder sb = new StringBuilder();
 
-                if (!string.IsNullOrEmpty(InformacoesComplementares))
-                    sb.AppendChaveValor("Inf. Contribuinte", InformacoesComplementares).Replace(";", "\r\n");
 
-                if (!string.IsNullOrEmpty(Destinatario.Email))
+                if (TipoDocumento == TipoDocumento.CCE)
                 {
-                    // Adiciona um espaço após a virgula caso necessário, isso facilita a quebra de linha.
-                    var destEmail = Regex.Replace(Destinatario.Email, @"(?<=\S)([,;])(?=\S)", "$1 ").Trim(new char[] { ' ', ',', ';' });
-                    sb.AppendChaveValor("Email do Destinatário", destEmail);
+                    return $"PROTOCOLO: {ProtocoloCorrecao}{Environment.NewLine}DATA/HORA: {DataHoraCorrecao:dd/MM/yyyy HH:mm:ss}{Environment.NewLine}EVENTO: {SequenciaCorrecao}";
+                }
+                else
+                {
+                    StringBuilder sb = new StringBuilder();
+
+
+                    if (!string.IsNullOrEmpty(InformacoesComplementares))
+                        sb.AppendChaveValor("Inf. Contribuinte", InformacoesComplementares).Replace(";", "\r\n");
+
+                    if (!string.IsNullOrEmpty(Destinatario.Email))
+                    {
+                        // Adiciona um espaço após a virgula caso necessário, isso facilita a quebra de linha.
+                        var destEmail = Regex.Replace(Destinatario.Email, @"(?<=\S)([,;])(?=\S)", "$1 ").Trim(new char[] { ' ', ',', ';' });
+                        sb.AppendChaveValor("Email do Destinatário", destEmail);
+                    }
+
+                    if (!string.IsNullOrEmpty(InformacoesAdicionaisFisco))
+                        sb.AppendChaveValor("Inf. fisco", InformacoesAdicionaisFisco);
+
+                    if (!string.IsNullOrEmpty(Pedido) && !Utils.StringContemChaveValor(InformacoesComplementares, "Pedido", Pedido))
+                        sb.AppendChaveValor("Pedido", Pedido);
+
+                    if (!string.IsNullOrEmpty(Contrato) && !Utils.StringContemChaveValor(InformacoesComplementares, "Contrato", Contrato))
+                        sb.AppendChaveValor("Contrato", Contrato);
+
+                    if (!string.IsNullOrEmpty(NotaEmpenho))
+                        sb.AppendChaveValor("Nota de Empenho", NotaEmpenho);
+
+                    foreach (var nfref in NotasFiscaisReferenciadas)
+                    {
+                        if (sb.Length > 0) sb.Append(" ");
+                        sb.Append(nfref);
+                    }
+
+                    #region NT 2013.003 Lei da Transparência
+
+                    if (CalculoImposto.ValorAproximadoTributos.HasValue && (string.IsNullOrEmpty(InformacoesComplementares) ||
+                        !Regex.IsMatch(InformacoesComplementares, @"((valor|vlr?\.?)\s+(aprox\.?|aproximado)\s+(dos\s+)?(trib\.?|tributos))|((trib\.?|tributos)\s+(aprox\.?|aproximado))", RegexOptions.IgnoreCase)))
+                    {
+                        if (sb.Length > 0) sb.Append("\r\n");
+                        sb.Append("Valor Aproximado dos Tributos: ");
+                        sb.Append(CalculoImposto.ValorAproximadoTributos.FormatarMoeda());
+                    }
+
+                    #endregion NT 2013.003 Lei da Transparência
+
+                    return sb.ToString();
                 }
 
-                if (!string.IsNullOrEmpty(InformacoesAdicionaisFisco))
-                    sb.AppendChaveValor("Inf. fisco", InformacoesAdicionaisFisco);
-
-                if (!string.IsNullOrEmpty(Pedido) && !Utils.StringContemChaveValor(InformacoesComplementares, "Pedido", Pedido))
-                    sb.AppendChaveValor("Pedido", Pedido);
-
-                if (!string.IsNullOrEmpty(Contrato) && !Utils.StringContemChaveValor(InformacoesComplementares, "Contrato", Contrato))
-                    sb.AppendChaveValor("Contrato", Contrato);
-
-                if (!string.IsNullOrEmpty(NotaEmpenho))
-                    sb.AppendChaveValor("Nota de Empenho", NotaEmpenho);
-
-                foreach (var nfref in NotasFiscaisReferenciadas)
-                {
-                    if (sb.Length > 0) sb.Append(" ");
-                    sb.Append(nfref);
-                }
-
-                #region NT 2013.003 Lei da Transparência
-
-                if (CalculoImposto.ValorAproximadoTributos.HasValue && (string.IsNullOrEmpty(InformacoesComplementares) ||
-                    !Regex.IsMatch(InformacoesComplementares, @"((valor|vlr?\.?)\s+(aprox\.?|aproximado)\s+(dos\s+)?(trib\.?|tributos))|((trib\.?|tributos)\s+(aprox\.?|aproximado))", RegexOptions.IgnoreCase)))
-                {
-                    if (sb.Length > 0) sb.Append("\r\n");
-                    sb.Append("Valor Aproximado dos Tributos: ");
-                    sb.Append(CalculoImposto.ValorAproximadoTributos.FormatarMoeda());
-                }
-
-                #endregion NT 2013.003 Lei da Transparência
-
-                return sb.ToString();
             }
         }
 

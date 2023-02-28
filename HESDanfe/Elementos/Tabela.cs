@@ -191,6 +191,6 @@ namespace HESDanfe
 
 
 
-        public override bool PossuiContono => false;
+        public override bool PossuiContorno => false;
     }
 }

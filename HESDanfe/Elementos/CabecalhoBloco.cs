@@ -24,6 +24,6 @@ namespace HESDanfe
         }
 
         public override float Height { get => MargemSuperior + Estilo.FonteBlocoCabecalho.AlturaLinha; set => throw new NotSupportedException(); }
-        public override bool PossuiContono => false;
+        public override bool PossuiContorno => false;
     }
 }

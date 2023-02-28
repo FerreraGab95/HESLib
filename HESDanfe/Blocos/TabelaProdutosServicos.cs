@@ -25,7 +25,7 @@ namespace HESDanfe.Blocos
             string cabecalho4 = ViewModel.Emitente.CRT == "3" ? "O/CST" : "O/CSOSN";
 
             if (ViewModel.IsRetrato)
-            { 
+            {
                 Tabela
                 .ComColuna(8.5f, ac, "CÓDIGO", "PRODUTO")
                 .ComColuna(0, ae, "DESCRIÇÃO DO PRODUTO / SERVIÇO")
@@ -97,12 +97,12 @@ namespace HESDanfe.Blocos
 
             CabecalhoBloco.SetPosition(X, Y);
             CabecalhoBloco.Width = Width;
-            CabecalhoBloco.Draw(gfx);    
+            CabecalhoBloco.Draw(gfx);
         }
 
 
         public RectangleF RetanguloTabela => BoundingBox.CutTop(CabecalhoBloco.Height);
         public bool CompletamenteDesenhada => Tabela.LinhaAtual == ViewModel.Produtos.Count;
-        public override bool PossuiContono => false;
+        public override bool PossuiContorno => false;
     }
 }

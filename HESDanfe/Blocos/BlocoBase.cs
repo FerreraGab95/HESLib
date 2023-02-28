@@ -61,6 +61,6 @@ namespace HESDanfe.Blocos
         }
 
         public override float Height { get => MainVerticalStack.Height; set => throw new NotSupportedException(); }
-        public override bool PossuiContono => false;
+        public override bool PossuiContorno => false;
     }
 }

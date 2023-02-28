@@ -9,7 +9,7 @@ namespace HESDanfe
     internal abstract class ElementoBase : DrawableBase
     {
         public Estilo Estilo { get; protected set; }
-        public virtual bool PossuiContono => true;
+        public virtual bool PossuiContorno => true;
 
         public ElementoBase(Estilo estilo)
         {
@@ -19,7 +19,7 @@ namespace HESDanfe
         public override void Draw(Gfx gfx)
         {
             base.Draw(gfx);
-            if (PossuiContono)
+            if (PossuiContorno)
                 gfx.StrokeRectangle(BoundingBox, 0.25f);
         }
     }
