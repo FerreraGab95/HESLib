@@ -50,6 +50,7 @@ namespace HESDanfe.Test
             DANFE.LicenseKey = "147A-6E0A-D208-792D-47A7-FCB1-A8B1";
 
 
+
             var nfe = @"C:\svn\EnviaSADWeb\Envia\Uploads\XmlDistribuicao\35210701818337000173550010000618721000618732-procNFe.xml";
             var cce = @"C:/svn/EnviaSADWeb/Envia/Uploads/XmlDistribuicaoEventos/35230204667427000107550000234567891234567909_110110_01-proceventonfe.xml";
             var logo = @"C:\Users\H&S\Pictures\logo_envia_large.jpg";

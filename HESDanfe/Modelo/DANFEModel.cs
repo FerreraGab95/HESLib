@@ -796,5 +796,8 @@ namespace HESDanfe.Modelo
         }
 
         #endregion Public Methods
+
+        public bool PossuiCCE => TextoCorrecao.IsNotBlank() && SequenciaCorrecao > 0;
+
     }
 }

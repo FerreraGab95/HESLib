@@ -13,40 +13,20 @@ namespace HESDanfe
 {
     public class DANFE
     {
-        #region Private Methods
-
-        private DanfePagina CriarPagina(PdfFile F)
-        {
-            DanfePagina p = new DanfePagina(this, F);
-            Paginas.Add(p);
-            p.DesenharBlocos(Paginas.Count == 1);
-
-            if (LicenseKey != "hes.com.br".GenerateLicenseKey())
-            {
-                p.DesenharCreditos("Impresso com H&S Technologies - hes.com.br");
-            }
-            else if (Creditos.IsNotBlank())
-            {
-                p.DesenharCreditos(Creditos);
-            }
-
-            // Ambiente de homologação
-            // 7. O DANFE emitido para representar NF-e cujo uso foi autorizado em ambiente de
-            // homologação sempre deverá conter a frase “SEM VALOR FISCAL” no quadro “Informações
-            // Complementares” ou em marca d’água destacada.
-            if (ViewModel.TipoAmbiente == Esquemas.NFe.TAmb.Homologacao)
-                p.DesenharAvisoHomologacao();
-
-            return p;
-        }
-
-        #endregion Private Methods
-
         #region Internal Fields
 
+        internal static StandardType1Font FonteItalico;
+
+        internal static StandardType1Font FonteNegrito;
+
+        internal static StandardType1Font FonteRegular;
+
         internal List<BlocoBase> Blocos;
+
         internal bool disposedValue = false;
+
         internal StandardType1Font.FamilyEnum FonteFamilia;
+
         internal object ObjetoLogo = null;
 
         #endregion Internal Fields
@@ -56,6 +36,7 @@ namespace HESDanfe
         internal BlocoCanhoto Canhoto { get; private set; }
 
         internal Estilo EstiloPadrao { get; private set; }
+
         internal BlocoIdentificacaoEmitente IdentificacaoEmitente { get; private set; }
 
         internal List<DanfePagina> Paginas { get; private set; }
@@ -80,177 +61,21 @@ namespace HESDanfe
 
         internal void AdicionarBloco(BlocoBase bloco) => Blocos.Add(bloco);
 
-        internal T CriarBloco<T>() where T : BlocoBase => (T)Activator.CreateInstance(typeof(T), ViewModel, EstiloPadrao);
-
-        internal T CriarBloco<T>(Estilo estilo) where T : BlocoBase => (T)Activator.CreateInstance(typeof(T), ViewModel, estilo);
-
-        internal void PreencherNumeroFolhas()
-        {
-            int nFolhas = Paginas.Count;
-            for (int i = 0; i < Paginas.Count; i++)
-            {
-                Paginas[i].DesenhaNumeroPaginas(i + 1, nFolhas);
-            }
-        }
-
-        #endregion Internal Methods
-
-        #region Public Fields
-
-        public static StandardType1Font FonteItalico;
-
-        public static StandardType1Font FonteNegrito;
-
-        public static StandardType1Font FonteRegular;
-
-        #endregion Public Fields
-
-        #region Public Constructors
-
-        public DANFE(string xmlNFePath, string xmlCCePath, string logoPath) : this(DANFEModel.CriarDeArquivoXml(xmlNFePath, xmlCCePath), logoPath)
-        {
-        }
-
-        public DANFE(string xmlNFePath, string logoPath) : this(DANFEModel.CriarDeArquivoXml(xmlNFePath, null), logoPath)
-        {
-        }
-
-        public DANFE(string xmlNFePath) : this(DANFEModel.CriarDeArquivoXml(xmlNFePath, null), null)
-        {
-        }
-
-        public DANFE(DANFEModel viewModel) : this(viewModel, null)
-        {
-        }
-
-        public DANFE(DANFEModel viewModel, string logoPath)
-        {
-            ViewModel = viewModel ?? throw new ArgumentNullException(nameof(viewModel));
-            AdicionarLogo(logoPath);
-        }
-
-        #endregion Public Constructors
-
-        #region Public Properties
-
-        /// <summary>
-        /// Chave de licença para customização dos <see cref="Creditos"/>.
-        /// </summary>
-        public static string LicenseKey { get; set; }
-
-        /// <summary>
-        /// Empresa responsavel por gerar o DANFE
-        /// </summary>
-        public string Autor { get; set; } = Utils.GetCompanyName();
-
-        /// <summary>
-        /// Nota rodapé adicionada em cada folha do DANFE
-        /// </summary>
-        public string Creditos { get; set; }
-
-        public bool GerarCCE => ViewModel != null && Ext.IsNotBlank(ViewModel.TextoCorrecao) && ViewModel.SequenciaCorrecao > 0;
-
-        /// <summary>
-        /// Informações extraidas do XML da nota fiscal e da carta de correção
-        /// </summary>
-        public DANFEModel ViewModel { get; set; }
-
-        #endregion Public Properties
-
-        #region Public Methods
-
-        /// <summary>
-        /// Gera um nome padronizado para CCE
-        /// </summary>
-        /// <param name="ChaveNFe"></param>
-        /// <param name="SequenciaEvento"></param>
-        /// <returns></returns>
-        public static string GerarNomePdfCCE(string ChaveNFe, int SequenciaEvento) => $"DANFE-{Utils.FormatarChaveAcesso(ChaveNFe).RemoveMask()}-CCE-{SequenciaEvento}.pdf";
-
-        /// <summary>
-        /// Gera um nome padronizado para o DANFE
-        /// </summary>
-        /// <param name="ChaveNFe"></param>
-        /// <returns></returns>
-        public static string GerarNomePdfDANFE(string ChaveNFe) => $"DANFE-{Utils.FormatarChaveAcesso(ChaveNFe).RemoveMask()}.pdf";
-
-        public static string GerarNomeUnico(string ChaveNFe, int SequenciaEvento) => $"DANFE-CCE-{Utils.FormatarChaveAcesso(ChaveNFe).RemoveMask()}-{SequenciaEvento}.pdf";
-
-        /// <inheritdoc cref="GerarPDF(string, string, string, DirectoryInfo)"/>
-        public static IEnumerable<FileInfo> GerarPDF(string PathNFe, string PathCCe, DirectoryInfo outputPath) => GerarPDF(PathNFe, PathCCe, null, outputPath);
-
-        /// <inheritdoc cref="GerarPDF(string, string, string, DirectoryInfo)"/>
-        public static FileInfo GerarPDF(string PathNFe, DirectoryInfo outputPath) => GerarPDF(PathNFe, null, null, outputPath).FirstOrDefault();
-
-        /// <summary>
-        /// Gera um DANFE em PDF com as informações fornecidas
-        /// </summary>
-        /// <param name="PathNFe">Caminho do XML da nota fiscal</param>
-        /// <param name="PathCCe">Caminho do XML da carta de correção</param>
-        /// <param name="outputPath">Caminho de saída dos arquivos</param>
-        /// <param name="PathLogo">Caminho com o logo da empresa responsavel pela NFe</param>
-        /// <returns>uma lista de <see cref="FileInfo"/> com os caminhos dos arquivos gerados</returns>
-        public static IEnumerable<FileInfo> GerarPDF(string PathNFe, string PathCCe, string PathLogo, DirectoryInfo outputPath)
-        {
-            var d = new DANFE(PathNFe, PathCCe, PathLogo);
-            return d.Gerar(outputPath);
-        }
-
-        /// <summary>
-        /// Adiciona um logo JPG ou PDF ao DANFE.
-        /// </summary>
-        /// <param name="logoPath">Caminho para o PDF ou JPG</param>
-        public void AdicionarLogo(string logoPath)
-        {
-            if (Ext.IsNotBlank(logoPath) && File.Exists(logoPath))
-            {
-                if (System.IO.Path.GetFileName(logoPath).EndsWith("pdf", StringComparison.InvariantCultureIgnoreCase))
-                {
-                    AdicionarLogoPdf(logoPath);
-                }
-                else
-                {
-                    AdicionarLogoImagem(logoPath);
-                }
-            }
-        }
-
-        /// <summary>
-        /// Adiciona um logo a NFe
-        /// </summary>
-        /// <param name="stream"></param>
-        /// <exception cref="ArgumentNullException"></exception>
-        /// <exception cref="InvalidOperationException"></exception>
-        public void AdicionarLogoImagem(System.IO.Stream stream)
-        {
-            if (stream == null) throw new ArgumentNullException(nameof(stream));
-            var img = Documents.Contents.Entities.Image.Get(stream) ?? throw new InvalidOperationException("O logotipo não pode ser carregado, certifique-se que a imagem esteja no formato JPEG não progressivo.");
-            ObjetoLogo = img;
-        }
-
         /// <inheritdoc cref="AdicionarLogoImagem(Stream)"/>
-        public void AdicionarLogoImagem(string path)
+        internal void AdicionarLogoImagem(string path)
         {
             if (path.IsBlank()) throw new ArgumentException(nameof(path));
             AdicionarLogoImagem(new FileStream(path, FileMode.Open, FileAccess.Read));
         }
 
         /// <inheritdoc cref="AdicionarLogoImagem(Stream)"/>
-        public void AdicionarLogoPdf(System.IO.Stream stream)
-        {
-            if (stream == null) throw new ArgumentNullException(nameof(stream));
-
-            ObjetoLogo = new Files.PdfFile(new HESDanfe.Bytes.Stream(stream)).Document.Pages[0];
-        }
-
-        /// <inheritdoc cref="AdicionarLogoImagem(Stream)"/>
-        public void AdicionarLogoPdf(string path)
+        internal void AdicionarLogoPdf(string path)
         {
             if (path.IsBlank()) throw new ArgumentException(nameof(path));
             AdicionarLogoPdf(new FileStream(path, FileMode.Open, FileAccess.Read));
         }
 
-        public string AjustarCaminhoPDF(string FilePath, TipoDocumento? TipoDocumento = null)
+        internal string AjustarCaminhoPDF(string FilePath, TipoDocumento? TipoDocumento = null)
         {
             FilePath = FilePath.IfBlank(System.IO.Path.GetTempPath());
             if (!FilePath.IsPath())
@@ -290,6 +115,183 @@ namespace HESDanfe
             }
         }
 
+        internal T CriarBloco<T>() where T : BlocoBase => (T)Activator.CreateInstance(typeof(T), ViewModel, EstiloPadrao);
+
+        internal T CriarBloco<T>(Estilo estilo) where T : BlocoBase => (T)Activator.CreateInstance(typeof(T), ViewModel, estilo);
+
+        internal DanfePagina CriarPagina(PdfFile F)
+        {
+            DanfePagina p = new DanfePagina(this, F);
+            Paginas.Add(p);
+            p.DesenharBlocos(Paginas.Count == 1);
+
+            if (LicenseKey != "hes.com.br".GenerateLicenseKey())
+            {
+                p.DesenharCreditos("Impresso com H&S Technologies - hes.com.br");
+            }
+            else if (Creditos.IsNotBlank())
+            {
+                p.DesenharCreditos(Creditos);
+            }
+
+            // Ambiente de homologação
+            // 7. O DANFE emitido para representar NF-e cujo uso foi autorizado em ambiente de
+            // homologação sempre deverá conter a frase “SEM VALOR FISCAL” no quadro “Informações
+            // Complementares” ou em marca d’água destacada.
+            if (ViewModel.TipoAmbiente == Esquemas.NFe.TAmb.Homologacao)
+                p.DesenharAvisoHomologacao();
+
+            return p;
+        }
+
+        internal void PreencherNumeroFolhas()
+        {
+            int nFolhas = Paginas.Count;
+            for (int i = 0; i < Paginas.Count; i++)
+            {
+                Paginas[i].DesenhaNumeroPaginas(i + 1, nFolhas);
+            }
+        }
+
+        #endregion Internal Methods
+
+        #region Public Constructors
+
+        public DANFE(string xmlNFePath, string xmlCCePath, string logoPath) : this(DANFEModel.CriarDeArquivoXml(xmlNFePath, xmlCCePath), logoPath)
+        {
+        }
+
+        public DANFE(string xmlNFePath, string logoPath) : this(DANFEModel.CriarDeArquivoXml(xmlNFePath, null), logoPath)
+        {
+        }
+
+        public DANFE(string xmlNFePath) : this(DANFEModel.CriarDeArquivoXml(xmlNFePath, null), null)
+        {
+        }
+
+        public DANFE(DANFEModel viewModel) : this(viewModel, null)
+        {
+        }
+
+        public DANFE(DANFEModel viewModel, string logoPath)
+        {
+            ViewModel = viewModel ?? throw new ArgumentNullException(nameof(viewModel));
+            AdicionarLogo(logoPath);
+        }
+
+        #endregion Public Constructors
+
+        #region Public Properties
+
+        /// <summary>
+        /// Empresa responsavel por gerar o DANFE
+        /// </summary>
+        public static string Autor { get; set; } = Utils.GetCompanyName();
+
+        /// <summary>
+        /// Nota rodapé adicionada em cada folha do DANFE
+        /// </summary>
+        public static string Creditos { get; set; }
+
+        /// <summary>
+        /// Chave de licença para customização dos <see cref="Creditos"/>.
+        /// </summary>
+        public static string LicenseKey { get; set; }
+
+        /// <summary>
+        /// Informações extraidas do XML da nota fiscal e da carta de correção
+        /// </summary>
+        public DANFEModel ViewModel { get; set; }
+
+        #endregion Public Properties
+
+        #region Public Methods
+
+        /// <summary>
+        /// Gera um nome padronizado para CCE
+        /// </summary>
+        /// <param name="ChaveNFe"></param>
+        /// <param name="SequenciaEvento"></param>
+        /// <returns></returns>
+        public static string GerarNomePdfCCE(string ChaveNFe, int SequenciaEvento) => $"DANFE-{Utils.FormatarChaveAcesso(ChaveNFe).RemoveMask()}-CCE-{SequenciaEvento}.pdf";
+
+        /// <summary>
+        /// Gera um nome padronizado para o DANFE
+        /// </summary>
+        /// <param name="ChaveNFe"></param>
+        /// <returns></returns>
+        public static string GerarNomePdfDANFE(string ChaveNFe) => $"DANFE-{Utils.FormatarChaveAcesso(ChaveNFe).RemoveMask()}.pdf";
+
+        public static string GerarNomeUnico(string ChaveNFe, int SequenciaEvento) => $"DANFE-CCE-{Utils.FormatarChaveAcesso(ChaveNFe).RemoveMask()}-Seq-{SequenciaEvento}.pdf";
+
+        /// <inheritdoc cref="GerarPDF(string, string, string, DirectoryInfo)"/>
+        public static IEnumerable<FileInfo> GerarPDF(string PathNFe, string PathCCe, DirectoryInfo outputPath) => GerarPDF(PathNFe, PathCCe, null, outputPath);
+
+        /// <inheritdoc cref="GerarPDF(string, string, string, DirectoryInfo)"/>
+        public static FileInfo GerarPDF(string PathNFe, DirectoryInfo outputPath) => GerarPDF(PathNFe, null, null, outputPath).FirstOrDefault();
+
+        /// <summary>
+        /// Gera um DANFE em PDF com as informações fornecidas
+        /// </summary>
+        /// <param name="PathNFe">Caminho do XML da nota fiscal</param>
+        /// <param name="PathCCe">Caminho do XML da carta de correção</param>
+        /// <param name="outputPath">Caminho de saída dos arquivos</param>
+        /// <param name="PathLogo">Caminho com o logo da empresa responsavel pela NFe</param>
+        /// <returns>uma lista de <see cref="FileInfo"/> com os caminhos dos arquivos gerados</returns>
+        public static IEnumerable<FileInfo> GerarPDF(string PathNFe, string PathCCe, string PathLogo, DirectoryInfo outputPath) => new DANFE(PathNFe, PathCCe, PathLogo).Gerar(outputPath);
+
+        /// <summary>
+        /// Adiciona um logo JPG ou PDF ao DANFE.
+        /// </summary>
+        /// <param name="logoPath">Caminho para o PDF ou JPG</param>
+        public void AdicionarLogo(string logoPath)
+        {
+            if (logoPath.IsFilePath())
+            {
+                var f = new FileInfo(logoPath);
+                if (f.Exists)
+                {
+                    if (f.GetFileType().Any(x => x == "application/pdf"))
+                    {
+                        AdicionarLogoPdf(logoPath);
+                    }
+                    else if (f.GetFileType().Any(x => x == "image/jpg" || x == "image/jpeg"))
+                    {
+                        AdicionarLogoImagem(logoPath);
+                    }
+                    else
+                    {
+                        throw new Exception("Arquivo não é um PDF ou JPEG");
+                    }
+                }
+                else
+                {
+                    throw new FileNotFoundException("Arquivo não existe");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Adiciona um logo a NFe
+        /// </summary>
+        /// <param name="stream"></param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="InvalidOperationException"></exception>
+        public void AdicionarLogoImagem(System.IO.Stream stream)
+        {
+            if (stream == null) throw new ArgumentNullException(nameof(stream));
+            var img = Documents.Contents.Entities.Image.Get(stream) ?? throw new InvalidOperationException("O logotipo não pode ser carregado, certifique-se que a imagem esteja no formato JPEG não progressivo.");
+            ObjetoLogo = img;
+        }
+
+        /// <inheritdoc cref="AdicionarLogoImagem(Stream)"/>
+        public void AdicionarLogoPdf(System.IO.Stream stream)
+        {
+            if (stream == null) throw new ArgumentNullException(nameof(stream));
+
+            ObjetoLogo = new Files.PdfFile(new HESDanfe.Bytes.Stream(stream)).Document.Pages[0];
+        }
+
         public PdfFile Gerar(TipoDocumento TipoDocumento)
         {
             var oldTipo = ViewModel.TipoDocumento;
@@ -325,6 +327,8 @@ namespace HESDanfe
             {
                 IdentificacaoEmitente.Logo = (Documents.Contents.xObjects.XObject)oo.Clone(OutputFile.Document);
             }
+
+            ObjetoLogo = IdentificacaoEmitente.Logo;
 
             AdicionarBloco<BlocoDestinatarioRemetente>();
             AdicionarBloco<BlocoDadosAdicionais>(Utils.CriarEstilo(tFonteCampoConteudo: 8));
@@ -432,7 +436,7 @@ namespace HESDanfe
 
             yield return Gerar(nfe, TipoDocumento.DANFE);
 
-            if (GerarCCE)
+            if (ViewModel?.PossuiCCE ?? false)
             {
                 var cce = AjustarCaminhoPDF(path.FullName, TipoDocumento.CCE);
                 yield return Gerar(cce, TipoDocumento.CCE);
@@ -472,7 +476,7 @@ namespace HESDanfe
         public PdfFile GerarUnico()
         {
             var danfe = Gerar(TipoDocumento.DANFE);
-            if (GerarCCE)
+            if (ViewModel?.PossuiCCE ?? false)
             {
                 var cce = Gerar(TipoDocumento.CCE);
 
