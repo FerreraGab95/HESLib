@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using ComplexText;
 using Extensions;
+using Extensions.ComplexText;
 using HES.Blocos;
 using HES.Bytes;
 using HES.Documents.Contents.Fonts;

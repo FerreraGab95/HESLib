@@ -1,5 +1,5 @@
-﻿using BR;
-using Extensions;
+﻿using Extensions;
+using Extensions.BR;
 using HES.Modelo;
 
 namespace HES.Blocos

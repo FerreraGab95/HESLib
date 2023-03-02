@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Xml;
 using System.Xml.Serialization;
-
-using BR;
 using Extensions;
+using Extensions.BR;
 
 namespace HES.Esquemas
 {

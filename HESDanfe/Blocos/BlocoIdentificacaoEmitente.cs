@@ -1,5 +1,5 @@
 ﻿using System.Drawing;
-using BR;
+using Extensions.BR;
 using HES.Documents.Contents.xObjects;
 using HES.Modelo;
 

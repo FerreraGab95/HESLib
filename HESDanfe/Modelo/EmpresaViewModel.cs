@@ -1,6 +1,6 @@
 ﻿using System.Text;
-using BR;
 using Extensions;
+using Extensions.BR;
 
 namespace HES.Modelo
 {
