@@ -505,27 +505,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <EmbeddedResource Include="res\pkg\fonts\afm\Courier-Bold.afm" />
-    <EmbeddedResource Include="res\pkg\fonts\afm\Courier-BoldOblique.afm" />
-    <EmbeddedResource Include="res\pkg\fonts\afm\Courier-Oblique.afm" />
-    <EmbeddedResource Include="res\pkg\fonts\afm\Courier.afm" />
-    <EmbeddedResource Include="res\pkg\fonts\afm\Helvetica-Bold.afm" />
-    <EmbeddedResource Include="res\pkg\fonts\afm\Helvetica-BoldOblique.afm" />
-    <EmbeddedResource Include="res\pkg\fonts\afm\Helvetica-Oblique.afm" />
-    <EmbeddedResource Include="res\pkg\fonts\afm\Helvetica.afm" />
-    <EmbeddedResource Include="res\pkg\fonts\afm\Symbol.afm" />
-    <EmbeddedResource Include="res\pkg\fonts\afm\Times-Bold.afm" />
-    <EmbeddedResource Include="res\pkg\fonts\afm\Times-BoldItalic.afm" />
-    <EmbeddedResource Include="res\pkg\fonts\afm\Times-Italic.afm" />
-    <EmbeddedResource Include="res\pkg\fonts\afm\Times-Roman.afm" />
-    <EmbeddedResource Include="res\pkg\fonts\afm\ZapfDingbats.afm" />
-    <EmbeddedResource Include="res\pkg\fonts\AGL20.scsv" />
-    <EmbeddedResource Include="res\pkg\fonts\cff\ExpertCharset" />
-    <EmbeddedResource Include="res\pkg\fonts\cff\ExpertSubsetCharset" />
-    <EmbeddedResource Include="res\pkg\fonts\cff\ISOAdobeCharset" />
-    <EmbeddedResource Include="res\pkg\fonts\cff\StandardStrings" />
-    <EmbeddedResource Include="res\pkg\fonts\cmap\Identity-H" />
-    <EmbeddedResource Include="res\pkg\fonts\cmap\Identity-V" />
+    <EmbeddedResource Include="res\fonts\afm\Courier-Bold.afm" />
+    <EmbeddedResource Include="res\fonts\afm\Courier-BoldOblique.afm" />
+    <EmbeddedResource Include="res\fonts\afm\Courier-Oblique.afm" />
+    <EmbeddedResource Include="res\fonts\afm\Courier.afm" />
+    <EmbeddedResource Include="res\fonts\afm\Helvetica-Bold.afm" />
+    <EmbeddedResource Include="res\fonts\afm\Helvetica-BoldOblique.afm" />
+    <EmbeddedResource Include="res\fonts\afm\Helvetica-Oblique.afm" />
+    <EmbeddedResource Include="res\fonts\afm\Helvetica.afm" />
+    <EmbeddedResource Include="res\fonts\afm\Symbol.afm" />
+    <EmbeddedResource Include="res\fonts\afm\Times-Bold.afm" />
+    <EmbeddedResource Include="res\fonts\afm\Times-BoldItalic.afm" />
+    <EmbeddedResource Include="res\fonts\afm\Times-Italic.afm" />
+    <EmbeddedResource Include="res\fonts\afm\Times-Roman.afm" />
+    <EmbeddedResource Include="res\fonts\afm\ZapfDingbats.afm" />
+    <EmbeddedResource Include="res\fonts\AGL20.scsv" />
+    <EmbeddedResource Include="res\fonts\cff\ExpertCharset" />
+    <EmbeddedResource Include="res\fonts\cff\ExpertSubsetCharset" />
+    <EmbeddedResource Include="res\fonts\cff\ISOAdobeCharset" />
+    <EmbeddedResource Include="res\fonts\cff\StandardStrings" />
+    <EmbeddedResource Include="res\fonts\cmap\Identity-H" />
+    <EmbeddedResource Include="res\fonts\cmap\Identity-V" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="..\..\Innerlibs\InnerLibsCommon\InnerLibs.projitems" Label="Shared" />

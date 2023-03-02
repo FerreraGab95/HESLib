@@ -89,7 +89,8 @@ namespace HES.Documents.Contents.Fonts
             try
             {
                 var ass = Assembly.GetExecutingAssembly();
-                fontMetricsStream = ass.GetManifestResourceStream($"{ass.GetName().Name}.res.pkg.fonts.afm.{fontName}.afm");
+                var nome = ass.GetName().Name;
+                fontMetricsStream = ass.GetManifestResourceStream($"{nome}.res.fonts.afm.{fontName}.afm");
 
                 AfmParser parser = new AfmParser(new Bytes::Stream(fontMetricsStream));
                 metrics = parser.Metrics;

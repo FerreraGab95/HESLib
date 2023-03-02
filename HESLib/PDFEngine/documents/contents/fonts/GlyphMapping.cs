@@ -40,21 +40,22 @@ namespace HES.Documents.Contents.Fonts
     {
         private static Dictionary<string, int> codes = new Dictionary<string, int>();
 
-        static GlyphMapping(
-          )
-        { Load(); }
+        static GlyphMapping()
+        {
+            Load();
+        }
 
-        public static int? NameToCode(
-          string name
-          )
-        { int code; return codes.TryGetValue(name, out code) ? code : (int?)null; }
+        public static int? NameToCode(string name)
+        {
+            int code;
+            return codes.TryGetValue(name, out code) ? code : (int?)null;
+        }
 
         /**
           <summary>Loads the glyph list mapping character names to character codes (unicode
           encoding).</summary>
         */
-        private static void Load(
-          )
+        private static void Load()
         {
             StreamReader glyphListStream = null;
             try
@@ -64,9 +65,8 @@ namespace HES.Documents.Contents.Fonts
                   NOTE: The Adobe Glyph List [AGL:2.0] represents the reference name-to-unicode map
                   for consumer applications.
                 */
-                glyphListStream = new StreamReader(
-                  Assembly.GetExecutingAssembly().GetManifestResourceStream("HES.res.pkg.fonts.AGL20.scsv")
-                  );
+                var ass = Assembly.GetExecutingAssembly();
+                glyphListStream = new StreamReader(ass.GetManifestResourceStream($"{ass.GetName().Name}.res.fonts.AGL20.scsv"));
 
                 // Parsing the glyph list...
                 string line;
@@ -80,10 +80,7 @@ namespace HES.Documents.Contents.Fonts
                     Match lineMatch = lineMatches[0];
 
                     string name = lineMatch.Groups[1].Value;
-                    int code = Int32.Parse(
-                      lineMatch.Groups[2].Value,
-                      NumberStyles.HexNumber
-                      );
+                    int code = Int32.Parse(lineMatch.Groups[2].Value, NumberStyles.HexNumber);
 
                     // Associate the character name with its corresponding character code!
                     codes[name] = code;
@@ -91,8 +88,7 @@ namespace HES.Documents.Contents.Fonts
             }
             finally
             {
-                if (glyphListStream != null)
-                { glyphListStream.Close(); }
+                glyphListStream?.Close();
             }
         }
     }

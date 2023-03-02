@@ -49,10 +49,10 @@ namespace HES.Bytes
 
         #region Public Constructors
 
-        public Stream(
-        System.IO.Stream stream
-                     )
-        { this.stream = stream; }
+        public Stream(System.IO.Stream stream)
+        {
+            this.stream = stream;
+        }
 
         #endregion Public Constructors
 
