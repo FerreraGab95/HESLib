@@ -23,11 +23,11 @@
   this list of conditions.
 */
 
-using HESDanfe.Objects;
+using HES.Objects;
 
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.Contents.Fonts
+namespace HES.Documents.Contents.Fonts
 {
   /**
     <summary>Composite font associated to a Type 0 CIDFont,

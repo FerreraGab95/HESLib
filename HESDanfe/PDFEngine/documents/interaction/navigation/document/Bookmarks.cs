@@ -23,16 +23,16 @@
   this list of conditions.
 */
 
-using HESDanfe;
-using HESDanfe.Documents;
-using HESDanfe.Files;
-using HESDanfe.Objects;
+using HES;
+using HES.Documents;
+using HES.Files;
+using HES.Objects;
 
 using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.Interaction.Navigation.Document
+namespace HES.Documents.Interaction.Navigation.Document
 {
   /**
     <summary>Collection of bookmarks [PDF:1.6:8.2.2].</summary>

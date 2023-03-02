@@ -23,12 +23,12 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Objects;
+using HES.Bytes;
+using HES.Objects;
 
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.Contents.Objects
+namespace HES.Documents.Contents.Objects
 {
   /**
     <summary>'Set the line dash pattern' operation [PDF:1.6:4.3.3].</summary>

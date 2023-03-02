@@ -1,7 +1,7 @@
 ﻿using Extensions;
-using HESDanfe.Graphics;
+using HES.Graphics;
 
-namespace HESDanfe
+namespace HES
 {
     class NumeroNfSerie : ElementoBase
     {

@@ -25,7 +25,7 @@
 
 using System;
 
-namespace HESDanfe
+namespace HES
 {
   /**
     <summary>Indicates the PDF compatibility level of the annotated element.</summary>

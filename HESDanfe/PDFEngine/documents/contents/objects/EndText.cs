@@ -23,9 +23,9 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
+using HES.Bytes;
 
-namespace HESDanfe.Documents.Contents.Objects
+namespace HES.Documents.Contents.Objects
 {
   /**
     <summary>'End text object' operation [PDF:1.6:5.3].</summary>

@@ -23,15 +23,15 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Documents;
-using HESDanfe.Documents.Contents;
-using HESDanfe.Objects;
+using HES.Bytes;
+using HES.Documents;
+using HES.Documents.Contents;
+using HES.Objects;
 
 using System;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.Interaction.Annotations
+namespace HES.Documents.Interaction.Annotations
 {
   /**
     <summary>Border characteristics [PDF:1.6:8.4.3].</summary>

@@ -23,13 +23,13 @@
   this list of conditions.
 */
 
-using Bytes = HESDanfe.Bytes;
-using HESDanfe.Documents.Contents.Objects;
-using HESDanfe.Objects;
-using HESDanfe.Tokens;
-using HESDanfe.Util;
-using HESDanfe.Util.Math;
-using HESDanfe.Util.Parsers;
+using Bytes = HES.Bytes;
+using HES.Documents.Contents.Objects;
+using HES.Objects;
+using HES.Tokens;
+using HES.Util;
+using HES.Util.Math;
+using HES.Util.Parsers;
 
 using System;
 using System.Collections.Generic;
@@ -37,7 +37,7 @@ using System.Globalization;
 using io = System.IO;
 using System.Text;
 
-namespace HESDanfe.Documents.Contents.Fonts
+namespace HES.Documents.Contents.Fonts
 {
   /**
     <summary>CMap parser [PDF:1.6:5.6.4;CMAP].</summary>

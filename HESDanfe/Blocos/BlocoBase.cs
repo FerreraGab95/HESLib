@@ -1,11 +1,11 @@
 ﻿using System;
 using Extensions;
-using HESDanfe.Elementos;
-using HESDanfe.Graphics;
-using HESDanfe.Modelo;
+using HES.Elementos;
+using HES.Graphics;
+using HES.Modelo;
 
 
-namespace HESDanfe.Blocos
+namespace HES.Blocos
 {
     /// <summary>
     /// Define um bloco básico do DANFE.

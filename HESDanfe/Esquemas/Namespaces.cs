@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace HESDanfe.Esquemas
+namespace HES.Esquemas
 {
     public static class Namespaces
     {

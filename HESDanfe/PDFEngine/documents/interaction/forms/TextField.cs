@@ -26,18 +26,18 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using HESDanfe.Documents.Contents;
-using HESDanfe.Documents.Contents.Composition;
-using HESDanfe.Documents.Contents.Objects;
-using HESDanfe.Documents.Contents.Tokens;
-using HESDanfe.Documents.Contents.xObjects;
-using HESDanfe.Documents.Interaction.Annotations;
-using HESDanfe.Objects;
-using HESDanfe.Util;
-using Bytes = HESDanfe.Bytes;
-using Fonts = HESDanfe.Documents.Contents.Fonts;
+using HES.Documents.Contents;
+using HES.Documents.Contents.Composition;
+using HES.Documents.Contents.Objects;
+using HES.Documents.Contents.Tokens;
+using HES.Documents.Contents.xObjects;
+using HES.Documents.Interaction.Annotations;
+using HES.Objects;
+using HES.Util;
+using Bytes = HES.Bytes;
+using Fonts = HES.Documents.Contents.Fonts;
 
-namespace HESDanfe.Documents.Interaction.Forms
+namespace HES.Documents.Interaction.Forms
 {
     /**
       <summary>Text field [PDF:1.6:8.6.3].</summary>

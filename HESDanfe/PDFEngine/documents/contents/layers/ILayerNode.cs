@@ -23,12 +23,12 @@
   this list of conditions.
 */
 
-using HESDanfe.Files;
-using HESDanfe.Objects;
+using HES.Files;
+using HES.Objects;
 
 using System;
 
-namespace HESDanfe.Documents.Contents.Layers
+namespace HES.Documents.Contents.Layers
 {
   /**
     <summary>Object that can be inserted into a hierarchical layer structure.</summary>

@@ -23,7 +23,7 @@
   this list of conditions.
 */
 
-namespace HESDanfe.Documents.Contents
+namespace HES.Documents.Contents
 {
   /**
     <summary>Line Dash Pattern [PDF:1.6:4.3.2].</summary>

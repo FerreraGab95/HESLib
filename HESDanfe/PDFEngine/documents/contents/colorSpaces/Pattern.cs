@@ -23,13 +23,13 @@
   this list of conditions.
 */
 
-using HESDanfe.Files;
-using HESDanfe.Objects;
+using HES.Files;
+using HES.Objects;
 
 using System;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.Contents.ColorSpaces
+namespace HES.Documents.Contents.ColorSpaces
 {
   /**
     <summary>Paint that consists of a repeating graphical figure or a smoothly varying color gradient

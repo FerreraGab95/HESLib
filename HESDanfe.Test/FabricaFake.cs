@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using HESDanfe.Modelo;
+using HES.Modelo;
 
-namespace HESDanfe.Test
+namespace HES.Test
 {
     public static class FabricaFake
     {
@@ -121,7 +121,7 @@ namespace HESDanfe.Test
                     Ie = "12334",
                     EnderecoUf = "RS",
                     PesoLiquido = 456.7794,
-                    Marca = "HESDanfe",
+                    Marca = "HES",
                     EnderecoNumero = "101",
                     ModalidadeFrete = 4,
                     PesoBruto = 101.1234

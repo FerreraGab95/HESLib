@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
-using HESDanfe.Documents;
-using HESDanfe.Documents.Contents.Composition;
-using HESDanfe.Documents.Contents.Fonts;
-using HESDanfe.Files;
-using HESDanfe.Graphics;
+using HES.Documents;
+using HES.Documents.Contents.Composition;
+using HES.Documents.Contents.Fonts;
+using HES.Files;
+using HES.Graphics;
 
-namespace HESDanfe
+namespace HES
 {
     internal class SimplePdfPageTester : IDisposable
     {
@@ -58,7 +58,7 @@ namespace HESDanfe
 
         public Document Document { get; set; }
         public PdfFile File { get; set; }
-        public Gfx Gfx { get; set; }
+        public HES.Graphics.Gfx Gfx { get; set; }
         public Page Page { get; set; }
         public PrimitiveComposer PrimitiveComposer { get; set; }
 
@@ -68,7 +68,7 @@ namespace HESDanfe
 
         public Estilo CriarEstilo()
         {
-            return new Estilo(new StandardType1Font(Document, StandardType1Font.FamilyEnum.Times, false, false),
+            return new HES.Estilo(new StandardType1Font(Document, StandardType1Font.FamilyEnum.Times, false, false),
                        new StandardType1Font(Document, StandardType1Font.FamilyEnum.Times, true, false),
                        new StandardType1Font(Document, StandardType1Font.FamilyEnum.Times, false, true));
         }

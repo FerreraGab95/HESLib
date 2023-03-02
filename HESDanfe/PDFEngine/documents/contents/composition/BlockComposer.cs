@@ -29,13 +29,13 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using HESDanfe.Bytes;
-using HESDanfe.Documents.Contents.Objects;
-using HESDanfe.Util.Math;
-using Fonts = HESDanfe.Documents.Contents.Fonts;
-using xObjects = HESDanfe.Documents.Contents.xObjects;
+using HES.Bytes;
+using HES.Documents.Contents.Objects;
+using HES.Util.Math;
+using Fonts = HES.Documents.Contents.Fonts;
+using xObjects = HES.Documents.Contents.xObjects;
 
-namespace HESDanfe.Documents.Contents.Composition
+namespace HES.Documents.Contents.Composition
 {
     /**
       <summary>

@@ -23,13 +23,13 @@
   this list of conditions.
 */
 
-using HESDanfe.Objects;
-using HESDanfe.Util.Math;
+using HES.Objects;
+using HES.Util.Math;
 
 using System;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.Functions
+namespace HES.Documents.Functions
 {
   /**
     <summary>Stitching function producing a single new 1-input function from the combination of the

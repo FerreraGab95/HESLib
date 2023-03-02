@@ -23,7 +23,7 @@
   this list of conditions.
 */
 
-namespace HESDanfe.Documents.Contents
+namespace HES.Documents.Contents
 {
   /**
     <summary>Glyph-outlines appearance on text showing [PDF:1.6:5.2.5].</summary>

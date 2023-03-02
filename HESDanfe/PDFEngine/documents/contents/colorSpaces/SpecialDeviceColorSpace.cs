@@ -23,16 +23,16 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents;
-using HESDanfe.Documents.Functions;
-using HESDanfe.Objects;
-using HESDanfe.Util;
+using HES.Documents;
+using HES.Documents.Functions;
+using HES.Objects;
+using HES.Util;
 
 using System;
 using System.Collections.Generic;
 using drawing = System.Drawing;
 
-namespace HESDanfe.Documents.Contents.ColorSpaces
+namespace HES.Documents.Contents.ColorSpaces
 {
   /**
     <summary>Special device color space [PDF:1.6:4.5.5].</summary>

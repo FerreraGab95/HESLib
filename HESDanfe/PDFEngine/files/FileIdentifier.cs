@@ -23,17 +23,17 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents;
-using HESDanfe.Documents.Interchange.Metadata;
-using HESDanfe.Tokens;
-using HESDanfe.Objects;
+using HES.Documents;
+using HES.Documents.Interchange.Metadata;
+using HES.Tokens;
+using HES.Objects;
 
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Security.Cryptography;
 
-namespace HESDanfe.Files
+namespace HES.Files
 {
   /**
     <summary>File identifier [PDF:1.7:10.3].</summary>

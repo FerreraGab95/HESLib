@@ -23,14 +23,14 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Objects;
+using HES.Bytes;
+using HES.Objects;
 
 using System;
 using System.Collections.Generic;
 using System.Drawing.Drawing2D;
 
-namespace HESDanfe.Documents.Contents.Objects
+namespace HES.Documents.Contents.Objects
 {
   /**
     <summary>'Set the text matrix' operation [PDF:1.6:5.3.1].</summary>

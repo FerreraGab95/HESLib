@@ -1,7 +1,7 @@
-﻿using HESDanfe.Modelo;
+﻿using HES.Modelo;
 using System.Linq;
 
-namespace HESDanfe.Blocos
+namespace HES.Blocos
 {
     internal class BlocoDuplicataFatura : BlocoBase
     {      

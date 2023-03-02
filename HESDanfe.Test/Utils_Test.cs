@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace HESDanfe.Test
+namespace HES.Test
 {
     [TestClass]
     public class Utils_Test

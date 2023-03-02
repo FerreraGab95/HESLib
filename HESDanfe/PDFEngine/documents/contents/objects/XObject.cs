@@ -23,13 +23,13 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using xObjects = HESDanfe.Documents.Contents.xObjects;
-using HESDanfe.Objects;
+using HES.Bytes;
+using xObjects = HES.Documents.Contents.xObjects;
+using HES.Objects;
 
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.Contents.Objects
+namespace HES.Documents.Contents.Objects
 {
   /**
     <summary>External object shown in a content stream context [PDF:1.6:4.7].</summary>

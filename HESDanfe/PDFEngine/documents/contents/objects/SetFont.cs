@@ -23,13 +23,13 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Documents.Contents.Fonts;
-using HESDanfe.Objects;
+using HES.Bytes;
+using HES.Documents.Contents.Fonts;
+using HES.Objects;
 
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.Contents.Objects
+namespace HES.Documents.Contents.Objects
 {
   /**
     <summary>'Set the text font' operation [PDF:1.6:5.2].</summary>

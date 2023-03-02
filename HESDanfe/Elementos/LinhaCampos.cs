@@ -1,4 +1,4 @@
-﻿namespace HESDanfe.Elementos
+﻿namespace HES.Elementos
 {
     /// <summary>
     /// Linha de campos, posiciona e muda a largura desses elementos de forma proporcional.

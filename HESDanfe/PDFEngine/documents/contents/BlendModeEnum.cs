@@ -23,10 +23,10 @@
   this list of conditions.
 */
 
-using HESDanfe.Objects;
-using HESDanfe.Util;
+using HES.Objects;
+using HES.Util;
 
-namespace HESDanfe.Documents.Contents
+namespace HES.Documents.Contents
 {
     /**
       <summary>Blend mode to be used in the transparent imaging model [PDF:1.7:7.2.4].</summary>

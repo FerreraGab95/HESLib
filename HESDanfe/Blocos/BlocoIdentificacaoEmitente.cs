@@ -1,9 +1,9 @@
 ﻿using System.Drawing;
 using BR;
-using HESDanfe.Documents.Contents.xObjects;
-using HESDanfe.Modelo;
+using HES.Documents.Contents.xObjects;
+using HES.Modelo;
 
-namespace HESDanfe.Blocos
+namespace HES.Blocos
 {
     internal class BlocoIdentificacaoEmitente : BlocoBase
     {

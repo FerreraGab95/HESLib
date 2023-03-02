@@ -23,10 +23,10 @@
   this list of conditions.
 */
 
-using HESDanfe.Util;
+using HES.Util;
 using System;
 
-namespace HESDanfe.Tokens
+namespace HES.Tokens
 {
   /**
     <summary>Encoding for text strings in a PDF document outside the document's content streams

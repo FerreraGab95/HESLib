@@ -25,13 +25,13 @@
 
 using System;
 using System.Drawing;
-using HESDanfe.Documents.Contents;
-using HESDanfe.Documents.Contents.ColorSpaces;
-using HESDanfe.Documents.Contents.Layers;
-using HESDanfe.Objects;
-using HESDanfe.Util;
+using HES.Documents.Contents;
+using HES.Documents.Contents.ColorSpaces;
+using HES.Documents.Contents.Layers;
+using HES.Objects;
+using HES.Util;
 
-namespace HESDanfe.Documents.Interaction.Annotations
+namespace HES.Documents.Interaction.Annotations
 {
     /**
       <summary>Annotation [PDF:1.6:8.4].</summary>
@@ -248,7 +248,7 @@ namespace HESDanfe.Documents.Interaction.Annotations
         {
             get
             {
-                HESDanfe.Objects.Rectangle box = HESDanfe.Objects.Rectangle.Wrap(BaseDataObject[PdfName.Rect]);
+                HES.Objects.Rectangle box = HES.Objects.Rectangle.Wrap(BaseDataObject[PdfName.Rect]);
                 return new RectangleF(
                   (float)box.Left,
                   (float)(GetPageHeight() - box.Top),
@@ -256,7 +256,7 @@ namespace HESDanfe.Documents.Interaction.Annotations
                   (float)box.Height
                   );
             }
-            set => BaseDataObject[PdfName.Rect] = new HESDanfe.Objects.Rectangle(
+            set => BaseDataObject[PdfName.Rect] = new HES.Objects.Rectangle(
                   value.X,
                   GetPageHeight() - value.Y,
                   value.Width,

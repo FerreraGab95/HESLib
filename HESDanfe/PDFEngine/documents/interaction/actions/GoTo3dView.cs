@@ -23,13 +23,13 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Documents;
-using HESDanfe.Objects;
+using HES.Bytes;
+using HES.Documents;
+using HES.Objects;
 
 using System;
 
-namespace HESDanfe.Documents.Interaction.Actions
+namespace HES.Documents.Interaction.Actions
 {
   /**
     <summary>'Change the view to a specified 3D annotation' action [PDF:1.6:8.5.3].</summary>

@@ -23,14 +23,14 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Util;
+using HES.Bytes;
+using HES.Util;
 
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-namespace HESDanfe.Documents.Contents.Fonts
+namespace HES.Documents.Contents.Fonts
 {
   /**
     <summary>Type 1 font parser.</summary>

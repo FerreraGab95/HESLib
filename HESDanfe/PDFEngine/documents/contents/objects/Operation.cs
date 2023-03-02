@@ -23,16 +23,16 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Files;
-using HESDanfe.Objects;
-using HESDanfe.Tokens;
+using HES.Bytes;
+using HES.Files;
+using HES.Objects;
+using HES.Tokens;
 
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace HESDanfe.Documents.Contents.Objects
+namespace HES.Documents.Contents.Objects
 {
   /**
     <summary>Content stream instruction [PDF:1.6:3.7.1].</summary>

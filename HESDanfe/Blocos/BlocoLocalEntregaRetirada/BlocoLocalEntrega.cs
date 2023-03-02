@@ -1,6 +1,6 @@
-﻿using HESDanfe.Modelo;
+﻿using HES.Modelo;
 
-namespace HESDanfe.Blocos
+namespace HES.Blocos
 {
     class BlocoLocalEntrega : BlocoLocalEntregaRetirada
     {

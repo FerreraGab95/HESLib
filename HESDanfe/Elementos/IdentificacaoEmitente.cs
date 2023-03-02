@@ -1,10 +1,10 @@
 ﻿using System.Drawing;
 using Extensions;
-using HESDanfe.Documents.Contents.xObjects;
-using HESDanfe.Graphics;
-using HESDanfe.Modelo;
+using HES.Documents.Contents.xObjects;
+using HES.Graphics;
+using HES.Modelo;
 
-namespace HESDanfe
+namespace HES
 {
     internal class IdentificacaoEmitente : ElementoBase
     {

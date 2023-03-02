@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Drawing;
 using Extensions;
-using HESDanfe.Documents.Contents.Composition;
-using HESDanfe.Documents.Contents.xObjects;
+using HES.Documents.Contents.Composition;
+using HES.Documents.Contents.xObjects;
 
-namespace HESDanfe.Graphics
+namespace HES.Graphics
 {
-    internal class Gfx
+    public class Gfx
     {
         public PrimitiveComposer PrimitiveComposer { get; private set; }
 

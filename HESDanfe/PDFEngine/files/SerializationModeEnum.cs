@@ -23,7 +23,7 @@
   this list of conditions.
 */
 
-namespace HESDanfe.Files
+namespace HES.Files
 {
   /**
     <summary>PDF file serialization mode [PDF:1.6:3.4].</summary>

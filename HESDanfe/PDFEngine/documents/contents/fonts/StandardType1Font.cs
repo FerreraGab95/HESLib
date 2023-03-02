@@ -27,11 +27,11 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
-using HESDanfe.Objects;
-using HESDanfe.Util;
-using Bytes = HESDanfe.Bytes;
+using HES.Objects;
+using HES.Util;
+using Bytes = HES.Bytes;
 
-namespace HESDanfe.Documents.Contents.Fonts
+namespace HES.Documents.Contents.Fonts
 {
     /**
       <summary>Standard Type 1 font [PDF:1.6:5.5.1].</summary>
@@ -205,7 +205,7 @@ namespace HESDanfe.Documents.Contents.Fonts
             try
             {
 
-                fontMetricsStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("HESDanfe.res.pkg.fonts.afm." + fontName + ".afm");
+                fontMetricsStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("HES.res.pkg.fonts.afm." + fontName + ".afm");
 
                 AfmParser parser = new AfmParser(new Bytes::Stream(fontMetricsStream));
                 metrics = parser.Metrics;

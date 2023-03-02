@@ -23,13 +23,13 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Objects;
-using HESDanfe.Util.Parsers;
+using HES.Bytes;
+using HES.Objects;
+using HES.Util.Parsers;
 
 using System;
 
-namespace HESDanfe.Tokens
+namespace HES.Tokens
 {
   /**
     <summary>Base PDF parser [PDF:1.7:3.2].</summary>

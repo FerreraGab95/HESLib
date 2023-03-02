@@ -26,7 +26,7 @@
 using System;
 using text = System.Text;
 
-namespace HESDanfe.Tokens
+namespace HES.Tokens
 {
   /**
     <summary>PDF serialization encoding [PDF:1.6:3.1].</summary>

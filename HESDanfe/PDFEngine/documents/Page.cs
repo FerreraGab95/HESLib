@@ -23,20 +23,20 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Documents.Contents;
-using HESDanfe.Documents.Contents.Composition;
-using HESDanfe.Documents.Contents.Objects;
-using xObjects = HESDanfe.Documents.Contents.xObjects;
-using HESDanfe.Documents.Interaction.Navigation.Page;
-using HESDanfe.Files;
-using HESDanfe.Objects;
+using HES.Bytes;
+using HES.Documents.Contents;
+using HES.Documents.Contents.Composition;
+using HES.Documents.Contents.Objects;
+using xObjects = HES.Documents.Contents.xObjects;
+using HES.Documents.Interaction.Navigation.Page;
+using HES.Files;
+using HES.Objects;
 
 using System;
 using System.Collections.Generic;
 using drawing = System.Drawing;
 
-namespace HESDanfe.Documents
+namespace HES.Documents
 {
   /**
     <summary>Document page [PDF:1.6:3.6.2].</summary>

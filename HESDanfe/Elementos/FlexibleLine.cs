@@ -1,9 +1,9 @@
-﻿using HESDanfe.Graphics;
+﻿using HES.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace HESDanfe
+namespace HES
 {
     /// <summary>
     /// Linha flexível que posiciona e muda a largura dos seus elementos de forma proporcional.

@@ -23,11 +23,11 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents;
-using HESDanfe.Documents.Contents.ColorSpaces;
-using HESDanfe.Objects;
+using HES.Documents;
+using HES.Documents.Contents.ColorSpaces;
+using HES.Objects;
 
-namespace HESDanfe.Documents.Interaction.Forms.Styles
+namespace HES.Documents.Interaction.Forms.Styles
 {
   /**
     <summary>Abstract field appearance style.</summary>

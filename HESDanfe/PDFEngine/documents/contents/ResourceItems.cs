@@ -23,15 +23,15 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents;
-using HESDanfe.Files;
-using HESDanfe.Objects;
+using HES.Documents;
+using HES.Files;
+using HES.Objects;
 
 using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.Contents
+namespace HES.Documents.Contents
 {
   /**
     <summary>Collection of a specific resource type.</summary>

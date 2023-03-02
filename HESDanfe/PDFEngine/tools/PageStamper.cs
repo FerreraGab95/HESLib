@@ -23,14 +23,14 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents;
-using HESDanfe.Documents.Contents;
-using HESDanfe.Documents.Contents.Composition;
-using HESDanfe.Documents.Contents.Objects;
-using HESDanfe.Files;
-using HESDanfe.Objects;
+using HES.Documents;
+using HES.Documents.Contents;
+using HES.Documents.Contents.Composition;
+using HES.Documents.Contents.Objects;
+using HES.Files;
+using HES.Objects;
 
-namespace HESDanfe.Tools
+namespace HES.Tools
 {
   /**
     <summary>Tool for content insertion into existing pages.</summary>

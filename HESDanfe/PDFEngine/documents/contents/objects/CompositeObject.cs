@@ -26,9 +26,9 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing.Drawing2D;
-using HESDanfe.Bytes;
+using HES.Bytes;
 
-namespace HESDanfe.Documents.Contents.Objects
+namespace HES.Documents.Contents.Objects
 {
     /**
       <summary>Composite object. It is made up of multiple content objects.</summary>

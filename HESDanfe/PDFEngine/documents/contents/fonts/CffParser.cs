@@ -30,10 +30,10 @@ using System.Globalization;
 using System.IO;
 using System.Reflection;
 using System.Text;
-using HESDanfe.Bytes;
-using HESDanfe.Tokens;
+using HES.Bytes;
+using HES.Tokens;
 
-namespace HESDanfe.Documents.Contents.Fonts
+namespace HES.Documents.Contents.Fonts
 {
     /**
       <summary>CFF file format parser [CFF:1.0].</summary>
@@ -415,7 +415,7 @@ namespace HESDanfe.Documents.Contents.Fonts
                     {
                         // Open the resource!
                         stream = new StreamReader(
-                          Assembly.GetExecutingAssembly().GetManifestResourceStream("HESDanfe.res.pkg.fonts.cff." + charset.ToString() + "Charset")
+                          Assembly.GetExecutingAssembly().GetManifestResourceStream("HES.res.pkg.fonts.cff." + charset.ToString() + "Charset")
                           );
                         // Parsing the resource...
                         String line;
@@ -442,7 +442,7 @@ namespace HESDanfe.Documents.Contents.Fonts
                 {
                     // Open the resource!
                     stream = new StreamReader(
-                      Assembly.GetExecutingAssembly().GetManifestResourceStream("HESDanfe.res.pkg.fonts.cff.StandardStrings")
+                      Assembly.GetExecutingAssembly().GetManifestResourceStream("HES.res.pkg.fonts.cff.StandardStrings")
                       );
                     // Parsing the resource...
                     string line;

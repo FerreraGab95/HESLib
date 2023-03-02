@@ -23,16 +23,16 @@
   this list of conditions.
 */
 
-using HESDanfe;
-using HESDanfe.Documents;
-using HESDanfe.Documents.Contents;
-using HESDanfe.Documents.Contents.Composition;
-using HESDanfe.Documents.Contents.Objects;
-using xObjects = HESDanfe.Documents.Contents.xObjects;
+using HES;
+using HES.Documents;
+using HES.Documents.Contents;
+using HES.Documents.Contents.Composition;
+using HES.Documents.Contents.Objects;
+using xObjects = HES.Documents.Contents.xObjects;
 
 using System;
 
-namespace HESDanfe.Documents.Contents.Entities
+namespace HES.Documents.Contents.Entities
 {
   /**
     <summary>Abstract specialized graphic object.</summary>

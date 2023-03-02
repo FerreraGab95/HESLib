@@ -23,14 +23,14 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Tokens;
+using HES.Bytes;
+using HES.Tokens;
 
 using System;
 using System.Globalization;
 using System.Text;
 
-namespace HESDanfe.Util.Parsers
+namespace HES.Util.Parsers
 {
   /**
     <summary>PostScript (non-procedural subset) parser [PS].</summary>
@@ -131,7 +131,7 @@ namespace HESDanfe.Util.Parsers
     public PostScriptParser(
       byte[] data
       )
-    {this.stream = new HESDanfe.Bytes.Buffer(data);}
+    {this.stream = new HES.Bytes.Buffer(data);}
     #endregion
 
     #region interface

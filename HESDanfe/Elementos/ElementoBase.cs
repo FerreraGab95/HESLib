@@ -1,7 +1,7 @@
-﻿using HESDanfe.Graphics;
+﻿using HES.Graphics;
 using System;
 
-namespace HESDanfe
+namespace HES
 {
     /// <summary>
     /// Elemento básico no DANFE.

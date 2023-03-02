@@ -23,17 +23,17 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Bytes.filters;
-using HESDanfe.Documents.Files;
-using HESDanfe.Files;
-using HESDanfe.Tokens;
+using HES.Bytes;
+using HES.Bytes.filters;
+using HES.Documents.Files;
+using HES.Files;
+using HES.Tokens;
 
 using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace HESDanfe.Objects
+namespace HES.Objects
 {
   /**
     <summary>PDF stream object [PDF:1.6:3.2.7].</summary>

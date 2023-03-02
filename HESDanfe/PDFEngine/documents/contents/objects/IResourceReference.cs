@@ -23,11 +23,11 @@
   this list of conditions.
 */
 
-using HESDanfe.Objects;
+using HES.Objects;
 
 using System;
 
-namespace HESDanfe.Documents.Contents.Objects
+namespace HES.Documents.Contents.Objects
 {
   /**
     <summary>Resource reference.</summary>

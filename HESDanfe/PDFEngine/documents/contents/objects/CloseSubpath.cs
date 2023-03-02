@@ -23,11 +23,11 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
+using HES.Bytes;
 
 using System.Drawing.Drawing2D;
 
-namespace HESDanfe.Documents.Contents.Objects
+namespace HES.Documents.Contents.Objects
 {
   /**
     <summary>'Close the current subpath by appending a straight line segment

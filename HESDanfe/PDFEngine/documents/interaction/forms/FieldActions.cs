@@ -23,15 +23,15 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Documents;
-using HESDanfe.Documents.Interaction.Actions;
-using HESDanfe.Documents.Interaction.Annotations;
-using HESDanfe.Objects;
+using HES.Bytes;
+using HES.Documents;
+using HES.Documents.Interaction.Actions;
+using HES.Documents.Interaction.Annotations;
+using HES.Objects;
 
 using system = System;
 
-namespace HESDanfe.Documents.Interaction.Forms
+namespace HES.Documents.Interaction.Forms
 {
   /**
     <summary>Form field actions [PDF:1.6:8.5.2].</summary>

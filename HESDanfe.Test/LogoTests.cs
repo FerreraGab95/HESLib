@@ -1,9 +1,8 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Runtime.CompilerServices;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace HESDanfe.Test
+namespace HES.Test
 {
     [TestClass]
     public class LogoTests
@@ -21,17 +20,7 @@ namespace HESDanfe.Test
             model.Orientacao = Orientacao.Retrato;
             DANFE d = new DANFE(model);
 
-            if (logoPath.EndsWith(".pdf", StringComparison.InvariantCultureIgnoreCase))
-            {
-                d.AdicionarLogoPdf(logoPath);
-                model.Emitente.NomeFantasia = "Logo Vetor Ltda.";
-            }
-            else
-            {
-                d.AdicionarLogoImagem(logoPath);
-                model.Emitente.NomeFantasia = "Logo Raster Ltda.";
-            }
-
+            d.AdicionarLogo(logoPath);
 
             d.Gerar(Path.Combine(OutputDirectoryName, pdfName + ".pdf"), Modelo.TipoDocumento.DANFE);
 

@@ -23,17 +23,17 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents.Files;
-using HESDanfe.Documents.Interaction.Actions;
-using HESDanfe.Documents.Interaction.Navigation.Document;
-using HESDanfe.Documents.Multimedia;
-using HESDanfe.Objects;
+using HES.Documents.Files;
+using HES.Documents.Interaction.Actions;
+using HES.Documents.Interaction.Navigation.Document;
+using HES.Documents.Multimedia;
+using HES.Objects;
 
 using System;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace HESDanfe.Documents
+namespace HES.Documents
 {
   /**
     <summary>Name dictionary [PDF:1.6:3.6.3].</summary>

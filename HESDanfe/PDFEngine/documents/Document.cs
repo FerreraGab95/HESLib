@@ -25,18 +25,18 @@
 
 using System;
 using System.Collections.Generic;
-using HESDanfe.Documents.Contents;
-using HESDanfe.Documents.Contents.Layers;
-using HESDanfe.Documents.Interaction.Forms;
-using HESDanfe.Documents.Interaction.Navigation.Document;
-using HESDanfe.Documents.Interaction.Viewer;
-using HESDanfe.Documents.Interchange.Metadata;
-using HESDanfe.Files;
-using HESDanfe.Objects;
-using HESDanfe.Util;
+using HES.Documents.Contents;
+using HES.Documents.Contents.Layers;
+using HES.Documents.Interaction.Forms;
+using HES.Documents.Interaction.Navigation.Document;
+using HES.Documents.Interaction.Viewer;
+using HES.Documents.Interchange.Metadata;
+using HES.Files;
+using HES.Objects;
+using HES.Util;
 using drawing = System.Drawing;
 
-namespace HESDanfe.Documents
+namespace HES.Documents
 {
     /**
       <summary>PDF document [PDF:1.6::3.6.1].</summary>

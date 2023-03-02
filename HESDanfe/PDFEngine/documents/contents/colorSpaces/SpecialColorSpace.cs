@@ -23,10 +23,10 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents;
-using HESDanfe.Objects;
+using HES.Documents;
+using HES.Objects;
 
-namespace HESDanfe.Documents.Contents.ColorSpaces
+namespace HES.Documents.Contents.ColorSpaces
 {
   /**
     <summary>Special color space [PDF:1.6:4.5.5].</summary>

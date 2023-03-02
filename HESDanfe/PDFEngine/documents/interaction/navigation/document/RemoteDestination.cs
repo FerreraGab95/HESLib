@@ -23,12 +23,12 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents;
-using HESDanfe.Objects;
+using HES.Documents;
+using HES.Objects;
 
 using System;
 
-namespace HESDanfe.Documents.Interaction.Navigation.Document
+namespace HES.Documents.Interaction.Navigation.Document
 {
   /**
     <summary>Remote interaction target [PDF:1.6:8.2.1].</summary>

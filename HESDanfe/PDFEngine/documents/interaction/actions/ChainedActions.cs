@@ -23,16 +23,16 @@
   this list of conditions.
 */
 
-using HESDanfe;
-using HESDanfe.Documents;
-using HESDanfe.Files;
-using HESDanfe.Objects;
+using HES;
+using HES.Documents;
+using HES.Files;
+using HES.Objects;
 
 using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.Interaction.Actions
+namespace HES.Documents.Interaction.Actions
 {
   /**
     <summary>Chained actions [PDF:1.6:8.5.1].</summary>

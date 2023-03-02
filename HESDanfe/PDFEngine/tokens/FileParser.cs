@@ -23,18 +23,18 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Documents;
-using HESDanfe.Files;
-using HESDanfe.Objects;
-using HESDanfe.Util.Parsers;
+using HES.Bytes;
+using HES.Documents;
+using HES.Files;
+using HES.Objects;
+using HES.Util.Parsers;
 
 using System;
 using System.Globalization;
 using System.IO;
 using System.Text;
 
-namespace HESDanfe.Tokens
+namespace HES.Tokens
 {
   /**
     <summary>PDF file parser [PDF:1.7:3.2,3.4].</summary>

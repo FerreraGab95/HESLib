@@ -23,12 +23,12 @@
   this list of conditions.
 */
 
-using HESDanfe.Objects;
+using HES.Objects;
 
 using System;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.Contents.ColorSpaces
+namespace HES.Documents.Contents.ColorSpaces
 {
   /**
     <summary>Shading object [PDF:1.6:4.6.3].</summary>

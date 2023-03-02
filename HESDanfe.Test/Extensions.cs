@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.IO;
 
-namespace HESDanfe.Test
+namespace HES.Test
 {
     public static class TestUtils
     {

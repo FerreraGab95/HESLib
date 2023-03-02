@@ -25,9 +25,9 @@
 
 using System;
 using System.Collections.Generic;
-using HESDanfe.Objects;
+using HES.Objects;
 
-namespace HESDanfe.Documents.Contents.ColorSpaces
+namespace HES.Documents.Contents.ColorSpaces
 {
     /**
       <summary>Device Gray color value [PDF:1.6:4.5.3].</summary>

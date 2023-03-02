@@ -25,7 +25,7 @@
 
 using System;
 
-namespace HESDanfe.Util.Math
+namespace HES.Util.Math
 {
   /**
     <summary>Specialized math operations.</summary>

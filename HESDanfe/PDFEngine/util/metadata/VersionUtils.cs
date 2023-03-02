@@ -27,7 +27,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace HESDanfe.Util.Metadata
+namespace HES.Util.Metadata
 {
   /**
     <summary>Version utility.</summary>

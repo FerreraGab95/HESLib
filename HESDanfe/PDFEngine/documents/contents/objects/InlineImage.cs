@@ -23,13 +23,13 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Objects;
+using HES.Bytes;
+using HES.Objects;
 
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace HESDanfe.Documents.Contents.Objects
+namespace HES.Documents.Contents.Objects
 {
   /**
     <summary>Inline image object [PDF:1.6:4.8.6].</summary>

@@ -1,8 +1,8 @@
 ﻿using BR;
 using Extensions;
-using HESDanfe.Modelo;
+using HES.Modelo;
 
-namespace HESDanfe.Blocos
+namespace HES.Blocos
 {
     internal class BlocoDestinatarioRemetente : BlocoBase
     {

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.IO;
 using Extensions;
-using HESDanfe.Esquemas.NFe;
+using HES.Esquemas.NFe;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace HESDanfe.Test
+namespace HES.Test
 {
     [TestClass]
     public class DanfeTest

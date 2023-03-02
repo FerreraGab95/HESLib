@@ -1,4 +1,4 @@
-﻿namespace HESDanfe
+﻿namespace HES
 {
     public enum AlinhamentoHorizontal
     {

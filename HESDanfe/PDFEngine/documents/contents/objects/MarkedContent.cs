@@ -23,13 +23,13 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Objects;
-using HESDanfe.Tokens;
+using HES.Bytes;
+using HES.Objects;
+using HES.Tokens;
 
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.Contents.Objects
+namespace HES.Documents.Contents.Objects
 {
   /**
     <summary>Marked-content sequence [PDF:1.6:10.5].</summary>

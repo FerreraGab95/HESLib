@@ -23,12 +23,12 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Objects;
+using HES.Bytes;
+using HES.Objects;
 
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.Contents.Objects
+namespace HES.Documents.Contents.Objects
 {
   /**
     <summary>'Set the character spacing' operation [PDF:1.6:5.2].</summary>

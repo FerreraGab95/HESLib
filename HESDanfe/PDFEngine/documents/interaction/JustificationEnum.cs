@@ -23,14 +23,14 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents.Contents.Composition;
-using HESDanfe.Objects;
-using HESDanfe.Util;
+using HES.Documents.Contents.Composition;
+using HES.Objects;
+using HES.Util;
 
 using System;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.Interaction
+namespace HES.Documents.Interaction
 {
   /**
     <summary>Text justification [PDF:1.6:8.4.5,8.6.2].</summary>

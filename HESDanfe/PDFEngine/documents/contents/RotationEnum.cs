@@ -23,12 +23,12 @@
   this list of conditions.
 */
 
-using HESDanfe.Objects;
+using HES.Objects;
 
 using System;
 using System.Drawing;
 
-namespace HESDanfe.Documents.Contents
+namespace HES.Documents.Contents
 {
   /**
     <summary>Rotation (clockwise) [PDF:1.6:3.6.2].</summary>

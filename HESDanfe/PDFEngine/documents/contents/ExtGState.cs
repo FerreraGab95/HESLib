@@ -23,14 +23,14 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents;
-using HESDanfe.Documents.Contents.Fonts;
-using HESDanfe.Objects;
+using HES.Documents;
+using HES.Documents.Contents.Fonts;
+using HES.Objects;
 
 using System;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.Contents
+namespace HES.Documents.Contents
 {
   /**
     <summary>Graphics state parameters [PDF:1.6:4.3.4].</summary>

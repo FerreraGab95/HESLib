@@ -23,15 +23,15 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents.Interaction.Actions;
-using HESDanfe.Documents.Interaction.Navigation.Document;
-using HESDanfe.Files;
-using HESDanfe.Objects;
+using HES.Documents.Interaction.Actions;
+using HES.Documents.Interaction.Navigation.Document;
+using HES.Files;
+using HES.Objects;
 
 using system = System;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents
+namespace HES.Documents
 {
   /**
     <summary>Document actions [PDF:1.6:8.5.2].</summary>

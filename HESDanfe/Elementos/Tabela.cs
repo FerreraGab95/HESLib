@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using Extensions;
-using HESDanfe.Documents.Contents.ColorSpaces;
-using HESDanfe.Graphics;
+using HES.Documents.Contents.ColorSpaces;
+using HES.Graphics;
 
-namespace HESDanfe
+namespace HES
 {
     internal class Tabela : ElementoBase
     {
@@ -167,7 +167,7 @@ namespace HESDanfe
                     {
                         gfx.PrimitiveComposer.BeginLocalState();
                         gfx.PrimitiveComposer.SetStrokeColor(new DeviceRGBColor(0.5, 0.5, 0.5));
-                        gfx.PrimitiveComposer.SetLineDash(new HESDanfe.Documents.Contents.LineDash(new double[] { 6, 1 }));
+                        gfx.PrimitiveComposer.SetLineDash(new HES.Documents.Contents.LineDash(new double[] { 6, 1 }));
                         gfx.PrimitiveComposer.DrawLine(new PointF(BoundingBox.Left, _DY1).ToPointMeasure(), new PointF(BoundingBox.Right, _DY1).ToPointMeasure());
                         gfx.PrimitiveComposer.Stroke();
                         gfx.PrimitiveComposer.End();

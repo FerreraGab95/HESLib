@@ -23,15 +23,15 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents;
-using HESDanfe.Documents.Contents.ColorSpaces;
-using HESDanfe.Objects;
+using HES.Documents;
+using HES.Documents.Contents.ColorSpaces;
+using HES.Objects;
 
 using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.Contents
+namespace HES.Documents.Contents
 {
   /**
     <summary>Pattern resources collection [PDF:1.6:3.7.2].</summary>

@@ -26,9 +26,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using HESDanfe.Objects;
+using HES.Objects;
 
-namespace HESDanfe.Documents.Interchange.Metadata
+namespace HES.Documents.Interchange.Metadata
 {
     /**
       <summary>Document information [PDF:1.6:10.2.1].</summary>

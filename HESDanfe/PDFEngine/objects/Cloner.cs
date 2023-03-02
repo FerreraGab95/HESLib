@@ -23,16 +23,16 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Documents;
-using HESDanfe.Documents.Interaction.Forms;
-using HESDanfe.Files;
-using HESDanfe.Tokens;
+using HES.Bytes;
+using HES.Documents;
+using HES.Documents.Interaction.Forms;
+using HES.Files;
+using HES.Tokens;
 
 using System;
 using System.Collections.Generic;
 
-namespace HESDanfe.Objects
+namespace HES.Objects
 {
   /**
     <summary>Object cloner.</summary>

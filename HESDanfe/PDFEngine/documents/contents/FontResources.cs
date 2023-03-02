@@ -23,17 +23,17 @@
   this list of conditions.
 */
 
-using HESDanfe;
-using HESDanfe.Documents;
-using HESDanfe.Documents.Contents.Fonts;
-using HESDanfe.Files;
-using HESDanfe.Objects;
+using HES;
+using HES.Documents;
+using HES.Documents.Contents.Fonts;
+using HES.Files;
+using HES.Objects;
 
 using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.Contents
+namespace HES.Documents.Contents
 {
   /**
     <summary>Font resources collection [PDF:1.6:3.7.2].</summary>

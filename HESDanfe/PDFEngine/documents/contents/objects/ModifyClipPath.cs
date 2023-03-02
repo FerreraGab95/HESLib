@@ -23,12 +23,12 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
+using HES.Bytes;
 
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
-namespace HESDanfe.Documents.Contents.Objects
+namespace HES.Documents.Contents.Objects
 {
   /**
     <summary>Clipping path operation [PDF:1.6:4.4.2].</summary>

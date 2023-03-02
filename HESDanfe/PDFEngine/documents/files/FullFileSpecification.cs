@@ -23,17 +23,17 @@
   this list of conditions.
 */
 
-using Bytes = HESDanfe.Bytes;
-using HESDanfe.Documents;
-using HESDanfe.Files;
-using HESDanfe.Objects;
-using HESDanfe.Util;
+using Bytes = HES.Bytes;
+using HES.Documents;
+using HES.Files;
+using HES.Objects;
+using HES.Util;
 
 using System;
 using System.IO;
 using System.Net;
 
-namespace HESDanfe.Documents.Files
+namespace HES.Documents.Files
 {
   /**
     <summary>Extended reference to the contents of another file [PDF:1.6:3.10.2].</summary>

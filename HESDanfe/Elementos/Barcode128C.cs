@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text.RegularExpressions;
-using HESDanfe.Graphics;
+using HES.Graphics;
 
 
-namespace HESDanfe
+namespace HES
 {
     /// <summary>
     /// Desenha o Código de Barras Code 128C 

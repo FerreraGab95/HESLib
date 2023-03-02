@@ -23,16 +23,16 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Files;
-using HESDanfe.Tokens;
+using HES.Bytes;
+using HES.Files;
+using HES.Tokens;
 
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using text = System.Text;
 
-namespace HESDanfe.Objects
+namespace HES.Objects
 {
   /**
     <summary>PDF dictionary object [PDF:1.6:3.2.6].</summary>

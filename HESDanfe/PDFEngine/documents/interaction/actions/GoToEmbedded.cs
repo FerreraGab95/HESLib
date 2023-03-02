@@ -23,16 +23,16 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Documents;
-using HESDanfe.Documents.Files;
-using HESDanfe.Documents.Interaction.Navigation.Document;
-using HESDanfe.Objects;
+using HES.Bytes;
+using HES.Documents;
+using HES.Documents.Files;
+using HES.Documents.Interaction.Navigation.Document;
+using HES.Objects;
 
 using System;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.Interaction.Actions
+namespace HES.Documents.Interaction.Actions
 {
   /**
     <summary>'Change the view to a specified destination in a PDF file embedded in another PDF file'

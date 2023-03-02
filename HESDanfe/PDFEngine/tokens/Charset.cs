@@ -1,6 +1,6 @@
 using text = System.Text;
 
-namespace HESDanfe.Tokens
+namespace HES.Tokens
 {
     internal static class Charset
     {

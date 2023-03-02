@@ -23,10 +23,10 @@
   this list of conditions.
 */
 
-using HESDanfe.Util;
-using HESDanfe.Util.IO;
+using HES.Util;
+using HES.Util.IO;
 
-namespace HESDanfe.Bytes
+namespace HES.Bytes
 {
     /**
       <summary>

@@ -23,13 +23,13 @@
   this list of conditions.
 */
 
-using Bytes = HESDanfe.Bytes;
-using HESDanfe.Documents;
-using HESDanfe.Objects;
+using Bytes = HES.Bytes;
+using HES.Documents;
+using HES.Objects;
 
 using System;
 
-namespace HESDanfe.Documents.Interaction.Actions
+namespace HES.Documents.Interaction.Actions
 {
   /**
     <summary>'Cause a script to be compiled and executed by the JavaScript interpreter'

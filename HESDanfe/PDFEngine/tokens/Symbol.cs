@@ -23,7 +23,7 @@
   this list of conditions.
 */
 
-namespace HESDanfe.Tokens
+namespace HES.Tokens
 {
   /**
     <summary>PDF symbols.</summary>

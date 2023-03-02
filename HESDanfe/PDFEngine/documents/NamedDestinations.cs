@@ -23,14 +23,14 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents;
-using HESDanfe.Documents.Interaction.Navigation.Document;
-using HESDanfe.Files;
-using HESDanfe.Objects;
+using HES.Documents;
+using HES.Documents.Interaction.Navigation.Document;
+using HES.Files;
+using HES.Objects;
 
 using System;
 
-namespace HESDanfe.Documents
+namespace HES.Documents
 {
   /**
     <summary>Named destinations [PDF:1.6:3.6.3].</summary>

@@ -24,10 +24,10 @@
 */
 
 using System;
-using HESDanfe.Bytes.filters;
-using HESDanfe.Objects;
+using HES.Bytes.filters;
+using HES.Objects;
 
-namespace HESDanfe.Bytes
+namespace HES.Bytes
 {
     /**
       <summary>

@@ -23,13 +23,13 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents.Interaction.Actions;
-using HESDanfe.Documents.Multimedia;
-using HESDanfe.Objects;
+using HES.Documents.Interaction.Actions;
+using HES.Documents.Multimedia;
+using HES.Objects;
 
 using System;
 
-namespace HESDanfe.Documents
+namespace HES.Documents
 {
   /**
     <summary>Named renditions [PDF:1.6:3.6.3].</summary>

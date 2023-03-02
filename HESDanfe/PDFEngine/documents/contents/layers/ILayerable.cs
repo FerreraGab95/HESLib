@@ -23,7 +23,7 @@
   this list of conditions.
 */
 
-namespace HESDanfe.Documents.Contents.Layers
+namespace HES.Documents.Contents.Layers
 {
     /**
       <summary>Object that can be associated to a layer.</summary>

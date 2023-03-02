@@ -23,14 +23,14 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Documents;
-using HESDanfe.Documents.Interaction.Navigation.Page;
-using HESDanfe.Objects;
+using HES.Bytes;
+using HES.Documents;
+using HES.Documents.Interaction.Navigation.Page;
+using HES.Objects;
 
 using System;
 
-namespace HESDanfe.Documents.Interaction.Actions
+namespace HES.Documents.Interaction.Actions
 {
   /**
     <summary>'Control drawing during a sequence of actions' action [PDF:1.6:8.5.3].</summary>

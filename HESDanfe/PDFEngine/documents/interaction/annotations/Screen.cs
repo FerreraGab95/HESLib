@@ -23,20 +23,20 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Documents;
-using HESDanfe.Documents.Files;
-using HESDanfe.Documents.Interaction.Actions;
-using HESDanfe.Documents.Interaction.Forms;
-using HESDanfe.Documents.Multimedia;
-using HESDanfe.Files;
-using HESDanfe.Objects;
+using HES.Bytes;
+using HES.Documents;
+using HES.Documents.Files;
+using HES.Documents.Interaction.Actions;
+using HES.Documents.Interaction.Forms;
+using HES.Documents.Multimedia;
+using HES.Files;
+using HES.Objects;
 
 using System;
 using System.Collections.Generic;
 using drawing = System.Drawing;
 
-namespace HESDanfe.Documents.Interaction.Annotations
+namespace HES.Documents.Interaction.Annotations
 {
   /**
     <summary>Screen annotation [PDF:1.6:8.4.5].</summary>

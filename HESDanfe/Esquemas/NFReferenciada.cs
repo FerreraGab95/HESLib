@@ -5,7 +5,7 @@ using System.Xml.Serialization;
 using BR;
 using Extensions;
 
-namespace HESDanfe.Esquemas
+namespace HES.Esquemas
 {
     [Serializable]
     [XmlType(AnonymousType = true, Namespace = Namespaces.NFe)]

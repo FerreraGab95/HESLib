@@ -23,18 +23,18 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents;
-using HESDanfe.Documents.Contents;
-using HESDanfe.Documents.Contents.Composition;
-using HESDanfe.Documents.Contents.Objects;
-using HESDanfe.Files;
-using HESDanfe.Objects;
+using HES.Documents;
+using HES.Documents.Contents;
+using HES.Documents.Contents.Composition;
+using HES.Documents.Contents.Objects;
+using HES.Files;
+using HES.Objects;
 
 using System;
 using drawing = System.Drawing;
 using System.Drawing.Drawing2D;
 
-namespace HESDanfe.Documents.Contents.xObjects
+namespace HES.Documents.Contents.xObjects
 {
   /**
     <summary>Form external object [PDF:1.6:4.9].</summary>

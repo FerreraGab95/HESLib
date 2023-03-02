@@ -23,10 +23,10 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents;
-using HESDanfe.Documents.Contents;
-using HESDanfe.Objects;
-using HESDanfe.Tokens;
+using HES.Documents;
+using HES.Documents.Contents;
+using HES.Objects;
+using HES.Tokens;
 
 using System;
 using System.Collections;
@@ -35,7 +35,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace HESDanfe.Files
+namespace HES.Files
 {
   /**
     <summary>Collection of the <b>alive indirect objects</b> available inside the

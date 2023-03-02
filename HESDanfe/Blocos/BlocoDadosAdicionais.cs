@@ -1,7 +1,7 @@
-﻿using HESDanfe.Graphics;
-using HESDanfe.Modelo;
+﻿using HES.Graphics;
+using HES.Modelo;
 
-namespace HESDanfe.Blocos
+namespace HES.Blocos
 {
     internal class BlocoDadosAdicionais : BlocoBase
     {

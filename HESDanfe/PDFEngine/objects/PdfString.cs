@@ -23,17 +23,17 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Files;
-using Tokens = HESDanfe.Tokens;
-using HESDanfe.Util;
+using HES.Bytes;
+using HES.Files;
+using Tokens = HES.Tokens;
+using HES.Util;
 
 using System;
 using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace HESDanfe.Objects
+namespace HES.Objects
 {
   /**
     <summary>PDF string object [PDF:1.6:3.2.3].</summary>

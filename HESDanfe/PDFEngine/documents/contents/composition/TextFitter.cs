@@ -23,12 +23,12 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents.Contents.Fonts;
+using HES.Documents.Contents.Fonts;
 
 using System;
 using System.Text.RegularExpressions;
 
-namespace HESDanfe.Documents.Contents.Composition
+namespace HES.Documents.Contents.Composition
 {
   /**
     <summary>Text fitter.</summary>

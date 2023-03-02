@@ -23,13 +23,13 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Documents.Contents.ColorSpaces;
-using HESDanfe.Objects;
+using HES.Bytes;
+using HES.Documents.Contents.ColorSpaces;
+using HES.Objects;
 
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.Contents.Objects
+namespace HES.Documents.Contents.Objects
 {
   /**
     <summary>'Set the color to use for nonstroking operations in device gray color space'

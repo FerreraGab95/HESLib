@@ -7,10 +7,10 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
-using HESDanfe;
-using HESDanfe.Documents;
-using HESDanfe.Documents.Contents.Composition;
-using HESDanfe.Files;
+using HES;
+using HES.Documents;
+using HES.Documents.Contents.Composition;
+using HES.Files;
 
 
 
@@ -265,11 +265,11 @@ namespace Extensions
             }
         }
 
-        public static byte[] ToBytes(this PdfFile file, HESDanfe.Files.SerializationModeEnum SerializationMode)
+        public static byte[] ToBytes(this PdfFile file, HES.Files.SerializationModeEnum SerializationMode)
         {
             using (var m = new MemoryStream())
             {
-                file.Save(new HESDanfe.Bytes.Stream(m), SerializationMode);
+                file.Save(new HES.Bytes.Stream(m), SerializationMode);
                 return m.ToBytes();
             }
         }

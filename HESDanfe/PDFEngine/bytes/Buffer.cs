@@ -25,14 +25,14 @@
 
 using System;
 using System.IO;
-using HESDanfe.Bytes.filters;
-using HESDanfe.Objects;
-using HESDanfe.Tokens;
-using HESDanfe.Util;
-using HESDanfe.Util.IO;
+using HES.Bytes.filters;
+using HES.Objects;
+using HES.Tokens;
+using HES.Util;
+using HES.Util.IO;
 using text = System.Text;
 
-namespace HESDanfe.Bytes
+namespace HES.Bytes
 {
     //TODO:IMPL Substitute System.Array static class invocations with System.Buffer static class invocations (better performance)!!!
     /**

@@ -23,18 +23,18 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Files;
-using HESDanfe.Objects;
-using HESDanfe.Util;
-using HESDanfe.Util.IO;
-using HESDanfe.Util.Parsers;
+using HES.Bytes;
+using HES.Files;
+using HES.Objects;
+using HES.Util;
+using HES.Util.IO;
+using HES.Util.Parsers;
 
 using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace HESDanfe.Tokens
+namespace HES.Tokens
 {
   /**
     <summary>Cross-reference stream containing cross-reference information [PDF:1.6:3.4.7].</summary>

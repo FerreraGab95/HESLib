@@ -26,7 +26,7 @@
 using System;
 using System.IO;
 
-namespace HESDanfe.Util.IO
+namespace HES.Util.IO
 {
   /**
     <summary>Reads primitive data types as binary values using big-endian encoding.</summary>

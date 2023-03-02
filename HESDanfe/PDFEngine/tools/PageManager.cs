@@ -24,12 +24,12 @@
 */
 
 using System.Collections.Generic;
-using HESDanfe.Bytes;
-using HESDanfe.Documents;
-using HESDanfe.Files;
-using HESDanfe.Objects;
+using HES.Bytes;
+using HES.Documents;
+using HES.Files;
+using HES.Objects;
 
-namespace HESDanfe.Tools
+namespace HES.Tools
 {
     /**
       <summary>Tool for page management.</summary>

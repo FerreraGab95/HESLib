@@ -26,10 +26,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using HESDanfe.Objects;
-using HESDanfe.Util.Collections.Generic;
+using HES.Objects;
+using HES.Util.Collections.Generic;
 
-namespace HESDanfe.Documents
+namespace HES.Documents
 {
     /**
       <summary>Document pages collection [PDF:1.6:3.6.2].</summary>

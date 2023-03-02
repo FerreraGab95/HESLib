@@ -25,10 +25,10 @@
 
 using System;
 using System.IO;
-using HESDanfe.Objects;
-using Bytes = HESDanfe.Bytes;
+using HES.Objects;
+using Bytes = HES.Bytes;
 
-namespace HESDanfe.Documents.Files
+namespace HES.Documents.Files
 {
     /**
       <summary>Embedded file [PDF:1.6:3.10.3].</summary>

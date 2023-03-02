@@ -23,14 +23,14 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents;
-using HESDanfe.Files;
+using HES.Documents;
+using HES.Files;
 
 using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace HESDanfe.Objects
+namespace HES.Objects
 {
   /**
     <summary>Name tree [PDF:1.7:3.8.5].</summary>

@@ -23,7 +23,7 @@
   this list of conditions.
 */
 
-namespace HESDanfe.Documents.Contents.Composition
+namespace HES.Documents.Contents.Composition
 {
   /**
     <summary>Horizontal alignment.</summary>

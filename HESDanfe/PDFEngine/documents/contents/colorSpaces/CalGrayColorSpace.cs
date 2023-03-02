@@ -25,10 +25,10 @@
 
 using System;
 using System.Collections.Generic;
-using HESDanfe.Objects;
+using HES.Objects;
 using drawing = System.Drawing;
 
-namespace HESDanfe.Documents.Contents.ColorSpaces
+namespace HES.Documents.Contents.ColorSpaces
 {
     /**
       <summary>CIE-based A single-transformation-stage color space, where A represents a calibrated

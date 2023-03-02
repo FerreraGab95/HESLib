@@ -23,14 +23,14 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Documents;
-using HESDanfe.Documents.Interaction.Annotations;
-using HESDanfe.Objects;
+using HES.Bytes;
+using HES.Documents;
+using HES.Documents.Interaction.Annotations;
+using HES.Objects;
 
 using System;
 
-namespace HESDanfe.Documents.Interaction.Forms
+namespace HES.Documents.Interaction.Forms
 {
   /**
     <summary>List box [PDF:1.6:8.6.3].</summary>

@@ -1,4 +1,4 @@
-﻿namespace HESDanfe.Modelo
+﻿namespace HES.Modelo
 {
     public enum TipoDocumento
     {

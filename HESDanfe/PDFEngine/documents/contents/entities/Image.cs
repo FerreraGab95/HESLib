@@ -25,7 +25,7 @@
 
 using System.IO;
 
-namespace HESDanfe.Documents.Contents.Entities
+namespace HES.Documents.Contents.Entities
 {
     /**
       <summary>Abstract image object [PDF:1.6:4.8].</summary>

@@ -23,16 +23,16 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Documents;
-using Multimedia = HESDanfe.Documents.Multimedia;
-using HESDanfe.Objects;
+using HES.Bytes;
+using HES.Documents;
+using Multimedia = HES.Documents.Multimedia;
+using HES.Objects;
 
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace HESDanfe.Documents.Interaction.Annotations
+namespace HES.Documents.Interaction.Annotations
 {
   /**
     <summary>Sound annotation [PDF:1.6:8.4.5].</summary>

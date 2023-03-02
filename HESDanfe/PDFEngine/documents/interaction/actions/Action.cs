@@ -23,9 +23,9 @@
   this list of conditions.
 */
 
-using HESDanfe.Objects;
+using HES.Objects;
 
-namespace HESDanfe.Documents.Interaction.Actions
+namespace HES.Documents.Interaction.Actions
 {
     /**
       <summary>Action to be performed by the viewer application [PDF:1.6:8.5].</summary>

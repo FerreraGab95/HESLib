@@ -23,16 +23,16 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents;
-using HESDanfe.Documents.Contents.Composition;
-using Fonts = HESDanfe.Documents.Contents.Fonts;
-using HESDanfe.Documents.Contents.Objects;
-using xObjects = HESDanfe.Documents.Contents.xObjects;
+using HES.Documents;
+using HES.Documents.Contents.Composition;
+using Fonts = HES.Documents.Contents.Fonts;
+using HES.Documents.Contents.Objects;
+using xObjects = HES.Documents.Contents.xObjects;
 
 using System;
 using System.Drawing;
 
-namespace HESDanfe.Documents.Contents.Entities
+namespace HES.Documents.Contents.Entities
 {
   /**
     <see href="http://en.wikipedia.org/wiki/EAN13">EAN-13 Bar Code</see> object [GS1:7.1:5.1.1.3.1].

@@ -1,9 +1,9 @@
 ﻿using System.Drawing;
 using Extensions;
-using HESDanfe.Graphics;
-using HESDanfe.Modelo;
+using HES.Graphics;
+using HES.Modelo;
 
-namespace HESDanfe
+namespace HES
 {
     class NumeroNfSerie2 : ElementoBase
     {

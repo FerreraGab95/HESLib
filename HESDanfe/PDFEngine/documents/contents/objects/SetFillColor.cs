@@ -23,14 +23,14 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Documents.Contents.ColorSpaces;
-using HESDanfe.Objects;
+using HES.Bytes;
+using HES.Documents.Contents.ColorSpaces;
+using HES.Objects;
 
 using System.Collections.Generic;
 using System.Linq;
 
-namespace HESDanfe.Documents.Contents.Objects
+namespace HES.Documents.Contents.Objects
 {
   /**
     <summary>'Set the color to use for nonstroking operations' operation [PDF:1.6:4.5.7].</summary>

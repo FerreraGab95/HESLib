@@ -23,12 +23,12 @@
   this list of conditions.
 */
 
-using HESDanfe.Objects;
-using HESDanfe.Util;
+using HES.Objects;
+using HES.Util;
 
 using System;
 
-namespace HESDanfe.Documents.Contents.Layers
+namespace HES.Documents.Contents.Layers
 {
   /**
     <summary>List mode specifying which layers should be displayed to the user.</summary>

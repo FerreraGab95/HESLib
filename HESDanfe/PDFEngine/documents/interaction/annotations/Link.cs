@@ -23,16 +23,16 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Documents;
-using HESDanfe.Documents.Interaction.Actions;
-using HESDanfe.Documents.Interaction.Navigation.Document;
-using HESDanfe.Objects;
+using HES.Bytes;
+using HES.Documents;
+using HES.Documents.Interaction.Actions;
+using HES.Documents.Interaction.Navigation.Document;
+using HES.Objects;
 
 using system = System;
 using System.Drawing;
 
-namespace HESDanfe.Documents.Interaction.Annotations
+namespace HES.Documents.Interaction.Annotations
 {
   /**
     <summary>Link annotation [PDF:1.6:8.4.5].</summary>

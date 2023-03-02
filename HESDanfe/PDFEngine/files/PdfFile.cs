@@ -27,13 +27,13 @@ using System;
 using System.IO;
 using System.Reflection;
 using Extensions;
-using HESDanfe.Bytes;
-using HESDanfe.Documents;
-using HESDanfe.Objects;
-using HESDanfe.Tokens;
+using HES.Bytes;
+using HES.Documents;
+using HES.Objects;
+using HES.Tokens;
 
 
-namespace HESDanfe.Files
+namespace HES.Files
 {
     /**
       <summary>PDF file representation.</summary>
@@ -388,7 +388,7 @@ namespace HESDanfe.Files
         /**
           <summary>Gets the file header version [PDF:1.6:3.4.1].</summary>
           <remarks>This property represents just the original file version; to get the actual version,
-          use the <see cref="HESDanfe.Documents.Document.Version">Document.Version</see> method.
+          use the <see cref="HES.Documents.Document.Version">Document.Version</see> method.
           </remarks>
         */
     }

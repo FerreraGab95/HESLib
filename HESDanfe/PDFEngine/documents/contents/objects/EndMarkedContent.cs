@@ -23,9 +23,9 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
+using HES.Bytes;
 
-namespace HESDanfe.Documents.Contents.Objects
+namespace HES.Documents.Contents.Objects
 {
   /**
     <summary>'End marked-content sequence' operation [PDF:1.6:10.5].</summary>

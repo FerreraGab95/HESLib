@@ -25,10 +25,10 @@
 
 using System;
 using System.Collections.Generic;
-using HESDanfe.Objects;
-using HESDanfe.Util.Math;
+using HES.Objects;
+using HES.Util.Math;
 
-namespace HESDanfe.Documents.Functions
+namespace HES.Documents.Functions
 {
     /**
       <summary>Function [PDF:1.6:3.9].</summary>

@@ -4,13 +4,13 @@ using System.IO;
 using System.Linq;
 using ComplexText;
 using Extensions;
-using HESDanfe.Blocos;
-using HESDanfe.Bytes;
-using HESDanfe.Documents.Contents.Fonts;
-using HESDanfe.Files;
-using HESDanfe.Modelo;
+using HES.Blocos;
+using HES.Bytes;
+using HES.Documents.Contents.Fonts;
+using HES.Files;
+using HES.Modelo;
 
-namespace HESDanfe
+namespace HES
 {
     public class DANFE
     {
@@ -291,7 +291,7 @@ namespace HESDanfe
         {
             if (stream == null) throw new ArgumentNullException(nameof(stream));
 
-            ObjetoLogo = new Files.PdfFile(new HESDanfe.Bytes.Stream(stream)).Document.Pages[0];
+            ObjetoLogo = new Files.PdfFile(new HES.Bytes.Stream(stream)).Document.Pages[0];
         }
 
         public PdfFile Gerar(TipoDocumento TipoDocumento)
@@ -412,7 +412,7 @@ namespace HESDanfe
             info[new Objects.PdfName("ChaveAcesso")] = ViewModel.ChaveAcesso;
             info[new Objects.PdfName("TipoDocumento")] = $"{TipoDocumento}";
             info.CreationDate = ViewModel.DataHoraEmissao;
-            info.Creator = $"{Extensions.Util.GetAssemblyName()?.Name} {Extensions.Util.GetAssemblyName()?.Version} - Disponível em https://github.com/zonaro/HESDanfe";
+            info.Creator = $"{Extensions.Util.GetAssemblyName()?.Name} {Extensions.Util.GetAssemblyName()?.Version} - Disponível em https://github.com/zonaro/HES";
             info.Author = Autor;
 
             info.Subject = ViewModel.TipoDocumento == TipoDocumento.DANFE ? "Documento Auxiliar da NFe" : "Carta de Correção Eletrônica";

@@ -2,13 +2,13 @@
 using System.Drawing;
 using System.Linq;
 using Extensions;
-using HESDanfe.Blocos;
-using HESDanfe.Documents;
-using HESDanfe.Documents.Contents.Composition;
-using HESDanfe.Files;
-using HESDanfe.Graphics;
+using HES.Blocos;
+using HES.Documents;
+using HES.Documents.Contents.Composition;
+using HES.Files;
+using HES.Graphics;
 
-namespace HESDanfe
+namespace HES
 {
     internal class DanfePagina
     {
@@ -99,7 +99,7 @@ namespace HESDanfe
                         .AddLine("AMBIENTE DE HOMOLOGAÇÃO", Danfe.EstiloPadrao.CriarFonteRegular(30));
 
             Gfx.PrimitiveComposer.BeginLocalState();
-            Gfx.PrimitiveComposer.SetFillColor(new HESDanfe.Documents.Contents.ColorSpaces.DeviceRGBColor(0.35, 0.35, 0.35));
+            Gfx.PrimitiveComposer.SetFillColor(new HES.Documents.Contents.ColorSpaces.DeviceRGBColor(0.35, 0.35, 0.35));
             ts.Draw(Gfx);
             Gfx.PrimitiveComposer.End();
         }

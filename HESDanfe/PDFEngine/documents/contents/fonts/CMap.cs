@@ -27,11 +27,11 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
-using HESDanfe.Objects;
-using HESDanfe.Util;
-using Bytes = HESDanfe.Bytes;
+using HES.Objects;
+using HES.Util;
+using Bytes = HES.Bytes;
 
-namespace HESDanfe.Documents.Contents.Fonts
+namespace HES.Documents.Contents.Fonts
 {
     /**
       <summary>Character map [PDF:1.6:5.6.4].</summary>
@@ -101,7 +101,7 @@ namespace HESDanfe.Documents.Contents.Fonts
         {
             IDictionary<ByteArray, int> cmap;
             {
-                Stream cmapResourceStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("HESDanfe.res.pkg.fonts.cmap." + name);
+                Stream cmapResourceStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("HES.res.pkg.fonts.cmap." + name);
                 if (cmapResourceStream == null)
                     return null;
 

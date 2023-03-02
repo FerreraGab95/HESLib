@@ -30,7 +30,7 @@ using System.IO;
 using System.Reflection;
 using System.Text.RegularExpressions;
 
-namespace HESDanfe.Documents.Contents.Fonts
+namespace HES.Documents.Contents.Fonts
 {
     /**
       <summary>Adobe standard glyph mapping (unicode-encoding against glyph-naming)
@@ -65,7 +65,7 @@ namespace HESDanfe.Documents.Contents.Fonts
                   for consumer applications.
                 */
                 glyphListStream = new StreamReader(
-                  Assembly.GetExecutingAssembly().GetManifestResourceStream("HESDanfe.res.pkg.fonts.AGL20.scsv")
+                  Assembly.GetExecutingAssembly().GetManifestResourceStream("HES.res.pkg.fonts.AGL20.scsv")
                   );
 
                 // Parsing the glyph list...

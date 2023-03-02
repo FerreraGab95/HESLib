@@ -24,12 +24,12 @@
 */
 
 using System.Collections.Generic;
-using HESDanfe.Documents.Contents.Objects;
-using HESDanfe.Objects;
-using HESDanfe.Tokens;
-using Bytes = HESDanfe.Bytes;
+using HES.Documents.Contents.Objects;
+using HES.Objects;
+using HES.Tokens;
+using Bytes = HES.Bytes;
 
-namespace HESDanfe.Documents.Contents.Tokens
+namespace HES.Documents.Contents.Tokens
 {
     /**
       <summary>Content stream parser [PDF:1.6:3.7.1].</summary>

@@ -25,10 +25,10 @@
 
 using System.Collections.Generic;
 using System.Drawing.Drawing2D;
-using HESDanfe.Bytes;
-using HESDanfe.Tokens;
+using HES.Bytes;
+using HES.Tokens;
 
-namespace HESDanfe.Documents.Contents.Objects
+namespace HES.Documents.Contents.Objects
 {
     /**
       <summary>Local graphics state [PDF:1.6:4.3.1].</summary>

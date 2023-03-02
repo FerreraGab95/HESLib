@@ -23,15 +23,15 @@
   this list of conditions.
 */
 
-using HESDanfe;
-using HESDanfe.Documents;
-using HESDanfe.Objects;
+using HES;
+using HES.Documents;
+using HES.Objects;
 
 using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
-namespace HESDanfe.Documents.Contents.xObjects
+namespace HES.Documents.Contents.xObjects
 {
   /**
     <summary>Image external object [PDF:1.6:4.8.4].</summary>

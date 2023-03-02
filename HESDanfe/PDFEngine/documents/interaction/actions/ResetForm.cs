@@ -23,13 +23,13 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Documents;
-using HESDanfe.Objects;
+using HES.Bytes;
+using HES.Documents;
+using HES.Objects;
 
 using System;
 
-namespace HESDanfe.Documents.Interaction.Actions
+namespace HES.Documents.Interaction.Actions
 {
   /**
     <summary>'Reset selected interactive form fields to their default values' action

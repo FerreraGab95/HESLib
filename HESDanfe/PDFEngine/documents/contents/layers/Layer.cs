@@ -23,15 +23,15 @@
   this list of conditions.
 */
 
-using HESDanfe.Files;
-using HESDanfe.Objects;
-using HESDanfe.Util;
-using HESDanfe.Util.Math;
+using HES.Files;
+using HES.Objects;
+using HES.Util;
+using HES.Util.Math;
 
 using System;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.Contents.Layers
+namespace HES.Documents.Contents.Layers
 {
   /**
     <summary>Optional content group [PDF:1.7:4.10.1].</summary>

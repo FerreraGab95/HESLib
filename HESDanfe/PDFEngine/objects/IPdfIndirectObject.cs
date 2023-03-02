@@ -23,9 +23,9 @@
   this list of conditions.
 */
 
-using HESDanfe.Files;
+using HES.Files;
 
-namespace HESDanfe.Objects
+namespace HES.Objects
 {
   /**
     <summary>PDF indirect object interface.</summary>

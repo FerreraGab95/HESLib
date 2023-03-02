@@ -25,10 +25,10 @@
 
 using System;
 using System.Collections.Generic;
-using HESDanfe.Objects;
+using HES.Objects;
 using drawing = System.Drawing;
 
-namespace HESDanfe.Documents.Contents.ColorSpaces
+namespace HES.Documents.Contents.ColorSpaces
 {
     /**
       <summary>Device Red-Green-Blue color space [PDF:1.6:4.5.3].</summary>

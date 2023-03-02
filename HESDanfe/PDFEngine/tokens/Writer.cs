@@ -23,17 +23,17 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Documents;
-using HESDanfe.Files;
-using HESDanfe.Objects;
+using HES.Bytes;
+using HES.Documents;
+using HES.Files;
+using HES.Objects;
 
 using System;
 using System.Collections.Generic;
 using io = System.IO;
 using System.Text;
 
-namespace HESDanfe.Tokens
+namespace HES.Tokens
 {
   /**
     <summary>PDF file writer.</summary>

@@ -24,10 +24,10 @@
 */
 
 using System.Collections.Generic;
-using HESDanfe.Files;
-using HESDanfe.Objects;
+using HES.Files;
+using HES.Objects;
 
-namespace HESDanfe.Tools
+namespace HES.Tools
 {
     /**
       <summary>Tool to enhance PDF files.</summary>

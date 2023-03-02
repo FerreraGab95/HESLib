@@ -1,7 +1,7 @@
 ﻿using BR;
-using HESDanfe.Modelo;
+using HES.Modelo;
 
-namespace HESDanfe.Blocos
+namespace HES.Blocos
 {
     internal class BlocoTransportador : BlocoBase
     {

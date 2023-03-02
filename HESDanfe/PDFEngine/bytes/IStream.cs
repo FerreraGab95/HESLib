@@ -25,7 +25,7 @@
 
 using System;
 
-namespace HESDanfe.Bytes
+namespace HES.Bytes
 {
     /**
       <summary>Base stream interface.</summary>

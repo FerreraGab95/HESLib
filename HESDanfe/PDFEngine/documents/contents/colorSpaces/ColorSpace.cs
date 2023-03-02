@@ -26,9 +26,9 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using HESDanfe.Objects;
+using HES.Objects;
 
-namespace HESDanfe.Documents.Contents.ColorSpaces
+namespace HES.Documents.Contents.ColorSpaces
 {
     /**
       <summary>Color space [PDF:1.6:4.5].</summary>

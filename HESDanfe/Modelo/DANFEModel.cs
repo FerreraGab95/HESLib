@@ -7,11 +7,11 @@ using System.Text.RegularExpressions;
 using System.Xml;
 using System.Xml.Serialization;
 using Extensions;
-using HESDanfe.Esquemas;
-using HESDanfe.Esquemas.NFe;
+using HES.Esquemas;
+using HES.Esquemas.NFe;
 
 
-namespace HESDanfe.Modelo
+namespace HES.Modelo
 {
     /// <summary>
     /// Modelo de dados utilizado para o DANFE ou CC.

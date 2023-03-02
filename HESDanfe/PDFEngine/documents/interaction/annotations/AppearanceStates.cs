@@ -23,17 +23,17 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Documents;
-using HESDanfe.Documents.Contents.xObjects;
-using HESDanfe.Objects;
+using HES.Bytes;
+using HES.Documents;
+using HES.Documents.Contents.xObjects;
+using HES.Objects;
 
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 
-namespace HESDanfe.Documents.Interaction.Annotations
+namespace HES.Documents.Interaction.Annotations
 {
   /**
     <summary>Appearance states [PDF:1.6:8.4.4].</summary>

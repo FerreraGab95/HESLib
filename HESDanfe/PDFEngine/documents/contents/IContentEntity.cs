@@ -23,12 +23,12 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents;
-using HESDanfe.Documents.Contents.Composition;
-using HESDanfe.Documents.Contents.Objects;
-using HESDanfe.Documents.Contents.xObjects;
+using HES.Documents;
+using HES.Documents.Contents.Composition;
+using HES.Documents.Contents.Objects;
+using HES.Documents.Contents.xObjects;
 
-namespace HESDanfe.Documents.Contents
+namespace HES.Documents.Contents
 {
   /**
     <summary>

@@ -23,13 +23,13 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using ColorSpaces = HESDanfe.Documents.Contents.ColorSpaces;
-using HESDanfe.Objects;
+using HES.Bytes;
+using ColorSpaces = HES.Documents.Contents.ColorSpaces;
+using HES.Objects;
 
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.Contents.Objects
+namespace HES.Documents.Contents.Objects
 {
   /**
     <summary>Shading object [PDF:1.6:4.6.3].</summary>

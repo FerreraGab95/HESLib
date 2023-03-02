@@ -2,7 +2,7 @@
 using BR;
 using Extensions;
 
-namespace HESDanfe.Modelo
+namespace HES.Modelo
 {
     public class EmpresaViewModel
     {

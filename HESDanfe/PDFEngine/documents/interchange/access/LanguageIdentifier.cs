@@ -25,9 +25,9 @@
 
 using System;
 using System.Collections.Generic;
-using HESDanfe.Objects;
+using HES.Objects;
 
-namespace HESDanfe.Documents.Interchange.Access
+namespace HES.Documents.Interchange.Access
 {
     /**
       <summary>Language identifier [PDF:1.7:10.8.1][RFC 3066].</summary>

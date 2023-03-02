@@ -1,9 +1,9 @@
 ﻿using System;
 using Extensions;
-using HESDanfe.Graphics;
-using HESDanfe.Modelo;
+using HES.Graphics;
+using HES.Modelo;
 
-namespace HESDanfe
+namespace HES
 {
     [AlturaFixa]
     internal class Duplicata : ElementoBase

@@ -23,13 +23,13 @@
   this list of conditions.
 */
 
-using HESDanfe.Objects;
-using HESDanfe.Util;
+using HES.Objects;
+using HES.Util;
 
 using System;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.Contents.Fonts
+namespace HES.Documents.Contents.Fonts
 {
   /**
     <summary>Simple font [PDF:1.6:5.5].</summary>

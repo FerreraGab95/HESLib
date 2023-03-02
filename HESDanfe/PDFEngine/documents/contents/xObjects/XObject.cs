@@ -23,16 +23,16 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents;
-using HESDanfe.Documents.Contents.Layers;
-using HESDanfe.Files;
-using HESDanfe.Objects;
+using HES.Documents;
+using HES.Documents.Contents.Layers;
+using HES.Files;
+using HES.Objects;
 
 using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
-namespace HESDanfe.Documents.Contents.xObjects
+namespace HES.Documents.Contents.xObjects
 {
   /**
     <summary>External graphics object whose contents are defined by a self-contained content stream,

@@ -23,14 +23,14 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents;
-using HESDanfe.Objects;
-using HESDanfe.Util;
+using HES.Documents;
+using HES.Objects;
+using HES.Util;
 
 using System;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.Interaction.Navigation.Page
+namespace HES.Documents.Interaction.Navigation.Page
 {
   /**
     <summary>Page label range [PDF:1.7:8.3.1].</summary>

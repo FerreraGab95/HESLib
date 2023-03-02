@@ -23,18 +23,18 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents;
-using HESDanfe.Documents.Contents.ColorSpaces;
-using HESDanfe.Documents.Contents.xObjects;
-using HESDanfe.Documents.Files;
-using actions = HESDanfe.Documents.Interaction.Actions;
-using HESDanfe.Files;
-using HESDanfe.Objects;
-using HESDanfe.Util;
+using HES.Documents;
+using HES.Documents.Contents.ColorSpaces;
+using HES.Documents.Contents.xObjects;
+using HES.Documents.Files;
+using actions = HES.Documents.Interaction.Actions;
+using HES.Files;
+using HES.Objects;
+using HES.Util;
 
 using System;
 
-namespace HESDanfe.Documents.Multimedia
+namespace HES.Documents.Multimedia
 {
   /**
     <summary>Media clip data [PDF:1.7:9.1.3].</summary>

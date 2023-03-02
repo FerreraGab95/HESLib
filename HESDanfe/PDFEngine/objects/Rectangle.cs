@@ -23,13 +23,13 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents;
-using HESDanfe.Files;
+using HES.Documents;
+using HES.Files;
 
 using System;
 using System.Drawing;
 
-namespace HESDanfe.Objects
+namespace HES.Objects
 {
   /**
     <summary>PDF rectangle object [PDF:1.6:3.8.4].</summary>

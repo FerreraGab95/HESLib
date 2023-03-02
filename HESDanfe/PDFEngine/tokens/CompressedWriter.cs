@@ -23,16 +23,16 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Files;
-using HESDanfe.Objects;
+using HES.Bytes;
+using HES.Files;
+using HES.Objects;
 
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace HESDanfe.Tokens
+namespace HES.Tokens
 {
   /**
     <summary>PDF file writer implementing compressed cross-reference stream [PDF:1.6:3.4.7].</summary>

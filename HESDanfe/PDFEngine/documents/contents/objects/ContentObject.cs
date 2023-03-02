@@ -23,9 +23,9 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
+using HES.Bytes;
 
-namespace HESDanfe.Documents.Contents.Objects
+namespace HES.Documents.Contents.Objects
 {
   /**
     <summary>Abstract content object [PDF:1.6:4.1].</summary>

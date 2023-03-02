@@ -23,18 +23,18 @@
   this list of conditions.
 */
 
-using HESDanfe.Objects;
-using HESDanfe.Util;
+using HES.Objects;
+using HES.Util;
 
 using System;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.Contents.Fonts
+namespace HES.Documents.Contents.Fonts
 {
   /**
     <summary>Predefined encodings [PDF:1.6:5.5.5,D].</summary>
   */
-  // TODO: This hierarchy is going to be superseded by HESDanfe.tokens.Encoding.
+  // TODO: This hierarchy is going to be superseded by HES.tokens.Encoding.
   internal class Encoding
   {
     #region static

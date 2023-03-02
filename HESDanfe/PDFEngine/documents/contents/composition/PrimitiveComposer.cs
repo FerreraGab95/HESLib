@@ -23,19 +23,19 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Documents;
-using HESDanfe.Documents.Contents;
-using HESDanfe.Documents.Contents.Layers;
-using colors = HESDanfe.Documents.Contents.ColorSpaces;
-using Fonts = HESDanfe.Documents.Contents.Fonts;
-using Objects = HESDanfe.Documents.Contents.Objects;
-using HESDanfe.Documents.Contents.xObjects;
-using Actions = HESDanfe.Documents.Interaction.Actions;
-using HESDanfe.Documents.Interaction.Annotations;
-using HESDanfe.Files;
-using HESDanfe.Objects;
-using HESDanfe.Util.Math.Geom;
+using HES.Bytes;
+using HES.Documents;
+using HES.Documents.Contents;
+using HES.Documents.Contents.Layers;
+using colors = HES.Documents.Contents.ColorSpaces;
+using Fonts = HES.Documents.Contents.Fonts;
+using Objects = HES.Documents.Contents.Objects;
+using HES.Documents.Contents.xObjects;
+using Actions = HES.Documents.Interaction.Actions;
+using HES.Documents.Interaction.Annotations;
+using HES.Files;
+using HES.Objects;
+using HES.Util.Math.Geom;
 
 using System;
 using System.Collections;
@@ -43,7 +43,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
-namespace HESDanfe.Documents.Contents.Composition
+namespace HES.Documents.Contents.Composition
 {
   /**
     <summary>

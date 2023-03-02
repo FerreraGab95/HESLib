@@ -23,13 +23,13 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents;
-using HESDanfe.Objects;
+using HES.Documents;
+using HES.Objects;
 
 using System;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.Interaction.Navigation.Page
+namespace HES.Documents.Interaction.Navigation.Page
 {
   /**
     <summary>Visual transition to use when moving to a page during a presentation [PDF:1.6:8.3.3].</summary>

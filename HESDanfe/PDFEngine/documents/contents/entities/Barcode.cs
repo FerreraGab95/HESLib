@@ -23,7 +23,7 @@
   this list of conditions.
 */
 
-namespace HESDanfe.Documents.Contents.Entities
+namespace HES.Documents.Contents.Entities
 {
     /**
       <summary>Abstract <a href="http://en.wikipedia.org/wiki/Barcode">barcode</a> object.</summary>

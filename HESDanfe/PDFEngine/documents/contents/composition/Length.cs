@@ -25,7 +25,7 @@
 
 using System;
 
-namespace HESDanfe.Documents.Contents.Composition
+namespace HES.Documents.Contents.Composition
 {
   /**
     <summary>Distance measure.</summary>

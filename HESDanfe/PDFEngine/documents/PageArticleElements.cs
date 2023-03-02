@@ -23,15 +23,15 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents.Interaction.Navigation.Page;
-using HESDanfe.Files;
-using HESDanfe.Objects;
+using HES.Documents.Interaction.Navigation.Page;
+using HES.Files;
+using HES.Objects;
 
 using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents
+namespace HES.Documents
 {
   /**
     <summary>Page article beads [PDF:1.7:3.6.2].</summary>

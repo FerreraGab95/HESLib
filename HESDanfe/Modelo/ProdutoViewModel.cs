@@ -1,6 +1,6 @@
 ﻿
 
-namespace HESDanfe.Modelo
+namespace HES.Modelo
 {
     public class ProdutoViewModel
     {

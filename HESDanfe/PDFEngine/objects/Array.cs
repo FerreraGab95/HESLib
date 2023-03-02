@@ -23,14 +23,14 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents;
+using HES.Documents;
 
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace HESDanfe.Objects
+namespace HES.Objects
 {
   /**
     <summary>Collection of sequentially-arranged object wrappers.</summary>

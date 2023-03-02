@@ -23,13 +23,13 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Files;
+using HES.Bytes;
+using HES.Files;
 
 using System;
 using System.Globalization;
 
-namespace HESDanfe.Objects
+namespace HES.Objects
 {
   /**
     <summary>PDF real number object [PDF:1.6:3.2.2].</summary>

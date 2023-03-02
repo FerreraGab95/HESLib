@@ -26,7 +26,7 @@
 using System;
 using System.Drawing.Drawing2D;
 
-namespace HESDanfe.Documents.Contents
+namespace HES.Documents.Contents
 {
   /**
     <summary>Shape to be used at the corners of stroked paths

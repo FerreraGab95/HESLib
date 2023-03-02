@@ -23,16 +23,16 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Documents;
-using HESDanfe.Objects;
+using HES.Bytes;
+using HES.Documents;
+using HES.Objects;
 
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 
-namespace HESDanfe.Documents.Files
+namespace HES.Documents.Files
 {
   /**
     <summary>Embedded files referenced by another one (dependencies) [PDF:1.6:3.10.3].</summary>

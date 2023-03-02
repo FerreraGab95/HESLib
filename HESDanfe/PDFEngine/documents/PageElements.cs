@@ -23,16 +23,16 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents.Interaction.Annotations;
-using HESDanfe.Files;
-using HESDanfe.Objects;
-using HESDanfe.Util.Collections.Generic;
+using HES.Documents.Interaction.Annotations;
+using HES.Files;
+using HES.Objects;
+using HES.Util.Collections.Generic;
 
 using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents
+namespace HES.Documents
 {
   /**
     <summary>Page elements.</summary>

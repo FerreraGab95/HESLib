@@ -23,11 +23,11 @@
   this list of conditions.
 */
 
-using HESDanfe.Objects;
+using HES.Objects;
 
 using System;
 
-namespace HESDanfe.Documents.Contents.Layers
+namespace HES.Documents.Contents.Layers
 {
   /**
     <summary>Optional content properties [PDF:1.7:4.10.3].</summary>

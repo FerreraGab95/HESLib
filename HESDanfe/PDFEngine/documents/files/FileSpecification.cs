@@ -23,14 +23,14 @@
   this list of conditions.
 */
 
-using Bytes = HESDanfe.Bytes;
-using HESDanfe.Files;
-using HESDanfe.Objects;
+using Bytes = HES.Bytes;
+using HES.Files;
+using HES.Objects;
 
 using System;
 using io = System.IO;
 
-namespace HESDanfe.Documents.Files
+namespace HES.Documents.Files
 {
   /**
     <summary>Reference to the contents of another file (file specification) [PDF:1.6:3.10.2].</summary>

@@ -23,13 +23,13 @@
   this list of conditions.
 */
 
-using HESDanfe.Objects;
-using HESDanfe.Util;
+using HES.Objects;
+using HES.Util;
 
 using System;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.Contents.Layers
+namespace HES.Documents.Contents.Layers
 {
   /**
     <summary>Layer entity.</summary>

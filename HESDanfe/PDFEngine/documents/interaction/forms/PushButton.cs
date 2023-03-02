@@ -23,15 +23,15 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Documents;
-using HESDanfe.Documents.Interaction.Annotations;
-using HESDanfe.Objects;
-using HESDanfe.Util;
+using HES.Bytes;
+using HES.Documents;
+using HES.Documents.Interaction.Annotations;
+using HES.Objects;
+using HES.Util;
 
 using System;
 
-namespace HESDanfe.Documents.Interaction.Forms
+namespace HES.Documents.Interaction.Forms
 {
   /**
     <summary>Pushbutton field [PDF:1.6:8.6.3].</summary>

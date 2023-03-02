@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Text.RegularExpressions;
 
 
-namespace HESDanfe.Esquemas
+namespace HES.Esquemas
 {
     public class Versao
     {

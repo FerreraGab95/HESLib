@@ -23,12 +23,12 @@
   this list of conditions.
 */
 
-using HESDanfe.Objects;
+using HES.Objects;
 
 using System;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.Functions
+namespace HES.Documents.Functions
 {
   /**
     <summary>Exponential interpolation of one input value and <code>n</code> output values

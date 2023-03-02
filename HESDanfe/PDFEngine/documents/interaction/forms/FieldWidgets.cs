@@ -23,17 +23,17 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Documents;
-using HESDanfe.Documents.Interaction.Annotations;
-using HESDanfe.Files;
-using HESDanfe.Objects;
+using HES.Bytes;
+using HES.Documents;
+using HES.Documents.Interaction.Annotations;
+using HES.Files;
+using HES.Objects;
 
 using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.Interaction.Forms
+namespace HES.Documents.Interaction.Forms
 {
   /**
     <summary>Field widget annotations [PDF:1.6:8.6].</summary>

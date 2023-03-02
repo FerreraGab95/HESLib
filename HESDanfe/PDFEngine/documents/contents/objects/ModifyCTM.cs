@@ -25,9 +25,9 @@
 
 using System.Collections.Generic;
 using System.Drawing.Drawing2D;
-using HESDanfe.Objects;
+using HES.Objects;
 
-namespace HESDanfe.Documents.Contents.Objects
+namespace HES.Documents.Contents.Objects
 {
     /**
       <summary>'Modify the current transformation matrix (CTM) by concatenating the specified matrix'

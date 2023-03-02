@@ -23,9 +23,9 @@
   this list of conditions.
 */
 
-using HESDanfe.Objects;
+using HES.Objects;
 
-namespace HESDanfe.Documents.Contents.ColorSpaces
+namespace HES.Documents.Contents.ColorSpaces
 {
     /**
       <summary>Abstract CIE-based color space [PDF:1.6:4.5.4].</summary>

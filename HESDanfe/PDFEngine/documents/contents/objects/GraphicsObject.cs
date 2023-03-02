@@ -25,7 +25,7 @@
 
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.Contents.Objects
+namespace HES.Documents.Contents.Objects
 {
     /**
       <summary>Graphics object [PDF:1.6:4.1].</summary>

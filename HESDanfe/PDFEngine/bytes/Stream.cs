@@ -25,12 +25,12 @@
 
 using System;
 using System.IO;
-using HESDanfe.Tokens;
-using HESDanfe.Util;
-using HESDanfe.Util.IO;
+using HES.Tokens;
+using HES.Util;
+using HES.Util.IO;
 using text = System.Text;
 
-namespace HESDanfe.Bytes
+namespace HES.Bytes
 {
     /**
       <summary>Generic stream.</summary>

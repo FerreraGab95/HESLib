@@ -1,8 +1,8 @@
 ﻿using System;
-using HESDanfe.Graphics;
+using HES.Graphics;
 
 
-namespace HESDanfe
+namespace HES
 {
     /// <summary>
     /// Campo multilinha.

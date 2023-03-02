@@ -23,16 +23,16 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents;
-using HESDanfe.Documents.Contents.ColorSpaces;
-using HESDanfe.Documents.Interaction;
-using actions = HESDanfe.Documents.Interaction.Actions;
-using HESDanfe.Files;
-using HESDanfe.Objects;
+using HES.Documents;
+using HES.Documents.Contents.ColorSpaces;
+using HES.Documents.Interaction;
+using actions = HES.Documents.Interaction.Actions;
+using HES.Files;
+using HES.Objects;
 
 using System;
 
-namespace HESDanfe.Documents.Multimedia
+namespace HES.Documents.Multimedia
 {
   /**
     <summary>Selector rendition [PDF:1.7:9.1.2].</summary>
@@ -44,7 +44,7 @@ namespace HESDanfe.Documents.Multimedia
     #region static
     #region types
     private class ArrayWrapperObject
-      : HESDanfe.Objects.Array<Rendition>.IWrapper<Rendition>
+      : HES.Objects.Array<Rendition>.IWrapper<Rendition>
     {
       public Rendition Wrap(
         PdfDirectObject baseObject
@@ -54,7 +54,7 @@ namespace HESDanfe.Documents.Multimedia
     #endregion
 
     #region fields
-    private static readonly HESDanfe.Objects.Array<Rendition>.IWrapper<Rendition> ArrayWrapper = new ArrayWrapperObject();
+    private static readonly HES.Objects.Array<Rendition>.IWrapper<Rendition> ArrayWrapper = new ArrayWrapperObject();
     #endregion
     #endregion
 

@@ -23,12 +23,12 @@
   this list of conditions.
 */
 
-using HESDanfe.Util.IO;
+using HES.Util.IO;
 
 using System;
 using System.Text;
 
-namespace HESDanfe.Util
+namespace HES.Util
 {
   /**
     <summary>Data convertion utility.</summary>

@@ -23,16 +23,16 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Documents.Contents.Fonts;
-using HESDanfe.Objects;
+using HES.Bytes;
+using HES.Documents.Contents.Fonts;
+using HES.Objects;
 
 using System;
 using System.Collections.Generic;
 using drawing = System.Drawing;
 using System.Drawing.Drawing2D;
 
-namespace HESDanfe.Documents.Contents.Objects
+namespace HES.Documents.Contents.Objects
 {
   /**
     <summary>Abstract 'show a text string' operation [PDF:1.6:5.3.2].</summary>

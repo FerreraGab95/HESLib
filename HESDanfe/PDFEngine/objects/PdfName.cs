@@ -23,16 +23,16 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Files;
-using Tokens = HESDanfe.Tokens;
+using HES.Bytes;
+using HES.Files;
+using Tokens = HES.Tokens;
 
 using System;
 using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace HESDanfe.Objects
+namespace HES.Objects
 {
   /**
     <summary>PDF name object [PDF:1.6:3.2.4].</summary>

@@ -25,9 +25,9 @@
 
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using HESDanfe.Util;
+using HES.Util;
 
-namespace HESDanfe.Documents.Contents.Objects
+namespace HES.Documents.Contents.Objects
 {
     /**
       <summary>Path-painting operation [PDF:1.6:4.4.2].</summary>

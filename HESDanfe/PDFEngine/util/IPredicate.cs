@@ -25,7 +25,7 @@
 
 using System;
 
-namespace HESDanfe.Util
+namespace HES.Util
 {
   /**
     <summary>Predicate interface.</summary>

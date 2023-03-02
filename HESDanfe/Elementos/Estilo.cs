@@ -1,13 +1,12 @@
-﻿using HESDanfe.Graphics;
-using System;
-using pcf = HESDanfe.Documents.Contents.Fonts;
+﻿using HES.Graphics;
+using pcf = HES.Documents.Contents.Fonts;
 
-namespace HESDanfe
+namespace HES
 {
     /// <summary>
     /// Coleção de fontes e medidas a serem compartilhadas entre os elementos básicos.
     /// </summary>
-    internal class Estilo 
+    public class Estilo
     {
         public float PaddingSuperior { get; set; }
         public float PaddingInferior { get; set; }

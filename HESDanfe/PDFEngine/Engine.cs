@@ -23,7 +23,7 @@
   this list of conditions.
 */
 
-namespace HESDanfe
+namespace HES
 {
   public class Engine
   {}

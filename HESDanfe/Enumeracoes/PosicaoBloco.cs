@@ -1,4 +1,4 @@
-﻿namespace HESDanfe.Blocos
+﻿namespace HES.Blocos
 {
     internal enum PosicaoBloco
     {

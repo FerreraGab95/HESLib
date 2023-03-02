@@ -23,20 +23,20 @@
   this list of conditions.
 */
 
-using Bytes = HESDanfe.Bytes;
-using HESDanfe.Documents;
-using HESDanfe.Files;
-using HESDanfe.Objects;
-using HESDanfe.Tokens;
-using HESDanfe.Util.IO;
-using HESDanfe.Util.Parsers;
+using Bytes = HES.Bytes;
+using HES.Documents;
+using HES.Files;
+using HES.Objects;
+using HES.Tokens;
+using HES.Util.IO;
+using HES.Util.Parsers;
 
 using System;
 using System.IO;
 using System.Collections.Generic;
 using text = System.Text;
 
-namespace HESDanfe.Documents.Contents.Fonts
+namespace HES.Documents.Contents.Fonts
 {
   /**
     <summary>Open Font Format parser [OFF:2009].</summary>

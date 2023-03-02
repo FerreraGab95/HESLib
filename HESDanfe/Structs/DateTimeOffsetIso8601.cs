@@ -4,7 +4,7 @@ using System.Xml.Schema;
 using System.Xml.Serialization;
 using Extensions;
 
-namespace HESDanfe
+namespace HES
 {
     // Source: https://stackoverflow.com/questions/3377036/how-can-i-xml-serialize-a-datetimeoffset-property
     /// <remarks>

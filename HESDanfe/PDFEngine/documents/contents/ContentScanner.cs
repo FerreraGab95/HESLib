@@ -28,13 +28,13 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Text;
-using HESDanfe.Documents.Contents.Objects;
-using HESDanfe.Objects;
-using colors = HESDanfe.Documents.Contents.ColorSpaces;
-using Fonts = HESDanfe.Documents.Contents.Fonts;
-using xObjects = HESDanfe.Documents.Contents.xObjects;
+using HES.Documents.Contents.Objects;
+using HES.Objects;
+using colors = HES.Documents.Contents.ColorSpaces;
+using Fonts = HES.Documents.Contents.Fonts;
+using xObjects = HES.Documents.Contents.xObjects;
 
-namespace HESDanfe.Documents.Contents
+namespace HES.Documents.Contents
 {
     /**
       <summary>Content objects scanner.</summary>
@@ -872,7 +872,7 @@ namespace HESDanfe.Documents.Contents
         { }
 
         /**
-          <summary>Instantiates a child-level content scanner for <see cref="HESDanfe.Documents.Contents.xObjects.FormXObject">external form</see>.</summary>
+          <summary>Instantiates a child-level content scanner for <see cref="HES.Documents.Contents.xObjects.FormXObject">external form</see>.</summary>
           <param name="formXObject">External form.</param>
           <param name="parentLevel">Parent scan level.</param>
         */

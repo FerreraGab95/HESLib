@@ -1,9 +1,9 @@
 ﻿using System.Diagnostics;
 using System.IO;
-using HESDanfe.Modelo;
+using HES.Modelo;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace HESDanfe.Test
+namespace HES.Test
 {
     [TestClass]
     public class DanfeXmlTests

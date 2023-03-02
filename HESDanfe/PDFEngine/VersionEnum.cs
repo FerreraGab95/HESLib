@@ -25,7 +25,7 @@
 
 using System;
 
-namespace HESDanfe
+namespace HES
 {
   /**
     <summary>Managed PDF version number [PDF:1.6:H.1].</summary>

@@ -31,9 +31,9 @@
 using System;
 using System.IO;
 using System.IO.Compression;
-using HESDanfe.Objects;
+using HES.Objects;
 
-namespace HESDanfe.Bytes.filters
+namespace HES.Bytes.filters
 {
     /**
       <summary>zlib/deflate [RFC:1950,1951] filter [PDF:1.6:3.3.3].</summary>

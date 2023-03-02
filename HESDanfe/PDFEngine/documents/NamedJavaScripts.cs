@@ -23,12 +23,12 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents.Interaction.Actions;
-using HESDanfe.Objects;
+using HES.Documents.Interaction.Actions;
+using HES.Objects;
 
 using System;
 
-namespace HESDanfe.Documents
+namespace HES.Documents
 {
   /**
     <summary>Named JavaScript actions [PDF:1.6:3.6.3].</summary>

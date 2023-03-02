@@ -1,9 +1,9 @@
 ﻿using System.Drawing;
 using Extensions;
-using HESDanfe.Graphics;
+using HES.Graphics;
 
 
-namespace HESDanfe
+namespace HES
 {
     /// <summary>
     /// Campo de única linha.

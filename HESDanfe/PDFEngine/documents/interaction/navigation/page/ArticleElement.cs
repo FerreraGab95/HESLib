@@ -23,15 +23,15 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents;
-using HESDanfe.Objects;
-using HESDanfe.Util;
+using HES.Documents;
+using HES.Objects;
+using HES.Util;
 
 using System;
 using System.Drawing;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.Interaction.Navigation.Page
+namespace HES.Documents.Interaction.Navigation.Page
 {
   /**
     <summary>Article bead [PDF:1.7:8.3.2].</summary>
@@ -100,7 +100,7 @@ namespace HESDanfe.Documents.Interaction.Navigation.Page
         {
             get
             {
-                HESDanfe.Objects.Rectangle box = HESDanfe.Objects.Rectangle.Wrap(BaseDataObject[PdfName.R]);
+                HES.Objects.Rectangle box = HES.Objects.Rectangle.Wrap(BaseDataObject[PdfName.R]);
                 return new RectangleF(
                   (float)box.Left,
                   (float)(Page.Box.Height - box.Top),
@@ -108,7 +108,7 @@ namespace HESDanfe.Documents.Interaction.Navigation.Page
                   (float)box.Height
                   );
             }
-            set => BaseDataObject[PdfName.R] = new HESDanfe.Objects.Rectangle(
+            set => BaseDataObject[PdfName.R] = new HES.Objects.Rectangle(
                 value.X,
                 Page.Box.Height - value.Y,
                 value.Width,

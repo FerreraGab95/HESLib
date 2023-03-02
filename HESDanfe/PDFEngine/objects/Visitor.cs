@@ -23,11 +23,11 @@
   this list of conditions.
 */
 
-using HESDanfe.Tokens;
+using HES.Tokens;
 
 using System.Collections.Generic;
 
-namespace HESDanfe.Objects
+namespace HES.Objects
 {
   /**
     <summary>Visitor object.</summary>

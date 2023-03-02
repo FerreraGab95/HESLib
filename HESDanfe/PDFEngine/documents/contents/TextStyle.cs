@@ -23,11 +23,11 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents.Contents.ColorSpaces;
-using HESDanfe.Documents.Contents.Fonts;
-using HESDanfe.Objects;
+using HES.Documents.Contents.ColorSpaces;
+using HES.Documents.Contents.Fonts;
+using HES.Objects;
 
-namespace HESDanfe.Documents.Contents
+namespace HES.Documents.Contents
 {
   /**
     <summary>Text style.</summary>

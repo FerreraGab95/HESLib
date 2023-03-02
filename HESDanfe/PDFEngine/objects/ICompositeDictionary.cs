@@ -26,7 +26,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace HESDanfe.Objects
+namespace HES.Objects
 {
   /**
     <summary>Composite dictionary.</summary>

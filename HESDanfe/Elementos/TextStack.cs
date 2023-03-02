@@ -1,10 +1,10 @@
-﻿using HESDanfe.Graphics;
+﻿using HES.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 
-namespace HESDanfe
+namespace HES
 {
     /// <summary>
     /// Define uma pilha de texto.

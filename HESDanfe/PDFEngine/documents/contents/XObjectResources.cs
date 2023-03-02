@@ -23,16 +23,16 @@
   this list of conditions.
 */
 
-using HESDanfe.Files;
-using HESDanfe.Documents;
-using HESDanfe.Documents.Contents.xObjects;
-using HESDanfe.Objects;
+using HES.Files;
+using HES.Documents;
+using HES.Documents.Contents.xObjects;
+using HES.Objects;
 
 using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.Contents
+namespace HES.Documents.Contents
 {
   /**
     <summary>External object resources collection [PDF:1.6:3.7.2].</summary>

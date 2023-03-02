@@ -27,7 +27,7 @@ using System;
 using System.Drawing;
 using System.Text.RegularExpressions;
 
-namespace HESDanfe.Documents
+namespace HES.Documents
 {
   /**
     <summary>Page format.</summary>

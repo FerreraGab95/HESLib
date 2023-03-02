@@ -25,11 +25,11 @@
 
 using System;
 using System.Collections.Generic;
-using HESDanfe.Objects;
-using HESDanfe.Util;
+using HES.Objects;
+using HES.Util;
 using drawing = System.Drawing;
 
-namespace HESDanfe.Documents.Contents.ColorSpaces
+namespace HES.Documents.Contents.ColorSpaces
 {
     /**
       <summary>Indexed color space [PDF:1.6:4.5.5].</summary>

@@ -23,11 +23,11 @@
   this list of conditions.
 */
 
-using HESDanfe.Objects;
+using HES.Objects;
 
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.Contents.ColorSpaces
+namespace HES.Documents.Contents.ColorSpaces
 {
   /**
     <summary>Pattern providing a smooth transition between colors across an area to be painted [PDF:1.6:4.6.3].</summary>

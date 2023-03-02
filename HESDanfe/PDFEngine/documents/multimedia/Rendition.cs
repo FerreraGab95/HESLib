@@ -23,21 +23,21 @@
   this list of conditions.
 */
 
-using HESDanfe;
-using HESDanfe.Documents;
-using HESDanfe.Documents.Contents.ColorSpaces;
-using HESDanfe.Documents.Interaction;
-using actions = HESDanfe.Documents.Interaction.Actions;
-using HESDanfe.Documents.Interchange.Access;
-using HESDanfe.Files;
-using HESDanfe.Objects;
-using HESDanfe.Util.Math;
+using HES;
+using HES.Documents;
+using HES.Documents.Contents.ColorSpaces;
+using HES.Documents.Interaction;
+using actions = HES.Documents.Interaction.Actions;
+using HES.Documents.Interchange.Access;
+using HES.Files;
+using HES.Objects;
+using HES.Util.Math;
 
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace HESDanfe.Documents.Multimedia
+namespace HES.Documents.Multimedia
 {
   /**
     <summary>Rendition [PDF:1.7:9.1.2].</summary>
@@ -115,8 +115,8 @@ namespace HESDanfe.Documents.Multimedia
           PdfArray pdfVersionArray = (PdfArray)MediaCriteria[PdfName.P];
           return pdfVersionArray != null && pdfVersionArray.Count > 0
             ? new Interval<Version>(
-              HESDanfe.Version.Get((PdfName)pdfVersionArray[0]),
-              pdfVersionArray.Count > 1 ? HESDanfe.Version.Get((PdfName)pdfVersionArray[1]) : null
+              HES.Version.Get((PdfName)pdfVersionArray[0]),
+              pdfVersionArray.Count > 1 ? HES.Version.Get((PdfName)pdfVersionArray[1]) : null
               )
             : null;
         }

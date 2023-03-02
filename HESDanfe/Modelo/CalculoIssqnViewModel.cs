@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HESDanfe.Modelo
+namespace HES.Modelo
 {
     public class CalculoIssqnViewModel
     {

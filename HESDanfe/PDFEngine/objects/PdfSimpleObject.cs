@@ -23,13 +23,13 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Files;
+using HES.Bytes;
+using HES.Files;
 
 using System;
 using System.Reflection;
 
-namespace HESDanfe.Objects
+namespace HES.Objects
 {
   /**
     <summary>Abstract PDF simple object.</summary>

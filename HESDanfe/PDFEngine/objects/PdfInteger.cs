@@ -23,10 +23,10 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Files;
+using HES.Bytes;
+using HES.Files;
 
-namespace HESDanfe.Objects
+namespace HES.Objects
 {
   /**
     <summary>PDF integer number object [PDF:1.6:3.2.2].</summary>

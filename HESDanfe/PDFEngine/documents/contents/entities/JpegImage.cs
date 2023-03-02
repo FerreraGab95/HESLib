@@ -25,14 +25,14 @@
 
 using System.Collections.Generic;
 using System.IO;
-using HESDanfe.Documents.Contents.Composition;
-using HESDanfe.Documents.Contents.Objects;
-using HESDanfe.Objects;
-using HESDanfe.Util.IO;
-using Bytes = HESDanfe.Bytes;
-using xObjects = HESDanfe.Documents.Contents.xObjects;
+using HES.Documents.Contents.Composition;
+using HES.Documents.Contents.Objects;
+using HES.Objects;
+using HES.Util.IO;
+using Bytes = HES.Bytes;
+using xObjects = HES.Documents.Contents.xObjects;
 
-namespace HESDanfe.Documents.Contents.Entities
+namespace HES.Documents.Contents.Entities
 {
     /**
       <summary>JPEG image object [ISO 10918-1;JFIF:1.02].</summary>

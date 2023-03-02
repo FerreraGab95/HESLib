@@ -25,7 +25,7 @@
 
 using System.Collections.Generic;
 
-namespace HESDanfe.Util.Collections.Generic
+namespace HES.Util.Collections.Generic
 {
   /**
     <summary>Extension list interface.</summary>

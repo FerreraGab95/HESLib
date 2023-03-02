@@ -29,9 +29,9 @@
 using System;
 using System.IO;
 using System.Text;
-using HESDanfe.Objects;
+using HES.Objects;
 
-namespace HESDanfe.Bytes.filters
+namespace HES.Bytes.filters
 {
     /**
       <summary>ASCII base-85 filter [PDF:1.6:3.3.2].</summary>

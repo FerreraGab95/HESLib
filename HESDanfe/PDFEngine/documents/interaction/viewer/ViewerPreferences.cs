@@ -24,9 +24,9 @@
 */
 
 using System.Collections.Generic;
-using HESDanfe.Objects;
+using HES.Objects;
 
-namespace HESDanfe.Documents.Interaction.Viewer
+namespace HES.Documents.Interaction.Viewer
 {
     /**
       <summary>Viewer preferences [PDF:1.6:8.1].</summary>

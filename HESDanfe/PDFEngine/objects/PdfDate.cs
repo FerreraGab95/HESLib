@@ -23,14 +23,14 @@
   this list of conditions.
 */
 
-using Tokens = HESDanfe.Tokens;
-using HESDanfe.Util.Parsers;
+using Tokens = HES.Tokens;
+using HES.Util.Parsers;
 
 using System;
 using System.Globalization;
 using System.Text;
 
-namespace HESDanfe.Objects
+namespace HES.Objects
 {
   /**
     <summary>PDF date object [PDF:1.6:3.8.3].</summary>
@@ -55,7 +55,7 @@ namespace HESDanfe.Objects
 
     /**
       <summary>Converts a PDF date literal into its corresponding date.</summary>
-      <exception cref="HESDanfe.Util.Parsers.ParseException">Thrown when date literal parsing fails.</exception>
+      <exception cref="HES.Util.Parsers.ParseException">Thrown when date literal parsing fails.</exception>
     */
     public static DateTime ToDate(
       string value

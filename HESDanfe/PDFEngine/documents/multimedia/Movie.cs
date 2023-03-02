@@ -23,14 +23,14 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Documents;
-using HESDanfe.Documents.Files;
-using HESDanfe.Objects;
+using HES.Bytes;
+using HES.Documents;
+using HES.Documents.Files;
+using HES.Objects;
 
 using System;
 
-namespace HESDanfe.Documents.Multimedia
+namespace HES.Documents.Multimedia
 {
 //TODO: this is just a stub.
   /**

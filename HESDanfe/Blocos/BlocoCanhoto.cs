@@ -1,6 +1,6 @@
-﻿using HESDanfe.Elementos;
-using HESDanfe.Modelo;
-namespace HESDanfe.Blocos
+﻿using HES.Elementos;
+using HES.Modelo;
+namespace HES.Blocos
 {
     internal class BlocoCanhoto : BlocoBase
     {

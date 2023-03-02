@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Drawing;
 using Extensions;
-using HESDanfe.Graphics;
-using HESDanfe.Modelo;
+using HES.Graphics;
+using HES.Modelo;
 
-namespace HESDanfe.Blocos
+namespace HES.Blocos
 {
     internal class TabelaProdutosServicos : ElementoBase
     {

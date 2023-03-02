@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Xml.Serialization;
-using HESDanfe.Esquemas.NFe;
+using HES.Esquemas.NFe;
 
-namespace HESDanfe.Esquemas
+namespace HES.Esquemas
 {
     [XmlRoot(ElementName = "detEvento")]
     public class DetEvento

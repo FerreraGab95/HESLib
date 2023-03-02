@@ -23,10 +23,10 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents.Interaction.Annotations;
-using HESDanfe.Objects;
+using HES.Documents.Interaction.Annotations;
+using HES.Objects;
 
-namespace HESDanfe.Documents.Interaction.Forms
+namespace HES.Documents.Interaction.Forms
 {
     /**
       <summary>Button field [PDF:1.6:8.6.3].</summary>

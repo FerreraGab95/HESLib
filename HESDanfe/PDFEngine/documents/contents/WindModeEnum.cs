@@ -26,7 +26,7 @@
 using System;
 using System.Drawing.Drawing2D;
 
-namespace HESDanfe.Documents.Contents
+namespace HES.Documents.Contents
 {
   /**
     <summary>Winding rule for determining which points lie inside a path [PDF:1.6:4.4.2].</summary>

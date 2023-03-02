@@ -27,7 +27,7 @@ using System;
 using System.Linq;
 using System.Text;
 
-namespace HESDanfe.Util
+namespace HES.Util
 {
   /**
     <summary>Byte array.</summary>

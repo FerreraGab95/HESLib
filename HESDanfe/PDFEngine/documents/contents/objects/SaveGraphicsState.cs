@@ -23,11 +23,11 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
+using HES.Bytes;
 
-using HESDanfe.Objects;
+using HES.Objects;
 
-namespace HESDanfe.Documents.Contents.Objects
+namespace HES.Documents.Contents.Objects
 {
   /**
     <summary>'Save the current graphics state on the graphics state stack' operation [PDF:1.6:4.3.3].

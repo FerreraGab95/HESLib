@@ -23,18 +23,18 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Documents;
-using HESDanfe.Documents.Contents.Layers;
-using HESDanfe.Objects;
-using HESDanfe.Util;
+using HES.Bytes;
+using HES.Documents;
+using HES.Documents.Contents.Layers;
+using HES.Objects;
+using HES.Util;
 
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace HESDanfe.Documents.Interaction.Actions
+namespace HES.Documents.Interaction.Actions
 {
   /**
     <summary>'Set the state of one or more optional content groups' action [PDF:1.6:8.5.3].</summary>

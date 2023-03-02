@@ -23,14 +23,14 @@
   this list of conditions.
 */
 
-using HESDanfe.Objects;
-using HESDanfe.Util.Metadata;
+using HES.Objects;
+using HES.Util.Metadata;
 
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-namespace HESDanfe
+namespace HES
 {
   /**
     <summary>Generic PDF version number [PDF:1.6:H.1].</summary>

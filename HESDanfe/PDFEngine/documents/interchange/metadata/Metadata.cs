@@ -23,14 +23,14 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Objects;
+using HES.Bytes;
+using HES.Objects;
 
 using System;
 using System.IO;
 using System.Xml;
 
-namespace HESDanfe.Documents.Interchange.Metadata
+namespace HES.Documents.Interchange.Metadata
 {
   /**
     <summary>Metadata stream [PDF:1.6:10.2.2].</summary>

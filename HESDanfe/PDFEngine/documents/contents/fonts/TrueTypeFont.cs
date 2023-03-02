@@ -23,17 +23,17 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents;
-using HESDanfe.Files;
-using HESDanfe.Objects;
-using HESDanfe.Util;
+using HES.Documents;
+using HES.Files;
+using HES.Objects;
+using HES.Util;
 
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 
-namespace HESDanfe.Documents.Contents.Fonts
+namespace HES.Documents.Contents.Fonts
 {
   /**
     <summary>TrueType font [PDF:1.6:5;OFF:2009].</summary>

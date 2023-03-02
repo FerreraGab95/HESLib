@@ -24,11 +24,11 @@
 */
 
 using System;
-using HESDanfe.Documents.Contents.ColorSpaces;
-using HESDanfe.Objects;
-using Actions = HESDanfe.Documents.Interaction.Actions;
+using HES.Documents.Contents.ColorSpaces;
+using HES.Objects;
+using Actions = HES.Documents.Interaction.Actions;
 
-namespace HESDanfe.Documents.Interaction.Navigation.Document
+namespace HES.Documents.Interaction.Navigation.Document
 {
     /**
       <summary>Outline item [PDF:1.6:8.2.2].</summary>

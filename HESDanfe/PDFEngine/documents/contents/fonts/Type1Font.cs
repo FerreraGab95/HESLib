@@ -23,10 +23,10 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Documents;
-using HESDanfe.Objects;
-using HESDanfe.Util;
+using HES.Bytes;
+using HES.Documents;
+using HES.Objects;
+using HES.Util;
 
 using System;
 using System.Collections.Generic;
@@ -36,7 +36,7 @@ using System.Reflection;
 using text = System.Text;
 using System.Text.RegularExpressions;
 
-namespace HESDanfe.Documents.Contents.Fonts
+namespace HES.Documents.Contents.Fonts
 {
   /**
     <summary>Type 1 font [PDF:1.6:5.5.1;AFM:4.1].</summary>

@@ -23,10 +23,10 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents.Interaction.Navigation.Page;
-using HESDanfe.Objects;
+using HES.Documents.Interaction.Navigation.Page;
+using HES.Objects;
 
-namespace HESDanfe.Documents
+namespace HES.Documents
 {
     /**
       <summary>Article threads [PDF:1.7:3.6.1].</summary>

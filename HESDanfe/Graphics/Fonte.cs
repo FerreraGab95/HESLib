@@ -1,13 +1,13 @@
 ﻿using System;
 using Extensions;
-using pcf = HESDanfe.Documents.Contents.Fonts;
+using pcf = HES.Documents.Contents.Fonts;
 
-namespace HESDanfe.Graphics
+namespace HES.Graphics
 {
     /// <summary>
     /// Define uma fonte do PDF Clown e um tamanho. 
     /// </summary>
-    internal class Fonte
+    public class Fonte
     {
         private float _Tamanho;
 

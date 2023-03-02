@@ -1,8 +1,8 @@
 ﻿using System;
 using BR;
-using HESDanfe.Modelo;
+using HES.Modelo;
 
-namespace HESDanfe.Blocos
+namespace HES.Blocos
 {
     abstract class BlocoLocalEntregaRetirada : BlocoBase
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace HESDanfe
+namespace HES
 {
 	internal class AlturaFixaAttribute : Attribute
     {

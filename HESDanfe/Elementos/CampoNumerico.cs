@@ -1,6 +1,6 @@
-﻿using HESDanfe.Graphics;
+﻿using HES.Graphics;
 
-namespace HESDanfe.Elementos
+namespace HES.Elementos
 {
     /// <summary>
     /// Campo para valores numéricos.

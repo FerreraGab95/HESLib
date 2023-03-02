@@ -25,7 +25,7 @@
 
 using System;
 
-namespace HESDanfe.Tokens
+namespace HES.Tokens
 {
   /**
     <summary>Cross-reference table entry [PDF:1.6:3.4.3].</summary>

@@ -23,16 +23,16 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents;
-using HESDanfe.Documents.Contents.ColorSpaces;
-using HESDanfe.Documents.Interaction;
-using actions = HESDanfe.Documents.Interaction.Actions;
-using HESDanfe.Files;
-using HESDanfe.Objects;
+using HES.Documents;
+using HES.Documents.Contents.ColorSpaces;
+using HES.Documents.Interaction;
+using actions = HES.Documents.Interaction.Actions;
+using HES.Files;
+using HES.Objects;
 
 using System;
 
-namespace HESDanfe.Documents.Multimedia
+namespace HES.Documents.Multimedia
 {
   /**
     <summary>Media rendition [PDF:1.7:9.1.2].</summary>

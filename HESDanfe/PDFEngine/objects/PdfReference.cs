@@ -23,13 +23,13 @@
   this list of conditions.
 */
 
-using HESDanfe.Bytes;
-using HESDanfe.Files;
-using HESDanfe.Tokens;
+using HES.Bytes;
+using HES.Files;
+using HES.Tokens;
 
 using System;
 
-namespace HESDanfe.Objects
+namespace HES.Objects
 {
   /**
     <summary>PDF indirect reference object [PDF:1.6:3.2.9].</summary>

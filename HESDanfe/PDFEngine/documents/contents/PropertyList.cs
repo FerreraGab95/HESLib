@@ -23,15 +23,15 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents;
-using HESDanfe.Documents.Contents.Fonts;
-using HESDanfe.Documents.Contents.Layers;
-using HESDanfe.Files;
-using HESDanfe.Objects;
+using HES.Documents;
+using HES.Documents.Contents.Fonts;
+using HES.Documents.Contents.Layers;
+using HES.Files;
+using HES.Objects;
 
 using System;
 
-namespace HESDanfe.Documents.Contents
+namespace HES.Documents.Contents
 {
   /**
     <summary>Private information meaningful to the program (application or plugin extension)

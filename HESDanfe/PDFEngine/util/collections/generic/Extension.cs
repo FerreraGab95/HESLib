@@ -26,7 +26,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace HESDanfe.Util.Collections.Generic
+namespace HES.Util.Collections.Generic
 {
   public static class Extension
   {

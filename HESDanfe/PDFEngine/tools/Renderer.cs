@@ -27,10 +27,10 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Drawing.Printing;
-using HESDanfe.Documents;
-using HESDanfe.Documents.Contents;
+using HES.Documents;
+using HES.Documents.Contents;
 
-namespace HESDanfe.Tools
+namespace HES.Tools
 {
     /**
       <summary>Tool for rendering <see cref="IContentContext">content contexts</see>.</summary>

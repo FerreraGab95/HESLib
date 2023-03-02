@@ -1,7 +1,7 @@
 ﻿using System;
-using HESDanfe.Graphics;
+using HES.Graphics;
 
-namespace HESDanfe
+namespace HES
 {
     /// <summary>
     /// Cabeçalho do bloco, normalmente um texto em caixa alta.

@@ -23,18 +23,18 @@
   this list of conditions.
 */
 
-using HESDanfe;
-using HESDanfe.Bytes;
-using HESDanfe.Files;
-using HESDanfe.Tokens;
-using HESDanfe.Util.Collections.Generic;
+using HES;
+using HES.Bytes;
+using HES.Files;
+using HES.Tokens;
+using HES.Util.Collections.Generic;
 
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using text = System.Text;
 
-namespace HESDanfe.Objects
+namespace HES.Objects
 {
   /**
     <summary>PDF array object, that is a one-dimensional collection of (possibly-heterogeneous)

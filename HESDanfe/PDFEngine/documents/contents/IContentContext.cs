@@ -25,7 +25,7 @@
 
 using System.Drawing;
 
-namespace HESDanfe.Documents.Contents
+namespace HES.Documents.Contents
 {
     /**
       <summary>Content stream context.</summary>

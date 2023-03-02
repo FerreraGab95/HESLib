@@ -23,15 +23,15 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents;
-using HESDanfe.Documents.Interchange.Metadata;
-using HESDanfe.Objects;
-using HESDanfe.Util;
+using HES.Documents;
+using HES.Documents.Interchange.Metadata;
+using HES.Objects;
+using HES.Util;
 
 using System;
 using System.Collections.Generic;
 
-namespace HESDanfe.Documents.Interaction.Navigation.Page
+namespace HES.Documents.Interaction.Navigation.Page
 {
   /**
     <summary>Article thread [PDF:1.7:8.3.2].</summary>

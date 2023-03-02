@@ -23,9 +23,9 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents.Contents;
-using HESDanfe.Documents.Contents.Objects;
-using HESDanfe.Util.Math;
+using HES.Documents.Contents;
+using HES.Documents.Contents.Objects;
+using HES.Util.Math;
 
 using System;
 using System.Collections;
@@ -33,7 +33,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
 
-namespace HESDanfe.Tools
+namespace HES.Tools
 {
   /**
     <summary>Tool for extracting text from <see cref="IContentContext">content contexts</see>.</summary>

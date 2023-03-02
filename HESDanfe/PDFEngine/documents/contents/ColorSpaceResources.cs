@@ -23,10 +23,10 @@
   this list of conditions.
 */
 
-using HESDanfe.Documents.Contents.ColorSpaces;
-using HESDanfe.Objects;
+using HES.Documents.Contents.ColorSpaces;
+using HES.Objects;
 
-namespace HESDanfe.Documents.Contents
+namespace HES.Documents.Contents
 {
     /**
       <summary>Color spaces collection [PDF:1.6:3.7.2].</summary>
