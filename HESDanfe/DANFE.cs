@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using ComplexText;
 using Extensions;
 using HESDanfe.Blocos;
 using HESDanfe.Bytes;
