@@ -155,7 +155,7 @@ namespace Extensions
                 {
                     using (var f = MergePDF(files))
                     {
-                        if (f != null) f.Save(outputFilePath, SerializationMode);
+                        f?.Save(outputFilePath, SerializationMode);
                     }
                 }
 
