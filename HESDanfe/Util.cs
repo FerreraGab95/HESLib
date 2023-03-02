@@ -7,14 +7,17 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
+using HESDanfe;
 using HESDanfe.Documents;
 using HESDanfe.Documents.Contents.Composition;
 using HESDanfe.Files;
-using InnerLibs;
 
-namespace HESDanfe
+
+
+namespace Extensions
 {
-    internal static class Utils
+
+    public static partial class Util
     {
         #region Internal Fields
 
@@ -92,7 +95,7 @@ namespace HESDanfe
 
         #region Public Constructors
 
-        static Utils()
+        static Util()
         {
             Cultura.NumberFormat.CurrencyPositivePattern = 2;
             Cultura.NumberFormat.CurrencyNegativePattern = 9;
@@ -123,15 +126,15 @@ namespace HESDanfe
         /// </summary>
         public static bool StringContemChaveValor(this string str, string chave, string valor)
         {
-            if (Ext.IsBlank(chave)) throw new ArgumentException(nameof(chave));
-            if (Ext.IsBlank(str)) return false;
+            if (Util.IsBlank(chave)) throw new ArgumentException(nameof(chave));
+            if (Util.IsBlank(str)) return false;
 
             return Regex.IsMatch(str, $@"({chave}):?\s*{valor}", RegexOptions.IgnoreCase);
         }
 
         public static string TipoDFeDeChaveAcesso(this string chaveAcesso)
         {
-            if (Ext.IsBlank(chaveAcesso)) throw new ArgumentException(nameof(chaveAcesso));
+            if (Util.IsBlank(chaveAcesso)) throw new ArgumentException(nameof(chaveAcesso));
 
             if (chaveAcesso.Length == 44)
             {
@@ -227,10 +230,7 @@ namespace HESDanfe
         public static PointF ToPointMeasure(this PointF r) => new PointF(r.X.ToPoint(), r.Y.ToPoint());
 
         #endregion Public Methods
-    }
 
-    public static class PDFUtils
-    {
         #region Public Methods
 
         public static PdfFile MergePDF(params PdfFile[] files)
@@ -265,7 +265,7 @@ namespace HESDanfe
             }
         }
 
-        public static byte[] ToBytes(this PdfFile file, Files.SerializationModeEnum SerializationMode)
+        public static byte[] ToBytes(this PdfFile file, HESDanfe.Files.SerializationModeEnum SerializationMode)
         {
             using (var m = new MemoryStream())
             {

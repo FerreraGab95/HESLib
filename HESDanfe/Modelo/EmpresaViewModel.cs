@@ -1,6 +1,6 @@
 ﻿using System.Text;
-using InnerLibs;
-using InnerLibs.BR;
+using BR;
+using Extensions;
 
 namespace HESDanfe.Modelo
 {
@@ -110,8 +110,8 @@ namespace HESDanfe.Modelo
             {
                 StringBuilder sb = new StringBuilder();
                 sb.Append(EnderecoLogadrouro);
-                if (Ext.IsNotBlank(EnderecoNumero)) sb.Append(", ").Append(EnderecoNumero);
-                if (Ext.IsNotBlank(EnderecoComplemento)) sb.Append(" - ").Append(EnderecoComplemento);
+                if (Extensions.Util.IsNotBlank(EnderecoNumero)) sb.Append(", ").Append(EnderecoNumero);
+                if (Extensions.Util.IsNotBlank(EnderecoComplemento)) sb.Append(" - ").Append(EnderecoComplemento);
                 return sb.ToString();
             }
         }
@@ -132,7 +132,7 @@ namespace HESDanfe.Modelo
                 StringBuilder sb = new StringBuilder()
                     .Append(Municipio).Append(" - ").Append(EnderecoUf);
 
-                if (Ext.IsNotBlank(Telefone))
+                if (Telefone.IsNotBlank())
                     sb.Append(" Fone: ").Append(Telefone.FormatTelephoneNumber());
 
                 return sb.ToString();

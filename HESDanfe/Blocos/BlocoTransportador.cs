@@ -1,5 +1,5 @@
-﻿using HESDanfe.Modelo;
-using InnerLibs.BR;
+﻿using BR;
+using HESDanfe.Modelo;
 
 namespace HESDanfe.Blocos
 {
@@ -16,25 +16,25 @@ namespace HESDanfe.Blocos
             var transportadora = viewModel.Transportadora;
 
             AdicionarLinhaCampos()
-                .ComCampo(Utils.RazaoSocial, transportadora.RazaoSocial)
+                .ComCampo(Extensions.Util.RazaoSocial, transportadora.RazaoSocial)
                 .ComCampo("Frete", transportadora.ModalidadeFreteString, AlinhamentoHorizontal.Centro)
                 .ComCampo("Código ANTT", transportadora.CodigoAntt, AlinhamentoHorizontal.Centro)
                 .ComCampo("Placa do Veículo", transportadora.Placa, AlinhamentoHorizontal.Centro)
-                .ComCampo(Utils.UF, transportadora.VeiculoUf, AlinhamentoHorizontal.Centro)
-                .ComCampo(Utils.CnpjCpf, transportadora.CnpjCpf.FormatCPFOrCNPJ(), AlinhamentoHorizontal.Centro)
+                .ComCampo(Extensions.Util.UF, transportadora.VeiculoUf, AlinhamentoHorizontal.Centro)
+                .ComCampo(Extensions.Util.CnpjCpf, transportadora.CnpjCpf.FormatCPFOrCNPJ(), AlinhamentoHorizontal.Centro)
                 .ComLarguras(0, LarguraFrete, LarguraCampoCodigoAntt, LarguraCampoPlacaVeiculo, LarguraCampoUf, LarguraCampoCnpj);
 
             AdicionarLinhaCampos()
-                .ComCampo(Utils.Endereco, transportadora.EnderecoLogadrouro)
-                .ComCampo(Utils.Municipio, transportadora.Municipio)
-                .ComCampo(Utils.UF, transportadora.EnderecoUf, AlinhamentoHorizontal.Centro)
-                .ComCampo(Utils.InscricaoEstadual, transportadora.Ie, AlinhamentoHorizontal.Centro)
+                .ComCampo(Extensions.Util.Endereco, transportadora.EnderecoLogadrouro)
+                .ComCampo(Extensions.Util.Municipio, transportadora.Municipio)
+                .ComCampo(Extensions.Util.UF, transportadora.EnderecoUf, AlinhamentoHorizontal.Centro)
+                .ComCampo(Extensions.Util.InscricaoEstadual, transportadora.Ie, AlinhamentoHorizontal.Centro)
                 .ComLarguras(0, LarguraCampoPlacaVeiculo + LarguraCampoCodigoAntt, LarguraCampoUf, LarguraCampoCnpj);
 
             var l = (float)(LarguraCampoCodigoAntt + LarguraCampoPlacaVeiculo + LarguraCampoUf + LarguraCampoCnpj) / 3F;
 
             AdicionarLinhaCampos()
-                .ComCampoNumerico(Utils.Quantidade, transportadora.QuantidadeVolumes, 3)
+                .ComCampoNumerico(Extensions.Util.Quantidade, transportadora.QuantidadeVolumes, 3)
                 .ComCampo("Espécie", transportadora.Especie)
                 .ComCampo("Marca", transportadora.Marca)
                 .ComCampo("Numeração", transportadora.Numeracao)

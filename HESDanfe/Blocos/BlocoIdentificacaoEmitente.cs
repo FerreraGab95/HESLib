@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
-using HESDanfe.Modelo;
-using InnerLibs.BR;
+using BR;
 using HESDanfe.Documents.Contents.xObjects;
+using HESDanfe.Modelo;
 
 namespace HESDanfe.Blocos
 {
@@ -16,7 +16,7 @@ namespace HESDanfe.Blocos
         public BlocoIdentificacaoEmitente(DANFEModel viewModel, Estilo estilo) : base(viewModel, estilo)
         {
 
-            var textoConsulta = new TextoSimples(Estilo, Utils.TextoConsulta)
+            var textoConsulta = new TextoSimples(Estilo, Extensions.Util.TextoConsulta)
             {
                 Height = 8,
                 AlinhamentoHorizontal = AlinhamentoHorizontal.Centro,
@@ -24,7 +24,7 @@ namespace HESDanfe.Blocos
                 TamanhoFonte = 9
             };
 
-            var campoChaveAcesso = new Campo("Chave de Acesso", Utils.FormatarChaveAcesso(ViewModel.ChaveAcesso), estilo, AlinhamentoHorizontal.Centro) { Height = Utils.CampoAltura };
+            var campoChaveAcesso = new Campo("Chave de Acesso", Extensions.Util.FormatarChaveAcesso(ViewModel.ChaveAcesso), estilo, AlinhamentoHorizontal.Centro) { Height = Extensions.Util.CampoAltura };
             var codigoBarras = new Barcode128C(viewModel.ChaveAcesso, Estilo) { Height = AlturaLinha1 - textoConsulta.Height - campoChaveAcesso.Height };
 
             var coluna3 = new VerticalStack();

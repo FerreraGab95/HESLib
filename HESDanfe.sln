@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HESDanfe.Test", "HESDanfe.T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HESDanfe", "HESDanfe\HESDanfe.csproj", "{3B92AA4E-B2F6-4CB0-83C7-F8DCFCCB22CB}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "InnerLibs", "..\Innerlibs\InnerLibsCommon\InnerLibs.shproj", "{4A6BE46F-380F-4565-A9F3-72E1FF4DA2D3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,5 +39,9 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0F9492B6-1252-409C-AA30-3CD4F7F60F0A}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		..\Innerlibs\InnerLibsCommon\InnerLibs.projitems*{3b92aa4e-b2f6-4cb0-83c7-f8dcfccb22cb}*SharedItemsImports = 4
+		..\Innerlibs\InnerLibsCommon\InnerLibs.projitems*{4a6be46f-380f-4565-a9f3-72e1ff4da2d3}*SharedItemsImports = 13
 	EndGlobalSection
 EndGlobal

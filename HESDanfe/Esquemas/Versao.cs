@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
-using InnerLibs;
+
 
 namespace HESDanfe.Esquemas
 {
@@ -20,7 +20,7 @@ namespace HESDanfe.Esquemas
         [DebuggerStepThrough]
         public static Versao Parse(string str)
         {
-            if (Ext.IsBlank(str))
+            if (Extensions.Util.IsBlank(str))
             {
                 throw new ArgumentException("O parâmetro str não pode ser nulo ou vazio.", "str");
             }

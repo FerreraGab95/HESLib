@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using Extensions;
 using HESDanfe.Graphics;
 using HESDanfe.Modelo;
 

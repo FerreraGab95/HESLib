@@ -1,6 +1,6 @@
 ﻿using System;
 using HESDanfe.Graphics;
-using InnerLibs;
+
 
 namespace HESDanfe
 {
@@ -20,7 +20,7 @@ namespace HESDanfe
 
         protected override void DesenharConteudo(Gfx gfx)
         {
-            if (Ext.IsNotBlank(Conteudo))
+            if (Extensions.Util.IsNotBlank(Conteudo))
             {
                 _tbConteudo.SetPosition(RetanguloDesenhvael.X, RetanguloDesenhvael.Y + Estilo.FonteCampoCabecalho.AlturaLinha + Estilo.PaddingInferior);
                 _tbConteudo.Draw(gfx);

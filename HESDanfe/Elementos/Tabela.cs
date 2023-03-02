@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using HESDanfe.Graphics;
-using InnerLibs;
+using Extensions;
 using HESDanfe.Documents.Contents.ColorSpaces;
+using HESDanfe.Graphics;
 
 namespace HESDanfe
 {
@@ -82,7 +82,7 @@ namespace HESDanfe
 
                 float w = (Width * c.PorcentagemLargura) / 100F;
 
-                if (Ext.IsNotBlank(v))
+                if (Extensions.Util.IsNotBlank(v))
                 {
 
                     tb[i] = new TextBlock(v, FonteCorpo)

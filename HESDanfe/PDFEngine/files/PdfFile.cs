@@ -26,11 +26,12 @@
 using System;
 using System.IO;
 using System.Reflection;
+using Extensions;
 using HESDanfe.Bytes;
 using HESDanfe.Documents;
 using HESDanfe.Objects;
 using HESDanfe.Tokens;
-using InnerLibs;
+
 
 namespace HESDanfe.Files
 {

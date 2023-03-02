@@ -3,7 +3,7 @@ using System.IO;
 
 namespace HESDanfe.Test
 {
-    public static class Extensions
+    public static class TestUtils
     {
         public const string OutputDirectoryName = "Output";
 

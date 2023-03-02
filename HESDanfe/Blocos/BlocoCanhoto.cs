@@ -1,6 +1,5 @@
 ﻿using HESDanfe.Elementos;
 using HESDanfe.Modelo;
-
 namespace HESDanfe.Blocos
 {
     internal class BlocoCanhoto : BlocoBase
@@ -11,7 +10,7 @@ namespace HESDanfe.Blocos
         public BlocoCanhoto(DANFEModel viewModel, Estilo estilo) : base(viewModel, estilo)
         {
             var textoRecebimento = new TextoSimples(estilo, viewModel.TextoRecebimento) { Height = TextoRecebimentoAltura, TamanhoFonte = 8 };
-            var nfe = new NumeroNfSerie(estilo, viewModel.NfNumero.ToString(Utils.FormatoNumeroNF), viewModel.NfSerie.ToString()) { Height = AlturaLinha2 + TextoRecebimentoAltura, Width = 30 };
+            var nfe = new NumeroNfSerie(estilo, viewModel.NfNumero.ToString(Extensions.Util.FormatoNumeroNF), viewModel.NfSerie.ToString()) { Height = AlturaLinha2 + TextoRecebimentoAltura, Width = 30 };
 
             var campos = new LinhaCampos(Estilo) { Height = AlturaLinha2 }
                .ComCampo("Data de Recebimento", null)

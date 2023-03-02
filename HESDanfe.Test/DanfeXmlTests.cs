@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics;
 using System.IO;
 using HESDanfe.Modelo;
-using InnerLibs;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HESDanfe.Test
@@ -56,7 +55,7 @@ namespace HESDanfe.Test
             var logo = @"C:\Users\H&S\Pictures\logo_envia_large.jpg";
 
             var d = new DANFE(nfe, cce, logo);
-            d.ViewModel.TextoCorrecao = Ext.RandomIpsum(100);
+            d.ViewModel.TextoCorrecao = Extensions.Util.RandomIpsum(100);
             d.GerarUnico();
         }
 

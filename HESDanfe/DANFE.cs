@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Extensions;
 using HESDanfe.Blocos;
 using HESDanfe.Bytes;
 using HESDanfe.Documents.Contents.Fonts;
 using HESDanfe.Files;
 using HESDanfe.Modelo;
-using InnerLibs;
 
 namespace HESDanfe
 {
@@ -186,7 +186,7 @@ namespace HESDanfe
         /// <summary>
         /// Empresa responsavel por gerar o DANFE
         /// </summary>
-        public static string Autor { get; set; } = Utils.GetCompanyName();
+        public static string Autor { get; set; } = Extensions.Util.GetCompanyName();
 
         /// <summary>
         /// Nota rodapé adicionada em cada folha do DANFE
@@ -213,16 +213,16 @@ namespace HESDanfe
         /// <param name="ChaveNFe"></param>
         /// <param name="SequenciaEvento"></param>
         /// <returns></returns>
-        public static string GerarNomePdfCCE(string ChaveNFe, int SequenciaEvento) => $"DANFE-{Utils.FormatarChaveAcesso(ChaveNFe).RemoveMask()}-CCE-{SequenciaEvento}.pdf";
+        public static string GerarNomePdfCCE(string ChaveNFe, int SequenciaEvento) => $"DANFE-{Extensions.Util.FormatarChaveAcesso(ChaveNFe).RemoveMask()}-CCE-{SequenciaEvento}.pdf";
 
         /// <summary>
         /// Gera um nome padronizado para o DANFE
         /// </summary>
         /// <param name="ChaveNFe"></param>
         /// <returns></returns>
-        public static string GerarNomePdfDANFE(string ChaveNFe) => $"DANFE-{Utils.FormatarChaveAcesso(ChaveNFe).RemoveMask()}.pdf";
+        public static string GerarNomePdfDANFE(string ChaveNFe) => $"DANFE-{Extensions.Util.FormatarChaveAcesso(ChaveNFe).RemoveMask()}.pdf";
 
-        public static string GerarNomeUnico(string ChaveNFe, int SequenciaEvento) => $"DANFE-CCE-{Utils.FormatarChaveAcesso(ChaveNFe).RemoveMask()}-Seq-{SequenciaEvento}.pdf";
+        public static string GerarNomeUnico(string ChaveNFe, int SequenciaEvento) => $"DANFE-CCE-{Extensions.Util.FormatarChaveAcesso(ChaveNFe).RemoveMask()}-Seq-{SequenciaEvento}.pdf";
 
         /// <inheritdoc cref="GerarPDF(string, string, string, DirectoryInfo)"/>
         public static IEnumerable<FileInfo> GerarPDF(string PathNFe, string PathCCe, DirectoryInfo outputPath) => GerarPDF(PathNFe, PathCCe, null, outputPath);
@@ -251,11 +251,12 @@ namespace HESDanfe
                 var f = new FileInfo(logoPath);
                 if (f.Exists)
                 {
-                    if (f.GetFileType().Any(x => x == "application/pdf"))
+
+                    if (f.Extension.EqualsIgnoreCaseAndAccents(".pdf"))
                     {
                         AdicionarLogoPdf(logoPath);
                     }
-                    else if (f.GetFileType().Any(x => x == "image/jpg" || x == "image/jpeg"))
+                    else if (f.Extension.IsAny(StringComparison.OrdinalIgnoreCase, ".jpg", ".jpeg"))
                     {
                         AdicionarLogoImagem(logoPath);
                     }
@@ -306,7 +307,7 @@ namespace HESDanfe
             FonteNegrito = new StandardType1Font(OutputFile.Document, FonteFamilia, true, false);
             FonteItalico = new StandardType1Font(OutputFile.Document, FonteFamilia, false, true);
 
-            EstiloPadrao = Utils.CriarEstilo();
+            EstiloPadrao = Extensions.Util.CriarEstilo();
 
             Paginas = new List<DanfePagina>();
 
@@ -331,7 +332,7 @@ namespace HESDanfe
             ObjetoLogo = IdentificacaoEmitente.Logo;
 
             AdicionarBloco<BlocoDestinatarioRemetente>();
-            AdicionarBloco<BlocoDadosAdicionais>(Utils.CriarEstilo(tFonteCampoConteudo: 8));
+            AdicionarBloco<BlocoDadosAdicionais>(Extensions.Util.CriarEstilo(tFonteCampoConteudo: 8));
 
             if (ViewModel.TipoDocumento == TipoDocumento.DANFE)
             {
@@ -344,7 +345,7 @@ namespace HESDanfe
                 if (ViewModel.Duplicatas.Count > 0)
                     AdicionarBloco<BlocoDuplicataFatura>();
 
-                AdicionarBloco<BlocoCalculoImposto>(ViewModel.Orientacao == Orientacao.Paisagem ? EstiloPadrao : Utils.CriarEstilo(4.75F));
+                AdicionarBloco<BlocoCalculoImposto>(ViewModel.Orientacao == Orientacao.Paisagem ? EstiloPadrao : Extensions.Util.CriarEstilo(4.75F));
                 AdicionarBloco<BlocoTransportador>();
 
                 if (ViewModel.CalculoIssqn.Mostrar)
@@ -368,7 +369,7 @@ namespace HESDanfe
             }
             else if (ViewModel.TipoDocumento == TipoDocumento.CCE)
             {
-                AdicionarBloco<BlocoCondicaoCCE>(Utils.CriarEstilo(tFonteCampoConteudo: 10));
+                AdicionarBloco<BlocoCondicaoCCE>(Extensions.Util.CriarEstilo(tFonteCampoConteudo: 10));
 
                 const int FirstCount = 3500;
                 int OtherCount = FirstCount + 2550;
@@ -410,7 +411,7 @@ namespace HESDanfe
             info[new Objects.PdfName("ChaveAcesso")] = ViewModel.ChaveAcesso;
             info[new Objects.PdfName("TipoDocumento")] = $"{TipoDocumento}";
             info.CreationDate = ViewModel.DataHoraEmissao;
-            info.Creator = $"{Utils.GetAssemblyName()?.Name} {Utils.GetAssemblyName()?.Version} - Disponível em https://github.com/zonaro/HESDanfe";
+            info.Creator = $"{Extensions.Util.GetAssemblyName()?.Name} {Extensions.Util.GetAssemblyName()?.Version} - Disponível em https://github.com/zonaro/HESDanfe";
             info.Author = Autor;
 
             info.Subject = ViewModel.TipoDocumento == TipoDocumento.DANFE ? "Documento Auxiliar da NFe" : "Carta de Correção Eletrônica";
@@ -480,7 +481,7 @@ namespace HESDanfe
             {
                 var cce = Gerar(TipoDocumento.CCE);
 
-                return PDFUtils.MergePDF(danfe, cce);
+                return Extensions.Util.MergePDF(danfe, cce);
             }
             else
             {

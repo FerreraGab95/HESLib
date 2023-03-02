@@ -1,8 +1,8 @@
 ﻿using System.Drawing;
+using Extensions;
+using HESDanfe.Documents.Contents.xObjects;
 using HESDanfe.Graphics;
 using HESDanfe.Modelo;
-using InnerLibs;
-using HESDanfe.Documents.Contents.xObjects;
 
 namespace HESDanfe
 {
@@ -66,7 +66,7 @@ namespace HESDanfe
 
             if (ViewModel.PreferirEmitenteNomeFantasia)
             {
-                nome = Ext.IsNotBlank(emitente.NomeFantasia) ? emitente.NomeFantasia : emitente.RazaoSocial;
+                nome = Extensions.Util.IsNotBlank(emitente.NomeFantasia) ? emitente.NomeFantasia : emitente.RazaoSocial;
             }
 
             var ts = new TextStack(rp) { LineHeightScale = 1 }

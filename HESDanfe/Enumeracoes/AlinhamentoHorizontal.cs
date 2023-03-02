@@ -1,6 +1,6 @@
 ﻿namespace HESDanfe
 {
-    internal enum AlinhamentoHorizontal
+    public enum AlinhamentoHorizontal
     {
         Esquerda,
         Centro,

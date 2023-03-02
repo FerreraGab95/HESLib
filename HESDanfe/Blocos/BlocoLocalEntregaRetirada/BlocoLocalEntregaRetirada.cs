@@ -1,6 +1,6 @@
 ﻿using System;
+using BR;
 using HESDanfe.Modelo;
-using InnerLibs.BR;
 
 namespace HESDanfe.Blocos
 {
@@ -13,21 +13,21 @@ namespace HESDanfe.Blocos
             Model = localModel ?? throw new ArgumentNullException(nameof(localModel));
 
             AdicionarLinhaCampos()
-            .ComCampo(Utils.NomeRazaoSocial, Model.NomeRazaoSocial)
-            .ComCampo(Utils.CnpjCpf, Model.CnpjCpf.FormatCPFOrCNPJ(), AlinhamentoHorizontal.Centro)
-            .ComCampo(Utils.InscricaoEstadual, Model.InscricaoEstadual, AlinhamentoHorizontal.Centro)
+            .ComCampo(Extensions.Util.NomeRazaoSocial, Model.NomeRazaoSocial)
+            .ComCampo(Extensions.Util.CnpjCpf, Model.CnpjCpf.FormatCPFOrCNPJ(), AlinhamentoHorizontal.Centro)
+            .ComCampo(Extensions.Util.InscricaoEstadual, Model.InscricaoEstadual, AlinhamentoHorizontal.Centro)
             .ComLarguras(0, 45F * Proporcao, 30F * Proporcao);
 
             AdicionarLinhaCampos()
-            .ComCampo(Utils.Endereco, Model.Endereco)
-            .ComCampo(Utils.BairroDistrito, Model.Bairro)
-            .ComCampo(Utils.Cep, Model.Cep.FormatCEP(), AlinhamentoHorizontal.Centro)
+            .ComCampo(Extensions.Util.Endereco, Model.Endereco)
+            .ComCampo(Extensions.Util.BairroDistrito, Model.Bairro)
+            .ComCampo(Extensions.Util.Cep, Model.Cep.FormatCEP(), AlinhamentoHorizontal.Centro)
             .ComLarguras(0, 45F * Proporcao, 30F * Proporcao);
 
             AdicionarLinhaCampos()
-            .ComCampo(Utils.Municipio, Model.Municipio)
-            .ComCampo(Utils.UF, Model.Uf, AlinhamentoHorizontal.Centro)
-            .ComCampo(Utils.FoneFax, Model.Telefone.FormatTelephoneNumber(), AlinhamentoHorizontal.Centro)
+            .ComCampo(Extensions.Util.Municipio, Model.Municipio)
+            .ComCampo(Extensions.Util.UF, Model.Uf, AlinhamentoHorizontal.Centro)
+            .ComCampo(Extensions.Util.FoneFax, Model.Telefone.FormatTelephoneNumber(), AlinhamentoHorizontal.Centro)
             .ComLarguras(0, 7F * Proporcao, 30F * Proporcao);
         }
 

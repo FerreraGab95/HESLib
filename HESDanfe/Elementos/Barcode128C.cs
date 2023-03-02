@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Text.RegularExpressions;
 using HESDanfe.Graphics;
-using InnerLibs;
+
 
 namespace HESDanfe
 {
@@ -145,7 +145,7 @@ namespace HESDanfe
 
         public Barcode128C(string code, Estilo estilo, float largura = 75F) : base(estilo)
         {
-            if (Ext.IsBlank(code))
+            if (Extensions.Util.IsBlank(code))
             {
                 throw new ArgumentException("O código não pode ser vazio.", "code");
             }

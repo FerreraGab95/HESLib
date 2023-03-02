@@ -1,5 +1,6 @@
-﻿using HESDanfe.Graphics;
-using InnerLibs;
+﻿using Extensions;
+using HESDanfe.Graphics;
+
 
 namespace HESDanfe
 {
@@ -23,7 +24,7 @@ namespace HESDanfe
         {
             base.Draw(gfx);
 
-            if (Ext.IsNotBlank(Texto))
+            if (Extensions.Util.IsNotBlank(Texto))
             {
                 var r = BoundingBox.InflatedRetangle(0.75F);
 

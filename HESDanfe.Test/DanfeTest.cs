@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
+using Extensions;
 using HESDanfe.Esquemas.NFe;
-using InnerLibs;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace HESDanfe.Test
@@ -14,7 +14,7 @@ namespace HESDanfe.Test
         [TestMethod]
         public void MergePDF()
         {
-            Ext.EnableDebugMessages = true;
+            Extensions.Util.EnableDebugMessages = true;
             new DirectoryInfo(@"C:\teste\testeDANFE").MergePDF(@"C:\teste\pdfunico.pdf");
         }
 

@@ -1,10 +1,11 @@
-﻿using HESDanfe.Graphics;
+﻿using System;
+using Extensions;
+using HESDanfe.Graphics;
 using HESDanfe.Modelo;
-using System;
 
 namespace HESDanfe
 {
-	[AlturaFixa]
+    [AlturaFixa]
     internal class Duplicata : ElementoBase
     {
         public Fonte FonteA { get; private set; }
@@ -33,12 +34,14 @@ namespace HESDanfe
                 gfx.DrawString(Chaves[i], r, FonteA, AlinhamentoHorizontal.Esquerda);
                 gfx.DrawString(valores[i], r, FonteB, AlinhamentoHorizontal.Direita);
                 r = r.CutTop(FonteB.AlturaLinha);
-            }    
+            }
 
         }
 
-        public override float Height {
-            get => 3*FonteB.AlturaLinha + Estilo.PaddingSuperior + Estilo.PaddingInferior;
-            set => throw new NotSupportedException(); }
+        public override float Height
+        {
+            get => 3 * FonteB.AlturaLinha + Estilo.PaddingSuperior + Estilo.PaddingInferior;
+            set => throw new NotSupportedException();
+        }
     }
 }

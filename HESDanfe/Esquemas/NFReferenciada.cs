@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Xml;
 using System.Xml.Serialization;
-using InnerLibs;
-using InnerLibs.BR;
+
+using BR;
+using Extensions;
 
 namespace HESDanfe.Esquemas
 {
@@ -26,7 +27,7 @@ namespace HESDanfe.Esquemas
             if (TipoNFReferenciada == TipoNFReferenciada.refCTe || TipoNFReferenciada == TipoNFReferenciada.refNFe)
             {
                 string chaveAcesso = Item.ToString();
-                return $"{Utils.TipoDFeDeChaveAcesso(chaveAcesso)} Ref.: {Utils.FormatarChaveAcesso(Item.ToString())}";
+                return $"{Extensions.Util.TipoDFeDeChaveAcesso(chaveAcesso)} Ref.: {Extensions.Util.FormatarChaveAcesso(Item.ToString())}";
             }
             else
                 return Item.ToString();

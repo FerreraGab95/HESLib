@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,12 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="InnerLibs">
-      <HintPath>..\..\Innerlibs\InnerLibs\bin\Debug\net472\InnerLibs.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -502,7 +501,7 @@
     <Compile Include="Esquemas\ProcNFe.cs" />
     <Compile Include="Esquemas\Versao.cs" />
     <Compile Include="Structs\DateTimeOffsetIso8601.cs" />
-    <Compile Include="Utils.cs" />
+    <Compile Include="Util.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -529,5 +528,6 @@
     <EmbeddedResource Include="res\pkg\fonts\cmap\Identity-V" />
   </ItemGroup>
   <ItemGroup />
+  <Import Project="..\..\Innerlibs\InnerLibsCommon\InnerLibs.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

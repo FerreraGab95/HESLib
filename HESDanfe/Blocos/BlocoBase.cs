@@ -1,8 +1,9 @@
 ﻿using System;
+using Extensions;
 using HESDanfe.Elementos;
 using HESDanfe.Graphics;
 using HESDanfe.Modelo;
-using InnerLibs;
+
 
 namespace HESDanfe.Blocos
 {
@@ -47,7 +48,7 @@ namespace HESDanfe.Blocos
         {
             var l = new LinhaCampos(Estilo, Width);
             l.Width = Width;
-            l.Height = Utils.CampoAltura;
+            l.Height = Extensions.Util.CampoAltura;
             MainVerticalStack.Add(l);
             return l;
         }

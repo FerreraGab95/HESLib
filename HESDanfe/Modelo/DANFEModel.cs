@@ -6,9 +6,10 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml;
 using System.Xml.Serialization;
+using Extensions;
 using HESDanfe.Esquemas;
 using HESDanfe.Esquemas.NFe;
-using InnerLibs;
+
 
 namespace HESDanfe.Modelo
 {
@@ -32,7 +33,7 @@ namespace HESDanfe.Modelo
             EmpresaViewModel model = new EmpresaViewModel();
 
             model.RazaoSocial = empresa.xNome;
-            model.CnpjCpf = Ext.IsNotBlank(empresa.CNPJ) ? empresa.CNPJ : empresa.CPF;
+            model.CnpjCpf = Extensions.Util.IsNotBlank(empresa.CNPJ) ? empresa.CNPJ : empresa.CPF;
             model.Ie = empresa.IE;
             model.IeSt = empresa.IEST;
             model.Email = empresa.email;
@@ -67,7 +68,7 @@ namespace HESDanfe.Modelo
             var m = new LocalEntregaRetiradaViewModel()
             {
                 NomeRazaoSocial = local.xNome,
-                CnpjCpf = Ext.IsNotBlank(local.CNPJ) ? local.CNPJ : local.CPF,
+                CnpjCpf = Extensions.Util.IsNotBlank(local.CNPJ) ? local.CNPJ : local.CPF,
                 InscricaoEstadual = local.IE,
                 Bairro = local.xBairro,
                 Municipio = local.xMun,
@@ -79,12 +80,12 @@ namespace HESDanfe.Modelo
             StringBuilder sb = new StringBuilder();
             sb.Append(local.xLgr);
 
-            if (Ext.IsNotBlank(local.nro))
+            if (Extensions.Util.IsNotBlank(local.nro))
             {
                 sb.Append(", ").Append(local.nro);
             }
 
-            if (Ext.IsNotBlank(local.xCpl))
+            if (Extensions.Util.IsNotBlank(local.xCpl))
             {
                 sb.Append(" - ").Append(local.xCpl);
             }
@@ -166,7 +167,7 @@ namespace HESDanfe.Modelo
                 model.DataHoraEmissao = ide.dEmi;
                 model.DataSaidaEntrada = ide.dSaiEnt;
 
-                if (Ext.IsNotBlank(ide.hSaiEnt))
+                if (Extensions.Util.IsNotBlank(ide.hSaiEnt))
                 {
                     model.HoraSaidaEntrada = TimeSpan.Parse(ide.hSaiEnt);
                 }
@@ -424,10 +425,10 @@ namespace HESDanfe.Modelo
                     if (!string.IsNullOrEmpty(InformacoesAdicionaisFisco))
                         sb.AppendChaveValor("Inf. fisco", InformacoesAdicionaisFisco);
 
-                    if (!string.IsNullOrEmpty(Pedido) && !Utils.StringContemChaveValor(InformacoesComplementares, "Pedido", Pedido))
+                    if (!string.IsNullOrEmpty(Pedido) && !Extensions.Util.StringContemChaveValor(InformacoesComplementares, "Pedido", Pedido))
                         sb.AppendChaveValor("Pedido", Pedido);
 
-                    if (!string.IsNullOrEmpty(Contrato) && !Utils.StringContemChaveValor(InformacoesComplementares, "Contrato", Contrato))
+                    if (!string.IsNullOrEmpty(Contrato) && !Extensions.Util.StringContemChaveValor(InformacoesComplementares, "Contrato", Contrato))
                         sb.AppendChaveValor("Contrato", Contrato);
 
                     if (!string.IsNullOrEmpty(NotaEmpenho))
@@ -477,7 +478,7 @@ namespace HESDanfe.Modelo
                         sb.Append($" - {ContingenciaDataHora.FormatarDataHora()}");
                     }
 
-                    if (Ext.IsNotBlank(ContingenciaJustificativa))
+                    if (Extensions.Util.IsNotBlank(ContingenciaJustificativa))
                     {
                         sb.Append($" - {ContingenciaJustificativa}");
                     }
@@ -668,7 +669,7 @@ namespace HESDanfe.Modelo
             {
                 transportadoraModel.RazaoSocial = transportadora.xNome;
                 transportadoraModel.EnderecoUf = transportadora.UF;
-                transportadoraModel.CnpjCpf = Ext.IsNotBlank(transportadora.CNPJ) ? transportadora.CNPJ : transportadora.CPF;
+                transportadoraModel.CnpjCpf = Extensions.Util.IsNotBlank(transportadora.CNPJ) ? transportadora.CNPJ : transportadora.CPF;
                 transportadoraModel.EnderecoLogadrouro = transportadora.xEnder;
                 transportadoraModel.Municipio = transportadora.xMun;
                 transportadoraModel.Ie = transportadora.IE;
@@ -695,7 +696,7 @@ namespace HESDanfe.Modelo
 
             var infoProto = procNfe.protNFe.infProt;
 
-            model.ProtocoloAutorizacao = string.Format(Utils.Cultura, "{0} - {1}", infoProto.nProt, infoProto.dhRecbto.DateTimeOffsetValue.DateTime);
+            model.ProtocoloAutorizacao = string.Format(Extensions.Util.Cultura, "{0} - {1}", infoProto.nProt, infoProto.dhRecbto.DateTimeOffsetValue.DateTime);
 
             ExtrairDatas(model, infNfe);
 
@@ -733,7 +734,7 @@ namespace HESDanfe.Modelo
         {
             using (var sr = new StreamReader(caminhoNFe, true))
             {
-                if (Ext.IsNotBlank(caminhoCCe) && File.Exists(caminhoCCe))
+                if (Extensions.Util.IsNotBlank(caminhoCCe) && File.Exists(caminhoCCe))
                 {
                     using (var sr2 = new StreamReader(caminhoCCe, true))
                     {

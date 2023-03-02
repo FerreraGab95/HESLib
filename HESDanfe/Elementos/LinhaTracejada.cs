@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using Extensions;
 using HESDanfe.Graphics;
 
 namespace HESDanfe
@@ -20,7 +21,7 @@ namespace HESDanfe
 
             gfx.PrimitiveComposer.BeginLocalState();
             gfx.PrimitiveComposer.SetLineDash(new HESDanfe.Documents.Contents.LineDash(new double[] { 3, 2 }));
-            gfx.PrimitiveComposer.DrawLine(new PointF(BoundingBox.Left, Y + Margin).ToPointMeasure(), new PointF(BoundingBox.Right, Y + Margin).ToPointMeasure() );
+            gfx.PrimitiveComposer.DrawLine(new PointF(BoundingBox.Left, Y + Margin).ToPointMeasure(), new PointF(BoundingBox.Right, Y + Margin).ToPointMeasure());
             gfx.PrimitiveComposer.Stroke();
             gfx.PrimitiveComposer.End();
 

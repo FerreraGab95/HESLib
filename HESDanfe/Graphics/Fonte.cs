@@ -1,5 +1,6 @@
-﻿using pcf = HESDanfe.Documents.Contents.Fonts;
-using System;
+﻿using System;
+using Extensions;
+using pcf = HESDanfe.Documents.Contents.Fonts;
 
 namespace HESDanfe.Graphics
 {
@@ -51,7 +52,7 @@ namespace HESDanfe.Graphics
         /// <param name="c">Char</param>
         /// <returns>Largura em mm.</returns>
         public float MedirLarguraChar(char c) => (float)FonteInterna.GetWidth(c, Tamanho).ToMm();
-        
+
         /// <summary>
         /// Medida da altura da linha.
         /// </summary>
