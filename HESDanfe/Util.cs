@@ -12,11 +12,8 @@ using HES.Documents;
 using HES.Documents.Contents.Composition;
 using HES.Files;
 
-
-
 namespace Extensions
 {
-
     public static partial class Util
     {
         #region Internal Fields
@@ -121,6 +118,52 @@ namespace Extensions
 
         public static RectangleF InflatedRetangle(this RectangleF rect, float value) => rect.InflatedRetangle(value, value, value);
 
+        public static PdfFile MergePDF(params PdfFile[] files)
+        {
+            files = files ?? Array.Empty<PdfFile>();
+            if (files.Any())
+            {
+                var outputFile = new PdfFile();
+
+                foreach (var inputFile in files)
+                {
+                    foreach (var item in inputFile.Document.Pages)
+                    {
+                        var p = item.Clone(outputFile.Document) as Page;
+                        outputFile.Document.Pages.Add(p);
+                    }
+                }
+
+                return outputFile;
+            }
+            return null;
+        }
+
+        public static FileInfo MergePDF(this DirectoryInfo inputFiles, string outputFilePath) => MergePDF(outputFilePath, SerializationModeEnum.Incremental, inputFiles.GetFiles("*.pdf").Select(x => x.FullName).OrderBy(x => x.FileNameAsTitle()).ToArray());
+
+        public static FileInfo MergePDF(this DirectoryInfo inputFiles, SerializationModeEnum SerializationMode, string outputFilePath) => MergePDF(outputFilePath, SerializationMode, inputFiles.GetFiles("*.pdf").Select(x => x.FullName).OrderBy(x => x.FileNameAsTitle()).ToArray());
+
+        public static FileInfo MergePDF(string outputFilePath, params string[] inputFiles) => MergePDF(outputFilePath, SerializationModeEnum.Incremental, inputFiles);
+
+        public static FileInfo MergePDF(string outputFilePath, SerializationModeEnum SerializationMode, params string[] inputFiles)
+        {
+            if (outputFilePath.IsNotBlank() && outputFilePath.IsFilePath())
+            {
+                inputFiles = inputFiles ?? Array.Empty<string>();
+                var files = inputFiles.Where(x => x.IsFilePath() && File.Exists(x)).Select(x => new PdfFile(x)).ToArray();
+                if (files.Any())
+                {
+                    using (var f = MergePDF(files))
+                    {
+                        if (f != null) f.Save(outputFilePath, SerializationMode);
+                    }
+                }
+
+                return new FileInfo(outputFilePath);
+            }
+            else throw new ArgumentException("outputFilePath não é um caminho de arquivo válido", nameof(outputFilePath));
+        }
+
         /// <summary>
         /// Verifica se uma string contém outra string no formato chave: valor.
         /// </summary>
@@ -146,6 +189,15 @@ namespace Extensions
             }
 
             return "DF-e Desconhecido";
+        }
+
+        public static byte[] ToBytes(this PdfFile file, HES.Files.SerializationModeEnum SerializationMode)
+        {
+            using (var m = new MemoryStream())
+            {
+                file.Save(new HES.Bytes.Stream(m), SerializationMode);
+                return m.ToBytes();
+            }
         }
 
         /// <summary>
@@ -228,51 +280,6 @@ namespace Extensions
         public static RectangleF ToPointMeasure(this RectangleF r) => new RectangleF(r.X.ToPoint(), r.Y.ToPoint(), r.Width.ToPoint(), r.Height.ToPoint());
 
         public static PointF ToPointMeasure(this PointF r) => new PointF(r.X.ToPoint(), r.Y.ToPoint());
-
-        #endregion Public Methods
-
-        #region Public Methods
-
-        public static PdfFile MergePDF(params PdfFile[] files)
-        {
-            var outputFile = new PdfFile();
-
-            foreach (var inputFile in files)
-            {
-                foreach (var item in inputFile.Document.Pages)
-                {
-                    var p = item.Clone(outputFile.Document) as Page;
-                    outputFile.Document.Pages.Add(p);
-                }
-            }
-
-            return outputFile;
-        }
-
-        public static FileInfo MergePDF(this DirectoryInfo inputFiles, string outputFilePath) => MergePDF(outputFilePath, SerializationModeEnum.Incremental, inputFiles.GetFiles("*.pdf").Select(x => x.FullName).OrderBy(x => x.FileNameAsTitle()).ToArray());
-
-        public static FileInfo MergePDF(this DirectoryInfo inputFiles, SerializationModeEnum SerializationMode, string outputFilePath) => MergePDF(outputFilePath, SerializationMode, inputFiles.GetFiles("*.pdf").Select(x => x.FullName).OrderBy(x => x.FileNameAsTitle()).ToArray());
-
-        public static FileInfo MergePDF(string outputFilePath, params string[] inputFiles) => MergePDF(outputFilePath, SerializationModeEnum.Incremental, inputFiles);
-
-        public static FileInfo MergePDF(string outputFilePath, SerializationModeEnum SerializationMode, params string[] inputFiles)
-        {
-            inputFiles = inputFiles ?? Array.Empty<string>();
-            var files = inputFiles.Where(x => x.IsFilePath() && File.Exists(x)).Select(x => new PdfFile(x)).ToArray();
-            using (var f = MergePDF(files))
-            {
-                return f.Save(outputFilePath, SerializationMode);
-            }
-        }
-
-        public static byte[] ToBytes(this PdfFile file, HES.Files.SerializationModeEnum SerializationMode)
-        {
-            using (var m = new MemoryStream())
-            {
-                file.Save(new HES.Bytes.Stream(m), SerializationMode);
-                return m.ToBytes();
-            }
-        }
 
         #endregion Public Methods
     }
