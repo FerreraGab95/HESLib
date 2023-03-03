@@ -12,7 +12,7 @@ namespace HES.Blocos
 
             AdicionarLinhaCampos()
             .ComCampo("Razão Social", destinatario.RazaoSocial)
-            .ComCampo("CPF/CNPJ", destinatario.CnpjCpf.FormatarCPFOuCNPJ(), AlinhamentoHorizontal.Centro)
+            .ComCampo(destinatario.CnpjCpf.PegarRotuloDocumento(), destinatario.CnpjCpf.FormatarCPFOuCNPJ(), AlinhamentoHorizontal.Centro)
             .ComCampo("Data de Emissão", viewModel.DataHoraEmissao.Formatar(), AlinhamentoHorizontal.Centro)
             .ComLarguras(0, 45F * Proporcao, 30F * Proporcao);
 

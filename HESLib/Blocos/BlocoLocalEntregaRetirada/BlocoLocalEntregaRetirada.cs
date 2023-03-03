@@ -14,7 +14,7 @@ namespace HES.Blocos
 
             AdicionarLinhaCampos()
             .ComCampo("Nome/Razão Social", Model.NomeRazaoSocial)
-            .ComCampo("CPF/CNPJ", Model.CnpjCpf.FormatarCPFOuCNPJ(), AlinhamentoHorizontal.Centro)
+            .ComCampo(Model.CnpjCpf.PegarRotuloDocumento(), Model.CnpjCpf.FormatarCPFOuCNPJ(), AlinhamentoHorizontal.Centro)
             .ComCampo("Inscrição Estadual", Model.InscricaoEstadual, AlinhamentoHorizontal.Centro)
             .ComLarguras(0, 45F * Proporcao, 30F * Proporcao);
 

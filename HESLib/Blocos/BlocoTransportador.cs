@@ -21,7 +21,7 @@ namespace HES.Blocos
                 .ComCampo("Código ANTT", transportadora.CodigoAntt, AlinhamentoHorizontal.Centro)
                 .ComCampo("Placa do Veículo", transportadora.Placa, AlinhamentoHorizontal.Centro)
                 .ComCampo("UF", transportadora.VeiculoUf, AlinhamentoHorizontal.Centro)
-                .ComCampo("CNPJ/CPF", transportadora.CnpjCpf.FormatarCPFOuCNPJ(), AlinhamentoHorizontal.Centro)
+                .ComCampo(transportadora.CnpjCpf.PegarRotuloDocumento(), transportadora.CnpjCpf.FormatarCPFOuCNPJ(), AlinhamentoHorizontal.Centro)
                 .ComLarguras(0, LarguraFrete, LarguraCampoCodigoAntt, LarguraCampoPlacaVeiculo, LarguraCampoUf, LarguraCampoCnpj);
 
             AdicionarLinhaCampos()
