@@ -11,23 +11,23 @@ namespace HES.Blocos
             var destinatario = viewModel.Destinatario;
 
             AdicionarLinhaCampos()
-            .ComCampo(Extensions.Util.RazaoSocial, destinatario.RazaoSocial)
-            .ComCampo(Extensions.Util.CnpjCpf, destinatario.CnpjCpf.FormatarCPFOuCNPJ(), AlinhamentoHorizontal.Centro)
+            .ComCampo("Razão Social", destinatario.RazaoSocial)
+            .ComCampo("CPF/CNPJ", destinatario.CnpjCpf.FormatarCPFOuCNPJ(), AlinhamentoHorizontal.Centro)
             .ComCampo("Data de Emissão", viewModel.DataHoraEmissao.Formatar(), AlinhamentoHorizontal.Centro)
             .ComLarguras(0, 45F * Proporcao, 30F * Proporcao);
 
             AdicionarLinhaCampos()
-            .ComCampo(Extensions.Util.Endereco, destinatario.EnderecoLinha1)
-            .ComCampo(Extensions.Util.BairroDistrito, destinatario.EnderecoBairro)
-            .ComCampo(Extensions.Util.Cep, destinatario.EnderecoCep.FormatarCEP(), AlinhamentoHorizontal.Centro)
+            .ComCampo("Endereço", destinatario.EnderecoLinha1)
+            .ComCampo("Bairro", destinatario.EnderecoBairro)
+            .ComCampo("CEP", destinatario.EnderecoCep.FormatarCEP(), AlinhamentoHorizontal.Centro)
             .ComCampo("Data Entrada / Saída", ViewModel.DataSaidaEntrada.Formatar(), AlinhamentoHorizontal.Centro)
             .ComLarguras(0, 45F * Proporcao, 25F * Proporcao, 30F * Proporcao);
 
             AdicionarLinhaCampos()
-            .ComCampo(Extensions.Util.Municipio, destinatario.Municipio)
-            .ComCampo(Extensions.Util.FoneFax, destinatario.Telefone.FormatarTelefone(), AlinhamentoHorizontal.Centro)
-            .ComCampo(Extensions.Util.UF, destinatario.EnderecoUf, AlinhamentoHorizontal.Centro)
-            .ComCampo(Extensions.Util.InscricaoEstadual, destinatario.Ie, AlinhamentoHorizontal.Centro)
+            .ComCampo("Município", destinatario.Municipio)
+            .ComCampo("Telefone/Fax", destinatario.Telefone.FormatarTelefone(), AlinhamentoHorizontal.Centro)
+            .ComCampo("UF", destinatario.EnderecoUf, AlinhamentoHorizontal.Centro)
+            .ComCampo("Inscrição Estadual", destinatario.Ie, AlinhamentoHorizontal.Centro)
             .ComCampo("Hora Entrada / Saída", ViewModel.HoraSaidaEntrada.Formatar(), AlinhamentoHorizontal.Centro)
             .ComLarguras(0, 35F * Proporcao, 7F * Proporcao, 40F * Proporcao, 30F * Proporcao);
         }

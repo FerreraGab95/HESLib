@@ -18,22 +18,19 @@ namespace Extensions
     {
         #region Internal Fields
 
-        internal const string BairroDistrito = "Bairro / Distrito";
-        internal const string Cep = "CEP";
-        internal const string CnpjCpf = "CNPJ / CPF";
-        internal const string Endereco = "Endereço";
-        internal const string FoneFax = "Fone / Fax";
+
+
+
         internal const string FormatoMoeda = "#,0.00##";
         internal const string FormatoNumero = "#,0.####";
         internal const string FormatoNumeroNF = @"000\.000\.000";
-        internal const string InscricaoEstadual = "Inscrição Estadual";
-        internal const string Municipio = "Município";
-        internal const string NomeRazaoSocial = "Nome / Razão Social";
+
+
+
         internal const float PointFactor = 72F / 25.4F;
-        internal const string Quantidade = "Quantidade";
-        internal const string RazaoSocial = "Razão Social";
+
         internal const string TextoConsulta = "Consulta de autenticidade no portal nacional da NF-e www.nfe.fazenda.gov.br/portal ou no site da Sefaz Autorizadora";
-        internal const string UF = "UF";
+
 
         #endregion Internal Fields
 
