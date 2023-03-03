@@ -66,7 +66,7 @@ namespace HES.Esquemas
         public string serie { get; set; }
         public string nNF { get; set; }
 
-        public override string ToString() => $"NF Ref.: Série: {serie} Número: {nNF} Emitente: {CNPJ.FormatCNPJ()} Modelo: {mod}";
+        public override string ToString() => $"NF Ref.: Série: {serie} Número: {nNF} Emitente: {CNPJ.FormatarCNPJ()} Modelo: {mod}";
     }
 
     [Serializable]
@@ -81,6 +81,6 @@ namespace HES.Esquemas
         public string serie { get; set; }
         public string nNF { get; set; }
 
-        public override string ToString() => $"NFP Ref.: Série: {serie} Número: {nNF} Emitente: {CNPJ.IfBlank(CPF).FormatCPFOrCNPJ()} Modelo: {mod} IE: {IE}";
+        public override string ToString() => $"NFP Ref.: Série: {serie} Número: {nNF} Emitente: {CNPJ.IfBlank(CPF).FormatarCPFOuCNPJ()} Modelo: {mod} IE: {IE}";
     }
 }

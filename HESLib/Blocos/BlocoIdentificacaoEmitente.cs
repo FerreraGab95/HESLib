@@ -49,7 +49,7 @@ namespace HES.Blocos
             AdicionarLinhaCampos()
                 .ComCampo("Inscrição Estadual", ViewModel.Emitente.Ie, AlinhamentoHorizontal.Centro)
                 .ComCampo("Inscrição Estadual do Subst. Tributário", ViewModel.Emitente.IeSt, AlinhamentoHorizontal.Centro)
-                .ComCampo("Cnpj", ViewModel.Emitente.CnpjCpf.FormatCNPJ(), AlinhamentoHorizontal.Centro)
+                .ComCampo("Cnpj", ViewModel.Emitente.CnpjCpf.FormatarCNPJ(), AlinhamentoHorizontal.Centro)
                 .ComLargurasIguais();
 
         }

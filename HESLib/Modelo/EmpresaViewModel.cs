@@ -119,7 +119,7 @@ namespace HES.Modelo
         /// <summary>
         /// Linha 1 do Endereço
         /// </summary>
-        public string EnderecoLinha2 => $"{EnderecoBairro} - CEP: {EnderecoCep.FormatCEP()}";
+        public string EnderecoLinha2 => $"{EnderecoBairro} - CEP: {EnderecoCep.FormatarCEP()}";
 
 
         /// <summary>
@@ -133,7 +133,7 @@ namespace HES.Modelo
                     .Append(Municipio).Append(" - ").Append(EnderecoUf);
 
                 if (Telefone.IsNotBlank())
-                    sb.Append(" Fone: ").Append(Telefone.FormatTelephoneNumber());
+                    sb.Append(" Fone: ").Append(Telefone.FormatarTelefone());
 
                 return sb.ToString();
             }
