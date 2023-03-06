@@ -231,7 +231,7 @@ namespace HES.Documents.Contents.Fonts
         NOTE: A 'cmap' table may contain one or more subtables that represent multiple encodings
         intended for use on different platforms (such as Mac OS and Windows).
         Each subtable is identified by the two numbers, such as (3,1), that represent a combination
-        of a platform ID and a platform-specific encoding ID, respectively.
+        of a platform ChaveFormatada and a platform-specific encoding ChaveFormatada, respectively.
         A symbolic font (used to display glyphs that do not use standard encodings, i.e. neither
         MacRomanEncoding nor WinAnsiEncoding) program's "cmap" table should contain a (1,0) subtable.
         It may also contain a (3,0) subtable; if present, this subtable should map from character
@@ -258,9 +258,9 @@ namespace HES.Documents.Contents.Fonts
         tableIndex++
         )
       {
-        // Platform ID.
+        // Platform ChaveFormatada.
         int platformID = FontData.ReadUnsignedShort();
-        // Encoding ID.
+        // Encoding ChaveFormatada.
         int encodingID = FontData.ReadUnsignedShort();
         // Subtable offset.
         int offset = FontData.ReadInt();
@@ -427,7 +427,7 @@ namespace HES.Documents.Contents.Fonts
         )
       {rangeOffsets[index] = FontData.ReadUnsignedShort();}
 
-      // 3. Glyph ID array.
+      // 3. Glyph ChaveFormatada array.
       /*
         NOTE: There's no explicit field defining the array length;
         it must be inferred from the space left by the known fields.
@@ -468,8 +468,8 @@ namespace HES.Documents.Contents.Fonts
           )
         {
           int glyphIndex;
-          // Doesn't the mapping of character codes rely on glyph ID?
-          if(rangeOffsets[segmentIndex] == 0) // No glyph-ID reliance.
+          // Doesn't the mapping of character codes rely on glyph ChaveFormatada?
+          if(rangeOffsets[segmentIndex] == 0) // No glyph-ChaveFormatada reliance.
           {
             /*
               NOTE: If the range offset is 0, the delta value is added directly to the character
@@ -477,15 +477,15 @@ namespace HES.Documents.Contents.Fonts
             */
             glyphIndex = (code + deltas[segmentIndex]) & 0xFFFF;
           }
-          else // Glyph-ID reliance.
+          else // Glyph-ChaveFormatada reliance.
           {
             /*
-              NOTE: If the range offset is NOT 0, the mapping of character codes relies on glyph ID.
+              NOTE: If the range offset is NOT 0, the mapping of character codes relies on glyph ChaveFormatada.
               The character code offset from start code is added to the range offset. This sum is
               used as an offset from the current location within range offset itself to index out
-              the correct glyph ID. This obscure indexing trick (sic!) works because glyph ID
+              the correct glyph ChaveFormatada. This obscure indexing trick (sic!) works because glyph ChaveFormatada
               immediately follows range offset in the font file. The C expression that yields the
-              address to the glyph ID is:
+              address to the glyph ChaveFormatada is:
                 *(rangeOffsets[segmentIndex]/2
                 + (code - startCodes[segmentIndex])
                 + &idRangeOffset[segmentIndex])
@@ -499,7 +499,7 @@ namespace HES.Documents.Contents.Fonts
               - (segmentCount - segmentIndex); // Physical offset between the offsets into glyph index array and the glyph index array.
 
             /*
-              NOTE: The delta value is added to the glyph ID to get the corresponding glyph index.
+              NOTE: The delta value is added to the glyph ChaveFormatada to get the corresponding glyph index.
               The delta arithmetic is modulo 65536.
             */
             glyphIndex = (glyphIds[glyphIdIndex] + deltas[segmentIndex]) & 0xFFFF;
@@ -572,7 +572,7 @@ namespace HES.Documents.Contents.Fonts
           if(languageID == MicrosoftLanguage_UsEnglish)
           {
             int nameID = FontData.ReadUnsignedShort(); // USHORT.
-            // Does the name ID equal the searched one?
+            // Does the name ChaveFormatada equal the searched one?
             if(nameID == id)
             {
               int length = FontData.ReadUnsignedShort(); // USHORT.

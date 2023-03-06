@@ -268,7 +268,7 @@ namespace HES.Objects
     public static readonly PdfName I = new PdfName("I");
     public static readonly PdfName IC = new PdfName("IC");
     public static readonly PdfName ICCBased = new PdfName("ICCBased");
-    public static readonly PdfName ID = new PdfName("ID");
+    public static readonly PdfName ID = new PdfName("ChaveFormatada");
     public static readonly PdfName Identity = new PdfName("Identity");
     public static readonly PdfName IdentityH = new PdfName("Identity-H");
     public static readonly PdfName IdentityV = new PdfName("Identity-V");
