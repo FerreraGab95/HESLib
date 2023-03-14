@@ -25,8 +25,8 @@ namespace HES.Esquemas
         {
             if (TipoNFReferenciada == TipoNFReferenciada.refCTe || TipoNFReferenciada == TipoNFReferenciada.refNFe)
             {
-                string chaveAcesso = Item.ToString();
-                return $"{Extensions.Util.TipoDFeDeChaveAcesso(chaveAcesso)} Ref.: {Extensions.Util.FormatarChaveAcesso(Item.ToString())}";
+                var chaveAcesso = new ChaveNFe(Item.ToString());
+                return $"{chaveAcesso.Tipo} Ref.: {chaveAcesso.ChaveFormatadaComEspacos}";
             }
             else
                 return Item.ToString();

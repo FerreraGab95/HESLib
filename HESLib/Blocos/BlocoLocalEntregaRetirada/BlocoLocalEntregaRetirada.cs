@@ -19,15 +19,15 @@ namespace HES.Blocos
             .ComLarguras(0, 45F * Proporcao, 30F * Proporcao);
 
             AdicionarLinhaCampos()
-            .ComCampo("Endereço", Model.Endereco)
-            .ComCampo("Bairro", Model.Bairro)
-            .ComCampo("CEP", Model.Cep.FormatarCEP(), AlinhamentoHorizontal.Centro)
+            .ComCampo("Endereço", Model.FullBuildingInfo)
+            .ComCampo("Bairro", Model.Neighborhood)
+            .ComCampo("CEP", Model.PostalCode, AlinhamentoHorizontal.Centro)
             .ComLarguras(0, 45F * Proporcao, 30F * Proporcao);
 
             AdicionarLinhaCampos()
-            .ComCampo("Município", Model.Municipio)
-            .ComCampo("UF", Model.Uf, AlinhamentoHorizontal.Centro)
-            .ComCampo("Telefone/Fax", Model.Telefone.FormatarTelefone(), AlinhamentoHorizontal.Centro)
+            .ComCampo("Município", Model.City)
+            .ComCampo("UF", Model.StateCode, AlinhamentoHorizontal.Centro)
+            .ComCampo("Telefone/Fax", Model.Telefone, AlinhamentoHorizontal.Centro)
             .ComLarguras(0, 7F * Proporcao, 30F * Proporcao);
         }
 

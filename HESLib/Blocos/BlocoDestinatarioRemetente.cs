@@ -17,16 +17,16 @@ namespace HES.Blocos
             .ComLarguras(0, 45F * Proporcao, 30F * Proporcao);
 
             AdicionarLinhaCampos()
-            .ComCampo("Endereço", destinatario.EnderecoLinha1)
-            .ComCampo("Bairro", destinatario.EnderecoBairro)
-            .ComCampo("CEP", destinatario.EnderecoCep.FormatarCEP(), AlinhamentoHorizontal.Centro)
+            .ComCampo("Endereço", destinatario.FullBuildingInfo)
+            .ComCampo("Bairro", destinatario.Neighborhood)
+            .ComCampo("CEP", destinatario.PostalCode.FormatarCEP(), AlinhamentoHorizontal.Centro)
             .ComCampo("Data Entrada / Saída", ViewModel.DataSaidaEntrada.Formatar(), AlinhamentoHorizontal.Centro)
             .ComLarguras(0, 45F * Proporcao, 25F * Proporcao, 30F * Proporcao);
 
             AdicionarLinhaCampos()
-            .ComCampo("Município", destinatario.Municipio)
+            .ComCampo("Município", destinatario.City)
             .ComCampo("Telefone/Fax", destinatario.Telefone.FormatarTelefone(), AlinhamentoHorizontal.Centro)
-            .ComCampo("UF", destinatario.EnderecoUf, AlinhamentoHorizontal.Centro)
+            .ComCampo("UF", destinatario.StateCode, AlinhamentoHorizontal.Centro)
             .ComCampo("Inscrição Estadual", destinatario.Ie, AlinhamentoHorizontal.Centro)
             .ComCampo("Hora Entrada / Saída", ViewModel.HoraSaidaEntrada.Formatar(), AlinhamentoHorizontal.Centro)
             .ComLarguras(0, 35F * Proporcao, 7F * Proporcao, 40F * Proporcao, 30F * Proporcao);

@@ -7,6 +7,7 @@ using System.Text.RegularExpressions;
 using System.Xml;
 using System.Xml.Serialization;
 using Extensions;
+using Extensions.BR;
 using HES.Esquemas;
 using HES.Esquemas.NFe;
 
@@ -33,7 +34,7 @@ namespace HES.Modelo
             EmpresaViewModel model = new EmpresaViewModel();
 
             model.RazaoSocial = empresa.xNome;
-            model.CnpjCpf = Extensions.Util.IsNotBlank(empresa.CNPJ) ? empresa.CNPJ : empresa.CPF;
+            model.CnpjCpf = empresa.CNPJ.IfBlank(empresa.CPF);
             model.Ie = empresa.IE;
             model.IeSt = empresa.IEST;
             model.Email = empresa.email;
@@ -42,19 +43,18 @@ namespace HES.Modelo
 
             if (end != null)
             {
-                model.EnderecoLogadrouro = end.xLgr;
-                model.EnderecoNumero = end.nro;
-                model.EnderecoBairro = end.xBairro;
-                model.Municipio = end.xMun;
-                model.EnderecoUf = end.UF;
-                model.EnderecoCep = end.CEP;
+                model.Street = end.xLgr;
+                model.Number = end.nro;
+                model.Neighborhood = end.xBairro;
+                model.City = end.xMun;
+                model.StateCode = end.UF;
+                model.PostalCode = end.CEP;
                 model.Telefone = end.fone;
-                model.EnderecoComplemento = end.xCpl;
+                model.Complement = end.xCpl;
             }
 
-            if (empresa is Emitente)
+            if (empresa is Emitente emit)
             {
-                var emit = empresa as Emitente;
                 model.IM = emit.IM;
                 model.CRT = emit.CRT;
                 model.NomeFantasia = emit.xFant;
@@ -68,29 +68,17 @@ namespace HES.Modelo
             var m = new LocalEntregaRetiradaViewModel()
             {
                 NomeRazaoSocial = local.xNome,
-                CnpjCpf = Extensions.Util.IsNotBlank(local.CNPJ) ? local.CNPJ : local.CPF,
+                CnpjCpf = local.CNPJ.IfBlank(local.CPF),
                 InscricaoEstadual = local.IE,
-                Bairro = local.xBairro,
-                Municipio = local.xMun,
-                Uf = local.UF,
-                Cep = local.CEP,
-                Telefone = local.fone
+                Telefone = local.fone,
+                Neighborhood = local.xBairro,
+                City = local.xMun,
+                StateCode = local.UF,
+                PostalCode = local.CEP,
+                Number = local.nro,
+                Complement = local.xCpl,
+                Street = local.xLgr
             };
-
-            StringBuilder sb = new StringBuilder();
-            sb.Append(local.xLgr);
-
-            if (Extensions.Util.IsNotBlank(local.nro))
-            {
-                sb.Append(", ").Append(local.nro);
-            }
-
-            if (Extensions.Util.IsNotBlank(local.xCpl))
-            {
-                sb.Append(" - ").Append(local.xCpl);
-            }
-
-            m.Endereco = sb.ToString();
 
             return m;
         }
@@ -216,7 +204,7 @@ namespace HES.Modelo
         /// <summary>
         /// Chave de Acesso
         /// </summary>
-        public string ChaveAcesso { get; set; }
+        public ChaveNFe ChaveAcesso { get; set; } = new ChaveNFe();
 
         /// <summary>
         /// Código do status da resposta, cStat, do elemento infProt.
@@ -335,17 +323,9 @@ namespace HES.Modelo
         /// </summary>
         public string NaturezaOperacao { get; set; }
 
-        /// <summary>
-        /// <para>Número do Documento Fiscal</para>
-        /// <para>Tag nNF</para>
-        /// </summary>
-        public int NfNumero { get; set; }
 
-        /// <summary>
-        /// <para>Série do Documento Fiscal</para>
-        /// <para>Tag serie</para>
-        /// </summary>
-        public int NfSerie { get; set; }
+
+
 
         /// <summary>
         /// Tag xNEmp
@@ -527,6 +507,7 @@ namespace HES.Modelo
 
             var infNfe = procNfe.NFe.infNFe;
             var ide = infNfe.ide;
+            var infProt = procNfe.protNFe.infProt;
             model.TipoEmissao = ide.tpEmis;
 
             if (ide.mod != 55)
@@ -540,16 +521,14 @@ namespace HES.Modelo
             }
 
             model.Orientacao = ide.tpImp == 1 ? Orientacao.Retrato : Orientacao.Paisagem;
-
-            var infProt = procNfe.protNFe.infProt;
+            model.ChaveAcesso = procNfe.NFe.infNFe.Id;
             model.CodigoStatusReposta = infProt.cStat;
             model.DescricaoStatusReposta = infProt.xMotivo;
 
             model.TipoAmbiente = ide.tpAmb;
-            model.NfNumero = ide.nNF;
-            model.NfSerie = ide.serie;
+            model.ChaveAcesso.Nota = ide.nNF;
+            model.ChaveAcesso.Serie = ide.serie;
             model.NaturezaOperacao = ide.natOp;
-            model.ChaveAcesso = procNfe.NFe.infNFe.Id.Substring(3);
             model.TipoNF = ide.tpNF;
 
             model.Emitente = CreateEmpresaFrom(infNfe.emit);
@@ -668,10 +647,10 @@ namespace HES.Modelo
             if (transportadora != null)
             {
                 transportadoraModel.RazaoSocial = transportadora.xNome;
-                transportadoraModel.EnderecoUf = transportadora.UF;
-                transportadoraModel.CnpjCpf = Extensions.Util.IsNotBlank(transportadora.CNPJ) ? transportadora.CNPJ : transportadora.CPF;
-                transportadoraModel.EnderecoLogadrouro = transportadora.xEnder;
-                transportadoraModel.Municipio = transportadora.xMun;
+                transportadoraModel.StateCode = transportadora.UF;
+                transportadoraModel.CnpjCpf = transportadora.CNPJ.IfBlank(transportadora.CPF);
+                transportadoraModel.Street = transportadora.xEnder;
+                transportadoraModel.City = transportadora.xMun;
                 transportadoraModel.Ie = transportadora.IE;
             }
 

@@ -24,7 +24,7 @@ namespace HES.Blocos
                 TamanhoFonte = 9
             };
 
-            var campoChaveAcesso = new Campo("Chave de Acesso", Extensions.Util.FormatarChaveAcesso(ViewModel.ChaveAcesso), estilo, AlinhamentoHorizontal.Centro) { Height = Extensions.Util.CampoAltura };
+            var campoChaveAcesso = new Campo("Chave de Acesso", ViewModel.ChaveAcesso, estilo, AlinhamentoHorizontal.Centro) { Height = Extensions.Util.CampoAltura };
             var codigoBarras = new Barcode128C(viewModel.ChaveAcesso, Estilo) { Height = AlturaLinha1 - textoConsulta.Height - campoChaveAcesso.Height };
 
             var coluna3 = new VerticalStack();

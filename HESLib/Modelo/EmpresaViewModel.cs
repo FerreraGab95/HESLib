@@ -1,143 +1,105 @@
-﻿using System.Text;
-using Extensions;
-using Extensions.BR;
+﻿using Extensions.BR;
+using Extensions.Locations;
 
 namespace HES.Modelo
 {
-    public class EmpresaViewModel
+    public class EmpresaViewModel : AddressInfo
     {
+
+
         /// <summary>
         /// <para>Razão Social ou Nome</para>
         /// <para>Tag xNome</para>
         /// </summary>
-        public string RazaoSocial { get; set; }
+        public string RazaoSocial
+        {
+            get => this[nameof(RazaoSocial)];
+            set => this[nameof(RazaoSocial)] = value;
+        }
 
         /// <summary>
         /// <para>Nome fantasia</para>
         /// <para>Tag xFant</para>
         /// </summary>
-        public string NomeFantasia { get; set; }
 
-        /// <summary>
-        /// <para>Logradouro</para>
-        /// <para>Tag xLgr</para>
-        /// </summary>
-        public string EnderecoLogadrouro { get; set; }
-
-        /// <summary>
-        /// <para>Complemento</para>
-        /// <para>Tag xCpl</para>
-        /// </summary>
-        public string EnderecoComplemento { get; set; }
-
-        /// <summary>
-        /// <para>Número</para>
-        /// <para>Tag nro</para>
-        /// </summary>
-        public string EnderecoNumero { get; set; }
-
-        /// <summary>
-        /// <para>Código do CEP</para>
-        /// <para>Tag CEP</para>
-        /// </summary>
-        public string EnderecoCep { get; set; }
-
-        /// <summary>
-        /// <para>Bairro</para>
-        /// <para>Tag xBairro</para>
-        /// </summary>
-        public string EnderecoBairro { get; set; }
-
-        /// <summary>
-        /// <para>Sigla da UF</para>
-        /// <para>Tag UF</para>
-        /// </summary>
-        public string EnderecoUf { get; set; }
-
-        /// <summary>
-        /// <para>Nome do município</para>
-        /// <para>Tag xMun</para>
-        /// </summary>
-        public string Municipio { get; set; }
-
+        public string NomeFantasia
+        {
+            get => Label;
+            set => Label = value;
+        }
         /// <summary>
         /// <para>Telefone</para>
         /// <para>Tag fone</para>
         /// </summary>
-        public string Telefone { get; set; }
+        public string Telefone
+        {
+            get => this[nameof(Telefone)];
+            set => this[nameof(Telefone)] = value?.FormatarTelefone();
+        }
+
 
         /// <summary>
         /// <para>CNPJ ou CPF</para>
         /// <para>Tag CNPJ ou CPF</para>
         /// </summary>
-        public string CnpjCpf { get; set; }
+        public string CnpjCpf
+        {
+            get => this[nameof(CnpjCpf)];
+            set => this[nameof(CnpjCpf)] = value?.FormatarCPFOuCNPJ();
+        }
+
 
         /// <summary>
         /// <para>Inscrição Estadual</para>
         /// <para>Tag IE</para>
         /// </summary>
-        public string Ie { get; set; }
+        public string Ie
+        {
+            get => this[nameof(Ie)];
+            set => this[nameof(Ie)] = value;
+        }
 
         /// <summary>
         /// <para>IE do Substituto Tributário</para>
         /// <para>Tag IEST</para>
         /// </summary>
-        public string IeSt { get; set; }
+        public string IeSt
+        {
+            get => this[nameof(IeSt)];
+            set => this[nameof(IeSt)] = value;
+        }
 
         /// <summary>
         /// <para>Inscrição Municipal</para>
         /// <para>Tag IM</para>
         /// </summary>
-        public string IM { get; set; }
+        public string IM
+        {
+            get => this[nameof(IM)];
+            set => this[nameof(IM)] = value;
+        }
 
         /// <summary>
         /// <para>Email</para>
         /// <para>Tag email</para>
         /// </summary>
-        public string Email { get; set; }
+        public string Email
+        {
+            get => this[nameof(Email)];
+            set => this[nameof(Email)] = value;
+        }
 
         /// <summary>
         /// Código de Regime Tributário
         /// </summary>
-        public string CRT { get; set; }
-
-        /// <summary>
-        /// Linha 1 do Endereço
-        /// </summary>
-        public string EnderecoLinha1
+        public string CRT
         {
-            get
-            {
-                StringBuilder sb = new StringBuilder();
-                sb.Append(EnderecoLogadrouro);
-                if (Extensions.Util.IsNotBlank(EnderecoNumero)) sb.Append(", ").Append(EnderecoNumero);
-                if (Extensions.Util.IsNotBlank(EnderecoComplemento)) sb.Append(" - ").Append(EnderecoComplemento);
-                return sb.ToString();
-            }
+            get => this[nameof(CRT)];
+            set => this[nameof(CRT)] = value;
         }
 
-        /// <summary>
-        /// Linha 1 do Endereço
-        /// </summary>
-        public string EnderecoLinha2 => $"{EnderecoBairro} - CEP: {EnderecoCep.FormatarCEP()}";
 
 
-        /// <summary>
-        /// Linha 3 do Endereço
-        /// </summary>
-        public string EnderecoLinha3
-        {
-            get
-            {
-                StringBuilder sb = new StringBuilder()
-                    .Append(Municipio).Append(" - ").Append(EnderecoUf);
-
-                if (Telefone.IsNotBlank())
-                    sb.Append(" Fone: ").Append(Telefone.FormatarTelefone());
-
-                return sb.ToString();
-            }
-        }
 
     }
 }

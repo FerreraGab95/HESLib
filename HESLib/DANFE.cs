@@ -214,16 +214,16 @@ namespace HES
         /// <param name="ChaveNFe"></param>
         /// <param name="SequenciaEvento"></param>
         /// <returns></returns>
-        public static string GerarNomePdfCCE(string ChaveNFe, int SequenciaEvento) => $"DANFE-{Extensions.Util.FormatarChaveAcesso(ChaveNFe).RemoveMask()}-CCE-{SequenciaEvento}.pdf";
+        public static string GerarNomePdfCCE(string ChaveNFe, int SequenciaEvento) => $"DANFE-{(ChaveNFe).RemoveMask()}-CCE-{SequenciaEvento}.pdf";
 
         /// <summary>
         /// Gera um nome padronizado para o DANFE
         /// </summary>
         /// <param name="ChaveNFe"></param>
         /// <returns></returns>
-        public static string GerarNomePdfDANFE(string ChaveNFe) => $"DANFE-{Extensions.Util.FormatarChaveAcesso(ChaveNFe).RemoveMask()}.pdf";
+        public static string GerarNomePdfDANFE(string ChaveNFe) => $"DANFE-{(ChaveNFe).RemoveMask()}.pdf";
 
-        public static string GerarNomeUnico(string ChaveNFe, int SequenciaEvento) => $"DANFE-CCE-{Extensions.Util.FormatarChaveAcesso(ChaveNFe).RemoveMask()}-Seq-{SequenciaEvento}.pdf";
+        public static string GerarNomeUnico(string ChaveNFe, int SequenciaEvento) => $"DANFE-CCE-{(ChaveNFe).RemoveMask()}-Seq-{SequenciaEvento}.pdf";
 
         /// <inheritdoc cref="GerarPDF(string, string, string, DirectoryInfo)"/>
         public static IEnumerable<FileInfo> GerarPDF(string PathNFe, string PathCCe, DirectoryInfo outputPath) => GerarPDF(PathNFe, PathCCe, null, outputPath);

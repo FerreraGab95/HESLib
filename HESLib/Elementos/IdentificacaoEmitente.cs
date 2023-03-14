@@ -1,5 +1,6 @@
 ﻿using System.Drawing;
 using Extensions;
+using Extensions.Locations;
 using HES.Documents.Contents.xObjects;
 using HES.Graphics;
 using HES.Modelo;
@@ -66,14 +67,14 @@ namespace HES
 
             if (ViewModel.PreferirEmitenteNomeFantasia)
             {
-                nome = Extensions.Util.IsNotBlank(emitente.NomeFantasia) ? emitente.NomeFantasia : emitente.RazaoSocial;
+                nome = emitente.NomeFantasia.IfBlank(emitente.RazaoSocial);
             }
 
             var ts = new TextStack(rp) { LineHeightScale = 1 }
                 .AddLine(nome, f2)
-                .AddLine(emitente.EnderecoLinha1.Trim(), f3)
-                .AddLine(emitente.EnderecoLinha2.Trim(), f3)
-                .AddLine(emitente.EnderecoLinha3.Trim(), f3);
+                .AddLine(emitente.FullBuildingInfo, f3)
+                .AddLine(emitente.ToString(AddressPart.Neighborhood, AddressPart.City), f3)
+                .AddLine(emitente.ToString(AddressPart.StateCode, AddressPart.PostalCode), f3);
 
             ts.AlinhamentoHorizontal = AlinhamentoHorizontal.Centro;
             ts.AlinhamentoVertical = AlinhamentoVertical.Centro;

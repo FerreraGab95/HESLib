@@ -571,7 +571,7 @@ namespace HES.Documents.Contents.Fonts
 
         /**
           <summary>Gets the string corresponding to the specified identifier.</summary>
-          <param name="id">SID (String ChaveFormatada).</param>
+          <param name="id">SID (String ChaveFormatadaTraco).</param>
         */
         private string GetString(
           int id

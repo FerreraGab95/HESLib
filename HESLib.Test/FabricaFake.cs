@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Extensions;
+using Extensions.BR;
 using HES.Modelo;
 
 namespace HES.Test
@@ -11,18 +13,12 @@ namespace HES.Test
 
         public static LocalEntregaRetiradaViewModel LocalEntregaRetiradaFake()
         {
-            return new LocalEntregaRetiradaViewModel()
-            {
-                NomeRazaoSocial = "Umbrella Corp",
-                Endereco = "Rua João Augusto Morais, 267",
-                InscricaoEstadual = "361499373647",
-                Bairro = "Vila Doutor Eiras",
-                CnpjCpf = "22257735000138",
-                Cep = "08010150",
-                Municipio = "São Paulo",
-                Uf = "SP",
-                Telefone = "1012345678"
-            };
+            var t = Brasil.GerarEnderecoFake<LocalEntregaRetiradaViewModel>();
+            t.NomeRazaoSocial = "Umbrella Corp";
+            t.InscricaoEstadual = "361499373647";
+            t.CnpjCpf = "22257735000138";
+            t.Telefone = "1012345678";
+            return t;
         }
 
         public static CalculoImpostoViewModel CalculoImpostoViewModel()
@@ -66,68 +62,53 @@ namespace HES.Test
         {
             var m = new DANFEModel()
             {
-                NfNumero = 888888888,
-                NfSerie = 888,
-                ChaveAcesso = new string('0', 44),
-                Emitente = new EmpresaViewModel()
+
+                ChaveAcesso = new Extensions.BR.ChaveNFe()
                 {
-                    CnpjCpf = new string('0', 14),
-                    RazaoSocial = "Abstergo do Brasil Indústria de Tecnologia Ltda.",
-                    NomeFantasia = "Abstergo",
-                    Email = "fake@mail.123",
-                    EnderecoBairro = "Bairro",
-                    EnderecoCep = "12345678",
-                    EnderecoComplemento = "Compl",
-                    EnderecoLogadrouro = "Avenida Brasil",
-                    EnderecoNumero = "S/N",
-                    EnderecoUf = "SP",
-                    Municipio = "São Paulo",
-                    Ie = "87787",
-                    IeSt = "87878",
-                    IM = "45454",
-                    Telefone = "0000000000",
-                    CRT = "3"
+                    Nota = 888888888,
+                    Serie = 888,
                 },
-                Destinatario = new EmpresaViewModel()
+                Emitente = Brasil.GerarEnderecoFake<EmpresaViewModel>().With(x =>
                 {
-                    CnpjCpf = new string('1', 14),
-                    RazaoSocial = "Umbrella Corp Ltda",
-                    Email = "fake@mail.123",
-                    EnderecoBairro = "Bairro",
-                    EnderecoCep = "12345678",
-                    EnderecoComplemento = "Compl",
-                    EnderecoLogadrouro = "Avenida Brasil",
-                    EnderecoNumero = "S/N",
-                    EnderecoUf = "SP",
-                    Municipio = "São Paulo",
-                    Ie = "87787",
-                    IeSt = "87878",
-                    IM = "45454",
-                    Telefone = "0000000000"
-                },
-                Transportadora = new TransportadoraViewModel()
+                    x.CnpjCpf = new string('0', 14);
+                    x.RazaoSocial = "Abstergo do Brasil Indústria de Tecnologia Ltda.";
+                    x.NomeFantasia = "Abstergo";
+                    x.Email = "fake@mail.123";
+                    x.Ie = "87787";
+                    x.IeSt = "87878";
+                    x.IM = "45454";
+                    x.Telefone = "0000000000";
+                    x.CRT = "3";
+                }),
+                Destinatario = Brasil.GerarEnderecoFake<EmpresaViewModel>().With(x =>
                 {
-                    RazaoSocial = "Correios",
-                    CnpjCpf = new string('8', 14),
-                    VeiculoUf = "RS",
-                    QuantidadeVolumes = 123.1234,
-                    CodigoAntt = new string('8', 20),
-                    EnderecoBairro = "Bairo",
-                    EnderecoCep = "00000",
-                    EnderecoComplemento = "Complemento",
-                    Especie = "Especie",
-                    Placa = "MMMWWWW",
-                    EnderecoLogadrouro = "Logadrouro",
-                    Ie = "12334",
-                    EnderecoUf = "RS",
-                    PesoLiquido = 456.7794,
-                    Marca = "HES",
-                    EnderecoNumero = "101",
-                    ModalidadeFrete = 4,
-                    PesoBruto = 101.1234
-                },
-                InformacoesComplementares = "Aqui vai as informações complementares."
+                    x.CnpjCpf = new string('1', 14);
+                    x.RazaoSocial = "Umbrella Corp Ltda";
+                    x.Email = "fake@mail.123";
+
+                    x.Ie = "87787";
+                    x.IeSt = "87878";
+                    x.IM = "45454";
+                    x.Telefone = "0000000000";
+                }),
+                InformacoesComplementares = "Aqui vai as informações complementares.",
+                Transportadora = Brasil.GerarEnderecoFake<TransportadoraViewModel>().With(t =>
+                {
+                    t.RazaoSocial = "Correios";
+                    t.CnpjCpf = new string('8', 14);
+                    t.VeiculoUf = "RS";
+                    t.QuantidadeVolumes = 123.1234;
+                    t.CodigoAntt = new string('8', 20);
+                    t.Especie = "Especie";
+                    t.Placa = "MMMWWWW";
+                    t.Ie = "12334";
+                    t.PesoLiquido = 456.7794;
+                    t.Marca = "HES";
+                    t.ModalidadeFrete = 4;
+                    t.PesoBruto = 101.1234;
+                })
             };
+
             m.CalculoImposto = CalculoImpostoViewModel();
             m.CalculoIssqn = CalculoIssqnViewModel();
 

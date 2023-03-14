@@ -50,7 +50,6 @@ namespace Extensions
 
         internal static string Formatar(this TimeSpan? timeSpan) => timeSpan.HasValue ? timeSpan.Value.ToString() : string.Empty;
 
-        internal static string FormatarChaveAcesso(string chaveAcesso) => chaveAcesso.IsNumber() ? (Regex.Replace(chaveAcesso, ".{4}", "$0 ").TrimEnd()) : chaveAcesso;
 
         internal static string FormatarDataHora(this DateTime? dateTime) => dateTime.HasValue ? dateTime.Value.ToString("dd/MM/yyyy HH:mm:ss") : string.Empty;
 
@@ -172,21 +171,7 @@ namespace Extensions
             return Regex.IsMatch(str, $@"({chave}):?\s*{valor}", RegexOptions.IgnoreCase);
         }
 
-        public static string TipoDFeDeChaveAcesso(this string chaveAcesso)
-        {
-            if (Util.IsBlank(chaveAcesso)) throw new ArgumentException(nameof(chaveAcesso));
 
-            if (chaveAcesso.Length == 44)
-            {
-                string f = chaveAcesso.Substring(20, 2);
-
-                if (f == "55") return "NF-e";
-                else if (f == "57") return "CT-e";
-                else if (f == "65") return "NFC-e";
-            }
-
-            return "DF-e Desconhecido";
-        }
 
         public static byte[] ToBytes(this PdfFile file, HES.Files.SerializationModeEnum SerializationMode)
         {

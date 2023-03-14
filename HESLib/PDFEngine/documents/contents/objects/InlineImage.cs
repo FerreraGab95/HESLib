@@ -43,7 +43,7 @@ namespace HES.Documents.Contents.Objects
     public static readonly string BeginOperatorKeyword = BeginInlineImage.OperatorKeyword;
     public static readonly string EndOperatorKeyword = EndInlineImage.OperatorKeyword;
 
-    private static readonly string DataOperatorKeyword = "ChaveFormatada";
+    private static readonly string DataOperatorKeyword = "ChaveFormatadaTraco";
     #endregion
     #endregion
 

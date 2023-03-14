@@ -167,7 +167,7 @@ namespace HES.Documents.Contents.Tokens
                 List<PdfDirectObject> operands = new List<PdfDirectObject>();
                 // Parsing the image entries...
                 while (MoveNext()
-                  && TokenType != TokenTypeEnum.Keyword) // Not keyword (i.e. end at image data beginning (ChaveFormatada operator)).
+                  && TokenType != TokenTypeEnum.Keyword) // Not keyword (i.e. end at image data beginning (ChaveFormatadaTraco operator)).
                 { operands.Add((PdfDirectObject)ParsePdfObject()); }
                 header = new InlineImageHeader(operands);
             }

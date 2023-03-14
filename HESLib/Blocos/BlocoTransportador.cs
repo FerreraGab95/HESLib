@@ -25,9 +25,9 @@ namespace HES.Blocos
                 .ComLarguras(0, LarguraFrete, LarguraCampoCodigoAntt, LarguraCampoPlacaVeiculo, LarguraCampoUf, LarguraCampoCnpj);
 
             AdicionarLinhaCampos()
-                .ComCampo("Endereço", transportadora.EnderecoLogadrouro)
-                .ComCampo("Município", transportadora.Municipio)
-                .ComCampo("UF", transportadora.EnderecoUf, AlinhamentoHorizontal.Centro)
+                .ComCampo("Endereço", transportadora.FullBuildingInfo)
+                .ComCampo("Município", transportadora.City)
+                .ComCampo("UF", transportadora.StateCode, AlinhamentoHorizontal.Centro)
                 .ComCampo("Inscrição Estadual", transportadora.Ie, AlinhamentoHorizontal.Centro)
                 .ComLarguras(0, LarguraCampoPlacaVeiculo + LarguraCampoCodigoAntt, LarguraCampoUf, LarguraCampoCnpj);
 

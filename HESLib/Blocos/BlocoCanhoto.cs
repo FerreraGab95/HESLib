@@ -10,7 +10,7 @@ namespace HES.Blocos
         public BlocoCanhoto(DANFEModel viewModel, Estilo estilo) : base(viewModel, estilo)
         {
             var textoRecebimento = new TextoSimples(estilo, viewModel.TextoRecebimento) { Height = TextoRecebimentoAltura, TamanhoFonte = 8 };
-            var nfe = new NumeroNfSerie(estilo, viewModel.NfNumero.ToString(Extensions.Util.FormatoNumeroNF), viewModel.NfSerie.ToString()) { Height = AlturaLinha2 + TextoRecebimentoAltura, Width = 30 };
+            var nfe = new NumeroNfSerie(estilo, viewModel.ChaveAcesso.NotaFixo, viewModel.ChaveAcesso.SerieFixo) { Height = AlturaLinha2 + TextoRecebimentoAltura, Width = 30 };
 
             var campos = new LinhaCampos(Estilo) { Height = AlturaLinha2 }
                .ComCampo("Data de Recebimento", null)

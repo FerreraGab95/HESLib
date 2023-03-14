@@ -88,8 +88,8 @@ namespace HES
                 AlinhamentoVertical = AlinhamentoVertical.Topo,
                 AlinhamentoHorizontal = AlinhamentoHorizontal.Centro
             }
-            .AddLine("Nº.: " + ViewModel.NfNumero.ToString(Extensions.Util.FormatoNumeroNF), f4)
-            .AddLine($"Série: {ViewModel.NfSerie}", f4);
+            .AddLine("Nº.: " + ViewModel.ChaveAcesso.NotaFixo, f4)
+            .AddLine($"Série: {ViewModel.ChaveAcesso.SerieFixo}", f4);
 
             ts.Draw(gfx);
 
