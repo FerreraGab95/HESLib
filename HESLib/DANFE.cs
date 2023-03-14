@@ -412,7 +412,7 @@ namespace HES
             info[new Objects.PdfName("ChaveAcesso")] = ViewModel.ChaveAcesso.Chave;
             info[new Objects.PdfName("TipoDocumento")] = $"{TipoDocumento}";
             info.CreationDate = ViewModel.DataHoraEmissao;
-            info.Creator = $"{Extensions.Util.GetAssemblyName()?.Name} {Extensions.Util.GetAssemblyName()?.Version} - Disponível em https://github.com/zonaro/HES";
+            info.Creator = $"{Extensions.Util.GetAssemblyName()?.Name} {Extensions.Util.GetAssemblyName()?.Version} - Disponível em https://github.com/zonaro/HESLib";
             info.Author = Autor;
 
             info.Subject = ViewModel.TipoDocumento == TipoDocumento.DANFE ? "Documento Auxiliar da NFe" : "Carta de Correção Eletrônica";
