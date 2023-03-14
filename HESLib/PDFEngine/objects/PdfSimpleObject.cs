@@ -23,114 +23,112 @@
   this list of conditions.
 */
 
-using HES.Bytes;
-using HES.Files;
-
 using System;
 using System.Reflection;
+using HES.Files;
 
 namespace HES.Objects
 {
-  /**
-    <summary>Abstract PDF simple object.</summary>
-  */
-  public abstract class PdfSimpleObject<TValue>
-    : PdfDirectObject,
-      IPdfSimpleObject<TValue>
-  {
-    #region static
-    #region interface
-    #region public
     /**
-      <summary>Gets the object equivalent to the given value.</summary>
+      <summary>Abstract PDF simple object.</summary>
     */
-    public static PdfDirectObject Get(
-      object value
-      )
+    public abstract class PdfSimpleObject<TValue>
+      : PdfDirectObject,
+        IPdfSimpleObject<TValue>
     {
-      if(value == null)
-        return null;
+        #region static
+        #region interface
+        #region public
+        /**
+          <summary>Gets the object equivalent to the given value.</summary>
+        */
+        public static PdfDirectObject Get(
+          object value
+          )
+        {
+            if (value == null)
+                return null;
 
-      if(value is Int32)
-        return PdfInteger.Get((int)value);
-      else if(value is Double || value is Single)
-        return PdfReal.Get(value);
-      else if(value is string)
-        return PdfTextString.Get((string)value);
-      else if(value is DateTime)
-        return PdfDate.Get((DateTime)value);
-      else if(value is Boolean)
-        return PdfBoolean.Get((Boolean)value);
-      else
-        throw new NotImplementedException();
-    }
-  
-    /**
-      <summary>Gets the value corresponding to the given object.</summary>
-      <param name="obj">Object to extract the value from.</param>
-    */
-    public static Object GetValue(
-      PdfObject obj
-      )
-    {return GetValue(obj, null);}
+            if (value is Int32)
+                return PdfInteger.Get((int)value);
+            else if (value is Double || value is Single)
+                return PdfReal.Get(value);
+            else if (value is string)
+                return PdfTextString.Get((string)value);
+            else if (value is DateTime)
+                return PdfDate.Get((DateTime)value);
+            else if (value is Boolean)
+                return PdfBoolean.Get((Boolean)value);
+            else
+                return PdfString.Get((string)value);
+        }
 
-    /**
-      <summary>Gets the value corresponding to the given object.</summary>
-      <param name="obj">Object to extract the value from.</param>
-      <param name="defaultValue">Value returned in case the object's one is undefined.</param>
-    */
-    public static object GetValue(
-      PdfObject obj,
-      object defaultValue
-      )
-    {
-      object value = null;
-      obj = Resolve(obj);
-      if(obj != null)
-      {
-        PropertyInfo valueProperty = obj.GetType().GetProperty("Value");
-        if(valueProperty != null)
-        {value = valueProperty.GetGetMethod().Invoke(obj, null);}
-      }
-      return (value != null ? value : defaultValue);
-    }
-    #endregion
-    #endregion
-    #endregion
+        /**
+          <summary>Gets the value corresponding to the given object.</summary>
+          <param name="obj">Object to extract the value from.</param>
+        */
+        public static Object GetValue(
+          PdfObject obj
+          )
+        { return GetValue(obj, null); }
 
-    #region dynamic
-    #region fields
-    private TValue value;
-    #endregion
+        /**
+          <summary>Gets the value corresponding to the given object.</summary>
+          <param name="obj">Object to extract the value from.</param>
+          <param name="defaultValue">Value returned in case the object's one is undefined.</param>
+        */
+        public static object GetValue(
+          PdfObject obj,
+          object defaultValue
+          )
+        {
+            object value = null;
+            obj = Resolve(obj);
+            if (obj != null)
+            {
+                PropertyInfo valueProperty = obj.GetType().GetProperty("Value");
+                if (valueProperty != null)
+                { value = valueProperty.GetGetMethod().Invoke(obj, null); }
+            }
+            return (value != null ? value : defaultValue);
+        }
+        #endregion
+        #endregion
+        #endregion
 
-    #region constructors
-    public PdfSimpleObject(
-      )
-    {}
-    #endregion
+        #region dynamic
+        #region fields
+        private TValue value;
+        #endregion
 
-    #region interface
-    #region public
-    public override PdfObject Clone(
-      PdfFile context
-      )
-    {return this;} // NOTE: Simple objects are immutable.
+        #region constructors
+        public PdfSimpleObject(
+          )
+        { }
+        #endregion
 
-    public override bool Equals(
-      object @object
-      )
-    {
-      return base.Equals(@object)
-        || (@object != null
-          && @object.GetType().Equals(GetType())
-          && ((PdfSimpleObject<TValue>)@object).RawValue.Equals(RawValue));
-    }
+        #region interface
+        #region public
+        public override PdfObject Clone(
+          PdfFile context
+          )
+        { return this; } // NOTE: Simple objects are immutable.
 
-    public override int GetHashCode(
-      )
-    {return RawValue.GetHashCode();}
+        public override bool Equals(
+          object @object
+          )
+        {
+            return base.Equals(@object)
+              || (@object != null
+                && @object.GetType().Equals(GetType())
+                && ((PdfSimpleObject<TValue>)@object).RawValue.Equals(RawValue));
+        }
 
-    public sealed override PdfObject Parent
+        public override int GetHashCode(
+          )
+        { return RawValue.GetHashCode(); }
+
+        public sealed override PdfObject Parent
         {
             get => null; // NOTE: As simple objects are immutable, no parent can be associated.
             internal set
@@ -141,21 +139,21 @@ namespace HES.Objects
           <summary>Gets/Sets the low-level representation of the value.</summary>
         */
         public virtual TValue RawValue
-    {
-      get => value;
-      protected set => this.value = value;
-    }
+        {
+            get => value;
+            protected set => this.value = value;
+        }
 
         public override PdfObject Swap(
       PdfObject other
       )
-    {throw new NotSupportedException("Immutable object");}
+        { throw new NotSupportedException("Immutable object"); }
 
-    public override string ToString(
-      )
-    {return Value.ToString();}
+        public override string ToString(
+          )
+        { return Value.ToString(); }
 
-    public override bool Updateable
+        public override bool Updateable
         {
             get => false; // NOTE: Simple objects are immutable.
             set
@@ -173,10 +171,10 @@ namespace HES.Objects
           <summary>Gets/Sets the high-level representation of the value.</summary>
         */
         public virtual object Value
-    {
-      get => value;
-      protected set => this.value = (TValue)value;
-    }
+        {
+            get => value;
+            protected set => this.value = (TValue)value;
+        }
         #endregion
 
         #region protected

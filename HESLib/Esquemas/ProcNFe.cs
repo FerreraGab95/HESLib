@@ -57,7 +57,7 @@ namespace HES.Esquemas.NFe
         public int cStat { get; set; }
         public string xMotivo { get; set; }
 
-        [XmlAttribute(DataType = "ChaveFormatadaTraco")]
+        [XmlAttribute(DataType = "string")]
         public string Id { get; set; }
     }
 
@@ -671,7 +671,7 @@ namespace HES.Esquemas.NFe
         /// </summary>
         public InfCompra compra { get; set; }
 
-        [XmlAttribute(DataType = "ChaveFormatadaTraco")]
+        [XmlAttribute(DataType = "string")]
         public string Id { get; set; }
 
         public InfNFe()

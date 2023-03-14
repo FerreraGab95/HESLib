@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using System.IO;
+﻿using System.IO;
 using HES.Modelo;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -27,37 +26,9 @@ namespace HES.Test
 
         #region Public Methods
 
-        [TestMethod]
-        public void Teste()
-        {
-            DANFE.LicenseKey = "147A-6E0A-D208-792D-47A7-FCB1-A8B1";
-
-            var nfe = @"C:\svn\EnviaSADWeb\Envia\Uploads\XmlDistribuicao\35210701818337000173550010000618721000618732-procNFe.xml";
-            var cce = @"C:/svn/EnviaSADWeb/Envia/Uploads/XmlDistribuicaoEventos/35230204667427000107550000234567891234567909_110110_01-proceventonfe.xml";
-            var logo = @"C:\Users\H&S\Pictures\logo_envia_large.jpg";
-
-            foreach (var pdf in DANFE.GerarPDF(nfe, cce, logo, new DirectoryInfo(@"C:\Teste\testeDANFE")))
-            {
-                Debug.WriteLine(pdf, "PDF Gerado");
-            }
-        }
-
-        [TestMethod]
-
-        public void TestarUnico()
-        {
-            DANFE.LicenseKey = "147A-6E0A-D208-792D-47A7-FCB1-A8B1";
 
 
 
-            var nfe = @"C:\svn\EnviaSADWeb\Envia\Uploads\XmlDistribuicao\35210701818337000173550010000618721000618732-procNFe.xml";
-            var cce = @"C:/svn/EnviaSADWeb/Envia/Uploads/XmlDistribuicaoEventos/35230204667427000107550000234567891234567909_110110_01-proceventonfe.xml";
-            var logo = @"C:\Users\H&S\Pictures\logo_envia_large.jpg";
-
-            var d = new DANFE(nfe, cce, logo);
-            d.ViewModel.TextoCorrecao = Extensions.Util.RandomIpsum(100);
-            d.GerarUnico();
-        }
 
         public void TestXml(string xmlPath, string ccePath = null)
         {

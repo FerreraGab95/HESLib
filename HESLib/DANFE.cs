@@ -409,7 +409,7 @@ namespace HES
 
             //metadata do PDF
             var info = OutputFile.Document.Information;
-            info[new Objects.PdfName("ChaveAcesso")] = ViewModel.ChaveAcesso;
+            info[new Objects.PdfName("ChaveAcesso")] = ViewModel.ChaveAcesso.Chave;
             info[new Objects.PdfName("TipoDocumento")] = $"{TipoDocumento}";
             info.CreationDate = ViewModel.DataHoraEmissao;
             info.Creator = $"{Extensions.Util.GetAssemblyName()?.Name} {Extensions.Util.GetAssemblyName()?.Version} - Disponível em https://github.com/zonaro/HES";

@@ -11,7 +11,6 @@ using Extensions.BR;
 using HES.Esquemas;
 using HES.Esquemas.NFe;
 
-
 namespace HES.Modelo
 {
     /// <summary>
@@ -85,13 +84,12 @@ namespace HES.Modelo
 
         private static DANFEModel CriarDeArquivoXmlInternal(TextReader nfeReader, TextReader cceReader = null)
         {
-            ProcNFe nfe = null;
-            ProcEventoNFe cce = null;
-            XmlSerializer nfeSerializer = new XmlSerializer(typeof(ProcNFe));
-            XmlSerializer cceSerializer = new XmlSerializer(typeof(ProcEventoNFe));
-
             try
             {
+                ProcNFe nfe = null;
+                ProcEventoNFe cce = null;
+                XmlSerializer nfeSerializer = new XmlSerializer(typeof(ProcNFe));
+                XmlSerializer cceSerializer = new XmlSerializer(typeof(ProcEventoNFe));
                 nfe = (ProcNFe)nfeSerializer.Deserialize(nfeReader);
                 if (cceReader != null)
                 {
@@ -108,6 +106,11 @@ namespace HES.Modelo
 
                 throw new XmlException("O Xml não parece ser uma NF-e processada.", e);
             }
+            catch (Exception ee)
+            {
+                throw ee;
+            }
+
         }
 
         #endregion Private Methods
@@ -323,10 +326,6 @@ namespace HES.Modelo
         /// </summary>
         public string NaturezaOperacao { get; set; }
 
-
-
-
-
         /// <summary>
         /// Tag xNEmp
         /// </summary>
@@ -343,6 +342,8 @@ namespace HES.Modelo
         /// Tag xPed
         /// </summary>
         public string Pedido { get; set; }
+
+        public bool PossuiCCE => TextoCorrecao.IsNotBlank() && SequenciaCorrecao > 0;
 
         /// <summary>
         /// Exibe o Nome Fantasia, caso disponível, ao invés da Razão Social no quadro identificação
@@ -713,7 +714,7 @@ namespace HES.Modelo
         {
             using (var sr = new StreamReader(caminhoNFe, true))
             {
-                if (Extensions.Util.IsNotBlank(caminhoCCe) && File.Exists(caminhoCCe))
+                if (caminhoCCe.IsFilePath() && File.Exists(caminhoCCe))
                 {
                     using (var sr2 = new StreamReader(caminhoCCe, true))
                     {
@@ -776,8 +777,5 @@ namespace HES.Modelo
         }
 
         #endregion Public Methods
-
-        public bool PossuiCCE => TextoCorrecao.IsNotBlank() && SequenciaCorrecao > 0;
-
     }
 }
