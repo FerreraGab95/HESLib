@@ -121,56 +121,57 @@ namespace HES.Documents
       OrientationEnum orientation
       )
     {
-      int width, height = 0;
+            int width;
+            int height;
+            // Size.
+            {
+                string sizeName = size.ToString();
+                Match match = IsoSeriesSizePattern.Match(sizeName);
+                // Is it an ISO standard size?
+                if (match.Success)
+                {
+                    int baseWidth;
+                    string isoSeriesSize = match.Groups[1].Value;
+                    int baseHeight;
+                    if (isoSeriesSize.Equals(IsoSeriesSize_A))
+                    { baseWidth = 2384; baseHeight = 3370; }
+                    else if (isoSeriesSize.Equals(IsoSeriesSize_B))
+                    { baseWidth = 2834; baseHeight = 4008; }
+                    else if (isoSeriesSize.Equals(IsoSeriesSize_C))
+                    { baseWidth = 2599; baseHeight = 3676; }
+                    else
+                    { throw new NotImplementedException("Paper format " + size + " not supported yet."); }
 
-      // Size.
-      {
-        string sizeName = size.ToString();
-        Match match = IsoSeriesSizePattern.Match(sizeName);
-        // Is it an ISO standard size?
-        if(match.Success)
-        {
-          int baseWidth, baseHeight = 0;
-          string isoSeriesSize = match.Groups[1].Value;
-          if(isoSeriesSize.Equals(IsoSeriesSize_A))
-          {baseWidth = 2384; baseHeight = 3370;}
-          else if(isoSeriesSize.Equals(IsoSeriesSize_B))
-          {baseWidth = 2834; baseHeight = 4008;}
-          else if(isoSeriesSize.Equals(IsoSeriesSize_C))
-          {baseWidth = 2599; baseHeight = 3676;}
-          else
-          {throw new NotImplementedException("Paper format " + size + " not supported yet.");}
+                    int isoSeriesSizeIndex = Int32.Parse(match.Groups[2].Value);
+                    double isoSeriesSizeFactor = 1 / Math.Pow(2, isoSeriesSizeIndex / 2d);
 
-          int isoSeriesSizeIndex = Int32.Parse(match.Groups[2].Value);
-          double isoSeriesSizeFactor = 1 / Math.Pow(2,isoSeriesSizeIndex/2d);
+                    width = (int)Math.Floor(baseWidth * isoSeriesSizeFactor);
+                    height = (int)Math.Floor(baseHeight * isoSeriesSizeFactor);
+                }
+                else // Non-ISO size.
+                {
+                    switch (size)
+                    {
+                        case SizeEnum.ArchA: width = 648; height = 864; break;
+                        case SizeEnum.ArchB: width = 864; height = 1296; break;
+                        case SizeEnum.ArchC: width = 1296; height = 1728; break;
+                        case SizeEnum.ArchD: width = 1728; height = 2592; break;
+                        case SizeEnum.ArchE: width = 2592; height = 3456; break;
+                        case SizeEnum.AnsiA: case SizeEnum.Letter: width = 612; height = 792; break;
+                        case SizeEnum.AnsiB: case SizeEnum.Tabloid: width = 792; height = 1224; break;
+                        case SizeEnum.AnsiC: width = 1224; height = 1584; break;
+                        case SizeEnum.AnsiD: width = 1584; height = 2448; break;
+                        case SizeEnum.AnsiE: width = 2448; height = 3168; break;
+                        case SizeEnum.Legal: width = 612; height = 1008; break;
+                        case SizeEnum.Executive: width = 522; height = 756; break;
+                        case SizeEnum.Statement: width = 396; height = 612; break;
+                        default: throw new NotImplementedException("Paper format " + size + " not supported yet.");
+                    }
+                }
+            }
 
-          width = (int)Math.Floor(baseWidth * isoSeriesSizeFactor);
-          height = (int)Math.Floor(baseHeight * isoSeriesSizeFactor);
-        }
-        else // Non-ISO size.
-        {
-          switch(size)
-          {
-            case SizeEnum.ArchA: width = 648; height = 864; break;
-            case SizeEnum.ArchB: width = 864; height = 1296; break;
-            case SizeEnum.ArchC: width = 1296; height = 1728; break;
-            case SizeEnum.ArchD: width = 1728; height = 2592; break;
-            case SizeEnum.ArchE: width = 2592; height = 3456; break;
-            case SizeEnum.AnsiA: case SizeEnum.Letter: width = 612; height = 792; break;
-            case SizeEnum.AnsiB: case SizeEnum.Tabloid: width = 792; height = 1224; break;
-            case SizeEnum.AnsiC: width = 1224; height = 1584; break;
-            case SizeEnum.AnsiD: width = 1584; height = 2448; break;
-            case SizeEnum.AnsiE: width = 2448; height = 3168; break;
-            case SizeEnum.Legal: width = 612; height = 1008; break;
-            case SizeEnum.Executive: width = 522; height = 756; break;
-            case SizeEnum.Statement: width = 396; height = 612; break;
-            default: throw new NotImplementedException("Paper format " + size + " not supported yet.");
-          }
-        }
-      }
-
-      // Orientation.
-      switch(orientation)
+            // Orientation.
+            switch (orientation)
       {
         case OrientationEnum.Portrait:
           return new Size(width,height);

@@ -46,9 +46,11 @@ namespace HES.Blocos
 
         public LinhaCampos AdicionarLinhaCampos()
         {
-            var l = new LinhaCampos(Estilo, Width);
-            l.Width = Width;
-            l.Height = Extensions.Util.CampoAltura;
+            var l = new LinhaCampos(Estilo, Width)
+            {
+                Width = Width,
+                Height = Extensions.Util.CampoAltura
+            };
             MainVerticalStack.Add(l);
             return l;
         }

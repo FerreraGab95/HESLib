@@ -1064,8 +1064,7 @@ namespace HES.Documents.Contents
         {
             // Scanning the current graphics state...
             ContentObject currentObject = Current;
-            if (currentObject != null)
-            { currentObject.Scan(state); }
+            currentObject?.Scan(state);
 
             // Moving to the next object...
             if (index < objects.Count)

@@ -726,7 +726,6 @@ namespace HES.Documents.Contents.Composition
                       || broken) // NO spaces.
                     {
                         /* NOTE: This situation equals a simple left alignment. */
-                        xAlignment = XAlignmentEnum.Left;
                     }
                     else // Spaces exist.
                     {

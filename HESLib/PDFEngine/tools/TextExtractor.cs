@@ -418,8 +418,7 @@ namespace HES.Tools
 
       IList<TextChar> textChars = areaTextStringsIterator.Current.TextChars;
       int baseTextCharIndex = 0;
-      int textCharIndex = 0;
-      while(filter.MoveNext())
+            while (filter.MoveNext())
       {
         Interval<int> interval = filter.Current;
         TextString match = new TextString();
@@ -433,9 +432,9 @@ namespace HES.Tools
             {areaTextStringsIterator = textStringsIterator.Current.GetEnumerator(); areaTextStringsIterator.MoveNext();}
             textChars = areaTextStringsIterator.Current.TextChars;
           }
-          textCharIndex = matchStartIndex - baseTextCharIndex;
-  
-          while(baseTextCharIndex + textCharIndex < matchEndIndex)
+                    int textCharIndex = matchStartIndex - baseTextCharIndex;
+
+                    while (baseTextCharIndex + textCharIndex < matchEndIndex)
           {
             if(textCharIndex == textChars.Count)
             {

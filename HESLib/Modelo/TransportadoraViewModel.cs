@@ -119,8 +119,7 @@ namespace HES.Modelo
         {
             get
             {
-                string result = "";
-
+                string result;
                 if (ModalidadesFrete.ContainsKey(ModalidadeFrete))
                 {
                     result = $"{ModalidadeFrete}-{ModalidadesFrete[ModalidadeFrete]}";

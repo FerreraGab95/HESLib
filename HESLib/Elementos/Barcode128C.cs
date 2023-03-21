@@ -170,9 +170,10 @@ namespace HES
         private void DrawBarcode(RectangleF rect, Gfx gfx)
         {
 
-            List<byte> codeBytes = new List<byte>();
-
-            codeBytes.Add(105);
+            List<byte> codeBytes = new List<byte>
+            {
+                105
+            };
 
             for (int i = 0; i < this.Code.Length; i += 2)
             {

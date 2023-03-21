@@ -176,9 +176,9 @@ namespace HES.Bytes.filters
 
             MemoryStream stream = new MemoryStream();
             int count = 0;
-            bool processChar = false;
             foreach (char dataChar in dataString)
             {
+                bool processChar;
                 switch (dataChar)
                 {
                     case 'z':

@@ -403,8 +403,8 @@ namespace HES.Documents.Interaction.Annotations
           {
             composer.SetStrokeColor(Color);
             {
-              float lineYRatio = 0;
-              switch(markupType)
+                                float lineYRatio;
+                                switch (markupType)
               {
                 case MarkupTypeEnum.StrikeOut:
                   lineYRatio = .575f;

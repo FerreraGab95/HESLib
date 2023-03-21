@@ -68,8 +68,8 @@ namespace HES.Bytes.filters
                 case 2: // TIFF Predictor 2 (component-based).
                     {
                         int[] sampleComponentPredictions = new int[sampleComponentsCount];
-                        int sampleComponentDelta = 0;
                         int sampleComponentIndex = 0;
+                        int sampleComponentDelta;
                         while ((sampleComponentDelta = input.ReadByte()) != -1)
                         {
                             int sampleComponent = sampleComponentDelta + sampleComponentPredictions[sampleComponentIndex];

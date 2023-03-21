@@ -86,8 +86,8 @@ namespace HES.Documents.Interaction.Navigation.Page
       get
       {
         PdfDictionary bead = BaseDataObject;
-        Article article = null;
-        while((article = Article.Wrap(bead[PdfName.T])) == null)
+                Article article;
+                while ((article = Article.Wrap(bead[PdfName.T])) == null)
         {bead = (PdfDictionary)bead.Resolve(PdfName.V);}
         return article;
       }

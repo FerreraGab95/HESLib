@@ -25,7 +25,7 @@ namespace HES
             {
                 if (disposing)
                 {
-                    if (File != null) File.Dispose();
+                    File?.Dispose();
                     // TODO: dispose managed state (managed objects).
                 }
 

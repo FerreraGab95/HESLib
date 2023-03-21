@@ -184,10 +184,10 @@ namespace HES.Util.Parsers
     {
       StringBuilder buffer = null;
       token = null;
-      int c = 0;
+            int c;
 
-      // Skip leading white-space characters.
-      do
+            // Skip leading white-space characters.
+            do
       {
         c = stream.ReadByte();
         if(c == -1)

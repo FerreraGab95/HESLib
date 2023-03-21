@@ -30,13 +30,14 @@ namespace HES.Modelo
 
         private static EmpresaViewModel CreateEmpresaFrom(Empresa empresa)
         {
-            EmpresaViewModel model = new EmpresaViewModel();
-
-            model.RazaoSocial = empresa.xNome;
-            model.CnpjCpf = empresa.CNPJ.IfBlank(empresa.CPF);
-            model.Ie = empresa.IE;
-            model.IeSt = empresa.IEST;
-            model.Email = empresa.email;
+            EmpresaViewModel model = new EmpresaViewModel
+            {
+                RazaoSocial = empresa.xNome,
+                CnpjCpf = empresa.CNPJ.IfBlank(empresa.CPF),
+                Ie = empresa.IE,
+                IeSt = empresa.IEST,
+                Email = empresa.email
+            };
 
             var end = empresa.Endereco;
 

@@ -60,10 +60,9 @@ namespace HES.Test
 
         public static DANFEModel DanfeViewModel_1()
         {
-            var m = new DANFEModel()
+            var m = new DANFEModel
             {
-
-                ChaveAcesso = new Extensions.BR.ChaveNFe()
+                ChaveAcesso = new ChaveNFe()
                 {
                     Nota = 888888888,
                     Serie = 888,
@@ -106,13 +105,12 @@ namespace HES.Test
                     t.Marca = "HES";
                     t.ModalidadeFrete = 4;
                     t.PesoBruto = 101.1234;
-                })
+                }),
+                CalculoImposto = CalculoImpostoViewModel(),
+                CalculoIssqn = CalculoIssqnViewModel(),
+
+                Duplicatas = new List<DuplicataViewModel>()
             };
-
-            m.CalculoImposto = CalculoImpostoViewModel();
-            m.CalculoIssqn = CalculoIssqnViewModel();
-
-            m.Duplicatas = new List<DuplicataViewModel>();
 
             for (int i = 1; i <= 10; i++)
             {
