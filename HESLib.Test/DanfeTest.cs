@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using Extensions;
+using Extensions.Files;
 using HES.Esquemas.NFe;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -10,6 +11,13 @@ namespace HES.Test
     public class DanfeTest
     {
         #region Public Methods
+
+        [TestMethod]
+        public void TesteArq()
+        {
+            var x = new FileTree(@"C:\Teste", null, null, new[] { "{name}.txt" });
+
+        }
 
         [TestMethod]
         public void MergePDF()
