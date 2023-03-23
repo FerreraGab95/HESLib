@@ -88,22 +88,21 @@ namespace HES.Documents.Interaction.Annotations
       StyleEnumCodes[StyleEnum.Inset] = PdfName.I;
       StyleEnumCodes[StyleEnum.Underline] = PdfName.U;
     }
-    #endregion
+        #endregion
 
-    #region interface
-    #region private
-    /**
-      <summary>Gets the code corresponding to the given value.</summary>
-    */
-    private static PdfName ToCode(
-      StyleEnum value
-      )
-    {return StyleEnumCodes[value];}
+        #region interface
+        #region private
+        /**
+          <summary>Gets the code corresponding to the given value.</summary>
+        */
+        private static PdfName ToCode(
+          StyleEnum value
+          ) => StyleEnumCodes[value];
 
-    /**
-      <summary>Gets the style corresponding to the given value.</summary>
-    */
-    private static StyleEnum ToStyleEnum(
+        /**
+          <summary>Gets the style corresponding to the given value.</summary>
+        */
+        private static StyleEnum ToStyleEnum(
       PdfName value
       )
     {

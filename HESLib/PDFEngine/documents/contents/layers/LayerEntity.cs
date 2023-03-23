@@ -140,9 +140,8 @@ namespace HES.Documents.Contents.Layers
       return visibilityPolicy.Value;
     }
 
-    public static PdfName GetName(
-      this LayerMembership.VisibilityPolicyEnum visibilityPolicy
-      )
-    {return codes[visibilityPolicy];}
-  }
+        public static PdfName GetName(
+          this LayerMembership.VisibilityPolicyEnum visibilityPolicy
+          ) => codes[visibilityPolicy];
+    }
 }

@@ -46,31 +46,29 @@ namespace HES.Documents.Contents.Layers
     private class ItemWrapper
       : IWrapper<ILayerNode>
     {
-      public ILayerNode Wrap(
-        PdfDirectObject baseObject
-        )
-      {return LayerNode.Wrap(baseObject);}
-    }
+            public ILayerNode Wrap(
+              PdfDirectObject baseObject
+              ) => LayerNode.Wrap(baseObject);
+        }
     #endregion
 
     #region static
     #region fields
     private static readonly ItemWrapper Wrapper = new ItemWrapper();
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public static Layers Wrap(
-      PdfDirectObject baseObject
-      )
-    {return baseObject != null ? new Layers(baseObject) : null;}
-    #endregion
-    #endregion
-    #endregion
+        #region interface
+        #region public
+        public static Layers Wrap(
+          PdfDirectObject baseObject
+          ) => baseObject != null ? new Layers(baseObject) : null;
+        #endregion
+        #endregion
+        #endregion
 
-    #region dynamic
-    #region constructors
-    public Layers(
+        #region dynamic
+        #region constructors
+        public Layers(
       Document context
       ) : this(context, null)
     {}
@@ -102,16 +100,14 @@ namespace HES.Documents.Contents.Layers
 
         public override int IndexOf(
       ILayerNode item
-      )
-    {return GetNodeIndex(base.IndexOf(item));}
+      ) => GetNodeIndex(base.IndexOf(item));
 
-    public override void Insert(
-      int index,
-      ILayerNode item
-      )
-    {base.Insert(GetBaseIndex(index), item);}
+        public override void Insert(
+          int index,
+          ILayerNode item
+          ) => base.Insert(GetBaseIndex(index), item);
 
-    public override void RemoveAt(
+        public override void RemoveAt(
       int index
       )
     {
@@ -138,8 +134,7 @@ namespace HES.Documents.Contents.Layers
     }
 
         public override string ToString(
-      )
-    {return Title;}
+      ) => Title;
 
         #region ILayerNode
         Layers ILayerNode.Layers => this;
@@ -210,39 +205,33 @@ namespace HES.Documents.Contents.Layers
       return evaluateNode(nodeIndex, -1);
     }
 
-    private int GetBaseIndex(
-      int nodeIndex
-      )
-    {
-      return Evaluate(delegate(
-        int currentNodeIndex,
-        int currentBaseIndex
-        )
-      {
-        if(currentNodeIndex == nodeIndex)
-          return currentBaseIndex;
-        else
-          return -1;
-      });
-    }
+        private int GetBaseIndex(
+          int nodeIndex
+          ) => Evaluate(delegate (
+                    int currentNodeIndex,
+                    int currentBaseIndex
+                    )
+                  {
+              if (currentNodeIndex == nodeIndex)
+                  return currentBaseIndex;
+              else
+                  return -1;
+          });
 
-    private int GetNodeIndex(
-      int baseIndex
-      )
-    {
-      return Evaluate(delegate(
-        int currentNodeIndex,
-        int currentBaseIndex
-        )
-      {
-        if(currentBaseIndex == baseIndex)
-          return currentNodeIndex;
-        else
-          return -1;
-      });
+        private int GetNodeIndex(
+          int baseIndex
+          ) => Evaluate(delegate (
+                    int currentNodeIndex,
+                    int currentBaseIndex
+                    )
+                  {
+              if (currentBaseIndex == baseIndex)
+                  return currentNodeIndex;
+              else
+                  return -1;
+          });
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 }

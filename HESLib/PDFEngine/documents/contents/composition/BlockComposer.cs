@@ -391,8 +391,7 @@ namespace HES.Documents.Contents.Composition
         */
         public int ShowText(
           string text
-          )
-        { return ShowText(text, lineAlignment); }
+          ) => ShowText(text, lineAlignment);
 
         /**
           <summary>Shows text.</summary>
@@ -535,8 +534,7 @@ namespace HES.Documents.Contents.Composition
         public bool ShowXObject(
           xObjects::XObject xObject,
           SizeF? size
-          )
-        { return ShowXObject(xObject, size, lineAlignment); }
+          ) => ShowXObject(xObject, size, lineAlignment);
 
         /**
           <summary>Shows the specified external object.</summary>

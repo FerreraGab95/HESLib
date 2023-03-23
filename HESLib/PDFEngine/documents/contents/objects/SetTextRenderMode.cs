@@ -54,16 +54,15 @@ namespace HES.Documents.Contents.Objects
       IList<PdfDirectObject> operands
       ) : base(OperatorKeyword, operands)
     {}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public override void Scan(
-      ContentScanner.GraphicsState state
-      )
-    {state.RenderMode = Value;}
+        #region interface
+        #region public
+        public override void Scan(
+          ContentScanner.GraphicsState state
+          ) => state.RenderMode = Value;
 
-    public TextRenderModeEnum Value
+        public TextRenderModeEnum Value
     {
       get => (TextRenderModeEnum)((IPdfNumber)operands[0]).Value;
       set => operands[0] = PdfInteger.Get((int)value);

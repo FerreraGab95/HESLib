@@ -48,16 +48,15 @@ namespace HES.Documents
       PdfDirectObject baseObject
       ) : base(baseObject)
     {}
-    #endregion
+        #endregion
 
-    #region interface
-    #region protected
-    protected override JavaScript WrapValue(
-      PdfDirectObject baseObject
-      )
-    {return (JavaScript)Interaction.Actions.Action.Wrap(baseObject);}
-    #endregion
-    #endregion
-    #endregion
-  }
+        #region interface
+        #region protected
+        protected override JavaScript WrapValue(
+          PdfDirectObject baseObject
+          ) => (JavaScript)Interaction.Actions.Action.Wrap(baseObject);
+        #endregion
+        #endregion
+        #endregion
+    }
 }

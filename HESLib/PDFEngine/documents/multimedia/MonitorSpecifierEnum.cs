@@ -102,9 +102,8 @@ namespace HES.Documents.Multimedia
       return monitorSpecifier;
     }
 
-    public static PdfInteger GetCode(
-      this MonitorSpecifierEnum monitorSpecifier
-      )
-    {return codes[monitorSpecifier];}
-  }
+        public static PdfInteger GetCode(
+          this MonitorSpecifierEnum monitorSpecifier
+          ) => codes[monitorSpecifier];
+    }
 }

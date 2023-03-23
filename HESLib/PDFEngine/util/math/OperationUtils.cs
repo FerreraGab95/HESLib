@@ -51,43 +51,42 @@ namespace HES.Util.Math
       <summary>Default relative floating-point precision error tolerance.</summary>
     */
     private const double Epsilon = 0.000001;
-    #endregion
+        #endregion
 
-    #region interface
-    /**
-      <summary>Compares double-precision floating-point numbers applying the default error tolerance.
-      </summary>
-      <param name="value1">First argument to compare.</param>
-      <param name="value2">Second argument to compare.</param>
-      <returns>How the first argument compares to the second:
-        <list type="bullet">
-          <item>-1, smaller;</item>
-          <item>0, equal;</item>
-          <item>1, greater.</item>
-        </list>
-      </returns>
-    */
-    public static int Compare(
-      double value1,
-      double value2
-      )
-    {return Compare(value1, value2, Epsilon);}
+        #region interface
+        /**
+          <summary>Compares double-precision floating-point numbers applying the default error tolerance.
+          </summary>
+          <param name="value1">First argument to compare.</param>
+          <param name="value2">Second argument to compare.</param>
+          <returns>How the first argument compares to the second:
+            <list type="bullet">
+              <item>-1, smaller;</item>
+              <item>0, equal;</item>
+              <item>1, greater.</item>
+            </list>
+          </returns>
+        */
+        public static int Compare(
+          double value1,
+          double value2
+          ) => Compare(value1, value2, Epsilon);
 
-    /**
-      <summary>Compares double-precision floating-point numbers applying the specified error tolerance.
-      </summary>
-      <param name="value1">First argument to compare.</param>
-      <param name="value2">Second argument to compare.</param>
-      <param name="epsilon">Relative error tolerance.</param>
-      <returns>How the first argument compares to the second:
-        <list type="bullet">
-          <item>-1, smaller;</item>
-          <item>0, equal;</item>
-          <item>1, greater.</item>
-        </list>
-      </returns>
-    */
-    public static int Compare(
+        /**
+          <summary>Compares double-precision floating-point numbers applying the specified error tolerance.
+          </summary>
+          <param name="value1">First argument to compare.</param>
+          <param name="value2">Second argument to compare.</param>
+          <param name="epsilon">Relative error tolerance.</param>
+          <returns>How the first argument compares to the second:
+            <list type="bullet">
+              <item>-1, smaller;</item>
+              <item>0, equal;</item>
+              <item>1, greater.</item>
+            </list>
+          </returns>
+        */
+        public static int Compare(
       double value1,
       double value2,
       double epsilon
@@ -139,18 +138,17 @@ namespace HES.Util.Math
       return 0;
     }
 
-    /**
-      <summary>Increments a big-endian byte array.</summary>
-    */
-    public static void Increment(
-      byte[] data
-      )
-    {Increment(data, data.Length-1);}
+        /**
+          <summary>Increments a big-endian byte array.</summary>
+        */
+        public static void Increment(
+          byte[] data
+          ) => Increment(data, data.Length - 1);
 
-    /**
-      <summary>Increments a big-endian byte array at the specified position.</summary>
-    */
-    public static void Increment(
+        /**
+          <summary>Increments a big-endian byte array at the specified position.</summary>
+        */
+        public static void Increment(
       byte[] data,
       int position
       )
@@ -164,14 +162,13 @@ namespace HES.Util.Math
       {data[position]++;}
     }
 
-    /**
-      <summary>Gets the unbiased exponent of the specified argument.</summary>
-    */
-    private static int GetExponent(
-      double value
-      )
-    {return (int)(((BitConverter.DoubleToInt64Bits(value) & DoubleExponentBitMask) >> (DoubleSignificandBitCount)) - DoubleExponentBias);}
-    #endregion
-    #endregion
-  }
+        /**
+          <summary>Gets the unbiased exponent of the specified argument.</summary>
+        */
+        private static int GetExponent(
+          double value
+          ) => (int)(((BitConverter.DoubleToInt64Bits(value) & DoubleExponentBitMask) >> (DoubleSignificandBitCount)) - DoubleExponentBias);
+        #endregion
+        #endregion
+    }
 }

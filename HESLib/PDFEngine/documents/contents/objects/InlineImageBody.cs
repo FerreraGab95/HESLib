@@ -62,10 +62,9 @@ namespace HES.Documents.Contents.Objects
         public override void WriteTo(
       IOutputStream stream,
       Document context
-      )
-    {stream.Write(value);}
-    #endregion
-    #endregion
-    #endregion
-  }
+      ) => stream.Write(value);
+        #endregion
+        #endregion
+        #endregion
+    }
 }

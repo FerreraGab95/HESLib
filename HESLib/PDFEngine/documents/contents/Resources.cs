@@ -44,18 +44,17 @@ namespace HES.Documents.Contents
     : PdfObjectWrapper<PdfDictionary>,
       ICompositeDictionary<PdfName>
   {
-    #region static
-    #region interface
-    public static Resources Wrap(
-      PdfDirectObject baseObject
-      )
-    {return baseObject != null ? new Resources(baseObject) : null;}
-    #endregion
-    #endregion
+        #region static
+        #region interface
+        public static Resources Wrap(
+          PdfDirectObject baseObject
+          ) => baseObject != null ? new Resources(baseObject) : null;
+        #endregion
+        #endregion
 
-    #region dynamic
-    #region constructors
-    public Resources(
+        #region dynamic
+        #region constructors
+        public Resources(
       Document context
       ) : base(context, new PdfDictionary())
     {}
@@ -139,14 +138,13 @@ namespace HES.Documents.Contents
         throw new ArgumentException(type.Name + " does NOT represent a valid resource class.");
     }
 
-    public PdfObjectWrapper Get(
-      Type type,
-      PdfName key
-      )
-    {return (PdfObjectWrapper)type.GetMethod("get_Item", BindingFlags.Public | BindingFlags.Instance).Invoke(Get(type), new object[]{ key });}
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-  }
+        public PdfObjectWrapper Get(
+          Type type,
+          PdfName key
+          ) => (PdfObjectWrapper)type.GetMethod("get_Item", BindingFlags.Public | BindingFlags.Instance).Invoke(Get(type), new object[] { key });
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+    }
 }

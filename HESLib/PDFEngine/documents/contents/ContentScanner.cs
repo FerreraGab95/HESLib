@@ -398,8 +398,7 @@ namespace HES.Documents.Contents
             */
             public PointF TextToDeviceSpace(
               PointF point
-              )
-            { return TextToDeviceSpace(point, false); }
+              ) => TextToDeviceSpace(point, false);
 
             /**
               <summary>Resolves the given text-space point to its equivalent device-space one [PDF:1.6:5.3.3].</summary>
@@ -687,9 +686,7 @@ namespace HES.Documents.Contents
                 public void ScanChar(
                   char textChar,
                   RectangleF textCharBox
-                  )
-                {
-                    wrapper.textChars.Add(
+                  ) => wrapper.textChars.Add(
                       new TextChar(
                         textChar,
                         textCharBox,
@@ -697,7 +694,6 @@ namespace HES.Documents.Contents
                         false
                         )
                       );
-                }
             }
 
             private TextStyle style;
@@ -1005,8 +1001,7 @@ namespace HES.Documents.Contents
           <summary>Gets whether this level is the root of the hierarchy.</summary>
         */
         public bool IsRootLevel(
-          )
-        { return parentLevel == null; }
+          ) => parentLevel == null;
 
         /**
           <summary>Moves to the object at the given position.</summary>
@@ -1131,8 +1126,7 @@ namespace HES.Documents.Contents
         public void Render(
          System.Drawing.Graphics renderContext,
           SizeF renderSize
-          )
-        { Render(renderContext, renderSize, null); }
+          ) => Render(renderContext, renderSize, null);
 
         /**
           <summary>Renders the contents into the specified object.</summary>

@@ -109,14 +109,13 @@ namespace HES.Documents.Contents.ColorSpaces
       PdfDirectObject baseObject
       ) : base(colorSpace, baseObject)
     {}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public override object Clone(
-      Document context
-      )
-    {throw new NotImplementedException();}
+        #region interface
+        #region public
+        public override object Clone(
+          Document context
+          ) => throw new NotImplementedException();
 
         public override IList<PdfDirectObject> Components => new List<PdfDirectObject>();
 

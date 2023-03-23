@@ -52,17 +52,16 @@ namespace HES.Documents.Contents.Objects
       PaintShading operation
       ) : base(operation)
     {}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    #region IResourceReference
-    public ColorSpaces::Shading GetResource(
-      IContentContext context
-      )
-    {return Operation.GetResource(context);}
+        #region interface
+        #region public
+        #region IResourceReference
+        public ColorSpaces::Shading GetResource(
+          IContentContext context
+          ) => Operation.GetResource(context);
 
-    public PdfName Name
+        public PdfName Name
     {
       get => Operation.Name;
       set => Operation.Name = value;

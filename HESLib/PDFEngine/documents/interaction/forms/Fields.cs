@@ -54,27 +54,23 @@ namespace HES.Documents.Interaction.Forms
       PdfDirectObject baseObject
       ) : base(baseObject)
     {}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public void Add(
-      Field value
-      )
-    {BaseDataObject.Add(value.BaseObject);}
+        #region interface
+        #region public
+        public void Add(
+          Field value
+          ) => BaseDataObject.Add(value.BaseObject);
 
-    #region IDictionary
-    public void Add(
-      string key,
-      Field value
-      )
-    {throw new NotImplementedException();}
+        #region IDictionary
+        public void Add(
+          string key,
+          Field value
+          ) => throw new NotImplementedException();
 
-    public bool ContainsKey(
-      string key
-      )
-    //TODO: avoid getter (use raw matching).
-    {return this[key] != null;}
+        public bool ContainsKey(
+          string key
+          ) => this[key] != null;
 
         public ICollection<string> Keys => throw new NotImplementedException();//TODO: retrieve all the full names (keys)!!!
 
@@ -165,53 +161,46 @@ namespace HES.Documents.Interaction.Forms
       }
     }
 
-    #region ICollection
-    void ICollection<KeyValuePair<string,Field>>.Add(
-      KeyValuePair<string,Field> entry
-      )
-    {Add(entry.Key,entry.Value);}
+        #region ICollection
+        void ICollection<KeyValuePair<string, Field>>.Add(
+          KeyValuePair<string, Field> entry
+          ) => Add(entry.Key, entry.Value);
 
-    public void Clear(
-      )
-    {BaseDataObject.Clear();}
+        public void Clear(
+          ) => BaseDataObject.Clear();
 
-    bool ICollection<KeyValuePair<string,Field>>.Contains(
-      KeyValuePair<string,Field> entry
-      )
-    {throw new NotImplementedException();}
+        bool ICollection<KeyValuePair<string, Field>>.Contains(
+          KeyValuePair<string, Field> entry
+          ) => throw new NotImplementedException();
 
-    public void CopyTo(
-      KeyValuePair<string,Field>[] entries,
-      int index
-      )
-    {throw new NotImplementedException();}
+        public void CopyTo(
+          KeyValuePair<string, Field>[] entries,
+          int index
+          ) => throw new NotImplementedException();
 
         public int Count => Values.Count;
 
         public bool IsReadOnly => false;
 
         public bool Remove(
-      KeyValuePair<string,Field> entry
-      )
-    {throw new NotImplementedException();}
+      KeyValuePair<string, Field> entry
+      ) => throw new NotImplementedException();
 
-    #region IEnumerable<KeyValuePair<string,Field>>
-    IEnumerator<KeyValuePair<string,Field>> IEnumerable<KeyValuePair<string,Field>>.GetEnumerator(
-      )
-    {throw new NotImplementedException();}
+        #region IEnumerable<KeyValuePair<string,Field>>
+        IEnumerator<KeyValuePair<string, Field>> IEnumerable<KeyValuePair<string, Field>>.GetEnumerator(
+          ) => throw new NotImplementedException();
 
-    #region IEnumerable
-    IEnumerator IEnumerable.GetEnumerator(
-      )
-    {return ((IEnumerable<KeyValuePair<string,Field>>)this).GetEnumerator();}
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-    #endregion
+        #region IEnumerable
+        IEnumerator IEnumerable.GetEnumerator(
+          ) => ((IEnumerable<KeyValuePair<string, Field>>)this).GetEnumerator();
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+        #endregion
 
-    #region private
-    private void RetrieveValues(
+        #region private
+        private void RetrieveValues(
       PdfArray fieldObjects,
       IList<Field> values
       )

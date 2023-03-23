@@ -37,20 +37,19 @@ namespace HES.Documents.Contents.Layers
     : PdfObjectWrapper<PdfDictionary>,
       ILayerConfiguration
   {
-    #region static
-    #region interface
-    #region public
-    public static LayerDefinition Wrap(
-      PdfDirectObject baseObject
-      )
-    {return baseObject != null ? new LayerDefinition(baseObject) : null;}
-    #endregion
-    #endregion
-    #endregion
+        #region static
+        #region interface
+        #region public
+        public static LayerDefinition Wrap(
+          PdfDirectObject baseObject
+          ) => baseObject != null ? new LayerDefinition(baseObject) : null;
+        #endregion
+        #endregion
+        #endregion
 
-    #region dynamic
-    #region constructors
-    public LayerDefinition(
+        #region dynamic
+        #region constructors
+        public LayerDefinition(
       Document context
       ) : base(context, new PdfDictionary())
     {Initialize();}

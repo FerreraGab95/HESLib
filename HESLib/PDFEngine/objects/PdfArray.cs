@@ -88,50 +88,44 @@ namespace HES.Objects
       this.AddAll(items);
       Updateable = true;
     }
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public override PdfObject Accept(
-      IVisitor visitor,
-      object data
-      )
-    {return visitor.Visit(this, data);}
+        #region interface
+        #region public
+        public override PdfObject Accept(
+          IVisitor visitor,
+          object data
+          ) => visitor.Visit(this, data);
 
-    public override int CompareTo(
-      PdfDirectObject obj
-      )
-    {throw new NotImplementedException();}
+        public override int CompareTo(
+          PdfDirectObject obj
+          ) => throw new NotImplementedException();
 
-    public override bool Equals(
-      object @object
-      )
-    {
-      return base.Equals(@object)
-        || (@object != null
-          && @object.GetType().Equals(GetType())
-          && ((PdfArray)@object).items.Equals(items));
-    }
+        public override bool Equals(
+          object @object
+          ) => base.Equals(@object)
+            || (@object != null
+              && @object.GetType().Equals(GetType())
+              && ((PdfArray)@object).items.Equals(items));
 
-    /**
-      <summary>Gets the value corresponding to the given index, forcing its instantiation as a direct
-      object in case of missing entry.</summary>
-      <param name="index">Index of the item to return.</param>
-      <param name="itemClass">Class to use for instantiating the item in case of missing entry.</param>
-    */
-    public PdfDirectObject Get<T>(
-      int index
-      ) where T : PdfDataObject, new()
-    {return Get<T>(index, true);}
+        /**
+          <summary>Gets the value corresponding to the given index, forcing its instantiation as a direct
+          object in case of missing entry.</summary>
+          <param name="index">Index of the item to return.</param>
+          <param name="itemClass">Class to use for instantiating the item in case of missing entry.</param>
+        */
+        public PdfDirectObject Get<T>(
+          int index
+          ) where T : PdfDataObject, new() => Get<T>(index, true);
 
-    /**
-      <summary>Gets the value corresponding to the given index, forcing its instantiation in case
-      of missing entry.</summary>
-      <param name="index">Index of the item to return.</param>
-      <param name="direct">Whether the item has to be instantiated directly within its container
-      instead of being referenced through an indirect object.</param>
-    */
-    public PdfDirectObject Get<T>(
+        /**
+          <summary>Gets the value corresponding to the given index, forcing its instantiation in case
+          of missing entry.</summary>
+          <param name="index">Index of the item to return.</param>
+          <param name="direct">Whether the item has to be instantiated directly within its container
+          instead of being referenced through an indirect object.</param>
+        */
+        public PdfDirectObject Get<T>(
       int index,
       bool direct
       ) where T : PdfDataObject, new()
@@ -165,11 +159,10 @@ namespace HES.Objects
       return item;
     }
 
-    public override int GetHashCode(
-      )
-    {return items.GetHashCode();}
+        public override int GetHashCode(
+          ) => items.GetHashCode();
 
-    public override PdfObject Parent
+        public override PdfObject Parent
     {
       get => parent;
       internal set => parent = value;
@@ -183,22 +176,20 @@ namespace HES.Objects
         */
         public PdfDataObject Resolve(
       int index
-      )
-    {return Resolve(this[index]);}
+      ) => Resolve(this[index]);
 
-    /**
-      <summary>Gets the dereferenced value corresponding to the given index, forcing its
-      instantiation in case of missing entry.</summary>
-      <remarks>This method takes care to resolve the value returned by
-      <see cref="Get<T>">Get<T></see>.</remarks>
-      <param name="index">Index of the item to return.</param>
-    */
-    public T Resolve<T>(
-      int index
-      ) where T : PdfDataObject, new()
-    {return (T)Resolve(Get<T>(index));}
+        /**
+          <summary>Gets the dereferenced value corresponding to the given index, forcing its
+          instantiation in case of missing entry.</summary>
+          <remarks>This method takes care to resolve the value returned by
+          <see cref="Get<T>">Get<T></see>.</remarks>
+          <param name="index">Index of the item to return.</param>
+        */
+        public T Resolve<T>(
+          int index
+          ) where T : PdfDataObject, new() => (T)Resolve(Get<T>(index));
 
-    public override PdfObject Swap(
+        public override PdfObject Swap(
       PdfObject other
       )
     {
@@ -260,13 +251,12 @@ namespace HES.Objects
       stream.Write(EndArrayChunk);
     }
 
-    #region IList
-    public int IndexOf(
-      PdfDirectObject item
-      )
-    {return items.IndexOf(item);}
+        #region IList
+        public int IndexOf(
+          PdfDirectObject item
+          ) => items.IndexOf(item);
 
-    public void Insert(
+        public void Insert(
       int index,
       PdfDirectObject item
       )
@@ -315,16 +305,14 @@ namespace HES.Objects
       {RemoveAt(0);}
     }
 
-    public bool Contains(
-      PdfDirectObject item
-      )
-    {return items.Contains(item);}
+        public bool Contains(
+          PdfDirectObject item
+          ) => items.Contains(item);
 
-    public void CopyTo(
-      PdfDirectObject[] items,
-      int index
-      )
-    {this.items.CopyTo(items, index);}
+        public void CopyTo(
+          PdfDirectObject[] items,
+          int index
+          ) => this.items.CopyTo(items, index);
 
         public int Count => items.Count;
 
@@ -342,22 +330,20 @@ namespace HES.Objects
       return true;
     }
 
-    #region IEnumerable<PdfDirectObject>
-    public IEnumerator<PdfDirectObject> GetEnumerator(
-      )
-    {return items.GetEnumerator();}
+        #region IEnumerable<PdfDirectObject>
+        public IEnumerator<PdfDirectObject> GetEnumerator(
+          ) => items.GetEnumerator();
 
-    #region IEnumerable
-    IEnumerator IEnumerable.GetEnumerator()
-    {return ((IEnumerable<PdfDirectObject>)this).GetEnumerator();}
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-    #endregion
+        #region IEnumerable
+        IEnumerator IEnumerable.GetEnumerator() => ((IEnumerable<PdfDirectObject>)this).GetEnumerator();
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+        #endregion
 
-    #region protected
-    protected internal override bool Virtual
+        #region protected
+        protected internal override bool Virtual
     {
       get => virtual_;
       set => virtual_ = value;

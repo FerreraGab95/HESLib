@@ -209,9 +209,8 @@ namespace HES.Documents.Interaction.Actions
       return operation;
     }
 
-    public static PdfInteger GetCode(
-      this Render.OperationEnum operation
-      )
-    {return codes[operation];}
-  }
+        public static PdfInteger GetCode(
+          this Render.OperationEnum operation
+          ) => codes[operation];
+    }
 }

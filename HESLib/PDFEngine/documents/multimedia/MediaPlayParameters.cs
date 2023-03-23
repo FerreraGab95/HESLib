@@ -330,9 +330,8 @@ namespace HES.Documents.Multimedia
       return mode;
     }
 
-    public static PdfInteger GetCode(
-      this MediaPlayParameters.Viability.FitModeEnum mode
-      )
-    {return codes[mode];}
-  }
+        public static PdfInteger GetCode(
+          this MediaPlayParameters.Viability.FitModeEnum mode
+          ) => codes[mode];
+    }
 }

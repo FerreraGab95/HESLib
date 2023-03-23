@@ -69,30 +69,25 @@ namespace HES.Objects
       this.objectNumber = reference.ObjectNumber;
       this.file = file;
     }
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public override PdfObject Accept(
-      IVisitor visitor,
-      object data
-      )
-    {return visitor.Visit(this, data);}
+        #region interface
+        #region public
+        public override PdfObject Accept(
+          IVisitor visitor,
+          object data
+          ) => visitor.Visit(this, data);
 
-    public override int CompareTo(
-      PdfDirectObject obj
-      )
-    {throw new NotImplementedException();}
+        public override int CompareTo(
+          PdfDirectObject obj
+          ) => throw new NotImplementedException();
 
-    public override bool Equals(
-      object @object
-      )
-    {
-      return base.Equals(@object)
-        || (@object != null
-          && @object.GetType().Equals(GetType())
-          && ((PdfReference)@object).Id.Equals(Id));
-    }
+        public override bool Equals(
+          object @object
+          ) => base.Equals(@object)
+            || (@object != null
+              && @object.GetType().Equals(GetType())
+              && ((PdfReference)@object).Id.Equals(Id));
 
         /**
           <summary>Gets the generation number.</summary>
@@ -100,8 +95,7 @@ namespace HES.Objects
         public int GenerationNumber => IndirectObject.XrefEntry.Generation;
 
         public override int GetHashCode(
-      )
-    {return IndirectObject.GetHashCode();}
+      ) => IndirectObject.GetHashCode();
 
         /**
           <summary>Gets the object identifier.</summary>
@@ -128,14 +122,12 @@ namespace HES.Objects
 
         public override PdfObject Swap(
       PdfObject other
-      )
-    {return IndirectObject.Swap(((PdfReference)other).IndirectObject).Reference;}
+      ) => IndirectObject.Swap(((PdfReference)other).IndirectObject).Reference;
 
-    public override string ToString(
-      )
-    {return IndirectReference;}
+        public override string ToString(
+          ) => IndirectReference;
 
-    public override bool Updateable
+        public override bool Updateable
     {
       get => IndirectObject.Updateable;
       set => IndirectObject.Updateable = value;
@@ -150,21 +142,19 @@ namespace HES.Objects
         public override void WriteTo(
       IOutputStream stream,
       PdfFile context
-      )
-    {stream.Write(IndirectReference);}
+      ) => stream.Write(IndirectReference);
 
-    #region IPdfIndirectObject
-    public PdfDataObject DataObject
+        #region IPdfIndirectObject
+        public PdfDataObject DataObject
     {
       get => IndirectObject.DataObject;
       set => IndirectObject.DataObject = value;
     }
 
         public void Delete(
-      )
-    {IndirectObject.Delete();}
+      ) => IndirectObject.Delete();
 
-    public override PdfIndirectObject IndirectObject
+        public override PdfIndirectObject IndirectObject
     {
       get
       {

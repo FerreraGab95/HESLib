@@ -202,14 +202,13 @@ namespace HES.Documents.Files
 
         public void SetPath(
       string value
-      )
-    {SetPath(PdfName.F,value);}
+      ) => SetPath(PdfName.F, value);
 
-    /**
-      <summary>Gets/Sets whether the referenced file is volatile (changes frequently with time).
-      </summary>
-    */
-    public bool Volatile
+        /**
+          <summary>Gets/Sets whether the referenced file is volatile (changes frequently with time).
+          </summary>
+        */
+        public bool Volatile
     {
       get => (bool)PdfSimpleObject<object>.GetValue(BaseDictionary[PdfName.V], false);
       set => BaseDictionary[PdfName.V] = PdfBoolean.Get(value);
@@ -247,18 +246,17 @@ namespace HES.Documents.Files
       return EmbeddedFile.Wrap(embeddedFilesObject[key]);
     }
 
-    /**
-      <summary>Gets the path associated to the given key.</summary>
-    */
-    private string GetPath(
-      PdfName key
-      )
-    {return (string)PdfSimpleObject<object>.GetValue(BaseDictionary[key]);}
+        /**
+          <summary>Gets the path associated to the given key.</summary>
+        */
+        private string GetPath(
+          PdfName key
+          ) => (string)PdfSimpleObject<object>.GetValue(BaseDictionary[key]);
 
-    /**
-      <see cref="GetDependencies(PdfName)"/>
-    */
-    private void SetDependencies(
+        /**
+          <see cref="GetDependencies(PdfName)"/>
+        */
+        private void SetDependencies(
       PdfName key,
       RelatedFiles value
       )
@@ -285,18 +283,17 @@ namespace HES.Documents.Files
       embeddedFilesObject[key] = value.BaseObject;
     }
 
-    /**
-      <see cref="GetPath(PdfName)"/>
-    */
-    private void SetPath(
-      PdfName key,
-      string value
-      )
-    {BaseDictionary[key] = new PdfString(value);}
-    #endregion
-    #endregion
-    #endregion
-  }
+        /**
+          <see cref="GetPath(PdfName)"/>
+        */
+        private void SetPath(
+          PdfName key,
+          string value
+          ) => BaseDictionary[key] = new PdfString(value);
+        #endregion
+        #endregion
+        #endregion
+    }
 
   internal static class StandardFileSystemEnumExtension
   {
@@ -310,14 +307,12 @@ namespace HES.Documents.Files
       codes[FullFileSpecification.StandardFileSystemEnum.URL] = PdfName.URL;
     }
 
-    public static FullFileSpecification.StandardFileSystemEnum? Get(
-      PdfName code
-      )
-    {return codes.GetKey(code);}
+        public static FullFileSpecification.StandardFileSystemEnum? Get(
+          PdfName code
+          ) => codes.GetKey(code);
 
-    public static PdfName GetCode(
-      this FullFileSpecification.StandardFileSystemEnum standardFileSystem
-      )
-    {return codes[standardFileSystem];}
-  }
+        public static PdfName GetCode(
+          this FullFileSpecification.StandardFileSystemEnum standardFileSystem
+          ) => codes[standardFileSystem];
+    }
 }

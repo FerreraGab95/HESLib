@@ -52,9 +52,7 @@ namespace HES.Documents.Contents.Entities
         #region public
         public override ContentObject ToInlineObject(
           PrimitiveComposer composer
-          )
-        {
-            return composer.Add(
+          ) => composer.Add(
               new InlineImage(
                 new InlineImageHeader(
                   new List<PdfDirectObject>(
@@ -73,13 +71,10 @@ namespace HES.Documents.Contents.Entities
                   )
                 )
               );
-        }
 
         public override xObjects::XObject ToXObject(
           Document context
-          )
-        {
-            return new xObjects::ImageXObject(
+          ) => new xObjects::ImageXObject(
               context,
               new PdfStream(
                 new PdfDictionary(
@@ -103,7 +98,6 @@ namespace HES.Documents.Contents.Entities
                 new Bytes::Buffer(Stream)
                 )
               );
-        }
         #endregion
 
         #region private

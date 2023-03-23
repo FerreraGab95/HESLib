@@ -46,24 +46,23 @@ namespace HES.Objects
     #region static
     #region fields
     public static readonly new PdfTextString Default = new PdfTextString("");
-    #endregion
-  
-    #region interface
-    #region public
-    /**
-      <summary>Gets the object equivalent to the given value.</summary>
-    */
-    public static PdfTextString Get(
-      string value
-      )
-    {return value != null ? new PdfTextString(value) : null;}
-    #endregion
-    #endregion
-    #endregion
+        #endregion
 
-    #region dynamic
-    #region fields
-    private bool unicoded;
+        #region interface
+        #region public
+        /**
+          <summary>Gets the object equivalent to the given value.</summary>
+        */
+        public static PdfTextString Get(
+          string value
+          ) => value != null ? new PdfTextString(value) : null;
+        #endregion
+        #endregion
+        #endregion
+
+        #region dynamic
+        #region fields
+        private bool unicoded;
     #endregion
 
     #region constructors
@@ -88,17 +87,16 @@ namespace HES.Objects
       SerializationModeEnum serializationMode
       ) : base(value, serializationMode)
     {}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public override PdfObject Accept(
-      IVisitor visitor,
-      object data
-      )
-    {return visitor.Visit(this, data);}
+        #region interface
+        #region public
+        public override PdfObject Accept(
+          IVisitor visitor,
+          object data
+          ) => visitor.Visit(this, data);
 
-    public override byte[] RawValue
+        public override byte[] RawValue
     {
       protected set
       {

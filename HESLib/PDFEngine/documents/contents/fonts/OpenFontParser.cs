@@ -806,18 +806,17 @@ namespace HES.Documents.Contents.Fonts
       Metrics.IsFixedPitch = (FontData.ReadInt() != 0);
     }
 
-    /**
-      <summary>Reads a string from the font file using the extended ASCII encoding.</summary>
-    */
-    private string ReadAsciiString(
-      int length
-      )
-    {return ReadString(length, Charset.ISO88591);}
+        /**
+          <summary>Reads a string from the font file using the extended ASCII encoding.</summary>
+        */
+        private string ReadAsciiString(
+          int length
+          ) => ReadString(length, Charset.ISO88591);
 
-    /**
-      <summary>Reads a string.</summary>
-    */
-    private string ReadString(
+        /**
+          <summary>Reads a string.</summary>
+        */
+        private string ReadString(
       int length,
       int platformID
       )
@@ -846,15 +845,14 @@ namespace HES.Documents.Contents.Fonts
       return encoding.GetString(data);
     }
 
-    /**
-      <summary>Reads a string from the font file using the Unicode encoding.</summary>
-    */
-    private string ReadUnicodeString(
-      int length
-      )
-    {return ReadString(length, Charset.UTF16LE);}
-    #endregion
-    #endregion
-    #endregion
-  }
+        /**
+          <summary>Reads a string from the font file using the Unicode encoding.</summary>
+        */
+        private string ReadUnicodeString(
+          int length
+          ) => ReadString(length, Charset.UTF16LE);
+        #endregion
+        #endregion
+        #endregion
+    }
 }

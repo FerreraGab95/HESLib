@@ -90,22 +90,21 @@ namespace HES.Documents.Interaction.Annotations
       MarkupTypeEnumCodes[MarkupTypeEnum.StrikeOut] = PdfName.StrikeOut;
       MarkupTypeEnumCodes[MarkupTypeEnum.Underline] = PdfName.Underline;
     }
-    #endregion
+        #endregion
 
-    #region interface
-    #region private
-    /**
-      <summary>Gets the code corresponding to the given value.</summary>
-    */
-    private static PdfName ToCode(
-      MarkupTypeEnum value
-      )
-    {return MarkupTypeEnumCodes[value];}
+        #region interface
+        #region private
+        /**
+          <summary>Gets the code corresponding to the given value.</summary>
+        */
+        private static PdfName ToCode(
+          MarkupTypeEnum value
+          ) => MarkupTypeEnumCodes[value];
 
-    /**
-      <summary>Gets the markup type corresponding to the given value.</summary>
-    */
-    private static MarkupTypeEnum ToMarkupTypeEnum(
+        /**
+          <summary>Gets the markup type corresponding to the given value.</summary>
+        */
+        private static MarkupTypeEnum ToMarkupTypeEnum(
       PdfName value
       )
     {
@@ -123,28 +122,27 @@ namespace HES.Documents.Interaction.Annotations
     #region static
     #region fields
     private static readonly PdfName HighlightExtGStateName = new PdfName("highlight");
-    #endregion
+        #endregion
 
-    #region interface
-    private static float GetMarkupBoxMargin(
-      float boxHeight
-      )
-    {return boxHeight * .25f;}
-    #endregion
-    #endregion
+        #region interface
+        private static float GetMarkupBoxMargin(
+          float boxHeight
+          ) => boxHeight * .25f;
+        #endregion
+        #endregion
 
-    #region dynamic
-    #region constructors
-    /**
-      <summary>Creates a new text markup on the specified page, making it printable by default.
-      </summary>
-      <param name="page">Page to annotate.</param>
-      <param name="text">Annotation text.</param>
-      <param name="markupType">Markup type.</param>
-      <param name="markupBox">Quadrilateral encompassing a word or group of contiguous words in the
-      text underlying the annotation.</param>
-    */
-    public TextMarkup(
+        #region dynamic
+        #region constructors
+        /**
+          <summary>Creates a new text markup on the specified page, making it printable by default.
+          </summary>
+          <param name="page">Page to annotate.</param>
+          <param name="text">Annotation text.</param>
+          <param name="markupType">Markup type.</param>
+          <param name="markupBox">Quadrilateral encompassing a word or group of contiguous words in the
+          text underlying the annotation.</param>
+        */
+        public TextMarkup(
       Page page,
       string text,
       MarkupTypeEnum markupType,

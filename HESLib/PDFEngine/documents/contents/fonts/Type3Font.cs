@@ -97,17 +97,15 @@ namespace HES.Documents.Contents.Fonts
         {glyphIndexes[codeEntry.Value] = ConvertUtils.ByteArrayToInt(codeEntry.Key.Data);}
       }
     }
-    #endregion
+        #endregion
 
-    #region private
-    private IDictionary<ByteArray,int> GetNativeEncoding(
-      )
-    {
-      //FIXME: consolidate with Type1Font and TrueTypeFont!
-      return Encoding.Get(PdfName.StandardEncoding).GetCodes();
+        #region private
+        private IDictionary<ByteArray, int> GetNativeEncoding(
+          ) =>
+          //FIXME: consolidate with Type1Font and TrueTypeFont!
+          Encoding.Get(PdfName.StandardEncoding).GetCodes();
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 }

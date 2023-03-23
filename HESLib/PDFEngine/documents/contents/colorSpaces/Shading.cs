@@ -37,23 +37,22 @@ namespace HES.Documents.Contents.ColorSpaces
   public class Shading
     : PdfObjectWrapper<PdfDataObject>
   {
-  //TODO:shading types!
-    #region static
-    #region interface
-    #region public
-    public static Shading Wrap(
-      PdfDirectObject baseObject
-      )
-    {return null;}  //TODO:shading types!
-    #endregion
-    #endregion
-    #endregion
+        //TODO:shading types!
+        #region static
+        #region interface
+        #region public
+        public static Shading Wrap(
+          PdfDirectObject baseObject
+          ) => null;  //TODO:shading types!
+        #endregion
+        #endregion
+        #endregion
 
-    #region dynamic
-    #region constructors
-    //TODO:IMPL new element constructor!
+        #region dynamic
+        #region constructors
+        //TODO:IMPL new element constructor!
 
-    internal Shading(
+        internal Shading(
       PdfDirectObject baseObject
       ) : base(baseObject)
     {}

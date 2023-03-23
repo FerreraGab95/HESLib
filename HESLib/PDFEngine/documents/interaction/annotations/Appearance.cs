@@ -38,20 +38,19 @@ namespace HES.Documents.Interaction.Annotations
   public sealed class Appearance
     : PdfObjectWrapper<PdfDictionary>
   {
-    #region static
-    #region interface
-    #region public
-    public static Appearance Wrap(
-      PdfDirectObject baseObject
-      )
-    {return baseObject != null ? new Appearance(baseObject) : null;}
-    #endregion
-    #endregion
-    #endregion
+        #region static
+        #region interface
+        #region public
+        public static Appearance Wrap(
+          PdfDirectObject baseObject
+          ) => baseObject != null ? new Appearance(baseObject) : null;
+        #endregion
+        #endregion
+        #endregion
 
-    #region dynamic
-    #region constructors
-    public Appearance(
+        #region dynamic
+        #region constructors
+        public Appearance(
       Document context
       ) : base(context, new PdfDictionary())
     {}

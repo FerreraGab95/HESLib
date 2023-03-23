@@ -60,43 +60,38 @@ namespace HES.Util.IO
           <summary>Closes the reader, including the underlying stream.</summary>
         */
         public void Close(
-      )
-    {Dispose();}
+      ) => Dispose();
 
-    /**
-      <summary>Reads a 2-byte signed integer from the current stream and advances the current position
-      of the stream by two bytes.</summary>
-    */
-    public short ReadInt16(
-      )
-    {return (short)(stream.ReadByte() << 8 | stream.ReadByte());}
+        /**
+          <summary>Reads a 2-byte signed integer from the current stream and advances the current position
+          of the stream by two bytes.</summary>
+        */
+        public short ReadInt16(
+          ) => (short)(stream.ReadByte() << 8 | stream.ReadByte());
 
-    /**
-      <summary>Reads a 4-byte signed integer from the current stream and advances the current position
-      of the stream by four bytes.</summary>
-    */
-    public int ReadInt32(
-      )
-    {return (stream.ReadByte() << 24 | stream.ReadByte() << 16 | stream.ReadByte() << 8 | stream.ReadByte());}
+        /**
+          <summary>Reads a 4-byte signed integer from the current stream and advances the current position
+          of the stream by four bytes.</summary>
+        */
+        public int ReadInt32(
+          ) => (stream.ReadByte() << 24 | stream.ReadByte() << 16 | stream.ReadByte() << 8 | stream.ReadByte());
 
-    /**
-      <summary>Reads a 2-byte unsigned integer from the current stream and advances the position of the
-      stream by two bytes.</summary>
-    */
-    public ushort ReadUInt16(
-      )
-    {return (ushort)(stream.ReadByte() << 8 | stream.ReadByte());}
+        /**
+          <summary>Reads a 2-byte unsigned integer from the current stream and advances the position of the
+          stream by two bytes.</summary>
+        */
+        public ushort ReadUInt16(
+          ) => (ushort)(stream.ReadByte() << 8 | stream.ReadByte());
 
-    /**
-      <summary>Reads a 4-byte unsigned integer from the current stream and advances the position of the
-      stream by four bytes.</summary>
-    */
-    public uint ReadUInt32(
-      )
-    {return (uint)(stream.ReadByte() << 24 | stream.ReadByte() << 16 | stream.ReadByte() << 8 | stream.ReadByte());}
+        /**
+          <summary>Reads a 4-byte unsigned integer from the current stream and advances the position of the
+          stream by four bytes.</summary>
+        */
+        public uint ReadUInt32(
+          ) => (uint)(stream.ReadByte() << 24 | stream.ReadByte() << 16 | stream.ReadByte() << 8 | stream.ReadByte());
 
-    #region IDisposable
-    public void Dispose(
+        #region IDisposable
+        public void Dispose(
       )
     {
       if (disposed)

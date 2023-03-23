@@ -40,20 +40,19 @@ namespace HES.Documents.Interaction.Navigation.Page
   public sealed class Article
     : PdfObjectWrapper<PdfDictionary>
   {
-    #region static
-    #region interface
-    #region public
-    public static Article Wrap(
-      PdfDirectObject baseObject
-      )
-    {return baseObject != null ? new Article(baseObject) : null;}
-    #endregion
-    #endregion
-    #endregion
+        #region static
+        #region interface
+        #region public
+        public static Article Wrap(
+          PdfDirectObject baseObject
+          ) => baseObject != null ? new Article(baseObject) : null;
+        #endregion
+        #endregion
+        #endregion
 
-    #region dynamic
-    #region constructors
-    public Article(
+        #region dynamic
+        #region constructors
+        public Article(
       Documents.Document context
       ) : base(
         context,

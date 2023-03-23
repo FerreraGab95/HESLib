@@ -158,30 +158,28 @@ namespace HES.Documents.Interaction.Navigation.Page
         return true;
       }
 
-      public void Reset(
-        )
-      {throw new NotSupportedException();}
+            public void Reset(
+              ) => throw new NotSupportedException();
 
-      public void Dispose(
+            public void Dispose(
         )
       {}
     }
-    #endregion
+        #endregion
 
-    #region static
-    #region interface
-    #region public
-    public static ArticleElements Wrap(
-      PdfDirectObject baseObject
-      )
-    {return baseObject != null ? new ArticleElements(baseObject) : null;}
-    #endregion
-    #endregion
-    #endregion
+        #region static
+        #region interface
+        #region public
+        public static ArticleElements Wrap(
+          PdfDirectObject baseObject
+          ) => baseObject != null ? new ArticleElements(baseObject) : null;
+        #endregion
+        #endregion
+        #endregion
 
-    #region dynamic
-    #region constructors
-    private ArticleElements(
+        #region dynamic
+        #region constructors
+        private ArticleElements(
       PdfDirectObject baseObject
       ) : base(baseObject)
     {}
@@ -219,12 +217,11 @@ namespace HES.Documents.Interaction.Navigation.Page
       {Link(@object.BaseDataObject, bead);}
     }
 
-    public void RemoveAt(
-      int index
-      )
-    {Unlink(this[index].BaseDataObject);}
+        public void RemoveAt(
+          int index
+          ) => Unlink(this[index].BaseDataObject);
 
-    public ArticleElement this[
+        public ArticleElement this[
       int index
       ]
         {
@@ -260,22 +257,19 @@ namespace HES.Documents.Interaction.Navigation.Page
       }
     }
 
-    public void Clear(
-      )
-    {throw new NotImplementedException();}
+        public void Clear(
+          ) => throw new NotImplementedException();
 
-    public bool Contains(
-      ArticleElement @object
-      )
-    {return IndexOf(@object) >= 0;}
+        public bool Contains(
+          ArticleElement @object
+          ) => IndexOf(@object) >= 0;
 
-    public void CopyTo(
-      ArticleElement[] objects,
-      int index
-      )
-    {throw new NotImplementedException();}
+        public void CopyTo(
+          ArticleElement[] objects,
+          int index
+          ) => throw new NotImplementedException();
 
-    public int Count
+        public int Count
     {
       get
       {
@@ -298,23 +292,21 @@ namespace HES.Documents.Interaction.Navigation.Page
       return true;
     }
 
-    #region IEnumerable<ArticleElement>
-    public IEnumerator<ArticleElement> GetEnumerator(
-      )
-    {return new Enumerator(this);}
+        #region IEnumerable<ArticleElement>
+        public IEnumerator<ArticleElement> GetEnumerator(
+          ) => new Enumerator(this);
 
-    #region IEnumerable
-    IEnumerator IEnumerable.GetEnumerator(
-      )
-    {return ((IEnumerable<ArticleElement>)this).GetEnumerator();}
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-    #endregion
+        #region IEnumerable
+        IEnumerator IEnumerable.GetEnumerator(
+          ) => ((IEnumerable<ArticleElement>)this).GetEnumerator();
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+        #endregion
 
-    #region private
-    private PdfDictionary FirstBead
+        #region private
+        private PdfDictionary FirstBead
         {
             get => (PdfDictionary)BaseDataObject.Resolve(PdfName.F);
             set

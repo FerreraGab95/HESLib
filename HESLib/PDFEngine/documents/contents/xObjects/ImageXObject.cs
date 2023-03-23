@@ -40,20 +40,19 @@ namespace HES.Documents.Contents.xObjects
   public sealed class ImageXObject
     : XObject
   {
-    #region static
-    #region interface
-    #region public
-    public static new ImageXObject Wrap(
-      PdfDirectObject baseObject
-      )
-    {return baseObject != null ? new ImageXObject(baseObject) : null;}
-    #endregion
-    #endregion
-    #endregion
+        #region static
+        #region interface
+        #region public
+        public static new ImageXObject Wrap(
+          PdfDirectObject baseObject
+          ) => baseObject != null ? new ImageXObject(baseObject) : null;
+        #endregion
+        #endregion
+        #endregion
 
-    #region dynamic
-    #region constructors
-    public ImageXObject(
+        #region dynamic
+        #region constructors
+        public ImageXObject(
       Document context,
       PdfStream baseDataObject
       ) : base(

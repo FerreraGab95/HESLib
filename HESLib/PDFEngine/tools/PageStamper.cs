@@ -138,9 +138,7 @@ namespace HES.Tools
 
         #region private
         private PrimitiveComposer CreateFilter(
-      )
-    {
-      return new PrimitiveComposer(
+      ) => new PrimitiveComposer(
         new ContentScanner(
           Contents.Wrap(
             page.File.Register(new PdfStream()),
@@ -148,9 +146,8 @@ namespace HES.Tools
             )
           )
         );
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 }

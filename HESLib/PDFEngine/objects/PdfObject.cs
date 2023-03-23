@@ -37,46 +37,43 @@ namespace HES.Objects
   public abstract class PdfObject
     : IVisitable
   {
-    #region static
-    #region interface
-    #region public
-    /**
-      <summary>Gets the clone of the specified object, registered inside the specified file context.</summary>
-      <param name="object">Object to clone into the specified file context.</param>
-      <param name="context">File context of the cloning.</param>
-    */
-    public static PdfObject Clone(
-      PdfObject @object,
-      PdfFile context
-      )
-    {return @object == null ? null : @object.Clone(context);}
+        #region static
+        #region interface
+        #region public
+        /**
+          <summary>Gets the clone of the specified object, registered inside the specified file context.</summary>
+          <param name="object">Object to clone into the specified file context.</param>
+          <param name="context">File context of the cloning.</param>
+        */
+        public static PdfObject Clone(
+          PdfObject @object,
+          PdfFile context
+          ) => @object == null ? null : @object.Clone(context);
 
-    /**
-      <summary>Ensures an indirect reference to be resolved into its corresponding data object.</summary>
-      <param name="object">Object to resolve.</param>
-    */
-    public static PdfDataObject Resolve(
-      PdfObject @object
-      )
-    {return @object == null ? null : @object.Resolve();}
+        /**
+          <summary>Ensures an indirect reference to be resolved into its corresponding data object.</summary>
+          <param name="object">Object to resolve.</param>
+        */
+        public static PdfDataObject Resolve(
+          PdfObject @object
+          ) => @object == null ? null : @object.Resolve();
 
-    /**
-      <summary>Ensures a data object to be unresolved into its corresponding indirect reference, if
-      available.</summary>
-      <param name="object">Object to unresolve.</param>
-      <returns><see cref="PdfReference"/>, if available; <code>object</code>, otherwise.</returns>
-    */
-    public static PdfDirectObject Unresolve(
-      PdfDataObject @object
-      )
-    {return @object == null ? null : @object.Unresolve();}
-    #endregion
-    #endregion
-    #endregion
+        /**
+          <summary>Ensures a data object to be unresolved into its corresponding indirect reference, if
+          available.</summary>
+          <param name="object">Object to unresolve.</param>
+          <returns><see cref="PdfReference"/>, if available; <code>object</code>, otherwise.</returns>
+        */
+        public static PdfDirectObject Unresolve(
+          PdfDataObject @object
+          ) => @object == null ? null : @object.Unresolve();
+        #endregion
+        #endregion
+        #endregion
 
-    #region dynamic
-    #region constructors
-    protected PdfObject(
+        #region dynamic
+        #region constructors
+        protected PdfObject(
       )
     {}
     #endregion
@@ -94,20 +91,19 @@ namespace HES.Objects
       return clone;
     }
 
-    /**
-      <summary>Creates a deep copy of this object within the specified file context.</summary>
-    */
-    public virtual PdfObject Clone(
-      PdfFile context
-      )
-    {return Accept(context.Cloner, null);}
+        /**
+          <summary>Creates a deep copy of this object within the specified file context.</summary>
+        */
+        public virtual PdfObject Clone(
+          PdfFile context
+          ) => Accept(context.Cloner, null);
 
-    /**
-      <summary>Gets the indirect object containing this object.</summary>
-      <seealso cref="DataContainer"/>
-      <seealso cref="IndirectObject"/>
-    */
-    public virtual PdfIndirectObject Container
+        /**
+          <summary>Gets the indirect object containing this object.</summary>
+          <seealso cref="DataContainer"/>
+          <seealso cref="IndirectObject"/>
+        */
+        public virtual PdfIndirectObject Container
     {
       get
       {
@@ -171,20 +167,19 @@ namespace HES.Objects
       }
     }
 
-    /**
-      <summary>Ensures this object to be resolved into its corresponding data object.</summary>
-      <seealso cref="Unresolve()"/>
-    */
-    public PdfDataObject Resolve(
-      )
-    {return this is IPdfIndirectObject ? ((IPdfIndirectObject)this).DataObject : (PdfDataObject)this;}
+        /**
+          <summary>Ensures this object to be resolved into its corresponding data object.</summary>
+          <seealso cref="Unresolve()"/>
+        */
+        public PdfDataObject Resolve(
+          ) => this is IPdfIndirectObject ? ((IPdfIndirectObject)this).DataObject : (PdfDataObject)this;
 
-    /**
-      <summary>Swaps contents between this object and the other one.</summary>
-      <param name="other">Object whose contents have to be swapped with this one's.</param>
-      <returns>This object.</returns>
-    */
-    public abstract PdfObject Swap(
+        /**
+          <summary>Swaps contents between this object and the other one.</summary>
+          <param name="other">Object whose contents have to be swapped with this one's.</param>
+          <returns>This object.</returns>
+        */
+        public abstract PdfObject Swap(
       PdfObject other
       );
 

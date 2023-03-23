@@ -165,8 +165,7 @@ namespace HES.Documents.Interchange.Metadata
 
         public static Information Wrap(
                                        PdfDirectObject baseObject
-                                      )
-        { return baseObject != null ? new Information(baseObject) : null; }
+                                      ) => baseObject != null ? new Information(baseObject) : null;
 
         public void Add(
             PdfName key,
@@ -186,14 +185,12 @@ namespace HES.Documents.Interchange.Metadata
 
         public bool ContainsKey(
                    PdfName key
-                               )
-        { return BaseDataObject.ContainsKey(key); }
+                               ) => BaseDataObject.ContainsKey(key);
 
         public void CopyTo(
             KeyValuePair<PdfName, object>[] entries,
             int index
-                          )
-        { throw new NotImplementedException(); }
+                          ) => throw new NotImplementedException();
 
         public bool Remove(
                    PdfName key
@@ -205,8 +202,7 @@ namespace HES.Documents.Interchange.Metadata
 
         public bool Remove(
             KeyValuePair<PdfName, object> entry
-                          )
-        { throw new NotImplementedException(); }
+                          ) => throw new NotImplementedException();
 
         public bool TryGetValue(
                    PdfName key,
@@ -226,13 +222,11 @@ namespace HES.Documents.Interchange.Metadata
 
         void ICollection<KeyValuePair<PdfName, object>>.Add(
             KeyValuePair<PdfName, object> entry
-                                                           )
-        { Add(entry.Key, entry.Value); }
+                                                           ) => Add(entry.Key, entry.Value);
 
         bool ICollection<KeyValuePair<PdfName, object>>.Contains(
             KeyValuePair<PdfName, object> entry
-                                                                )
-        { return entry.Value.Equals(this[entry.Key]); }
+                                                                ) => entry.Value.Equals(this[entry.Key]);
 
         IEnumerator<KeyValuePair<PdfName, object>> IEnumerable<KeyValuePair<PdfName, object>>.GetEnumerator(
                                                                                                            )
@@ -247,8 +241,7 @@ namespace HES.Documents.Interchange.Metadata
         }
 
         IEnumerator IEnumerable.GetEnumerator(
-                                             )
-        { return ((IEnumerable<KeyValuePair<PdfName, object>>)this).GetEnumerator(); }
+                                             ) => ((IEnumerable<KeyValuePair<PdfName, object>>)this).GetEnumerator();
 
         #endregion Public Methods
     }

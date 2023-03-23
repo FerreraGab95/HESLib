@@ -64,14 +64,13 @@ namespace HES.Documents.Contents.ColorSpaces
       PdfDirectObject baseObject
       ) : base(baseObject)
     {}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public override object Clone(
-      Document context
-      )
-    {throw new NotImplementedException();}
+        #region interface
+        #region public
+        public override object Clone(
+          Document context
+          ) => throw new NotImplementedException();
 
         public override int ComponentCount => 1;
 
@@ -92,10 +91,9 @@ namespace HES.Documents.Contents.ColorSpaces
         public override Color GetColor(
       IList<PdfDirectObject> components,
       IContentContext context
-      )
-    {return new SeparationColor(components);}
-    #endregion
-    #endregion
-    #endregion
-  }
+      ) => new SeparationColor(components);
+        #endregion
+        #endregion
+        #endregion
+    }
 }

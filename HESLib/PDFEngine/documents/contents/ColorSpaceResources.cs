@@ -40,8 +40,7 @@ namespace HES.Documents.Contents
 
         protected override ColorSpace Wrap(
             PdfDirectObject baseObject
-                                          )
-        { return ColorSpace.Wrap(baseObject); }
+                                          ) => ColorSpace.Wrap(baseObject);
 
         #endregion Protected Methods
 

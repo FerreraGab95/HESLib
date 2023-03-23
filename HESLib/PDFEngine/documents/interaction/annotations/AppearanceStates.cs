@@ -70,26 +70,24 @@ namespace HES.Documents.Interaction.Annotations
 
         public override object Clone(
       Document context
-      )
-    {throw new NotImplementedException();} // TODO: verify appearance reference.
+      ) => throw new NotImplementedException(); // TODO: verify appearance reference.
 
-//TODO
-  /**
-    Gets the key associated to a given value.
-  */
-//   public PdfName GetKey(
-//     FormXObject value
-//     )
-//   {return BaseDataObject.GetKey(value.BaseObject);}
+        //TODO
+        /**
+          Gets the key associated to a given value.
+        */
+        //   public PdfName GetKey(
+        //     FormXObject value
+        //     )
+        //   {return BaseDataObject.GetKey(value.BaseObject);}
 
-    #region IDictionary
-    public void Add(
-      PdfName key,
-      FormXObject value
-      )
-    {EnsureDictionary()[key] = value.BaseObject;}
+        #region IDictionary
+        public void Add(
+          PdfName key,
+          FormXObject value
+          ) => EnsureDictionary()[key] = value.BaseObject;
 
-    public bool ContainsKey(
+        public bool ContainsKey(
       PdfName key
       )
     {
@@ -169,16 +167,14 @@ namespace HES.Documents.Interaction.Annotations
         public ICollection<FormXObject> Values => throw new NotImplementedException();
 
         #region ICollection
-        void ICollection<KeyValuePair<PdfName,FormXObject>>.Add(
-      KeyValuePair<PdfName,FormXObject> entry
-      )
-    {Add(entry.Key,entry.Value);}
+        void ICollection<KeyValuePair<PdfName, FormXObject>>.Add(
+      KeyValuePair<PdfName, FormXObject> entry
+      ) => Add(entry.Key, entry.Value);
 
-    public void Clear(
-      )
-    {EnsureDictionary().Clear();}
+        public void Clear(
+          ) => EnsureDictionary().Clear();
 
-    bool ICollection<KeyValuePair<PdfName,FormXObject>>.Contains(
+        bool ICollection<KeyValuePair<PdfName,FormXObject>>.Contains(
       KeyValuePair<PdfName,FormXObject> entry
       )
     {
@@ -191,13 +187,12 @@ namespace HES.Documents.Interaction.Annotations
         return entry.Value.Equals(this[entry.Key]);
     }
 
-    public void CopyTo(
-      KeyValuePair<PdfName,FormXObject>[] entries,
-      int index
-      )
-    {throw new NotImplementedException();}
+        public void CopyTo(
+          KeyValuePair<PdfName, FormXObject>[] entries,
+          int index
+          ) => throw new NotImplementedException();
 
-    public int Count
+        public int Count
     {
       get
       {
@@ -214,12 +209,11 @@ namespace HES.Documents.Interaction.Annotations
         public bool IsReadOnly => false;
 
         public bool Remove(
-      KeyValuePair<PdfName,FormXObject> entry
-      )
-    {throw new NotImplementedException();}
+      KeyValuePair<PdfName, FormXObject> entry
+      ) => throw new NotImplementedException();
 
-    #region IEnumerable<KeyValuePair<PdfName,FormXObject>>
-    IEnumerator<KeyValuePair<PdfName,FormXObject>> IEnumerable<KeyValuePair<PdfName,FormXObject>>.GetEnumerator(
+        #region IEnumerable<KeyValuePair<PdfName,FormXObject>>
+        IEnumerator<KeyValuePair<PdfName,FormXObject>> IEnumerable<KeyValuePair<PdfName,FormXObject>>.GetEnumerator(
       )
     {
       PdfDataObject baseDataObject = BaseDataObject;
@@ -244,19 +238,18 @@ namespace HES.Documents.Interaction.Annotations
       }
     }
 
-    #region IEnumerable
-    IEnumerator IEnumerable.GetEnumerator(
-      )
-    {return ((IEnumerable<KeyValuePair<PdfName,FormXObject>>)this).GetEnumerator();}
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-    #endregion
+        #region IEnumerable
+        IEnumerator IEnumerable.GetEnumerator(
+          ) => ((IEnumerable<KeyValuePair<PdfName, FormXObject>>)this).GetEnumerator();
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+        #endregion
 
-    #region private
-    private PdfDictionary EnsureDictionary(
+        #region private
+        private PdfDictionary EnsureDictionary(
       )
     {
       PdfDataObject baseDataObject = BaseDataObject;

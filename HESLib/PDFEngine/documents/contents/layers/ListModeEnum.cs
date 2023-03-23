@@ -70,9 +70,8 @@ namespace HES.Documents.Contents.Layers
       return listMode.Value;
     }
 
-    public static PdfName GetName(
-      this ListModeEnum listMode
-      )
-    {return codes[listMode];}
-  }
+        public static PdfName GetName(
+          this ListModeEnum listMode
+          ) => codes[listMode];
+    }
 }

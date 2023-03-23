@@ -274,8 +274,7 @@ namespace HES.Documents
 
         public override object Clone(
           Document context
-          )
-        { throw new NotImplementedException(); }
+          ) => throw new NotImplementedException();
 
         /**
           <summary>Gets/Sets the configuration of this document.</summary>
@@ -577,8 +576,7 @@ inheritable by all the pages.
 
         public static PdfName GetName(
           this Document.PageLayoutEnum pageLayout
-          )
-        { return codes[pageLayout]; }
+          ) => codes[pageLayout];
     }
 
     internal static class PageModeEnumExtension
@@ -612,7 +610,6 @@ inheritable by all the pages.
 
         public static PdfName GetName(
           this Document.PageModeEnum pageMode
-          )
-        { return codes[pageMode]; }
+          ) => codes[pageMode];
     }
 }

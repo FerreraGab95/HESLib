@@ -69,16 +69,15 @@ namespace HES.Util
       foreach(KeyValuePair<TKey,TValue> entry in this.dictionary)
       {inverseDictionary[entry.Value] = entry.Key;}
     }
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public bool ContainsValue(
-      TValue value
-      )
-    {return inverseDictionary.ContainsKey(value);}
+        #region interface
+        #region public
+        public bool ContainsValue(
+          TValue value
+          ) => inverseDictionary.ContainsKey(value);
 
-    public virtual TKey GetKey(
+        public virtual TKey GetKey(
       TValue value
       )
     {TKey key; inverseDictionary.TryGetValue(value,out key); return key;}
@@ -99,10 +98,9 @@ namespace HES.Util
       }
     }
 
-    public bool ContainsKey(
-      TKey key
-      )
-    {return dictionary.ContainsKey(key);}
+        public bool ContainsKey(
+          TKey key
+          ) => dictionary.ContainsKey(key);
 
         public ICollection<TKey> Keys => dictionary.Keys;
 
@@ -147,37 +145,33 @@ namespace HES.Util
       }
     }
 
-    public bool TryGetValue(
-      TKey key,
-      out TValue value
-      )
-    {return dictionary.TryGetValue(key,out value);}
+        public bool TryGetValue(
+          TKey key,
+          out TValue value
+          ) => dictionary.TryGetValue(key, out value);
 
         public ICollection<TValue> Values => dictionary.Values;
 
         #region ICollection
-        void ICollection<KeyValuePair<TKey,TValue>>.Add(
-      KeyValuePair<TKey,TValue> keyValuePair
-      )
-    {Add(keyValuePair.Key,keyValuePair.Value);}
+        void ICollection<KeyValuePair<TKey, TValue>>.Add(
+      KeyValuePair<TKey, TValue> keyValuePair
+      ) => Add(keyValuePair.Key, keyValuePair.Value);
 
-    public void Clear(
+        public void Clear(
       )
     {
       dictionary.Clear();
       inverseDictionary.Clear();
     }
 
-    bool ICollection<KeyValuePair<TKey,TValue>>.Contains(
-      KeyValuePair<TKey,TValue> keyValuePair
-      )
-    {return dictionary.Contains(keyValuePair);}
+        bool ICollection<KeyValuePair<TKey, TValue>>.Contains(
+          KeyValuePair<TKey, TValue> keyValuePair
+          ) => dictionary.Contains(keyValuePair);
 
-    public void CopyTo(
-      KeyValuePair<TKey,TValue>[] keyValuePairs,
-      int index
-      )
-    {throw new NotImplementedException();}
+        public void CopyTo(
+          KeyValuePair<TKey, TValue>[] keyValuePairs,
+          int index
+          ) => throw new NotImplementedException();
 
         public virtual int Count => dictionary.Count;
 
@@ -194,21 +188,19 @@ namespace HES.Util
       return true;
     }
 
-    #region IEnumerable<KeyValuePair<TKey,TValue>>
-    IEnumerator<KeyValuePair<TKey,TValue>> IEnumerable<KeyValuePair<TKey,TValue>>.GetEnumerator(
-      )
-    {return dictionary.GetEnumerator();}
+        #region IEnumerable<KeyValuePair<TKey,TValue>>
+        IEnumerator<KeyValuePair<TKey, TValue>> IEnumerable<KeyValuePair<TKey, TValue>>.GetEnumerator(
+          ) => dictionary.GetEnumerator();
 
-    #region IEnumerable
-    IEnumerator IEnumerable.GetEnumerator(
-      )
-    {return ((IEnumerable<KeyValuePair<TKey,TValue>>)this).GetEnumerator();}
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-  }
+        #region IEnumerable
+        IEnumerator IEnumerable.GetEnumerator(
+          ) => ((IEnumerable<KeyValuePair<TKey, TValue>>)this).GetEnumerator();
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+    }
 }

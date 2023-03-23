@@ -42,20 +42,19 @@ namespace HES.Documents.Interaction.Navigation.Document
     : PdfObjectWrapper<PdfDictionary>,
       IList<Bookmark>
   {
-    #region static
-    #region interface
-    #region public
-    public static Bookmarks Wrap(
-      PdfDirectObject baseObject
-      )
-    {return baseObject != null ? new Bookmarks(baseObject) : null;}
-    #endregion
-    #endregion
-    #endregion
+        #region static
+        #region interface
+        #region public
+        public static Bookmarks Wrap(
+          PdfDirectObject baseObject
+          ) => baseObject != null ? new Bookmarks(baseObject) : null;
+        #endregion
+        #endregion
+        #endregion
 
-    #region dynamic
-    #region constructors
-    public Bookmarks(
+        #region dynamic
+        #region constructors
+        public Bookmarks(
       Documents.Document context
       ) : base(
         context,
@@ -78,28 +77,25 @@ namespace HES.Documents.Interaction.Navigation.Document
       PdfDirectObject baseObject
       ) : base(baseObject)
     {}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    #region IList
-    public int IndexOf(
-      Bookmark bookmark
-      )
-    {throw new NotImplementedException();}
+        #region interface
+        #region public
+        #region IList
+        public int IndexOf(
+          Bookmark bookmark
+          ) => throw new NotImplementedException();
 
-    public void Insert(
-      int index,
-      Bookmark bookmark
-      )
-    {throw new NotImplementedException();}
+        public void Insert(
+          int index,
+          Bookmark bookmark
+          ) => throw new NotImplementedException();
 
-    public void RemoveAt(
-      int index
-      )
-    {throw new NotImplementedException();}
+        public void RemoveAt(
+          int index
+          ) => throw new NotImplementedException();
 
-    public Bookmark this[
+        public Bookmark this[
       int index
       ]
         {
@@ -157,22 +153,19 @@ namespace HES.Documents.Interaction.Navigation.Document
       }
     }
 
-    public void Clear(
-      )
-    {throw new NotImplementedException();}
+        public void Clear(
+          ) => throw new NotImplementedException();
 
-    public bool Contains(
-      Bookmark bookmark
-      )
-    {throw new NotImplementedException();}
+        public bool Contains(
+          Bookmark bookmark
+          ) => throw new NotImplementedException();
 
-    public void CopyTo(
-      Bookmark[] bookmarks,
-      int index
-      )
-    {throw new NotImplementedException();}
+        public void CopyTo(
+          Bookmark[] bookmarks,
+          int index
+          ) => throw new NotImplementedException();
 
-    public int Count
+        public int Count
     {
       get
       {
@@ -191,11 +184,10 @@ namespace HES.Documents.Interaction.Navigation.Document
 
         public bool Remove(
       Bookmark bookmark
-      )
-    {throw new NotImplementedException();}
+      ) => throw new NotImplementedException();
 
-    #region IEnumerable<ContentStream>
-    IEnumerator<Bookmark> IEnumerable<Bookmark>.GetEnumerator(
+        #region IEnumerable<ContentStream>
+        IEnumerator<Bookmark> IEnumerable<Bookmark>.GetEnumerator(
       )
     {
       PdfDirectObject bookmarkObject = BaseDataObject[PdfName.First];
@@ -210,22 +202,21 @@ namespace HES.Documents.Interaction.Navigation.Document
       }while(bookmarkObject != null);
     }
 
-    #region IEnumerable
-    IEnumerator IEnumerable.GetEnumerator(
-      )
-    {return ((IEnumerable<Bookmark>)this).GetEnumerator();}
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-    #endregion
+        #region IEnumerable
+        IEnumerator IEnumerable.GetEnumerator(
+          ) => ((IEnumerable<Bookmark>)this).GetEnumerator();
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+        #endregion
 
-    #region private
-    /**
-      <summary>Gets the count object, forcing its creation if it doesn't
-      exist.</summary>
-    */
-    private PdfInteger EnsureCountObject(
+        #region private
+        /**
+          <summary>Gets the count object, forcing its creation if it doesn't
+          exist.</summary>
+        */
+        private PdfInteger EnsureCountObject(
       )
     {
       /*

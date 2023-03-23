@@ -41,51 +41,47 @@ namespace HES.Objects
     #region fields
     public static readonly PdfBoolean False = new PdfBoolean(false);
     public static readonly PdfBoolean True = new PdfBoolean(true);
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    /**
-      <summary>Gets the object equivalent to the given value.</summary>
-    */
-    public static PdfBoolean Get(
-      bool? value
-      )
-    {return value.HasValue ? (value.Value ? True : False) : null;}
-    #endregion
-    #endregion
-    #endregion
+        #region interface
+        #region public
+        /**
+          <summary>Gets the object equivalent to the given value.</summary>
+        */
+        public static PdfBoolean Get(
+          bool? value
+          ) => value.HasValue ? (value.Value ? True : False) : null;
+        #endregion
+        #endregion
+        #endregion
 
-    #region dynamic
-    #region constructors
-    private PdfBoolean(
+        #region dynamic
+        #region constructors
+        private PdfBoolean(
       bool value
       )
     {RawValue = value;}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public override PdfObject Accept(
-      IVisitor visitor,
-      object data
-      )
-    {return visitor.Visit(this, data);}
+        #region interface
+        #region public
+        public override PdfObject Accept(
+          IVisitor visitor,
+          object data
+          ) => visitor.Visit(this, data);
 
         public bool BooleanValue => (bool)Value;
 
         public override int CompareTo(
       PdfDirectObject obj
-      )
-    {throw new NotImplementedException();}
+      ) => throw new NotImplementedException();
 
-    public override void WriteTo(
-      IOutputStream stream,
-      PdfFile context
-      )
-    {stream.Write(RawValue ? Keyword.True : Keyword.False);}
-    #endregion
-    #endregion
-    #endregion
-  }
+        public override void WriteTo(
+          IOutputStream stream,
+          PdfFile context
+          ) => stream.Write(RawValue ? Keyword.True : Keyword.False);
+        #endregion
+        #endregion
+        #endregion
+    }
 }

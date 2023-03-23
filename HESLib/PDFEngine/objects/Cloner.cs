@@ -93,48 +93,45 @@ namespace HES.Objects
         )
       {/* NOOP */}
 
-      /**
-        <summary>Notifies a starting clone operation on a dictionary entry.</summary>
-        <param name="cloner">Object cloner.</param>
-        <param name="parent">ParentNode clone object.</param>
-        <param name="key">Entry key within the parent.</param>
-        <param name="value">Source value.</param>
-        <returns>Whether the clone operation can be fulfilled.</returns>
-      */
-      public virtual bool BeforeClone(
-        Cloner cloner,
-        PdfDictionary parent,
-        PdfName key,
-        PdfDirectObject value
-        )
-      {return true;}
+            /**
+              <summary>Notifies a starting clone operation on a dictionary entry.</summary>
+              <param name="cloner">Object cloner.</param>
+              <param name="parent">ParentNode clone object.</param>
+              <param name="key">Entry key within the parent.</param>
+              <param name="value">Source value.</param>
+              <returns>Whether the clone operation can be fulfilled.</returns>
+            */
+            public virtual bool BeforeClone(
+              Cloner cloner,
+              PdfDictionary parent,
+              PdfName key,
+              PdfDirectObject value
+              ) => true;
 
-      /**
-        <summary>Notifies a starting clone operation on an array item.</summary>
-        <param name="cloner">Object cloner.</param>
-        <param name="parent">ParentNode clone object.</param>
-        <param name="index">Item index within the parent.</param>
-        <param name="item">Source item.</param>
-        <returns>Whether the clone operation can be fulfilled.</returns>
-      */
-      public virtual bool BeforeClone(
-        Cloner cloner,
-        PdfArray parent,
-        int index,
-        PdfDirectObject item
-        )
-      {return true;}
+            /**
+              <summary>Notifies a starting clone operation on an array item.</summary>
+              <param name="cloner">Object cloner.</param>
+              <param name="parent">ParentNode clone object.</param>
+              <param name="index">Item index within the parent.</param>
+              <param name="item">Source item.</param>
+              <returns>Whether the clone operation can be fulfilled.</returns>
+            */
+            public virtual bool BeforeClone(
+              Cloner cloner,
+              PdfArray parent,
+              int index,
+              PdfDirectObject item
+              ) => true;
 
-      /**
-        <summary>Gets whether this filter can deal with the given object.</summary>
-        <param name="cloner">Object cloner.</param>
-        <param name="source">Source object.</param>
-      */
-      public virtual bool Matches(
-        Cloner cloner,
-        PdfObject source
-        )
-      {return true;}
+            /**
+              <summary>Gets whether this filter can deal with the given object.</summary>
+              <param name="cloner">Object cloner.</param>
+              <param name="source">Source object.</param>
+            */
+            public virtual bool Matches(
+              Cloner cloner,
+              PdfObject source
+              ) => true;
 
             public string Name => name;
         }
@@ -211,23 +208,19 @@ namespace HES.Objects
         }
       }
 
-      public override bool BeforeClone(
-        Cloner cloner,
-        PdfDictionary parent,
-        PdfName key,
-        PdfDirectObject value
-        )
-      {return !PdfName.Parent.Equals(key);}
+            public override bool BeforeClone(
+              Cloner cloner,
+              PdfDictionary parent,
+              PdfName key,
+              PdfDirectObject value
+              ) => !PdfName.Parent.Equals(key);
 
-      public override bool Matches(
-        Cloner cloner,
-        PdfObject obj
-        )
-      {
-        return obj is PdfDictionary
-          && PdfName.Page.Equals(((PdfDictionary)obj)[PdfName.Type]);
-      }
-    }
+            public override bool Matches(
+              Cloner cloner,
+              PdfObject obj
+              ) => obj is PdfDictionary
+                && PdfName.Page.Equals(((PdfDictionary)obj)[PdfName.Type]);
+        }
     #endregion
 
     #region static
@@ -280,10 +273,9 @@ namespace HES.Objects
         public override PdfObject Visit(
       ObjectStream obj,
       object data
-      )
-    {throw new NotSupportedException();}
+      ) => throw new NotSupportedException();
 
-    public override PdfObject Visit(
+        public override PdfObject Visit(
       PdfArray obj,
       object data
       )
@@ -332,23 +324,19 @@ namespace HES.Objects
       return clone;
     }
 
-    public override PdfObject Visit(
-      PdfIndirectObject obj,
-      object data
-      )
-    {return context.IndirectObjects.AddExternal(obj, this);}
+        public override PdfObject Visit(
+          PdfIndirectObject obj,
+          object data
+          ) => context.IndirectObjects.AddExternal(obj, this);
 
-    public override PdfObject Visit(
-      PdfReference obj,
-      object data
-      )
-    {
-      return context == obj.File
-        ? (PdfReference)obj.Clone() // Local clone.
-        : Visit(obj.IndirectObject, data).Reference; // Alien clone.
-    }
+        public override PdfObject Visit(
+          PdfReference obj,
+          object data
+          ) => context == obj.File
+            ? (PdfReference)obj.Clone() // Local clone.
+            : Visit(obj.IndirectObject, data).Reference; // Alien clone.
 
-    public override PdfObject Visit(
+        public override PdfObject Visit(
       PdfStream obj,
       object data
       )
@@ -361,15 +349,14 @@ namespace HES.Objects
       return clone;
     }
 
-    public override PdfObject Visit(
-      XRefStream obj,
-      object data
-      )
-    {throw new NotSupportedException();}
-    #endregion
+        public override PdfObject Visit(
+          XRefStream obj,
+          object data
+          ) => throw new NotSupportedException();
+        #endregion
 
-    #region private
-    private Filter MatchFilter(
+        #region private
+        private Filter MatchFilter(
       PdfObject obj
       )
     {

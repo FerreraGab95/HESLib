@@ -53,14 +53,13 @@ namespace HES.Documents.Functions
       Type3Function parent
       ) : base(baseObject)
     {this.parent = parent;}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public override Object Clone(
-      Document context
-      )
-    {return new NotImplementedException();}
+        #region interface
+        #region public
+        public override Object Clone(
+          Document context
+          ) => new NotImplementedException();
 
         /**
           <summary>Gets the parent stitching function.</summary>
@@ -70,10 +69,9 @@ namespace HES.Documents.Functions
         #region IList
         public int IndexOf(
       Function value
-      )
-    {return BaseDataObject.IndexOf(value.BaseObject);}
+      ) => BaseDataObject.IndexOf(value.BaseObject);
 
-    public void Insert(
+        public void Insert(
       int index,
       Function value
       )
@@ -82,12 +80,11 @@ namespace HES.Documents.Functions
       BaseDataObject.Insert(index, value.BaseObject);
     }
 
-    public void RemoveAt(
-      int index
-      )
-    {BaseDataObject.RemoveAt(index);}
+        public void RemoveAt(
+          int index
+          ) => BaseDataObject.RemoveAt(index);
 
-    public Function this[
+        public Function this[
       int index
       ]
         {
@@ -108,20 +105,17 @@ namespace HES.Documents.Functions
       BaseDataObject.Add(value.BaseObject);
     }
 
-    public void Clear(
-      )
-    {BaseDataObject.Clear();}
+        public void Clear(
+          ) => BaseDataObject.Clear();
 
-    public bool Contains(
-      Function value
-      )
-    {return BaseDataObject.Contains(value.BaseObject);}
+        public bool Contains(
+          Function value
+          ) => BaseDataObject.Contains(value.BaseObject);
 
-    public void CopyTo(
-      Function[] values,
-      int index
-      )
-    {throw new NotImplementedException();}
+        public void CopyTo(
+          Function[] values,
+          int index
+          ) => throw new NotImplementedException();
 
         public int Count => BaseDataObject.Count;
 
@@ -129,11 +123,10 @@ namespace HES.Documents.Functions
 
         public bool Remove(
       Function value
-      )
-    {return BaseDataObject.Remove(value.BaseObject);}
+      ) => BaseDataObject.Remove(value.BaseObject);
 
-    #region IEnumerable<Function>
-    IEnumerator<Function> IEnumerable<Function>.GetEnumerator(
+        #region IEnumerable<Function>
+        IEnumerator<Function> IEnumerable<Function>.GetEnumerator(
       )
     {
       for(
@@ -145,22 +138,21 @@ namespace HES.Documents.Functions
       {yield return this[index];}
     }
 
-    #region IEnumerable
-    IEnumerator IEnumerable.GetEnumerator(
-      )
-    {return ((IEnumerable<Function>)this).GetEnumerator();}
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-    #endregion
+        #region IEnumerable
+        IEnumerator IEnumerable.GetEnumerator(
+          ) => ((IEnumerable<Function>)this).GetEnumerator();
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+        #endregion
 
-    #region private
-    /**
-      <summary>Checks whether the specified function is valid for insertion.</summary>
-      <param name="value">Function to validate.</param>
-    */
-    private void Validate(
+        #region private
+        /**
+          <summary>Checks whether the specified function is valid for insertion.</summary>
+          <param name="value">Function to validate.</param>
+        */
+        private void Validate(
       Function value
       )
     {

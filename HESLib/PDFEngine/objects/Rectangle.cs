@@ -44,17 +44,16 @@ namespace HES.Objects
   public sealed class Rectangle
     : PdfObjectWrapper<PdfArray>
   {
-    #region static
-    #region interface
-    #region public
-    public static Rectangle Wrap(
-      PdfDirectObject baseObject
-      )
-    {return baseObject != null ? new Rectangle(baseObject) : null;}
-    #endregion
+        #region static
+        #region interface
+        #region public
+        public static Rectangle Wrap(
+          PdfDirectObject baseObject
+          ) => baseObject != null ? new Rectangle(baseObject) : null;
+        #endregion
 
-    #region private
-    private static PdfArray Normalize(
+        #region private
+        private static PdfArray Normalize(
       PdfArray rectangle
       )
     {
@@ -156,10 +155,9 @@ namespace HES.Objects
     }
 
         public RectangleF ToRectangleF(
-      )
-    {return new RectangleF((float)X, (float)Y, (float)Width, (float)Height);}
+      ) => new RectangleF((float)X, (float)Y, (float)Width, (float)Height);
 
-    public double Width
+        public double Width
     {
       get => Right - Left;
       set => Right = Left + value;

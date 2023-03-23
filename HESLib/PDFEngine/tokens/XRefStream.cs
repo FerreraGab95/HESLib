@@ -54,36 +54,34 @@ namespace HES.Tokens
 
     private static readonly int EntryField0Size = 1;
     private static readonly int EntryField2Size = GetFieldSize(XRefEntry.GenerationUnreusable);
-    #endregion
+        #endregion
 
-    #region interface
-    #region private
-    /**
-      <summary>Gets the number of bytes needed to store the specified value.</summary>
-      <param name="maxValue">Maximum storable value.</param>
-    */
-    private static int GetFieldSize(
-      int maxValue
-      )
-    {return (int)Math.Ceiling(Math.Log(maxValue)/ByteBaseLog);}
+        #region interface
+        #region private
+        /**
+          <summary>Gets the number of bytes needed to store the specified value.</summary>
+          <param name="maxValue">Maximum storable value.</param>
+        */
+        private static int GetFieldSize(
+          int maxValue
+          ) => (int)Math.Ceiling(Math.Log(maxValue) / ByteBaseLog);
 
-    /**
-      <summary>Converts the specified value into a customly-sized big-endian byte array.</summary>
-      <param name="value">Value to convert.</param>
-      <param name="length">Byte array's length.</param>
-     */
-    private static byte[] NumberToByteArray(
-      int value,
-      int length
-      )
-    {return ConvertUtils.NumberToByteArray(value, length, ByteOrderEnum.BigEndian);}
-    #endregion
-    #endregion
-    #endregion
+        /**
+          <summary>Converts the specified value into a customly-sized big-endian byte array.</summary>
+          <param name="value">Value to convert.</param>
+          <param name="length">Byte array's length.</param>
+         */
+        private static byte[] NumberToByteArray(
+          int value,
+          int length
+          ) => ConvertUtils.NumberToByteArray(value, length, ByteOrderEnum.BigEndian);
+        #endregion
+        #endregion
+        #endregion
 
-    #region dynamic
-    #region fields
-    private SortedDictionary<int,XRefEntry> entries;
+        #region dynamic
+        #region fields
+        private SortedDictionary<int,XRefEntry> entries;
     #endregion
 
     #region constructors
@@ -115,22 +113,21 @@ namespace HES.Tokens
       IBuffer body
       ) : base(header, body)
     {}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public override PdfObject Accept(
-      IVisitor visitor,
-      object data
-      )
-    {return visitor.Visit(this, data);}
+        #region interface
+        #region public
+        public override PdfObject Accept(
+          IVisitor visitor,
+          object data
+          ) => visitor.Visit(this, data);
 
-    /**
-      <summary>Gets the byte offset from the beginning of the file
-      to the beginning of the previous cross-reference stream.</summary>
-      <returns>-1 in case no linked stream exists.</returns>
-    */
-    public int LinkedStreamOffset
+        /**
+          <summary>Gets the byte offset from the beginning of the file
+          to the beginning of the previous cross-reference stream.</summary>
+          <returns>-1 in case no linked stream exists.</returns>
+        */
+        public int LinkedStreamOffset
     {
       get
       {
@@ -150,26 +147,23 @@ namespace HES.Tokens
       base.WriteTo(stream, context);
     }
 
-    #region IDictionary
-    public void Add(
-      int key,
-      XRefEntry value
-      )
-    {Entries.Add(key, value);}
+        #region IDictionary
+        public void Add(
+          int key,
+          XRefEntry value
+          ) => Entries.Add(key, value);
 
-    public bool ContainsKey(
-      int key
-      )
-    {return Entries.ContainsKey(key);}
+        public bool ContainsKey(
+          int key
+          ) => Entries.ContainsKey(key);
 
         public ICollection<int> Keys => Entries.Keys;
 
         public bool Remove(
       int key
-      )
-    {return Entries.Remove(key);}
+      ) => Entries.Remove(key);
 
-    public XRefEntry this[
+        public XRefEntry this[
       int key
       ]
     {
@@ -197,12 +191,11 @@ namespace HES.Tokens
         public ICollection<XRefEntry> Values => Entries.Values;
 
         #region ICollection
-        void ICollection<KeyValuePair<int,XRefEntry>>.Add(
-      KeyValuePair<int,XRefEntry> entry
-      )
-    {Add(entry.Key, entry.Value);}
+        void ICollection<KeyValuePair<int, XRefEntry>>.Add(
+      KeyValuePair<int, XRefEntry> entry
+      ) => Add(entry.Key, entry.Value);
 
-    public void Clear(
+        public void Clear(
       )
     {
       if(entries == null)
@@ -211,16 +204,14 @@ namespace HES.Tokens
       {entries.Clear();}
     }
 
-    bool ICollection<KeyValuePair<int,XRefEntry>>.Contains(
-      KeyValuePair<int,XRefEntry> entry
-      )
-    {return ((ICollection<KeyValuePair<int,XRefEntry>>)Entries).Contains(entry);}
+        bool ICollection<KeyValuePair<int, XRefEntry>>.Contains(
+          KeyValuePair<int, XRefEntry> entry
+          ) => ((ICollection<KeyValuePair<int, XRefEntry>>)Entries).Contains(entry);
 
-    public void CopyTo(
-      KeyValuePair<int,XRefEntry>[] entries,
-      int index
-      )
-    {Entries.CopyTo(entries, index);}
+        public void CopyTo(
+          KeyValuePair<int, XRefEntry>[] entries,
+          int index
+          ) => Entries.CopyTo(entries, index);
 
         public int Count => Entries.Count;
 
@@ -238,23 +229,21 @@ namespace HES.Tokens
         return false;
     }
 
-    #region IEnumerable<KeyValuePair<int,XRefEntry>>
-    IEnumerator<KeyValuePair<int,XRefEntry>> IEnumerable<KeyValuePair<int,XRefEntry>>.GetEnumerator(
-      )
-    {return Entries.GetEnumerator();}
+        #region IEnumerable<KeyValuePair<int,XRefEntry>>
+        IEnumerator<KeyValuePair<int, XRefEntry>> IEnumerable<KeyValuePair<int, XRefEntry>>.GetEnumerator(
+          ) => Entries.GetEnumerator();
 
-    #region IEnumerable
-    IEnumerator IEnumerable.GetEnumerator(
-      )
-    {return ((IEnumerable<KeyValuePair<int,XRefEntry>>)this).GetEnumerator();}
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-    #endregion
+        #region IEnumerable
+        IEnumerator IEnumerable.GetEnumerator(
+          ) => ((IEnumerable<KeyValuePair<int, XRefEntry>>)this).GetEnumerator();
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+        #endregion
 
-    #region private
-    private SortedDictionary<int,XRefEntry> Entries
+        #region private
+        private SortedDictionary<int,XRefEntry> Entries
     {
       get
       {

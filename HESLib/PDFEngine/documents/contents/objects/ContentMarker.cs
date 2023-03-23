@@ -142,10 +142,9 @@ namespace HES.Documents.Contents.Objects
         #region IResourceReference
         public PropertyList GetResource(
       IContentContext context
-      )
-    {return GetProperties(context);}
+      ) => GetProperties(context);
 
-    public PdfName Name
+        public PdfName Name
         {
             get
             {

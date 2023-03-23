@@ -92,39 +92,36 @@ namespace HES.Objects
       {this[entry.Key] = (PdfDirectObject)Include(entry.Value);}
       Updateable = true;
     }
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public override PdfObject Accept(
-      IVisitor visitor,
-      object data
-      )
-    {return visitor.Visit(this, data);}
+        #region interface
+        #region public
+        public override PdfObject Accept(
+          IVisitor visitor,
+          object data
+          ) => visitor.Visit(this, data);
 
-    public override int CompareTo(
-      PdfDirectObject obj
-      )
-    {throw new NotImplementedException();}
+        public override int CompareTo(
+          PdfDirectObject obj
+          ) => throw new NotImplementedException();
 
-    /**
-      <summary>Gets the value corresponding to the given key, forcing its instantiation as a direct
-      object in case of missing entry.</summary>
-      <param name="key">Key whose associated value is to be returned.</param>
-    */
-    public PdfDirectObject Get<T>(
-      PdfName key
-      ) where T : PdfDataObject, new()
-    {return Get<T>(key, true);}
+        /**
+          <summary>Gets the value corresponding to the given key, forcing its instantiation as a direct
+          object in case of missing entry.</summary>
+          <param name="key">Key whose associated value is to be returned.</param>
+        */
+        public PdfDirectObject Get<T>(
+          PdfName key
+          ) where T : PdfDataObject, new() => Get<T>(key, true);
 
-    /**
-      <summary>Gets the value corresponding to the given key, forcing its instantiation in case of
-      missing entry.</summary>
-      <param name="key">Key whose associated value is to be returned.</param>
-      <param name="direct">Whether the item has to be instantiated directly within its container
-      instead of being referenced through an indirect object.</param>
-    */
-    public PdfDirectObject Get<T>(
+        /**
+          <summary>Gets the value corresponding to the given key, forcing its instantiation in case of
+          missing entry.</summary>
+          <param name="key">Key whose associated value is to be returned.</param>
+          <param name="direct">Whether the item has to be instantiated directly within its container
+          instead of being referenced through an indirect object.</param>
+        */
+        public PdfDirectObject Get<T>(
       PdfName key,
       bool direct
       ) where T : PdfDataObject, new()
@@ -151,24 +148,20 @@ namespace HES.Objects
       return value;
     }
 
-    public override bool Equals(
-      object @object
-      )
-    {
-      return base.Equals(@object)
-        || (@object != null
-          && @object.GetType().Equals(GetType())
-          && ((PdfDictionary)@object).entries.Equals(entries));
-    }
+        public override bool Equals(
+          object @object
+          ) => base.Equals(@object)
+            || (@object != null
+              && @object.GetType().Equals(GetType())
+              && ((PdfDictionary)@object).entries.Equals(entries));
 
-    public override int GetHashCode(
-      )
-    {return entries.GetHashCode();}
+        public override int GetHashCode(
+          ) => entries.GetHashCode();
 
-    /**
-      Gets the key associated to the specified value.
-    */
-    public PdfName GetKey(
+        /**
+          Gets the key associated to the specified value.
+        */
+        public PdfName GetKey(
       PdfDirectObject value
       )
     {
@@ -200,23 +193,21 @@ namespace HES.Objects
         */
         public PdfDataObject Resolve(
       PdfName key
-      )
-    {return Resolve(this[key]);}
+      ) => Resolve(this[key]);
 
-    /**
-      <summary>Gets the dereferenced value corresponding to the given key, forcing its instantiation
-      in case of missing entry.</summary>
-      <remarks>This method takes care to resolve the value returned by <see cref="Get(PdfName)"/>.
-      </remarks>
-      <param name="key">Key whose associated value is to be returned.</param>
-      <returns>null, if the map contains no mapping for this key.</returns>
-    */
-    public T Resolve<T>(
-      PdfName key
-      ) where T : PdfDataObject, new()
-    {return (T)Resolve(Get<T>(key));}
+        /**
+          <summary>Gets the dereferenced value corresponding to the given key, forcing its instantiation
+          in case of missing entry.</summary>
+          <remarks>This method takes care to resolve the value returned by <see cref="Get(PdfName)"/>.
+          </remarks>
+          <param name="key">Key whose associated value is to be returned.</param>
+          <returns>null, if the map contains no mapping for this key.</returns>
+        */
+        public T Resolve<T>(
+          PdfName key
+          ) where T : PdfDataObject, new() => (T)Resolve(Get<T>(key));
 
-    public override PdfObject Swap(
+        public override PdfObject Swap(
       PdfObject other
       )
     {
@@ -299,10 +290,9 @@ namespace HES.Objects
       Update();
     }
 
-    public bool ContainsKey(
-      PdfName key
-      )
-    {return entries.ContainsKey(key);}
+        public bool ContainsKey(
+          PdfName key
+          ) => entries.ContainsKey(key);
 
         public ICollection<PdfName> Keys => entries.Keys;
 
@@ -349,37 +339,33 @@ namespace HES.Objects
       }
     }
 
-    public bool TryGetValue(
-      PdfName key,
-      out PdfDirectObject value
-      )
-    {return entries.TryGetValue(key,out value);}
+        public bool TryGetValue(
+          PdfName key,
+          out PdfDirectObject value
+          ) => entries.TryGetValue(key, out value);
 
         public ICollection<PdfDirectObject> Values => entries.Values;
 
         #region ICollection
-        void ICollection<KeyValuePair<PdfName,PdfDirectObject>>.Add(
-      KeyValuePair<PdfName,PdfDirectObject> entry
-      )
-    {Add(entry.Key, entry.Value);}
+        void ICollection<KeyValuePair<PdfName, PdfDirectObject>>.Add(
+      KeyValuePair<PdfName, PdfDirectObject> entry
+      ) => Add(entry.Key, entry.Value);
 
-    public void Clear(
+        public void Clear(
       )
     {
       foreach(PdfName key in new List<PdfDirectObject>(entries.Keys))
       {Remove(key);}
     }
 
-    bool ICollection<KeyValuePair<PdfName,PdfDirectObject>>.Contains(
-      KeyValuePair<PdfName,PdfDirectObject> entry
-      )
-    {return ((ICollection<KeyValuePair<PdfName,PdfDirectObject>>)entries).Contains(entry);}
+        bool ICollection<KeyValuePair<PdfName, PdfDirectObject>>.Contains(
+          KeyValuePair<PdfName, PdfDirectObject> entry
+          ) => ((ICollection<KeyValuePair<PdfName, PdfDirectObject>>)entries).Contains(entry);
 
-    public void CopyTo(
-      KeyValuePair<PdfName,PdfDirectObject>[] entries,
-      int index
-      )
-    {throw new NotImplementedException();}
+        public void CopyTo(
+          KeyValuePair<PdfName, PdfDirectObject>[] entries,
+          int index
+          ) => throw new NotImplementedException();
 
         public int Count => entries.Count;
 
@@ -395,23 +381,21 @@ namespace HES.Objects
         return false;
     }
 
-    #region IEnumerable<KeyValuePair<PdfName,PdfDirectObject>>
-    IEnumerator<KeyValuePair<PdfName,PdfDirectObject>> IEnumerable<KeyValuePair<PdfName,PdfDirectObject>>.GetEnumerator(
-      )
-    {return entries.GetEnumerator();}
+        #region IEnumerable<KeyValuePair<PdfName,PdfDirectObject>>
+        IEnumerator<KeyValuePair<PdfName, PdfDirectObject>> IEnumerable<KeyValuePair<PdfName, PdfDirectObject>>.GetEnumerator(
+          ) => entries.GetEnumerator();
 
-    #region IEnumerable
-    IEnumerator IEnumerable.GetEnumerator(
-      )
-    {return ((IEnumerable<KeyValuePair<PdfName,PdfDirectObject>>)this).GetEnumerator();}
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-    #endregion
+        #region IEnumerable
+        IEnumerator IEnumerable.GetEnumerator(
+          ) => ((IEnumerable<KeyValuePair<PdfName, PdfDirectObject>>)this).GetEnumerator();
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+        #endregion
 
-    #region protected
-    protected internal override bool Virtual
+        #region protected
+        protected internal override bool Virtual
     {
       get => virtual_;
       set => virtual_ = value;

@@ -43,16 +43,15 @@ namespace HES
     #region fields
     private static readonly Regex versionPattern = new Regex("^(\\d+)\\.(\\d+)$");
     private static readonly IDictionary<string,Version> versions = new Dictionary<string,Version>();
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public static Version Get(
-      PdfName version
-      )
-    {return Get(version.RawValue);}
+        #region interface
+        #region public
+        public static Version Get(
+          PdfName version
+          ) => Get(version.RawValue);
 
-    public static Version Get(
+        public static Version Get(
       string version
       )
     {
@@ -95,8 +94,7 @@ namespace HES
         public int Minor => minor;
 
         public override string ToString(
-      )
-    {return VersionUtils.ToString(this);}
+      ) => VersionUtils.ToString(this);
 
         #region IVersion
         public IList<int> Numbers => new List<int> { major, minor };
@@ -104,12 +102,11 @@ namespace HES
         #region IComparable
         public int CompareTo(
       IVersion value
-      )
-    {return VersionUtils.CompareTo(this, value);}
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-  }
+      ) => VersionUtils.CompareTo(this, value);
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+    }
 }

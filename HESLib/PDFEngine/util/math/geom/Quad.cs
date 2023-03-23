@@ -34,15 +34,14 @@ namespace HES.Util.Math.Geom
   */
   public class Quad
   {
-    #region static
-    #region interface
-    #region public
-    public static Quad Get(
-      RectangleF rectangle
-      )
-    {return new Quad(GetPoints(rectangle));}
+        #region static
+        #region interface
+        #region public
+        public static Quad Get(
+          RectangleF rectangle
+          ) => new Quad(GetPoints(rectangle));
 
-    public static PointF[] GetPoints(
+        public static PointF[] GetPoints(
       RectangleF rectangle
       )
     {
@@ -71,30 +70,26 @@ namespace HES.Util.Math.Geom
       params PointF[] points
       )
     {Points = points;}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public bool Contains(
-      PointF point
-      )
-    {return Path.IsVisible(point);}
+        #region interface
+        #region public
+        public bool Contains(
+          PointF point
+          ) => Path.IsVisible(point);
 
-    public bool Contains(
-      float x,
-      float y
-      )
-    {return Path.IsVisible(x, y);}
+        public bool Contains(
+          float x,
+          float y
+          ) => Path.IsVisible(x, y);
 
-    public RectangleF GetBounds(
-      )
-    {return Path.GetBounds();}
+        public RectangleF GetBounds(
+          ) => Path.GetBounds();
 
-    public GraphicsPathIterator GetPathIterator(
-      )
-    {return new GraphicsPathIterator(Path);}
+        public GraphicsPathIterator GetPathIterator(
+          ) => new GraphicsPathIterator(Path);
 
-    public PointF[] Points
+        public PointF[] Points
         {
             get => points;
             set

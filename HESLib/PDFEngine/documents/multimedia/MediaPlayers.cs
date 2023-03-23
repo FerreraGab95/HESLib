@@ -41,20 +41,19 @@ namespace HES.Documents.Multimedia
   public sealed class MediaPlayers
     : PdfObjectWrapper<PdfDictionary>
   {
-    #region static
-    #region interface
-    #region public
-    public static MediaPlayers Wrap(
-      PdfDirectObject baseObject
-      )
-    {return baseObject != null ? new MediaPlayers(baseObject) : null;}
-    #endregion
-    #endregion
-    #endregion
+        #region static
+        #region interface
+        #region public
+        public static MediaPlayers Wrap(
+          PdfDirectObject baseObject
+          ) => baseObject != null ? new MediaPlayers(baseObject) : null;
+        #endregion
+        #endregion
+        #endregion
 
-    #region dynamic
-    #region constructors
-    public MediaPlayers(
+        #region dynamic
+        #region constructors
+        public MediaPlayers(
       Document context
       ) : base(context, new PdfDictionary())
     {}

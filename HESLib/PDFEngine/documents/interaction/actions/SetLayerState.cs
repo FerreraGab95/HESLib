@@ -186,18 +186,15 @@ namespace HES.Documents.Interaction.Actions
             }
 
             public override int GetHashCode(
-        )
-      {return mode.GetHashCode() ^ layers.Count;}
+        ) => mode.GetHashCode() ^ layers.Count;
 
-      internal void Attach(
-        LayerStates baseStates
-        )
-      {this.baseStates = baseStates;}
+            internal void Attach(
+              LayerStates baseStates
+              ) => this.baseStates = baseStates;
 
-      internal void Detach(
-        )
-      {baseStates = null;}
-    }
+            internal void Detach(
+              ) => baseStates = null;
+        }
 
     public class LayerStates
       : PdfObjectWrapper<PdfArray>,
@@ -214,13 +211,12 @@ namespace HES.Documents.Interaction.Actions
         ) : base(baseObject)
       {Initialize();}
 
-      #region IList<LayerState>
-      public int IndexOf(
-        LayerState item
-        )
-      {return items.IndexOf(item);}
+            #region IList<LayerState>
+            public int IndexOf(
+              LayerState item
+              ) => items.IndexOf(item);
 
-      public void Insert(
+            public void Insert(
         int index,
         LayerState item
         )
@@ -312,16 +308,14 @@ namespace HES.Documents.Interaction.Actions
         items.Clear();
       }
 
-      public bool Contains(
-        LayerState item
-        )
-      {return items.Contains(item);}
+            public bool Contains(
+              LayerState item
+              ) => items.Contains(item);
 
-      public void CopyTo(
-        LayerState[] items,
-        int index
-        )
-      {throw new NotImplementedException();}
+            public void CopyTo(
+              LayerState[] items,
+              int index
+              ) => throw new NotImplementedException();
 
             public int Count => items.Count;
 
@@ -339,27 +333,25 @@ namespace HES.Documents.Interaction.Actions
         return true;
       }
 
-      #region IEnumerable<LayerState>
-      public IEnumerator<LayerState> GetEnumerator(
-        )
-      {return items.GetEnumerator();}
+            #region IEnumerable<LayerState>
+            public IEnumerator<LayerState> GetEnumerator(
+              ) => items.GetEnumerator();
 
-      #region IEnumerable
-      IEnumerator IEnumerable.GetEnumerator(
-        )
-      {return this.GetEnumerator();}
-      #endregion
-      #endregion
-      #endregion
-      #endregion
+            #region IEnumerable
+            IEnumerator IEnumerable.GetEnumerator(
+              ) => this.GetEnumerator();
+            #endregion
+            #endregion
+            #endregion
+            #endregion
 
-      /**
-        <summary>Gets the position of the initial base item corresponding to the specified layer
-        state index.</summary>
-        <param name="index">Layer state index.</param>
-        <returns>-1, in case <code>index</code> is outside the available range.</returns>
-      */
-      internal int GetBaseIndex(
+            /**
+              <summary>Gets the position of the initial base item corresponding to the specified layer
+              state index.</summary>
+              <param name="index">Layer state index.</param>
+              <returns>-1, in case <code>index</code> is outside the available range.</returns>
+            */
+            internal int GetBaseIndex(
         int index
         )
       {
@@ -513,9 +505,8 @@ namespace HES.Documents.Interaction.Actions
       return stateMode.Value;
     }
 
-    public static PdfName GetName(
-      this SetLayerState.StateModeEnum stateMode
-      )
-    {return codes[stateMode];}
-  }
+        public static PdfName GetName(
+          this SetLayerState.StateModeEnum stateMode
+          ) => codes[stateMode];
+    }
 }

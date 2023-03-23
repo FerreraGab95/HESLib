@@ -88,24 +88,20 @@ namespace HES.Bytes
         }
 
         public override int GetHashCode(
-                                       )
-        { return stream.GetHashCode(); }
+                                       ) => stream.GetHashCode();
 
         public void Read(
             byte[] data
-                        )
-        { stream.Read(data, 0, data.Length); }
+                        ) => stream.Read(data, 0, data.Length);
 
         public void Read(
             byte[] data,
             int offset,
             int count
-                        )
-        { stream.Read(data, offset, count); }
+                        ) => stream.Read(data, offset, count);
 
         public int ReadByte(
-                           )
-        { return stream.ReadByte(); }
+                           ) => stream.ReadByte();
 
         public int ReadInt(
                           )
@@ -154,8 +150,7 @@ namespace HES.Bytes
         }
 
         public sbyte ReadSignedByte(
-                                   )
-        { throw new NotImplementedException(); }
+                                   ) => throw new NotImplementedException();
 
         public string ReadString(
                int length
@@ -186,13 +181,11 @@ namespace HES.Bytes
 
         public void Seek(
             long offset
-                        )
-        { stream.Seek(offset, SeekOrigin.Begin); }
+                        ) => stream.Seek(offset, SeekOrigin.Begin);
 
         public void Skip(
             long offset
-                        )
-        { stream.Seek(offset, SeekOrigin.Current); }
+                        ) => stream.Seek(offset, SeekOrigin.Current);
 
         public byte[] ToByteArray(
                                  )
@@ -207,20 +200,17 @@ namespace HES.Bytes
 
         public void Write(
             byte[] data
-                         )
-        { stream.Write(data, 0, data.Length); }
+                         ) => stream.Write(data, 0, data.Length);
 
         public void Write(
             byte[] data,
             int offset,
             int length
-                         )
-        { stream.Write(data, offset, length); }
+                         ) => stream.Write(data, offset, length);
 
         public void Write(
             string data
-                         )
-        { Write(Encoding.Pdf.Encode(data)); }
+                         ) => Write(Encoding.Pdf.Encode(data));
 
         public void Write(
             IInputStream data

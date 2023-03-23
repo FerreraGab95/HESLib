@@ -41,24 +41,23 @@ namespace HES.Objects
     #region static
     #region fields
     private static readonly byte[] NullChunk = Encoding.Pdf.Encode(Keyword.Null);
-    #endregion
+        #endregion
 
-    #region interface
-    #region internal
-    /**
-      <summary>Ensures that the given direct object is properly represented as string.</summary>
-      <remarks>This method is useful to force null pointers to be expressed as PDF null objects.</remarks>
-    */
-    internal static string ToString(
-      PdfDirectObject obj
-      )
-    {return (obj == null ? Keyword.Null : obj.ToString());}
+        #region interface
+        #region internal
+        /**
+          <summary>Ensures that the given direct object is properly represented as string.</summary>
+          <remarks>This method is useful to force null pointers to be expressed as PDF null objects.</remarks>
+        */
+        internal static string ToString(
+          PdfDirectObject obj
+          ) => (obj == null ? Keyword.Null : obj.ToString());
 
-    /**
-      <summary>Ensures that the given direct object is properly serialized.</summary>
-      <remarks>This method is useful to force null pointers to be expressed as PDF null objects.</remarks>
-    */
-    internal static void WriteTo(
+        /**
+          <summary>Ensures that the given direct object is properly serialized.</summary>
+          <remarks>This method is useful to force null pointers to be expressed as PDF null objects.</remarks>
+        */
+        internal static void WriteTo(
       IOutputStream stream,
       PdfFile context,
       PdfDirectObject obj

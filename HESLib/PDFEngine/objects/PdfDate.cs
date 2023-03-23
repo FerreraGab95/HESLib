@@ -41,23 +41,22 @@ namespace HES.Objects
     #region static
     #region fields
     private const string FormatString = "yyyyMMddHHmmsszzz";
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    /**
-      <summary>Gets the object equivalent to the given value.</summary>
-    */
-    public static PdfDate Get(
-      DateTime? value
-      )
-    {return value.HasValue ? new PdfDate(value.Value) : null;}
+        #region interface
+        #region public
+        /**
+          <summary>Gets the object equivalent to the given value.</summary>
+        */
+        public static PdfDate Get(
+          DateTime? value
+          ) => value.HasValue ? new PdfDate(value.Value) : null;
 
-    /**
-      <summary>Converts a PDF date literal into its corresponding date.</summary>
-      <exception cref="HES.Util.Parsers.ParseException">Thrown when date literal parsing fails.</exception>
-    */
-    public static DateTime ToDate(
+        /**
+          <summary>Converts a PDF date literal into its corresponding date.</summary>
+          <exception cref="HES.Util.Parsers.ParseException">Thrown when date literal parsing fails.</exception>
+        */
+        public static DateTime ToDate(
       string value
       )
     {
@@ -100,34 +99,32 @@ namespace HES.Objects
       catch(Exception exception)
       {throw new ParseException("Failed to parse the date string.", exception);}
     }
-    #endregion
+        #endregion
 
-    #region private
-    private static string Format(
-      DateTime value
-      )
-    {return ("D:" + value.ToString(FormatString).Replace(':','\'') + "'");}
-    #endregion
-    #endregion
-    #endregion
+        #region private
+        private static string Format(
+          DateTime value
+          ) => ("D:" + value.ToString(FormatString).Replace(':', '\'') + "'");
+        #endregion
+        #endregion
+        #endregion
 
-    #region dynamic
-    #region constructors
-    public PdfDate(
+        #region dynamic
+        #region constructors
+        public PdfDate(
       DateTime value
       )
     {Value = value;}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public override PdfObject Accept(
-      IVisitor visitor,
-      object data
-      )
-    {return visitor.Visit(this, data);}
+        #region interface
+        #region public
+        public override PdfObject Accept(
+          IVisitor visitor,
+          object data
+          ) => visitor.Visit(this, data);
 
-    public override SerializationModeEnum SerializationMode
+        public override SerializationModeEnum SerializationMode
         {
             get => base.SerializationMode;
             set

@@ -78,23 +78,21 @@ namespace HES.Documents.Contents.ColorSpaces
       get;
     }
 
-    public override drawing::Brush GetPaint(
-      Color color
-      )
-    {
-      //TODO:enable!!!
-  //    IList<PdfDirectObject> alternateColorComponents = TintFunction.Calculate(color.Components);
-  //    ColorSpace alternateSpace = AlternateSpace;
-  //    return alternateSpace.GetPaint(
-  //      alternateSpace.GetColor(
-  //        alternateColorComponents,
-  //        null
-  //        )
-  //      );
+        public override drawing::Brush GetPaint(
+          Color color
+          ) =>
+          //TODO:enable!!!
+          //    IList<PdfDirectObject> alternateColorComponents = TintFunction.Calculate(color.Components);
+          //    ColorSpace alternateSpace = AlternateSpace;
+          //    return alternateSpace.GetPaint(
+          //      alternateSpace.GetColor(
+          //        alternateColorComponents,
+          //        null
+          //        )
+          //      );
 
-      //TODO: remove (temporary hack)!
-      return new drawing::SolidBrush(drawing::Color.Black);
-    }
+          //TODO: remove (temporary hack)!
+          new drawing::SolidBrush(drawing::Color.Black);
 
         /**
           <summary>Gets the function to transform a tint value into color component values

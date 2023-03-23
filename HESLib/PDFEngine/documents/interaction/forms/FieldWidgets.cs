@@ -60,14 +60,13 @@ namespace HES.Documents.Interaction.Forms
       Field field
       ) : base(baseObject)
     {this.field = field;}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public override object Clone(
-      Document context
-      )
-    {throw new NotImplementedException();} // TODO:verify field reference.
+        #region interface
+        #region public
+        public override object Clone(
+          Document context
+          ) => throw new NotImplementedException(); // TODO:verify field reference.
 
         /**
           <summary>Gets the field associated to these widgets.</summary>
@@ -91,18 +90,16 @@ namespace HES.Documents.Interaction.Forms
       return ((PdfArray)baseDataObject).IndexOf(value.BaseObject);
     }
 
-    public void Insert(
-      int index,
-      Widget value
-      )
-    {EnsureArray().Insert(index,value.BaseObject);}
+        public void Insert(
+          int index,
+          Widget value
+          ) => EnsureArray().Insert(index, value.BaseObject);
 
-    public void RemoveAt(
-      int index
-      )
-    {EnsureArray().RemoveAt(index);}
+        public void RemoveAt(
+          int index
+          ) => EnsureArray().RemoveAt(index);
 
-    public Widget this[
+        public Widget this[
       int index
       ]
         {
@@ -132,11 +129,10 @@ namespace HES.Documents.Interaction.Forms
       EnsureArray().Add(value.BaseObject);
     }
 
-    public void Clear(
-      )
-    {EnsureArray().Clear();}
+        public void Clear(
+          ) => EnsureArray().Clear();
 
-    public bool Contains(
+        public bool Contains(
       Widget value
       )
     {
@@ -147,13 +143,12 @@ namespace HES.Documents.Interaction.Forms
       return ((PdfArray)baseDataObject).Contains(value.BaseObject);
     }
 
-    public void CopyTo(
-      Widget[] values,
-      int index
-      )
-    {throw new NotImplementedException();}
+        public void CopyTo(
+          Widget[] values,
+          int index
+          ) => throw new NotImplementedException();
 
-    public int Count
+        public int Count
     {
       get
       {
@@ -169,11 +164,10 @@ namespace HES.Documents.Interaction.Forms
 
         public bool Remove(
       Widget value
-      )
-    {return EnsureArray().Remove(value.BaseObject);}
+      ) => EnsureArray().Remove(value.BaseObject);
 
-    #region IEnumerable<Widget>
-    IEnumerator<Widget> IEnumerable<Widget>.GetEnumerator(
+        #region IEnumerable<Widget>
+        IEnumerator<Widget> IEnumerable<Widget>.GetEnumerator(
       )
     {
       for(
@@ -185,18 +179,17 @@ namespace HES.Documents.Interaction.Forms
       {yield return this[index];}
     }
 
-    #region IEnumerable
-    IEnumerator IEnumerable.GetEnumerator(
-      )
-    {return ((IEnumerable<Widget>)this).GetEnumerator();}
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-    #endregion
+        #region IEnumerable
+        IEnumerator IEnumerable.GetEnumerator(
+          ) => ((IEnumerable<Widget>)this).GetEnumerator();
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+        #endregion
 
-    #region private
-    private PdfArray EnsureArray(
+        #region private
+        private PdfArray EnsureArray(
       )
     {
       PdfDataObject baseDataObject = BaseDataObject;
@@ -262,12 +255,11 @@ namespace HES.Documents.Interaction.Forms
       return (PdfArray)baseDataObject;
     }
 
-    private Widget NewWidget(
-      PdfDirectObject baseObject
-      )
-    {return Widget.Wrap(baseObject, field);}
-    #endregion
-    #endregion
-    #endregion
-  }
+        private Widget NewWidget(
+          PdfDirectObject baseObject
+          ) => Widget.Wrap(baseObject, field);
+        #endregion
+        #endregion
+        #endregion
+    }
 }

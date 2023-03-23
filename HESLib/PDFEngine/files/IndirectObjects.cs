@@ -156,33 +156,32 @@ namespace HES.Files
       return indirectObject;
     }
 
-    /**
-      <summary>Registers an <i>external</i> indirect object.</summary>
-      <remarks>
-        <para>External indirect objects come from alien PDF files; therefore, this is a powerful way
-        to import contents from a file into another one.</para>
-        <para>To register an internal data object, use <see cref="Add(PdfDataObject)"/>.</para>
-      </remarks>
-      <param nme="obj">External indirect object to import.</param>
-      <returns>Indirect object imported from the external indirect object.</returns>
-    */
-    public PdfIndirectObject AddExternal(
-      PdfIndirectObject obj
-      )
-    {return AddExternal(obj, file.Cloner);}
+        /**
+          <summary>Registers an <i>external</i> indirect object.</summary>
+          <remarks>
+            <para>External indirect objects come from alien PDF files; therefore, this is a powerful way
+            to import contents from a file into another one.</para>
+            <para>To register an internal data object, use <see cref="Add(PdfDataObject)"/>.</para>
+          </remarks>
+          <param nme="obj">External indirect object to import.</param>
+          <returns>Indirect object imported from the external indirect object.</returns>
+        */
+        public PdfIndirectObject AddExternal(
+          PdfIndirectObject obj
+          ) => AddExternal(obj, file.Cloner);
 
-    /**
-      <summary>Registers an <i>external</i> indirect object.</summary>
-      <remarks>
-        <para>External indirect objects come from alien PDF files; therefore, this is a powerful way
-        to import contents from a file into another one.</para>
-        <para>To register an internal data object, use <see cref="Add(PdfDataObject)"/>.</para>
-      </remarks>
-      <param nme="obj">External indirect object to import.</param>
-      <param nme="cloner">Import rules.</param>
-      <returns>Indirect object imported from the external indirect object.</returns>
-    */
-    public PdfIndirectObject AddExternal(
+        /**
+          <summary>Registers an <i>external</i> indirect object.</summary>
+          <remarks>
+            <para>External indirect objects come from alien PDF files; therefore, this is a powerful way
+            to import contents from a file into another one.</para>
+            <para>To register an internal data object, use <see cref="Add(PdfDataObject)"/>.</para>
+          </remarks>
+          <param nme="obj">External indirect object to import.</param>
+          <param nme="cloner">Import rules.</param>
+          <returns>Indirect object imported from the external indirect object.</returns>
+        */
+        public PdfIndirectObject AddExternal(
       PdfIndirectObject obj,
       Cloner cloner
       )
@@ -236,13 +235,12 @@ namespace HES.Files
       return obj.Reference.ObjectNumber;
     }
 
-    public void Insert(
-      int index,
-      PdfIndirectObject obj
-      )
-    {throw new NotSupportedException();}
+        public void Insert(
+          int index,
+          PdfIndirectObject obj
+          ) => throw new NotSupportedException();
 
-    public void RemoveAt(
+        public void RemoveAt(
       int index
       )
     {
@@ -328,10 +326,9 @@ namespace HES.Files
         */
         public void Add(
       PdfIndirectObject obj
-      )
-    {AddExternal(obj);}
+      ) => AddExternal(obj);
 
-    public void Clear(
+        public void Clear(
       )
     {
       for(int index = 0, length = Count; index < length; index++)
@@ -348,11 +345,10 @@ namespace HES.Files
       {return false;}
     }
 
-    public void CopyTo(
-      PdfIndirectObject[] objs,
-      int index
-      )
-    {throw new NotSupportedException();}
+        public void CopyTo(
+          PdfIndirectObject[] objs,
+          int index
+          ) => throw new NotSupportedException();
 
         /**
           <summary>Gets the number of entries available (both in-use and free) in the
@@ -382,18 +378,17 @@ namespace HES.Files
       {yield return this[index];}
     }
 
-    #region IEnumerable
-    IEnumerator IEnumerable.GetEnumerator(
-      )
-    {return this.GetEnumerator();}
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-    #endregion
+        #region IEnumerable
+        IEnumerator IEnumerable.GetEnumerator(
+          ) => this.GetEnumerator();
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+        #endregion
 
-    #region internal
-    internal PdfIndirectObject AddVirtual(
+        #region internal
+        internal PdfIndirectObject AddVirtual(
       PdfIndirectObject obj
       )
     {

@@ -72,8 +72,7 @@ namespace HES.Documents.Contents.Fonts
 
             public static Dict Parse(
               byte[] data
-              )
-            { return Parse(new Bytes.Buffer(data)); }
+              ) => Parse(new Bytes.Buffer(data));
 
             public static Dict Parse(
               IInputStream stream
@@ -183,20 +182,17 @@ namespace HES.Documents.Contents.Fonts
             public void Add(
               int key,
               IList<object> value
-              )
-            { throw new NotSupportedException(); }
+              ) => throw new NotSupportedException();
 
             public bool ContainsKey(
               int key
-              )
-            { return entries.ContainsKey(key); }
+              ) => entries.ContainsKey(key);
 
             public ICollection<int> Keys => entries.Keys;
 
             public bool Remove(
               int key
-              )
-            { throw new NotSupportedException(); }
+              ) => throw new NotSupportedException();
 
             public IList<object> this[
               int key
@@ -210,30 +206,25 @@ namespace HES.Documents.Contents.Fonts
             public bool TryGetValue(
               int key,
               out IList<object> value
-              )
-            { return entries.TryGetValue(key, out value); }
+              ) => entries.TryGetValue(key, out value);
 
             public ICollection<IList<object>> Values => entries.Values;
 
             void ICollection<KeyValuePair<int, IList<object>>>.Add(
               KeyValuePair<int, IList<object>> keyValuePair
-              )
-            { throw new NotSupportedException(); }
+              ) => throw new NotSupportedException();
 
             public void Clear(
-              )
-            { throw new NotSupportedException(); }
+              ) => throw new NotSupportedException();
 
             bool ICollection<KeyValuePair<int, IList<object>>>.Contains(
               KeyValuePair<int, IList<object>> keyValuePair
-              )
-            { return entries.Contains(keyValuePair); }
+              ) => entries.Contains(keyValuePair);
 
             public void CopyTo(
               KeyValuePair<int, IList<object>>[] keyValuePairs,
               int index
-              )
-            { throw new NotImplementedException(); }
+              ) => throw new NotImplementedException();
 
             public int Count => entries.Count;
 
@@ -241,22 +232,18 @@ namespace HES.Documents.Contents.Fonts
 
             public bool Remove(
               KeyValuePair<int, IList<object>> keyValuePair
-              )
-            { throw new NotSupportedException(); }
+              ) => throw new NotSupportedException();
 
             IEnumerator<KeyValuePair<int, IList<object>>> IEnumerable<KeyValuePair<int, IList<object>>>.GetEnumerator(
-              )
-            { return entries.GetEnumerator(); }
+              ) => entries.GetEnumerator();
 
             IEnumerator IEnumerable.GetEnumerator(
-              )
-            { return ((IEnumerable<KeyValuePair<int, IList<object>>>)this).GetEnumerator(); }
+              ) => ((IEnumerable<KeyValuePair<int, IList<object>>>)this).GetEnumerator();
 
             public object Get(
               OperatorEnum operator_,
               int operandIndex
-              )
-            { return Get(operator_, operandIndex, null); }
+              ) => Get(operator_, operandIndex, null);
 
             public object Get(
               OperatorEnum operator_,
@@ -277,8 +264,7 @@ namespace HES.Documents.Contents.Fonts
         {
             public static Index Parse(
               byte[] data
-              )
-            { return Parse(new Bytes.Buffer(data)); }
+              ) => Parse(new Bytes.Buffer(data));
 
             public static Index Parse(
               IInputStream stream
@@ -314,19 +300,16 @@ namespace HES.Documents.Contents.Fonts
 
             public int IndexOf(
               byte[] item
-              )
-            { throw new NotImplementedException(); }
+              ) => throw new NotImplementedException();
 
             public void Insert(
               int index,
               byte[] item
-              )
-            { throw new NotSupportedException(); }
+              ) => throw new NotSupportedException();
 
             public void RemoveAt(
               int index
-              )
-            { throw new NotSupportedException(); }
+              ) => throw new NotSupportedException();
 
             public byte[] this[
               int index
@@ -338,23 +321,19 @@ namespace HES.Documents.Contents.Fonts
 
             public void Add(
               byte[] item
-              )
-            { throw new NotSupportedException(); }
+              ) => throw new NotSupportedException();
 
             public void Clear(
-              )
-            { throw new NotSupportedException(); }
+              ) => throw new NotSupportedException();
 
             public bool Contains(
               byte[] item
-              )
-            { throw new NotImplementedException(); }
+              ) => throw new NotImplementedException();
 
             public void CopyTo(
               byte[][] items,
               int index
-              )
-            { throw new NotImplementedException(); }
+              ) => throw new NotImplementedException();
 
             public int Count => data.Length;
 
@@ -362,8 +341,7 @@ namespace HES.Documents.Contents.Fonts
 
             public bool Remove(
               byte[] item
-              )
-            { throw new NotSupportedException(); }
+              ) => throw new NotSupportedException();
 
             public IEnumerator<byte[]> GetEnumerator(
               )
@@ -373,8 +351,7 @@ namespace HES.Documents.Contents.Fonts
             }
 
             IEnumerator IEnumerable.GetEnumerator(
-              )
-            { return this.GetEnumerator(); }
+              ) => this.GetEnumerator();
         }
 
         /**
@@ -479,8 +456,7 @@ namespace HES.Documents.Contents.Fonts
 
         private static string ToString(
           byte[] data
-          )
-        { return Charset.ISO88591.GetString(data); }
+          ) => Charset.ISO88591.GetString(data);
         #endregion
         #endregion
         #endregion
@@ -575,12 +551,9 @@ namespace HES.Documents.Contents.Fonts
         */
         private string GetString(
           int id
-          )
-        {
-            return id < StandardStrings.Count
+          ) => id < StandardStrings.Count
               ? StandardStrings[id]
               : ToString(stringIndex[id - StandardStrings.Count]);
-        }
 
         private void ParseHeader(
           )

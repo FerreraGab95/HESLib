@@ -65,8 +65,7 @@ namespace HES.Documents.Contents
         public TextStyle Style => style;
 
         public override string ToString(
-      )
-    {return Value.ToString();}
+      ) => Value.ToString();
 
         public char Value => value;
 

@@ -77,8 +77,7 @@ namespace HES.Documents.Contents.Fonts
         */
         public static IDictionary<ByteArray, int> Get(
           PdfStream stream
-          )
-        { return Get(stream.Body); }
+          ) => Get(stream.Body);
 
         /**
           <summary>Gets the character map corresponding to the given name.</summary>
@@ -87,8 +86,7 @@ namespace HES.Documents.Contents.Fonts
         */
         public static IDictionary<ByteArray, int> Get(
           PdfName name
-          )
-        { return Get((string)name.Value); }
+          ) => Get((string)name.Value);
 
         /**
           <summary>Gets the character map corresponding to the given name.</summary>

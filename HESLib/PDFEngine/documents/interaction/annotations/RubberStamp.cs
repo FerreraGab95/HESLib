@@ -131,22 +131,21 @@ namespace HES.Documents.Interaction.Annotations
       IconTypeEnumCodes[IconTypeEnum.Sold] = PdfName.Sold;
       IconTypeEnumCodes[IconTypeEnum.TopSecret] = PdfName.TopSecret;
     }
-    #endregion
+        #endregion
 
-    #region interface
-    #region private
-    /**
-      <summary>Gets the code corresponding to the given value.</summary>
-    */
-    private static PdfName ToCode(
-      IconTypeEnum value
-      )
-    {return IconTypeEnumCodes[value];}
+        #region interface
+        #region private
+        /**
+          <summary>Gets the code corresponding to the given value.</summary>
+        */
+        private static PdfName ToCode(
+          IconTypeEnum value
+          ) => IconTypeEnumCodes[value];
 
-    /**
-      <summary>Gets the icon type corresponding to the given value.</summary>
-    */
-    private static IconTypeEnum ToIconTypeEnum(
+        /**
+          <summary>Gets the icon type corresponding to the given value.</summary>
+        */
+        private static IconTypeEnum ToIconTypeEnum(
       PdfName value
       )
     {

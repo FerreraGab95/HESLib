@@ -64,12 +64,11 @@ namespace HES.Documents
       base.Add(@object);
     }
 
-    public override object Clone(
-      Document context
-      )
-    {throw new NotSupportedException();}
+        public override object Clone(
+          Document context
+          ) => throw new NotSupportedException();
 
-    public override void Insert(
+        public override void Insert(
       int index,
       TItem @object
       )
@@ -102,26 +101,22 @@ namespace HES.Documents
       DoRemove((TItem)@object);
       return true;
     }
-    #endregion
+        #endregion
 
-    #region private
-    private void DoAdd(
-      TItem @object
-      )
-    {
-      // Link the element to its page!
-      @object.BaseDataObject[PdfName.P] = page.BaseObject;
-    }
+        #region private
+        private void DoAdd(
+          TItem @object
+          ) =>
+          // Link the element to its page!
+          @object.BaseDataObject[PdfName.P] = page.BaseObject;
 
-    private void DoRemove(
-      TItem @object
-      )
-    {
-      // Unlink the element from its page!
-      @object.BaseDataObject.Remove(PdfName.P);
+        private void DoRemove(
+          TItem @object
+          ) =>
+          // Unlink the element from its page!
+          @object.BaseDataObject.Remove(PdfName.P);
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 }

@@ -95,19 +95,16 @@ namespace HES.Tools
         )
       {/* NOOP */}
 
-      public bool MoveNext(
-        )
-      {return (++index < intervals.Count);}
+            public bool MoveNext(
+              ) => (++index < intervals.Count);
 
-      public void Process(
-        Interval<int> interval,
-        ITextString match
-        )
-      {textStrings.Add(match);}
+            public void Process(
+              Interval<int> interval,
+              ITextString match
+              ) => textStrings.Add(match);
 
-      public void Reset(
-        )
-      {throw new NotSupportedException();}
+            public void Reset(
+              ) => throw new NotSupportedException();
 
             public IList<ITextString> TextStrings => textStrings;
         }
@@ -213,28 +210,27 @@ namespace HES.Tools
     #region static
     #region fields
     public static readonly RectangleF DefaultArea = new RectangleF(0,0,0,0);
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    /**
-      <summary>Converts text information into plain text.</summary>
-      <param name="textStrings">Text information to convert.</param>
-      <returns>Plain text.</returns>
-    */
-    public static string ToString(
-      IDictionary<RectangleF?,IList<ITextString>> textStrings
-      )
-    {return ToString(textStrings, "", "");}
+        #region interface
+        #region public
+        /**
+          <summary>Converts text information into plain text.</summary>
+          <param name="textStrings">Text information to convert.</param>
+          <returns>Plain text.</returns>
+        */
+        public static string ToString(
+          IDictionary<RectangleF?, IList<ITextString>> textStrings
+          ) => ToString(textStrings, "", "");
 
-    /**
-      <summary>Converts text information into plain text.</summary>
-      <param name="textStrings">Text information to convert.</param>
-      <param name="lineSeparator">Separator to apply on line break.</param>
-      <param name="areaSeparator">Separator to apply on area break.</param>
-      <returns>Plain text.</returns>
-    */
-    public static string ToString(
+        /**
+          <summary>Converts text information into plain text.</summary>
+          <param name="textStrings">Text information to convert.</param>
+          <param name="lineSeparator">Separator to apply on line break.</param>
+          <param name="areaSeparator">Separator to apply on area break.</param>
+          <returns>Plain text.</returns>
+        */
+        public static string ToString(
       IDictionary<RectangleF?,IList<ITextString>> textStrings,
       string lineSeparator,
       string areaSeparator
@@ -373,22 +369,21 @@ namespace HES.Tools
       return extractedTextStrings;
     }
 
-    /**
-      <summary>Extracts text strings from the specified contents.</summary>
-      <param name="contents">Source contents.</param>
-    */
-    public IDictionary<RectangleF?,IList<ITextString>> Extract(
-      Contents contents
-      )
-    {return Extract(contents.ContentContext);}
+        /**
+          <summary>Extracts text strings from the specified contents.</summary>
+          <param name="contents">Source contents.</param>
+        */
+        public IDictionary<RectangleF?, IList<ITextString>> Extract(
+          Contents contents
+          ) => Extract(contents.ContentContext);
 
-    /**
-      <summary>Gets the text strings matching the specified intervals.</summary>
-      <param name="textStrings">Text strings to filter.</param>
-      <param name="intervals">Text intervals to match. They MUST be ordered and not overlapping.</param>
-      <returns>A list of text strings corresponding to the specified intervals.</returns>
-    */
-    public IList<ITextString> Filter(
+        /**
+          <summary>Gets the text strings matching the specified intervals.</summary>
+          <param name="textStrings">Text strings to filter.</param>
+          <param name="intervals">Text intervals to match. They MUST be ordered and not overlapping.</param>
+          <returns>A list of text strings corresponding to the specified intervals.</returns>
+        */
+        public IList<ITextString> Filter(
       IDictionary<RectangleF?,IList<ITextString>> textStrings,
       IList<Interval<int>> intervals
       )
@@ -451,23 +446,22 @@ namespace HES.Tools
       }
     }
 
-    /**
-      <summary>Gets the text strings matching the specified area.</summary>
-      <param name="textStrings">Text strings to filter, grouped by source area.</param>
-      <param name="area">Graphic area which text strings have to be matched to.</param>
-    */
-    public IList<ITextString> Filter(
-      IDictionary<RectangleF?,IList<ITextString>> textStrings,
-      RectangleF area
-      )
-    {return Filter(textStrings,new RectangleF[]{area})[area];}
+        /**
+          <summary>Gets the text strings matching the specified area.</summary>
+          <param name="textStrings">Text strings to filter, grouped by source area.</param>
+          <param name="area">Graphic area which text strings have to be matched to.</param>
+        */
+        public IList<ITextString> Filter(
+          IDictionary<RectangleF?, IList<ITextString>> textStrings,
+          RectangleF area
+          ) => Filter(textStrings, new RectangleF[] { area })[area];
 
-    /**
-      <summary>Gets the text strings matching the specified areas.</summary>
-      <param name="textStrings">Text strings to filter, grouped by source area.</param>
-      <param name="areas">Graphic areas which text strings have to be matched to.</param>
-    */
-    public IDictionary<RectangleF?,IList<ITextString>> Filter(
+        /**
+          <summary>Gets the text strings matching the specified areas.</summary>
+          <param name="textStrings">Text strings to filter, grouped by source area.</param>
+          <param name="areas">Graphic areas which text strings have to be matched to.</param>
+        */
+        public IDictionary<RectangleF?,IList<ITextString>> Filter(
       IDictionary<RectangleF?,IList<ITextString>> textStrings,
       params RectangleF[] areas
       )
@@ -491,23 +485,22 @@ namespace HES.Tools
       return filteredTextStrings;
     }
 
-    /**
-      <summary>Gets the text strings matching the specified area.</summary>
-      <param name="textStrings">Text strings to filter.</param>
-      <param name="area">Graphic area which text strings have to be matched to.</param>
-    */
-    public IList<ITextString> Filter(
-      IList<ITextString> textStrings,
-      RectangleF area
-      )
-    {return Filter(textStrings,new RectangleF[]{area})[area];}
+        /**
+          <summary>Gets the text strings matching the specified area.</summary>
+          <param name="textStrings">Text strings to filter.</param>
+          <param name="area">Graphic area which text strings have to be matched to.</param>
+        */
+        public IList<ITextString> Filter(
+          IList<ITextString> textStrings,
+          RectangleF area
+          ) => Filter(textStrings, new RectangleF[] { area })[area];
 
-    /**
-      <summary>Gets the text strings matching the specified areas.</summary>
-      <param name="textStrings">Text strings to filter.</param>
-      <param name="areas">Graphic areas which text strings have to be matched to.</param>
-    */
-    public IDictionary<RectangleF?,IList<ITextString>> Filter(
+        /**
+          <summary>Gets the text strings matching the specified areas.</summary>
+          <param name="textStrings">Text strings to filter.</param>
+          <param name="areas">Graphic areas which text strings have to be matched to.</param>
+        */
+        public IDictionary<RectangleF?,IList<ITextString>> Filter(
       IList<ITextString> textStrings,
       params RectangleF[] areas
       )

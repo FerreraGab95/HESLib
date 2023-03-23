@@ -105,8 +105,7 @@ namespace HES.Documents.Contents.Composition
           double d,
           double e,
           double f
-          )
-        { Add(new Objects::ModifyCTM(a, b, c, d, e, f)); }
+          ) => Add(new Objects::ModifyCTM(a, b, c, d, e, f));
 
         /**
           <summary>Applies the specified state parameters [PDF:1.6:4.3.4].</summary>
@@ -132,8 +131,7 @@ namespace HES.Documents.Contents.Composition
         */
         public void ApplyState(
           ExtGState state
-          )
-        { ApplyState_(GetResourceName(state)); }
+          ) => ApplyState_(GetResourceName(state));
 
         /**
           <summary>Adds a composite object beginning it.</summary>
@@ -160,8 +158,7 @@ namespace HES.Documents.Contents.Composition
         */
         public Objects::MarkedContent BeginLayer(
           LayerEntity layer
-          )
-        { return BeginLayer(GetResourceName(layer.Membership)); }
+          ) => BeginLayer(GetResourceName(layer.Membership));
 
         /**
           <summary>Begins a new layered-content sequence [PDF:1.6:4.10.2].</summary>
@@ -172,8 +169,7 @@ namespace HES.Documents.Contents.Composition
         */
         public Objects::MarkedContent BeginLayer(
           PdfName layerName
-          )
-        { return BeginMarkedContent(PdfName.OC, layerName); }
+          ) => BeginMarkedContent(PdfName.OC, layerName);
 
         /**
           <summary>Begins a new nested graphics state context [PDF:1.6:4.3.1].</summary>
@@ -181,8 +177,7 @@ namespace HES.Documents.Contents.Composition
           <seealso cref="End()"/>
         */
         public Objects::LocalGraphicsState BeginLocalState(
-          )
-        { return (Objects::LocalGraphicsState)Begin(new Objects::LocalGraphicsState()); }
+          ) => (Objects::LocalGraphicsState)Begin(new Objects::LocalGraphicsState());
 
         /**
           <summary>Begins a new marked-content sequence [PDF:1.6:10.5].</summary>
@@ -192,8 +187,7 @@ namespace HES.Documents.Contents.Composition
         */
         public Objects::MarkedContent BeginMarkedContent(
           PdfName tag
-          )
-        { return BeginMarkedContent(tag, (PdfName)null); }
+          ) => BeginMarkedContent(tag, (PdfName)null);
 
         /**
           <summary>Begins a new marked-content sequence [PDF:1.6:10.5].</summary>
@@ -205,8 +199,7 @@ namespace HES.Documents.Contents.Composition
         public Objects::MarkedContent BeginMarkedContent(
           PdfName tag,
           PropertyList propertyList
-          )
-        { return BeginMarkedContent_(tag, GetResourceName(propertyList)); }
+          ) => BeginMarkedContent_(tag, GetResourceName(propertyList));
 
         /**
           <summary>Begins a new marked-content sequence [PDF:1.6:10.5].</summary>
@@ -245,8 +238,7 @@ namespace HES.Documents.Contents.Composition
           to the starting point of the subpath [PDF:1.6:4.4.1].</summary>
         */
         public void ClosePath(
-          )
-        { Add(Objects::CloseSubpath.Value); }
+          ) => Add(Objects::CloseSubpath.Value);
 
         /**
           <summary>Draws a circular arc.</summary>
@@ -259,8 +251,7 @@ namespace HES.Documents.Contents.Composition
           RectangleF location,
           double startAngle,
           double endAngle
-          )
-        { DrawArc(location, startAngle, endAngle, 0, 1); }
+          ) => DrawArc(location, startAngle, endAngle, 0, 1);
 
         /**
           <summary>Draws an arc.</summary>
@@ -279,8 +270,7 @@ namespace HES.Documents.Contents.Composition
           double endAngle,
           double branchWidth,
           double branchRatio
-          )
-        { DrawArc(location, startAngle, endAngle, branchWidth, branchRatio, true); }
+          ) => DrawArc(location, startAngle, endAngle, branchWidth, branchRatio, true);
 
         /**
           <summary>Draws a cubic Bezier curve from the current point [PDF:1.6:4.4.1].</summary>
@@ -336,8 +326,7 @@ namespace HES.Documents.Contents.Composition
         */
         public void DrawEllipse(
           RectangleF location
-          )
-        { DrawArc(location, 0, 360); }
+          ) => DrawArc(location, 0, 360);
 
         /**
           <summary>Draws a line from the current point [PDF:1.6:4.4.1].</summary>
@@ -346,15 +335,12 @@ namespace HES.Documents.Contents.Composition
         */
         public void DrawLine(
           PointF endPoint
-          )
-        {
-            Add(
+          ) => Add(
               new Objects::DrawLine(
                 endPoint.X,
                 scanner.ContentContext.Box.Height - endPoint.Y
                 )
               );
-        }
 
         /**
           <summary>Draws a line [PDF:1.6:4.4.1].</summary>
@@ -415,8 +401,7 @@ namespace HES.Documents.Contents.Composition
         */
         public void DrawRectangle(
           RectangleF location
-          )
-        { DrawRectangle(location, 0); }
+          ) => DrawRectangle(location, 0);
 
         /**
           <summary>Draws a rounded rectangle.</summary>
@@ -527,16 +512,13 @@ namespace HES.Documents.Contents.Composition
           double endAngle,
           double branchWidth,
           double branchRatio
-          )
-        {
-            DrawArc(
+          ) => DrawArc(
               new RectangleF(center.X, center.Y, 0.0001f, 0.0001f),
               startAngle,
               endAngle,
               branchWidth,
               branchRatio
               );
-        }
 
         /**
           <summary>Ends the current (innermostly-nested) composite object.</summary>
@@ -554,8 +536,7 @@ namespace HES.Documents.Contents.Composition
           <seealso cref="SetFillColor(Color)"/>
         */
         public void Fill(
-          )
-        { Add(Objects::PaintPath.Fill); }
+          ) => Add(Objects::PaintPath.Fill);
 
         /**
           <summary>Fills and then strokes the path using the current colors [PDF:1.6:4.4.2].</summary>
@@ -563,15 +544,13 @@ namespace HES.Documents.Contents.Composition
           <seealso cref="SetStrokeColor(Color)"/>
         */
         public void FillStroke(
-          )
-        { Add(Objects::PaintPath.FillStroke); }
+          ) => Add(Objects::PaintPath.FillStroke);
 
         /**
           <summary>Serializes the contents into the content stream.</summary>
         */
         public void Flush(
-          )
-        { scanner.Contents.Flush(); }
+          ) => scanner.Contents.Flush();
 
         /**
           <summary>Gets/Sets the content stream scanner.</summary>
@@ -639,16 +618,14 @@ namespace HES.Documents.Contents.Composition
         public void Scale(
           double ratioX,
           double ratioY
-          )
-        { ApplyMatrix(ratioX, 0, 0, ratioY, 0, 0); }
+          ) => ApplyMatrix(ratioX, 0, 0, ratioY, 0, 0);
 
         /**
           <summary>Sets the character spacing parameter [PDF:1.6:5.2.1].</summary>
         */
         public void SetCharSpace(
           double value
-          )
-        { Add(new Objects::SetCharSpace(value)); }
+          ) => Add(new Objects::SetCharSpace(value));
 
         /**
           <summary>Sets the nonstroking color value [PDF:1.6:4.5.7].</summary>
@@ -695,56 +672,49 @@ namespace HES.Documents.Contents.Composition
         public void SetFont(
           Fonts::Font value,
           double size
-          )
-        { SetFont_(GetResourceName(value), size); }
+          ) => SetFont_(GetResourceName(value), size);
 
         /**
           <summary>Sets the text horizontal scaling [PDF:1.6:5.2.3].</summary>
         */
         public void SetTextScale(
           double value
-          )
-        { Add(new Objects::SetTextScale(value)); }
+          ) => Add(new Objects::SetTextScale(value));
 
         /**
           <summary>Sets the text leading [PDF:1.6:5.2.4].</summary>
         */
         public void SetTextLead(
           double value
-          )
-        { Add(new Objects::SetTextLead(value)); }
+          ) => Add(new Objects::SetTextLead(value));
 
         /**
           <summary>Sets the line cap style [PDF:1.6:4.3.2].</summary>
         */
         public void SetLineCap(
           LineCapEnum value
-          )
-        { Add(new Objects::SetLineCap(value)); }
+          ) => Add(new Objects::SetLineCap(value));
 
         /**
           <summary>Sets the line dash pattern [PDF:1.6:4.3.2].</summary>
         */
         public void SetLineDash(
           LineDash value
-          )
-        { Add(new Objects::SetLineDash(value)); }
+          ) => Add(new Objects::SetLineDash(value));
 
         /**
           <summary>Sets the line join style [PDF:1.6:4.3.2].</summary>
         */
         public void SetLineJoin(
           LineJoinEnum value
-          )
-        { Add(new Objects::SetLineJoin(value)); }
+          ) => Add(new Objects::SetLineJoin(value));
 
         /**
           <summary>Sets the line width [PDF:1.6:4.3.2].</summary>
         */
         public void SetLineWidth(
           double value
-          )
-        { Add(new Objects::SetLineWidth(value)); }
+          ) => Add(new Objects::SetLineWidth(value));
 
         /**
           <summary>Sets the transformation of the coordinate system from user space to device space
@@ -777,8 +747,7 @@ namespace HES.Documents.Contents.Composition
         */
         public void SetMiterLimit(
           double value
-          )
-        { Add(new Objects::SetMiterLimit(value)); }
+          ) => Add(new Objects::SetMiterLimit(value));
 
         /**
           <summary>Sets the stroking color value [PDF:1.6:4.5.7].</summary>
@@ -802,24 +771,21 @@ namespace HES.Documents.Contents.Composition
         */
         public void SetTextRenderMode(
           TextRenderModeEnum value
-          )
-        { Add(new Objects::SetTextRenderMode(value)); }
+          ) => Add(new Objects::SetTextRenderMode(value));
 
         /**
           <summary>Sets the text rise [PDF:1.6:5.2.6].</summary>
         */
         public void SetTextRise(
           double value
-          )
-        { Add(new Objects::SetTextRise(value)); }
+          ) => Add(new Objects::SetTextRise(value));
 
         /**
           <summary>Sets the word spacing [PDF:1.6:5.2.2].</summary>
         */
         public void SetWordSpace(
           double value
-          )
-        { Add(new Objects::SetWordSpace(value)); }
+          ) => Add(new Objects::SetWordSpace(value));
 
         /**
           <summary>Shows the specified text on the page at the current location [PDF:1.6:5.3.2].</summary>
@@ -828,13 +794,10 @@ namespace HES.Documents.Contents.Composition
         */
         public Quad ShowText(
           string value
-          )
-        {
-            return ShowText(
+          ) => ShowText(
               value,
               new PointF(0, 0)
               );
-        }
 
         /**
           <summary>Shows the link associated to the specified text on the page at the current location.
@@ -846,14 +809,11 @@ namespace HES.Documents.Contents.Composition
         public Link ShowText(
           string value,
           Actions::Action action
-          )
-        {
-            return ShowText(
+          ) => ShowText(
               value,
               new PointF(0, 0),
               action
               );
-        }
 
         /**
           <summary>Shows the specified text on the page at the specified location [PDF:1.6:5.3.2].
@@ -865,16 +825,13 @@ namespace HES.Documents.Contents.Composition
         public Quad ShowText(
           string value,
           PointF location
-          )
-        {
-            return ShowText(
+          ) => ShowText(
               value,
               location,
               XAlignmentEnum.Left,
               YAlignmentEnum.Top,
               0
               );
-        }
 
         /**
           <summary>Shows the link associated to the specified text on the page at the specified location.
@@ -888,9 +845,7 @@ namespace HES.Documents.Contents.Composition
           string value,
           PointF location,
           Actions::Action action
-          )
-        {
-            return ShowText(
+          ) => ShowText(
               value,
               location,
               XAlignmentEnum.Left,
@@ -898,7 +853,6 @@ namespace HES.Documents.Contents.Composition
               0,
               action
               );
-        }
 
         /**
           <summary>Shows the specified text on the page at the specified location [PDF:1.6:5.3.2].
@@ -1097,8 +1051,7 @@ namespace HES.Documents.Contents.Composition
         */
         public void ShowXObject(
           PdfName name
-          )
-        { Add(new Objects::PaintXObject(name)); }
+          ) => Add(new Objects::PaintXObject(name));
 
         /**
           <summary>Shows the specified external object [PDF:1.6:4.7].</summary>
@@ -1109,8 +1062,7 @@ namespace HES.Documents.Contents.Composition
         */
         public void ShowXObject(
           XObject value
-          )
-        { ShowXObject(GetResourceName(value)); }
+          ) => ShowXObject(GetResourceName(value));
 
         /**
           <summary>Shows the specified external object at the specified position [PDF:1.6:4.7].</summary>
@@ -1120,14 +1072,11 @@ namespace HES.Documents.Contents.Composition
         public void ShowXObject(
           PdfName name,
           PointF location
-          )
-        {
-            ShowXObject(
+          ) => ShowXObject(
               name,
               location,
               null
               );
-        }
 
         /**
           <summary>Shows the specified external object at the specified position [PDF:1.6:4.7].</summary>
@@ -1140,13 +1089,10 @@ namespace HES.Documents.Contents.Composition
         public void ShowXObject(
           XObject value,
           PointF location
-          )
-        {
-            ShowXObject(
+          ) => ShowXObject(
               GetResourceName(value),
               location
               );
-        }
 
         /**
           <summary>Shows the specified external object at the specified position [PDF:1.6:4.7].</summary>
@@ -1158,9 +1104,7 @@ namespace HES.Documents.Contents.Composition
           PdfName name,
           PointF location,
           SizeF? size
-          )
-        {
-            ShowXObject(
+          ) => ShowXObject(
               name,
               location,
               size,
@@ -1168,7 +1112,6 @@ namespace HES.Documents.Contents.Composition
               YAlignmentEnum.Top,
               0
               );
-        }
 
         /**
           <summary>Shows the specified external object at the specified position [PDF:1.6:4.7].</summary>
@@ -1183,14 +1126,11 @@ namespace HES.Documents.Contents.Composition
           XObject value,
           PointF location,
           SizeF? size
-          )
-        {
-            ShowXObject(
+          ) => ShowXObject(
               GetResourceName(value),
               location,
               size
               );
-        }
 
         /**
           <summary>Shows the specified external object at the specified position [PDF:1.6:4.7].</summary>
@@ -1293,9 +1233,7 @@ namespace HES.Documents.Contents.Composition
           XAlignmentEnum xAlignment,
           YAlignmentEnum yAlignment,
           double rotation
-          )
-        {
-            ShowXObject(
+          ) => ShowXObject(
               GetResourceName(value),
               location,
               size,
@@ -1303,7 +1241,6 @@ namespace HES.Documents.Contents.Composition
               yAlignment,
               rotation
               );
-        }
 
         /**
           <summary>Begins a subpath [PDF:1.6:4.4.1].</summary>
@@ -1311,23 +1248,19 @@ namespace HES.Documents.Contents.Composition
         */
         public void StartPath(
           PointF startPoint
-          )
-        {
-            Add(
+          ) => Add(
               new Objects::BeginSubpath(
                 startPoint.X,
                 scanner.ContentContext.Box.Height - startPoint.Y
                 )
               );
-        }
 
         /**
           <summary>Strokes the path using the current color [PDF:1.6:4.4.2].</summary>
           <seealso cref="SetStrokeColor(Color)"/>
         */
         public void Stroke(
-          )
-        { Add(Objects::PaintPath.Stroke); }
+          ) => Add(Objects::PaintPath.Stroke);
 
         /**
           <summary>Applies a translation to the coordinate system from user space to device space
@@ -1339,35 +1272,29 @@ namespace HES.Documents.Contents.Composition
         public void Translate(
           double distanceX,
           double distanceY
-          )
-        { ApplyMatrix(1, 0, 0, 1, distanceX, distanceY); }
+          ) => ApplyMatrix(1, 0, 0, 1, distanceX, distanceY);
         #endregion
 
         #region private
         private void ApplyState_(
           PdfName name
-          )
-        { Add(new Objects::ApplyExtGState(name)); }
+          ) => Add(new Objects::ApplyExtGState(name));
 
         private Objects::MarkedContent BeginMarkedContent_(
           PdfName tag,
           PdfName propertyListName
-          )
-        {
-            return (Objects::MarkedContent)Begin(
+          ) => (Objects::MarkedContent)Begin(
               new Objects::MarkedContent(
                 new Objects::BeginMarkedContent(tag, propertyListName)
                 )
               );
-        }
 
         /**
           <summary>Begins a text object [PDF:1.6:5.3].</summary>
           <seealso cref="End()"/>
         */
         private Objects::Text BeginText(
-          )
-        { return (Objects::Text)Begin(new Objects::Text()); }
+          ) => (Objects::Text)Begin(new Objects::Text());
 
         //TODO: drawArc MUST seamlessly manage already-begun paths.
         private void DrawArc(
@@ -1532,14 +1459,12 @@ namespace HES.Documents.Contents.Composition
         private void ScaleText(
           double ratioX,
           double ratioY
-          )
-        { SetTextMatrix(ratioX, 0, 0, ratioY, 0, 0); }
+          ) => SetTextMatrix(ratioX, 0, 0, ratioY, 0, 0);
 
         private void SetFont_(
           PdfName name,
           double size
-          )
-        { Add(new Objects::SetFont(name, size)); }
+          ) => Add(new Objects::SetFont(name, size));
 
         /**
           <summary>Sets the transformation of the coordinate system from text space to user space
@@ -1559,8 +1484,7 @@ namespace HES.Documents.Contents.Composition
           double d,
           double e,
           double f
-          )
-        { Add(new Objects::SetTextMatrix(a, b, c, d, e, f)); }
+          ) => Add(new Objects::SetTextMatrix(a, b, c, d, e, f));
 
         /**
           <summary>Applies a translation to the coordinate system from text space to user space
@@ -1571,8 +1495,7 @@ namespace HES.Documents.Contents.Composition
         private void TranslateText(
           double distanceX,
           double distanceY
-          )
-        { SetTextMatrix(1, 0, 0, 1, distanceX, distanceY); }
+          ) => SetTextMatrix(1, 0, 0, 1, distanceX, distanceY);
 
         /**
           <summary>Applies a translation to the coordinate system from text space to user space,
@@ -1583,23 +1506,19 @@ namespace HES.Documents.Contents.Composition
         private void TranslateTextRelative(
           double offsetX,
           double offsetY
-          )
-        {
-            Add(
+          ) => Add(
               new Objects::TranslateTextRelative(
                 offsetX,
                 -offsetY
                 )
               );
-        }
 
         /**
           <summary>Applies a translation to the coordinate system from text space to user space,
           moving to the start of the next line [PDF:1.6:5.3.1].</summary>
         */
         private void TranslateTextToNextLine(
-          )
-        { Add(Objects::TranslateTextToNextLine.Value); }
+          ) => Add(Objects::TranslateTextToNextLine.Value);
         #endregion
         #endregion
         #endregion

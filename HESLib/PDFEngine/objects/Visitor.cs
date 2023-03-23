@@ -58,25 +58,22 @@ namespace HES.Objects
       return obj;
     }
 
-    public virtual PdfObject Visit(
-      PdfBoolean obj,
-      object data
-      )
-    {return obj;}
+        public virtual PdfObject Visit(
+          PdfBoolean obj,
+          object data
+          ) => obj;
 
-    public PdfObject Visit(
-      PdfDataObject obj,
-      object data
-      )
-    {return obj.Accept(this, data);}
+        public PdfObject Visit(
+          PdfDataObject obj,
+          object data
+          ) => obj.Accept(this, data);
 
-    public virtual PdfObject Visit(
-      PdfDate obj,
-      object data
-      )
-    {return obj;}
+        public virtual PdfObject Visit(
+          PdfDate obj,
+          object data
+          ) => obj;
 
-    public virtual PdfObject Visit(
+        public virtual PdfObject Visit(
       PdfDictionary obj,
       object data
       )
@@ -100,25 +97,22 @@ namespace HES.Objects
       return obj;
     }
 
-    public virtual PdfObject Visit(
-      PdfInteger obj,
-      object data
-      )
-    {return obj;}
+        public virtual PdfObject Visit(
+          PdfInteger obj,
+          object data
+          ) => obj;
 
-    public virtual PdfObject Visit(
-      PdfName obj,
-      object data
-      )
-    {return obj;}
+        public virtual PdfObject Visit(
+          PdfName obj,
+          object data
+          ) => obj;
 
-    public virtual PdfObject Visit(
-      PdfReal obj,
-      object data
-      )
-    {return obj;}
+        public virtual PdfObject Visit(
+          PdfReal obj,
+          object data
+          ) => obj;
 
-    public virtual PdfObject Visit(
+        public virtual PdfObject Visit(
       PdfReference obj,
       object data
       )
@@ -127,28 +121,24 @@ namespace HES.Objects
       return obj;
     }
 
-    public virtual PdfObject Visit(
-      PdfStream obj,
-      object data
-      )
-    {return obj;}
+        public virtual PdfObject Visit(
+          PdfStream obj,
+          object data
+          ) => obj;
 
-    public virtual PdfObject Visit(
-      PdfString obj,
-      object data
-      )
-    {return obj;}
+        public virtual PdfObject Visit(
+          PdfString obj,
+          object data
+          ) => obj;
 
-    public virtual PdfObject Visit(
-      PdfTextString obj,
-      object data
-      )
-    {return obj;}
+        public virtual PdfObject Visit(
+          PdfTextString obj,
+          object data
+          ) => obj;
 
-    public virtual PdfObject Visit(
-      XRefStream obj,
-      object data
-      )
-    {return obj;}
-  }
+        public virtual PdfObject Visit(
+          XRefStream obj,
+          object data
+          ) => obj;
+    }
 }

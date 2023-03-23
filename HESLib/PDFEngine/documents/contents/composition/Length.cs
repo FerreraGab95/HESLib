@@ -80,14 +80,13 @@ namespace HES.Documents.Contents.Composition
       }
     }
 
-    public override string ToString(
-      )
-    {return value + " (" + unitMode + ")";}
+        public override string ToString(
+          ) => value + " (" + unitMode + ")";
 
-    /**
-      <summary>Gets/Sets the measurement mode applied to the distance value.</summary>
-    */
-    public UnitModeEnum UnitMode
+        /**
+          <summary>Gets/Sets the measurement mode applied to the distance value.</summary>
+        */
+        public UnitModeEnum UnitMode
     {
       get => unitMode;
       set => unitMode = value;

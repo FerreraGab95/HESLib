@@ -74,22 +74,21 @@ namespace HES.Documents.Contents.Objects
       IList<PdfDirectObject> operands
       ) : base(operator_, operands)
     {}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public override void Scan(
-      ContentScanner.GraphicsState state
-      )
-    {Scan(state, null);}
+        #region interface
+        #region public
+        public override void Scan(
+          ContentScanner.GraphicsState state
+          ) => Scan(state, null);
 
-    /**
-      <summary>Executes scanning on this operation.</summary>
-      <param name="state">Graphics state context.</param>
-      <param name="textScanner">Scanner to be notified about text contents.
-      In case it's null, the operation is applied to the graphics state context.</param>
-    */
-    public void Scan(
+        /**
+          <summary>Executes scanning on this operation.</summary>
+          <param name="state">Graphics state context.</param>
+          <param name="textScanner">Scanner to be notified about text contents.
+          In case it's null, the operation is applied to the graphics state context.</param>
+        */
+        public void Scan(
       ContentScanner.GraphicsState state,
       IScanner textScanner
       )

@@ -40,63 +40,57 @@ namespace HES.Documents.Files
     : PdfObjectWrapper<PdfDirectObject>,
       IPdfNamedObjectWrapper
   {
-    #region static
-    #region public
-    /**
-      <summary>Creates a new reference to an external file.</summary>
-      <param name="context">Document context.</param>
-      <param name="path">File path.</param>
-    */
-    public static SimpleFileSpecification Get(
-      Document context,
-      string path
-      )
-    {return (SimpleFileSpecification)Get(context, path, false);}
+        #region static
+        #region public
+        /**
+          <summary>Creates a new reference to an external file.</summary>
+          <param name="context">Document context.</param>
+          <param name="path">File path.</param>
+        */
+        public static SimpleFileSpecification Get(
+          Document context,
+          string path
+          ) => (SimpleFileSpecification)Get(context, path, false);
 
-    /**
-      <summary>Creates a new reference to a file.</summary>
-      <param name="context">Document context.</param>
-      <param name="path">File path.</param>
-      <param name="full">Whether the reference is able to support extended dependencies.</param>
-    */
-    public static FileSpecification Get(
-      Document context,
-      string path,
-      bool full
-      )
-    {
-      return full
-        ? (FileSpecification)new FullFileSpecification(context, path)
-        : (FileSpecification)new SimpleFileSpecification(context, path);
-    }
+        /**
+          <summary>Creates a new reference to a file.</summary>
+          <param name="context">Document context.</param>
+          <param name="path">File path.</param>
+          <param name="full">Whether the reference is able to support extended dependencies.</param>
+        */
+        public static FileSpecification Get(
+          Document context,
+          string path,
+          bool full
+          ) => full
+            ? (FileSpecification)new FullFileSpecification(context, path)
+            : (FileSpecification)new SimpleFileSpecification(context, path);
 
-    /**
-      <summary>Creates a new reference to an embedded file.</summary>
-      <param name="embeddedFile">Embedded file corresponding to the reference.</param>
-      <param name="filename">Name corresponding to the reference.</param>
-    */
-    public static FullFileSpecification Get(
-      EmbeddedFile embeddedFile,
-      string filename
-      )
-    {return new FullFileSpecification(embeddedFile, filename);}
+        /**
+          <summary>Creates a new reference to an embedded file.</summary>
+          <param name="embeddedFile">Embedded file corresponding to the reference.</param>
+          <param name="filename">Name corresponding to the reference.</param>
+        */
+        public static FullFileSpecification Get(
+          EmbeddedFile embeddedFile,
+          string filename
+          ) => new FullFileSpecification(embeddedFile, filename);
 
-    /**
-      <summary>Creates a new reference to a remote file.</summary>
-      <param name="context">Document context.</param>
-      <param name="url">Remote file location.</param>
-    */
-    public static FullFileSpecification Get(
-      Document context,
-      Uri url
-      )
-    {return new FullFileSpecification(context, url);}
+        /**
+          <summary>Creates a new reference to a remote file.</summary>
+          <param name="context">Document context.</param>
+          <param name="url">Remote file location.</param>
+        */
+        public static FullFileSpecification Get(
+          Document context,
+          Uri url
+          ) => new FullFileSpecification(context, url);
 
-    /**
-      <summary>Instantiates an existing file reference.</summary>
-      <param name="baseObject">Base object.</param>
-    */
-    public static FileSpecification Wrap(
+        /**
+          <summary>Instantiates an existing file reference.</summary>
+          <param name="baseObject">Base object.</param>
+        */
+        public static FileSpecification Wrap(
       PdfDirectObject baseObject
       )
     {
@@ -146,40 +140,34 @@ namespace HES.Documents.Files
       return path;
     }
 
-    /**
-      <summary>Gets an input stream to read from the file.</summary>
-    */
-    public virtual Bytes::IInputStream GetInputStream(
-      )
-    {
-      return new Bytes::Stream(
-        new io::FileStream(
-          GetAbsolutePath(),
-          io::FileMode.Open,
-          io::FileAccess.Read
-          )
-        );
-    }
+        /**
+          <summary>Gets an input stream to read from the file.</summary>
+        */
+        public virtual Bytes::IInputStream GetInputStream(
+          ) => new Bytes::Stream(
+            new io::FileStream(
+              GetAbsolutePath(),
+              io::FileMode.Open,
+              io::FileAccess.Read
+              )
+            );
 
-    /**
-      <summary>Gets an output stream to write into the file.</summary>
-    */
-    public virtual Bytes::IOutputStream GetOutputStream(
-      )
-    {
-      return new Bytes::Stream(
-        new io::FileStream(
-          GetAbsolutePath(),
-          io::FileMode.Create,
-          io::FileAccess.Write
-          )
-        );
-    }
+        /**
+          <summary>Gets an output stream to write into the file.</summary>
+        */
+        public virtual Bytes::IOutputStream GetOutputStream(
+          ) => new Bytes::Stream(
+            new io::FileStream(
+              GetAbsolutePath(),
+              io::FileMode.Create,
+              io::FileAccess.Write
+              )
+            );
 
-    /**
-      <summary>Gets the file path.</summary>
-    */
-    public abstract string Path
+        /**
+          <summary>Gets the file path.</summary>
+        */
+        public abstract string Path
     {
       get;
     }

@@ -41,37 +41,34 @@ namespace HES.Files
   public sealed class FileIdentifier
     : PdfObjectWrapper<PdfArray>
   {
-    #region static
-    #region public
-    /**
-      <summary>Gets an existing file identifier.</summary>
-      <param name="baseObject">Base object to wrap.</param>
-    */
-    public static FileIdentifier Wrap(
-      PdfDirectObject baseObject
-      )
-    {return baseObject != null ? new FileIdentifier(baseObject) : null;}
-    #endregion
+        #region static
+        #region public
+        /**
+          <summary>Gets an existing file identifier.</summary>
+          <param name="baseObject">Base object to wrap.</param>
+        */
+        public static FileIdentifier Wrap(
+          PdfDirectObject baseObject
+          ) => baseObject != null ? new FileIdentifier(baseObject) : null;
+        #endregion
 
-    #region private
-    private static void Digest(
-      BinaryWriter buffer,
-      object value
-      )
-    {buffer.Write(value.ToString());}
+        #region private
+        private static void Digest(
+          BinaryWriter buffer,
+          object value
+          ) => buffer.Write(value.ToString());
 
-    private static PdfArray CreateBaseDataObject(
-      )
-    {return new PdfArray(PdfString.Default, PdfString.Default);}
-    #endregion
-    #endregion
+        private static PdfArray CreateBaseDataObject(
+          ) => new PdfArray(PdfString.Default, PdfString.Default);
+        #endregion
+        #endregion
 
-    #region dynamic
-    #region constructors
-    /**
-      <summary>Creates a new direct file identifier.</summary>
-    */
-    public FileIdentifier(
+        #region dynamic
+        #region constructors
+        /**
+          <summary>Creates a new direct file identifier.</summary>
+        */
+        public FileIdentifier(
       ) : this(CreateBaseDataObject())
     {}
 

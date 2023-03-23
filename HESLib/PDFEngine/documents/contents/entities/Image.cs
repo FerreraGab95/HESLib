@@ -84,10 +84,7 @@ namespace HES.Documents.Contents.Entities
 
         #region Public Methods
 
-        public static Image Get(string path)
-        {
-            return Get(new FileStream(path, FileMode.Open, FileAccess.Read));
-        }
+        public static Image Get(string path) => Get(new FileStream(path, FileMode.Open, FileAccess.Read));
 
         public static Image Get(System.IO.Stream stream)
         {

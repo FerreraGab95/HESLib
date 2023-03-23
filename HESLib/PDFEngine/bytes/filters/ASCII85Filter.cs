@@ -104,8 +104,7 @@ namespace HES.Bytes.filters
         private static void DecodeBlock(
             byte[] decodedBlock,
             ref uint tuple
-                                       )
-        { DecodeBlock(decodedBlock, decodedBlock.Length, ref tuple); }
+                                       ) => DecodeBlock(decodedBlock, decodedBlock.Length, ref tuple);
 
         private static void DecodeBlock(
             byte[] decodedBlock,
@@ -122,8 +121,7 @@ namespace HES.Bytes.filters
             StringBuilder buffer,
             ref uint tuple,
             ref int linePos
-                                       )
-        { EncodeBlock(encodedBlock, encodedBlock.Length, buffer, ref tuple, ref linePos); }
+                                       ) => EncodeBlock(encodedBlock, encodedBlock.Length, buffer, ref tuple, ref linePos);
 
         private static void EncodeBlock(
             byte[] encodedBlock,

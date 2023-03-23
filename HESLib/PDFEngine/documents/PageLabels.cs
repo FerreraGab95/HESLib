@@ -50,16 +50,15 @@ namespace HES.Documents
       PdfDirectObject baseObject
       ) : base(baseObject)
     {}
-    #endregion
+        #endregion
 
-    #region interface
-    #region protected
-    protected override PageLabel WrapValue(
-      PdfDirectObject baseObject
-      )
-    {return PageLabel.Wrap(baseObject);}
-    #endregion
-    #endregion
-    #endregion
-  }
+        #region interface
+        #region protected
+        protected override PageLabel WrapValue(
+          PdfDirectObject baseObject
+          ) => PageLabel.Wrap(baseObject);
+        #endregion
+        #endregion
+        #endregion
+    }
 }

@@ -105,15 +105,14 @@ namespace HES.Objects
         )
       {Update();};
     }
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public override PdfObject Accept(
-      IVisitor visitor,
-      object data
-      )
-    {return visitor.Visit(this, data);}
+        #region interface
+        #region public
+        public override PdfObject Accept(
+          IVisitor visitor,
+          object data
+          ) => visitor.Visit(this, data);
 
         /**
           <summary>Gets the decoded stream body.</summary>

@@ -393,9 +393,8 @@ namespace HES.Documents.Interaction.Navigation.Document
       return mode;
     }
 
-    public static PdfName GetName(
-      this Destination.ModeEnum mode
-      )
-    {return codes[mode];}
-  }
+        public static PdfName GetName(
+          this Destination.ModeEnum mode
+          ) => codes[mode];
+    }
 }

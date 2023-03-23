@@ -99,8 +99,7 @@ namespace HES.Documents.Contents.ColorSpaces
 
         public override object Clone(
                         Document context
-                                    )
-        { throw new NotImplementedException(); }
+                                    ) => throw new NotImplementedException();
 
         /**
           <summary>Gets the color corresponding to the specified table index resolved according to
@@ -140,17 +139,13 @@ namespace HES.Documents.Contents.ColorSpaces
         public override Color GetColor(
             IList<PdfDirectObject> components,
             IContentContext context
-                                      )
-        { return new IndexedColor(components); }
+                                      ) => new IndexedColor(components);
 
         public override drawing::Brush GetPaint(
             Color color
-                                               )
-        {
-            return BaseSpace.GetPaint(
+                                               ) => BaseSpace.GetPaint(
                 GetBaseColor((IndexedColor)color)
                                      );
-        }
 
         #endregion Public Methods
 

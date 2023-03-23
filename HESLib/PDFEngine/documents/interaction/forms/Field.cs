@@ -404,10 +404,9 @@ namespace HES.Documents.Interaction.Forms
 
         protected PdfDirectObject GetInheritableAttribute(
       PdfName key
-      )
-    {return GetInheritableAttribute(BaseDataObject, key);}
-    #endregion
-    #endregion
-    #endregion
-  }
+      ) => GetInheritableAttribute(BaseDataObject, key);
+        #endregion
+        #endregion
+        #endregion
+    }
 }

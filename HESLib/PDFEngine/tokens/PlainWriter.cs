@@ -155,11 +155,10 @@ namespace HES.Tokens
       WriteTrailer(startxref, xrefSize, parser);
     }
 
-    protected override void WriteLinearized(
-      )
-    {throw new NotImplementedException();}
+        protected override void WriteLinearized(
+          ) => throw new NotImplementedException();
 
-    protected override void WriteStandard(
+        protected override void WriteStandard(
       )
     {
       // 1. Header [PDF:1.6:3.4.1].
@@ -260,43 +259,41 @@ namespace HES.Tokens
         .Append(usage).Append(XRefEOLChunk);
     }
 
-    /**
-      <summary>Appends the cross-reference subsection to the specified builder.</summary>
-      <param name="xrefBuilder">Target builder.</param>
-      <param name="firstObjectNumber">Object number of the first object in the subsection.</param>
-      <param name="entryCount">Number of entries in the subsection.</param>
-      <param name="xrefSubBuilder">Cross-reference subsection entries.</param>
-    */
-    private StringBuilder AppendXRefSubsection(
-      StringBuilder xrefBuilder,
-      int firstObjectNumber,
-      int entryCount,
-      StringBuilder xrefSubBuilder
-      )
-    {return AppendXRefSubsectionIndexer(xrefBuilder, firstObjectNumber, entryCount).Append(xrefSubBuilder);}
+        /**
+          <summary>Appends the cross-reference subsection to the specified builder.</summary>
+          <param name="xrefBuilder">Target builder.</param>
+          <param name="firstObjectNumber">Object number of the first object in the subsection.</param>
+          <param name="entryCount">Number of entries in the subsection.</param>
+          <param name="xrefSubBuilder">Cross-reference subsection entries.</param>
+        */
+        private StringBuilder AppendXRefSubsection(
+          StringBuilder xrefBuilder,
+          int firstObjectNumber,
+          int entryCount,
+          StringBuilder xrefSubBuilder
+          ) => AppendXRefSubsectionIndexer(xrefBuilder, firstObjectNumber, entryCount).Append(xrefSubBuilder);
 
-    /**
-      <summary>Appends the cross-reference subsection indexer to the specified builder.</summary>
-      <param name="xrefBuilder">Target builder.</param>
-      <param name="firstObjectNumber">Object number of the first object in the subsection.</param>
-      <param name="entryCount">Number of entries in the subsection.</param>
-    */
-    private StringBuilder AppendXRefSubsectionIndexer(
-      StringBuilder xrefBuilder,
-      int firstObjectNumber,
-      int entryCount
-      )
-    {return xrefBuilder.Append(firstObjectNumber).Append(Symbol.Space).Append(entryCount).Append(Symbol.LineFeed);}
+        /**
+          <summary>Appends the cross-reference subsection indexer to the specified builder.</summary>
+          <param name="xrefBuilder">Target builder.</param>
+          <param name="firstObjectNumber">Object number of the first object in the subsection.</param>
+          <param name="entryCount">Number of entries in the subsection.</param>
+        */
+        private StringBuilder AppendXRefSubsectionIndexer(
+          StringBuilder xrefBuilder,
+          int firstObjectNumber,
+          int entryCount
+          ) => xrefBuilder.Append(firstObjectNumber).Append(Symbol.Space).Append(entryCount).Append(Symbol.LineFeed);
 
-    /**
-      <summary>Serializes the file trailer [PDF:1.6:3.4.4].</summary>
-      <param name="startxref">Byte offset from the beginning of the file to the beginning
-        of the last cross-reference section.</param>
-      <param name="xrefSize">Total number of entries in the file's cross-reference table,
-        as defined by the combination of the original section and all update sections.</param>
-      <param name="parser">File parser.</param>
-    */
-    private void WriteTrailer(
+        /**
+          <summary>Serializes the file trailer [PDF:1.6:3.4.4].</summary>
+          <param name="startxref">Byte offset from the beginning of the file to the beginning
+            of the last cross-reference section.</param>
+          <param name="xrefSize">Total number of entries in the file's cross-reference table,
+            as defined by the combination of the original section and all update sections.</param>
+          <param name="parser">File parser.</param>
+        */
+        private void WriteTrailer(
       long startxref,
       int xrefSize,
       FileParser parser

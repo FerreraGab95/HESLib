@@ -40,20 +40,19 @@ namespace HES.Documents.Interaction.Forms
   public sealed class Form
     : PdfObjectWrapper<PdfDictionary>
   {
-    #region static
-    #region interface
-    #region public
-    public static Form Wrap(
-      PdfDirectObject baseObject
-      )
-    {return baseObject != null ? new Form(baseObject) : null;}
-    #endregion
-    #endregion
-    #endregion
+        #region static
+        #region interface
+        #region public
+        public static Form Wrap(
+          PdfDirectObject baseObject
+          ) => baseObject != null ? new Form(baseObject) : null;
+        #endregion
+        #endregion
+        #endregion
 
-    #region dynamic
-    #region constructors
-    public Form(
+        #region dynamic
+        #region constructors
+        public Form(
       Document context
       ) : base(
         context,

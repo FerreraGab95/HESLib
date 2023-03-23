@@ -57,20 +57,19 @@ namespace HES.Documents.Contents.Objects
       IList<PdfDirectObject> operands
       ) : base(OperatorKeyword, operands)
     {}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    /**
-      <summary>Gets the <see cref="ColorSpace">color space</see> resource to be set.</summary>
-      <param name="context">Content context.</param>
-    */
-    public ColorSpace GetColorSpace(
-      IContentContext context
-      )
-    {return GetResource(context);}
+        #region interface
+        #region public
+        /**
+          <summary>Gets the <see cref="ColorSpace">color space</see> resource to be set.</summary>
+          <param name="context">Content context.</param>
+        */
+        public ColorSpace GetColorSpace(
+          IContentContext context
+          ) => GetResource(context);
 
-    public override void Scan(
+        public override void Scan(
       ContentScanner.GraphicsState state
       )
     {

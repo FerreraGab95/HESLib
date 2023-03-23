@@ -51,36 +51,33 @@ namespace HES.Documents.Contents.Fonts
       Encodings[PdfName.MacRomanEncoding] = new MacRomanEncoding();
       Encodings[PdfName.WinAnsiEncoding] = new WinAnsiEncoding();
     }
-    #endregion
+        #endregion
 
-    #region interface
-    public static Encoding Get(
-      PdfName name
-      )
-    {return Encodings[name];}
-    #endregion
-    #endregion
+        #region interface
+        public static Encoding Get(
+          PdfName name
+          ) => Encodings[name];
+        #endregion
+        #endregion
 
-    #region dynamic
-    #region fields
-    private readonly Dictionary<ByteArray,int> codes = new Dictionary<ByteArray,int>();
-    #endregion
+        #region dynamic
+        #region fields
+        private readonly Dictionary<ByteArray,int> codes = new Dictionary<ByteArray,int>();
+        #endregion
 
-    #region interface
-    #region public
-    public Dictionary<ByteArray,int> GetCodes(
-      )
-    {return new Dictionary<ByteArray,int>(codes);}
-    #endregion
+        #region interface
+        #region public
+        public Dictionary<ByteArray, int> GetCodes(
+          ) => new Dictionary<ByteArray, int>(codes);
+        #endregion
 
-    #region protected
-    protected void Put(
-      int charCode,
-      string charName
-      )
-    {codes[new ByteArray(new byte[]{(byte)charCode})] = GlyphMapping.NameToCode(charName).Value;}
-    #endregion
-    #endregion
-    #endregion
-  }
+        #region protected
+        protected void Put(
+          int charCode,
+          string charName
+          ) => codes[new ByteArray(new byte[] { (byte)charCode })] = GlyphMapping.NameToCode(charName).Value;
+        #endregion
+        #endregion
+        #endregion
+    }
 }

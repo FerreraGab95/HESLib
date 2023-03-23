@@ -54,8 +54,7 @@ namespace HES.Tools
         */
         public static long GetSize(
           Page page
-          )
-        { return GetSize(page, new HashSet<PdfReference>()); }
+          ) => GetSize(page, new HashSet<PdfReference>());
 
         /**
           <summary>Gets the data size of the specified page expressed in bytes.</summary>
@@ -67,8 +66,7 @@ namespace HES.Tools
         public static long GetSize(
           Page page,
           HashSet<PdfReference> visitedReferences
-          )
-        { return GetSize(page.BaseObject, visitedReferences, true); }
+          ) => GetSize(page.BaseObject, visitedReferences, true);
         #endregion
 
         #region private
@@ -158,8 +156,7 @@ namespace HES.Tools
         */
         public void Add(
           Document document
-          )
-        { Add((ICollection<Page>)document.Pages); }
+          ) => Add((ICollection<Page>)document.Pages);
 
         /**
           <summary>Inserts a document at the specified position in the document.</summary>
@@ -169,8 +166,7 @@ namespace HES.Tools
         public void Add(
           int index,
           Document document
-          )
-        { Add(index, (ICollection<Page>)document.Pages); }
+          ) => Add(index, (ICollection<Page>)document.Pages);
 
         /**
           <summary>Appends a collection of pages to the end of the document.</summary>

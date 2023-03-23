@@ -126,17 +126,16 @@ namespace HES.Objects
     protected PdfString(
       )
     {}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public override PdfObject Accept(
-      IVisitor visitor,
-      object data
-      )
-    {return visitor.Visit(this, data);}
+        #region interface
+        #region public
+        public override PdfObject Accept(
+          IVisitor visitor,
+          object data
+          ) => visitor.Visit(this, data);
 
-    public override int CompareTo(
+        public override int CompareTo(
       PdfDirectObject obj
       )
     {
@@ -158,10 +157,9 @@ namespace HES.Objects
         public string StringValue => (string)Value;
 
         public byte[] ToByteArray(
-      )
-    {return (byte[])RawValue.Clone();}
+      ) => (byte[])RawValue.Clone();
 
-    public override string ToString(
+        public override string ToString(
       )
     {
       switch(serializationMode)

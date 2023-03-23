@@ -40,24 +40,23 @@ namespace HES.Objects
   public abstract class PdfObjectWrapper
     : IPdfObjectWrapper
   {
-    #region static
-    #region interface
-    #region public
-    /**
-      <summary>Gets the PDF object backing the specified wrapper.</summary>
-      <param name="wrapper">Object to extract the base from.</param>
-    */
-    public static PdfDirectObject GetBaseObject(
-      PdfObjectWrapper wrapper
-      )
-    {return (wrapper != null ? wrapper.BaseObject : null);}
-    #endregion
-    #endregion
-    #endregion
+        #region static
+        #region interface
+        #region public
+        /**
+          <summary>Gets the PDF object backing the specified wrapper.</summary>
+          <param name="wrapper">Object to extract the base from.</param>
+        */
+        public static PdfDirectObject GetBaseObject(
+          PdfObjectWrapper wrapper
+          ) => (wrapper != null ? wrapper.BaseObject : null);
+        #endregion
+        #endregion
+        #endregion
 
-    #region dynamic
-    #region fields
-    private PdfDirectObject baseObject;
+        #region dynamic
+        #region fields
+        private PdfDirectObject baseObject;
     #endregion
 
     #region constructors
@@ -135,14 +134,11 @@ namespace HES.Objects
       }
     }
 
-    public override bool Equals(
-      object obj
-      )
-    {
-      return obj != null
-        && obj.GetType().Equals(GetType())
-        && ((PdfObjectWrapper)obj).baseObject.Equals(baseObject);
-    }
+        public override bool Equals(
+          object obj
+          ) => obj != null
+            && obj.GetType().Equals(GetType())
+            && ((PdfObjectWrapper)obj).baseObject.Equals(baseObject);
 
         /**
           <summary>Gets the file context.</summary>
@@ -150,11 +146,10 @@ namespace HES.Objects
         public PdfFile File => baseObject.File;
 
         public override int GetHashCode(
-      )
-    {return baseObject.GetHashCode();}
+      ) => baseObject.GetHashCode();
 
-    #region IPdfObjectWrapper
-    public virtual PdfDirectObject BaseObject
+        #region IPdfObjectWrapper
+        public virtual PdfDirectObject BaseObject
     {
       get => baseObject;
       protected set => baseObject = value;
@@ -373,17 +368,16 @@ namespace HES.Objects
           <summary>Gets whether the underlying data object is concrete.</summary>
         */
         public bool Exists(
-      )
-    {return !BaseDataObject.Virtual;}
+      ) => !BaseDataObject.Virtual;
 
-    /**
-      <summary>Gets/Sets the metadata associated to this object.</summary>
-      <returns><code>null</code>, if base data object's type isn't suitable (only
-      <see cref="PdfDictionary"/> and <see cref="PdfStream"/> objects are allowed).</returns>
-      <throws>NotSupportedException If base data object's type isn't suitable (only
-      <see cref="PdfDictionary"/> and <see cref="PdfStream"/> objects are allowed).</throws>
-    */
-    public Metadata Metadata
+        /**
+          <summary>Gets/Sets the metadata associated to this object.</summary>
+          <returns><code>null</code>, if base data object's type isn't suitable (only
+          <see cref="PdfDictionary"/> and <see cref="PdfStream"/> objects are allowed).</returns>
+          <throws>NotSupportedException If base data object's type isn't suitable (only
+          <see cref="PdfDictionary"/> and <see cref="PdfStream"/> objects are allowed).</throws>
+        */
+        public Metadata Metadata
     {
       get
       {

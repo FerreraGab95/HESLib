@@ -74,22 +74,18 @@ namespace HES.Documents.Contents.ColorSpaces
 
         public override object Clone(
                                Document context
-                                    )
-        { throw new NotImplementedException(); }
+                                    ) => throw new NotImplementedException();
 
         public override Color GetColor(
             IList<PdfDirectObject> components,
             IContentContext context
-                                      )
-        { return new CalGrayColor(components); }
+                                      ) => new CalGrayColor(components);
 
         public override drawing::Brush GetPaint(
             Color color
-                                               )
-        {
+                                               ) =>
             // FIXME: temporary hack
-            return new drawing::SolidBrush(drawing::Color.Black);
-        }
+            new drawing::SolidBrush(drawing::Color.Black);
 
         #endregion Public Methods
     }

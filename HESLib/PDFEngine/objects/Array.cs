@@ -62,47 +62,44 @@ namespace HES.Objects
         )
       {itemConstructor = typeof(TItem).GetMethod("Wrap", new Type[]{typeof(PdfDirectObject)});}
 
-      public T Wrap(
-        PdfDirectObject baseObject
-        )
-      {return (T)itemConstructor.Invoke(null, new object[]{baseObject});}
-    }
-    #endregion
+            public T Wrap(
+              PdfDirectObject baseObject
+              ) => (T)itemConstructor.Invoke(null, new object[] { baseObject });
+        }
+        #endregion
 
-    #region static
-    #region interface
-    #region public
-    /**
-      <summary>Wraps an existing base array using the default wrapper for wrapping its items.
-      </summary>
-      <param name="itemClass">Item class.</param>
-      <param name="baseObject">Base array. MUST be a {@link PdfReference reference} every time
-      available.</param>
-    */
-    public static Array<T> Wrap<T>(
-      PdfDirectObject baseObject
-      ) where T : TItem
-    {return baseObject != null ? new Array<T>(baseObject) : null;}
-  
-    /**
-      <summary>Wraps an existing base array using the specified wrapper for wrapping its items.
-      </summary>
-      <param name="itemWrapper">Item wrapper.</param>
-      <param name="baseObject">Base array. MUST be a {@link PdfReference reference} every time
-      available.</param>
-    */
-    public static Array<T> Wrap<T>(
-      Array<T>.IWrapper<T> itemWrapper,
-      PdfDirectObject baseObject
-      ) where T : TItem
-    {return baseObject != null ? new Array<T>(itemWrapper, baseObject) : null;}
-    #endregion
-    #endregion
-    #endregion
+        #region static
+        #region interface
+        #region public
+        /**
+          <summary>Wraps an existing base array using the default wrapper for wrapping its items.
+          </summary>
+          <param name="itemClass">Item class.</param>
+          <param name="baseObject">Base array. MUST be a {@link PdfReference reference} every time
+          available.</param>
+        */
+        public static Array<T> Wrap<T>(
+          PdfDirectObject baseObject
+          ) where T : TItem => baseObject != null ? new Array<T>(baseObject) : null;
 
-    #region dynamic
-    #region fields
-    private IWrapper<TItem> itemWrapper;
+        /**
+          <summary>Wraps an existing base array using the specified wrapper for wrapping its items.
+          </summary>
+          <param name="itemWrapper">Item wrapper.</param>
+          <param name="baseObject">Base array. MUST be a {@link PdfReference reference} every time
+          available.</param>
+        */
+        public static Array<T> Wrap<T>(
+          Array<T>.IWrapper<T> itemWrapper,
+          PdfDirectObject baseObject
+          ) where T : TItem => baseObject != null ? new Array<T>(itemWrapper, baseObject) : null;
+        #endregion
+        #endregion
+        #endregion
+
+        #region dynamic
+        #region fields
+        private IWrapper<TItem> itemWrapper;
     #endregion
 
     #region constructors
@@ -185,28 +182,25 @@ namespace HES.Objects
       PdfDirectObject baseObject
       ) : base(baseObject)
     {this.itemWrapper = itemWrapper;}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    #region IList<TItem>
-    public virtual int IndexOf(
-      TItem item
-      )
-    {return BaseDataObject.IndexOf(item.BaseObject);}
+        #region interface
+        #region public
+        #region IList<TItem>
+        public virtual int IndexOf(
+          TItem item
+          ) => BaseDataObject.IndexOf(item.BaseObject);
 
-    public virtual void Insert(
-      int index,
-      TItem item
-      )
-    {BaseDataObject.Insert(index, item.BaseObject);}
+        public virtual void Insert(
+          int index,
+          TItem item
+          ) => BaseDataObject.Insert(index, item.BaseObject);
 
-    public virtual void RemoveAt(
-      int index
-      )
-    {BaseDataObject.RemoveAt(index);}
+        public virtual void RemoveAt(
+          int index
+          ) => BaseDataObject.RemoveAt(index);
 
-    public virtual TItem this[
+        public virtual TItem this[
       int index
       ]
     {
@@ -217,10 +211,9 @@ namespace HES.Objects
         #region ICollection<TItem>
         public virtual void Add(
       TItem item
-      )
-    {BaseDataObject.Add(item.BaseObject);}
+      ) => BaseDataObject.Add(item.BaseObject);
 
-    public virtual void Clear(
+        public virtual void Clear(
       )
     {
       int index = Count;
@@ -228,16 +221,14 @@ namespace HES.Objects
       {RemoveAt(index);}
     }
 
-    public virtual bool Contains(
-      TItem item
-      )
-    {return BaseDataObject.Contains(item.BaseObject);}
+        public virtual bool Contains(
+          TItem item
+          ) => BaseDataObject.Contains(item.BaseObject);
 
-    public virtual void CopyTo(
-      TItem[] items,
-      int index
-      )
-    {throw new NotImplementedException();}
+        public virtual void CopyTo(
+          TItem[] items,
+          int index
+          ) => throw new NotImplementedException();
 
         public virtual int Count => BaseDataObject.Count;
 
@@ -245,27 +236,25 @@ namespace HES.Objects
 
         public virtual bool Remove(
       TItem item
-      )
-    {return BaseDataObject.Remove(item.BaseObject);}
+      ) => BaseDataObject.Remove(item.BaseObject);
 
-    #region IEnumerable<TItem>
-    public virtual IEnumerator<TItem> GetEnumerator(
+        #region IEnumerable<TItem>
+        public virtual IEnumerator<TItem> GetEnumerator(
       )
     {
       for(int index = 0, length = Count; index < length; index++)
       {yield return this[index];}
     }
 
-    #region IEnumerable
-    IEnumerator IEnumerable.GetEnumerator(
-      )
-    {return this.GetEnumerator();}
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-  }
+        #region IEnumerable
+        IEnumerator IEnumerable.GetEnumerator(
+          ) => this.GetEnumerator();
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+    }
 }

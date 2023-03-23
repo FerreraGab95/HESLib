@@ -54,20 +54,19 @@ namespace HES.Documents.Contents.Objects
       IList<PdfDirectObject> operands
       ) : base(OperatorKeyword, operands)
     {}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public override void Scan(
-      ContentScanner.GraphicsState state
-      )
-    {state.Scale = Value;}
+        #region interface
+        #region public
+        public override void Scan(
+          ContentScanner.GraphicsState state
+          ) => state.Scale = Value;
 
-    /**
-      <summary>Gets/Sets the horizontal scale expressed as a percentage of the normal width (100).
-      </summary>
-    */
-    public double Value
+        /**
+          <summary>Gets/Sets the horizontal scale expressed as a percentage of the normal width (100).
+          </summary>
+        */
+        public double Value
     {
       get => ((IPdfNumber)operands[0]).RawValue;
       set => operands[0] = PdfReal.Get(value);

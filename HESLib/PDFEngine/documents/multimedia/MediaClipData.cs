@@ -212,9 +212,8 @@ namespace HES.Documents.Multimedia
       return tempFilePermission;
     }
 
-    public static PdfString GetCode(
-      this MediaClipData.TempFilePermissionEnum tempFilePermission
-      )
-    {return codes[tempFilePermission];}
-  }
+        public static PdfString GetCode(
+          this MediaClipData.TempFilePermissionEnum tempFilePermission
+          ) => codes[tempFilePermission];
+    }
 }

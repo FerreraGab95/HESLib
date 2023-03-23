@@ -99,21 +99,20 @@ namespace HES.Documents.Contents.Layers
     public static readonly PdfName TypeName = PdfName.OCG;
 
     private static readonly PdfName MembershipName = new PdfName("D-OCMD");
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public static new Layer Wrap(
-      PdfDirectObject baseObject
-      )
-    {return baseObject != null ? new Layer(baseObject) : null;}
-    #endregion
-    #endregion
-    #endregion
+        #region interface
+        #region public
+        public static new Layer Wrap(
+          PdfDirectObject baseObject
+          ) => baseObject != null ? new Layer(baseObject) : null;
+        #endregion
+        #endregion
+        #endregion
 
-    #region dynamic
-    #region constructors
-    public Layer(
+        #region dynamic
+        #region constructors
+        public Layer(
       Document context,
       string title
       ) : base(context, PdfName.OCG)
@@ -263,14 +262,13 @@ namespace HES.Documents.Contents.Layers
         }
 
         public override string ToString(
-      )
-    {return Title;}
+      ) => Title;
 
-    /**
-      <summary>Gets/Sets whether this layer is visible when the document is opened in a viewer
-      application.</summary>
-    */
-    public bool Viewable
+        /**
+          <summary>Gets/Sets whether this layer is visible when the document is opened in a viewer
+          application.</summary>
+        */
+        public bool Viewable
         {
             get => StateEnumExtension.Get((PdfName)GetUsageEntry(PdfName.View)[PdfName.ViewState]).IsEnabled();
             set
@@ -429,10 +427,9 @@ namespace HES.Documents.Contents.Layers
       return null;
     }
 
-    private PdfDictionary GetUsageEntry(
-      PdfName key
-      )
-    {return Usage.Resolve<PdfDictionary>(key);}
+        private PdfDictionary GetUsageEntry(
+          PdfName key
+          ) => Usage.Resolve<PdfDictionary>(key);
 
         private PdfDictionary Usage => BaseDataObject.Resolve<PdfDictionary>(PdfName.Usage);
         #endregion
@@ -465,19 +462,16 @@ namespace HES.Documents.Contents.Layers
       return state.Value;
     }
 
-    public static Layer.StateEnum Get(
-      bool? enabled
-      )
-    {return !enabled.HasValue || enabled.Value ? Layer.StateEnum.On : Layer.StateEnum.Off;}
+        public static Layer.StateEnum Get(
+          bool? enabled
+          ) => !enabled.HasValue || enabled.Value ? Layer.StateEnum.On : Layer.StateEnum.Off;
 
-    public static PdfName GetName(
-      this Layer.StateEnum state
-      )
-    {return codes[state];}
+        public static PdfName GetName(
+          this Layer.StateEnum state
+          ) => codes[state];
 
-    public static bool IsEnabled(
-      this Layer.StateEnum state
-      )
-    {return state == Layer.StateEnum.On;}
-  }
+        public static bool IsEnabled(
+          this Layer.StateEnum state
+          ) => state == Layer.StateEnum.On;
+    }
 }

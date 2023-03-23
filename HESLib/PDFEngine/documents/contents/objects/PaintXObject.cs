@@ -75,23 +75,21 @@ namespace HES.Documents.Contents.Objects
         : null;
     }
 
-    /**
-      <summary>Gets the <see cref="xObjects::XObject">external object</see> resource to be painted.
-      </summary>
-      <param name="context">Content context.</param>
-    */
-    public xObjects::XObject GetXObject(
-      IContentContext context
-      )
-    {return GetResource(context);}
+        /**
+          <summary>Gets the <see cref="xObjects::XObject">external object</see> resource to be painted.
+          </summary>
+          <param name="context">Content context.</param>
+        */
+        public xObjects::XObject GetXObject(
+          IContentContext context
+          ) => GetResource(context);
 
-    #region IResourceReference
-    public xObjects::XObject GetResource(
-      IContentContext context
-      )
-    {return context.Resources.XObjects[Name];}
+        #region IResourceReference
+        public xObjects::XObject GetResource(
+          IContentContext context
+          ) => context.Resources.XObjects[Name];
 
-    public PdfName Name
+        public PdfName Name
     {
       get => (PdfName)operands[0];
       set => operands[0] = value;

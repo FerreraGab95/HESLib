@@ -132,25 +132,23 @@ namespace HES.Documents
       }
     }
 
-    public static Page Wrap(
-      PdfDirectObject baseObject
-      )
-    {return baseObject == null ? null : new Page(baseObject);}
-    #endregion
+        public static Page Wrap(
+          PdfDirectObject baseObject
+          ) => baseObject == null ? null : new Page(baseObject);
+        #endregion
 
-    #region private
-    /**
-      <summary>Gets the code corresponding to the given value.</summary>
-    */
-    private static PdfName ToCode(
-      TabOrderEnum value
-      )
-    {return TabOrderEnumCodes[value];}
+        #region private
+        /**
+          <summary>Gets the code corresponding to the given value.</summary>
+        */
+        private static PdfName ToCode(
+          TabOrderEnum value
+          ) => TabOrderEnumCodes[value];
 
-    /**
-      <summary>Gets the tab order corresponding to the given value.</summary>
-    */
-    private static TabOrderEnum ToTabOrderEnum(
+        /**
+          <summary>Gets the tab order corresponding to the given value.</summary>
+        */
+        private static TabOrderEnum ToTabOrderEnum(
       PdfName value
       )
     {
@@ -486,10 +484,9 @@ namespace HES.Documents
         #region IContentEntity
         public ContentObject ToInlineObject(
       PrimitiveComposer composer
-      )
-    {throw new NotImplementedException();}
+      ) => throw new NotImplementedException();
 
-    public xObjects::XObject ToXObject(
+        public xObjects::XObject ToXObject(
       Document context
       )
     {
@@ -516,17 +513,16 @@ namespace HES.Documents
       }
       return form;
     }
-    #endregion
-    #endregion
-    #endregion
+        #endregion
+        #endregion
+        #endregion
 
-    #region private
-    private PdfDirectObject GetInheritableAttribute(
-      PdfName key
-      )
-    {return GetInheritableAttribute(BaseDataObject, key);}
-    #endregion
-    #endregion
-    #endregion
-  }
+        #region private
+        private PdfDirectObject GetInheritableAttribute(
+          PdfName key
+          ) => GetInheritableAttribute(BaseDataObject, key);
+        #endregion
+        #endregion
+        #endregion
+    }
 }

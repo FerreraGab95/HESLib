@@ -115,14 +115,13 @@ namespace HES.Documents
         return null;
     }
 
-    public PdfObjectWrapper Get(
-      Type type,
-      PdfString key
-      )
-    {return (PdfObjectWrapper)type.GetMethod("get_Item", BindingFlags.Public | BindingFlags.Instance).Invoke(Get(type), new object[]{ key });}
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-  }
+        public PdfObjectWrapper Get(
+          Type type,
+          PdfString key
+          ) => (PdfObjectWrapper)type.GetMethod("get_Item", BindingFlags.Public | BindingFlags.Instance).Invoke(Get(type), new object[] { key });
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+    }
 }

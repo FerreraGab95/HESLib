@@ -43,26 +43,23 @@ namespace HES.Tokens
     internal PdfEncoding(
       )
     {}
-    #endregion
+        #endregion
 
-    #region interface
-    public override string Decode(
-      byte[] value
-      )
-    {return Charset.ISO88591.GetString(value);}
+        #region interface
+        public override string Decode(
+          byte[] value
+          ) => Charset.ISO88591.GetString(value);
 
-    public override string Decode(
-      byte[] value,
-      int index,
-      int length
-      )
-    {return Charset.ISO88591.GetString(value, index, length);}
+        public override string Decode(
+          byte[] value,
+          int index,
+          int length
+          ) => Charset.ISO88591.GetString(value, index, length);
 
-    public override byte[] Encode(
-      string value
-      )
-    {return Charset.ISO88591.GetBytes(value);}
-    #endregion
-    #endregion
-  }
+        public override byte[] Encode(
+          string value
+          ) => Charset.ISO88591.GetBytes(value);
+        #endregion
+        #endregion
+    }
 }

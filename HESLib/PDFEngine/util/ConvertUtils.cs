@@ -64,19 +64,17 @@ namespace HES.Util
       return new string(result);
     }
 
-    public static int ByteArrayToInt(
-      byte[] data
-      )
-    {return ByteArrayToInt(data,0,ByteOrderEnum.BigEndian);}
+        public static int ByteArrayToInt(
+          byte[] data
+          ) => ByteArrayToInt(data, 0, ByteOrderEnum.BigEndian);
 
-    public static int ByteArrayToInt(
-      byte[] data,
-      int index,
-      ByteOrderEnum byteOrder
-      )
-    {return ByteArrayToNumber(data,index,4,byteOrder);}
+        public static int ByteArrayToInt(
+          byte[] data,
+          int index,
+          ByteOrderEnum byteOrder
+          ) => ByteArrayToNumber(data, index, 4, byteOrder);
 
-    public static int ByteArrayToNumber(
+        public static int ByteArrayToNumber(
       byte[] data,
       int index,
       int length,
@@ -122,12 +120,11 @@ namespace HES.Util
       return result;
     }
 
-    public static byte[] IntToByteArray(
-      int data
-      )
-    {return new byte[]{(byte)(data >> 24), (byte)(data >> 16), (byte)(data >> 8), (byte)data};}
+        public static byte[] IntToByteArray(
+          int data
+          ) => new byte[] { (byte)(data >> 24), (byte)(data >> 16), (byte)(data >> 8), (byte)data };
 
-    public static byte[] NumberToByteArray(
+        public static byte[] NumberToByteArray(
       int data,
       int length,
       ByteOrderEnum byteOrder

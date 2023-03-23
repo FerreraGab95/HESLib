@@ -42,15 +42,12 @@ namespace HES.Util
     public ByteArray(byte[] data)
     {Array.Copy(data,this.Data = new byte[data.Length],data.Length);}
 
-    public override bool Equals(
-      object obj
-      )
-    {
-      return obj is ByteArray
-        && Data.SequenceEqual(((ByteArray)obj).Data);
-    }
+        public override bool Equals(
+          object obj
+          ) => obj is ByteArray
+            && Data.SequenceEqual(((ByteArray)obj).Data);
 
-    public override int GetHashCode(
+        public override int GetHashCode(
       )
     {
       int hashCode = 0;

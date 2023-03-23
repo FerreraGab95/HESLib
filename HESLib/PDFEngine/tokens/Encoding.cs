@@ -49,9 +49,8 @@ namespace HES.Tokens
       string value
       );
 
-    public byte[] Encode(
-      char value
-      )
-    {return Encode(value);}
-  }
+        public byte[] Encode(
+          char value
+          ) => Encode(value);
+    }
 }

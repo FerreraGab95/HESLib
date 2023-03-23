@@ -46,11 +46,10 @@ namespace HES.Documents.Multimedia
     private class ArrayWrapperObject
       : HES.Objects.Array<Rendition>.IWrapper<Rendition>
     {
-      public Rendition Wrap(
-        PdfDirectObject baseObject
-        )
-      {return Rendition.Wrap(baseObject);}
-    }
+            public Rendition Wrap(
+              PdfDirectObject baseObject
+              ) => Rendition.Wrap(baseObject);
+        }
     #endregion
 
     #region fields

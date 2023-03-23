@@ -76,22 +76,21 @@ namespace HES.Documents.Interaction.Actions
         OperationEnumCodes[OperationEnum.Open] = new PdfString("open");
         OperationEnumCodes[OperationEnum.Print] = new PdfString("print");
       }
-      #endregion
+            #endregion
 
-      #region interface
-      #region private
-      /**
-        <summary>Gets the code corresponding to the given value.</summary>
-      */
-      private static PdfString ToCode(
-        OperationEnum value
-        )
-      {return OperationEnumCodes[value];}
+            #region interface
+            #region private
+            /**
+              <summary>Gets the code corresponding to the given value.</summary>
+            */
+            private static PdfString ToCode(
+              OperationEnum value
+              ) => OperationEnumCodes[value];
 
-      /**
-        <summary>Gets the operation corresponding to the given value.</summary>
-      */
-      private static OperationEnum ToOperationEnum(
+            /**
+              <summary>Gets the operation corresponding to the given value.</summary>
+            */
+            private static OperationEnum ToOperationEnum(
         PdfString value
         )
       {
@@ -132,19 +131,18 @@ namespace HES.Documents.Interaction.Actions
         PdfDirectObject baseObject
         ) : base(baseObject)
       {}
-      #endregion
+            #endregion
 
-      #region interface
-      #region public
-      public override object Clone(
-        Document context
-        )
-      {throw new NotImplementedException();}
+            #region interface
+            #region public
+            public override object Clone(
+              Document context
+              ) => throw new NotImplementedException();
 
-      /**
-        <summary>Gets/Sets the default directory.</summary>
-      */
-      public string DefaultDirectory
+            /**
+              <summary>Gets/Sets the default directory.</summary>
+            */
+            public string DefaultDirectory
             {
                 get
                 {

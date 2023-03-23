@@ -61,14 +61,13 @@ namespace HES.Documents.Interaction.Actions
       Action parent
       ) : base(baseObject)
     {this.parent = parent;}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public override object Clone(
-      Document context
-      )
-    {throw new NotImplementedException();} // TODO:verify
+        #region interface
+        #region public
+        public override object Clone(
+          Document context
+          ) => throw new NotImplementedException(); // TODO:verify
 
         /**
           <summary>Gets the parent action.</summary>
@@ -87,18 +86,16 @@ namespace HES.Documents.Interaction.Actions
         return ((PdfArray)baseDataObject).IndexOf(((Action)value).BaseObject);
     }
 
-    public void Insert(
-      int index,
-      Action value
-      )
-    {EnsureArray().Insert(index,value.BaseObject);}
+        public void Insert(
+          int index,
+          Action value
+          ) => EnsureArray().Insert(index, value.BaseObject);
 
-    public void RemoveAt(
-      int index
-      )
-    {EnsureArray().RemoveAt(index);}
+        public void RemoveAt(
+          int index
+          ) => EnsureArray().RemoveAt(index);
 
-    public Action this[
+        public Action this[
       int index
       ]
         {
@@ -121,14 +118,12 @@ namespace HES.Documents.Interaction.Actions
         #region ICollection
         public void Add(
       Action value
-      )
-    {EnsureArray().Add(value.BaseObject);}
+      ) => EnsureArray().Add(value.BaseObject);
 
-    public void Clear(
-      )
-    {EnsureArray().Clear();}
+        public void Clear(
+          ) => EnsureArray().Clear();
 
-    public bool Contains(
+        public bool Contains(
       Action value
       )
     {
@@ -139,13 +134,12 @@ namespace HES.Documents.Interaction.Actions
         return ((PdfArray)baseDataObject).Contains(((Action)value).BaseObject);
     }
 
-    public void CopyTo(
-      Action[] values,
-      int index
-      )
-    {throw new NotImplementedException();}
+        public void CopyTo(
+          Action[] values,
+          int index
+          ) => throw new NotImplementedException();
 
-    public int Count
+        public int Count
     {
       get
       {
@@ -161,11 +155,10 @@ namespace HES.Documents.Interaction.Actions
 
         public bool Remove(
       Action value
-      )
-    {return EnsureArray().Remove(((Action)value).BaseObject);}
+      ) => EnsureArray().Remove(((Action)value).BaseObject);
 
-    #region IEnumerable<Action>
-    IEnumerator<Action> IEnumerable<Action>.GetEnumerator(
+        #region IEnumerable<Action>
+        IEnumerator<Action> IEnumerable<Action>.GetEnumerator(
       )
     {
       for(
@@ -177,18 +170,17 @@ namespace HES.Documents.Interaction.Actions
       {yield return this[index];}
     }
 
-    #region IEnumerable
-    IEnumerator IEnumerable.GetEnumerator(
-      )
-    {return ((IEnumerable<Action>)this).GetEnumerator();}
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-    #endregion
+        #region IEnumerable
+        IEnumerator IEnumerable.GetEnumerator(
+          ) => ((IEnumerable<Action>)this).GetEnumerator();
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+        #endregion
 
-    #region private
-    private PdfArray EnsureArray(
+        #region private
+        private PdfArray EnsureArray(
       )
     {
       PdfDataObject baseDataObject = BaseDataObject;

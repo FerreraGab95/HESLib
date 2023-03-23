@@ -49,8 +49,7 @@ namespace HES.Documents
 
         public static Articles Wrap(
                PdfDirectObject baseObject
-                                   )
-        { return baseObject != null ? new Articles(baseObject) : null; }
+                                   ) => baseObject != null ? new Articles(baseObject) : null;
 
         #endregion Public Methods
     }

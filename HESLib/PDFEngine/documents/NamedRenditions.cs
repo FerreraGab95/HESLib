@@ -81,16 +81,15 @@ namespace HES.Documents
         #region protected
         protected override Rendition WrapValue(
       PdfDirectObject baseObject
-      )
-    {return Rendition.Wrap(baseObject);}
-    #endregion
+      ) => Rendition.Wrap(baseObject);
+        #endregion
 
-    #region private
-    /**
-      <summary>Ensures name reference synchronization for the specified rendition [PDF:1.7:9.1.2].
-      </summary>
-    */
-    private void UpdateName(
+        #region private
+        /**
+          <summary>Ensures name reference synchronization for the specified rendition [PDF:1.7:9.1.2].
+          </summary>
+        */
+        private void UpdateName(
       Rendition rendition,
       PdfString name
       )

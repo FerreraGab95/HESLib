@@ -118,13 +118,10 @@ namespace HES.Documents.Contents.ColorSpaces
 
         public new static DeviceCMYKColor Get(
                                               PdfArray components
-                                             )
-        {
-            return (components != null
+                                             ) => (components != null
                 ? new DeviceCMYKColor(components)
                 : Default
                    );
-        }
 
         /**
           <summary>Gets/Sets the cyan component.</summary>
@@ -132,8 +129,7 @@ namespace HES.Documents.Contents.ColorSpaces
 
         public override object Clone(
             Document context
-                                    )
-        { throw new NotImplementedException(); }
+                                    ) => throw new NotImplementedException();
 
         #endregion Public Methods
 

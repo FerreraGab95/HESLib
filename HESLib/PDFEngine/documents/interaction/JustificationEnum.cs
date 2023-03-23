@@ -81,15 +81,14 @@ namespace HES.Documents.Interaction
       return justification.Value;
     }
 
-    /**
-      <summary>Gets the code corresponding to the given value.</summary>
-    */
-    public static PdfInteger GetCode(
-      this JustificationEnum value
-      )
-    {return codes[value];}
+        /**
+          <summary>Gets the code corresponding to the given value.</summary>
+        */
+        public static PdfInteger GetCode(
+          this JustificationEnum value
+          ) => codes[value];
 
-    public static XAlignmentEnum ToXAlignment(
+        public static XAlignmentEnum ToXAlignment(
       this JustificationEnum value
       )
     {

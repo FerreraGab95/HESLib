@@ -79,13 +79,11 @@ namespace HES.Files
         #region Private Methods
 
         private void Initialize(
-                               )
-        { configuration = new ConfigurationImpl(this); }
+                               ) => configuration = new ConfigurationImpl(this);
 
         private PdfDictionary PrepareTrailer(
             PdfDictionary trailer
-                                            )
-        { return (PdfDictionary)new ImplicitContainer(this, trailer).DataObject; }
+                                            ) => (PdfDictionary)new ImplicitContainer(this, trailer).DataObject;
 
         #endregion Private Methods
 
@@ -216,27 +214,22 @@ namespace HES.Files
         }
 
         public override int GetHashCode(
-                                       )
-        { return hashCode; }
+                                       ) => hashCode;
 
         public PdfReference Register(
             PdfDataObject obj
-                                    )
-        { return indirectObjects.Add(obj).Reference; }
+                                    ) => indirectObjects.Add(obj).Reference;
 
         public void Save(
-                        )
-        { Save(SerializationModeEnum.Standard); }
+                        ) => Save(SerializationModeEnum.Standard);
 
-        public FileInfo Save(SerializationModeEnum mode)
-        {
+        public FileInfo Save(SerializationModeEnum mode) =>
             /*
-              NOTE: The document file cannot be directly overwritten as it's locked for reading by the
-              open stream; its update is therefore delayed to its disposal, when the temporary file will
-              overwrite it (see Dispose() method).
-            */
-            return Save(TempPath, mode);
-        }
+NOTE: The document file cannot be directly overwritten as it's locked for reading by the
+open stream; its update is therefore delayed to its disposal, when the temporary file will
+overwrite it (see Dispose() method).
+*/
+            Save(TempPath, mode);
 
         public FileInfo Save(string path, SerializationModeEnum mode)
         {
@@ -268,8 +261,7 @@ namespace HES.Files
 
         public void Unregister(
             PdfReference reference
-                              )
-        { indirectObjects.RemoveAt(reference.ObjectNumber); }
+                              ) => indirectObjects.RemoveAt(reference.ObjectNumber);
 
         #endregion Public Methods
 
@@ -327,8 +319,7 @@ namespace HES.Files
 
             public void SetRealFormat(
                 int decimalPlacesCount
-                                     )
-            { realFormat = "0." + new string('#', decimalPlacesCount); }
+                                     ) => realFormat = "0." + new string('#', decimalPlacesCount);
 
             #endregion Public Methods
         }

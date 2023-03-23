@@ -40,30 +40,27 @@ namespace HES.Documents.Contents.ColorSpaces
     #region static
     #region fields
     public static readonly SeparationColor Default = new SeparationColor(1);
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    /**
-      <summary>Gets the color corresponding to the specified components.</summary>
-      <param name="components">Color components to convert.</param>
-    */
-    public static SeparationColor Get(
-      PdfArray components
-      )
-    {
-      return (components != null
-        ? new SeparationColor(components)
-        : Default
-        );
-    }
-    #endregion
-    #endregion
-    #endregion
+        #region interface
+        #region public
+        /**
+          <summary>Gets the color corresponding to the specified components.</summary>
+          <param name="components">Color components to convert.</param>
+        */
+        public static SeparationColor Get(
+          PdfArray components
+          ) => (components != null
+            ? new SeparationColor(components)
+            : Default
+            );
+        #endregion
+        #endregion
+        #endregion
 
-    #region dynamic
-    #region constructors
-    public SeparationColor(
+        #region dynamic
+        #region constructors
+        public SeparationColor(
       double intensity
       ) : this(
         new List<PdfDirectObject>(
@@ -82,19 +79,18 @@ namespace HES.Documents.Contents.ColorSpaces
         new PdfArray(components)
         )
     {}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public override object Clone(
-      Document context
-      )
-    {throw new NotImplementedException();}
+        #region interface
+        #region public
+        public override object Clone(
+          Document context
+          ) => throw new NotImplementedException();
 
-    /**
-      <summary>Gets/Sets the color intensity.</summary>
-    */
-    public double Intensity
+        /**
+          <summary>Gets/Sets the color intensity.</summary>
+        */
+        public double Intensity
     {
       get => GetComponentValue(0);
       set => SetComponentValue(0, value);

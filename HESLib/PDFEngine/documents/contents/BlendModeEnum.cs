@@ -69,13 +69,11 @@ namespace HES.Documents.Contents
 
         public static BlendModeEnum? Get(
         PdfName name
-                                        )
-        { return codes.GetKey(name); }
+                                        ) => codes.GetKey(name);
 
         public static PdfName GetName(
             this BlendModeEnum blendMode
-                                     )
-        { return codes[blendMode]; }
+                                     ) => codes[blendMode];
 
         #endregion Public Methods
     }

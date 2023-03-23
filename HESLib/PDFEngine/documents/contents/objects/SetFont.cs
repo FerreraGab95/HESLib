@@ -57,20 +57,19 @@ namespace HES.Documents.Contents.Objects
       IList<PdfDirectObject> operands
       ) : base(OperatorKeyword, operands)
     {}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    /**
-      <summary>Gets the <see cref="Font">font</see> resource to be set.</summary>
-      <param name="context">Content context.</param>
-    */
-    public Font GetFont(
-      IContentContext context
-      )
-    {return GetResource(context);}
+        #region interface
+        #region public
+        /**
+          <summary>Gets the <see cref="Font">font</see> resource to be set.</summary>
+          <param name="context">Content context.</param>
+        */
+        public Font GetFont(
+          IContentContext context
+          ) => GetResource(context);
 
-    public override void Scan(
+        public override void Scan(
       ContentScanner.GraphicsState state
       )
     {
@@ -90,10 +89,9 @@ namespace HES.Documents.Contents.Objects
         #region IResourceReference
         public Font GetResource(
       IContentContext context
-      )
-    {return context.Resources.Fonts[Name];}
+      ) => context.Resources.Fonts[Name];
 
-    public PdfName Name
+        public PdfName Name
     {
       get => (PdfName)operands[0];
       set => operands[0] = value;

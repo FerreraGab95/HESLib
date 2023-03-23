@@ -85,22 +85,21 @@ namespace HES.Objects
       this.original = (xrefEntry.Offset >= 0);
       this.reference = new PdfReference(this);
     }
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public override PdfObject Accept(
-      IVisitor visitor,
-      object data
-      )
-    {return visitor.Visit(this, data);}
+        #region interface
+        #region public
+        public override PdfObject Accept(
+          IVisitor visitor,
+          object data
+          ) => visitor.Visit(this, data);
 
-    /**
-      <summary>Adds the <see cref="DataObject">data object</see> to the specified object stream
-      [PDF:1.6:3.4.6].</summary>
-      <param name="objectStream">Target object stream.</param>
-     */
-    public void Compress(
+        /**
+          <summary>Adds the <see cref="DataObject">data object</see> to the specified object stream
+          [PDF:1.6:3.4.6].</summary>
+          <param name="objectStream">Target object stream.</param>
+         */
+        public void Compress(
       ObjectStream objectStream
       )
     {
@@ -123,40 +122,35 @@ namespace HES.Objects
         public override PdfFile File => file;
 
         public override int GetHashCode(
-      )
-    {
+      ) =>
       /*
-        NOTE: Uniqueness should be achieved XORring the (local) reference hashcode with the (global)
-        file hashcode.
-        NOTE: Do NOT directly invoke reference.GetHashCode() method here as, conversely relying on
-        this method, it would trigger an infinite loop.
-      */
-      return reference.Id.GetHashCode() ^ file.GetHashCode();
-    }
+NOTE: Uniqueness should be achieved XORring the (local) reference hashcode with the (global)
+file hashcode.
+NOTE: Do NOT directly invoke reference.GetHashCode() method here as, conversely relying on
+this method, it would trigger an infinite loop.
+*/
+      reference.Id.GetHashCode() ^ file.GetHashCode();
 
-    /**
-      <summary>Gets whether this object is compressed within an object stream [PDF:1.6:3.4.6].
-      </summary>
-    */
-    public bool IsCompressed(
-      )
-    {return xrefEntry.Usage == XRefEntry.UsageEnum.InUseCompressed;}
+        /**
+          <summary>Gets whether this object is compressed within an object stream [PDF:1.6:3.4.6].
+          </summary>
+        */
+        public bool IsCompressed(
+          ) => xrefEntry.Usage == XRefEntry.UsageEnum.InUseCompressed;
 
-    /**
-      <summary>Gets whether this object contains a data object.</summary>
-    */
-    public bool IsInUse(
-      )
-    {return (xrefEntry.Usage == XRefEntry.UsageEnum.InUse);}
+        /**
+          <summary>Gets whether this object contains a data object.</summary>
+        */
+        public bool IsInUse(
+          ) => (xrefEntry.Usage == XRefEntry.UsageEnum.InUse);
 
-    /**
-      <summary>Gets whether this object comes intact from an existing file.</summary>
-    */
-    public bool IsOriginal(
-      )
-    {return original;}
+        /**
+          <summary>Gets whether this object comes intact from an existing file.</summary>
+        */
+        public bool IsOriginal(
+          ) => original;
 
-    public override PdfObject Parent
+        public override PdfObject Parent
         {
             get => null; // NOTE: As indirect objects are root objects, no parent can be associated.
             internal set
@@ -342,11 +336,10 @@ namespace HES.Objects
       file = null;
     }
 
-    internal void DropOriginal(
-      )
-    {original = false;}
-    #endregion
-    #endregion
-    #endregion
-  }
+        internal void DropOriginal(
+          ) => original = false;
+        #endregion
+        #endregion
+        #endregion
+    }
 }

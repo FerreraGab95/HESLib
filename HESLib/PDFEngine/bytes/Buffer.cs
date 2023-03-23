@@ -192,8 +192,7 @@ namespace HES.Bytes
 
         public IBuffer Append(
             byte[] data
-                             )
-        { return Append(data, 0, data.Length); }
+                             ) => Append(data, 0, data.Length);
 
         public IBuffer Append(
             byte[] data,
@@ -210,13 +209,11 @@ namespace HES.Bytes
 
         public IBuffer Append(
             string data
-                             )
-        { return Append(Encoding.Pdf.Encode(data)); }
+                             ) => Append(Encoding.Pdf.Encode(data));
 
         public IBuffer Append(
             IInputStream data
-                             )
-        { return Append(data.ToByteArray(), 0, (int)data.Length); }
+                             ) => Append(data.ToByteArray(), 0, (int)data.Length);
 
         public IBuffer Append(
             System.IO.Stream data
@@ -265,13 +262,11 @@ namespace HES.Bytes
         public byte[] Encode(
                Filter filter,
         PdfDictionary parameters
-                            )
-        { return filter.Encode(data, 0, length, parameters); }
+                            ) => filter.Encode(data, 0, length, parameters);
 
         public int GetByte(
             int index
-                          )
-        { return data[index]; }
+                          ) => data[index];
 
         public byte[] GetByteArray(
             int index,
@@ -286,14 +281,12 @@ namespace HES.Bytes
         public string GetString(
             int index,
             int length
-                               )
-        { return Encoding.Pdf.Decode(data, index, length); }
+                               ) => Encoding.Pdf.Decode(data, index, length);
 
         public void Insert(
             int index,
             byte[] data
-                          )
-        { Insert(index, data, 0, data.Length); }
+                          ) => Insert(index, data, 0, data.Length);
 
         public void Insert(
             int index,
@@ -314,19 +307,16 @@ namespace HES.Bytes
         public void Insert(
             int index,
             string data
-                          )
-        { Insert(index, Encoding.Pdf.Encode(data)); }
+                          ) => Insert(index, Encoding.Pdf.Encode(data));
 
         public void Insert(
             int index,
             IInputStream data
-                          )
-        { Insert(index, data.ToByteArray()); }
+                          ) => Insert(index, data.ToByteArray());
 
         public void Read(
             byte[] data
-                        )
-        { Read(data, 0, data.Length); }
+                        ) => Read(data, 0, data.Length);
 
         public void Read(
         byte[] data,
@@ -440,19 +430,16 @@ namespace HES.Bytes
         public void Replace(
             int index,
             string data
-                           )
-        { Replace(index, Encoding.Pdf.Encode(data)); }
+                           ) => Replace(index, Encoding.Pdf.Encode(data));
 
         public void Replace(
             int index,
             IInputStream data
-                           )
-        { Replace(index, data.ToByteArray()); }
+                           ) => Replace(index, data.ToByteArray());
 
         public void Seek(
             long offset
-                        )
-        { Position = offset; }
+                        ) => Position = offset;
 
         public void SetLength(
                int value
@@ -464,8 +451,7 @@ namespace HES.Bytes
 
         public void Skip(
             long offset
-                        )
-        { Position = position + offset; }
+                        ) => Position = position + offset;
 
         public byte[] ToByteArray(
                                  )
@@ -477,30 +463,25 @@ namespace HES.Bytes
 
         public void Write(
         byte[] data
-                         )
-        { Append(data); }
+                         ) => Append(data);
 
         public void Write(
         byte[] data,
         int offset,
         int length
-                         )
-        { Append(data, offset, length); }
+                         ) => Append(data, offset, length);
 
         public void Write(
         string data
-                         )
-        { Append(data); }
+                         ) => Append(data);
 
         public void Write(
         IInputStream data
-                         )
-        { Append(data); }
+                         ) => Append(data);
 
         public void WriteTo(
                             IOutputStream stream
-                           )
-        { stream.Write(data, 0, length); }
+                           ) => stream.Write(data, 0, length);
 
         #endregion Public Methods
 

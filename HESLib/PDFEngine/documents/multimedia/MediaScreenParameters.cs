@@ -404,11 +404,10 @@ namespace HES.Documents.Multimedia
       return location;
     }
 
-    public static PdfInteger GetCode(
-      this MediaScreenParameters.Viability.FloatingWindowParametersObject.LocationEnum location
-      )
-    {return codes[location];}
-  }
+        public static PdfInteger GetCode(
+          this MediaScreenParameters.Viability.FloatingWindowParametersObject.LocationEnum location
+          ) => codes[location];
+    }
 
   internal static class OffscreenBehaviorEnumExtension
   {
@@ -436,11 +435,10 @@ namespace HES.Documents.Multimedia
       return offscreenBehavior;
     }
 
-    public static PdfInteger GetCode(
-      this MediaScreenParameters.Viability.FloatingWindowParametersObject.OffscreenBehaviorEnum offscreenBehavior
-      )
-    {return codes[offscreenBehavior];}
-  }
+        public static PdfInteger GetCode(
+          this MediaScreenParameters.Viability.FloatingWindowParametersObject.OffscreenBehaviorEnum offscreenBehavior
+          ) => codes[offscreenBehavior];
+    }
 
   internal static class RelatedWindowEnumExtension
   {
@@ -469,11 +467,10 @@ namespace HES.Documents.Multimedia
       return relatedWindow;
     }
 
-    public static PdfInteger GetCode(
-      this MediaScreenParameters.Viability.FloatingWindowParametersObject.RelatedWindowEnum relatedWindow
-      )
-    {return codes[relatedWindow];}
-  }
+        public static PdfInteger GetCode(
+          this MediaScreenParameters.Viability.FloatingWindowParametersObject.RelatedWindowEnum relatedWindow
+          ) => codes[relatedWindow];
+    }
 
   internal static class ResizeBehaviorEnumExtension
   {
@@ -501,11 +498,10 @@ namespace HES.Documents.Multimedia
       return resizeBehavior;
     }
 
-    public static PdfInteger GetCode(
-      this MediaScreenParameters.Viability.FloatingWindowParametersObject.ResizeBehaviorEnum resizeBehavior
-      )
-    {return codes[resizeBehavior];}
-  }
+        public static PdfInteger GetCode(
+          this MediaScreenParameters.Viability.FloatingWindowParametersObject.ResizeBehaviorEnum resizeBehavior
+          ) => codes[resizeBehavior];
+    }
 
   internal static class WindowTypeEnumExtension
   {
@@ -534,9 +530,8 @@ namespace HES.Documents.Multimedia
       return windowType;
     }
 
-    public static PdfInteger GetCode(
-      this MediaScreenParameters.Viability.WindowTypeEnum windowType
-      )
-    {return codes[windowType];}
-  }
+        public static PdfInteger GetCode(
+          this MediaScreenParameters.Viability.WindowTypeEnum windowType
+          ) => codes[windowType];
+    }
 }

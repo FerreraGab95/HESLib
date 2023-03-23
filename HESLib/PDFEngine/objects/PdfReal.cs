@@ -81,35 +81,30 @@ namespace HES.Objects
       double value
       )
     {RawValue = value;}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public override PdfObject Accept(
-      IVisitor visitor,
-      object data
-      )
-    {return visitor.Visit(this, data);}
+        #region interface
+        #region public
+        public override PdfObject Accept(
+          IVisitor visitor,
+          object data
+          ) => visitor.Visit(this, data);
 
-    public override int CompareTo(
-      PdfDirectObject obj
-      )
-    {return PdfNumber.Compare(this,obj);}
+        public override int CompareTo(
+          PdfDirectObject obj
+          ) => PdfNumber.Compare(this, obj);
 
-    public override bool Equals(
-      object obj
-      )
-    {return PdfNumber.Equal(this,obj);}
+        public override bool Equals(
+          object obj
+          ) => PdfNumber.Equal(this, obj);
 
-    public override int GetHashCode(
-      )
-    {return PdfNumber.GetHashCode(this);}
+        public override int GetHashCode(
+          ) => PdfNumber.GetHashCode(this);
 
-    public override void WriteTo(
-      IOutputStream stream,
-      PdfFile context
-      )
-    {stream.Write(RawValue.ToString(context.Configuration.RealFormat, formatInfo));}
+        public override void WriteTo(
+          IOutputStream stream,
+          PdfFile context
+          ) => stream.Write(RawValue.ToString(context.Configuration.RealFormat, formatInfo));
 
         #region IPdfNumber
         public double DoubleValue => RawValue;

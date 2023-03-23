@@ -59,14 +59,13 @@ namespace HES.Documents.Contents.ColorSpaces
       PdfDirectObject baseObject
       ) : base(baseObject)
     {}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public override object Clone(
-      Document context
-      )
-    {throw new NotImplementedException();}
+        #region interface
+        #region public
+        public override object Clone(
+          Document context
+          ) => throw new NotImplementedException();
 
         public override int ComponentCount => 0;
 
@@ -75,8 +74,7 @@ namespace HES.Documents.Contents.ColorSpaces
         public override Color GetColor(
       IList<PdfDirectObject> components,
       IContentContext context
-      )
-    {
+      ) =>
 //TODO
 /*
       Pattern pattern = context.Resources.Patterns[components[components.Count-1]];
@@ -97,22 +95,19 @@ namespace HES.Documents.Contents.ColorSpaces
       }
       return pattern;
 */
-return null;
-    }
+null;
 
-    public override drawing::Brush GetPaint(
-      Color color
-      )
-    {
-      // FIXME: Auto-generated method stub
-      return null;
-    }
+        public override drawing::Brush GetPaint(
+          Color color
+          ) =>
+          // FIXME: Auto-generated method stub
+          null;
 
-    /**
-      <summary>Gets the color space in which the actual color of the <see cref="Pattern">pattern</see> is to be specified.</summary>
-      <remarks>This feature is applicable to <see cref="TilingPattern">uncolored tiling patterns</see> only.</remarks>
-    */
-    public ColorSpace UnderlyingColorSpace
+        /**
+          <summary>Gets the color space in which the actual color of the <see cref="Pattern">pattern</see> is to be specified.</summary>
+          <remarks>This feature is applicable to <see cref="TilingPattern">uncolored tiling patterns</see> only.</remarks>
+        */
+        public ColorSpace UnderlyingColorSpace
     {
       get
       {

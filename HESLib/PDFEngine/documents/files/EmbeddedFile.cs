@@ -48,9 +48,7 @@ namespace HES.Documents.Files
         public static EmbeddedFile Get(
           Document context,
           string path
-          )
-        {
-            return new EmbeddedFile(
+          ) => new EmbeddedFile(
               context,
               new Bytes.Stream(
                 new FileStream(
@@ -60,7 +58,6 @@ namespace HES.Documents.Files
                   )
                 )
               );
-        }
 
         /**
           <summary>Creates a new embedded file inside the document.</summary>
@@ -70,8 +67,7 @@ namespace HES.Documents.Files
         public static EmbeddedFile Get(
           Document context,
           Bytes::IInputStream stream
-          )
-        { return new EmbeddedFile(context, stream); }
+          ) => new EmbeddedFile(context, stream);
 
         /**
           <summary>Instantiates an existing embedded file.</summary>
@@ -79,8 +75,7 @@ namespace HES.Documents.Files
         */
         public static EmbeddedFile Wrap(
           PdfDirectObject baseObject
-          )
-        { return baseObject != null ? new EmbeddedFile(baseObject) : null; }
+          ) => baseObject != null ? new EmbeddedFile(baseObject) : null;
         #endregion
         #endregion
         #endregion
@@ -175,8 +170,7 @@ namespace HES.Documents.Files
         */
         private PdfDirectObject GetInfo(
           PdfName key
-          )
-        { return Params[key]; }
+          ) => Params[key];
 
         /**
           <summary>Gets the file parameters.</summary>
@@ -189,8 +183,7 @@ namespace HES.Documents.Files
         private void SetInfo(
           PdfName key,
           PdfDirectObject value
-          )
-        { Params[key] = value; }
+          ) => Params[key] = value;
         #endregion
         #endregion
         #endregion

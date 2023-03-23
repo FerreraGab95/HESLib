@@ -64,12 +64,11 @@ namespace HES.Documents.Contents.Objects
       this[key] = value;
     }
 
-    public bool ContainsKey(
-      PdfName key
-      )
-    {return GetKeyIndex(key) != null;}
+        public bool ContainsKey(
+          PdfName key
+          ) => GetKeyIndex(key) != null;
 
-    public ICollection<PdfName> Keys
+        public ICollection<PdfName> Keys
     {
       get
       {
@@ -130,13 +129,12 @@ namespace HES.Documents.Contents.Objects
       }
     }
 
-    public bool TryGetValue(
-      PdfName key,
-      out PdfDirectObject value
-      )
-    {throw new NotImplementedException();}
+        public bool TryGetValue(
+          PdfName key,
+          out PdfDirectObject value
+          ) => throw new NotImplementedException();
 
-    public ICollection<PdfDirectObject> Values
+        public ICollection<PdfDirectObject> Values
     {
       get
       {
@@ -152,38 +150,33 @@ namespace HES.Documents.Contents.Objects
       }
     }
 
-    #region ICollection
-    void ICollection<KeyValuePair<PdfName,PdfDirectObject>>.Add(
-      KeyValuePair<PdfName,PdfDirectObject> keyValuePair
-      )
-    {Add(keyValuePair.Key,keyValuePair.Value);}
+        #region ICollection
+        void ICollection<KeyValuePair<PdfName, PdfDirectObject>>.Add(
+          KeyValuePair<PdfName, PdfDirectObject> keyValuePair
+          ) => Add(keyValuePair.Key, keyValuePair.Value);
 
-    public void Clear(
-      )
-    {operands.Clear();}
+        public void Clear(
+          ) => operands.Clear();
 
-    bool ICollection<KeyValuePair<PdfName,PdfDirectObject>>.Contains(
-      KeyValuePair<PdfName,PdfDirectObject> keyValuePair
-      )
-    {return (this[keyValuePair.Key] == keyValuePair.Value);}
+        bool ICollection<KeyValuePair<PdfName, PdfDirectObject>>.Contains(
+          KeyValuePair<PdfName, PdfDirectObject> keyValuePair
+          ) => (this[keyValuePair.Key] == keyValuePair.Value);
 
-    public void CopyTo(
-      KeyValuePair<PdfName,PdfDirectObject>[] keyValuePairs,
-      int index
-      )
-    {throw new NotImplementedException();}
+        public void CopyTo(
+          KeyValuePair<PdfName, PdfDirectObject>[] keyValuePairs,
+          int index
+          ) => throw new NotImplementedException();
 
         public int Count => operands.Count / 2;
 
         public bool IsReadOnly => false;
 
         public bool Remove(
-      KeyValuePair<PdfName,PdfDirectObject> keyValuePair
-      )
-    {throw new NotImplementedException();}
+      KeyValuePair<PdfName, PdfDirectObject> keyValuePair
+      ) => throw new NotImplementedException();
 
-    #region IEnumerable<KeyValuePair<PdfName,PdfDirectObject>>
-    IEnumerator<KeyValuePair<PdfName,PdfDirectObject>> IEnumerable<KeyValuePair<PdfName,PdfDirectObject>>.GetEnumerator(
+        #region IEnumerable<KeyValuePair<PdfName,PdfDirectObject>>
+        IEnumerator<KeyValuePair<PdfName,PdfDirectObject>> IEnumerable<KeyValuePair<PdfName,PdfDirectObject>>.GetEnumerator(
       )
     {
       for(
@@ -200,18 +193,17 @@ namespace HES.Documents.Contents.Objects
       }
     }
 
-    #region IEnumerable
-    IEnumerator IEnumerable.GetEnumerator(
-      )
-    {return ((IEnumerable<KeyValuePair<PdfName,PdfDirectObject>>)this).GetEnumerator();}
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-    #endregion
+        #region IEnumerable
+        IEnumerator IEnumerable.GetEnumerator(
+          ) => ((IEnumerable<KeyValuePair<PdfName, PdfDirectObject>>)this).GetEnumerator();
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+        #endregion
 
-    #region private
-    private int? GetKeyIndex(
+        #region private
+        private int? GetKeyIndex(
       object key
       )
     {

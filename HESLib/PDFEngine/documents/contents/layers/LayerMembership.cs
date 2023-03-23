@@ -73,18 +73,16 @@ namespace HES.Documents.Contents.Layers
           return ((PdfArray)baseDataObject).IndexOf(item.BaseObject);
       }
 
-      public void Insert(
-        int index,
-        Layer item
-        )
-      {EnsureArray().Insert(index, item.BaseObject);}
+            public void Insert(
+              int index,
+              Layer item
+              ) => EnsureArray().Insert(index, item.BaseObject);
 
-      public void RemoveAt(
-        int index
-        )
-      {EnsureArray().RemoveAt(index);}
+            public void RemoveAt(
+              int index
+              ) => EnsureArray().RemoveAt(index);
 
-      public Layer this[
+            public Layer this[
         int index
         ]
             {
@@ -109,14 +107,12 @@ namespace HES.Documents.Contents.Layers
             #region ICollection<Page>
             public void Add(
         Layer item
-        )
-      {EnsureArray().Add(item.BaseObject);}
+        ) => EnsureArray().Add(item.BaseObject);
 
-      public void Clear(
-        )
-      {EnsureArray().Clear();}
+            public void Clear(
+              ) => EnsureArray().Clear();
 
-      public bool Contains(
+            public bool Contains(
         Layer item
         )
       {
@@ -129,13 +125,12 @@ namespace HES.Documents.Contents.Layers
           return ((PdfArray)baseDataObject).Contains(item.BaseObject);
       }
 
-      public void CopyTo(
-        Layer[] items,
-        int index
-        )
-      {throw new NotImplementedException();}
+            public void CopyTo(
+              Layer[] items,
+              int index
+              ) => throw new NotImplementedException();
 
-      public int Count
+            public int Count
       {
         get
         {
@@ -153,29 +148,27 @@ namespace HES.Documents.Contents.Layers
 
             public bool Remove(
         Layer item
-        )
-      {return EnsureArray().Remove(item.BaseObject);}
+        ) => EnsureArray().Remove(item.BaseObject);
 
-      #region IEnumerable<Layer>
-      public IEnumerator<Layer> GetEnumerator(
+            #region IEnumerable<Layer>
+            public IEnumerator<Layer> GetEnumerator(
         )
       {
         for(int index = 0, length = Count; index < length; index++)
         {yield return this[index];}
       }
 
-      #region IEnumerable
-      IEnumerator IEnumerable.GetEnumerator(
-        )
-      {return this.GetEnumerator();}
-      #endregion
-      #endregion
-      #endregion
-      #endregion
-      #endregion
+            #region IEnumerable
+            IEnumerator IEnumerable.GetEnumerator(
+              ) => this.GetEnumerator();
+            #endregion
+            #endregion
+            #endregion
+            #endregion
+            #endregion
 
-      #region private
-      private PdfArray EnsureArray(
+            #region private
+            private PdfArray EnsureArray(
         )
       {
         PdfDirectObject baseDataObject = BaseDataObject;
@@ -197,21 +190,20 @@ namespace HES.Documents.Contents.Layers
     #region static
     #region fields
     public static PdfName TypeName = PdfName.OCMD;
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public static new LayerMembership Wrap(
-      PdfDirectObject baseObject
-      )
-    {return baseObject != null ? new LayerMembership(baseObject) : null;}
-    #endregion
-    #endregion
-    #endregion
+        #region interface
+        #region public
+        public static new LayerMembership Wrap(
+          PdfDirectObject baseObject
+          ) => baseObject != null ? new LayerMembership(baseObject) : null;
+        #endregion
+        #endregion
+        #endregion
 
-    #region dynamic
-    #region constructors
-    public LayerMembership(
+        #region dynamic
+        #region constructors
+        public LayerMembership(
       Document context
       ) : base(context, TypeName)
     {}

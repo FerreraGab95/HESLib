@@ -40,15 +40,14 @@ namespace HES.Tokens
       <summary>Code-to-Unicode map.</summary>
     */
     protected BiDictionary<int,char> chars;
-    #endregion
+        #endregion
 
-    #region interface
-    public override string Decode(
-      byte[] value
-      )
-    {return Decode(value, 0, value.Length);}
+        #region interface
+        public override string Decode(
+          byte[] value
+          ) => Decode(value, 0, value.Length);
 
-    public override string Decode(
+        public override string Decode(
       byte[] value,
       int index,
       int length

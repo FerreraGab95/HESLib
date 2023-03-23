@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Extensions;
+using Extensions.UnitTests;
 using Extensions.Web;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Extensions.UnitTests
+namespace HES.Test
 {
     [TestClass]
     public class Html1
@@ -16,7 +18,7 @@ namespace Extensions.UnitTests
             var elements = doc.QuerySelectorAll("#myDiv");
 
             Assert.IsTrue(elements.Count() == 1);
-            Assert.IsTrue(elements.IfNoIndex(0).ID == "myDiv");
+            Assert.IsTrue(elements.IfNoIndex(0).Id == "myDiv");
             Assert.IsTrue(elements.IfNoIndex(0).GetAttribute("first") == "1");
         }
 
@@ -27,7 +29,7 @@ namespace Extensions.UnitTests
 
             Assert.IsTrue(elements.Distinct().Count() == 1 && elements.Count() == 1);
             for (int i = 0; i < elements.Count(); i++)
-                Assert.IsTrue(elements.IfNoIndex(i).ID == "myDiv");
+                Assert.IsTrue(elements.IfNoIndex(i).Id == "myDiv");
         }
 
         [TestMethod]
@@ -47,8 +49,8 @@ namespace Extensions.UnitTests
             var elements = doc.QuerySelectorAll(".cls-a, .cls-b");
 
             Assert.IsTrue(elements.Count() == 2);
-            Assert.IsTrue(elements.IfNoIndex(0).ID == "spanA");
-            Assert.IsTrue(elements.IfNoIndex(1).ID == "spanB");
+            Assert.IsTrue(elements.IfNoIndex(0).Id == "spanA");
+            Assert.IsTrue(elements.IfNoIndex(1).Id == "spanB");
         }
 
         [TestMethod]
@@ -57,7 +59,7 @@ namespace Extensions.UnitTests
             var elements = doc.QuerySelectorAll(".underscore_class");
 
             Assert.IsTrue(elements.Count() == 1);
-            Assert.IsTrue(elements.IfNoIndex(0).ID == "spanB");
+            Assert.IsTrue(elements.IfNoIndex(0).Id == "spanB");
         }
 
 

@@ -257,17 +257,15 @@ namespace HES.Documents.Multimedia
 
         #region protected
         protected override PdfString RetrieveName(
-      )
-    {
+      ) =>
       /*
-        NOTE: A rendition dictionary is not required to have a name tree entry. When it does, the
-        viewer application should ensure that the name specified in the tree is kept the same as the
-        value of the N entry (for example, if the user interface allows the name to be changed).
-      */
-      return (PdfString)BaseDataObject[PdfName.N];
+NOTE: A rendition dictionary is not required to have a name tree entry. When it does, the
+viewer application should ensure that the name specified in the tree is kept the same as the
+value of the N entry (for example, if the user interface allows the name to be changed).
+*/
+      (PdfString)BaseDataObject[PdfName.N];
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 }

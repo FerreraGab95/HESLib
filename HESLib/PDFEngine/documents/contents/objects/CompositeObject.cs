@@ -95,8 +95,7 @@ namespace HES.Documents.Contents.Objects
         }
 
         public override string ToString(
-          )
-        { return "{" + objects.ToString() + "}"; }
+          ) => "{" + objects.ToString() + "}";
 
         public override void WriteTo(
           IOutputStream stream,
@@ -113,8 +112,7 @@ namespace HES.Documents.Contents.Objects
           <summary>Creates the rendering object corresponding to this container.</summary>
         */
         protected virtual GraphicsPath CreateRenderObject(
-          )
-        { return null; }
+          ) => null;
 
         /**
           <summary>Renders this container.</summary>

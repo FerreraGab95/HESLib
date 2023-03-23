@@ -116,22 +116,21 @@ namespace HES.Documents.Interaction.Annotations
       LineEndStyleEnumCodes[LineEndStyleEnum.ReverseClosedArrow] = PdfName.RClosedArrow;
       LineEndStyleEnumCodes[LineEndStyleEnum.Slash] = PdfName.Slash;
     }
-    #endregion
+        #endregion
 
-    #region interface
-    #region private
-    /**
-      <summary>Gets the code corresponding to the given value.</summary>
-    */
-    private static PdfName ToCode(
-      LineEndStyleEnum value
-      )
-    {return LineEndStyleEnumCodes[value];}
+        #region interface
+        #region private
+        /**
+          <summary>Gets the code corresponding to the given value.</summary>
+        */
+        private static PdfName ToCode(
+          LineEndStyleEnum value
+          ) => LineEndStyleEnumCodes[value];
 
-    /**
-      <summary>Gets the line ending style corresponding to the given value.</summary>
-    */
-    private static LineEndStyleEnum ToLineEndStyleEnum(
+        /**
+          <summary>Gets the line ending style corresponding to the given value.</summary>
+        */
+        private static LineEndStyleEnum ToLineEndStyleEnum(
       PdfName value
       )
     {

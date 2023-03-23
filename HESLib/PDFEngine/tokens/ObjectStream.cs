@@ -110,22 +110,21 @@ namespace HES.Tokens
       IBuffer body
       ) : base(header, body)
     {}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public override PdfObject Accept(
-      IVisitor visitor,
-      object data
-      )
-    {return visitor.Visit(this, data);}
+        #region interface
+        #region public
+        public override PdfObject Accept(
+          IVisitor visitor,
+          object data
+          ) => visitor.Visit(this, data);
 
-    /**
-      <summary>Gets/Sets the object stream extended by this one.</summary>
-      <remarks>Both streams are considered part of a collection of object streams  whose links form
-      a directed acyclic graph.</remarks>
-    */
-    public ObjectStream BaseStream
+        /**
+          <summary>Gets/Sets the object stream extended by this one.</summary>
+          <remarks>Both streams are considered part of a collection of object streams  whose links form
+          a directed acyclic graph.</remarks>
+        */
+        public ObjectStream BaseStream
     {
       get => (ObjectStream)Header.Resolve(PdfName.Extends);
       set => Header[PdfName.Extends] = value.Reference;
@@ -142,26 +141,23 @@ namespace HES.Tokens
       base.WriteTo(stream, context);
     }
 
-    #region IDictionary
-    public void Add(
-      int key,
-      PdfDataObject value
-      )
-    {Entries.Add(key, new ObjectEntry(value, parser));}
+        #region IDictionary
+        public void Add(
+          int key,
+          PdfDataObject value
+          ) => Entries.Add(key, new ObjectEntry(value, parser));
 
-    public bool ContainsKey(
-      int key
-      )
-    {return Entries.ContainsKey(key);}
+        public bool ContainsKey(
+          int key
+          ) => Entries.ContainsKey(key);
 
         public ICollection<int> Keys => Entries.Keys;
 
         public bool Remove(
       int key
-      )
-    {return Entries.Remove(key);}
+      ) => Entries.Remove(key);
 
-    public PdfDataObject this[
+        public PdfDataObject this[
       int key
       ]
         {
@@ -194,13 +190,12 @@ namespace HES.Tokens
       }
     }
 
-    #region ICollection
-    void ICollection<KeyValuePair<int,PdfDataObject>>.Add(
-      KeyValuePair<int,PdfDataObject> entry
-      )
-    {Add(entry.Key, entry.Value);}
+        #region ICollection
+        void ICollection<KeyValuePair<int, PdfDataObject>>.Add(
+          KeyValuePair<int, PdfDataObject> entry
+          ) => Add(entry.Key, entry.Value);
 
-    public void Clear(
+        public void Clear(
       )
     {
       if(entries == null)
@@ -209,16 +204,14 @@ namespace HES.Tokens
       {entries.Clear();}
     }
 
-    bool ICollection<KeyValuePair<int,PdfDataObject>>.Contains(
-      KeyValuePair<int,PdfDataObject> entry
-      )
-    {return ((ICollection<KeyValuePair<int,PdfDataObject>>)Entries).Contains(entry);}
+        bool ICollection<KeyValuePair<int, PdfDataObject>>.Contains(
+          KeyValuePair<int, PdfDataObject> entry
+          ) => ((ICollection<KeyValuePair<int, PdfDataObject>>)Entries).Contains(entry);
 
-    public void CopyTo(
-      KeyValuePair<int,PdfDataObject>[] entries,
-      int index
-      )
-    {throw new NotImplementedException();}
+        public void CopyTo(
+          KeyValuePair<int, PdfDataObject>[] entries,
+          int index
+          ) => throw new NotImplementedException();
 
         public int Count => Entries.Count;
 
@@ -244,18 +237,17 @@ namespace HES.Tokens
       {yield return new KeyValuePair<int,PdfDataObject>(key,this[key]);}
     }
 
-    #region IEnumerable
-    IEnumerator IEnumerable.GetEnumerator(
-      )
-    {return ((IEnumerable<KeyValuePair<int,PdfDataObject>>)this).GetEnumerator();}
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-    #endregion
+        #region IEnumerable
+        IEnumerator IEnumerable.GetEnumerator(
+          ) => ((IEnumerable<KeyValuePair<int, PdfDataObject>>)this).GetEnumerator();
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+        #endregion
 
-    #region private
-    private IDictionary<int,ObjectEntry> Entries
+        #region private
+        private IDictionary<int,ObjectEntry> Entries
     {
       get
       {

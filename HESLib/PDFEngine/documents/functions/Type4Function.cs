@@ -46,19 +46,17 @@ namespace HES.Documents.Functions
       PdfDirectObject baseObject
       ) : base(baseObject)
     {}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public override double[] Calculate(
-      double[] inputs
-      )
-    {
-      // FIXME: Auto-generated method stub
-      return null;
+        #region interface
+        #region public
+        public override double[] Calculate(
+          double[] inputs
+          ) =>
+          // FIXME: Auto-generated method stub
+          null;
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 }

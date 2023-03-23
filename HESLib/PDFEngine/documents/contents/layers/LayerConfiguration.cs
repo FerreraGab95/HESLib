@@ -257,17 +257,15 @@ namespace HES.Documents.Contents.Layers
       return baseState.Value;
     }
 
-    public static LayerConfiguration.BaseStateEnum Get(
-      bool? enabled
-      )
-    {return enabled.HasValue ? (enabled.Value ? LayerConfiguration.BaseStateEnum.On : LayerConfiguration.BaseStateEnum.Off) : LayerConfiguration.BaseStateEnum.Unchanged;}
+        public static LayerConfiguration.BaseStateEnum Get(
+          bool? enabled
+          ) => enabled.HasValue ? (enabled.Value ? LayerConfiguration.BaseStateEnum.On : LayerConfiguration.BaseStateEnum.Off) : LayerConfiguration.BaseStateEnum.Unchanged;
 
-    public static PdfName GetName(
-      this LayerConfiguration.BaseStateEnum baseState
-      )
-    {return codes[baseState];}
+        public static PdfName GetName(
+          this LayerConfiguration.BaseStateEnum baseState
+          ) => codes[baseState];
 
-    public static bool? IsEnabled(
+        public static bool? IsEnabled(
       this LayerConfiguration.BaseStateEnum baseState
       )
     {

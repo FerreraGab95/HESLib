@@ -211,53 +211,48 @@ namespace HES.Documents.Interaction.Navigation.Page
       StyleEnumCodes[StyleEnum.Uncover] = PdfName.Uncover;
       StyleEnumCodes[StyleEnum.Fade] = PdfName.Fade;
     }
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public static Transition Wrap(
-      PdfDirectObject baseObject
-      )
-    {return baseObject != null ? new Transition(baseObject) : null;}
-    #endregion
+        #region interface
+        #region public
+        public static Transition Wrap(
+          PdfDirectObject baseObject
+          ) => baseObject != null ? new Transition(baseObject) : null;
+        #endregion
 
-    #region private
-    /**
-      <summary>Gets the code corresponding to the given value.</summary>
-    */
-    private static PdfDirectObject ToCode(
-      DirectionEnum value
-      )
-    {return DirectionEnumCodes[value];}
+        #region private
+        /**
+          <summary>Gets the code corresponding to the given value.</summary>
+        */
+        private static PdfDirectObject ToCode(
+          DirectionEnum value
+          ) => DirectionEnumCodes[value];
 
-    /**
-      <summary>Gets the code corresponding to the given value.</summary>
-    */
-    private static PdfName ToCode(
-      OrientationEnum value
-      )
-    {return OrientationEnumCodes[value];}
+        /**
+          <summary>Gets the code corresponding to the given value.</summary>
+        */
+        private static PdfName ToCode(
+          OrientationEnum value
+          ) => OrientationEnumCodes[value];
 
-    /**
-      <summary>Gets the code corresponding to the given value.</summary>
-    */
-    private static PdfName ToCode(
-      PageDirectionEnum value
-      )
-    {return PageDirectionEnumCodes[value];}
+        /**
+          <summary>Gets the code corresponding to the given value.</summary>
+        */
+        private static PdfName ToCode(
+          PageDirectionEnum value
+          ) => PageDirectionEnumCodes[value];
 
-    /**
-      <summary>Gets the code corresponding to the given value.</summary>
-    */
-    private static PdfName ToCode(
-      StyleEnum value
-      )
-    {return StyleEnumCodes[value];}
+        /**
+          <summary>Gets the code corresponding to the given value.</summary>
+        */
+        private static PdfName ToCode(
+          StyleEnum value
+          ) => StyleEnumCodes[value];
 
-    /**
-      <summary>Gets the direction corresponding to the given value.</summary>
-    */
-    private static DirectionEnum ToDirectionEnum(
+        /**
+          <summary>Gets the direction corresponding to the given value.</summary>
+        */
+        private static DirectionEnum ToDirectionEnum(
       PdfDirectObject value
       )
     {

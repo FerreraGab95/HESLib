@@ -171,20 +171,19 @@ namespace HES.Documents.Contents.Fonts
       }
       return codes;
     }
-    #endregion
+        #endregion
 
-    #region private
-    /**
-      <summary>Converts the current token into its input code value.</summary>
-    */
-    private byte[] ParseInputCode(
-      )
-    {return ConvertUtils.HexToByteArray((string)Token);}
+        #region private
+        /**
+          <summary>Converts the current token into its input code value.</summary>
+        */
+        private byte[] ParseInputCode(
+          ) => ConvertUtils.HexToByteArray((string)Token);
 
-    /**
-      <summary>Converts the current token into its Unicode value.</summary>
-    */
-    private int ParseUnicode(
+        /**
+          <summary>Converts the current token into its Unicode value.</summary>
+        */
+        private int ParseUnicode(
       )
     {
       switch(TokenType)

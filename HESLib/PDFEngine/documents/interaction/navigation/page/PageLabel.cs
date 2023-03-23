@@ -72,23 +72,22 @@ namespace HES.Documents.Interaction.Navigation.Page
     #region static
     #region fields
     private static readonly int DefaultNumberBase = 1;
-    #endregion
+        #endregion
 
-    #region interface
-    /**
-      <summary>Gets an existing page label range.</summary>
-      <param name="baseObject">Base object to wrap.</param>
-    */
-    public static PageLabel Wrap(
-      PdfDirectObject baseObject
-      )
-    {return baseObject != null ? new PageLabel(baseObject) : null;}
-    #endregion
-    #endregion
+        #region interface
+        /**
+          <summary>Gets an existing page label range.</summary>
+          <param name="baseObject">Base object to wrap.</param>
+        */
+        public static PageLabel Wrap(
+          PdfDirectObject baseObject
+          ) => baseObject != null ? new PageLabel(baseObject) : null;
+        #endregion
+        #endregion
 
-    #region dynamic
-    #region constructors
-    public PageLabel(
+        #region dynamic
+        #region constructors
+        public PageLabel(
       Documents.Document context,
       NumberStyleEnum numberStyle
       ) : this(context, null, numberStyle, DefaultNumberBase)
@@ -184,9 +183,8 @@ namespace HES.Documents.Interaction.Navigation.Page
       return numberStyle.Value;
     }
 
-    public static PdfName GetCode(
-      this PageLabel.NumberStyleEnum numberStyle
-      )
-    {return codes[numberStyle];}
-  }
+        public static PdfName GetCode(
+          this PageLabel.NumberStyleEnum numberStyle
+          ) => codes[numberStyle];
+    }
 }

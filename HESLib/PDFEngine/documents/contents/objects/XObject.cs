@@ -52,26 +52,24 @@ namespace HES.Documents.Contents.Objects
       PaintXObject operation
       ) : base(operation)
     {}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    /**
-      <summary>Gets the scanner for this object's contents.</summary>
-      <param name="context">Scanning context.</param>
-    */
-    public ContentScanner GetScanner(
-      ContentScanner context
-      )
-    {return Operation.GetScanner(context);}
+        #region interface
+        #region public
+        /**
+          <summary>Gets the scanner for this object's contents.</summary>
+          <param name="context">Scanning context.</param>
+        */
+        public ContentScanner GetScanner(
+          ContentScanner context
+          ) => Operation.GetScanner(context);
 
-    #region IResourceReference
-    public xObjects::XObject GetResource(
-      IContentContext context
-      )
-    {return Operation.GetResource(context);}
+        #region IResourceReference
+        public xObjects::XObject GetResource(
+          IContentContext context
+          ) => Operation.GetResource(context);
 
-    public PdfName Name
+        public PdfName Name
     {
       get => Operation.Name;
       set => Operation.Name = value;

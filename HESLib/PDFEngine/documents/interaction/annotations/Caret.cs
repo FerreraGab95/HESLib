@@ -70,22 +70,21 @@ namespace HES.Documents.Interaction.Annotations
       SymbolTypeEnumCodes[SymbolTypeEnum.NewParagraph] = PdfName.P;
       SymbolTypeEnumCodes[SymbolTypeEnum.None] = PdfName.None;
     }
-    #endregion
+        #endregion
 
-    #region interface
-    #region private
-    /**
-      <summary>Gets the code corresponding to the given value.</summary>
-    */
-    private static PdfName ToCode(
-      SymbolTypeEnum value
-      )
-    {return SymbolTypeEnumCodes[value];}
+        #region interface
+        #region private
+        /**
+          <summary>Gets the code corresponding to the given value.</summary>
+        */
+        private static PdfName ToCode(
+          SymbolTypeEnum value
+          ) => SymbolTypeEnumCodes[value];
 
-    /**
-      <summary>Gets the symbol type corresponding to the given value.</summary>
-    */
-    private static SymbolTypeEnum ToSymbolTypeEnum(
+        /**
+          <summary>Gets the symbol type corresponding to the given value.</summary>
+        */
+        private static SymbolTypeEnum ToSymbolTypeEnum(
       PdfName value
       )
     {

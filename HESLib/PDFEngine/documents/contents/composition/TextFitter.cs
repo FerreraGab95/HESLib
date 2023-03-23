@@ -67,34 +67,31 @@ namespace HES.Documents.Contents.Composition
       this.hyphenation = hyphenation;
       this.hyphenationCharacter = hyphenationCharacter;
     }
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    /**
-      <summary>Fits the text inside the specified width.</summary>
-      <param name="unspacedFitting">Whether fitting of unspaced text is allowed.</param>
-      <returns>Whether the operation was successful.</returns>
-    */
-    public bool Fit(
-      bool unspacedFitting
-      )
-    {
-      return Fit(
-        endIndex + 1,
-        width,
-        unspacedFitting
-        );
-    }
+        #region interface
+        #region public
+        /**
+          <summary>Fits the text inside the specified width.</summary>
+          <param name="unspacedFitting">Whether fitting of unspaced text is allowed.</param>
+          <returns>Whether the operation was successful.</returns>
+        */
+        public bool Fit(
+          bool unspacedFitting
+          ) => Fit(
+            endIndex + 1,
+            width,
+            unspacedFitting
+            );
 
-    /**
-      <summary>Fits the text inside the specified width.</summary>
-      <param name="index">Beginning index, inclusive.</param>
-      <param name="width">Available width.</param>
-      <param name="unspacedFitting">Whether fitting of unspaced text is allowed.</param>
-      <returns>Whether the operation was successful.</returns>
-    */
-    public bool Fit(
+        /**
+          <summary>Fits the text inside the specified width.</summary>
+          <param name="index">Beginning index, inclusive.</param>
+          <param name="width">Available width.</param>
+          <param name="unspacedFitting">Whether fitting of unspaced text is allowed.</param>
+          <returns>Whether the operation was successful.</returns>
+        */
+        public bool Fit(
       int index,
       double width,
       bool unspacedFitting

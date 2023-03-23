@@ -71,15 +71,14 @@ namespace HES.Documents.Contents.Objects
       IList<ContentObject> operations
       ) : base(operations)
     {}
-    #endregion
+        #endregion
 
-    #region interface
-    #region protected
-    protected override GraphicsPath CreateRenderObject(
-      )
-    {return new GraphicsPath();}
-    #endregion
-    #endregion
-    #endregion
-  }
+        #region interface
+        #region protected
+        protected override GraphicsPath CreateRenderObject(
+          ) => new GraphicsPath();
+        #endregion
+        #endregion
+        #endregion
+    }
 }

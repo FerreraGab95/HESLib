@@ -125,11 +125,10 @@ namespace HES.Tokens
       WriteTail(xrefStreamEntry.Offset);
     }
 
-    protected override void WriteLinearized(
-      )
-    {throw new NotImplementedException();}
+        protected override void WriteLinearized(
+          ) => throw new NotImplementedException();
 
-    protected override void WriteStandard(
+        protected override void WriteStandard(
       )
     {
       // 1. Header [PDF:1.6:3.4.1].

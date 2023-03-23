@@ -76,23 +76,19 @@ namespace HES.Tokens
         this[0xA0] = '\u20AC';
       }
 
-      private bool IsIdentity(
-        int code
-        )
-      {return code < 128 || (code > 160 && code < 256);}
+            private bool IsIdentity(
+              int code
+              ) => code < 128 || (code > 160 && code < 256);
 
             public override int Count => 256;
 
             public override int GetKey(
         char value
-        )
-      {
-        return IsIdentity(value)
+        ) => IsIdentity(value)
           ? (int)value
           : base.GetKey(value);
-      }
 
-      public override char this[
+            public override char this[
         int key
         ]
       {
@@ -109,18 +105,17 @@ namespace HES.Tokens
     #region static
     #region fields
     private static readonly PdfDocEncoding instance = new PdfDocEncoding();
-    #endregion
+        #endregion
 
-    #region interface
-    public static PdfDocEncoding Get(
-      )
-    {return instance;}
-    #endregion
-    #endregion
+        #region interface
+        public static PdfDocEncoding Get(
+          ) => instance;
+        #endregion
+        #endregion
 
-    #region dynamic
-    #region constructors
-    private PdfDocEncoding(
+        #region dynamic
+        #region constructors
+        private PdfDocEncoding(
       )
     {chars = new Chars();}
     #endregion

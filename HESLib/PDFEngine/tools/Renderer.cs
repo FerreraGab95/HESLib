@@ -47,32 +47,27 @@ namespace HES.Tools
 
         public static PrintDocument GetPrintDocument(
             Document document
-                                                    )
-        { return new PrintDocument(document.Pages); }
+                                                    ) => new PrintDocument(document.Pages);
 
         public static PrintDocument GetPrintDocument(
             IList<Page> pages
-                                                    )
-        { return new PrintDocument(pages); }
+                                                    ) => new PrintDocument(pages);
 
         public Image Render(
             Contents contents,
             SizeF size
-                           )
-        { return Render(contents, size, null); }
+                           ) => Render(contents, size, null);
 
         public Image Render(
             IContentContext contentContext,
             SizeF size
-                           )
-        { return Render(contentContext, size, null); }
+                           ) => Render(contentContext, size, null);
 
         public Image Render(
             Contents contents,
             SizeF size,
             RectangleF? area
-                           )
-        { return Render(contents.ContentContext, size, area); }
+                           ) => Render(contents.ContentContext, size, area);
 
         public Image Render(
             IContentContext contentContext,

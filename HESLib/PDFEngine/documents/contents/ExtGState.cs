@@ -42,27 +42,26 @@ namespace HES.Documents.Contents
     #region static
     #region fields
     internal static readonly IList<BlendModeEnum> DefaultBlendMode = new BlendModeEnum[0];
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    /**
-      <summary>Wraps the specified base object into a graphics state parameter dictionary object.
-      </summary>
-      <param name="baseObject">Base object of a graphics state parameter dictionary object.</param>
-      <returns>Graphics state parameter dictionary object corresponding to the base object.</returns>
-    */
-    public static ExtGState Wrap(
-      PdfDirectObject baseObject
-      )
-    {return baseObject != null ? new ExtGState(baseObject) : null;}
-    #endregion
-    #endregion
-    #endregion
+        #region interface
+        #region public
+        /**
+          <summary>Wraps the specified base object into a graphics state parameter dictionary object.
+          </summary>
+          <param name="baseObject">Base object of a graphics state parameter dictionary object.</param>
+          <returns>Graphics state parameter dictionary object corresponding to the base object.</returns>
+        */
+        public static ExtGState Wrap(
+          PdfDirectObject baseObject
+          ) => baseObject != null ? new ExtGState(baseObject) : null;
+        #endregion
+        #endregion
+        #endregion
 
-    #region dynamic
-    #region constructors
-    public ExtGState(
+        #region dynamic
+        #region constructors
+        public ExtGState(
       Document context
       ) : base(context, new PdfDictionary())
     {}

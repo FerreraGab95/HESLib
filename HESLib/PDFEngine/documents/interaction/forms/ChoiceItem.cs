@@ -73,20 +73,19 @@ namespace HES.Documents.Interaction.Forms
       ChoiceItems items
       ) : base(baseObject)
     {Items = items;}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public override object Clone(
-      Document context
-      )
-    {throw new NotImplementedException();}
+        #region interface
+        #region public
+        public override object Clone(
+          Document context
+          ) => throw new NotImplementedException();
 
-    //TODO:make the class immutable (to avoid needing wiring it up to its collection...)!!!
-    /**
-      <summary>Gets/Sets the displayed text.</summary>
-    */
-    public string Text
+        //TODO:make the class immutable (to avoid needing wiring it up to its collection...)!!!
+        /**
+          <summary>Gets/Sets the displayed text.</summary>
+        */
+        public string Text
     {
       get
       {

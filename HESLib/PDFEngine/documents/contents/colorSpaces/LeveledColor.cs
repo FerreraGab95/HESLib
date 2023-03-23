@@ -91,16 +91,14 @@ namespace HES.Documents.Contents.ColorSpaces
         */
         protected double GetComponentValue(
       int index
-      )
-    {return ((IPdfNumber)Components[index]).RawValue;}
+      ) => ((IPdfNumber)Components[index]).RawValue;
 
-    protected void SetComponentValue(
-      int index,
-      double value
-      )
-    {Components[index] = PdfReal.Get(NormalizeComponent(value));}
-    #endregion
-    #endregion
-    #endregion
-  }
+        protected void SetComponentValue(
+          int index,
+          double value
+          ) => Components[index] = PdfReal.Get(NormalizeComponent(value));
+        #endregion
+        #endregion
+        #endregion
+    }
 }

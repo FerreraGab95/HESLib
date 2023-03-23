@@ -62,13 +62,12 @@ namespace HES.Objects
         private static readonly InfoImpl KidsInfo = new InfoImpl(1, TreeLowOrder);
         private static readonly InfoImpl PairsInfo = new InfoImpl(2, TreeLowOrder); // NOTE: Paired children are combinations of 2 contiguous items.
 
-        public static InfoImpl Get(
-          PdfName typeName
-          )
-        {return typeName.Equals(PdfName.Kids) ? KidsInfo : PairsInfo;}
+                public static InfoImpl Get(
+                  PdfName typeName
+                  ) => typeName.Equals(PdfName.Kids) ? KidsInfo : PairsInfo;
 
-        /** Number of (contiguous) children defining an item. */
-        public int ItemCount;
+                /** Number of (contiguous) children defining an item. */
+                public int ItemCount;
         /** Maximum number of children. */
         public int MaxCount;
         /** Minimum number of children. */
@@ -128,41 +127,36 @@ namespace HES.Objects
         Info = InfoImpl.Get(typeName);
       }
 
-      /**
-        <summary>Gets whether the collection size has reached its maximum.</summary>
-      */
-      public bool IsFull(
-        )
-      {return Items.Count >= Info.MaxCount;}
+            /**
+              <summary>Gets whether the collection size has reached its maximum.</summary>
+            */
+            public bool IsFull(
+              ) => Items.Count >= Info.MaxCount;
 
-      /**
-        <summary>Gets whether this collection represents a leaf node.</summary>
-      */
-      public bool IsLeaf(
-        )
-      {return !TypeName.Equals(PdfName.Kids);}
+            /**
+              <summary>Gets whether this collection represents a leaf node.</summary>
+            */
+            public bool IsLeaf(
+              ) => !TypeName.Equals(PdfName.Kids);
 
-      /**
-        <summary>Gets whether the collection size is more than its maximum.</summary>
-      */
-      public bool IsOversized(
-        )
-      {return Items.Count > Info.MaxCount;}
+            /**
+              <summary>Gets whether the collection size is more than its maximum.</summary>
+            */
+            public bool IsOversized(
+              ) => Items.Count > Info.MaxCount;
 
-      /**
-        <summary>Gets whether the collection size is less than its minimum.</summary>
-      */
-      public bool IsUndersized(
-        )
-      {return Items.Count < Info.MinCount;}
+            /**
+              <summary>Gets whether the collection size is less than its minimum.</summary>
+            */
+            public bool IsUndersized(
+              ) => Items.Count < Info.MinCount;
 
-      /**
-        <summary>Gets whether the collection size is within the order limits.</summary>
-      */
-      public bool IsValid(
-        )
-      {return !(IsUndersized() || IsOversized());}
-    }
+            /**
+              <summary>Gets whether the collection size is within the order limits.</summary>
+            */
+            public bool IsValid(
+              ) => !(IsUndersized() || IsOversized());
+        }
 
     private class Enumerator
       : IEnumerator<KeyValuePair<TKey,TValue>>
@@ -237,16 +231,14 @@ namespace HES.Objects
             public object Current => ((IEnumerator<KeyValuePair<TKey, TValue>>)this).Current;
 
             public bool MoveNext(
-        )
-      {return (current = GetNext()) != null;}
+        ) => (current = GetNext()) != null;
 
-      public void Reset(
-        )
-      {throw new NotSupportedException();}
-      #endregion
+            public void Reset(
+              ) => throw new NotSupportedException();
+            #endregion
 
-      #region IDisposable
-      public void Dispose(
+            #region IDisposable
+            public void Dispose(
         )
       {}
       #endregion
@@ -349,11 +341,10 @@ namespace HES.Objects
     {
       private ICollection<TKey> keys = new List<TKey>();
 
-      public void Add(
-        PdfArray names,
-        int offset
-        )
-      {keys.Add((TKey)names[offset]);}
+            public void Add(
+              PdfArray names,
+              int offset
+              ) => keys.Add((TKey)names[offset]);
 
             public ICollection<TKey> Collection => keys;
         }
@@ -369,11 +360,10 @@ namespace HES.Objects
         )
       {this.tree = tree;}
 
-      public void Add(
-        PdfArray names,
-        int offset
-        )
-      {values.Add(tree.WrapValue(names[offset + 1]));}
+            public void Add(
+              PdfArray names,
+              int offset
+              ) => values.Add(tree.WrapValue(names[offset + 1]));
 
             public ICollection<TValue> Collection => values;
         }
@@ -428,24 +418,21 @@ namespace HES.Objects
       return null;
     }
 
-    #region IDictionary
-    public virtual void Add(
-      TKey key,
-      TValue value
-      )
-    {Add(key, value, false);}
+        #region IDictionary
+        public virtual void Add(
+          TKey key,
+          TValue value
+          ) => Add(key, value, false);
 
-    public virtual bool ContainsKey(
-      TKey key
-      )
-    {
-      /*
-        NOTE: Here we assume that any named entry has a non-null value.
-      */
-      return this[key] != null;
-    }
+        public virtual bool ContainsKey(
+          TKey key
+          ) =>
+          /*
+NOTE: Here we assume that any named entry has a non-null value.
+*/
+          this[key] != null;
 
-    public virtual ICollection<TKey> Keys
+        public virtual ICollection<TKey> Keys
     {
       get
       {
@@ -709,56 +696,49 @@ namespace HES.Objects
       }
     }
 
-    #region ICollection
-    void ICollection<KeyValuePair<TKey,TValue>>.Add(
-      KeyValuePair<TKey,TValue> keyValuePair
-      )
-    {Add(keyValuePair.Key,keyValuePair.Value);}
+        #region ICollection
+        void ICollection<KeyValuePair<TKey, TValue>>.Add(
+          KeyValuePair<TKey, TValue> keyValuePair
+          ) => Add(keyValuePair.Key, keyValuePair.Value);
 
-    public virtual void Clear(
-      )
-    {Clear(BaseDataObject);}
+        public virtual void Clear(
+          ) => Clear(BaseDataObject);
 
-    bool ICollection<KeyValuePair<TKey,TValue>>.Contains(
-      KeyValuePair<TKey,TValue> keyValuePair
-      )
-    {return keyValuePair.Value.Equals(this[keyValuePair.Key]);}
+        bool ICollection<KeyValuePair<TKey, TValue>>.Contains(
+          KeyValuePair<TKey, TValue> keyValuePair
+          ) => keyValuePair.Value.Equals(this[keyValuePair.Key]);
 
-    public virtual void CopyTo(
-      KeyValuePair<TKey,TValue>[] keyValuePairs,
-      int index
-      )
-    {throw new NotImplementedException();}
+        public virtual void CopyTo(
+          KeyValuePair<TKey, TValue>[] keyValuePairs,
+          int index
+          ) => throw new NotImplementedException();
 
         public virtual int Count => GetCount(BaseDataObject);
 
         public virtual bool IsReadOnly => false;
 
         public virtual bool Remove(
-      KeyValuePair<TKey,TValue> keyValuePair
-      )
-    {throw new NotSupportedException();}
+      KeyValuePair<TKey, TValue> keyValuePair
+      ) => throw new NotSupportedException();
 
-    #region IEnumerable<KeyValuePair<TKey,TValue>>
-    public virtual IEnumerator<KeyValuePair<TKey,TValue>> GetEnumerator(
-      )
-    {return new Enumerator(this);}
+        #region IEnumerable<KeyValuePair<TKey,TValue>>
+        public virtual IEnumerator<KeyValuePair<TKey, TValue>> GetEnumerator(
+          ) => new Enumerator(this);
 
-    #region IEnumerable
-    IEnumerator IEnumerable.GetEnumerator(
-      )
-    {return this.GetEnumerator();}
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-    #endregion
+        #region IEnumerable
+        IEnumerator IEnumerable.GetEnumerator(
+          ) => this.GetEnumerator();
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+        #endregion
 
-    #region protected
-    /**
-      <summary>Gets the name of the key-value pairs entries.</summary>
-    */
-    protected abstract PdfName PairsKey
+        #region protected
+        /**
+          <summary>Gets the name of the key-value pairs entries.</summary>
+        */
+        protected abstract PdfName PairsKey
     {
       get;
     }
@@ -1041,22 +1021,21 @@ namespace HES.Objects
       UpdateNodeLimits(fullNode, fullNodeChildren, childrenTypeName);
     }
 
-    /**
-      <summary>Sets the key limits of the given node.</summary>
-      <param name="children">Node children.</param>
-    */
-    private void UpdateNodeLimits(
-      Children children
-      )
-    {UpdateNodeLimits(children.Parent, children.Items, children.TypeName);}
+        /**
+          <summary>Sets the key limits of the given node.</summary>
+          <param name="children">Node children.</param>
+        */
+        private void UpdateNodeLimits(
+          Children children
+          ) => UpdateNodeLimits(children.Parent, children.Items, children.TypeName);
 
-    /**
-      <summary>Sets the key limits of the given node.</summary>
-      <param name="node">Node to update.</param>
-      <param name="children">Node children.</param>
-      <param name="childrenTypeName">Node's children type.</param>
-    */
-    private void UpdateNodeLimits(
+        /**
+          <summary>Sets the key limits of the given node.</summary>
+          <param name="node">Node to update.</param>
+          <param name="children">Node children.</param>
+          <param name="childrenTypeName">Node's children type.</param>
+        */
+        private void UpdateNodeLimits(
       PdfDictionary node,
       PdfArray children,
       PdfName childrenTypeName

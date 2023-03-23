@@ -244,8 +244,7 @@ namespace HES.Documents
             }
 
             public void Reset(
-                             )
-            { throw new NotSupportedException(); }
+                             ) => throw new NotSupportedException();
 
             #endregion Public Methods
         }
@@ -365,42 +364,34 @@ namespace HES.Documents
 
         public void Add(
             Page page
-                       )
-        { CommonAddAll(-1, (ICollection<Page>)new Page[] { page }); }
+                       ) => CommonAddAll(-1, (ICollection<Page>)new Page[] { page });
 
         public void AddAll<TVar>(
             ICollection<TVar> pages
                                 )
-            where TVar : Page
-        { CommonAddAll(-1, pages); }
+            where TVar : Page => CommonAddAll(-1, pages);
 
         public void Clear() => RemoveAll(x => true);
 
         public bool Contains(
             Page page
-                            )
-        { throw new NotImplementedException(); }
+                            ) => throw new NotImplementedException();
 
         public void CopyTo(
             Page[] pages,
             int index
-                          )
-        { throw new NotImplementedException(); }
+                          ) => throw new NotImplementedException();
 
         public IEnumerator<Page> GetEnumerator(
-                                              )
-        { return new Enumerator(this); }
+                                              ) => new Enumerator(this);
 
         public IList<Page> GetRange(
                                     int index,
             int count
-                                   )
-        {
-            return GetSlice(
+                                   ) => GetSlice(
                 index,
                 index + count
                            );
-        }
 
         public IList<Page> GetSlice(
             int fromIndex,
@@ -417,21 +408,18 @@ namespace HES.Documents
 
         public int IndexOf(
             Page page
-                          )
-        { return page.Index; }
+                          ) => page.Index;
 
         public void Insert(
             int index,
             Page page
-                          )
-        { CommonAddAll(index, (ICollection<Page>)new Page[] { page }); }
+                          ) => CommonAddAll(index, (ICollection<Page>)new Page[] { page });
 
         public void InsertAll<TVar>(
                         int index,
             ICollection<TVar> pages
                                    )
-            where TVar : Page
-        { CommonAddAll(index, pages); }
+            where TVar : Page => CommonAddAll(index, pages);
 
         public bool Remove(
         Page page
@@ -502,12 +490,10 @@ namespace HES.Documents
 
         public void RemoveAt(
             int index
-                            )
-        { Remove(this[index]); }
+                            ) => Remove(this[index]);
 
         IEnumerator IEnumerable.GetEnumerator(
-                                             )
-        { return this.GetEnumerator(); }
+                                             ) => this.GetEnumerator();
 
         #endregion Public Methods
 

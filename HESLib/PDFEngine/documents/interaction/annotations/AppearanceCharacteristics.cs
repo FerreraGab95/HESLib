@@ -145,30 +145,28 @@ namespace HES.Documents.Interaction.Annotations
         ScaleTypeEnumCodes[ScaleTypeEnum.Anamorphic] = PdfName.A;
         ScaleTypeEnumCodes[ScaleTypeEnum.Proportional] = PdfName.P;
       }
-      #endregion
+            #endregion
 
-      #region interface
-      #region private
-      /**
-        <summary>Gets the code corresponding to the given value.</summary>
-      */
-      private static PdfName ToCode(
-        ScaleModeEnum value
-        )
-      {return ScaleModeEnumCodes[value];}
+            #region interface
+            #region private
+            /**
+              <summary>Gets the code corresponding to the given value.</summary>
+            */
+            private static PdfName ToCode(
+              ScaleModeEnum value
+              ) => ScaleModeEnumCodes[value];
 
-      /**
-        <summary>Gets the code corresponding to the given value.</summary>
-      */
-      private static PdfName ToCode(
-        ScaleTypeEnum value
-        )
-      {return ScaleTypeEnumCodes[value];}
+            /**
+              <summary>Gets the code corresponding to the given value.</summary>
+            */
+            private static PdfName ToCode(
+              ScaleTypeEnum value
+              ) => ScaleTypeEnumCodes[value];
 
-      /**
-        <summary>Gets the scaling mode corresponding to the given value.</summary>
-      */
-      private static ScaleModeEnum ToScaleModeEnum(
+            /**
+              <summary>Gets the scaling mode corresponding to the given value.</summary>
+            */
+            private static ScaleModeEnum ToScaleModeEnum(
         PdfName value
         )
       {
@@ -372,22 +370,21 @@ namespace HES.Documents.Interaction.Annotations
       */
       Right = 270
     };
-    #endregion
+        #endregion
 
-    #region static
-    #region interface
-    #region public
-    public static AppearanceCharacteristics Wrap(
-      PdfDirectObject baseObject
-      )
-    {return baseObject != null ? new AppearanceCharacteristics(baseObject) : null;}
-    #endregion
-    #endregion
-    #endregion
+        #region static
+        #region interface
+        #region public
+        public static AppearanceCharacteristics Wrap(
+          PdfDirectObject baseObject
+          ) => baseObject != null ? new AppearanceCharacteristics(baseObject) : null;
+        #endregion
+        #endregion
+        #endregion
 
-    #region dynamic
-    #region constructors
-    public AppearanceCharacteristics(
+        #region dynamic
+        #region constructors
+        public AppearanceCharacteristics(
       Document context
       ) : base(context, new PdfDictionary())
     {}
@@ -540,16 +537,14 @@ namespace HES.Documents.Interaction.Annotations
         #region private
         private DeviceColor GetColor(
       PdfName key
-      )
-    {return DeviceColor.Get((PdfArray)BaseDataObject.Resolve(key));}
+      ) => DeviceColor.Get((PdfArray)BaseDataObject.Resolve(key));
 
-    private void SetColor(
-      PdfName key,
-      DeviceColor value
-      )
-    {BaseDataObject[key] = PdfObjectWrapper.GetBaseObject(value);}
-    #endregion
-    #endregion
-    #endregion
-  }
+        private void SetColor(
+          PdfName key,
+          DeviceColor value
+          ) => BaseDataObject[key] = PdfObjectWrapper.GetBaseObject(value);
+        #endregion
+        #endregion
+        #endregion
+    }
 }

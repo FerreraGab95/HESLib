@@ -115,15 +115,12 @@ namespace HES.Documents.Contents.Objects
 
         public override void Scan(
       ContentScanner.GraphicsState state
-      )
-    {
-      state.FillColor = state.FillColorSpace.GetColor(
+      ) => state.FillColor = state.FillColorSpace.GetColor(
         operands,
         state.Scanner.ContentContext
         );
+        #endregion
+        #endregion
+        #endregion
     }
-    #endregion
-    #endregion
-    #endregion
-  }
 }

@@ -51,19 +51,18 @@ namespace HES.Documents.Interaction.Annotations
       PdfDirectObject baseObject
       ) : base(parent, baseObject)
     {}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public override object Clone(
-      Document context
-      )
-    {throw new system::NotImplementedException();} // TODO: verify parent reference.
+        #region interface
+        #region public
+        public override object Clone(
+          Document context
+          ) => throw new system::NotImplementedException(); // TODO: verify parent reference.
 
-    /**
-      <summary>Gets/Sets the action to be performed when the annotation loses the input focus.</summary>
-    */
-    public Action OnBlur
+        /**
+          <summary>Gets/Sets the action to be performed when the annotation loses the input focus.</summary>
+        */
+        public Action OnBlur
     {
       get => Action.Wrap(BaseDataObject[PdfName.Bl]);
       set => BaseDataObject[PdfName.Bl] = value.BaseObject;

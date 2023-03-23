@@ -89,18 +89,14 @@ namespace HES.Documents.Contents.ColorSpaces
 
         public static IndexedColor Get(
                           PdfArray components
-                                      )
-        {
-            return (components != null
+                                      ) => (components != null
                 ? new IndexedColor(components)
                 : Default
                    );
-        }
 
         public override object Clone(
             Document context
-                                    )
-        { throw new NotImplementedException(); }
+                                    ) => throw new NotImplementedException();
 
         #endregion Public Methods
 

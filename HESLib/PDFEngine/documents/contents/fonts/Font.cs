@@ -95,9 +95,7 @@ namespace HES.Documents.Contents.Fonts
         public static Font Get(
           Document context,
           string path
-          )
-        {
-            return Get(
+          ) => Get(
               context,
               new Bytes.Stream(
                 new io::FileStream(
@@ -107,7 +105,6 @@ namespace HES.Documents.Contents.Fonts
                   )
                 )
               );
-        }
 
         /**
           <summary>Creates the representation of a font.</summary>
@@ -129,8 +126,7 @@ namespace HES.Documents.Contents.Fonts
         */
         public static double GetScalingFactor(
           double size
-          )
-        { return 0.001 * size; }
+          ) => 0.001 * size;
 
         /**
           <summary>Wraps a font reference into a font object.</summary>
@@ -360,12 +356,9 @@ namespace HES.Documents.Contents.Fonts
 
         public override bool Equals(
           object obj
-          )
-        {
-            return obj != null
+          ) => obj != null
               && obj.GetType().Equals(GetType())
               && ((Font)obj).Name.Equals(Name);
-        }
 
         /**
           <summary>Gets the font descriptor flags.</summary>
@@ -389,8 +382,7 @@ namespace HES.Documents.Contents.Fonts
         */
         public double GetAscent(
           double size
-          )
-        { return Ascent * GetScalingFactor(size); }
+          ) => Ascent * GetScalingFactor(size);
 
         /**
           <summary>Gets the vertical offset from the baseline to the descender line (descent),
@@ -399,12 +391,10 @@ namespace HES.Documents.Contents.Fonts
         */
         public double GetDescent(
           double size
-          )
-        { return Descent * GetScalingFactor(size); }
+          ) => Descent * GetScalingFactor(size);
 
         public override int GetHashCode(
-          )
-        { return Name.GetHashCode(); }
+          ) => Name.GetHashCode();
 
         /**
           <summary>Gets the unscaled height of the given character.</summary>
@@ -412,8 +402,7 @@ namespace HES.Documents.Contents.Fonts
         */
         public double GetHeight(
           char textChar
-          )
-        { return LineHeight; }
+          ) => LineHeight;
 
         /**
           <summary>Gets the height of the given character, scaled to the given font size.</summary>
@@ -423,8 +412,7 @@ namespace HES.Documents.Contents.Fonts
         public double GetHeight(
           char textChar,
           double size
-          )
-        { return GetHeight(textChar) * GetScalingFactor(size); }
+          ) => GetHeight(textChar) * GetScalingFactor(size);
 
         /**
           <summary>Gets the unscaled height of the given text.</summary>
@@ -432,8 +420,7 @@ namespace HES.Documents.Contents.Fonts
         */
         public double GetHeight(
           string text
-          )
-        { return LineHeight; }
+          ) => LineHeight;
 
         /**
           <summary>Gets the height of the given text, scaled to the given font size.</summary>
@@ -443,8 +430,7 @@ namespace HES.Documents.Contents.Fonts
         public double GetHeight(
           string text,
           double size
-          )
-        { return GetHeight(text) * GetScalingFactor(size); }
+          ) => GetHeight(text) * GetScalingFactor(size);
 
         /**
           <summary>Gets the width (kerning inclusive) of the given text, scaled to the given font size.</summary>
@@ -454,8 +440,7 @@ namespace HES.Documents.Contents.Fonts
         public double GetKernedWidth(
           string text,
           double size
-          )
-        { return (GetWidth(text) + GetKerning(text)) * GetScalingFactor(size); }
+          ) => (GetWidth(text) + GetKerning(text)) * GetScalingFactor(size);
 
         /**
           <summary>Gets the unscaled kerning width between two given characters.</summary>
@@ -521,8 +506,7 @@ namespace HES.Documents.Contents.Fonts
         public double GetKerning(
           string text,
           double size
-          )
-        { return GetKerning(text) * GetScalingFactor(size); }
+          ) => GetKerning(text) * GetScalingFactor(size);
 
         /**
           <summary>Gets the line height, scaled to the given font size.</summary>
@@ -530,8 +514,7 @@ namespace HES.Documents.Contents.Fonts
         */
         public double GetLineHeight(
           double size
-          )
-        { return LineHeight * GetScalingFactor(size); }
+          ) => LineHeight * GetScalingFactor(size);
 
         /**
           <summary>Gets the unscaled width of the given character.</summary>
@@ -557,8 +540,7 @@ namespace HES.Documents.Contents.Fonts
         public double GetWidth(
           char textChar,
           double size
-          )
-        { return GetWidth(textChar) * GetScalingFactor(size); }
+          ) => GetWidth(textChar) * GetScalingFactor(size);
 
         /**
           <summary>Gets the unscaled width (kerning exclusive) of the given text.</summary>
@@ -583,8 +565,7 @@ namespace HES.Documents.Contents.Fonts
         public double GetWidth(
           string text,
           double size
-          )
-        { return GetWidth(text) * GetScalingFactor(size); }
+          ) => GetWidth(text) * GetScalingFactor(size);
 
         /**
           <summary>Gets the unscaled line height.</summary>

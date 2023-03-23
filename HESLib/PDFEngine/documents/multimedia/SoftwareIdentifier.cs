@@ -66,12 +66,11 @@ namespace HES.Documents.Multimedia
         ) : base(baseObject)
       {}
 
-      public int CompareTo(
-        IVersion value
-        )
-      {return VersionUtils.CompareTo(this, value);}
+            public int CompareTo(
+              IVersion value
+              ) => VersionUtils.CompareTo(this, value);
 
-      public IList<int> Numbers
+            public IList<int> Numbers
       {
         get
         {
@@ -82,26 +81,24 @@ namespace HES.Documents.Multimedia
         }
       }
 
-      public override string ToString(
-        )
-      {return VersionUtils.ToString(this);}
-    }
-    #endregion
+            public override string ToString(
+              ) => VersionUtils.ToString(this);
+        }
+        #endregion
 
-    #region static
-    #region interface
-    #region public
-    public static SoftwareIdentifier Wrap(
-      PdfDirectObject baseObject
-      )
-    {return baseObject != null ? new SoftwareIdentifier(baseObject) : null;}
-    #endregion
-    #endregion
-    #endregion
+        #region static
+        #region interface
+        #region public
+        public static SoftwareIdentifier Wrap(
+          PdfDirectObject baseObject
+          ) => baseObject != null ? new SoftwareIdentifier(baseObject) : null;
+        #endregion
+        #endregion
+        #endregion
 
-    #region dynamic
-    #region constructors
-    public SoftwareIdentifier(
+        #region dynamic
+        #region constructors
+        public SoftwareIdentifier(
       Document context
       ) : base(context, new PdfDictionary())
     {}

@@ -82,13 +82,12 @@ namespace HES.Documents.Interaction.Forms
       return item;
     }
 
-    #region IList
-    public int IndexOf(
-      ChoiceItem value
-      )
-    {return BaseDataObject.IndexOf(value.BaseObject);}
+        #region IList
+        public int IndexOf(
+          ChoiceItem value
+          ) => BaseDataObject.IndexOf(value.BaseObject);
 
-    public void Insert(
+        public void Insert(
       int index,
       ChoiceItem value
       )
@@ -97,12 +96,11 @@ namespace HES.Documents.Interaction.Forms
       value.Items = this;
     }
 
-    public void RemoveAt(
-      int index
-      )
-    {BaseDataObject.RemoveAt(index);}
+        public void RemoveAt(
+          int index
+          ) => BaseDataObject.RemoveAt(index);
 
-    public ChoiceItem this[
+        public ChoiceItem this[
       int index
       ]
         {
@@ -123,20 +121,17 @@ namespace HES.Documents.Interaction.Forms
       value.Items = this;
     }
 
-    public void Clear(
-      )
-    {BaseDataObject.Clear();}
+        public void Clear(
+          ) => BaseDataObject.Clear();
 
-    public bool Contains(
-      ChoiceItem value
-      )
-    {return BaseDataObject.Contains(value.BaseObject);}
+        public bool Contains(
+          ChoiceItem value
+          ) => BaseDataObject.Contains(value.BaseObject);
 
-    public void CopyTo(
-      ChoiceItem[] values,
-      int index
-      )
-    {throw new NotImplementedException();}
+        public void CopyTo(
+          ChoiceItem[] values,
+          int index
+          ) => throw new NotImplementedException();
 
         public int Count => BaseDataObject.Count;
 
@@ -144,11 +139,10 @@ namespace HES.Documents.Interaction.Forms
 
         public bool Remove(
       ChoiceItem value
-      )
-    {return BaseDataObject.Remove(value.BaseObject);}
+      ) => BaseDataObject.Remove(value.BaseObject);
 
-    #region IEnumerable<ChoiceItem>
-    IEnumerator<ChoiceItem> IEnumerable<ChoiceItem>.GetEnumerator(
+        #region IEnumerable<ChoiceItem>
+        IEnumerator<ChoiceItem> IEnumerable<ChoiceItem>.GetEnumerator(
       )
     {
       for(
@@ -160,16 +154,15 @@ namespace HES.Documents.Interaction.Forms
       {yield return this[index];}
     }
 
-    #region IEnumerable
-    IEnumerator IEnumerable.GetEnumerator(
-      )
-    {return ((IEnumerable<ChoiceItem>)this).GetEnumerator();}
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-  }
+        #region IEnumerable
+        IEnumerator IEnumerable.GetEnumerator(
+          ) => ((IEnumerable<ChoiceItem>)this).GetEnumerator();
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+    }
 }

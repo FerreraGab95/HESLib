@@ -42,20 +42,19 @@ namespace HES.Documents.Files
     : PdfObjectWrapper<PdfArray>,
       IDictionary<string,EmbeddedFile>
   {
-    #region static
-    #region interface
-    #region public
-    public static RelatedFiles Wrap(
-      PdfDirectObject baseObject
-      )
-    {return baseObject != null ? new RelatedFiles(baseObject) : null;}
-    #endregion
-    #endregion
-    #endregion
+        #region static
+        #region interface
+        #region public
+        public static RelatedFiles Wrap(
+          PdfDirectObject baseObject
+          ) => baseObject != null ? new RelatedFiles(baseObject) : null;
+        #endregion
+        #endregion
+        #endregion
 
-    #region dynamic
-    #region constructors
-    public RelatedFiles(
+        #region dynamic
+        #region constructors
+        public RelatedFiles(
       Document context
       ) : base(context, new PdfArray())
     {}
@@ -208,38 +207,33 @@ namespace HES.Documents.Files
       }
     }
 
-    #region ICollection
-    void ICollection<KeyValuePair<string,EmbeddedFile>>.Add(
-      KeyValuePair<string,EmbeddedFile> entry
-      )
-    {Add(entry.Key,entry.Value);}
+        #region ICollection
+        void ICollection<KeyValuePair<string, EmbeddedFile>>.Add(
+          KeyValuePair<string, EmbeddedFile> entry
+          ) => Add(entry.Key, entry.Value);
 
-    public void Clear(
-      )
-    {BaseDataObject.Clear();}
+        public void Clear(
+          ) => BaseDataObject.Clear();
 
-    bool ICollection<KeyValuePair<string,EmbeddedFile>>.Contains(
-      KeyValuePair<string,EmbeddedFile> entry
-      )
-    {return entry.Value.Equals(this[entry.Key]);}
+        bool ICollection<KeyValuePair<string, EmbeddedFile>>.Contains(
+          KeyValuePair<string, EmbeddedFile> entry
+          ) => entry.Value.Equals(this[entry.Key]);
 
-    public void CopyTo(
-      KeyValuePair<string,EmbeddedFile>[] entries,
-      int index
-      )
-    {throw new NotImplementedException();}
+        public void CopyTo(
+          KeyValuePair<string, EmbeddedFile>[] entries,
+          int index
+          ) => throw new NotImplementedException();
 
         public int Count => BaseDataObject.Count;
 
         public bool IsReadOnly => false;
 
         public bool Remove(
-      KeyValuePair<string,EmbeddedFile> entry
-      )
-    {throw new NotImplementedException();}
+      KeyValuePair<string, EmbeddedFile> entry
+      ) => throw new NotImplementedException();
 
-    #region IEnumerable<KeyValuePair<string,EmbeddedFile>>
-    IEnumerator<KeyValuePair<string,EmbeddedFile>> IEnumerable<KeyValuePair<string,EmbeddedFile>>.GetEnumerator(
+        #region IEnumerable<KeyValuePair<string,EmbeddedFile>>
+        IEnumerator<KeyValuePair<string,EmbeddedFile>> IEnumerable<KeyValuePair<string,EmbeddedFile>>.GetEnumerator(
       )
     {
       PdfArray itemPairs = BaseDataObject;
@@ -257,16 +251,15 @@ namespace HES.Documents.Files
       }
     }
 
-    #region IEnumerable
-    IEnumerator IEnumerable.GetEnumerator(
-      )
-    {return ((IEnumerable<KeyValuePair<string,EmbeddedFile>>)this).GetEnumerator();}
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-  }
+        #region IEnumerable
+        IEnumerator IEnumerable.GetEnumerator(
+          ) => ((IEnumerable<KeyValuePair<string, EmbeddedFile>>)this).GetEnumerator();
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+    }
 }

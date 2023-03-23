@@ -188,11 +188,10 @@ namespace HES.Tokens
 
         #region ICloneable
         public object Clone(
-      )
-    {return MemberwiseClone();}
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-  }
+      ) => MemberwiseClone();
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+    }
 }

@@ -89,34 +89,32 @@ namespace HES.Documents
         + IsoSeriesSize_C
         + "])([\\d]+)"
       );
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    /**
-      <summary>Gets the default page size.</summary>
-      <remarks>The returned dimension corresponds to the widely-established ISO A4 standard paper
-      format, portrait orientation.</remarks>
-    */
-    public static Size GetSize(
-      )
-    {return GetSize(SizeEnum.A4);}
+        #region interface
+        #region public
+        /**
+          <summary>Gets the default page size.</summary>
+          <remarks>The returned dimension corresponds to the widely-established ISO A4 standard paper
+          format, portrait orientation.</remarks>
+        */
+        public static Size GetSize(
+          ) => GetSize(SizeEnum.A4);
 
-    /**
-      <summary>Gets the page size of the given format, portrait orientation.</summary>
-      <param name="size">Page size.</param>
-    */
-    public static Size GetSize(
-      SizeEnum size
-      )
-    {return GetSize(size,OrientationEnum.Portrait);}
+        /**
+          <summary>Gets the page size of the given format, portrait orientation.</summary>
+          <param name="size">Page size.</param>
+        */
+        public static Size GetSize(
+          SizeEnum size
+          ) => GetSize(size, OrientationEnum.Portrait);
 
-    /**
-      <summary>Gets the page size of the given format and orientation.</summary>
-      <param name="size">Page size.</param>
-      <param name="orientation">Page orientation.</param>
-    */
-    public static Size GetSize(
+        /**
+          <summary>Gets the page size of the given format and orientation.</summary>
+          <param name="size">Page size.</param>
+          <param name="orientation">Page orientation.</param>
+        */
+        public static Size GetSize(
       SizeEnum size,
       OrientationEnum orientation
       )

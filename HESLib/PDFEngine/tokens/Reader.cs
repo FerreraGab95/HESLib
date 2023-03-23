@@ -80,13 +80,12 @@ namespace HES.Tokens
       Files.PdfFile file
       )
     {this.parser = new FileParser(stream, file);}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public override int GetHashCode(
-      )
-    {return parser.GetHashCode();}
+        #region interface
+        #region public
+        public override int GetHashCode(
+          ) => parser.GetHashCode();
 
         public FileParser Parser => parser;
 

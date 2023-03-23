@@ -103,17 +103,15 @@ namespace HES.Documents.Contents
 
             public void Read(
         byte[] data
-        )
-      {throw new NotImplementedException();}
+        ) => throw new NotImplementedException();
 
-      public void Read(
-        byte[] data,
-        int offset,
-        int length
-        )
-      {throw new NotImplementedException();}
+            public void Read(
+              byte[] data,
+              int offset,
+              int length
+              ) => throw new NotImplementedException();
 
-      public int ReadByte(
+            public int ReadByte(
         )
       {
         if((stream == null
@@ -124,37 +122,30 @@ namespace HES.Documents.Contents
         return stream.ReadByte();
       }
 
-      public int ReadInt(
-        )
-      {throw new NotImplementedException();}
+            public int ReadInt(
+              ) => throw new NotImplementedException();
 
-      public int ReadInt(
-        int length
-        )
-      {throw new NotImplementedException();}
+            public int ReadInt(
+              int length
+              ) => throw new NotImplementedException();
 
-      public string ReadLine(
-        )
-      {throw new NotImplementedException();}
+            public string ReadLine(
+              ) => throw new NotImplementedException();
 
-      public short ReadShort(
-        )
-      {throw new NotImplementedException();}
+            public short ReadShort(
+              ) => throw new NotImplementedException();
 
-      public sbyte ReadSignedByte(
-        )
-      {throw new NotImplementedException();}
+            public sbyte ReadSignedByte(
+              ) => throw new NotImplementedException();
 
-      public string ReadString(
-        int length
-        )
-      {throw new NotImplementedException();}
+            public string ReadString(
+              int length
+              ) => throw new NotImplementedException();
 
-      public ushort ReadUnsignedShort(
-        )
-      {throw new NotImplementedException();}
+            public ushort ReadUnsignedShort(
+              ) => throw new NotImplementedException();
 
-      public void Seek(
+            public void Seek(
         long position
         )
       {
@@ -207,11 +198,10 @@ namespace HES.Documents.Contents
         }
       }
 
-      public byte[] ToByteArray(
-        )
-      {throw new NotImplementedException();}
+            public byte[] ToByteArray(
+              ) => throw new NotImplementedException();
 
-      private bool MoveNextStream(
+            private bool MoveNextStream(
         )
       {
         // Is the content stream just a single stream?
@@ -286,23 +276,22 @@ namespace HES.Documents.Contents
         return true;
       }
     }
-    #endregion
+        #endregion
 
-    #region static
-    #region interface
-    #region public
-    public static Contents Wrap(
-      PdfDirectObject baseObject,
-      IContentContext contentContext
-      )
-    {return baseObject != null ? new Contents(baseObject, contentContext) : null;}
-    #endregion
-    #endregion
-    #endregion
+        #region static
+        #region interface
+        #region public
+        public static Contents Wrap(
+          PdfDirectObject baseObject,
+          IContentContext contentContext
+          ) => baseObject != null ? new Contents(baseObject, contentContext) : null;
+        #endregion
+        #endregion
+        #endregion
 
-    #region dynamic
-    #region fields
-    private IList<ContentObject> items;
+        #region dynamic
+        #region fields
+        private IList<ContentObject> items;
 
     private IContentContext contentContext;
     #endregion
@@ -316,19 +305,18 @@ namespace HES.Documents.Contents
       this.contentContext = contentContext;
       Load();
     }
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public override object Clone(
-      Document context
-      )
-    {throw new NotSupportedException();}
+        #region interface
+        #region public
+        public override object Clone(
+          Document context
+          ) => throw new NotSupportedException();
 
-    /**
-      <summary>Serializes the contents into the content stream.</summary>
-    */
-    public void Flush(
+        /**
+          <summary>Serializes the contents into the content stream.</summary>
+        */
+        public void Flush(
       )
     {
       PdfStream stream;
@@ -379,21 +367,18 @@ namespace HES.Documents.Contents
         #region IList
         public int IndexOf(
       ContentObject obj
-      )
-    {return items.IndexOf(obj);}
+      ) => items.IndexOf(obj);
 
-    public void Insert(
-      int index,
-      ContentObject obj
-      )
-    {items.Insert(index,obj);}
+        public void Insert(
+          int index,
+          ContentObject obj
+          ) => items.Insert(index, obj);
 
-    public void RemoveAt(
-      int index
-      )
-    {items.RemoveAt(index);}
+        public void RemoveAt(
+          int index
+          ) => items.RemoveAt(index);
 
-    public ContentObject this[
+        public ContentObject this[
       int index
       ]
     {
@@ -404,23 +389,19 @@ namespace HES.Documents.Contents
         #region ICollection
         public void Add(
       ContentObject obj
-      )
-    {items.Add(obj);}
+      ) => items.Add(obj);
 
-    public void Clear(
-      )
-    {items.Clear();}
+        public void Clear(
+          ) => items.Clear();
 
-    public bool Contains(
-      ContentObject obj
-      )
-    {return items.Contains(obj);}
+        public bool Contains(
+          ContentObject obj
+          ) => items.Contains(obj);
 
-    public void CopyTo(
-      ContentObject[] objs,
-      int index
-      )
-    {items.CopyTo(objs,index);}
+        public void CopyTo(
+          ContentObject[] objs,
+          int index
+          ) => items.CopyTo(objs, index);
 
         public int Count => items.Count;
 
@@ -428,25 +409,22 @@ namespace HES.Documents.Contents
 
         public bool Remove(
       ContentObject obj
-      )
-    {return items.Remove(obj);}
+      ) => items.Remove(obj);
 
-    #region IEnumerable<ContentObject>
-    public IEnumerator<ContentObject> GetEnumerator(
-      )
-    {return items.GetEnumerator();}
+        #region IEnumerable<ContentObject>
+        public IEnumerator<ContentObject> GetEnumerator(
+          ) => items.GetEnumerator();
 
-    #region IEnumerable
-    IEnumerator IEnumerable.GetEnumerator()
-    {return ((IEnumerable<ContentObject>)this).GetEnumerator();}
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-    #endregion
+        #region IEnumerable
+        IEnumerator IEnumerable.GetEnumerator() => ((IEnumerable<ContentObject>)this).GetEnumerator();
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+        #endregion
 
-    #region private
-    private void Load(
+        #region private
+        private void Load(
       )
     {
       ContentParser parser = new ContentParser(new ContentStream(BaseDataObject));

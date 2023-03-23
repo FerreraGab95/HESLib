@@ -51,23 +51,21 @@ namespace HES.Documents.Functions
       PdfDirectObject baseObject
       ) : base(baseObject)
     {}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public override double[] Calculate(
-      double[] inputs
-      )
-    {
-      // FIXME: Auto-generated method stub
-      return null;
-    }
+        #region interface
+        #region public
+        public override double[] Calculate(
+          double[] inputs
+          ) =>
+          // FIXME: Auto-generated method stub
+          null;
 
-    /**
-      <summary>Gets the output value pairs <code>(C0,C1)</code> for lower (<code>0.0</code>)
-      and higher (<code>1.0</code>) input values.</summary>
-    */
-    public IList<double[]> BoundOutputValues
+        /**
+          <summary>Gets the output value pairs <code>(C0,C1)</code> for lower (<code>0.0</code>)
+          and higher (<code>1.0</code>) input values.</summary>
+        */
+        public IList<double[]> BoundOutputValues
     {
       get
       {

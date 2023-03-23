@@ -57,19 +57,18 @@ namespace HES.Documents.Interaction.Annotations
       PdfDirectObject baseObject
       ) : base(baseObject)
     {this.parent = parent;}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public override object Clone(
-      Document context
-      )
-    {throw new system::NotImplementedException();} // TODO: verify parent reference.
+        #region interface
+        #region public
+        public override object Clone(
+          Document context
+          ) => throw new system::NotImplementedException(); // TODO: verify parent reference.
 
-    /**
-      <summary>Gets/Sets the action to be performed when the annotation is activated.</summary>
-    */
-    public Action OnActivate
+        /**
+          <summary>Gets/Sets the action to be performed when the annotation is activated.</summary>
+        */
+        public Action OnActivate
     {
       get => parent.Action;
       set => parent.Action = value;
@@ -155,16 +154,12 @@ namespace HES.Documents.Interaction.Annotations
         public void Add(
       PdfName key,
       Action value
-      )
-    {BaseDataObject.Add(key,value.BaseObject);}
+      ) => BaseDataObject.Add(key, value.BaseObject);
 
-    public bool ContainsKey(
-      PdfName key
-      )
-    {
-      return BaseDataObject.ContainsKey(key)
-        || (PdfName.A.Equals(key) && parent.BaseDataObject.ContainsKey(key));
-    }
+        public bool ContainsKey(
+          PdfName key
+          ) => BaseDataObject.ContainsKey(key)
+            || (PdfName.A.Equals(key) && parent.BaseDataObject.ContainsKey(key));
 
         public ICollection<PdfName> Keys => BaseDataObject.Keys;
 
@@ -219,64 +214,57 @@ namespace HES.Documents.Interaction.Annotations
       }
     }
 
-    #region ICollection
-    void ICollection<KeyValuePair<PdfName,Action>>.Add(
-      KeyValuePair<PdfName,Action> entry
-      )
-    {Add(entry.Key,entry.Value);}
+        #region ICollection
+        void ICollection<KeyValuePair<PdfName, Action>>.Add(
+          KeyValuePair<PdfName, Action> entry
+          ) => Add(entry.Key, entry.Value);
 
-    public void Clear(
+        public void Clear(
       )
     {
       BaseDataObject.Clear();
       OnActivate = null;
     }
 
-    bool ICollection<KeyValuePair<PdfName,Action>>.Contains(
-      KeyValuePair<PdfName,Action> entry
-      )
-    {return entry.Value.BaseObject.Equals(BaseDataObject[entry.Key]);}
+        bool ICollection<KeyValuePair<PdfName, Action>>.Contains(
+          KeyValuePair<PdfName, Action> entry
+          ) => entry.Value.BaseObject.Equals(BaseDataObject[entry.Key]);
 
-    public void CopyTo(
-      KeyValuePair<PdfName,Action>[] entries,
-      int index
-      )
-    {throw new system::NotImplementedException();}
+        public void CopyTo(
+          KeyValuePair<PdfName, Action>[] entries,
+          int index
+          ) => throw new system::NotImplementedException();
 
         public int Count => BaseDataObject.Count + (parent.BaseDataObject.ContainsKey(PdfName.A) ? 1 : 0);
 
         public bool IsReadOnly => false;
 
         public bool Remove(
-      KeyValuePair<PdfName,Action> entry
-      )
-    {
-      return BaseDataObject.Remove(
-        new KeyValuePair<PdfName,PdfDirectObject>(
+      KeyValuePair<PdfName, Action> entry
+      ) => BaseDataObject.Remove(
+        new KeyValuePair<PdfName, PdfDirectObject>(
           entry.Key,
           entry.Value.BaseObject
           )
         );
-    }
 
-    #region IEnumerable<KeyValuePair<PdfName,Action>>
-    IEnumerator<KeyValuePair<PdfName,Action>> IEnumerable<KeyValuePair<PdfName,Action>>.GetEnumerator(
+        #region IEnumerable<KeyValuePair<PdfName,Action>>
+        IEnumerator<KeyValuePair<PdfName,Action>> IEnumerable<KeyValuePair<PdfName,Action>>.GetEnumerator(
       )
     {
       foreach(PdfName key in Keys)
       {yield return new KeyValuePair<PdfName,Action>(key,this[key]);}
     }
 
-    #region IEnumerable
-    IEnumerator IEnumerable.GetEnumerator(
-      )
-    {return ((IEnumerable<KeyValuePair<PdfName,Action>>)this).GetEnumerator();}
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-  }
+        #region IEnumerable
+        IEnumerator IEnumerable.GetEnumerator(
+          ) => ((IEnumerable<KeyValuePair<PdfName, Action>>)this).GetEnumerator();
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+    }
 }

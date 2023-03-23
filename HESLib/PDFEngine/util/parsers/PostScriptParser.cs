@@ -78,45 +78,40 @@ namespace HES.Util.Parsers
         return -1;
     }
 
-    /**
-      <summary>Evaluate whether a character is a delimiter.</summary>
-    */
-    private static bool IsDelimiter(
-      int c
-      )
-    {
-      return c == Symbol.OpenRoundBracket
-        || c == Symbol.CloseRoundBracket
-        || c == Symbol.OpenAngleBracket
-        || c == Symbol.CloseAngleBracket
-        || c == Symbol.OpenSquareBracket
-        || c == Symbol.CloseSquareBracket
-        || c == Symbol.Slash
-        || c == Symbol.Percent;
-    }
+        /**
+          <summary>Evaluate whether a character is a delimiter.</summary>
+        */
+        private static bool IsDelimiter(
+          int c
+          ) => c == Symbol.OpenRoundBracket
+            || c == Symbol.CloseRoundBracket
+            || c == Symbol.OpenAngleBracket
+            || c == Symbol.CloseAngleBracket
+            || c == Symbol.OpenSquareBracket
+            || c == Symbol.CloseSquareBracket
+            || c == Symbol.Slash
+            || c == Symbol.Percent;
 
-    /**
-      <summary>Evaluate whether a character is an EOL marker.</summary>
-    */
-    private static bool IsEOL(
-      int c
-      )
-    {return (c == 10 || c == 13);}
+        /**
+          <summary>Evaluate whether a character is an EOL marker.</summary>
+        */
+        private static bool IsEOL(
+          int c
+          ) => (c == 10 || c == 13);
 
-    /**
-      <summary>Evaluate whether a character is a white-space.</summary>
-    */
-    private static bool IsWhitespace(
-      int c
-      )
-    {return c == 32 || IsEOL(c) || c == 0 || c == 9 || c == 12;}
-    #endregion
-    #endregion
-    #endregion
+        /**
+          <summary>Evaluate whether a character is a white-space.</summary>
+        */
+        private static bool IsWhitespace(
+          int c
+          ) => c == 32 || IsEOL(c) || c == 0 || c == 9 || c == 12;
+        #endregion
+        #endregion
+        #endregion
 
-    #region dynamic
-    #region fields
-    private IInputStream stream;
+        #region dynamic
+        #region fields
+        private IInputStream stream;
 
     private object token;
     private TokenTypeEnum tokenType;
@@ -132,20 +127,19 @@ namespace HES.Util.Parsers
       byte[] data
       )
     {this.stream = new HES.Bytes.Buffer(data);}
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public override int GetHashCode(
-      )
-    {return stream.GetHashCode();}
+        #region interface
+        #region public
+        public override int GetHashCode(
+          ) => stream.GetHashCode();
 
-    /**
-      <summary>Gets a token after moving to the given offset.</summary>
-      <param name="offset">Number of tokens to skip before reaching the intended one.</param>
-      <seealso cref="Token"/>
-    */
-    public object GetToken(
+        /**
+          <summary>Gets a token after moving to the given offset.</summary>
+          <param name="offset">Number of tokens to skip before reaching the intended one.</param>
+          <seealso cref="Token"/>
+        */
+        public object GetToken(
       int offset
       )
     {MoveNext(offset); return Token;}
@@ -471,22 +465,20 @@ namespace HES.Util.Parsers
         */
         public void Seek(
       long offset
-      )
-    {stream.Seek(offset);}
+      ) => stream.Seek(offset);
 
-    /**
-      <summary>Moves the pointer to the given relative byte position.</summary>
-    */
-    public void Skip(
-      long offset
-      )
-    {stream.Skip(offset);}
+        /**
+          <summary>Moves the pointer to the given relative byte position.</summary>
+        */
+        public void Skip(
+          long offset
+          ) => stream.Skip(offset);
 
-    /**
-      <summary>Moves the pointer before the next non-EOL character after the current position.</summary>
-      <returns>Whether the stream can be further read.</returns>
-    */
-    public bool SkipEOL(
+        /**
+          <summary>Moves the pointer before the next non-EOL character after the current position.</summary>
+          <returns>Whether the stream can be further read.</returns>
+        */
+        public bool SkipEOL(
       )
     {
       int c;

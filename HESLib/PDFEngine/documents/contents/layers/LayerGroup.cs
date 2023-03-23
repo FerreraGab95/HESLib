@@ -36,20 +36,19 @@ namespace HES.Documents.Contents.Layers
   public sealed class LayerGroup
     : Array<Layer>
   {
-    #region static
-    #region interface
-    #region public
-    public static LayerGroup Wrap(
-      PdfDirectObject baseObject
-      )
-    {return baseObject != null ? new LayerGroup(baseObject) : null;}
-    #endregion
-    #endregion
-    #endregion
+        #region static
+        #region interface
+        #region public
+        public static LayerGroup Wrap(
+          PdfDirectObject baseObject
+          ) => baseObject != null ? new LayerGroup(baseObject) : null;
+        #endregion
+        #endregion
+        #endregion
 
-    #region dynamic
-    #region constructors
-    public LayerGroup(
+        #region dynamic
+        #region constructors
+        public LayerGroup(
       Document context
       ) : base(context)
     {}

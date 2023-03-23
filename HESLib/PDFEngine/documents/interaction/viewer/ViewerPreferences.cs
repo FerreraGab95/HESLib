@@ -70,8 +70,7 @@ namespace HES.Documents.Interaction.Viewer
         #region public
         public static ViewerPreferences Wrap(
           PdfDirectObject baseObject
-          )
-        { return baseObject != null ? new ViewerPreferences(baseObject) : null; }
+          ) => baseObject != null ? new ViewerPreferences(baseObject) : null;
         #endregion
 
         #region private
@@ -80,8 +79,7 @@ namespace HES.Documents.Interaction.Viewer
         */
         private static PdfName ToCode(
           DirectionEnum value
-          )
-        { return DirectionEnumCodes[value]; }
+          ) => DirectionEnumCodes[value];
 
         /**
           <summary>Gets the direction corresponding to the given value.</summary>
@@ -163,8 +161,7 @@ namespace HES.Documents.Interaction.Viewer
         private object Get(
           PdfName key,
           object defaultValue
-          )
-        { return PdfSimpleObject<object>.GetValue(BaseDataObject[key], defaultValue); }
+          ) => PdfSimpleObject<object>.GetValue(BaseDataObject[key], defaultValue);
         #endregion
         #endregion
         #endregion

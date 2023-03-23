@@ -44,25 +44,24 @@ namespace HES.Documents.Contents.xObjects
     : XObject,
       IContentContext
   {
-    #region static
-    #region interface
-    #region public
-    public static new FormXObject Wrap(
-      PdfDirectObject baseObject
-      )
-    {return baseObject != null ? new FormXObject(baseObject) : null;}
-    #endregion
-    #endregion
-    #endregion
+        #region static
+        #region interface
+        #region public
+        public static new FormXObject Wrap(
+          PdfDirectObject baseObject
+          ) => baseObject != null ? new FormXObject(baseObject) : null;
+        #endregion
+        #endregion
+        #endregion
 
-    #region dynamic
-    #region constructors
-    /**
-      <summary>Creates a new form within the specified document context.</summary>
-      <param name="context">Document where to place this form.</param>
-      <param name="size">Form size.</param>
-    */
-    public FormXObject(
+        #region dynamic
+        #region constructors
+        /**
+          <summary>Creates a new form within the specified document context.</summary>
+          <param name="context">Document where to place this form.</param>
+          <param name="size">Form size.</param>
+        */
+        public FormXObject(
       Document context,
       drawing::SizeF size
       ) : this(context, new drawing::RectangleF(new drawing::PointF(0, 0), size))
@@ -172,17 +171,15 @@ namespace HES.Documents.Contents.xObjects
         #region IContentEntity
         public ContentObject ToInlineObject(
       PrimitiveComposer composer
-      )
-    {throw new NotImplementedException();}
+      ) => throw new NotImplementedException();
 
-    public XObject ToXObject(
-      Document context
-      )
-    {return (XObject)Clone(context);}
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-    #endregion
-  }
+        public XObject ToXObject(
+          Document context
+          ) => (XObject)Clone(context);
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+        #endregion
+    }
 }

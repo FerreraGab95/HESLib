@@ -69,8 +69,7 @@ namespace HES.Objects
         */
         public static Object GetValue(
           PdfObject obj
-          )
-        { return GetValue(obj, null); }
+          ) => GetValue(obj, null);
 
         /**
           <summary>Gets the value corresponding to the given object.</summary>
@@ -111,22 +110,17 @@ namespace HES.Objects
         #region public
         public override PdfObject Clone(
           PdfFile context
-          )
-        { return this; } // NOTE: Simple objects are immutable.
+          ) => this;  // NOTE: Simple objects are immutable.
 
         public override bool Equals(
           object @object
-          )
-        {
-            return base.Equals(@object)
+          ) => base.Equals(@object)
               || (@object != null
                 && @object.GetType().Equals(GetType())
                 && ((PdfSimpleObject<TValue>)@object).RawValue.Equals(RawValue));
-        }
 
         public override int GetHashCode(
-          )
-        { return RawValue.GetHashCode(); }
+          ) => RawValue.GetHashCode();
 
         public sealed override PdfObject Parent
         {
@@ -146,12 +140,10 @@ namespace HES.Objects
 
         public override PdfObject Swap(
       PdfObject other
-      )
-        { throw new NotSupportedException("Immutable object"); }
+      ) => throw new NotSupportedException("Immutable object");
 
         public override string ToString(
-          )
-        { return Value.ToString(); }
+          ) => Value.ToString();
 
         public override bool Updateable
         {

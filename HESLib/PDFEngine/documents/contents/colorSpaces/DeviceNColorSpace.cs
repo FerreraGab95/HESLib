@@ -89,14 +89,12 @@ namespace HES.Documents.Contents.ColorSpaces
 
         public override object Clone(
                                Document context
-                                    )
-        { throw new NotImplementedException(); }
+                                    ) => throw new NotImplementedException();
 
         public override Color GetColor(
             IList<PdfDirectObject> components,
             IContentContext context
-                                      )
-        { return new DeviceNColor(components); }
+                                      ) => new DeviceNColor(components);
 
         #endregion Public Methods
     }

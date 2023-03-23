@@ -92,18 +92,14 @@ namespace HES.Documents.Contents.ColorSpaces
 
         public new static DeviceGrayColor Get(
                       PdfArray components
-                                             )
-        {
-            return (components != null
+                                             ) => (components != null
                 ? new DeviceGrayColor(components)
                 : Default
                    );
-        }
 
         public override object Clone(
             Document context
-                                    )
-        { throw new NotImplementedException(); }
+                                    ) => throw new NotImplementedException();
 
         #endregion Public Methods
 

@@ -86,35 +86,31 @@ namespace HES.Documents.Interaction.Annotations
       HighlightModeEnumCodes[HighlightModeEnum.Push] = PdfName.P;
       HighlightModeEnumCodes[HighlightModeEnum.Toggle] = PdfName.T;
     }
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public static Widget Wrap(
-      PdfDirectObject baseObject,
-      Field field
-      )
-    {
-      return field is CheckBox
-          || field is RadioButton
-        ? new DualWidget(baseObject)
-        : new Widget(baseObject);
-    }
-    #endregion
+        #region interface
+        #region public
+        public static Widget Wrap(
+          PdfDirectObject baseObject,
+          Field field
+          ) => field is CheckBox
+              || field is RadioButton
+            ? new DualWidget(baseObject)
+            : new Widget(baseObject);
+        #endregion
 
-    #region private
-    /**
-      <summary>Gets the code corresponding to the given value.</summary>
-    */
-    private static PdfName ToCode(
-      HighlightModeEnum value
-      )
-    {return HighlightModeEnumCodes[value];}
+        #region private
+        /**
+          <summary>Gets the code corresponding to the given value.</summary>
+        */
+        private static PdfName ToCode(
+          HighlightModeEnum value
+          ) => HighlightModeEnumCodes[value];
 
-    /**
-      <summary>Gets the highlighting mode corresponding to the given value.</summary>
-    */
-    private static HighlightModeEnum ToHighlightModeEnum(
+        /**
+          <summary>Gets the highlighting mode corresponding to the given value.</summary>
+        */
+        private static HighlightModeEnum ToHighlightModeEnum(
       PdfName value
       )
     {

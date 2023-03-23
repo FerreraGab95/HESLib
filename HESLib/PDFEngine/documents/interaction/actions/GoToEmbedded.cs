@@ -78,22 +78,21 @@ namespace HES.Documents.Interaction.Actions
         RelationEnumCodes[RelationEnum.Parent] = PdfName.P;
         RelationEnumCodes[RelationEnum.Child] = PdfName.C;
       }
-      #endregion
+            #endregion
 
-      #region interface
-      #region private
-      /**
-        <summary>Gets the code corresponding to the given value.</summary>
-      */
-      private static PdfName ToCode(
-        RelationEnum value
-        )
-      {return RelationEnumCodes[value];}
+            #region interface
+            #region private
+            /**
+              <summary>Gets the code corresponding to the given value.</summary>
+            */
+            private static PdfName ToCode(
+              RelationEnum value
+              ) => RelationEnumCodes[value];
 
-      /**
-        <summary>Gets the relation corresponding to the given value.</summary>
-      */
-      private static RelationEnum ToRelationEnum(
+            /**
+              <summary>Gets the relation corresponding to the given value.</summary>
+            */
+            private static RelationEnum ToRelationEnum(
         PdfName value
         )
       {
@@ -187,21 +186,20 @@ namespace HES.Documents.Interaction.Actions
         PdfDirectObject baseObject
         ) : base(baseObject)
       {}
-      #endregion
+            #endregion
 
-      #region interface
-      #region public
-      public override object Clone(
-        Document context
-        )
-      {throw new NotImplementedException();}
+            #region interface
+            #region public
+            public override object Clone(
+              Document context
+              ) => throw new NotImplementedException();
 
-      /**
-        <summary>Gets/Sets the page reference to the file attachment annotation.</summary>
-        <returns>Either the (zero-based) number of the page in the current document containing the file attachment annotation,
-        or the name of a destination in the current document that provides the page number of the file attachment annotation.</returns>
-      */
-      public object AnnotationPageRef
+            /**
+              <summary>Gets/Sets the page reference to the file attachment annotation.</summary>
+              <returns>Either the (zero-based) number of the page in the current document containing the file attachment annotation,
+              or the name of a destination in the current document that provides the page number of the file attachment annotation.</returns>
+            */
+            public object AnnotationPageRef
       {
         get
         {

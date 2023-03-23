@@ -545,32 +545,30 @@ namespace HES.Objects
     #pragma warning restore 0108
 
     private static readonly byte[] NamePrefixChunk = Tokens::Encoding.Pdf.Encode(Tokens.Keyword.NamePrefix);
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    /**
-      <summary>Gets the object equivalent to the given value.</summary>
-    */
-    public static new PdfName Get(
-      object value
-      )
-    {return value == null ? null : Get(value.ToString());}
+        #region interface
+        #region public
+        /**
+          <summary>Gets the object equivalent to the given value.</summary>
+        */
+        public static new PdfName Get(
+          object value
+          ) => value == null ? null : Get(value.ToString());
 
-    /**
-      <summary>Gets the object equivalent to the given value.</summary>
-    */
-    public static PdfName Get(
-      string value
-      )
-    {return value == null ? null : new PdfName(value);}
-    #endregion
-    #endregion
-    #endregion
+        /**
+          <summary>Gets the object equivalent to the given value.</summary>
+        */
+        public static PdfName Get(
+          string value
+          ) => value == null ? null : new PdfName(value);
+        #endregion
+        #endregion
+        #endregion
 
-    #region dynamic
-    #region constructors
-    public PdfName(
+        #region dynamic
+        #region constructors
+        public PdfName(
       string value
       ) : this(value, false)
     {}
@@ -590,17 +588,16 @@ namespace HES.Objects
       else
       {Value = value;}
     }
-    #endregion
+        #endregion
 
-    #region interface
-    #region public
-    public override PdfObject Accept(
-      IVisitor visitor,
-      object data
-      )
-    {return visitor.Visit(this, data);}
+        #region interface
+        #region public
+        public override PdfObject Accept(
+          IVisitor visitor,
+          object data
+          ) => visitor.Visit(this, data);
 
-    public override int CompareTo(
+        public override int CompareTo(
       PdfDirectObject obj
       )
     {
