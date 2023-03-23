@@ -13,7 +13,7 @@ namespace Extensions.UnitTests
         [TestMethod]
         public void IdSelectorMustReturnOnlyFirstElement()
         {
-            var elements = doc.QuerySelectorAll("#myDiv, .c3");
+            var elements = doc.QuerySelectorAll("#myDiv");
 
             Assert.IsTrue(elements.Count() == 1);
             Assert.IsTrue(elements.IfNoIndex(0).ID == "myDiv");

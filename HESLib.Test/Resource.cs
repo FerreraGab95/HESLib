@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Extensions.UnitTests
 {
-    internal class Resource
+    internal static class Resource
     {
         private static Dictionary<string, byte[]> s_Cache = new Dictionary<string, byte[]>(StringComparer.InvariantCultureIgnoreCase);
 
