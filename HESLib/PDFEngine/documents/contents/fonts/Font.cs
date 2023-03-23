@@ -161,17 +161,17 @@ namespace HES.Documents.Contents.Fonts
             if (fontType == null)
                 throw new Exception("Font type undefined (reference: " + reference + ")");
 
-            if (fontType.Equals(PdfName.Type1)) // Type 1.
+            if (fontType.Equals(PdfName.Type1)) // NodeType 1.
             {
-                if (!fontDictionary.ContainsKey(PdfName.FontDescriptor)) // Standard Type 1.
+                if (!fontDictionary.ContainsKey(PdfName.FontDescriptor)) // Standard NodeType 1.
                     return new StandardType1Font(reference);
-                else // Custom Type 1.
+                else // Custom NodeType 1.
                 {
                     PdfDictionary fontDescriptor = (PdfDictionary)fontDictionary.Resolve(PdfName.FontDescriptor);
                     if (fontDescriptor.ContainsKey(PdfName.FontFile3)
                       && ((PdfName)((PdfStream)fontDescriptor.Resolve(PdfName.FontFile3)).Header.Resolve(PdfName.Subtype)).Equals(PdfName.OpenType)) // OpenFont/CFF.
                         throw new NotImplementedException();
-                    else // Non-OpenFont Type 1.
+                    else // Non-OpenFont NodeType 1.
                         return new Type1Font(reference);
                 }
             }
@@ -186,9 +186,9 @@ namespace HES.Documents.Contents.Fonts
                 else if (cidFontType.Equals(PdfName.CIDFontType2)) // OpenFont/TrueType.
                     return new Type2Font(reference);
                 else
-                    throw new NotImplementedException("Type 0 subtype " + cidFontType + " not supported yet.");
+                    throw new NotImplementedException("NodeType 0 subtype " + cidFontType + " not supported yet.");
             }
-            else if (fontType.Equals(PdfName.Type3)) // Type 3.
+            else if (fontType.Equals(PdfName.Type3)) // NodeType 3.
                 return new Type3Font(reference);
             else if (fontType.Equals(PdfName.MMType1)) // MMType1.
                 return new MMType1Font(reference);

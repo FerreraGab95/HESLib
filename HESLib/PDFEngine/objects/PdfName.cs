@@ -395,7 +395,7 @@ namespace HES.Objects
     public static readonly PdfName Paperclip = new PdfName("Paperclip");
     public static readonly PdfName Paragraph = new PdfName("Paragraph");
     public static readonly PdfName Params = new PdfName("Params");
-    public static readonly PdfName Parent = new PdfName("Parent");
+    public static readonly PdfName Parent = new PdfName("ParentNode");
     public static readonly PdfName Pattern = new PdfName("Pattern");
     public static readonly PdfName PatternType = new PdfName("PatternType");
     public static readonly PdfName PC = new PdfName("PC");
@@ -496,7 +496,7 @@ namespace HES.Objects
     public static readonly PdfName TwoPageLeft = new PdfName("TwoPageLeft");
     public static readonly PdfName TwoPageRight = new PdfName("TwoPageRight");
     public static readonly PdfName Tx = new PdfName("Tx");
-    public static readonly PdfName Type = new PdfName("Type");
+    public static readonly PdfName Type = new PdfName("NodeType");
     public static readonly PdfName Type0 = new PdfName("Type0");
     public static readonly PdfName Type1 = new PdfName("Type1");
     public static readonly PdfName Type1C = new PdfName("Type1C");

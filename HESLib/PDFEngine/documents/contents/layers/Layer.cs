@@ -52,11 +52,11 @@ namespace HES.Documents.Contents.Layers
       */
       public int Index;
       /**
-        <summary>Parent layer object.</summary>
+        <summary>ParentNode layer object.</summary>
       */
       public PdfDirectObject ParentLayerObject;
       /**
-        <summary>Parent sublayers object.</summary>
+        <summary>ParentNode sublayers object.</summary>
       */
       public PdfArray ParentLayersObject;
       /**

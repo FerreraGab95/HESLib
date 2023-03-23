@@ -30,7 +30,7 @@ using System.Collections.Generic;
 namespace HES.Documents.Contents.Fonts
 {
   /**
-    <summary>Multiple Master Type 1 font [PDF:1.6:5.5.1].</summary>
+    <summary>Multiple Master NodeType 1 font [PDF:1.6:5.5.1].</summary>
   */
   [PDF(VersionEnum.PDF10)]
   public sealed class MMType1Font

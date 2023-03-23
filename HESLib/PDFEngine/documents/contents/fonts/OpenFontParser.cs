@@ -160,7 +160,7 @@ namespace HES.Documents.Contents.Fonts
         case(0x00010000): // TrueType (standard/Windows).
         case(0x74727565): // TrueType (legacy/Apple).
           return OutlineFormatEnum.TrueType;
-        case(0x4F54544F): // CFF (Type 1).
+        case(0x4F54544F): // CFF (NodeType 1).
           return OutlineFormatEnum.CFF;
         default:
           throw new NotSupportedException("Unknown OpenFont format version.");

@@ -87,7 +87,7 @@ namespace HES.Objects
 
       /**
         <summary>Gets the given node's children.</summary>
-        <param name="node">Parent node.</param>
+        <param name="node">ParentNode node.</param>
         <param name="pairs">Pairs key.</param>
       */
       public static Children Get(
@@ -107,11 +107,11 @@ namespace HES.Objects
         return new Children(node, children, childrenTypeName);
       }
 
-      /** Children's collection */
+      /** ChildNodes's collection */
       public readonly PdfArray Items;
       /** Node's children info. */
       public readonly InfoImpl Info;
-      /** Parent node. */
+      /** ParentNode node. */
       public readonly PdfDictionary Parent;
       /** Node's children type. */
       public readonly PdfName TypeName;
@@ -1007,7 +1007,7 @@ namespace HES.Objects
       <summary>Splits a full node.</summary>
       <remarks>A new node is inserted at the full node's position, receiving the lower half of its
       children.</remarks>
-      <param name="nodes">Parent nodes.</param>
+      <param name="nodes">ParentNode nodes.</param>
       <param name="fullNodeIndex">Full node's position among the parent nodes.</param>
       <param name="childrenTypeName">Full node's children type.</param>
     */

@@ -42,7 +42,7 @@ namespace HES.Documents.Functions
     #region dynamic
     #region fields
     /**
-      <summary>Parent function.</summary>
+      <summary>ParentNode function.</summary>
     */
     private Type3Function parent;
     #endregion

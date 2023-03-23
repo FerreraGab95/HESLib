@@ -34,7 +34,7 @@ using Bytes = HES.Bytes;
 namespace HES.Documents.Contents.Fonts
 {
     /**
-      <summary>Standard Type 1 font [PDF:1.6:5.5.1].</summary>
+      <summary>Standard NodeType 1 font [PDF:1.6:5.5.1].</summary>
     */
 
     [PDF(VersionEnum.PDF10)]
@@ -42,7 +42,7 @@ namespace HES.Documents.Contents.Fonts
     : Type1Font
     {
         /**
-          <summary>Standard Type 1 font families [PDF:1.6:5.5.1].</summary>
+          <summary>Standard NodeType 1 font families [PDF:1.6:5.5.1].</summary>
         */
 
         #region Private Methods
@@ -70,7 +70,7 @@ namespace HES.Documents.Contents.Fonts
         private void Create(string fontName, PdfName encodingName)
         {
             /*
-              NOTE: Standard Type 1 fonts SHOULD omit extended font descriptions [PDF:1.6:5.5.1].
+              NOTE: Standard NodeType 1 fonts SHOULD omit extended font descriptions [PDF:1.6:5.5.1].
             */
             // Subtype.
             BaseDataObject[PdfName.Subtype] = PdfName.Type1;
@@ -133,9 +133,9 @@ namespace HES.Documents.Contents.Fonts
                                       )
         {
             /*
-              NOTE: Standard Type 1 fonts ordinarily omit their descriptor;
-              otherwise, when overridden they degrade to a common Type 1 font.
-              Metrics of non-overridden Standard Type 1 fonts MUST be loaded from resources.
+              NOTE: Standard NodeType 1 fonts ordinarily omit their descriptor;
+              otherwise, when overridden they degrade to a common NodeType 1 font.
+              Metrics of non-overridden Standard NodeType 1 fonts MUST be loaded from resources.
             */
             Load(((PdfName)BaseDataObject[PdfName.BaseFont]).StringValue);
 

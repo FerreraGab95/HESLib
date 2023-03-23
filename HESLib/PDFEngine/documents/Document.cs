@@ -204,7 +204,7 @@ namespace HES.Documents
             if (typeof(Destination).IsAssignableFrom(typeof(T)))
                 return Destination.Wrap(baseObject) as T;
             else
-                throw new NotSupportedException("Type '" + typeof(T).Name + "' wrapping is not supported.");
+                throw new NotSupportedException("NodeType '" + typeof(T).Name + "' wrapping is not supported.");
         }
         #endregion
         #endregion

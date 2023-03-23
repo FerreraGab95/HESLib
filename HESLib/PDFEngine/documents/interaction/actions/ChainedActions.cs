@@ -50,7 +50,7 @@ namespace HES.Documents.Interaction.Actions
     #region dynamic
     #region fields
     /**
-      Parent action.
+      ParentNode action.
     */
     private Action parent;
     #endregion

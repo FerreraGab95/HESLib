@@ -39,9 +39,9 @@ using System.Text;
 namespace HES.Documents.Contents.Fonts
 {
   /**
-    <summary>Composite font, also called Type 0 font [PDF:1.6:5.6].</summary>
-    <remarks>Do not confuse it with <see cref="Type0Font">Type 0 CIDFont</see>: the latter is
-    a composite font descendant describing glyphs based on Adobe Type 1 font format.</remarks>
+    <summary>Composite font, also called NodeType 0 font [PDF:1.6:5.6].</summary>
+    <remarks>Do not confuse it with <see cref="Type0Font">NodeType 0 CIDFont</see>: the latter is
+    a composite font descendant describing glyphs based on Adobe NodeType 1 font format.</remarks>
   */
   [PDF(VersionEnum.PDF12)]
   public abstract class CompositeFont
@@ -436,7 +436,7 @@ namespace HES.Documents.Contents.Fonts
       {
         OpenFontParser.FontMetrics metrics = parser.Metrics;
 
-        // Type.
+        // NodeType.
         fontDescriptor[PdfName.Type] = PdfName.FontDescriptor;
 
         // FontName.

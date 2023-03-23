@@ -33,7 +33,7 @@ using System.Text.RegularExpressions;
 namespace HES.Documents.Contents.Fonts
 {
   /**
-    <summary>Type 1 font parser.</summary>
+    <summary>NodeType 1 font parser.</summary>
   */
   internal sealed class PfbParser
   {

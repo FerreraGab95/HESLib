@@ -34,7 +34,7 @@ namespace HES.Documents.Contents.Fonts
     containing glyph descriptions based on the Adobe Type 1 font format [PDF:1.6:5.6.3].</summary>
   */
   /*
-    NOTE: Type 0 CIDFonts encompass several formats:
+    NOTE: NodeType 0 CIDFonts encompass several formats:
     * CFF;
     * OpenFont/CFF (in case "CFF" table's Top DICT has CIDFont operators).
   */

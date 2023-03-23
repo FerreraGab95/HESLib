@@ -825,7 +825,7 @@ namespace HES.Documents.Contents
         */
         private IList<ContentObject> objects;
         /**
-          Parent level.
+          ParentNode level.
         */
         private ContentScanner parentLevel;
         /**
@@ -874,7 +874,7 @@ namespace HES.Documents.Contents
         /**
           <summary>Instantiates a child-level content scanner for <see cref="HES.Documents.Contents.xObjects.FormXObject">external form</see>.</summary>
           <param name="formXObject">External form.</param>
-          <param name="parentLevel">Parent scan level.</param>
+          <param name="parentLevel">ParentNode scan level.</param>
         */
         public ContentScanner(
           xObjects::FormXObject formXObject,
@@ -899,7 +899,7 @@ namespace HES.Documents.Contents
 
         /**
           <summary>Instantiates a child-level content scanner.</summary>
-          <param name="parentLevel">Parent scan level.</param>
+          <param name="parentLevel">ParentNode scan level.</param>
         */
         private ContentScanner(
           ContentScanner parentLevel

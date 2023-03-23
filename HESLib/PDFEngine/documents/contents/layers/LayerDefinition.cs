@@ -123,7 +123,7 @@ namespace HES.Documents.Contents.Layers
         */
         /*
          * TODO: manage layer removal from file (unregistration) -- attach a removal listener
-         * to the IndirectObjects collection: anytime a PdfDictionary with Type==PdfName.OCG is removed,
+         * to the IndirectObjects collection: anytime a PdfDictionary with NodeType==PdfName.OCG is removed,
          * that listener MUST update this collection.
          * Listener MUST be instantiated when LayerDefinition is associated to the document.
          */

@@ -32,7 +32,7 @@ using System.Collections.Generic;
 namespace HES.Documents.Contents.Fonts
 {
   /**
-    <summary>Type 3 font [PDF:1.6:5.5.4].</summary>
+    <summary>NodeType 3 font [PDF:1.6:5.5.4].</summary>
   */
   [PDF(VersionEnum.PDF10)]
   public sealed class Type3Font

@@ -56,7 +56,7 @@ namespace HES.Documents.Interaction.Actions
       public enum RelationEnum
       {
         /**
-          <summary>Parent.</summary>
+          <summary>ParentNode.</summary>
         */
         Parent,
         /**

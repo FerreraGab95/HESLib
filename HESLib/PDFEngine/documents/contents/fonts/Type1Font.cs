@@ -42,7 +42,7 @@ namespace HES.Documents.Contents.Fonts
     <summary>Type 1 font [PDF:1.6:5.5.1;AFM:4.1].</summary>
   */
   /*
-    NOTE: Type 1 fonts encompass several formats:
+    NOTE: NodeType 1 fonts encompass several formats:
     * AFM+PFB;
     * CFF;
     * OpenFont/CFF (in case "CFF" table's Top DICT has no CIDFont operators).
@@ -74,13 +74,13 @@ namespace HES.Documents.Contents.Fonts
       )
     {
       PdfDictionary descriptor = Descriptor;
-      if(descriptor.ContainsKey(PdfName.FontFile)) // Embedded noncompact Type 1 font.
+      if(descriptor.ContainsKey(PdfName.FontFile)) // Embedded noncompact NodeType 1 font.
       {
         PdfStream fontFileStream = (PdfStream)descriptor.Resolve(PdfName.FontFile);
         PfbParser parser = new PfbParser(fontFileStream.Body);
         return parser.Parse();
       }
-      else if(descriptor.ContainsKey(PdfName.FontFile3)) // Embedded compact Type 1 font.
+      else if(descriptor.ContainsKey(PdfName.FontFile3)) // Embedded compact NodeType 1 font.
       {
         PdfStream fontFileStream = (PdfStream)descriptor.Resolve(PdfName.FontFile3);
         PdfName fontFileSubtype = (PdfName)fontFileStream.Header[PdfName.Subtype];
