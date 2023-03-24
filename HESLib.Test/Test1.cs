@@ -74,12 +74,7 @@ namespace HES.Test
 
 
 
-        private static HtmlDocument LoadHtml()
-        {
-            return HtmlNode.ParseDocument(Resource.GetString("Test1.html"));
-
-
-        }
+        private static HtmlDocument LoadHtml() => HtmlNode.ParseDocument(Resource.GetString("Test1.html"));
 
     }
 }
