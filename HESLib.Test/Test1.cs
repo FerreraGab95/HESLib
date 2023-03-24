@@ -11,7 +11,16 @@ namespace HES.Test
     {
         static HtmlDocument doc = LoadHtml();
 
+        [TestMethod]
+        public void TesteArquivoJson()
+        {
+            var n = new HtmlDocument("Teste doc", "bagulhos loko ", "Zonas", "pt-BR", null)
+            {
 
+            };
+            n.AddList(false, PredefinedArrays.ValueTypes, x => x.Name, x => new { x.Namespace });
+            n.ToString();
+        }
 
 
 
