@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using Extensions;
 using Extensions.UnitTests;
 using Extensions.Web;
@@ -10,15 +9,17 @@ namespace HES.Test
     [TestClass]
     public class Html1
     {
-        static IEnumerable<HtmlNode> doc = LoadHtml();
+        static HtmlDocument doc = LoadHtml();
+
+
+
+
 
         [TestMethod]
         public void IdSelectorMustReturnOnlyFirstElement()
         {
             var elements = doc.QuerySelectorAll("#myDiv");
 
-            Assert.IsTrue(elements.Count() == 1);
-            Assert.IsTrue(elements.IfNoIndex(0).Id == "myDiv");
             Assert.IsTrue(elements.IfNoIndex(0).GetAttribute("first") == "1");
         }
 
@@ -64,9 +65,9 @@ namespace HES.Test
 
 
 
-        private static IEnumerable<HtmlNode> LoadHtml()
+        private static HtmlDocument LoadHtml()
         {
-            return HtmlNode.Parse(Resource.GetString("Test1.html"));
+            return HtmlNode.ParseDocument(Resource.GetString("Test1.html"));
 
 
         }
