@@ -14,7 +14,6 @@ namespace HES.Test
         [TestMethod]
         public void TesteArquivoJson()
         {
-
             var pp = doc.ToString(true);
         }
 
