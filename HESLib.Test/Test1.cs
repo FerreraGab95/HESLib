@@ -14,7 +14,14 @@ namespace HES.Test
         [TestMethod]
         public void TesteArquivoJson()
         {
-            var pp = doc.ToString(true);
+            var pp = new HtmlDocument("<html><title id='titulim'>teste</title> <body><p id='pudin'>pudim de pão</p><head><script /></head></body></html>")
+ .With(x =>
+ {
+     x.AttributeString = "id='pudinzao' data-bacon='true'";
+     x.SetMeta("author", "Zonaro");
+
+ })
+ .ToString();
         }
 
 

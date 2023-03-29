@@ -66,7 +66,7 @@ namespace HES.Objects
       /**
         <summary>Notifies a complete clone operation on a dictionary entry.</summary>
         <param name="cloner">Object cloner.</param>
-        <param name="parent">ParentNode clone object.</param>
+        <param name="parent">thisNode clone object.</param>
         <param name="key">Entry key within the parent.</param>
         <param name="value">Clone value.</param>
       */
@@ -81,7 +81,7 @@ namespace HES.Objects
       /**
         <summary>Notifies a complete clone operation on an array item.</summary>
         <param name="cloner">Object cloner.</param>
-        <param name="parent">ParentNode clone object.</param>
+        <param name="parent">thisNode clone object.</param>
         <param name="index">Item index within the parent.</param>
         <param name="item">Clone item.</param>
       */
@@ -96,7 +96,7 @@ namespace HES.Objects
             /**
               <summary>Notifies a starting clone operation on a dictionary entry.</summary>
               <param name="cloner">Object cloner.</param>
-              <param name="parent">ParentNode clone object.</param>
+              <param name="parent">thisNode clone object.</param>
               <param name="key">Entry key within the parent.</param>
               <param name="value">Source value.</param>
               <returns>Whether the clone operation can be fulfilled.</returns>
@@ -111,7 +111,7 @@ namespace HES.Objects
             /**
               <summary>Notifies a starting clone operation on an array item.</summary>
               <param name="cloner">Object cloner.</param>
-              <param name="parent">ParentNode clone object.</param>
+              <param name="parent">thisNode clone object.</param>
               <param name="index">Item index within the parent.</param>
               <param name="item">Source item.</param>
               <returns>Whether the clone operation can be fulfilled.</returns>

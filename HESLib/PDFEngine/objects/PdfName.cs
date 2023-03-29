@@ -395,7 +395,7 @@ namespace HES.Objects
     public static readonly PdfName Paperclip = new PdfName("Paperclip");
     public static readonly PdfName Paragraph = new PdfName("Paragraph");
     public static readonly PdfName Params = new PdfName("Params");
-    public static readonly PdfName Parent = new PdfName("ParentNode");
+    public static readonly PdfName Parent = new PdfName("thisNode");
     public static readonly PdfName Pattern = new PdfName("Pattern");
     public static readonly PdfName PatternType = new PdfName("PatternType");
     public static readonly PdfName PC = new PdfName("PC");
