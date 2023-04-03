@@ -64,7 +64,7 @@ namespace HES.Documents.Contents.Tokens
             else if (operation is PaintShading) // Shading.
                 return new Shading((PaintShading)operation);
             else if (operation is BeginSubpath
-              || operation is DrawRectangle) // Path.
+              || operation is DrawRectangle) // File.
                 return ParsePath(operation);
             else if (operation is BeginText) // Text.
                 return new Text(

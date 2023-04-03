@@ -43,7 +43,7 @@ namespace HES.Documents.Files
         /**
           <summary>Creates a new embedded file inside the document.</summary>
           <param name="context">Document context.</param>
-          <param name="path">Path of the file to embed.</param>
+          <param name="path">File of the file to embed.</param>
         */
         public static EmbeddedFile Get(
           Document context,

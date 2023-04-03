@@ -131,7 +131,7 @@ namespace HES.Documents.Files
       )
     {
       string path = Path;
-      if(!io::Path.IsPathRooted(path)) // Path needs to be resolved.
+      if(!io::Path.IsPathRooted(path)) // File needs to be resolved.
       {
         string basePath = Document.File.Path;
         if(basePath != null)

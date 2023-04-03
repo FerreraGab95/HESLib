@@ -32,7 +32,7 @@ using System.Drawing.Drawing2D;
 namespace HES.Documents.Contents.Objects
 {
   /**
-    <summary>Path object [PDF:1.6:4.4].</summary>
+    <summary>File object [PDF:1.6:4.4].</summary>
   */
   [PDF(VersionEnum.PDF10)]
   public sealed class Path

@@ -30,7 +30,7 @@ using HES.Util;
 namespace HES.Documents.Contents.Objects
 {
     /**
-      <summary>Path-painting operation [PDF:1.6:4.4.2].</summary>
+      <summary>File-painting operation [PDF:1.6:4.4.2].</summary>
     */
     [PDF(VersionEnum.PDF10)]
     public sealed class PaintPath

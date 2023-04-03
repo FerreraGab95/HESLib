@@ -44,7 +44,7 @@ namespace HES.Documents.Interaction.Actions
   {
     #region types
     /**
-      <summary>Path information to the target document [PDF:1.6:8.5.3].</summary>
+      <summary>File information to the target document [PDF:1.6:8.5.3].</summary>
     */
     public class PathElement
       : PdfObjectWrapper<PdfDictionary>
@@ -326,7 +326,7 @@ namespace HES.Documents.Interaction.Actions
       <summary>Creates a new instance within the specified document context, pointing to a
       destination within an embedded document.</summary>
       <param name="context">Document context.</param>
-      <param name="destinationPath">Path information to the target document within the destination
+      <param name="destinationPath">File information to the target document within the destination
       file.</param>
       <param name="destination">Destination within the target document.</param>
     */
@@ -365,7 +365,7 @@ namespace HES.Documents.Interaction.Actions
       <summary>Creates a new instance within the specified document context.</summary>
       <param name="context">Document context.</param>
       <param name="destinationFile">File in which the destination is located.</param>
-      <param name="destinationPath">Path information to the target document within the destination
+      <param name="destinationPath">File information to the target document within the destination
       file.</param>
       <param name="destination">Destination within the target document.</param>
     */
