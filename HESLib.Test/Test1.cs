@@ -14,8 +14,7 @@ namespace HES.Test
         [TestMethod]
         public void TesteHtml()
         {
-            var c = new HtmlCDataNode("<!--", "-->", "dats a puding");
-            var s = c.ToString();
+            var x = doc.ToString();
 
         }
 
