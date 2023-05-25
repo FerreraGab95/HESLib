@@ -15,7 +15,7 @@ namespace HES.Test
         [TestMethod]
         public void TesteArq()
         {
-            var x = new FileTree(@"C:\Teste", null, null, new[] { "{name}.txt" });
+            var x = new FileTree(@"C:\Teste", null, new[] { "{name}.txt" });
 
         }
 
