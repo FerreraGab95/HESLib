@@ -72,19 +72,15 @@ namespace HES
         internal void AdicionarLogoImagem(byte[] imageBytes)
         {
             if (imageBytes == null || imageBytes.Length == 0) throw new ArgumentException(nameof(imageBytes));
-            using (var stream = new MemoryStream(imageBytes))
-            {
-                AdicionarLogoImagem(stream);
-            }
+            AdicionarLogoImagem(new MemoryStream(imageBytes));
+
         }
 
         internal void AdicionarLogoPdf(byte[] pdfBytes)
         {
             if (pdfBytes == null || pdfBytes.Length == 0) throw new ArgumentException(nameof(pdfBytes));
-            using (var stream = new MemoryStream(pdfBytes))
-            {
-                AdicionarLogoPdf(stream);
-            }
+            AdicionarLogoPdf(new MemoryStream(pdfBytes));
+
         }
 
         /// <inheritdoc cref="AdicionarLogoImagem(Stream)"/>
@@ -352,10 +348,12 @@ namespace HES
             var OutputFile = new PdfFile();
 
             // De acordo com o item 7.7, a fonte deve ser Times New Roman ou Courier New.
-            FonteFamilia = StandardType1Font.FamilyEnum.Times;
+            FonteFamilia = StandardType1Font.FamilyEnum.Courier;
             FonteRegular = new StandardType1Font(OutputFile.Document, FonteFamilia, false, false);
             FonteNegrito = new StandardType1Font(OutputFile.Document, FonteFamilia, true, false);
             FonteItalico = new StandardType1Font(OutputFile.Document, FonteFamilia, false, true);
+
+
 
             EstiloPadrao = Extensions.Util.CriarEstilo();
 
@@ -466,6 +464,7 @@ namespace HES
 
             info.Subject = ViewModel.TipoDocumento == TipoDocumento.DANFE ? "Documento Auxiliar da NFe" : "Carta de Correção Eletrônica";
             info.Title = $"{ViewModel.TipoDocumento}";
+
 
             ViewModel.TipoDocumento = oldTipo;
             return OutputFile;
