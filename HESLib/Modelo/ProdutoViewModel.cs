@@ -58,7 +58,7 @@ namespace HES.Modelo
             {
                 string descriCaoCompleta = Descricao;
 
-                if (Extensions.Util.IsNotBlank(InformacoesAdicionais))
+                if (Extensions.Util.IsValid(InformacoesAdicionais))
                 {
                     descriCaoCompleta += "\r\n" + InformacoesAdicionais;
                 }

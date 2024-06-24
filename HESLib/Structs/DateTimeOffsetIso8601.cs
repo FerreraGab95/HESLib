@@ -69,7 +69,7 @@ namespace HES
         {
             var text = reader.ReadElementString();
 
-            if (text.IsNotBlank())
+            if (text.IsValid())
                 DateTimeOffsetValue = XmlConvert.ToDateTimeOffset(text);
         }
 

@@ -82,7 +82,7 @@ namespace HES
 
                 float w = (Width * c.PorcentagemLargura) / 100F;
 
-                if (Extensions.Util.IsNotBlank(v))
+                if (Extensions.Util.IsValid(v))
                 {
 
                     tb[i] = new TextBlock(v, FonteCorpo)

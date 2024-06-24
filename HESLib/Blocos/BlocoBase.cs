@@ -38,7 +38,7 @@ namespace HES.Blocos
             MainVerticalStack = new VerticalStack();
             ViewModel = viewModel ?? throw new ArgumentNullException(nameof(viewModel));
 
-            if (Cabecalho.IsNotBlank())
+            if (Cabecalho.IsValid())
             {
                 MainVerticalStack.Add(new CabecalhoBloco(estilo, Cabecalho));
             }

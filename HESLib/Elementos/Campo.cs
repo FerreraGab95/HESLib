@@ -28,7 +28,7 @@ namespace HES
 
         protected virtual void DesenharCabecalho(Gfx gfx)
         {
-            if (Extensions.Util.IsNotBlank(Cabecalho))
+            if (Extensions.Util.IsValid(Cabecalho))
             {
                 gfx.DrawString(Cabecalho.ToUpper(), RetanguloDesenhvael, Estilo.FonteCampoCabecalho, AlinhamentoHorizontal.Esquerda, AlinhamentoVertical.Topo);
             }
@@ -42,7 +42,7 @@ namespace HES
             var fonte = IsConteudoNegrito ? Estilo.FonteCampoConteudoNegrito : Estilo.FonteCampoConteudo;
             fonte = fonte.Clonar();
 
-            if (Extensions.Util.IsNotBlank(Conteudo))
+            if (Extensions.Util.IsValid(Conteudo))
             {
                 var textWidth = fonte.MedirLarguraTexto(Conteudo);
 

@@ -20,7 +20,7 @@ namespace HES
 
         protected override void DesenharConteudo(Gfx gfx)
         {
-            if (Extensions.Util.IsNotBlank(Conteudo))
+            if (Extensions.Util.IsValid(Conteudo))
             {
                 _tbConteudo.SetPosition(RetanguloDesenhvael.X, RetanguloDesenhvael.Y + Estilo.FonteCampoCabecalho.AlturaLinha + Estilo.PaddingInferior);
                 _tbConteudo.Draw(gfx);

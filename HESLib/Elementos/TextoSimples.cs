@@ -24,7 +24,7 @@ namespace HES
         {
             base.Draw(gfx);
 
-            if (Extensions.Util.IsNotBlank(Texto))
+            if (Extensions.Util.IsValid(Texto))
             {
                 var r = BoundingBox.InflatedRetangle(0.75F);
 

@@ -143,7 +143,7 @@ namespace Extensions
 
         public static FileInfo MergePDF(string outputFilePath, SerializationModeEnum SerializationMode, params string[] inputFiles)
         {
-            if (outputFilePath.IsNotBlank() && outputFilePath.IsFilePath())
+            if (outputFilePath.IsValid() && outputFilePath.IsFilePath())
             {
                 inputFiles = inputFiles ?? Array.Empty<string>();
                 var files = inputFiles.Where(x => x.IsFilePath() && File.Exists(x)).Select(x => new PdfFile(x)).ToArray();
@@ -165,8 +165,8 @@ namespace Extensions
         /// </summary>
         public static bool StringContemChaveValor(this string str, string chave, string valor)
         {
-            if (Util.IsBlank(chave)) throw new ArgumentException(nameof(chave));
-            if (Util.IsBlank(str)) return false;
+            if (Util.IsNotValid(chave)) throw new ArgumentException(nameof(chave));
+            if (Util.IsNotValid(str)) return false;
 
             return Regex.IsMatch(str, $@"({chave}):?\s*{valor}", RegexOptions.IgnoreCase);
         }
@@ -175,11 +175,17 @@ namespace Extensions
 
         public static byte[] ToBytes(this PdfFile file, HES.Files.SerializationModeEnum SerializationMode)
         {
+            byte[] bt = Array.Empty<byte>();
             using (var m = new MemoryStream())
             {
-                file.Save(new HES.Bytes.Stream(m), SerializationMode);
-                return m.ToBytes();
+                using (var s = new HES.Bytes.Stream(m))
+                {
+                    file.Save(s, SerializationMode);
+                    bt = m.ToBytes();
+
+                }
             }
+            return bt;
         }
 
         /// <summary>

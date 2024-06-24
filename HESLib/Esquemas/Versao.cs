@@ -20,7 +20,7 @@ namespace HES.Esquemas
         [DebuggerStepThrough]
         public static Versao Parse(string str)
         {
-            if (Extensions.Util.IsBlank(str))
+            if (Extensions.Util.IsNotValid(str))
             {
                 throw new ArgumentException("O parâmetro str não pode ser nulo ou vazio.", "str");
             }

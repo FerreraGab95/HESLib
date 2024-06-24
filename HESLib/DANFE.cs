@@ -65,7 +65,7 @@ namespace HES
         /// <inheritdoc cref="AdicionarLogoImagem(Stream)"/>
         internal void AdicionarLogoImagem(string path)
         {
-            if (path.IsBlank()) throw new ArgumentException(nameof(path));
+            if (path.IsNotValid()) throw new ArgumentException(nameof(path));
             AdicionarLogoImagem(new FileStream(path, FileMode.Open, FileAccess.Read));
         }
 
@@ -90,7 +90,7 @@ namespace HES
         /// <inheritdoc cref="AdicionarLogoImagem(Stream)"/>
         internal void AdicionarLogoPdf(string path)
         {
-            if (path.IsBlank()) throw new ArgumentException(nameof(path));
+            if (path.IsNotValid()) throw new ArgumentException(nameof(path));
             AdicionarLogoPdf(new FileStream(path, FileMode.Open, FileAccess.Read));
         }
 
@@ -148,7 +148,7 @@ namespace HES
             {
                 p.DesenharCreditos("Impresso com H&S Technologies - hes.com.br");
             }
-            else if (Creditos.IsNotBlank())
+            else if (Creditos.IsValid())
             {
                 p.DesenharCreditos(Creditos);
             }

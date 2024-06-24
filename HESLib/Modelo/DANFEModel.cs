@@ -159,7 +159,7 @@ namespace HES.Modelo
                 model.DataHoraEmissao = ide.dEmi;
                 model.DataSaidaEntrada = ide.dSaiEnt;
 
-                if (Extensions.Util.IsNotBlank(ide.hSaiEnt))
+                if (Extensions.Util.IsValid(ide.hSaiEnt))
                 {
                     model.HoraSaidaEntrada = TimeSpan.Parse(ide.hSaiEnt);
                 }
@@ -344,7 +344,7 @@ namespace HES.Modelo
         /// </summary>
         public string Pedido { get; set; }
 
-        public bool PossuiCCE => TextoCorrecao.IsNotBlank() && SequenciaCorrecao > 0;
+        public bool PossuiCCE => TextoCorrecao.IsValid() && SequenciaCorrecao > 0;
 
         /// <summary>
         /// Exibe o Nome Fantasia, caso disponível, ao invés da Razão Social no quadro identificação
@@ -460,7 +460,7 @@ namespace HES.Modelo
                         sb.Append($" - {ContingenciaDataHora.FormatarDataHora()}");
                     }
 
-                    if (Extensions.Util.IsNotBlank(ContingenciaJustificativa))
+                    if (Extensions.Util.IsValid(ContingenciaJustificativa))
                     {
                         sb.Append($" - {ContingenciaJustificativa}");
                     }
@@ -779,8 +779,10 @@ namespace HES.Modelo
         /// </summary>
         public static DANFEModel CriarDeStringXml(string nfeXML, string cceXML = null)
         {
-            if (nfeXML == null) throw new ArgumentNullException(nameof(nfeXML));
+            if (nfeXML.IsNotValid()) throw new ArgumentNullException(nameof(nfeXML));
 
+            nfeXML = nfeXML.Trim();
+            cceXML = cceXML?.Trim();
             using (var sr = new StringReader(nfeXML))
             {
                 if (cceXML != null)

@@ -145,7 +145,7 @@ namespace HES
 
         public Barcode128C(string code, Estilo estilo, float largura = 75F) : base(estilo)
         {
-            if (Extensions.Util.IsBlank(code))
+            if (Extensions.Util.IsNotValid(code))
             {
                 throw new ArgumentException("O código não pode ser vazio.", "code");
             }
