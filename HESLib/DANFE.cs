@@ -69,6 +69,24 @@ namespace HES
             AdicionarLogoImagem(new FileStream(path, FileMode.Open, FileAccess.Read));
         }
 
+        internal void AdicionarLogoImagem(byte[] imageBytes)
+        {
+            if (imageBytes == null || imageBytes.Length == 0) throw new ArgumentException(nameof(imageBytes));
+            using (var stream = new MemoryStream(imageBytes))
+            {
+                AdicionarLogoImagem(stream);
+            }
+        }
+
+        internal void AdicionarLogoPdf(byte[] pdfBytes)
+        {
+            if (pdfBytes == null || pdfBytes.Length == 0) throw new ArgumentException(nameof(pdfBytes));
+            using (var stream = new MemoryStream(pdfBytes))
+            {
+                AdicionarLogoPdf(stream);
+            }
+        }
+
         /// <inheritdoc cref="AdicionarLogoImagem(Stream)"/>
         internal void AdicionarLogoPdf(string path)
         {
@@ -78,15 +96,15 @@ namespace HES
 
         internal string AjustarCaminhoPDF(string FilePath, TipoDocumento? TipoDocumento = null)
         {
-            FilePath = FilePath.IfBlank(System.IO.Path.GetTempPath());
+            FilePath = FilePath.IfBlank(Path.GetTempPath());
             if (!FilePath.IsPath())
             {
-                FilePath = Path.Combine(System.IO.Path.GetTempPath(), FilePath);
+                FilePath = Path.Combine(Path.GetTempPath(), FilePath);
             }
 
             if (FilePath.IsDirectoryPath())
             {
-                var n = (ViewModel?.ChaveAcesso).IfBlank(System.IO.Path.GetDirectoryName(FilePath));
+                var n = (ViewModel?.ChaveAcesso).IfBlank(Path.GetDirectoryName(FilePath));
                 if (n.IsNumber())
                 {
                     if (TipoDocumento.HasValue == false)
@@ -103,7 +121,7 @@ namespace HES
                     }
                 }
 
-                FilePath = System.IO.Path.Combine(FilePath, $"{Path.GetFileNameWithoutExtension(n)}.pdf");
+                FilePath = Path.Combine(FilePath, $"{Path.GetFileNameWithoutExtension(n)}.pdf");
             }
 
             if (FilePath.IsFilePath())
@@ -166,11 +184,11 @@ namespace HES
         {
         }
 
-        public DANFE(string xmlNFePath) : this(DANFEModel.CriarDeArquivoXml(xmlNFePath, null), null)
+        public DANFE(string xmlNFePath) : this(DANFEModel.CriarDeArquivoXml(xmlNFePath, null), "")
         {
         }
 
-        public DANFE(DANFEModel viewModel) : this(viewModel, null)
+        public DANFE(DANFEModel viewModel) : this(viewModel, "")
         {
         }
 
@@ -178,6 +196,17 @@ namespace HES
         {
             ViewModel = viewModel ?? throw new ArgumentNullException(nameof(viewModel));
             AdicionarLogo(logoPath);
+        }
+
+        public DANFE(DANFEModel viewModel, byte[] logoPath)
+        {
+            ViewModel = viewModel ?? throw new ArgumentNullException(nameof(viewModel));
+            AdicionarLogo(logoPath);
+        }
+
+        public DANFE(byte[] xml, byte[] cce = null, byte[] logo = null) : this(DANFEModel.CriarDeBytesXml(xml, cce), logo)
+        {
+
         }
 
         #endregion Public Constructors
@@ -269,6 +298,26 @@ namespace HES
                 else
                 {
                     throw new FileNotFoundException("Arquivo não existe");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Adiciona um logo ao DANFE.
+        /// </summary>
+        /// <param name="logo">O logo a ser adicionado.</param>
+        /// <param name="isPdf">Indica se o logo é um arquivo PDF.</param>
+        public void AdicionarLogo(byte[] logo, bool isPdf = false)
+        {
+            if (logo != null && logo.Length > 1)
+            {
+                if (isPdf)
+                {
+                    AdicionarLogoPdf(logo);
+                }
+                else
+                {
+                    AdicionarLogoImagem(logo);
                 }
             }
         }
@@ -377,7 +426,7 @@ namespace HES
 
                 var textopagina = "";
                 int size = FirstCount;
-                foreach (Paragraph par in new TextStructure(ViewModel.TextoCorrecao))
+                foreach (Paragraph par in new StructuredText(ViewModel.TextoCorrecao))
                 {
                     foreach (var s in par)
                     {
@@ -412,7 +461,7 @@ namespace HES
             info[new Objects.PdfName("ChaveAcesso")] = ViewModel.ChaveAcesso.Chave;
             info[new Objects.PdfName("TipoDocumento")] = $"{TipoDocumento}";
             info.CreationDate = ViewModel.DataHoraEmissao;
-            info.Creator = $"{Extensions.Util.GetAssemblyName()?.Name} {Extensions.Util.GetAssemblyName()?.Version} - Disponível em https://github.com/zonaro/HESLib";
+            info.Creator = $"{Extensions.Util.GetAssemblyName()?.Name} {Extensions.Util.GetAssemblyName()?.Version} - Disponível em https://github.com/hes-informatica/HESLib";
             info.Author = Autor;
 
             info.Subject = ViewModel.TipoDocumento == TipoDocumento.DANFE ? "Documento Auxiliar da NFe" : "Carta de Correção Eletrônica";

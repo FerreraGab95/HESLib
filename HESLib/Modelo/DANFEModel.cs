@@ -734,7 +734,7 @@ namespace HES.Modelo
         /// </summary>
         /// <param name="nfeStream"></param>
         /// <returns>Modelo</returns>
-        public static DANFEModel CriarDeArquivoXml(Stream nfeStream, Stream cceStream = null)
+        public static DANFEModel CriarDeStreamXML(Stream nfeStream, Stream cceStream = null)
         {
             if (nfeStream == null) throw new ArgumentNullException(nameof(nfeStream));
 
@@ -753,6 +753,26 @@ namespace HES.Modelo
                 }
             }
         }
+
+
+
+        /// <summary>
+        /// Cria um objeto DANFEModel a partir de um array de bytes contendo o XML da NFe e, opcionalmente, o XML da CCe.
+        /// </summary>
+        /// <param name="nfeBytes">Array de bytes contendo o XML da NFe.</param>
+        /// <param name="cceBytes">Array de bytes contendo o XML da CCe (opcional).</param>
+        /// <returns>O objeto DANFEModel criado.</returns>
+        public static DANFEModel CriarDeBytesXml(byte[] nfeBytes, byte[] cceBytes = null)
+        {
+            using (var nfeStream = new MemoryStream(nfeBytes))
+            {
+                using (var cceStream = cceBytes != null ? new MemoryStream(cceBytes) : null)
+                {
+                    return CriarDeStreamXML(nfeStream, cceStream);
+                }
+            }
+        }
+
 
         /// <summary>
         /// Cria o modelo a partir de uma string xml.
