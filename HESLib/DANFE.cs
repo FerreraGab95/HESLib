@@ -348,7 +348,7 @@ namespace HES
             var OutputFile = new PdfFile();
 
             // De acordo com o item 7.7, a fonte deve ser Times New Roman ou Courier New.
-            FonteFamilia = StandardType1Font.FamilyEnum.Courier;
+            FonteFamilia = StandardType1Font.FamilyEnum.Times;
             FonteRegular = new StandardType1Font(OutputFile.Document, FonteFamilia, false, false);
             FonteNegrito = new StandardType1Font(OutputFile.Document, FonteFamilia, true, false);
             FonteItalico = new StandardType1Font(OutputFile.Document, FonteFamilia, false, true);
@@ -458,6 +458,7 @@ namespace HES
             var info = OutputFile.Document.Information;
             info[new Objects.PdfName("ChaveAcesso")] = ViewModel.ChaveAcesso.Chave;
             info[new Objects.PdfName("TipoDocumento")] = $"{TipoDocumento}";
+            info[new Objects.PdfName("XML")] = ViewModel.XML;
             info.CreationDate = ViewModel.DataHoraEmissao;
             info.Creator = $"{Extensions.Util.GetAssemblyName()?.Name} {Extensions.Util.GetAssemblyName()?.Version} - Disponível em https://github.com/hes-informatica/HESLib";
             info.Author = Autor;

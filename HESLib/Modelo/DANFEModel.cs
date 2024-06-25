@@ -195,6 +195,8 @@ namespace HES.Modelo
 
         #region Public Properties
 
+        public string XML { get; private set; }
+
         /// <summary>
         /// View Model do bloco Cálculo do Imposto
         /// </summary>
@@ -507,57 +509,56 @@ namespace HES.Modelo
         {
             var model = new DANFEModel();
 
-            var infNfe = procNfe.NFe.infNFe;
-            var ide = infNfe.ide;
-            var infProt = procNfe.protNFe.infProt;
-            model.TipoEmissao = ide.tpEmis;
+            model.XML = procNfe.CreateXML().OuterXml;
 
-            if (ide.mod != 55)
+            model.TipoEmissao = procNfe.NFe.infNFe.ide.tpEmis;
+
+            if (procNfe.NFe.infNFe.ide.mod != 55)
             {
                 throw new NotSupportedException("Somente o mod==55 está implementado.");
             }
 
             if (!FormasEmissaoSuportadas.Contains(model.TipoEmissao))
             {
-                throw new NotSupportedException($"O tpEmis {ide.tpEmis} não é suportado.");
+                throw new NotSupportedException($"O tpEmis {procNfe.NFe.infNFe.ide.tpEmis} não é suportado.");
             }
 
-            model.Orientacao = ide.tpImp == 1 ? Orientacao.Retrato : Orientacao.Paisagem;
+            model.Orientacao = procNfe.NFe.infNFe.ide.tpImp == 1 ? Orientacao.Retrato : Orientacao.Paisagem;
             model.ChaveAcesso = procNfe.NFe.infNFe.Id;
-            model.CodigoStatusReposta = infProt.cStat;
-            model.DescricaoStatusReposta = infProt.xMotivo;
+            model.CodigoStatusReposta = procNfe.protNFe.infProt.cStat;
+            model.DescricaoStatusReposta = procNfe.protNFe.infProt.xMotivo;
 
-            model.TipoAmbiente = ide.tpAmb;
-            model.ChaveAcesso.Nota = ide.nNF;
-            model.ChaveAcesso.Serie = ide.serie;
-            model.NaturezaOperacao = ide.natOp;
-            model.TipoNF = ide.tpNF;
+            model.TipoAmbiente = procNfe.NFe.infNFe.ide.tpAmb;
+            model.ChaveAcesso.Nota = procNfe.NFe.infNFe.ide.nNF;
+            model.ChaveAcesso.Serie = procNfe.NFe.infNFe.ide.serie;
+            model.NaturezaOperacao = procNfe.NFe.infNFe.ide.natOp;
+            model.TipoNF = procNfe.NFe.infNFe.ide.tpNF;
 
-            model.Emitente = CreateEmpresaFrom(infNfe.emit);
-            model.Destinatario = CreateEmpresaFrom(infNfe.dest);
+            model.Emitente = CreateEmpresaFrom(procNfe.NFe.infNFe.emit);
+            model.Destinatario = CreateEmpresaFrom(procNfe.NFe.infNFe.dest);
 
             // Local retirada e entrega
-            if (infNfe.retirada != null)
+            if (procNfe.NFe.infNFe.retirada != null)
             {
-                model.LocalRetirada = CreateLocalRetiradaEntrega(infNfe.retirada);
+                model.LocalRetirada = CreateLocalRetiradaEntrega(procNfe.NFe.infNFe.retirada);
             }
 
-            if (infNfe.entrega != null)
+            if (procNfe.NFe.infNFe.entrega != null)
             {
-                model.LocalEntrega = CreateLocalRetiradaEntrega(infNfe.entrega);
+                model.LocalEntrega = CreateLocalRetiradaEntrega(procNfe.NFe.infNFe.entrega);
             }
 
-            model.NotasFiscaisReferenciadas = ide.NFref.Select(x => x.ToString()).ToList();
+            model.NotasFiscaisReferenciadas = procNfe.NFe.infNFe.ide.NFref.Select(x => x.ToString()).ToList();
 
             // Informações adicionais de compra
-            if (infNfe.compra != null)
+            if (procNfe.NFe.infNFe.compra != null)
             {
-                model.Contrato = infNfe.compra.xCont;
-                model.NotaEmpenho = infNfe.compra.xNEmp;
-                model.Pedido = infNfe.compra.xPed;
+                model.Contrato = procNfe.NFe.infNFe.compra.xCont;
+                model.NotaEmpenho = procNfe.NFe.infNFe.compra.xNEmp;
+                model.Pedido = procNfe.NFe.infNFe.compra.xPed;
             }
 
-            foreach (var det in infNfe.det)
+            foreach (var det in procNfe.NFe.infNFe.det)
             {
                 var produto = new ProdutoViewModel
                 {
@@ -604,9 +605,9 @@ namespace HES.Modelo
                 model.Produtos.Add(produto);
             }
 
-            if (infNfe.cobr != null)
+            if (procNfe.NFe.infNFe.cobr != null)
             {
-                foreach (var item in infNfe.cobr.dup)
+                foreach (var item in procNfe.NFe.infNFe.cobr.dup)
                 {
                     var duplicata = new DuplicataViewModel
                     {
@@ -619,21 +620,21 @@ namespace HES.Modelo
                 }
             }
 
-            model.CalculoImposto = CriarCalculoImpostoViewModel(infNfe.total.ICMSTot);
+            model.CalculoImposto = CriarCalculoImpostoViewModel(procNfe.NFe.infNFe.total.ICMSTot);
 
-            var issqnTotal = infNfe.total.ISSQNtot;
+            var issqnTotal = procNfe.NFe.infNFe.total.ISSQNtot;
 
             if (issqnTotal != null)
             {
                 var c = model.CalculoIssqn;
-                c.InscricaoMunicipal = infNfe.emit.IM;
+                c.InscricaoMunicipal = procNfe.NFe.infNFe.emit.IM;
                 c.BaseIssqn = issqnTotal.vBC;
                 c.ValorTotalServicos = issqnTotal.vServ;
                 c.ValorIssqn = issqnTotal.vISS;
                 c.Mostrar = true;
             }
 
-            var transp = infNfe.transp;
+            var transp = procNfe.NFe.infNFe.transp;
             var transportadora = transp.transporta;
             var transportadoraModel = model.Transportadora;
 
@@ -668,7 +669,7 @@ namespace HES.Modelo
                 transportadoraModel.PesoLiquido = vol.pesoL;
             }
 
-            var infAdic = infNfe.infAdic;
+            var infAdic = procNfe.NFe.infNFe.infAdic;
             if (infAdic != null)
             {
                 model.InformacoesComplementares = procNfe.NFe.infNFe.infAdic.infCpl;
@@ -679,13 +680,13 @@ namespace HES.Modelo
 
             model.ProtocoloAutorizacao = string.Format(Extensions.Util.Cultura, "{0} - {1}", infoProto.nProt, infoProto.dhRecbto.DateTimeOffsetValue.DateTime);
 
-            ExtrairDatas(model, infNfe);
+            ExtrairDatas(model, procNfe.NFe.infNFe);
 
             // Contingência SVC-AN e SVC-RS
             if (model.TipoEmissao == FormaEmissao.ContingenciaSVCAN || model.TipoEmissao == FormaEmissao.ContingenciaSVCRS)
             {
-                model.ContingenciaDataHora = ide.dhCont?.DateTimeOffsetValue.DateTime;
-                model.ContingenciaJustificativa = ide.xJust;
+                model.ContingenciaDataHora = procNfe.NFe.infNFe.ide.dhCont?.DateTimeOffsetValue.DateTime;
+                model.ContingenciaJustificativa = procNfe.NFe.infNFe.ide.xJust;
             }
 
             //implementação da carta de correção
