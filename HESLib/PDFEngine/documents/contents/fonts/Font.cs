@@ -126,7 +126,7 @@ namespace HES.Documents.Contents.Fonts
         */
         public static double GetScalingFactor(
           double size
-          ) => 0.001 * size;
+          ) => 0.0011 * size;
 
         /**
           <summary>Wraps a font reference into a font object.</summary>

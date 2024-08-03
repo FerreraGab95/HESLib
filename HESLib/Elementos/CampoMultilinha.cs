@@ -22,7 +22,7 @@ namespace HES
         {
             if (Extensions.Util.IsValid(Conteudo))
             {
-                _tbConteudo.SetPosition(RetanguloDesenhvael.X, RetanguloDesenhvael.Y + Estilo.FonteCampoCabecalho.AlturaLinha + Estilo.PaddingInferior);
+                _tbConteudo.SetPosition(RetanguloDesenhavel.X, RetanguloDesenhavel.Y + Estilo.FonteCampoCabecalho.AlturaLinha + Estilo.PaddingInferior);
                 _tbConteudo.Draw(gfx);
             }
         }

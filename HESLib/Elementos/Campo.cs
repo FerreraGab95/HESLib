@@ -30,13 +30,13 @@ namespace HES
         {
             if (Extensions.Util.IsValid(Cabecalho))
             {
-                gfx.DrawString(Cabecalho.ToUpper(), RetanguloDesenhvael, Estilo.FonteCampoCabecalho, AlinhamentoHorizontal.Esquerda, AlinhamentoVertical.Topo);
+                gfx.DrawString(Cabecalho.ToUpper(), RetanguloDesenhavel, Estilo.FonteCampoCabecalho, AlinhamentoHorizontal.Esquerda, AlinhamentoVertical.Topo);
             }
         }
 
         protected virtual void DesenharConteudo(Gfx gfx)
         {
-            var rDesenhavel = RetanguloDesenhvael;
+            var rDesenhavel = RetanguloDesenhavel;
             var texto = Conteudo;
 
             var fonte = IsConteudoNegrito ? Estilo.FonteCampoConteudoNegrito : Estilo.FonteCampoConteudo;
@@ -87,7 +87,7 @@ namespace HES
             DesenharConteudo(gfx);
         }
 
-        public RectangleF RetanguloDesenhvael => BoundingBox.InflatedRetangle(Estilo.PaddingSuperior, Estilo.PaddingInferior, Estilo.PaddingHorizontal);
+        public RectangleF RetanguloDesenhavel => BoundingBox.InflatedRetangle(Estilo.PaddingSuperior, Estilo.PaddingInferior, Estilo.PaddingHorizontal);
 
         public override string ToString() => Cabecalho;
     }

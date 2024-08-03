@@ -46,7 +46,7 @@ namespace HES
             rp2 = rp2.CutTop(f1h + 0.5F);
 
             var f2 = Estilo.CriarFonteRegular(8F);
-            var f2h = (float)f2.AlturaLinha;
+            var f2h = (float)f2.AlturaLinha * 0.9f;
 
             var ts = new TextStack(rp2)
             {
